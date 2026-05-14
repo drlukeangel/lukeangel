@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About" current="about">
+  <section class="wrap" style="padding: 56px 32px;">
+    <div class="mono" style="color: var(--accent);">About the author</div>
+    <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 14px;">Twelve years of <em style="color: var(--accent);">shipping</em>.</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; margin-top: 48px; align-items: start;">
+      <div style="background: var(--paper); padding: 16px; border: 1px solid var(--rule); box-shadow: 0 12px 40px rgba(26,29,36,0.10);">
+        <div style="background: var(--bg); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; color: var(--muted);" class="mono">PORTRAIT</div>
+      </div>
+      <div>
+        <p style="font-size: 22px; line-height: 1.55;">I'm a product, program, project &amp; portfolio manager who never stopped being an engineer. I read the PRs, I write the evals, I ship the prototype. I've done this at small companies and at companies you've heard of.</p>
+        <p style="font-size: 19px; line-height: 1.6; margin-top: 22px; color: var(--muted);">My working philosophy is an <em>attitude of gratitude</em> — that the hard parts get easier when you're honest about what you owe the people doing it with you.</p>
+        <div style="margin-top: 56px;">
+          <div class="mono" style="color: var(--accent);">Chronology</div>
+          <div style="margin-top: 20px; border-top: 1px solid var(--ink);">
+            {[
+              ['2024 — now', 'Independent', 'Teaching, writing, advising AI product teams.'],
+              ['2021 — 24', 'Plural (Series C)', 'Director of Program Management, AI platform.'],
+              ['2018 — 21', 'Acme Health', 'Senior PM, clinical decision support.'],
+              ['2016 — 18', 'Indigo Labs', 'Product Manager, growth & onboarding.'],
+              ['2014 — 16', 'Wandercraft', 'Project Manager, hardware/firmware programs.'],
+            ].map(([y, c, d]) => (
+              <div style="display: grid; grid-template-columns: 160px 220px 1fr; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline;">
+                <div class="mono">{y}</div>
+                <div style="font-size: 17px; font-style: italic;">{c}</div>
+                <div style="color: var(--muted); font-size: 15px;">{d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

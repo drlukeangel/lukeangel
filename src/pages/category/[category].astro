@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const categories = ['method', 'teams', 'craft', 'tools', 'people'] as const;
+  return categories.map((category) => ({
+    params: { category },
+    props: { category, posts: posts.filter((p) => p.data.category === category).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()) },
+  }));
+}
+
+const { category, posts } = Astro.props;
+const blurbs: Record<string, string> = {
+  method: 'How I work — prompts, evals, the four columns.',
+  teams: 'Running programs with people who don\u2019t agree yet.',
+  craft: 'Small disciplines: thanks, retros, communication.',
+  tools: 'Starter kits, repos, scripts you can copy on a Wednesday.',
+  people: 'Hiring, mentoring, working with the difficult ones.',
+};
+---
+<Base title={`${category.charAt(0).toUpperCase() + category.slice(1)} · Journal`} current="blog">
+  <section class="wrap" style="padding: 56px 32px;">
+    <a href="/blog/" class="mono">← back to the journal</a>
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-top: 16px;">
+      <div>
+        <div class="mono" style="color: var(--accent);">Category</div>
+        <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">{category.charAt(0).toUpperCase() + category.slice(1)}<span style="color: var(--accent);">.</span></h1>
+        <div style="font-style: italic; color: var(--muted); margin-top: 6px;">{blurbs[category]}</div>
+      </div>
+      <div class="mono">{posts.length} entries</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px;">
+      {posts.map((p) => (
+        <a href={`/blog/${p.slug}/`} class="card">
+          <div class="mono" style="color: var(--accent);">{p.data.category}</div>
+          <div style="font-size: 22px; margin-top: 10px;">{p.data.title}</div>
+          <div style="font-style: italic; color: var(--muted); margin-top: 10px;">“{p.data.pullquote ?? p.data.excerpt}”</div>
+          <div class="mono" style="margin-top: 14px;">{p.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

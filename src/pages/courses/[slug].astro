@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses', ({ data }) => !data.draft);
+  return courses.map((course) => ({ params: { slug: course.slug }, props: { course } }));
+}
+const { course } = Astro.props;
+const { Content } = await course.render();
+---
+<Base title={course.data.title} current="courses" description={course.data.summary}>
+  <section class="wrap" style="padding: 40px 32px;">
+    <a href="/courses/" class="mono">← back to courses</a>
+    <div style="margin-top: 32px;">
+      <div class="mono" style="color: var(--accent);">№ {String(course.data.order).padStart(2, '0')} · {course.data.schedule}</div>
+      <h1 style="font-size: clamp(56px, 8vw, 104px); margin-top: 20px;">{course.data.title}<span style="color: var(--accent);">.</span></h1>
+    </div>
+    <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; margin-top: 56px; align-items: start;">
+      <div>
+        <p style="font-size: 22px; line-height: 1.55;">{course.data.summary}</p>
+        <div style="margin-top: 56px;">
+          <div class="mono" style="color: var(--accent);">Syllabus</div>
+          <div style="margin-top: 20px; border-top: 1px solid var(--ink);">
+            {course.data.syllabus.map((row) => (
+              <div style="display: grid; grid-template-columns: 50px 1fr 1.4fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); align-items: baseline;">
+                <div style="font-style: italic; color: var(--accent); font-size: 20px;">{row.week}</div>
+                <div style="font-size: 24px;">{row.title}</div>
+                <div style="font-style: italic; color: var(--muted);">{row.blurb}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style="margin-top: 56px; font-size: 19px; line-height: 1.75;">
+          <Content />
+        </div>
+      </div>
+      <aside style="position: sticky; top: 100px;">
+        <div class="card">
+          <div style="font-size: 56px; font-weight: 500; line-height: 1;">{course.data.price}</div>
+          <div class="mono" style="margin-top: 6px;">{course.data.seats}</div>
+          <button style="display: block; width: 100%; background: var(--ink); color: var(--paper); border: none; padding: 16px 0; font-family: 'Newsreader', serif; font-size: 17px; margin-top: 24px; cursor: pointer; border-radius: 999px;">Reserve a seat →</button>
+          <div style="border-top: 1px solid var(--rule); margin-top: 24px; padding-top: 18px; font-size: 14px;">
+            <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span>Duration</span><span style="color: var(--muted);">{course.data.duration}</span></div>
+            <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span>Recordings</span><span style="color: var(--muted);">Yes</span></div>
+            <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span>Refund window</span><span style="color: var(--muted);">14 days</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>

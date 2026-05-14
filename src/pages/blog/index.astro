@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categories = ['method', 'teams', 'craft', 'tools', 'people'];
+const counts = Object.fromEntries(categories.map((c) => [c, posts.filter((p) => p.data.category === c).length]));
+
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const rest = posts.filter((p) => p.slug !== featured.slug);
+---
+<Base title="The Journal" current="blog" description="Notes from the desk — roughly weekly, mostly on product and AI, occasionally on gratitude.">
+  <section class="wrap" style="padding: 56px 32px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 18px;">
+      <div>
+        <div class="mono" style="color: var(--accent);">The Journal</div>
+        <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">Notes from the <em style="color: var(--accent);">desk</em>.</h1>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-style: italic; color: var(--muted);">Roughly weekly. Mostly on product &amp; AI. Occasionally on gratitude.</div>
+        <div class="mono" style="margin-top: 6px;">{posts.length} entries · {categories.length} categories</div>
+      </div>
+    </div>
+
+    <!-- Toolbar: category chips + search link -->
+    <div style="margin-top: 24px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <a href="/blog/" class="chip ink">all</a>
+      {categories.map((c) => (
+        <a href={`/category/${c}/`} class="chip">{c} <span style="color: var(--muted); margin-left: 6px;">{counts[c]}</span></a>
+      ))}
+      <a href="/search/" class="chip" style="margin-left: auto;">⌕ search</a>
+    </div>
+
+    <!-- Featured -->
+    <a href={`/blog/${featured.slug}/`} class="card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 32px; padding: 0; align-items: stretch;">
+      <div style="background: var(--bg); min-height: 320px; display: flex; align-items: center; justify-content: center;">
+        <div class="mono" style="color: var(--accent);">Featured · {featured.data.category}</div>
+      </div>
+      <div style="padding: 36px;">
+        <div class="mono" style="color: var(--accent);">{featured.data.category} · {featured.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</div>
+        <h2 style="font-size: 44px; margin-top: 12px;">{featured.data.title}</h2>
+        <p style="font-style: italic; color: var(--muted); margin-top: 14px;">“{featured.data.pullquote ?? featured.data.excerpt}”</p>
+        <div style="margin-top: 24px; color: var(--accent); text-decoration: underline; text-underline-offset: 4px;">keep reading →</div>
+      </div>
+    </a>
+
+    <!-- Mosaic grid -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;">
+      {rest.map((p) => (
+        <a href={`/blog/${p.slug}/`} class="card" style="display: block;">
+          <div class="mono" style="color: var(--accent);">{p.data.category}</div>
+          <div style="font-size: 22px; margin-top: 10px; line-height: 1.2;">{p.data.title}</div>
+          <div style="font-style: italic; color: var(--muted); margin-top: 10px;">“{p.data.pullquote ?? p.data.excerpt}”</div>
+          <div style="display: flex; justify-content: space-between; margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--rule);" class="mono">
+            <span>{p.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
+            <span style="color: var(--accent);">read →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

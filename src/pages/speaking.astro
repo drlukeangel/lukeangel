@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+const talks = [
+  { d: 'May 22, 2026', venue: 'ProductCon SF', title: 'AI roadmaps that don\u2019t lie', kind: 'KEYNOTE', city: 'San Francisco', status: 'UPCOMING' },
+  { d: 'Jun 14, 2026', venue: 'Lenny\u2019s Podcast', title: 'The four-column ask', kind: 'PODCAST', city: 'Remote', status: 'UPCOMING' },
+  { d: 'Jul 02, 2026', venue: 'PMHQ Summit', title: 'Programs at AI speed', kind: 'KEYNOTE', city: 'New York', status: 'UPCOMING' },
+  { d: 'Nov 04, 2025', venue: 'AI Engineer Summit', title: 'Evals before vibes', kind: 'KEYNOTE', city: 'San Francisco', status: 'PAST' },
+];
+const upcoming = talks.filter((t) => t.status === 'UPCOMING');
+const past = talks.filter((t) => t.status === 'PAST');
+---
+<Base title="Speaking" current="speaking">
+  <section class="wrap" style="padding: 56px 32px;">
+    <div class="mono" style="color: var(--accent);">On stage</div>
+    <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">Talks, podcasts <em style="color: var(--accent);">&amp;</em> the occasional keynote.</h1>
+    <div style="margin-top: 36px;">
+      <div class="mono" style="color: var(--accent);">Upcoming</div>
+      <div style="margin-top: 14px; border-top: 1px solid var(--ink);">
+        {upcoming.map((t) => (
+          <div style="display: grid; grid-template-columns: 130px 100px 1fr 200px; gap: 18px; padding: 22px 0; border-bottom: 1px dashed var(--rule); align-items: baseline;">
+            <div class="mono">{t.d}</div>
+            <div class="mono" style="color: var(--accent);">{t.kind}</div>
+            <div><div style="font-size: 24px;">{t.title}</div><div style="font-style: italic; color: var(--muted); margin-top: 4px;">{t.venue} · {t.city}</div></div>
+            <div style="background: var(--accent); color: var(--paper); padding: 4px 10px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-align: center;">{t.status}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div style="margin-top: 48px;">
+      <div class="mono" style="color: var(--accent);">Archive</div>
+      <div style="margin-top: 14px; border-top: 1px solid var(--ink);">
+        {past.map((t) => (
+          <div style="display: grid; grid-template-columns: 130px 100px 1fr 200px; gap: 18px; padding: 22px 0; border-bottom: 1px dashed var(--rule); align-items: baseline;">
+            <div class="mono">{t.d}</div>
+            <div class="mono">{t.kind}</div>
+            <div><div style="font-size: 22px;">{t.title}</div><div style="font-style: italic; color: var(--muted); margin-top: 4px;">{t.venue} · {t.city}</div></div>
+            <div style="border: 1px solid var(--rule); color: var(--muted); padding: 4px 10px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-align: center;">{t.status}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

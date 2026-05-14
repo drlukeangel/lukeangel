@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects', ({ data }) => !data.draft));
+---
+<Base title="Projects" current="projects">
+  <section class="wrap" style="padding: 56px 32px;">
+    <div class="mono" style="color: var(--accent);">Field studies</div>
+    <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">Projects, in <em style="color: var(--accent);">chronological</em> order.</h1>
+    <p style="font-size: 22px; max-width: 720px; margin-top: 24px; color: var(--ink2);">A loose archive — public bits of the work, private bits with permission, and the side projects in between.</p>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px;">
+      {projects.map((p) => (
+        <a href={`/projects/${p.slug}/`} class="card">
+          <div class="mono">{p.data.year}</div>
+          <div style="font-size: 28px; margin-top: 10px;">{p.data.title}</div>
+          <div style="font-style: italic; color: var(--accent); margin-top: 4px;">{p.data.role}</div>
+          <div style="font-size: 16px; color: var(--ink2); margin-top: 14px; line-height: 1.55;">{p.data.summary}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

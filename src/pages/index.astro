@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const courses = (await getCollection('courses', ({ data }) => !data.draft))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const gratitude = (await getCollection('gratitude'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+<Base title="Home" current="home">
+  <!-- HERO -->
+  <section class="wrap" style="padding: 88px 32px 64px;">
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center;">
+      <div>
+        <div class="mono" style="color: var(--accent);">Product · Programs · Portfolio · AI · Code</div>
+        <h1 style="margin-top: 24px; font-size: clamp(56px, 7vw, 104px);">
+          Build. Lead. <em style="color: var(--accent);">+ Teach</em>.
+        </h1>
+        <p style="font-size: 22px; max-width: 560px; margin-top: 28px; color: var(--ink2);">
+          I'm Luke. Twelve years of PM, PgM &amp; portfolio work — and the kind who never quit being an engineer. I read the PRs, write the evals, ship the prototype. Two courses, one journal, and a working philosophy: <a href="/gratitude/" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">an attitude of gratitude</a>.
+        </p>
+        <div style="display: flex; gap: 16px; margin-top: 32px;">
+          <a href="/courses/" style="background: var(--ink); color: var(--paper); padding: 14px 24px; border-radius: 999px; font-size: 16px;">Visit the classroom</a>
+          <a href="/blog/" style="color: var(--ink); padding: 14px 4px; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px;">Read the journal →</a>
+        </div>
+      </div>
+      <div style="background: var(--paper); padding: 16px; border: 1px solid var(--rule); box-shadow: 0 12px 40px rgba(26,29,36,0.10);">
+        <div style="background: var(--bg); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.22em;">PORTRAIT · luke</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST FROM JOURNAL -->
+  <section class="wrap" style="padding: 24px 32px 64px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--ink); padding-bottom: 14px;">
+      <h2 style="font-size: 40px;">From the journal</h2>
+      <a href="/blog/" class="mono" style="color: var(--accent);">view all →</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px;">
+      {posts.map((p) => (
+        <a href={`/blog/${p.slug}/`} class="card" style="display: block;">
+          <div class="mono" style="color: var(--accent);">{p.data.category} · {p.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</div>
+          <div style="font-size: 24px; margin-top: 12px; line-height: 1.2;">{p.data.title}</div>
+          <div style="font-style: italic; color: var(--muted); margin-top: 10px;">“{p.data.pullquote ?? p.data.excerpt}”</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- NOW TEACHING -->
+  <section class="wrap" style="padding: 24px 32px 64px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--ink); padding-bottom: 14px;">
+      <h2 style="font-size: 40px;">Now teaching</h2>
+      <a href="/courses/" class="mono" style="color: var(--accent);">all courses →</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 28px;">
+      {courses.slice(0, 2).map((c) => (
+        <a href={`/courses/${c.slug}/`} class="card" style="display: block;">
+          <div class="mono" style="color: var(--accent);">№ {String(c.data.order).padStart(2, '0')}</div>
+          <div style="font-size: 28px; margin-top: 8px; line-height: 1.15;">{c.data.title}</div>
+          <div style="font-style: italic; color: var(--muted); margin-top: 8px;">{c.data.schedule}</div>
+          <div style="display: flex; justify-content: space-between; margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--rule);">
+            <span style="font-size: 24px;">{c.data.price}</span>
+            <span class="mono">{c.data.seats}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- GRATITUDE TICKER -->
+  <section style="background: var(--ink); color: var(--paper); padding: 56px 32px;">
+    <div class="wrap" style="padding: 0;">
+      <div class="mono" style="color: var(--accent);">The Gratitude Index · this week</div>
+      <h2 style="font-size: 40px; margin-top: 10px; color: var(--paper);">One small thank-you, every day.</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px;">
+        {gratitude.map((g) => (
+          <div style="border-left: 2px solid var(--accent); padding: 4px 0 4px 16px;">
+            <div class="mono" style="color: var(--accent);">{g.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })} · #{g.data.tag}</div>
+            <div style="font-size: 18px; margin-top: 8px; line-height: 1.5;" set:html={g.body.replace(/^---[\s\S]+?---/, '').trim()}></div>
+          </div>
+        ))}
+      </div>
+      <div style="margin-top: 24px;"><a href="/gratitude/" style="color: var(--accent); text-decoration: underline;">see the full ledger →</a></div>
+    </div>
+  </section>
+</Base>

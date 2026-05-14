@@ -1,0 +1,23 @@
+{
+  "name": "luke-angel-co",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "lukeangel.co — Luke Angel's personal site. Astro + Markdown + Pagefind.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "pagefind": "^1.1.1"
+  }
+}

@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('gratitude'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Group by month
+const byMonth: Record<string, typeof entries> = {};
+for (const e of entries) {
+  const key = e.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  (byMonth[key] = byMonth[key] || []).push(e);
+}
+const months = Object.keys(byMonth);
+const allTags = Array.from(new Set(entries.map((e) => e.data.tag)));
+---
+<Base title="The Gratitude Index" current="gratitude" description="One small thank-you, every day. A running ledger.">
+  <section class="wrap" style="padding: 56px 32px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 18px;">
+      <div>
+        <div class="mono" style="color: var(--accent);">day {1247 + entries.length}</div>
+        <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">The <em style="color: var(--accent);">Gratitude</em> Index.</h1>
+        <div style="font-style: italic; color: var(--muted); margin-top: 6px;">One small thank-you, every day. A running ledger.</div>
+      </div>
+      <div style="text-align: right;">
+        <div class="mono">{entries.length} entries · updated daily</div>
+        <a href="/rss.xml" class="mono" style="color: var(--accent);">subscribe via rss →</a>
+      </div>
+    </div>
+
+    <!-- Tag filter (anchor-jump) -->
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--rule);">
+      <span class="mono" style="align-self: center;">filter —</span>
+      {allTags.map((t) => (
+        <a href={`#${t}`} class="chip">#{t}</a>
+      ))}
+    </div>
+
+    <!-- Timeline by month -->
+    {months.map((mo) => (
+      <div style="margin-top: 36px;">
+        <div style="display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 16px;">
+          <div style="font-style: italic; font-size: 36px; letter-spacing: -0.02em;">{mo}</div>
+          <div class="mono">{byMonth[mo].length} entries</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          {byMonth[mo].map((g) => (
+            <div class="card" style={g.data.long ? 'grid-column: span 2;' : ''} id={g.data.tag}>
+              <div style="display: flex; justify-content: space-between;" class="mono">
+                <span>{g.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
+                <span style="color: var(--accent);">#{g.data.tag}</span>
+              </div>
+              <div style={`font-size: ${g.data.long ? 22 : 17}px; line-height: 1.45; margin-top: 12px;`} set:html={g.body.replace(/^---[\s\S]+?---/, '').trim()}></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+</Base>

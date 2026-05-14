@@ -1,0 +1,23 @@
+---
+const { current = 'home' } = Astro.props;
+const items = [
+  { href: '/',          key: 'home',      label: 'cover' },
+  { href: '/courses/',  key: 'courses',   label: 'classroom' },
+  { href: '/blog/',     key: 'blog',      label: 'the journal' },
+  { href: '/gratitude/',key: 'gratitude', label: 'gratitude' },
+  { href: '/speaking/', key: 'speaking',  label: 'speaking' },
+  { href: '/projects/', key: 'projects',  label: 'projects' },
+  { href: '/about/',    key: 'about',     label: 'about' },
+  { href: '/contact/',  key: 'contact',   label: 'contact' },
+];
+---
+<header class="site">
+  <div class="inner">
+    <a href="/" class="wordmark">Luke Angel</a>
+    <nav>
+      {items.map((it) => (
+        <a href={it.href} class={current === it.key ? 'active' : ''}>{it.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>

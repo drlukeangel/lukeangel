@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="404" current="">
+  <section class="wrap" style="padding: 96px 32px; text-align: center;">
+    <div style="font-size: 220px; line-height: 1; color: var(--accent); font-weight: 600;">404</div>
+    <h1 style="font-size: clamp(40px, 5vw, 56px); margin-top: 24px;">Couldn't find what you were looking for.</h1>
+    <p style="font-size: 19px; color: var(--muted); max-width: 560px; margin: 18px auto 0;">The link might be old, or I moved it without leaving a note. Sorry — here's a redirect.</p>
+    <div style="display: flex; justify-content: center; gap: 14px; margin-top: 32px; flex-wrap: wrap;">
+      {[
+        ['/', 'Start at the cover'],
+        ['/blog/', 'Read the journal'],
+        ['/gratitude/', 'See today\u2019s gratitude'],
+        ['/courses/', 'Browse courses'],
+        ['/contact/', 'Email me'],
+      ].map(([href, label]) => (
+        <a href={href} style="color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px;">{label} →</a>
+      ))}
+    </div>
+  </section>
+</Base>

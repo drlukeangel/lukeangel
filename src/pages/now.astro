@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Now" current="about" description="What I'm doing this month — inspired by Derek Sivers' /now.">
+  <section class="wrap" style="padding: 56px 32px;">
+    <div class="mono" style="color: var(--accent);">May 14, 2026</div>
+    <h1 style="font-size: clamp(56px, 7vw, 96px); margin-top: 8px;">What I'm doing <em style="color: var(--accent);">now</em>.</h1>
+    <p style="font-style: italic; color: var(--muted); margin-top: 6px;">Updated when it changes. Inspired by <a href="https://nownownow.com" style="color: var(--accent); text-decoration: underline;">Derek Sivers' /now</a>.</p>
+    <div style="margin-top: 36px;">
+      {[
+        ['Teaching', 'PM\u2019s Guide to LLMs — Cohort 4 runs through Jun 30.'],
+        ['Writing',  'A long essay on roadmap rituals when the model layer keeps changing.'],
+        ['Building', 'A tiny CLI called <em>thanks</em> — drafts thank-you notes from a teammate\u2019s PR history.'],
+        ['Reading',  '<em>The Power Broker</em> for the third time.'],
+        ['Avoiding', 'Conference travel until July.'],
+      ].map(([k, body]) => (
+        <div style="display: grid; grid-template-columns: 160px 1fr; gap: 18px; padding: 20px 0; border-bottom: 1px dashed var(--rule); align-items: baseline;">
+          <div class="mono" style="color: var(--accent);">{k}</div>
+          <div style="font-size: 20px; line-height: 1.55;" set:html={body}></div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Contact" current="contact">
+  <section class="wrap" style="padding: 72px 32px;">
+    <div class="mono" style="color: var(--accent);">Write to me</div>
+    <h1 style="font-size: clamp(64px, 9vw, 128px); margin-top: 14px;">Drop me a <em style="color: var(--accent);">line</em>.</h1>
+    <p style="font-size: 22px; max-width: 720px; margin-top: 22px; color: var(--ink2);">
+      I answer most emails within a few days, unless I'm teaching a cohort — then it's a week. Either is a thing I'm grateful you took time to do.
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px;">
+      <div class="card" style="padding: 36px;">
+        <div class="mono" style="color: var(--accent);">Email</div>
+        <div style="font-size: 36px; margin-top: 14px; letter-spacing: -0.02em;"><a href="mailto:luke@lukeangel.co" style="color: var(--ink); text-decoration: none;">luke@lukeangel.co</a></div>
+        <div style="font-style: italic; color: var(--muted); margin-top: 12px;">For anything that fits in an inbox.</div>
+      </div>
+      <div class="card" style="padding: 36px;">
+        <div class="mono" style="color: var(--accent);">Subscribe</div>
+        <form action="https://buttondown.com/api/emails/embed-subscribe/lukeangel" method="post" style="display: flex; gap: 10px; margin-top: 18px;">
+          <input type="email" name="email" placeholder="you@inbox.com" required style="flex: 1; padding: 14px 16px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font-family: 'Newsreader', serif; font-size: 16px;" />
+          <button type="submit" style="padding: 14px 22px; background: var(--ink); color: var(--paper); border: none; font-family: 'Newsreader', serif; font-size: 16px; cursor: pointer; border-radius: 999px;">Subscribe</button>
+        </form>
+        <div style="font-style: italic; color: var(--muted); margin-top: 14px;">Twice a month-ish. Unsubscribe with gratitude.</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px;">
+      <div class="card"><div class="mono">Speaking</div><div style="margin-top: 10px;"><a href="mailto:speak@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">speak@lukeangel.co</a></div></div>
+      <div class="card"><div class="mono">Advisory</div><div style="margin-top: 10px;"><a href="mailto:hello@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">hello@lukeangel.co</a></div></div>
+      <div class="card"><div class="mono">Press</div><div style="margin-top: 10px;"><a href="mailto:press@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">press@lukeangel.co</a></div></div>
+    </div>
+  </section>
+</Base>

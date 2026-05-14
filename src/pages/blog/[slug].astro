@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Auto-related posts: tag overlap + category match, scored
+const all = await getCollection('blog', ({ data }) => !data.draft);
+const related = all
+  .filter((p) => p.slug !== post.slug)
+  .map((p) => ({
+    p,
+    overlap:
+      p.data.tags.filter((t) => post.data.tags.includes(t)).length +
+      (p.data.category === post.data.category ? 1 : 0),
+  }))
+  .filter((x) => x.overlap > 0)
+  .sort((a, b) => b.overlap - a.overlap)
+  .slice(0, 3)
+  .map((x) => x.p);
+---
+<Base title={post.data.title} current="blog" description={post.data.excerpt}>
+  <article class="post wrap" style="padding: 40px 32px;" data-pagefind-body>
+    <a href="/blog/" class="mono">← back to the journal</a>
+
+    <!-- Cover band -->
+    <div style="margin-top: 24px; height: 220px; background: var(--paper); border: 1px solid var(--rule); position: relative;">
+      <a href={`/category/${post.data.category}/`} style="position: absolute; top: 16px; left: 20px; background: var(--ink); color: var(--paper); padding: 6px 12px;" class="mono">{post.data.category}</a>
+      <div style="position: absolute; bottom: 16px; right: 20px;" class="mono">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}</div>
+    </div>
+
+    <!-- Title block -->
+    <div style="max-width: 1100px; margin: 32px auto 0; text-align: center;">
+      <div class="mono" style="color: var(--accent);"><a href={`/category/${post.data.category}/`} style="color: var(--accent);">{post.data.category}</a></div>
+      <h1 style="font-size: clamp(48px, 6vw, 84px); margin-top: 14px; max-width: 940px; margin-left: auto; margin-right: auto;">{post.data.title}</h1>
+      <div style="font-style: italic; color: var(--muted); margin-top: 14px;">by Luke Angel</div>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 20px; flex-wrap: wrap;">
+        {post.data.tags.map((t) => (
+          <a href={`/tag/${t}/`} class="chip">#{t}</a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div style="max-width: 720px; margin: 56px auto 0; font-size: 19px; line-height: 1.75;">
+      <Content />
+    </div>
+
+    <!-- Related -->
+    {related.length > 0 && (
+      <div style="max-width: 1100px; margin: 56px auto 0; padding-top: 28px; border-top: 2px solid var(--ink);">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h3 style="font-size: 24px;">Keep reading</h3>
+          <div class="mono">shares tags: {post.data.tags.slice(0, 2).map((t) => '#' + t).join(' · ')}</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px;">
+          {related.map((r) => (
+            <a href={`/blog/${r.slug}/`} class="card">
+              <div class="mono" style="color: var(--accent);">{r.data.category}</div>
+              <div style="font-size: 18px; margin-top: 10px;">{r.data.title}</div>
+              <div class="mono" style="margin-top: 12px;">{r.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+  </article>
+</Base>
