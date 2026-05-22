@@ -40,6 +40,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 
   <!-- Pagefind UI for /search page -->
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QEMMZ9SQJ4"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QEMMZ9SQJ4');
+  </script>
 </head>
 <body>
   <Header current={current} />
