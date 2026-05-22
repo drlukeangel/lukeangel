@@ -58,6 +58,10 @@ const courses = defineCollection({
       title: z.string(),
       blurb: z.string(),
     })).default([]),
+    cover: z.string().optional(),
+    coverAlt: z.string().optional(),
+    wpCategory: z.string().optional(),
+    wpUrl: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
