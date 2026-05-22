@@ -134,3 +134,87 @@ footer.site .mode-toggle {
 }
 .chip.active { background: var(--accent); color: var(--paper); border-color: var(--accent); }
 .chip.ink { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ---------------------------------------------------------------
+ * Responsive layer — 5 breakpoints cover mobile / tablet / desktop.
+ * Targets the inline-style grids and oversized typography used by
+ * the Astro page templates, plus the global header/footer chrome.
+ * --------------------------------------------------------------- */
+
+/* TABLET — ≤960px: collapse 3-col grids to 2, soften nav, shrink h1 */
+@media (max-width: 960px) {
+  .wrap { padding: 0 24px; }
+  header.site .inner { padding: 16px 20px; }
+  header.site a.wordmark { font-size: 24px; }
+  header.site nav { gap: 14px; }
+  header.site nav a { font-size: 13px; }
+  h1 { font-size: clamp(40px, 7vw, 72px); }
+  h2 { font-size: clamp(28px, 4.4vw, 44px); }
+  /* any 3-col grid the templates use → 2-col */
+  [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  /* big 2-col hero splits → keep at 1.4fr 1fr but reduce gap */
+  [style*="grid-template-columns: 1.4fr 1fr"],
+  [style*="grid-template-columns: 1.6fr 1fr"] { gap: 32px !important; }
+  /* the wide blog featured card (1fr 1fr) becomes single col */
+  .card[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+}
+
+/* MOBILE LARGE — ≤720px: nav wraps below wordmark, all grids stack */
+@media (max-width: 720px) {
+  header.site .inner { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px 18px; }
+  header.site nav { flex-wrap: wrap; gap: 12px 18px; row-gap: 6px; }
+  footer.site .inner { flex-direction: column; align-items: flex-start; }
+  footer.site .nav { flex-wrap: wrap; gap: 12px 16px; }
+  .wrap { padding: 0 18px; }
+  /* every multi-col grid collapses to single column */
+  [style*="grid-template-columns: repeat(2, 1fr)"],
+  [style*="grid-template-columns: repeat(3, 1fr)"],
+  [style*="grid-template-columns: repeat(4, 1fr)"],
+  [style*="grid-template-columns: 1.4fr 1fr"],
+  [style*="grid-template-columns: 1.6fr 1fr"],
+  [style*="grid-template-columns: 1.5fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 24px !important; }
+  /* drop big multi-column table-style rows */
+  [style*="grid-template-columns: 60px 1fr 200px"],
+  [style*="grid-template-columns: 60px 1fr 220px"],
+  [style*="grid-template-columns: 80px 100px 1fr"],
+  [style*="grid-template-columns: 100px 1fr 100px"] { grid-template-columns: 1fr !important; gap: 6px !important; }
+  /* fluid type */
+  h1 { font-size: clamp(36px, 9vw, 56px) !important; }
+  h2 { font-size: clamp(26px, 6vw, 36px) !important; }
+  /* shrink padding on sections that have huge gutters */
+  section[class*="wrap"], .wrap { padding-left: 18px; padding-right: 18px; }
+}
+
+/* MOBILE SMALL — ≤480px: phone-grade type, looser line height */
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  p { font-size: 17px; line-height: 1.65; }
+  h1 { font-size: clamp(30px, 10vw, 44px) !important; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(22px, 7vw, 32px) !important; }
+  h3 { font-size: 20px !important; }
+  article.post p { font-size: 17px; line-height: 1.7; }
+  article.post blockquote { font-size: 22px; padding-left: 16px; margin: 24px 0; }
+  .card { padding: 18px; }
+  .mono { font-size: 10px; letter-spacing: 0.18em; }
+  /* make tap targets bigger */
+  header.site nav a, footer.site .nav a { padding: 6px 0; }
+  /* full-bleed images on small screens */
+  img { max-width: 100%; height: auto; }
+}
+
+/* WIDE — ≥1400px: a bit more breathing room on big monitors */
+@media (min-width: 1400px) {
+  .wrap { max-width: 1280px; }
+  h1 { font-size: clamp(64px, 7vw, 112px); }
+}
+
+/* PRINT — clean readable export */
+@media print {
+  header.site, footer.site, .chip, .mode-toggle { display: none !important; }
+  body { background: #fff; color: #111; }
+  a { color: #111; text-decoration: underline; }
+  article.post { max-width: 720px; margin: 0 auto; }
+  .wrap { padding: 0; }
+}
