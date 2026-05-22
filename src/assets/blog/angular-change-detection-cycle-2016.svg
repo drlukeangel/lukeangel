@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="t d">
+  <title id="t">Angular change detection cycle — zone fires hook, tree walks, DOM updates</title>
+  <desc id="d">2016-era flat sequence diagram of Angular's change detection: async task completes, ngZone fires onMicrotaskEmpty, ApplicationRef.tick() walks the component tree top-down, each component checks bindings, dirty bindings update the DOM. All in under a frame.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#fff;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .step{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;fill:#1a1d24}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dd0031"/>
+    </marker>
+  </defs>
+  <rect width="800" height="360" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Angular change detection cycle — from async event to DOM update</text>
+
+  <!-- 5 horizontal stages -->
+  <g transform="translate(40,80)">
+    <rect width="130" height="80" fill="#dd0031" rx="4"/>
+    <text x="65" y="32" text-anchor="middle" class="label">1. async event</text>
+    <text x="65" y="50" text-anchor="middle" class="small" fill="#ffe0e0">setTimeout, fetch,</text>
+    <text x="65" y="66" text-anchor="middle" class="small" fill="#ffe0e0">click, Promise.then</text>
+  </g>
+  <line x1="170" y1="120" x2="200" y2="120" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+
+  <g transform="translate(210,80)">
+    <rect width="130" height="80" fill="#a30021" rx="4"/>
+    <text x="65" y="32" text-anchor="middle" class="label">2. zone hook</text>
+    <text x="65" y="50" text-anchor="middle" class="small" fill="#fff5f5">onMicrotaskEmpty</text>
+    <text x="65" y="66" text-anchor="middle" class="small" fill="#fff5f5">fires when queue drains</text>
+  </g>
+  <line x1="340" y1="120" x2="370" y2="120" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+
+  <g transform="translate(380,80)">
+    <rect width="130" height="80" fill="#7a001a" rx="4"/>
+    <text x="65" y="32" text-anchor="middle" class="label">3. tick()</text>
+    <text x="65" y="50" text-anchor="middle" class="small" fill="#ffe0e0">ApplicationRef.tick()</text>
+    <text x="65" y="66" text-anchor="middle" class="small" fill="#ffe0e0">walks component tree</text>
+  </g>
+  <line x1="510" y1="120" x2="540" y2="120" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+
+  <g transform="translate(550,80)">
+    <rect width="130" height="80" fill="#5a000f" rx="4"/>
+    <text x="65" y="32" text-anchor="middle" class="label">4. check bindings</text>
+    <text x="65" y="50" text-anchor="middle" class="small" fill="#fff5f5">each component compares</text>
+    <text x="65" y="66" text-anchor="middle" class="small" fill="#fff5f5">prev vs current values</text>
+  </g>
+
+  <!-- Arrow down to DOM update -->
+  <line x1="615" y1="160" x2="615" y2="200" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- DOM update -->
+  <g transform="translate(280,210)">
+    <rect width="400" height="50" fill="#10a37f" rx="4"/>
+    <text x="200" y="30" text-anchor="middle" class="label">5. DOM updates — only dirty bindings re-render</text>
+  </g>
+
+  <!-- Note -->
+  <g transform="translate(40,280)">
+    <rect width="720" height="70" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="step">Cost &amp; tuning</text>
+    <text x="14" y="42" class="small">- Every async = a full tree walk. <tspan font-weight="600">setTimeout(...) in a leaf component still re-checks the entire app.</tspan></text>
+    <text x="14" y="58" class="small">- Opt out with <tspan font-family="JetBrains Mono">ChangeDetectionStrategy.OnPush</tspan> — components only check when inputs change or events fire on them.</text>
+  </g>
+</svg>

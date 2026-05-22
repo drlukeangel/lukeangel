@@ -5,14 +5,14 @@ import { defineCollection, z } from 'astro:content';
 
 const blog = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     date: z.coerce.date(),
-    category: z.enum(['method', 'teams', 'craft', 'tools', 'people', 'projects', 'programs', 'product']),
+    category: z.enum(['method', 'teams', 'craft', 'tools', 'people', 'projects', 'programs', 'product', 'give']),
     tags: z.array(z.string()).default([]),
     excerpt: z.string(),
     pullquote: z.string().optional(),
-    cover: z.string().optional(),
+    cover: image().optional(),
     coverAlt: z.string().optional(),
     wpCategory: z.string().optional(),
     wpUrl: z.string().optional(),
@@ -25,8 +25,8 @@ const gratitude = defineCollection({
   type: 'content',
   schema: z.object({
     date: z.coerce.date(),
-    tag: z.string(),
-    long: z.boolean().default(false),
+    topic: z.enum(['team', 'home', 'readers', 'world', 'tech', 'everyday', 'craft', 'trailblazers']),
+    level: z.enum(['small', 'medium', 'large']).default('small'),
   }),
 });
 
@@ -45,7 +45,7 @@ const projects = defineCollection({
 
 const courses = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     order: z.number(),
     schedule: z.string(),
@@ -61,7 +61,7 @@ const courses = defineCollection({
     enrollUrl: z.string().optional(),
     enrollLabel: z.string().default('Sign Up!'),
     recordings: z.string().default('Yes'),
-    cover: z.string().optional(),
+    cover: image().optional(),
     coverAlt: z.string().optional(),
     wpCategory: z.string().optional(),
     wpUrl: z.string().optional(),

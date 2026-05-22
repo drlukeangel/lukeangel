@@ -1,17 +1,17 @@
 ---
-title: "Microsoft Project Reporting: Beginner To Rock Star"
+title: 'Microsoft Project Reporting: Beginner To Rock Star'
 order: 10
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row] [vc_column] [vc_single_image image= 8049 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ] [/vc_column] [/vc_row] [vc_row] [vc_column] [vc_cta h2= Microsoft P…"
-wpUrl: "/courses/microsoft-project-reporting-beginner-to-rock-star/"
-cover: "/courses/microsoft-project-reporting-beginner-to-rock-star.svg"
-coverAlt: "Microsoft Project Reporting: Beginner To Rock Star"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: Stakeholders and team members better understand project performance when they can actually see the project plan and how work is progressing. Follow along with project management expert Luke An...
+wpUrl: /courses/microsoft-project-reporting-beginner-to-rock-star/
+cover: ../../assets/courses/microsoft-project-reporting-beginner-to-rock-star.svg
+coverAlt: 'Microsoft Project Reporting: Beginner To Rock Star'
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row]**

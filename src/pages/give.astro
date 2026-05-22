@@ -1,0 +1,168 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import giveHeader from '../assets/pages/give-header.webp';
+
+const giveHeaderOg = await getImage({ src: giveHeader, format: 'webp', width: 1200, height: 630 });
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .filter((p) => p.data.tags.includes('give'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Curated organization callouts. Each one optionally pairs to a blog post slug.
+const orgs = [
+  { name: 'Best Friends / NKLA',     do: 'Walk shelter dogs · share a kennel',       url: 'https://bestfriends.org/no-kill-2025',           slug: 'volunteer-at-nkla' },
+  { name: 'Foster a Pet',            do: 'Save two animals at once — the one you take home, and the one whose kennel opens up', url: 'https://bestfriends.org/foster',                slug: 'save-two-lives-at-once-by-fostering-a-pet-at-your-home' },
+  { name: 'Spark',                   do: 'Mentor a middle-schooler for 10 weeks',     url: 'https://sparkprogram.org/',                       slug: 'why-mentor-with-spark' },
+  { name: 'Big Brothers Big Sisters',do: 'Be the adult that one kid needs',           url: 'https://www.bbbs.org/',                           slug: 'big-bother-and-sister' },
+  { name: 'CERT',                    do: 'Become certified to help your block when help is slow',  url: 'https://www.ready.gov/cert',          slug: 'help-your-community-out-by-becoming-cert-certified' },
+  { name: 'Volunteer Fire',          do: "Yes, it's real. They will train you.",      url: 'https://www.nvfc.org/become-a-volunteer/',        slug: 'volunteer-fight-fighting' },
+];
+---
+<Base
+  title="Give — Luke Angel"
+  current="give"
+  description='Be the Spark. The ripple effect starts with one. A list of the volunteer work I keep coming back to, and the posts about each.'
+  image={giveHeaderOg.src}
+>
+  <!-- HERO -->
+  <section class="give-hero">
+    <Image src={giveHeader} alt="A collage of shelter dogs, kittens, kids in Christmas hats, a firefighter, a CERT search-and-rescue scene, and Luke with the various animals he's fostered over the years" widths={[600, 1200, 1800]} sizes="100vw" loading="eager" />
+    <div class="give-hero-inner wrap">
+      <div class="mono" style="color: var(--accent); letter-spacing: 6px;">VOLUNTEER · FOSTER · MENTOR</div>
+      <h1>Give.</h1>
+      <p class="give-tag">Happiness doesn't result from what we get — but from how we <em>give</em>.</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="wrap" style="padding: 56px 32px 12px; max-width: 960px;">
+    <p style="font-size: 22px; line-height: 1.7;">
+      <strong>Be the Spark.</strong> The ripple effect starts with one. One person to hold the door. One person to write a thank-you to a teacher. One person to be a spark of kindness when somebody really needs it. One person to take a shelter animal on a walk.
+    </p>
+    <p style="font-size: 19px; line-height: 1.7; color: var(--ink2); margin-top: 14px;">
+      Here are the volunteer rabbit holes I keep falling into, and the posts I've written about each. Pick one. Then pick the next one. The list is intentionally short.
+    </p>
+  </section>
+
+  <!-- ORG GRID -->
+  <section class="wrap" style="padding: 24px 32px 12px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 14px;">
+      <h2 style="font-size: 40px;">Where to start.</h2>
+      <div class="mono" style="color: var(--muted);">{orgs.length} organizations</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px;">
+      {orgs.map((o, i) => (
+        <div class="card give-org">
+          <div class="mono" style="color: var(--accent);">№ {String(i + 1).padStart(2, '0')}</div>
+          <div style="font-size: 26px; margin-top: 10px;">{o.name}</div>
+          <div style="font-style: italic; color: var(--ink2); margin-top: 8px; line-height: 1.45;">{o.do}</div>
+          <div style="display: flex; gap: 14px; margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--rule);" class="mono">
+            <a href={o.url} target="_blank" rel="noopener" style="color: var(--accent);">website ↗</a>
+            {o.slug && <a href={`/blog/${o.slug}/`} style="color: var(--accent);">read more →</a>}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- POSTS GRID -->
+  <section class="wrap" style="padding: 56px 32px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 14px;">
+      <h2 style="font-size: 40px;">Posts on giving.</h2>
+      <a href="/tag/give/" class="mono" style="color: var(--accent);">all #give posts →</a>
+    </div>
+    {posts.length === 0 ? (
+      <p style="margin-top: 24px; color: var(--muted); font-style: italic;">No posts tagged <code>#give</code> yet.</p>
+    ) : (
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px;">
+        {posts.map((p) => (
+          <a href={`/blog/${p.slug}/`} class="card" style="display: block; padding: 0;">
+            {p.data.cover && (
+              <Image src={p.data.cover} alt={p.data.coverAlt ?? ''} widths={[240, 480, 720]} sizes="(max-width: 720px) 100vw, 400px" loading="lazy" style="display:block; width:100%; height:180px; object-fit:cover;" />
+            )}
+            <div style="padding: 22px 24px 24px;">
+              <div class="mono" style="color: var(--accent);">{p.data.category}</div>
+              <div style="font-size: 22px; margin-top: 10px; line-height: 1.2;">{p.data.title}</div>
+              <div style="font-style: italic; color: var(--muted); margin-top: 10px;">"{p.data.pullquote ?? p.data.excerpt}"</div>
+              <div style="display: flex; justify-content: space-between; margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--rule);" class="mono">
+                <span>{p.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
+                <span style="color: var(--accent);">read →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- CLOSING (always-dark inverted band — colors locked, do not theme-flip) -->
+  <section class="give-cta">
+    <div class="wrap" style="padding: 0; max-width: 880px;">
+      <div class="mono" style="color: var(--accent); letter-spacing: 4px;">ONE PERSON</div>
+      <h2 style="font-size: 44px; margin-top: 10px; line-height: 1.15;">
+        Pick one this week. <em style="color: var(--accent);">Just one.</em>
+      </h2>
+      <p style="font-size: 19px; line-height: 1.7; opacity: 0.9; margin-top: 20px;">
+        Email the volunteer coordinator. Show up for the orientation. Walk one dog. Mentor one kid for one hour. Foster one weekend. You don't need a five-year plan; you need a Saturday.
+      </p>
+      <div style="margin-top: 28px;">
+        <a href="/contact/" class="mono" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px;">tell me which one you picked →</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .give-hero {
+      position: relative;
+      height: clamp(360px, 56vw, 560px);
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .give-hero img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .give-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(26,29,36,0.35) 0%, rgba(26,29,36,0.65) 60%, rgba(26,29,36,0.85) 100%);
+    }
+    /* hero overlay is always dark (image + dark gradient), so text is locked to a light cream
+       regardless of theme. Do NOT use var(--paper) here — it flips in dark mode. */
+    .give-hero-inner {
+      position: relative; z-index: 1;
+      height: 100%;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 32px 56px;
+      color: #fdfaf2;
+    }
+    .give-hero-inner h1 {
+      font-size: clamp(72px, 11vw, 152px);
+      line-height: 0.92;
+      margin-top: 12px;
+      letter-spacing: -2px;
+      color: #fdfaf2;
+    }
+    .give-hero-inner .give-tag {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(22px, 2.4vw, 30px);
+      margin-top: 16px;
+      color: #fdfaf2;
+      opacity: 0.92;
+      max-width: 760px;
+    }
+    .give-hero-inner em { color: var(--accent); font-style: italic; }
+
+    .give-org { display: flex; flex-direction: column; }
+
+    /* Always-dark CTA band — locked colors so it stays inverted in dark mode */
+    .give-cta { background: #1a1d24; color: #fdfaf2; padding: 56px 32px; }
+    .give-cta h2 { color: #fdfaf2; }
+    .give-cta em { color: var(--accent); font-style: italic; }
+  </style>
+</Base>

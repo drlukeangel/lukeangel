@@ -22,7 +22,7 @@
     --paper: #23272e;
     --ink:   #f0e8d8;
     --ink2:  #d4ccba;
-    --muted: #8a8478;
+    --muted: #a89e8a;
     --rule:  rgba(240,232,216,0.16);
     --accent: #d9764a;
   }
@@ -88,6 +88,30 @@ header.site nav a.active {
   border-bottom-color: var(--accent);
 }
 
+/* always-dark utility — locked colors that don't flip with the theme,
+ * for inverted bands and primary CTA buttons that should stay dark across modes. */
+.always-dark { background: #1a1d24; color: #fdfaf2; }
+.always-dark h1, .always-dark h2, .always-dark h3, .always-dark h4 { color: #fdfaf2; }
+.always-dark a { color: var(--accent); }
+.always-dark .mono { color: var(--accent); }
+.always-dark em { color: var(--accent); font-style: italic; }
+
+/* always-dark button — for primary CTA pills that should stay dark in both themes */
+.cta-dark {
+  display: inline-block;
+  background: #1a1d24;
+  color: #fdfaf2;
+  border: 1px solid #1a1d24;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-family: 'Newsreader', serif;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.cta-dark:hover { opacity: 0.88; }
+
 /* article body */
 article.post p { font-size: 19px; line-height: 1.75; color: var(--ink); }
 article.post blockquote {
@@ -97,6 +121,76 @@ article.post blockquote {
   font-style: italic; font-size: 32px; line-height: 1.25;
 }
 article.post a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+article.post img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 36px auto;
+  border: 1px solid var(--rule);
+}
+article.post figure { margin: 36px 0; text-align: center; }
+article.post figure img { margin: 0 auto 12px; }
+article.post figure figcaption {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* tables inside post bodies */
+article.post table {
+  width: 100%;
+  margin: 36px 0;
+  border-collapse: collapse;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow: hidden;
+}
+article.post table thead { background: var(--ink); }
+article.post table thead th {
+  color: var(--paper);
+  text-align: left;
+  padding: 14px 18px;
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(244,241,232,0.18);
+  vertical-align: middle;
+}
+article.post table thead th:last-child { border-right: 0; }
+article.post table tbody td {
+  padding: 14px 18px;
+  border-top: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  vertical-align: top;
+  color: var(--ink);
+}
+article.post table tbody td:last-child { border-right: 0; }
+article.post table tbody tr:nth-child(odd) td { background: var(--bg); }
+article.post table tbody tr:hover td { background: rgba(42,82,190,0.06); }
+article.post table tbody td:first-child {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+article.post table tbody td:first-child + td { font-weight: 500; }
+article.post table a { color: var(--accent); }
+
+/* allow wide tables to scroll horizontally instead of breaking the column */
+article.post .table-wrap, article.post p:has(> table) { overflow-x: auto; }
+
+@media (max-width: 720px) {
+  article.post table { font-size: 14px; }
+  article.post table thead th { padding: 10px 12px; letter-spacing: 2px; }
+  article.post table tbody td { padding: 10px 12px; }
+  article.post table tbody td:first-child { font-size: 16px; white-space: normal; }
+}
 
 /* cards */
 .card {

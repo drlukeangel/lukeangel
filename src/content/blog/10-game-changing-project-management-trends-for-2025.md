@@ -1,16 +1,23 @@
 ---
-title: "10 Game-Changing Project Management Trends for 2025"
-date: 2025-01-06T14:06:50
+title: 10 Game-Changing Project Management Trends for 2025
+date: 2025-01-06T14:06:50.000Z
 category: tools
-tags: ["agile-methodologies", "ai-in-project-management", "collaboration-tools", "cybersecurity", "hybrid-work", "project-management-trends", "sustainability"]
-excerpt: "Project management is transforming faster than ever, and 2025 is no exception. As businesses adapt to new challenges and opportunities, project managers must stay ahead of the curve. This year’s tr…"
-wpCategory: "cross-platform"
-wpUrl: "/cross-platform/10-game-changing-project-management-trends-for-2025/"
-cover: "/blog/migrated/2025/01/8.-Squad-Based-Teams-Reduce-Bureaucracy-.png"
-coverAlt: "10 Game-Changing Project Management Trends for 2025"
+tags:
+  - agile-methodologies
+  - ai-in-project-management
+  - collaboration-tools
+  - cybersecurity
+  - hybrid-work
+  - project-management-trends
+  - sustainability
+excerpt: Project management is transforming faster than ever, and 2025 is no exception. As businesses adapt to new challenges and opportunities, project managers must stay ahead of the curve. This…
+wpCategory: cross-platform
+wpUrl: /cross-platform/10-game-changing-project-management-trends-for-2025/
+cover: ../../assets/blog/2025-squad-based-teams-reduce-bureaucracy.png
+coverAlt: 10 Game-Changing Project Management Trends for 2025
 ---
 
-[![](/blog/migrated/2025/01/10-Game-Changing-Project-Management-Trends-for-2025.png)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2025/01/10-Game-Changing-Project-Management-Trends-for-2025.png)
+![Cover graphic for "10 Game-Changing Project Management Trends for 2025" — AI, hybrid work, sustainability, and squad-based teams](../../assets/blog/10-game-changing-project-management-trends-for-2025-cover.png)
 
 Project management is transforming faster than ever, and 2025 is no exception. As businesses adapt to new challenges and opportunities, project managers must stay ahead of the curve. This year’s trends spotlight technology, sustainability, collaboration, and employee well-being. Let’s dive into the top 10 trends that are reshaping the future of work.
 
@@ -44,7 +51,7 @@ Integrated collaboration platforms are becoming indispensable. Tools that combin
 
 ## **8. Squad-Based Teams Reduce Bureaucracy**  
 
-[![](/blog/migrated/2025/01/8.-Squad-Based-Teams-Reduce-Bureaucracy-.png)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2025/01/8.-Squad-Based-Teams-Reduce-Bureaucracy-.png)
+![Illustration of squad-based project teams — 2025 trend toward small autonomous squads that cut through organizational bureaucracy](../../assets/blog/2025-squad-based-teams-reduce-bureaucracy.png)
 
 Squad-based teams are small, autonomous, and cross-functional groups designed to work on specific aspects of a project or product. This concept originated from Spotify’s engineering culture and has since been widely adopted across industries. Here’s a breakdown of what makes squad-based teams unique:
 

@@ -1,7 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EditInKeystatic from '../../components/EditInKeystatic.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { Breadcrumbs } from 'astro-breadcrumbs';
+import 'astro-breadcrumbs/breadcrumbs.css';
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import fallbackOg from '../../assets/pages/luke-angel-profile.jpg';
 
 export async function getStaticPaths() {
   const courses = await getCollection('courses', ({ data }) => !data.draft);
@@ -9,8 +14,44 @@ export async function getStaticPaths() {
 }
 const { course } = Astro.props;
 const { Content } = await course.render();
+
+const canonical = new URL(`/courses/${course.slug}/`, Astro.site).toString();
+const ogImageMeta = course.data.cover
+  ? await getImage({ src: course.data.cover, format: 'webp', width: 1200, height: 630 })
+  : await getImage({ src: fallbackOg, format: 'webp', width: 1200, height: 630 });
+const ogImage = new URL(ogImageMeta.src, Astro.site).toString();
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: course.data.title,
+  description: course.data.summary,
+  image: ogImage,
+  url: canonical,
+  provider: {
+    '@type': 'Person',
+    name: 'Luke Angel',
+    url: Astro.site?.toString(),
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Online',
+    courseWorkload: course.data.duration ?? 'Self-paced',
+  },
+  offers: course.data.enrollUrl
+    ? {
+        '@type': 'Offer',
+        url: course.data.enrollUrl,
+        availability: 'https://schema.org/InStock',
+      }
+    : undefined,
+};
 ---
-<Base title={course.data.title} current="courses" description={course.data.summary}>
+<Base title={course.data.title} current="courses" description={course.data.summary} image={ogImage} ogType="article">
+  <JsonLd data={courseSchema} />
+  <Breadcrumbs ariaLabel="Breadcrumb" mainBemClass="breadcrumb">
+    <svg slot="separator" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </Breadcrumbs>
   <section class="wrap" style="padding: 40px 32px;">
     <a href="/courses/" class="mono">← back to courses</a>
     <div style="margin-top: 32px;">
@@ -41,9 +82,9 @@ const { Content } = await course.render();
           <div style="font-size: 56px; font-weight: 500; line-height: 1;">{course.data.price}</div>
           <div class="mono" style="margin-top: 6px;">{course.data.seats}</div>
           {course.data.enrollUrl ? (
-            <a href={course.data.enrollUrl} target="_blank" rel="noopener" style="display: block; width: 100%; text-align: center; background: var(--ink); color: var(--paper); padding: 16px 0; font-family: 'Newsreader', serif; font-size: 17px; margin-top: 24px; border-radius: 999px; text-decoration: none; box-sizing: border-box;">{course.data.enrollLabel}</a>
+            <a href={course.data.enrollUrl} target="_blank" rel="noopener" class="cta-dark" style="display: block; width: 100%; text-align: center; padding: 16px 0; font-size: 17px; margin-top: 24px; box-sizing: border-box;">{course.data.enrollLabel}</a>
           ) : (
-            <button style="display: block; width: 100%; background: var(--ink); color: var(--paper); border: none; padding: 16px 0; font-family: 'Newsreader', serif; font-size: 17px; margin-top: 24px; cursor: pointer; border-radius: 999px;">{course.data.enrollLabel}</button>
+            <button class="cta-dark" style="display: block; width: 100%; padding: 16px 0; font-size: 17px; margin-top: 24px;">{course.data.enrollLabel}</button>
           )}
           <div style="border-top: 1px solid var(--rule); margin-top: 24px; padding-top: 18px; font-size: 14px;">
             <div style="display: flex; justify-content: space-between; padding: 6px 0;"><span>Duration</span><span style="color: var(--muted);">{course.data.duration}</span></div>

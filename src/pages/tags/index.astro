@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+// Tally every tag.
+const tally: Record<string, number> = {};
+for (const p of posts) for (const t of p.data.tags) tally[t] = (tally[t] || 0) + 1;
+
+const entries = Object.entries(tally);
+const byCount = [...entries].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const byName  = [...entries].sort((a, b) => a[0].localeCompare(b[0]));
+
+// Group alphabetically for an A-Z view.
+const groups: Record<string, [string, number][]> = {};
+for (const [t, n] of byName) {
+  const k = (t[0] || '#').toUpperCase();
+  const key = /[A-Z]/.test(k) ? k : '#';
+  (groups[key] = groups[key] || []).push([t, n]);
+}
+const groupKeys = Object.keys(groups).sort();
+
+// Max count for scaling the visual "weight" of each tag.
+const maxCount = Math.max(...Object.values(tally), 1);
+function weight(n: number) {
+  // map count → font-size between 14 and 26 px
+  const ratio = (n - 1) / Math.max(maxCount - 1, 1);
+  return Math.round(14 + ratio * 12);
+}
+---
+<Base
+  title={`All tags (${entries.length}) — The Journal`}
+  current="blog"
+  description={`Every tag used across the journal — ${entries.length} of them, weighted by post count. A cloud, an A–Z, and the top-twenty by usage.`}
+>
+  <section class="wrap" style="padding: 56px 32px;">
+    <a href="/blog/" class="mono">← back to the journal</a>
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-top: 16px;">
+      <div>
+        <div class="mono" style="color: var(--accent);">All tags</div>
+        <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">{entries.length} <em style="color: var(--accent);">tags</em>.</h1>
+        <div style="font-style: italic; color: var(--muted); margin-top: 6px;">Bigger = more posts. Click any tag to see its archive.</div>
+      </div>
+      <div class="mono" style="text-align: right;">{posts.length} posts across the journal</div>
+    </div>
+
+    <!-- Top 20 -->
+    <div style="margin-top: 36px;">
+      <div style="display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 16px;">
+        <div style="font-style: italic; font-size: 28px; letter-spacing: -0.02em;">Top twenty by post count</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {byCount.slice(0, 20).map(([t, n]) => (
+          <a href={`/tag/${t}/`} class="chip">#{t} <span style="color: var(--muted); margin-left: 6px;">{n}</span></a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Weighted cloud -->
+    <div style="margin-top: 48px;">
+      <div style="display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 16px;">
+        <div style="font-style: italic; font-size: 28px; letter-spacing: -0.02em;">The cloud</div>
+        <div class="mono" style="color: var(--muted);">size = number of posts</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: baseline; line-height: 1.5;">
+        {byCount.map(([t, n]) => (
+          <a
+            href={`/tag/${t}/`}
+            style={`font-size: ${weight(n)}px; color: var(--ink); text-decoration: none;`}
+          >
+            #{t}<span class="mono" style="color: var(--muted); font-size: 11px; margin-left: 3px;">{n}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- A-Z -->
+    <div style="margin-top: 48px;">
+      <div style="display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 16px;">
+        <div style="font-style: italic; font-size: 28px; letter-spacing: -0.02em;">A–Z</div>
+      </div>
+      <!-- letter nav -->
+      <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 24px;">
+        {groupKeys.map((k) => (
+          <a href={`#letter-${k}`} class="mono" style="padding: 4px 10px; border: 1px solid var(--rule); color: var(--ink); text-decoration: none;">{k}</a>
+        ))}
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px;">
+        {groupKeys.map((k) => (
+          <div id={`letter-${k}`}>
+            <div style="font-family: 'Newsreader', serif; font-style: italic; font-size: 32px; color: var(--accent); border-bottom: 1px solid var(--rule); padding-bottom: 6px; margin-bottom: 10px;">{k}</div>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+              {groups[k].map(([t, n]) => (
+                <li>
+                  <a href={`/tag/${t}/`} style="color: var(--ink); text-decoration: none;">
+                    #{t} <span class="mono" style="color: var(--muted);">{n}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

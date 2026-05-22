@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="rrCoverDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#rrCoverDots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#7a808c">JOURNAL · TEAMS</text>
+  <text x="1120" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 04 · 14</text>
+
+  <!-- The four mini-columns at top right -->
+  <g transform="translate(800, 160)">
+    <rect x="0"   y="0" width="68" height="92" rx="6" fill="#ffffff" stroke="#1a1d24" stroke-width="2"/>
+    <rect x="78"  y="0" width="68" height="92" rx="6" fill="#ffffff" stroke="#1a1d24" stroke-width="2"/>
+    <rect x="156" y="0" width="68" height="92" rx="6" fill="#ffffff" stroke="#1a1d24" stroke-width="2"/>
+    <rect x="234" y="0" width="68" height="92" rx="6" fill="#2a52be"/>
+    <text x="34"  y="22" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#2a52be">01</text>
+    <text x="112" y="22" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#2a52be">02</text>
+    <text x="190" y="22" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#2a52be">03</text>
+    <text x="268" y="22" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#fdfaf2">04</text>
+    <line x1="14"  y1="44" x2="54"  y2="44" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="14"  y1="58" x2="44"  y2="58" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="14"  y1="72" x2="50"  y2="72" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="92"  y1="44" x2="132" y2="44" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="92"  y1="58" x2="124" y2="58" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="92"  y1="72" x2="128" y2="72" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="170" y1="44" x2="210" y2="44" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="170" y1="58" x2="202" y2="58" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="170" y1="72" x2="206" y2="72" stroke="#1a1d24" stroke-width="1.5"/>
+    <line x1="248" y1="44" x2="288" y2="44" stroke="#fdfaf2" stroke-width="1.5" opacity="0.9"/>
+    <line x1="248" y1="58" x2="280" y2="58" stroke="#fdfaf2" stroke-width="1.5" opacity="0.9"/>
+    <line x1="248" y1="72" x2="284" y2="72" stroke="#fdfaf2" stroke-width="1.5" opacity="0.9"/>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#1a1d24" letter-spacing="-1">Roadmap reviews,</text>
+  <text x="80" y="365" font-family="Newsreader, serif" font-weight="400" font-style="italic" font-size="44" fill="#7a808c">when half the work</text>
+  <text x="80" y="412" font-family="Newsreader, serif" font-weight="400" font-style="italic" font-size="44" fill="#7a808c">is non-deterministic.</text>
+
+  <line x1="80" y1="468" x2="1120" y2="468" stroke="#1a1d24" stroke-width="1" stroke-dasharray="6,8"/>
+  <text x="80" y="510" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="3" fill="#1a1d24">FOUR COLUMNS · STOLEN FROM A THERAPIST</text>
+
+  <line x1="80" y1="560" x2="1120" y2="560" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="600" font-family="Newsreader, serif" font-weight="500" font-size="22" fill="#1a1d24">Luke Angel</text>
+  <text x="1120" y="600" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c" text-anchor="end">LUKEANGEL.CO / JOURNAL</text>
+</svg>

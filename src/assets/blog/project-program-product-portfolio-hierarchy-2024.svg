@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" role="img" aria-labelledby="t d">
+  <title id="t">Project, Program, Product, Portfolio Management — the hierarchy of scope and outcome</title>
+  <desc id="d">2024-era modern flat diagram showing the four management disciplines stacked: at the bottom Project (single outcome, weeks-to-months); above it Program (related projects); above that Product (lifecycle and roadmap); at the top Portfolio (strategic allocation across products and programs).</desc>
+  <style>
+    .label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:600;fill:#fff;font-size:18px}
+    .small{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;fill:#fff}
+    .role{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#fff;font-weight:500;letter-spacing:0.05em}
+    .title{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+    .scale{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+  </style>
+  <rect width="800" height="540" fill="#fafbfc"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Project · Program · Product · Portfolio — the hierarchy</text>
+
+  <!-- Portfolio (top, biggest scope, smallest box visually for hierarchy effect) -->
+  <g transform="translate(80,80)">
+    <rect width="640" height="100" fill="#1a1d24" rx="6"/>
+    <text x="20" y="32" class="label">PORTFOLIO MANAGEMENT</text>
+    <text x="20" y="54" class="small">Strategic — what gets funded across products and programs</text>
+    <text x="20" y="74" class="role">PORTFOLIO MANAGER · CFO · CSO · BOARD-FACING</text>
+    <text x="600" y="32" text-anchor="end" class="small">Years</text>
+    <text x="600" y="48" text-anchor="end" class="small">Outcome: strategic alignment</text>
+  </g>
+
+  <!-- Product -->
+  <g transform="translate(80,200)">
+    <rect width="640" height="100" fill="#0066cc" rx="6"/>
+    <text x="20" y="32" class="label">PRODUCT MANAGEMENT</text>
+    <text x="20" y="54" class="small">Lifecycle of a single product line — vision, roadmap, market fit</text>
+    <text x="20" y="74" class="role">PRODUCT MANAGER · CPO · CUSTOMER-FACING</text>
+    <text x="600" y="32" text-anchor="end" class="small">Quarters - years</text>
+    <text x="600" y="48" text-anchor="end" class="small">Outcome: customer value</text>
+  </g>
+
+  <!-- Program -->
+  <g transform="translate(80,320)">
+    <rect width="640" height="100" fill="#ff6b35" rx="6"/>
+    <text x="20" y="32" class="label">PROGRAM MANAGEMENT</text>
+    <text x="20" y="54" class="small">A coordinated group of related projects with a common goal</text>
+    <text x="20" y="74" class="role">PROGRAM MANAGER · TEAM-OF-TEAMS-FACING</text>
+    <text x="600" y="32" text-anchor="end" class="small">Months - years</text>
+    <text x="600" y="48" text-anchor="end" class="small">Outcome: capability delivered</text>
+  </g>
+
+  <!-- Project -->
+  <g transform="translate(80,440)">
+    <rect width="640" height="80" fill="#059669" rx="6"/>
+    <text x="20" y="32" class="label">PROJECT MANAGEMENT</text>
+    <text x="20" y="54" class="small">A single defined outcome — scope, schedule, budget</text>
+    <text x="600" y="32" text-anchor="end" class="small">Weeks - months</text>
+    <text x="600" y="48" text-anchor="end" class="small">Outcome: deliverable shipped</text>
+  </g>
+
+  <!-- arrow showing scope/abstraction increases up -->
+  <g transform="translate(36,80)">
+    <line x1="0" y1="440" x2="0" y2="0" stroke="#5a6470" stroke-width="2" marker-end="url(#ar)"/>
+  </g>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5a6470"/>
+    </marker>
+  </defs>
+  <text x="20" y="300" text-anchor="middle" class="scale" transform="rotate(-90 20 300)">Scope · time horizon · abstraction →</text>
+</svg>

@@ -1,0 +1,49 @@
+---
+title: "PII Masking Starter Kit"
+year: "2025"
+role: "Sr. Director, Technical Program / Product Management"
+summary: "Four-bucket PII rubric + runnable AWS Glue + DataBrew pipeline. Canonical reference for data-eng teams handling operator telemetry on connected products. Open-sourced 2026."
+stack: [python, pyspark, aws-glue, aws-databrew, aws-s3]
+outcome: "Open source · MIT · github.com/drlukeangel/PII-Masking-Starter-Kit-Product-Management"
+---
+
+The kit is the smallest credible PII masking stack a data-engineering team needs to ship a compliant pipeline. A four-bucket rubric, a runnable PySpark job, an AWS DataBrew recipe, and a verify script that fails CI when the rubric ever drifts from the output.
+
+→ **[github.com/drlukeangel/PII-Masking-Starter-Kit-Product-Management](https://github.com/drlukeangel/PII-Masking-Starter-Kit-Product-Management)**
+
+## Why this exists
+
+Most teams handle PII three ways: ignore it (illegal), hash everything (useless), or argue about it for six weeks before a single byte moves (expensive). The kit is the minimal opinionated alternative — a rubric the team agrees on once, then code that enforces it.
+
+## The rubric, in one paragraph
+
+PII isn't one thing. It's four.
+
+- **Direct identifiers** (email, device serial) → hashed with a rotating salt
+- **Quasi-identifiers** (name, employee ID) → tokenized to a stable random string so joins still work
+- **Sensitive attributes** (location, biometric, health) → generalized (GPS snapped to a 0.01° grid; ages bucketed into five-year bins)
+- **Behavioral data** (battery level, usage minutes) → kept
+
+That's the whole rubric. Print it. Tape it next to your monitor.
+
+## What's in the box
+
+| File | Job |
+| --- | --- |
+| `rubric.md` | The four-bucket rubric, one page |
+| `data/generate_synthetic.py` | Generate fake tool-telemetry data |
+| `data/sample_tool_telemetry.csv` | 20 rows of synthetic data, ready to run |
+| `glue/pii_masking_job.py` | PySpark Glue job — production path |
+| `databrew/recipe.json` | DataBrew recipe — analyst-friendly path |
+| `verify.py` | Post-mask invariants check; fails CI on drift |
+
+## How teams use it
+
+- **Engineering managers** fork as a starting template for the data-pipeline repo
+- **Product managers** read `rubric.md` and stop there
+- **Data engineers** lift the Glue job structure, swap in their own schema
+- **Privacy / Legal** audit `rubric.md` and `verify.py` — the verify script is the contract
+
+## Paired with
+
+The data shape used throughout the examples is **industrial tool telemetry** — operator IDs, GPS readings, job-site addresses — which is also the shape the [Connected Products Starter Kit](/projects/connected-products-kit/) emits. The two kits work together: one ingests the data, the other masks it before it goes anywhere downstream.

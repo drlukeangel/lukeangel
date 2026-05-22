@@ -1,17 +1,17 @@
 ---
-title: "Project Management Fundamentals: Working With Small Projects"
+title: 'Project Management Fundamentals: Working With Small Projects'
 order: 5
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row] [vc_column] [vc_single_image image= 8039 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ] [/vc_column] [/vc_row] [vc_row] [vc_column] [vc_cta h2= Project Man…"
-wpUrl: "/courses/project-management-fundamentals-working-with-small-projects/"
-cover: "/courses/project-management-fundamentals-working-with-small-projects.svg"
-coverAlt: "Project Management Fundamentals: Working With Small Projects"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: Have you wondered how to make your small projects run as smoothly as possible—without building in so many steps that they get cumbersome? In this course, author and project manager Luke Angel...
+wpUrl: /courses/project-management-fundamentals-working-with-small-projects/
+cover: ../../assets/courses/project-management-fundamentals-working-with-small-projects.svg
+coverAlt: 'Project Management Fundamentals: Working With Small Projects'
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row]**

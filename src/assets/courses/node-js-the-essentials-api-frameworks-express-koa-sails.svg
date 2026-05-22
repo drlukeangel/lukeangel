@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#83cd29"/>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#7a808c">COURSE</text>
+  <text x="1120" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#83cd29" text-anchor="end">№ 30</text>
+  <g transform="translate(900, 200)" fill="#83cd29">
+    <polygon points="60,0 0,30 0,90 60,120 120,90 120,30" stroke="#83cd29" stroke-width="3" fill="#83cd29" fill-opacity="0.85"/>
+    <text x="60" y="68" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="28" fill="#fdfaf2" font-weight="700">node</text>
+  </g>
+  <text x="80" y="340" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24" letter-spacing="-1">Node.js Essentials</text>
+  <text x="80" y="416" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24" letter-spacing="-1">+ Express, Koa, Sails</text>
+  <text x="80" y="492" font-family="Newsreader, serif" font-style="italic" font-size="30" fill="#5a6470">Pick the right framework. Build the auth API in a lunch hour.</text>
+  <line x1="80" y1="540" x2="200" y2="540" stroke="#83cd29" stroke-width="3"/>
+  <text x="80" y="580" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="2" fill="#7a808c">SELF-PACED · PRE-RECORDED · OPEN ENROLLMENT</text>
+</svg>

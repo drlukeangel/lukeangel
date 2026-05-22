@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="t d">
+  <title id="t">CERT — Community Emergency Response Team — covers the first 72 hours before professional responders arrive</title>
+  <desc id="d">2015-era flat-material timeline: x-axis showing 0 to 72 hours after a major event; bands for "professionals arrive late" vs "CERT-trained neighbors active immediately"; callouts on the four core CERT skills.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:14px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="440" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">CERT — covers the gap before paid responders arrive</text>
+
+  <!-- Timeline axis -->
+  <line x1="80" y1="200" x2="720" y2="200" stroke="#1a1d24" stroke-width="2"/>
+  <line x1="80" y1="190" x2="80" y2="210" stroke="#1a1d24" stroke-width="2"/>
+  <line x1="720" y1="190" x2="720" y2="210" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="232" text-anchor="middle" class="small">hour 0 — event</text>
+  <text x="720" y="232" text-anchor="middle" class="small">hour 72 — professionals fully deployed</text>
+
+  <!-- Hour markers -->
+  <g stroke="#9aa3ad" stroke-width="1">
+    <line x1="240" y1="195" x2="240" y2="205"/>
+    <line x1="400" y1="195" x2="400" y2="205"/>
+    <line x1="560" y1="195" x2="560" y2="205"/>
+  </g>
+  <text x="240" y="222" text-anchor="middle" class="small">+12h</text>
+  <text x="400" y="222" text-anchor="middle" class="small">+24h</text>
+  <text x="560" y="222" text-anchor="middle" class="small">+48h</text>
+
+  <!-- Professional response bar -->
+  <rect x="320" y="130" width="400" height="40" fill="#0066cc" rx="2"/>
+  <text x="520" y="156" text-anchor="middle" class="label" fill="#fff">Professional first responders ramp up</text>
+  <line x1="80" y1="150" x2="320" y2="150" stroke="#0066cc" stroke-dasharray="4,3"/>
+  <text x="200" y="142" text-anchor="middle" class="small" fill="#0066cc">911 overwhelmed · 24-hour gap</text>
+
+  <!-- CERT bar -->
+  <rect x="80" y="260" width="640" height="40" fill="#ff6b35" rx="2"/>
+  <text x="400" y="286" text-anchor="middle" class="label" fill="#fff">CERT-trained neighbors active immediately</text>
+
+  <!-- Four skills -->
+  <g transform="translate(60,330)">
+    <rect width="160" height="70" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label">Light search &amp; rescue</text>
+    <text x="14" y="42" class="small">checking homes,</text>
+    <text x="14" y="56" class="small">basic extraction</text>
+  </g>
+  <g transform="translate(240,330)">
+    <rect width="160" height="70" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label">Triage &amp; first aid</text>
+    <text x="14" y="42" class="small">bleeding control,</text>
+    <text x="14" y="56" class="small">treat-vs-transport calls</text>
+  </g>
+  <g transform="translate(420,330)">
+    <rect width="160" height="70" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label">Fire suppression</text>
+    <text x="14" y="42" class="small">small fires only,</text>
+    <text x="14" y="56" class="small">utility shutoff</text>
+  </g>
+  <g transform="translate(600,330)">
+    <rect width="160" height="70" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label">Org &amp; comms</text>
+    <text x="14" y="42" class="small">neighborhood</text>
+    <text x="14" y="56" class="small">command and reporting</text>
+  </g>
+
+  <!-- Header note -->
+  <text x="80" y="84" class="small">In a major event, 911 capacity is exceeded for the first 12–72 hours.</text>
+  <text x="80" y="100" class="small">A 20-hour CERT course turns ordinary residents into the people who keep the gap from getting deadly.</text>
+</svg>

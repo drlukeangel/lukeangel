@@ -1,13 +1,17 @@
 ---
-title: "Rock Product Decisions With Data"
-date: 2024-02-01T12:01:00
+title: Rock Product Decisions With Data
+date: 2024-02-01T12:01:00.000Z
 category: product
-tags: []
-excerpt: "Why Data is Your Product BFF Imagine you&#8217;re crafting a killer playlist. You wouldn&#8217;t just throw on any old tunes, right? You&#8217;d consider the vibe, the listener, and what&#8217;s to…"
-wpCategory: "product-management"
-wpUrl: "/product-management/rock-product-decisions-with-data/"
-cover: "/blog/migrated/2025/01/database-rockstar.png"
-coverAlt: "Rock Product Decisions With Data"
+tags:
+  - product
+  - data-driven
+  - leadership
+  - ai
+excerpt: Why Data is Your Product BFF Imagine you’re crafting a killer playlist. You wouldn’t just throw on any old tunes, right? You’d consider the vibe, the listener, and what’s to…
+wpCategory: product-management
+wpUrl: /product-management/rock-product-decisions-with-data/
+cover: ../../assets/blog/rock-product-decisions-data-database-rockstar.png
+coverAlt: Rock Product Decisions With Data
 ---
 
 ```
@@ -15,7 +19,7 @@ coverAlt: "Rock Product Decisions With Data"
 `
 ```
 
-[![](/blog/migrated/2025/01/dataBFF.png)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2025/01/dataBFF.png?ssl=1)
+![Illustration of data as a product manager's BFF — using analytics as the trusted companion behind every product decision](../../assets/blog/data-driven-program-management-bff-illustration.png)
 
 ### Why Data is Your Product BFF
 
@@ -59,7 +63,7 @@ Start small. Focus on one or two key metrics to begin with. **Eventually**, you 
 
 Don’t be afraid to ask for help. Your data analysts and engineers are your allies. They can help you gather the right data, interpret the results, and build the tools you need to succeed. **Furthermore**, they will be more than happy to share the information with you.
 
-[![](/blog/migrated/2025/01/database-rockstar.png)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2025/01/database-rockstar.png?ssl=1)
+![Illustration of a database "rockstar" — using product analytics as the lead instrument for confident product decisions](../../assets/blog/rock-product-decisions-data-database-rockstar.png)
 
 ## Rock Your Product Decisions
 

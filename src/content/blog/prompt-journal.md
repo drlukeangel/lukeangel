@@ -1,10 +1,14 @@
 ---
-title: "A PM's prompt journal — the case for writing prompts by hand first"
-date: 2026-04-28
+title: A PM's prompt journal — write prompts by hand first
+date: 2026-04-28T00:00:00.000Z
 category: method
-tags: [prompting, evals, gratitude, writing]
-excerpt: "On writing prompts like you're writing to a tired teammate."
-pullquote: "The shape of a good prompt is the shape of a good ask of a person."
+tags:
+  - prompting
+  - evals
+  - gratitude
+  - writing
+excerpt: On writing prompts like you're writing to a tired teammate.
+pullquote: The shape of a good prompt is the shape of a good ask of a person.
 featured: true
 ---
 

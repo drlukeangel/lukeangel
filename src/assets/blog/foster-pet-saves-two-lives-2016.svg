@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="t d">
+  <title id="t">Fostering a pet saves two lives — the one in your home and the next one taking its place at the shelter</title>
+  <desc id="d">2016-era flat-material diagram: a shelter on the left with multiple animals; an arrow pointing to a foster home in the middle (one animal placed); an arrow back to the shelter showing the now-open kennel slot ready to take an incoming animal. Two animals saved.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:14px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+    .big{font-family:'Helvetica Neue',Arial,sans-serif;font-size:46px;font-weight:700;fill:#ff6b35}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="420" fill="#f5f7fa"/>
+  <text x="40" y="40" class="title">Fostering saves two lives — the one in your home + the one taking its place</text>
+
+  <!-- Shelter -->
+  <g transform="translate(40,90)">
+    <rect width="220" height="240" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <rect width="220" height="32" fill="#1a1d24" rx="6"/>
+    <rect y="22" width="220" height="10" fill="#1a1d24"/>
+    <text x="110" y="22" text-anchor="middle" class="label" fill="#fff">Animal shelter</text>
+    <!-- kennel slots -->
+    <g transform="translate(20,52)">
+      <rect width="56" height="56" fill="#e6f0fa" stroke="#0066cc"/>
+      <text x="28" y="35" text-anchor="middle" font-size="22">🐾</text>
+      <rect x="64" width="56" height="56" fill="#e6f0fa" stroke="#0066cc"/>
+      <text x="92" y="35" text-anchor="middle" font-size="22">🐾</text>
+      <rect x="128" width="56" height="56" fill="#fff5ee" stroke="#ff6b35" stroke-dasharray="3,3"/>
+      <text x="156" y="40" text-anchor="middle" class="small" fill="#ff6b35">open</text>
+    </g>
+    <g transform="translate(20,116)">
+      <rect width="56" height="56" fill="#e6f0fa" stroke="#0066cc"/>
+      <text x="28" y="35" text-anchor="middle" font-size="22">🐾</text>
+      <rect x="64" width="56" height="56" fill="#e6f0fa" stroke="#0066cc"/>
+      <text x="92" y="35" text-anchor="middle" font-size="22">🐾</text>
+      <rect x="128" width="56" height="56" fill="#e6f0fa" stroke="#0066cc"/>
+      <text x="156" y="35" text-anchor="middle" font-size="22">🐾</text>
+    </g>
+    <text x="110" y="200" text-anchor="middle" class="small">at capacity → no more intake</text>
+    <text x="110" y="220" text-anchor="middle" class="small" fill="#9b0000">euthanasia risk rises with capacity</text>
+  </g>
+
+  <!-- Arrow shelter → foster -->
+  <line x1="270" y1="170" x2="330" y2="170" stroke="#0066cc" stroke-width="3" marker-end="url(#ar)"/>
+  <text x="300" y="158" text-anchor="middle" class="small" fill="#0066cc">foster takes 1</text>
+
+  <!-- Foster home -->
+  <g transform="translate(340,90)">
+    <rect width="160" height="240" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <rect width="160" height="32" fill="#ff6b35" rx="6"/>
+    <rect y="22" width="160" height="10" fill="#ff6b35"/>
+    <text x="80" y="22" text-anchor="middle" class="label" fill="#fff">Your foster home</text>
+    <g transform="translate(40,90)">
+      <rect width="80" height="80" fill="#fff5ee" stroke="#ff6b35"/>
+      <text x="40" y="58" text-anchor="middle" font-size="40">🐶</text>
+    </g>
+    <text x="80" y="200" text-anchor="middle" class="small">2-12 weeks · love + a soft bed</text>
+    <text x="80" y="218" text-anchor="middle" class="small">→ adopted from your home</text>
+  </g>
+
+  <!-- Arrow foster → shelter intake -->
+  <line x1="510" y1="170" x2="570" y2="170" stroke="#0066cc" stroke-width="3" marker-end="url(#ar)"/>
+  <text x="540" y="158" text-anchor="middle" class="small" fill="#0066cc">slot opens</text>
+
+  <!-- New intake -->
+  <g transform="translate(580,90)">
+    <rect width="180" height="240" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <rect width="180" height="32" fill="#10a37f" rx="6"/>
+    <rect y="22" width="180" height="10" fill="#10a37f"/>
+    <text x="90" y="22" text-anchor="middle" class="label" fill="#fff">Next intake — saved</text>
+    <text x="90" y="80" text-anchor="middle" font-size="46">🐱</text>
+    <text x="90" y="120" text-anchor="middle" class="small">incoming animal that would have</text>
+    <text x="90" y="136" text-anchor="middle" class="small">been turned away or worse</text>
+    <text x="90" y="156" text-anchor="middle" class="small">— now has a kennel.</text>
+    <text x="90" y="206" text-anchor="middle" class="big">×2</text>
+    <text x="90" y="230" text-anchor="middle" class="small">lives saved per foster</text>
+  </g>
+
+  <!-- bottom note -->
+  <text x="400" y="390" text-anchor="middle" class="small">Math: 1 foster placement → 1 animal in a home + 1 incoming animal that gets a spot. Two lives, one decision.</text>
+</svg>

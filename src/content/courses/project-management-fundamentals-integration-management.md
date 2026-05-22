@@ -1,17 +1,17 @@
 ---
-title: "Project Management Fundamentals: Integration Management"
+title: 'Project Management Fundamentals: Integration Management'
 order: 3
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row] [vc_column] [vc_single_image image= 8039 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ] [/vc_column] [/vc_row] [vc_row] [vc_column] [vc_cta h2= Project Man…"
-wpUrl: "/courses/project-management-fundamentals-integration-management/"
-cover: "/courses/project-management-fundamentals-integration-management.svg"
-coverAlt: "Project Management Fundamentals: Integration Management"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: Project integration ensures all processes in a project run smoothly, and results in a properly synchronized series of deliverables such as the project charter, project plan, and preliminary pr...
+wpUrl: /courses/project-management-fundamentals-integration-management/
+cover: ../../assets/courses/project-management-fundamentals-integration-management.svg
+coverAlt: 'Project Management Fundamentals: Integration Management'
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row]**

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Quote poster — Opportunity is dressed in overalls and looks like work</title>
+  <desc id="d">2017-era flat poster: warm cream background, large overalls silhouette in soft navy, the quote text across the middle, attribution to Edison at the bottom.</desc>
+  <rect width="1200" height="630" fill="#f5efe1"/>
+  <!-- subtle texture lines -->
+  <g stroke="#e5dccf" stroke-width="1">
+    <line x1="0" y1="80" x2="1200" y2="80"/>
+    <line x1="0" y1="550" x2="1200" y2="550"/>
+  </g>
+  <!-- overalls silhouette (simple geometric) -->
+  <g fill="#2a3a55" opacity="0.85">
+    <!-- straps -->
+    <rect x="195" y="180" width="22" height="120" rx="4"/>
+    <rect x="263" y="180" width="22" height="120" rx="4"/>
+    <!-- bib -->
+    <rect x="180" y="280" width="120" height="80" rx="6"/>
+    <!-- pants top -->
+    <path d="M 165 350 L 315 350 L 320 470 L 240 470 L 240 380 L 240 470 L 160 470 Z"/>
+    <!-- buttons -->
+    <circle cx="206" cy="310" r="6" fill="#f4d27a"/>
+    <circle cx="274" cy="310" r="6" fill="#f4d27a"/>
+    <!-- pocket -->
+    <rect x="215" y="305" width="50" height="32" fill="none" stroke="#f4d27a" stroke-width="1.5" rx="2"/>
+  </g>
+
+  <!-- quote -->
+  <text x="700" y="270" font-family="'Newsreader','Georgia',serif" font-size="46" font-weight="500" font-style="italic" fill="#1a1d24">Opportunity is missed by most</text>
+  <text x="700" y="324" font-family="'Newsreader','Georgia',serif" font-size="46" font-weight="500" font-style="italic" fill="#1a1d24">because it is dressed in overalls</text>
+  <text x="700" y="378" font-family="'Newsreader','Georgia',serif" font-size="46" font-weight="500" font-style="italic" fill="#1a1d24">and looks like work.</text>
+
+  <text x="700" y="450" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" letter-spacing="0.15em" fill="#5a6470">— THOMAS EDISON</text>
+  <text x="700" y="480" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" letter-spacing="0.2em" fill="#9aa3ad">(probably; 1,093 patents, no diary)</text>
+
+  <!-- byline -->
+  <text x="100" y="600" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" letter-spacing="0.2em" fill="#6b7385">LUKEANGEL.CO · THE JOURNAL · 2017</text>
+</svg>

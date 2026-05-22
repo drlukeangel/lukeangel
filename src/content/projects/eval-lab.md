@@ -1,10 +1,67 @@
 ---
-title: "eval-lab"
+title: "Eval Starter Kit — open-source evals for PMs"
 year: "2025"
 role: "Maintainer"
-summary: "Open-source starter kit for PMs to spin up product evals on a Wednesday. Used by three companies I know of."
+summary: "An open-source starter kit that lets product managers spin up real LLM evals on a Wednesday — golden dataset, rubric, judge, runner, CI integration. Five files, one notebook, one rubric."
 stack: [python, pytest, openai]
-outcome: "Open source · ~700 stars"
+outcome: "Open source · MIT · github.com/drlukeangel/Eval-Starter-kit-Product-Management"
 ---
 
-A starter repo. Five files, one notebook, one rubric. The point is to stop *talking* about evals and start running them.
+![Cover graphic for the Eval Starter Kit — five files, one notebook, one rubric, for product managers](../../assets/blog/eval-starter-kit-cover.svg)
+
+## The premise
+
+Most product teams ship LLM features on **vibe checks**. Someone tweaks a prompt, it *feels* better in a staging window, it merges. Three weeks later a quiet regression shows up in support tickets and nobody can trace when it broke.
+
+An eval loop is what catches that the same afternoon. You do not need a platform — you need a golden dataset, a rubric, a judge, and a runner. That's exactly what's in this repo.
+
+→ **[github.com/drlukeangel/Eval-Starter-kit-Product-Management](https://github.com/drlukeangel/Eval-Starter-kit-Product-Management)**
+
+## What's in the box
+
+A starter repo, intentionally tiny:
+
+- **`golden_dataset.jsonl`** — 30 PM-flavored prompts paired with the ideal answer
+- **`rubric.md`** — four scoring axes graded 1 – 5: factual accuracy, tone, format adherence, hallucination
+- **`judge.py`** — LLM-as-judge that scores a single response on the rubric
+- **`eval.py`** — the runner: model under test → judge → JSON report
+- **`test_evals.py`** — pytest integration so evals run in CI on every PR
+- **`eval_walkthrough.ipynb`** — notebook you can demo in a standup
+- **`prompt_template.md`** — copy-paste mode, for when you don't have API keys
+
+Two modes, by design. **API mode** clones the repo and runs `python eval.py` end-to-end. **Copy-paste mode** is the rubric folded into a single prompt you paste into ChatGPT, Claude, or Gemini to score one example at a time. Same shape; no keys required.
+
+![The 4-step PM eval playbook — golden dataset, metrics, scoring, CI](../../assets/blog/eval-loop-diagram.svg)
+
+## The 4-step PM playbook
+
+The repo encodes one loop. Run it on every LLM feature you own.
+
+**1. Define the golden dataset.** 30 – 50 real user queries paired with ideal responses, weighted toward the common case, the expensive failure mode, and the awkward edge cases.
+
+**2. Set your metrics.** The defaults — factual accuracy, tone, format adherence, hallucination rate — are PM-grade axes that travel well across products. Keep the count small (≤ 5) so the signal stays legible.
+
+**3. Choose an eval method.** Deterministic checks (exact string, regex, JSON schema) where the answer is exact. A model-based judge — a stronger model like GPT-4o or Claude 3.5 Sonnet grading on the rubric — for everything semantic. Both are wired in.
+
+**4. Wire it into CI/CD.** Run the eval on every prompt or model change. Fail the build when the score drops below threshold. Thirty examples through `gpt-4o-mini` plus a `gpt-4o` judge runs in pennies — cheap enough to live on every PR.
+
+## How it compares
+
+Four heavier open-source frameworks worth knowing once you outgrow a starter kit:
+
+| Framework | Best for |
+| --- | --- |
+| **Arize Phoenix** | Privacy-first teams that need self-hosting; multi-step agent tracing; built-in prompt management. |
+| **DeepEval** | Python-native teams who want evals to feel like `pytest`. Local-first, fast. |
+| **Ragas** | RAG products specifically — faithfulness, context relevancy, answer relevancy. |
+| **Promptfoo** | CLI-heavy, security-focused teams running bulk evals across many LLMs at once. |
+
+This kit covers the first 80% so you can decide which 20% you actually need.
+
+## Why I built it
+
+Every team I've worked with that *didn't* have a written rubric ended up arguing about taste on a Slack thread for the third time that month. Every team that *did* — even thirty lines and a spreadsheet — moved faster and made better calls.
+
+The kit isn't sophisticated. The discipline is.
+
+→ **[Read the launch post](/blog/open-source-eval-starter-kit-for-pms/)** · **[Star the repo](https://github.com/drlukeangel/Eval-Starter-kit-Product-Management)**

@@ -1,12 +1,16 @@
 ---
 title: "Crush Goals with Data: 2 Real-World Program Management Wins"
-date: 2024-01-31T14:40:00
+date: 2024-01-31T14:40:00.000Z
 category: programs
-tags: []
-excerpt: "Hey there, fellow program management ninjas! Ready to dive into the wild world of data-driven decision-making? Buckle up, because we&#8217;re about to embark on a thrilling journey that&#8217;ll ma…"
-wpCategory: "program-management"
-wpUrl: "/program-management/crush-goals-with-data-2-real-world-program-management-wins/"
-cover: "/blog/migrated/2025/01/image-1.png"
+tags:
+  - program-management
+  - data-driven
+  - leadership
+  - product
+excerpt: Hey there, fellow program management ninjas! Ready to dive into the wild world of data-driven decision-making? Buckle up, because we’re about to embark on a thrilling journey that’ll ma…
+wpCategory: program-management
+wpUrl: /program-management/crush-goals-with-data-2-real-world-program-management-wins/
+cover: ../../assets/blog/crush-goals-with-data-program-manager-dashboards.png
 coverAlt: "Crush Goals with Data: 2 Real-World Program Management Wins"
 ---
 
@@ -14,7 +18,9 @@ Hey there, fellow program management ninjas! Ready to dive into the wild world o
 
 ## The Data-Driven Revolution: Not Just for Nerds Anymore
 
-Gone are the days when we’d rely on gut feelings and magic 8-balls to make decisions. Welcome to the era of data-driven program management, where numbers reign supreme and spreadsheets are sexier than ever! But don’t worry, we won’t let you drown in an ocean of data. Instead, we’ll teach you to surf those waves like a pro.
+Gone are the days when we'd rely on gut feelings and magic 8-balls to make decisions. Welcome to the era of data-driven program management, where numbers reign supreme and spreadsheets are sexier than ever! But don't worry, we won't let you drown in an ocean of data. Instead, we'll teach you to surf those waves like a pro.
+
+![Before vs After diagram of data-driven program management — left column "gut-feel programs" (status reports as vibes, surprises in month 4, blame retros, disengaged stakeholders); right column "instrumented programs" (live dashboards, early signals in week 1, retros producing action items, stakeholders pulled in)](../../assets/blog/program-management-data-driven-wins-2025.svg)
 
 ## Real-World Example #1: Google’s People Analytics Extravaganza
 
@@ -60,7 +66,7 @@ Now, let’s bring it all together in a dashboard that’ll make NASA jealous. H
 
 - **Customize for your audience**: Your CEO doesn’t need to know how many coffee breaks the team took (unless that’s a critical KPI, in which case, can I join your team?).
 
-[![](/blog/migrated/2025/01/image.png)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2025/01/image.png)
+![Infographic: 6 Key Steps of Data-Driven Decision-Making — Define objectives, Identify and collect data, Organize and explore data, Perform data analysis, Draw conclusions, Implement and evaluate](../../assets/blog/data-driven-decision-making-6-key-steps-infographic.png)
 
 ## The Grand Finale: Putting It All Together
 

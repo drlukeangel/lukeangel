@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Waterfall vs Agile project management — linear phases vs iterative sprints</title>
+  <desc id="d">2016-era flat-material side-by-side: left column shows Waterfall as five sequential phases (Requirements, Design, Build, Test, Deploy) with one ship date; right column shows Agile as repeated short sprints each producing a small increment, with continuous ship.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .section{font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Waterfall vs Agile — same work, very different cadence</text>
+
+  <!-- WATERFALL -->
+  <text x="40" y="78" class="section" fill="#5a6470">Waterfall — five phases, one ship date</text>
+  <g transform="translate(40,90)">
+    <!-- phases -->
+    <rect width="68" height="48" fill="#0066cc" rx="2"/>
+    <text x="34" y="29" text-anchor="middle" class="label" fill="#fff">Reqs</text>
+    <rect x="74" width="68" height="48" fill="#0a5fb8" rx="2"/>
+    <text x="108" y="29" text-anchor="middle" class="label" fill="#fff">Design</text>
+    <rect x="148" width="68" height="48" fill="#1657a8" rx="2"/>
+    <text x="182" y="29" text-anchor="middle" class="label" fill="#fff">Build</text>
+    <rect x="222" width="68" height="48" fill="#1f4f97" rx="2"/>
+    <text x="256" y="29" text-anchor="middle" class="label" fill="#fff">Test</text>
+    <rect x="296" width="68" height="48" fill="#28488a" rx="2"/>
+    <text x="330" y="29" text-anchor="middle" class="label" fill="#fff">Deploy</text>
+
+    <!-- timeline arrow -->
+    <line x1="0" y1="76" x2="364" y2="76" stroke="#9aa3ad" stroke-width="2"/>
+    <polygon points="364,71 372,76 364,81" fill="#9aa3ad"/>
+    <text x="0" y="100" class="small">month 1</text>
+    <text x="330" y="100" class="small">month 9 — first user value</text>
+
+    <!-- callout -->
+    <rect y="120" width="364" height="84" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="142" class="label">Trade-off</text>
+    <text x="14" y="160" class="small">+ predictable scope &amp; cost upfront</text>
+    <text x="14" y="174" class="small">+ clean handoffs between phases</text>
+    <text x="14" y="188" class="small">− no user feedback until month 9</text>
+  </g>
+
+  <!-- AGILE -->
+  <text x="420" y="78" class="section" fill="#ff6b35">Agile — short sprints, continuous ship</text>
+  <g transform="translate(420,90)">
+    <!-- sprints -->
+    <g>
+      <rect width="60" height="48" fill="#ff6b35" rx="2"/>
+      <text x="30" y="20" text-anchor="middle" class="small" fill="#fff" font-size="10">Sprint 1</text>
+      <text x="30" y="36" text-anchor="middle" class="small" fill="#fff" font-size="9">small ↑</text>
+    </g>
+    <g transform="translate(66,0)">
+      <rect width="60" height="48" fill="#ff5c1f" rx="2"/>
+      <text x="30" y="20" text-anchor="middle" class="small" fill="#fff" font-size="10">Sprint 2</text>
+      <text x="30" y="36" text-anchor="middle" class="small" fill="#fff" font-size="9">small ↑</text>
+    </g>
+    <g transform="translate(132,0)">
+      <rect width="60" height="48" fill="#ef5311" rx="2"/>
+      <text x="30" y="20" text-anchor="middle" class="small" fill="#fff" font-size="10">Sprint 3</text>
+      <text x="30" y="36" text-anchor="middle" class="small" fill="#fff" font-size="9">small ↑</text>
+    </g>
+    <g transform="translate(198,0)">
+      <rect width="60" height="48" fill="#dc4506" rx="2"/>
+      <text x="30" y="20" text-anchor="middle" class="small" fill="#fff" font-size="10">Sprint 4</text>
+      <text x="30" y="36" text-anchor="middle" class="small" fill="#fff" font-size="9">small ↑</text>
+    </g>
+    <g transform="translate(264,0)">
+      <rect width="60" height="48" fill="#c93800" rx="2"/>
+      <text x="30" y="20" text-anchor="middle" class="small" fill="#fff" font-size="10">Sprint 5</text>
+      <text x="30" y="36" text-anchor="middle" class="small" fill="#fff" font-size="9">small ↑</text>
+    </g>
+    <text x="332" y="32" class="small" fill="#5a6470">…repeat</text>
+
+    <!-- timeline -->
+    <line x1="0" y1="76" x2="364" y2="76" stroke="#9aa3ad" stroke-width="2"/>
+    <polygon points="364,71 372,76 364,81" fill="#9aa3ad"/>
+    <text x="0" y="100" class="small">month 1 — first user value</text>
+    <text x="298" y="100" class="small">…ongoing</text>
+
+    <!-- callout -->
+    <rect y="120" width="364" height="84" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="142" class="label">Trade-off</text>
+    <text x="14" y="160" class="small">+ user feedback by week 2-4</text>
+    <text x="14" y="174" class="small">+ scope can adapt to what's learned</text>
+    <text x="14" y="188" class="small">− less upfront predictability of total cost</text>
+  </g>
+
+  <!-- Bottom row -->
+  <g transform="translate(40,320)">
+    <rect width="720" height="100" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="label">When to pick which</text>
+    <text x="14" y="44" class="small"><tspan font-weight="600">Waterfall:</tspan> regulated industries, fixed contracts, scope locked by law (aerospace, building codes, medical devices)</text>
+    <text x="14" y="62" class="small"><tspan font-weight="600">Agile:</tspan> consumer products, internal tools, anything where "we'll know what good looks like once users see it"</text>
+    <text x="14" y="80" class="small"><tspan font-weight="600">Hybrid:</tspan> the honest reality for most real projects — agile execution wrapped in milestone reporting that stakeholders can read</text>
+  </g>
+</svg>

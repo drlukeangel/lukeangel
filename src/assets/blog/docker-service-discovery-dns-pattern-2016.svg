@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="t d">
+  <title id="t">DNS-based service discovery — using DNS as the lookup layer for containers</title>
+  <desc id="d">2016-era flat diagram showing DNS-based service discovery: client queries DNS for service.local, the DNS server returns the IP of a healthy container; the cluster's service discovery tool keeps DNS records in sync with the running container fleet.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .mono{font-family:'JetBrains Mono','Menlo','Consolas',monospace;font-size:11px;fill:#1a1d24}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="380" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">DNS-based service discovery — the cluster manages the records</text>
+
+  <!-- Client -->
+  <g transform="translate(40,140)">
+    <rect width="140" height="80" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="70" y="32" text-anchor="middle" class="label">consumer</text>
+    <text x="70" y="50" text-anchor="middle" class="mono">GET api.local/jobs</text>
+    <text x="70" y="68" text-anchor="middle" class="small">no special library</text>
+  </g>
+
+  <line x1="180" y1="180" x2="240" y2="180" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="210" y="170" text-anchor="middle" class="small" fill="#0066cc">resolve api.local</text>
+
+  <!-- DNS server -->
+  <g transform="translate(240,140)">
+    <rect width="160" height="80" fill="#1a1d24" rx="4"/>
+    <text x="80" y="32" text-anchor="middle" class="label" fill="#fff">cluster DNS</text>
+    <text x="80" y="50" text-anchor="middle" class="small" fill="#9aa3ad">Consul / CoreDNS</text>
+    <text x="80" y="68" text-anchor="middle" class="small" fill="#9aa3ad">api.local → 10.0.9.7</text>
+  </g>
+
+  <line x1="400" y1="180" x2="460" y2="180" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="430" y="170" text-anchor="middle" class="small" fill="#0066cc">10.0.9.7</text>
+
+  <!-- Pool of healthy containers -->
+  <g transform="translate(460,80)">
+    <rect width="300" height="220" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="20" class="small">healthy api pool</text>
+    <rect x="14" y="32" width="130" height="60" fill="#e6f0fa" stroke="#0066cc"/>
+    <text x="79" y="58" text-anchor="middle" class="label">api · 10.0.9.4</text>
+    <text x="79" y="78" text-anchor="middle" class="small">✓ healthy</text>
+    <rect x="154" y="32" width="130" height="60" fill="#e6f0fa" stroke="#0066cc"/>
+    <text x="219" y="58" text-anchor="middle" class="label">api · 10.0.9.7</text>
+    <text x="219" y="78" text-anchor="middle" class="small">✓ healthy ← picked</text>
+    <rect x="14" y="100" width="130" height="60" fill="#e6f0fa" stroke="#0066cc"/>
+    <text x="79" y="126" text-anchor="middle" class="label">api · 10.0.9.9</text>
+    <text x="79" y="146" text-anchor="middle" class="small">✓ healthy</text>
+    <rect x="154" y="100" width="130" height="60" fill="#fef2f2" stroke="#dc2626" stroke-dasharray="3,3"/>
+    <text x="219" y="126" text-anchor="middle" class="label" fill="#dc2626">api · 10.0.9.5</text>
+    <text x="219" y="146" text-anchor="middle" class="small" fill="#dc2626">✗ removed from DNS</text>
+    <text x="150" y="200" text-anchor="middle" class="small">DNS round-robins or weights across only-healthy entries</text>
+  </g>
+
+  <!-- bottom note -->
+  <text x="40" y="340" class="small">- consumer needs no service-discovery library — standard DNS resolution works</text>
+  <text x="40" y="358" class="small">- the cluster manager (Consul, Kubernetes kube-dns, Docker DNS) updates DNS records as containers come and go</text>
+</svg>

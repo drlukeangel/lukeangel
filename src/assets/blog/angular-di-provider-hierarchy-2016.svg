@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Angular DI — provider hierarchy mirrors the component tree</title>
+  <desc id="d">2016-era flat diagram of Angular's hierarchical dependency injection: a root injector at the top with global providers, branching into module-level injectors and then component-level injectors. Child components resolve dependencies by walking up the tree until they find a provider.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#fff;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .text{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dd0031"/>
+    </marker>
+  </defs>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Angular DI — providers live on a tree that mirrors the components</text>
+
+  <!-- Root injector -->
+  <g transform="translate(310,80)">
+    <rect width="180" height="50" fill="#dd0031" rx="4"/>
+    <text x="90" y="30" text-anchor="middle" class="label">Root injector</text>
+    <text x="90" y="44" text-anchor="middle" class="small" fill="#fff5f5">global providers</text>
+  </g>
+
+  <!-- branches -->
+  <line x1="400" y1="130" x2="180" y2="180" stroke="#dd0031" stroke-width="2"/>
+  <line x1="400" y1="130" x2="400" y2="180" stroke="#dd0031" stroke-width="2"/>
+  <line x1="400" y1="130" x2="620" y2="180" stroke="#dd0031" stroke-width="2"/>
+
+  <!-- Module-level injectors -->
+  <g transform="translate(90,180)">
+    <rect width="180" height="50" fill="#a30021" rx="4"/>
+    <text x="90" y="30" text-anchor="middle" class="label">AuthModule injector</text>
+    <text x="90" y="44" text-anchor="middle" class="small" fill="#fff5f5">AuthService, TokenStore</text>
+  </g>
+  <g transform="translate(310,180)">
+    <rect width="180" height="50" fill="#a30021" rx="4"/>
+    <text x="90" y="30" text-anchor="middle" class="label">DashboardModule injector</text>
+    <text x="90" y="44" text-anchor="middle" class="small" fill="#fff5f5">MetricsService</text>
+  </g>
+  <g transform="translate(530,180)">
+    <rect width="180" height="50" fill="#a30021" rx="4"/>
+    <text x="90" y="30" text-anchor="middle" class="label">SettingsModule injector</text>
+    <text x="90" y="44" text-anchor="middle" class="small" fill="#fff5f5">PreferencesService</text>
+  </g>
+
+  <!-- arrows to components -->
+  <line x1="400" y1="230" x2="320" y2="280" stroke="#dd0031" stroke-width="2"/>
+  <line x1="400" y1="230" x2="480" y2="280" stroke="#dd0031" stroke-width="2"/>
+
+  <!-- Component-level injectors -->
+  <g transform="translate(220,280)">
+    <rect width="200" height="50" fill="#7a001a" rx="4"/>
+    <text x="100" y="30" text-anchor="middle" class="label">DashboardComponent</text>
+    <text x="100" y="44" text-anchor="middle" class="small" fill="#fff5f5">component-scoped: LayoutService</text>
+  </g>
+  <g transform="translate(440,280)">
+    <rect width="200" height="50" fill="#7a001a" rx="4"/>
+    <text x="100" y="30" text-anchor="middle" class="label">WidgetComponent</text>
+    <text x="100" y="44" text-anchor="middle" class="small" fill="#fff5f5">component-scoped: ChartService</text>
+  </g>
+
+  <!-- Lookup arrow up from widget -->
+  <path d="M 540 280 Q 540 240 520 200" fill="none" stroke="#0066cc" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ar)"/>
+  <text x="610" y="262" class="small" fill="#0066cc">need MetricsService?</text>
+  <text x="610" y="278" class="small" fill="#0066cc">walk up the tree.</text>
+
+  <!-- Bottom explanation -->
+  <g transform="translate(40,360)">
+    <rect width="720" height="84" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="text" font-weight="600">Resolution rule</text>
+    <text x="14" y="44" class="small">When a component asks for a service, Angular checks the local injector. Not found? It walks up to the module injector. Still not found? Up to the root.</text>
+    <text x="14" y="60" class="small">Found anywhere? Returns the instance from that scope. The component never declares <tspan font-style="italic">where</tspan> the provider lives — only <tspan font-style="italic">what</tspan> it needs.</text>
+    <text x="14" y="76" class="small">Trade-off: providing a service at the root makes it a global singleton. Providing at the component level scopes a fresh instance per component subtree.</text>
+  </g>
+</svg>

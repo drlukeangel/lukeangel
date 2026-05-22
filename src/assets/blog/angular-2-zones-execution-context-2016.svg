@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Angular Zones — wrapping async tasks in an execution context that fires hooks before and after</title>
+  <desc id="d">2016-era flat diagram of how Angular's Zone wraps async tasks: a sync function call enters the Zone, an async task (setTimeout, Promise, XHR) is scheduled, the Zone fires onScheduleTask, onInvokeTask, and onInvokeError hooks around it, and change detection is run when the microtask queue drains.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .mono{font-family:'JetBrains Mono','Menlo','Consolas',monospace;font-size:11px;fill:#1a1d24}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dd0031"/>
+    </marker>
+  </defs>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Angular Zones — async execution context with lifecycle hooks</text>
+
+  <!-- Outer zone box -->
+  <rect x="40" y="70" width="720" height="320" fill="#fff" stroke="#dd0031" stroke-width="2" rx="6" stroke-dasharray="6,3"/>
+  <text x="56" y="92" class="label" fill="#dd0031">ngZone — Angular's root execution context</text>
+
+  <!-- Step 1: sync code enters zone -->
+  <g transform="translate(60,110)">
+    <rect width="180" height="70" fill="#e6f0fa" stroke="#0066cc" rx="4"/>
+    <text x="14" y="22" class="label">1. sync code runs</text>
+    <text x="14" y="42" class="mono">component.handleClick()</text>
+    <text x="14" y="58" class="small">already inside the zone</text>
+  </g>
+
+  <!-- arrow -->
+  <line x1="240" y1="145" x2="280" y2="145" stroke="#dd0031" stroke-width="2" marker-end="url(#aa)"/>
+
+  <!-- Step 2: schedule async -->
+  <g transform="translate(280,110)">
+    <rect width="220" height="70" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label">2. zone.onScheduleTask</text>
+    <text x="14" y="42" class="mono">setTimeout / fetch / Promise</text>
+    <text x="14" y="58" class="small">zone notes the pending task</text>
+  </g>
+
+  <!-- arrow -->
+  <line x1="500" y1="145" x2="540" y2="145" stroke="#dd0031" stroke-width="2" marker-end="url(#aa)"/>
+
+  <!-- Step 3: task runs -->
+  <g transform="translate(540,110)">
+    <rect width="200" height="70" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label">3. zone.onInvokeTask</text>
+    <text x="14" y="42" class="mono">callback runs inside zone</text>
+    <text x="14" y="58" class="small">microtask queue ticks</text>
+  </g>
+
+  <!-- arrow down to detection -->
+  <line x1="640" y1="180" x2="640" y2="220" stroke="#dd0031" stroke-width="2" marker-end="url(#aa)"/>
+
+  <!-- Step 4: change detection -->
+  <g transform="translate(280,220)">
+    <rect width="460" height="80" fill="#fff5ee" stroke="#ff6b35" rx="4"/>
+    <text x="14" y="22" class="label" fill="#ff6b35">4. zone.onMicrotaskEmpty → Angular runs change detection</text>
+    <text x="14" y="44" class="small">Angular receives the "queue drained" hook and walks the component tree</text>
+    <text x="14" y="60" class="mono">tick() → checks every binding → updates the DOM if dirty</text>
+  </g>
+
+  <!-- Error path -->
+  <g transform="translate(60,300)">
+    <rect width="200" height="64" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label" fill="#9b0000">throw inside async</text>
+    <text x="14" y="42" class="small">fires zone.onInvokeError</text>
+    <text x="14" y="58" class="small">→ ErrorHandler service catches it</text>
+  </g>
+
+  <!-- Caption row -->
+  <text x="40" y="416" class="small">- the zone monkey-patches every browser async API (setTimeout, XHR, fetch, Promise, EventTarget) at startup</text>
+  <text x="40" y="432" class="small">- because every async exits through a known choke point, Angular can re-run change detection automatically</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="t d">
+  <title id="t">Docker cluster autoscaling — scheduler adds hosts and containers as load rises</title>
+  <desc id="d">2016-era flat horizontal diagram of cluster autoscaling: load curve rises, scheduler responds by spinning up more containers, then a new worker host, then scaling back down as load drops.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="380" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Cluster autoscaling — load up, capacity up; load down, capacity down</text>
+
+  <!-- Load curve -->
+  <path d="M 60 230 Q 200 220 300 130 Q 400 80 500 100 Q 600 130 760 230" fill="none" stroke="#ff6b35" stroke-width="3"/>
+  <text x="40" y="160" class="small" fill="#ff6b35" transform="rotate(-90 40 160)">load</text>
+
+  <!-- Container ramp annotations -->
+  <text x="120" y="280" text-anchor="middle" class="small" font-weight="600">3 containers</text>
+  <text x="120" y="296" text-anchor="middle" class="small">1 host</text>
+
+  <text x="300" y="280" text-anchor="middle" class="small" font-weight="600">6 containers</text>
+  <text x="300" y="296" text-anchor="middle" class="small">scheduler adds replicas</text>
+
+  <text x="450" y="280" text-anchor="middle" class="small" font-weight="600">12 containers</text>
+  <text x="450" y="296" text-anchor="middle" class="small">2nd host added</text>
+
+  <text x="640" y="280" text-anchor="middle" class="small" font-weight="600">8 containers</text>
+  <text x="640" y="296" text-anchor="middle" class="small">scale-down · drain host</text>
+
+  <!-- container columns -->
+  <g transform="translate(95,200)">
+    <rect width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-18" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-36" width="16" height="14" fill="#0066cc"/>
+  </g>
+  <g transform="translate(285,200)">
+    <rect width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-18" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-36" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-54" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-72" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-90" width="16" height="14" fill="#0066cc"/>
+  </g>
+  <g transform="translate(435,200)">
+    <rect width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-18" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-36" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-54" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-72" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-90" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-108" width="16" height="14" fill="#10a37f"/>
+    <rect x="0" y="-126" width="16" height="14" fill="#10a37f"/>
+    <rect x="0" y="-144" width="16" height="14" fill="#10a37f"/>
+    <rect x="20" y="0" width="16" height="14" fill="#10a37f"/>
+    <rect x="20" y="-18" width="16" height="14" fill="#10a37f"/>
+    <rect x="20" y="-36" width="16" height="14" fill="#10a37f"/>
+  </g>
+  <g transform="translate(625,200)">
+    <rect width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-18" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-36" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-54" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-72" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-90" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-108" width="16" height="14" fill="#0066cc"/>
+    <rect x="0" y="-126" width="16" height="14" fill="#0066cc"/>
+  </g>
+
+  <!-- Bottom -->
+  <g transform="translate(40,320)">
+    <rect width="720" height="50" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="small" font-weight="600">Two scales to tune</text>
+    <text x="14" y="42" class="small">- <tspan font-weight="600">Container replicas</tspan>: fast (seconds). - <tspan font-weight="600">Worker hosts</tspan>: slower (minutes to provision). The scheduler does both, but knows host-add is more expensive.</text>
+  </g>
+</svg>

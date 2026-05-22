@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="t d">
+  <title id="t">Workback schedule — plan backward from launch date to today</title>
+  <desc id="d">2016-era flat diagram of a workback schedule: launch date on the right, today on the left, with five reverse-planned milestones spaced backward from the launch (final QA, beta, content lock, dev complete, kickoff). Annotations show the durations between each.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .step{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="420" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Workback schedule — plan backward from the immovable date</text>
+
+  <!-- timeline arrow -->
+  <line x1="60" y1="170" x2="740" y2="170" stroke="#1a1d24" stroke-width="2"/>
+  <polygon points="740,164 752,170 740,176" fill="#1a1d24"/>
+
+  <!-- TODAY marker on the left -->
+  <circle cx="80" cy="170" r="10" fill="#5a6470"/>
+  <text x="80" y="200" text-anchor="middle" class="step">TODAY</text>
+  <text x="80" y="218" text-anchor="middle" class="small">Jan 6</text>
+
+  <!-- Milestone 1: Kickoff -->
+  <circle cx="180" cy="170" r="10" fill="#0066cc"/>
+  <text x="180" y="200" text-anchor="middle" class="step">Kickoff</text>
+  <text x="180" y="218" text-anchor="middle" class="small">Jan 10</text>
+  <text x="180" y="148" text-anchor="middle" class="small" fill="#0066cc">+4 days</text>
+
+  <!-- Milestone 2: Dev complete -->
+  <circle cx="320" cy="170" r="10" fill="#0066cc"/>
+  <text x="320" y="200" text-anchor="middle" class="step">Dev complete</text>
+  <text x="320" y="218" text-anchor="middle" class="small">Feb 14</text>
+  <text x="320" y="148" text-anchor="middle" class="small" fill="#0066cc">+5 weeks</text>
+
+  <!-- Milestone 3: Content lock -->
+  <circle cx="460" cy="170" r="10" fill="#0066cc"/>
+  <text x="460" y="200" text-anchor="middle" class="step">Content lock</text>
+  <text x="460" y="218" text-anchor="middle" class="small">Feb 21</text>
+  <text x="460" y="148" text-anchor="middle" class="small" fill="#0066cc">+1 week</text>
+
+  <!-- Milestone 4: Beta -->
+  <circle cx="580" cy="170" r="10" fill="#0066cc"/>
+  <text x="580" y="200" text-anchor="middle" class="step">Beta to users</text>
+  <text x="580" y="218" text-anchor="middle" class="small">Feb 28</text>
+  <text x="580" y="148" text-anchor="middle" class="small" fill="#0066cc">+1 week</text>
+
+  <!-- Milestone 5: Final QA -->
+  <circle cx="680" cy="170" r="10" fill="#0066cc"/>
+  <text x="680" y="200" text-anchor="middle" class="step">Final QA</text>
+  <text x="680" y="218" text-anchor="middle" class="small">Mar 6</text>
+  <text x="680" y="148" text-anchor="middle" class="small" fill="#0066cc">+1 week</text>
+
+  <!-- LAUNCH marker on the right -->
+  <circle cx="720" cy="170" r="14" fill="#dc2626"/>
+  <text x="720" y="120" text-anchor="middle" class="step" fill="#dc2626">LAUNCH</text>
+  <text x="720" y="100" text-anchor="middle" class="small" fill="#dc2626">Mar 10 (immovable)</text>
+
+  <!-- Reverse-plan callout -->
+  <g transform="translate(40,260)">
+    <rect width="720" height="130" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="20" y="26" class="step">How to actually build one</text>
+    <line x1="20" y1="36" x2="700" y2="36" stroke="#cfd5db"/>
+    <text x="20" y="58" class="small">1. <tspan font-weight="600">Lock the launch date.</tspan> If it can move, you don't need a workback schedule — you need a project plan.</text>
+    <text x="20" y="78" class="small">2. <tspan font-weight="600">List the dependencies.</tspan> Which deliverable has to be done before which? Sketch them right to left.</text>
+    <text x="20" y="98" class="small">3. <tspan font-weight="600">Time-box each gap.</tspan> Assign realistic durations between milestones. Add 20% buffer at the end, not in the middle.</text>
+    <text x="20" y="118" class="small">4. <tspan font-weight="600">Check the start date</tspan> — if it's already in the past, the launch date is fiction. Negotiate now, not in week 4.</text>
+  </g>
+</svg>

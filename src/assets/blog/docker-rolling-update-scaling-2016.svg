@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="t d">
+  <title id="t">Docker rolling update — scheduler replaces old container instances one at a time</title>
+  <desc id="d">2016-era flat diagram showing a rolling update: at t0 all 4 containers run v1.4; at t1 one is replaced with v1.5; at t2 another is replaced; at t3 all 4 run v1.5. Traffic always served by majority of healthy containers.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .step{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="480" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Rolling update — replace containers one at a time, no downtime</text>
+
+  <!-- T0 -->
+  <g transform="translate(40,70)">
+    <text x="0" y="0" class="step">t = 0   all instances run v1.4</text>
+    <g transform="translate(0,12)">
+      <rect width="64" height="48" fill="#0066cc" rx="2"/><text x="32" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+      <rect x="72" width="64" height="48" fill="#0066cc" rx="2"/><text x="104" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+      <rect x="144" width="64" height="48" fill="#0066cc" rx="2"/><text x="176" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+      <rect x="216" width="64" height="48" fill="#0066cc" rx="2"/><text x="248" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+    </g>
+  </g>
+
+  <!-- T1 -->
+  <g transform="translate(40,170)">
+    <text x="0" y="0" class="step">t = 1   scheduler kills #1 and starts a v1.5</text>
+    <g transform="translate(0,12)">
+      <rect width="64" height="48" fill="#10a37f" rx="2"/><text x="32" y="30" text-anchor="middle" class="small" fill="#fff">v1.5 ✓</text>
+      <rect x="72" width="64" height="48" fill="#0066cc" rx="2"/><text x="104" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+      <rect x="144" width="64" height="48" fill="#0066cc" rx="2"/><text x="176" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+      <rect x="216" width="64" height="48" fill="#0066cc" rx="2"/><text x="248" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+    </g>
+    <text x="300" y="36" class="small" fill="#10a37f">3 still serving traffic</text>
+  </g>
+
+  <!-- T2 -->
+  <g transform="translate(40,270)">
+    <text x="0" y="0" class="step">t = 2   scheduler waits for health-check, then kills #2</text>
+    <g transform="translate(0,12)">
+      <rect width="64" height="48" fill="#10a37f" rx="2"/><text x="32" y="30" text-anchor="middle" class="small" fill="#fff">v1.5</text>
+      <rect x="72" width="64" height="48" fill="#10a37f" rx="2"/><text x="104" y="30" text-anchor="middle" class="small" fill="#fff">v1.5 ✓</text>
+      <rect x="144" width="64" height="48" fill="#0066cc" rx="2"/><text x="176" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+      <rect x="216" width="64" height="48" fill="#0066cc" rx="2"/><text x="248" y="30" text-anchor="middle" class="small" fill="#fff">v1.4</text>
+    </g>
+    <text x="300" y="36" class="small" fill="#10a37f">2 v1.5 + 2 v1.4</text>
+  </g>
+
+  <!-- T3 -->
+  <g transform="translate(40,370)">
+    <text x="0" y="0" class="step">t = 3   all four are v1.5 — rollout complete</text>
+    <g transform="translate(0,12)">
+      <rect width="64" height="48" fill="#10a37f" rx="2"/><text x="32" y="30" text-anchor="middle" class="small" fill="#fff">v1.5</text>
+      <rect x="72" width="64" height="48" fill="#10a37f" rx="2"/><text x="104" y="30" text-anchor="middle" class="small" fill="#fff">v1.5</text>
+      <rect x="144" width="64" height="48" fill="#10a37f" rx="2"/><text x="176" y="30" text-anchor="middle" class="small" fill="#fff">v1.5</text>
+      <rect x="216" width="64" height="48" fill="#10a37f" rx="2"/><text x="248" y="30" text-anchor="middle" class="small" fill="#fff">v1.5 ✓</text>
+    </g>
+    <text x="300" y="36" class="small" fill="#10a37f">no downtime · seamless deploy</text>
+  </g>
+
+  <!-- Right-side caption -->
+  <g transform="translate(440,70)">
+    <rect width="320" height="380" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="20" y="32" class="step">Why the scheduler matters</text>
+    <line x1="20" y1="44" x2="300" y2="44" stroke="#cfd5db"/>
+    <text x="20" y="68" class="small" font-weight="600">Health check before next kill</text>
+    <text x="20" y="86" class="small">The new container has to pass its health</text>
+    <text x="20" y="102" class="small">probe before the scheduler kills the next one.</text>
+    <text x="20" y="118" class="small">Bad version? Rollout stops mid-roll.</text>
+
+    <text x="20" y="156" class="small" font-weight="600">Parallelism is a knob</text>
+    <text x="20" y="174" class="small">Replace 1 at a time (slow, safe) or 2 at</text>
+    <text x="20" y="190" class="small">a time (faster, less buffer). Tune to your</text>
+    <text x="20" y="206" class="small">traffic shape.</text>
+
+    <text x="20" y="244" class="small" font-weight="600">Rollback is automatic</text>
+    <text x="20" y="262" class="small">If health probes fail, the scheduler stops</text>
+    <text x="20" y="278" class="small">and starts replacing v1.5s with v1.4s.</text>
+    <text x="20" y="294" class="small">You get rollback for free.</text>
+
+    <text x="20" y="332" class="small" font-weight="600">Same loop = scaling</text>
+    <text x="20" y="350" class="small">"Set replicas=8" runs the same loop in</text>
+    <text x="20" y="366" class="small">reverse — add containers, don't replace.</text>
+  </g>
+</svg>

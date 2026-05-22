@@ -1,17 +1,17 @@
 ---
-title: "Getting Started With OneNote 2016"
+title: Getting Started With OneNote 2016
 order: 25
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row][vc_column][vc_single_image image= 7455 img_size= full alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2= Getting Start…"
-wpUrl: "/courses/getting-started-with-onenote-2016/"
-cover: "/courses/getting-started-with-onenote-2016.svg"
-coverAlt: "Getting Started With OneNote 2016"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: Beginning OneNote 2016 is your must-have companion for anyone getting starting with OneNote 2016. This friendly, quick, 100% practical tutorial walks you through the various tasks for building...
+wpUrl: /courses/getting-started-with-onenote-2016/
+cover: ../../assets/courses/getting-started-with-onenote-2016.svg
+coverAlt: Getting Started With OneNote 2016
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row][vc_column][vc_single_image image=”7455″ img_size=”full” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Getting Started With OneNote 2016 ” h4=”A Step by Step Guide To OneNote 2016 Enlightenment” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:http%3A%2F%2Fbtreepress.teachable.com%2Fp%2Fgetting-started-with-onenote-2016%2F|title:Sign%20Up%20Today!||” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]Beginning* OneNote 2016* is your must-have companion for anyone getting starting with OneNote 2016. This friendly, quick, 100% practical tutorial walks you through the various tasks for building your own OneNote digital notebooks and filling them with notes, ideas, resources, artwork, lists, and more. If you’re ready to organize your note-taking projects, then Beginning* OneNote 2016* is ready to help.

@@ -1,12 +1,23 @@
 ---
 title: "WSJF: Prioritize Like a Product Ninja!"
-date: 2024-02-05T07:54:00
+date: 2024-02-05T07:54:00.000Z
 category: product
-tags: ["agile", "backlog-grooming", "cost-of-delay", "prioritization", "product-management", "project-management", "safe", "sequencing", "value-delivery", "weighted-shortest-job-first", "wsjf"]
-excerpt: "Alright, team, let&#8217;s talk prioritization. We&#8217;ve all been there. Staring at a backlog that&#8217;s longer than a CVS receipt, feeling the cold sweat of indecision. Do you tackle the big,…"
-wpCategory: "project-management"
-wpUrl: "/project-management/wsjf-prioritize-like-a-product-ninja/"
-cover: "/blog/migrated/2025/02/image-1.png"
+tags:
+  - agile
+  - backlog-grooming
+  - cost-of-delay
+  - prioritization
+  - product
+  - project-management
+  - safe
+  - sequencing
+  - value-delivery
+  - weighted-shortest-job-first
+  - wsjf
+excerpt: Alright, team, let’s talk prioritization. We’ve all been there. Staring at a backlog that’s longer than a CVS receipt, feeling the cold sweat of indecision. Do you tackle the big,…
+wpCategory: project-management
+wpUrl: /project-management/wsjf-prioritize-like-a-product-ninja/
+cover: ../../assets/blog/wsjf-cost-of-delay-businessman-watching-money-fly-away.png
 coverAlt: "WSJF: Prioritize Like a Product Ninja!"
 ---
 
@@ -25,6 +36,8 @@ The magic of WSJF lies in its focus on two key factors:
 - **Job Size (or Duration):** How long will this thing take to complete? A quick tweak or a multi-quarter saga?
 
 By combining these, you can create the right order of importance.
+
+![WSJF formula diagram — Cost of Delay (User/Business Value + Time Criticality + Risk Reduction/Opportunity) divided by Job Size; score each factor 1-21 on the Fibonacci scale and rank the highest WSJF first](../../assets/blog/wsjf-formula-cost-of-delay-job-size-2025.svg)
 
 ## The WSJF Formula Decoded
 
@@ -116,14 +129,14 @@ Let’s do some *very* rough WSJF estimation:
 
 ## WSJF ≠ Crystal Ball (But Close)
 
-[![](/blog/migrated/2025/02/image.png)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2025/02/image.png)
+![Illustration of the WSJF (Weighted Shortest Job First) prioritization formula — cost of delay divided by job size, ranking SAFe backlog items](../../assets/blog/wsjf-weighted-shortest-job-first-formula-illustration.png)
 
 While no framework guarantees success, WSJF turns prioritization from political debates into data-driven decisions. 
 - **Making informed decisions:** It forces you to think critically about value and urgency.**
 - **Facilitating conversations:** It provides a common language for stakeholders to discuss priorities.**
 - **Adapting to change:** As new information emerges, you can re-calculate WSJF and adjust your plans.
 
-- **Maximizing Flow.**~~ Small quick work promotes flow.~~
+- **Maximizing Flow.**~~ Small quick work promotes flow.
 
 One SAFe team at a retail giant used it to reduce decision-making time by 40% while increasing ROI per sprint.Ready to WSJF your backlog into shape? 
 

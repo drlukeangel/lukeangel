@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Docker service discovery — health checks and automatic failover via the kv store</title>
+  <desc id="d">2016-era flat diagram: a fleet of service instances all heartbeat into the kv store; one instance becomes unhealthy; the store removes it; consumers no longer route to it; failover is instant from the consumer's perspective.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+    <marker id="arRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Health checks + automatic failover via the kv store</text>
+
+  <!-- Service instances -->
+  <g transform="translate(40,80)">
+    <rect width="200" height="60" fill="#fff" stroke="#10a37f" stroke-width="2" rx="4"/>
+    <text x="14" y="22" class="label" fill="#10a37f">api · instance 1 (healthy)</text>
+    <text x="14" y="42" class="small">10.0.9.4:9000</text>
+    <text x="14" y="56" class="small">heartbeat: 2s ago ✓</text>
+  </g>
+  <g transform="translate(40,160)">
+    <rect width="200" height="60" fill="#fff" stroke="#dc2626" stroke-width="2" rx="4" stroke-dasharray="4,3"/>
+    <text x="14" y="22" class="label" fill="#dc2626">api · instance 2 (dying)</text>
+    <text x="14" y="42" class="small">10.0.9.5:9000</text>
+    <text x="14" y="56" class="small" fill="#dc2626">heartbeat: 18s ago ✗</text>
+  </g>
+  <g transform="translate(40,240)">
+    <rect width="200" height="60" fill="#fff" stroke="#10a37f" stroke-width="2" rx="4"/>
+    <text x="14" y="22" class="label" fill="#10a37f">api · instance 3 (healthy)</text>
+    <text x="14" y="42" class="small">10.0.9.6:9000</text>
+    <text x="14" y="56" class="small">heartbeat: 1s ago ✓</text>
+  </g>
+
+  <!-- Heartbeat arrows -->
+  <line x1="240" y1="100" x2="320" y2="170" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="240" y1="190" x2="320" y2="200" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arRed)"/>
+  <line x1="240" y1="260" x2="320" y2="230" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <text x="270" y="92" class="small" fill="#0066cc">2s</text>
+  <text x="270" y="186" class="small" fill="#dc2626">18s ✗</text>
+  <text x="270" y="260" class="small" fill="#0066cc">1s</text>
+
+  <!-- kv store -->
+  <g transform="translate(320,140)">
+    <rect width="160" height="140" fill="#1a1d24" rx="6"/>
+    <text x="80" y="32" text-anchor="middle" class="label" fill="#fff">kv store</text>
+    <text x="80" y="50" text-anchor="middle" class="small" fill="#9aa3ad">/services/api</text>
+    <line x1="14" y1="64" x2="146" y2="64" stroke="#9aa3ad" stroke-opacity="0.3"/>
+    <text x="14" y="86" class="small" fill="#10a37f">+ 10.0.9.4 (alive)</text>
+    <text x="14" y="106" class="small" fill="#dc2626" text-decoration="line-through">- 10.0.9.5 (removed)</text>
+    <text x="14" y="126" class="small" fill="#10a37f">+ 10.0.9.6 (alive)</text>
+  </g>
+
+  <!-- Arrow to consumer -->
+  <line x1="480" y1="210" x2="560" y2="210" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="500" y="200" class="small" fill="#0066cc">resolve</text>
+
+  <!-- Consumer -->
+  <g transform="translate(560,160)">
+    <rect width="200" height="100" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="label">jobs worker</text>
+    <text x="14" y="42" class="small">GET /services/api</text>
+    <text x="14" y="58" class="small">→ picks 10.0.9.4 or 10.0.9.6</text>
+    <text x="14" y="78" class="small" fill="#10a37f">never sees the dead one</text>
+  </g>
+
+  <!-- Note bottom -->
+  <text x="40" y="370" class="small" font-weight="600">The failover loop</text>
+  <text x="40" y="390" class="small">1. each instance heartbeats to the kv store on a schedule (every 1-5 seconds)</text>
+  <text x="40" y="406" class="small">2. the store evicts entries older than the threshold (typically 10-30 seconds)</text>
+  <text x="40" y="422" class="small">3. consumers querying the store get only live entries — no health check on the consumer side required</text>
+  <text x="40" y="438" class="small">4. when the sick instance comes back, it just re-registers — back in rotation automatically</text>
+</svg>

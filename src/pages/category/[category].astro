@@ -20,7 +20,7 @@ const blurbs: Record<string, string> = {
   people: 'Hiring, mentoring, working with the difficult ones.',
 };
 ---
-<Base title={`${category.charAt(0).toUpperCase() + category.slice(1)} · Journal`} current="blog">
+<Base title={`${category.charAt(0).toUpperCase() + category.slice(1)} — The Journal by Luke Angel`} current="blog" description={`${blurbs[category]} ${posts.length} entries from Luke Angel's journal in the ${category} category.`}>
   <section class="wrap" style="padding: 56px 32px;">
     <a href="/blog/" class="mono">← back to the journal</a>
     <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-top: 16px;">

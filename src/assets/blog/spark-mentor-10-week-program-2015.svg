@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="t d">
+  <title id="t">Spark mentor program — 10-week timeline from awkward week 1 to confident presentation week 10</title>
+  <desc id="d">2015-era flat timeline showing the 10 weeks of a Spark workplace mentorship: awkward start, project assignment, deep questions weeks 3-8, presentation prep week 9, final presentation week 10. Trajectory curve from low confidence to high.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .week{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:600;fill:#fff}
+  </style>
+  <rect width="800" height="400" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Spark mentorship — 10 weeks, one student, one transformed afternoon</text>
+
+  <!-- Timeline axis -->
+  <line x1="60" y1="280" x2="760" y2="280" stroke="#1a1d24" stroke-width="2"/>
+  <text x="60" y="300" class="small">week 1</text>
+  <text x="755" y="300" text-anchor="end" class="small">week 10 — presentation day</text>
+
+  <!-- Trajectory curve (confidence over time) -->
+  <path d="M 60 240 Q 240 230 410 180 Q 580 120 760 90" fill="none" stroke="#ff6b35" stroke-width="3"/>
+
+  <!-- Week markers (dots on curve) -->
+  <g fill="#0066cc">
+    <circle cx="60" cy="240" r="8"/>
+    <circle cx="135" cy="232" r="8"/>
+    <circle cx="240" cy="220" r="8"/>
+    <circle cx="340" cy="200" r="8"/>
+    <circle cx="430" cy="175" r="8"/>
+    <circle cx="525" cy="150" r="8"/>
+    <circle cx="610" cy="120" r="8"/>
+    <circle cx="690" cy="100" r="8"/>
+    <circle cx="760" cy="90" r="10" fill="#10a37f"/>
+  </g>
+
+  <!-- Annotations -->
+  <text x="60" y="220" class="small" text-anchor="start">Week 1</text>
+  <text x="60" y="206" class="small" font-weight="600">awkward</text>
+
+  <text x="240" y="200" class="small" text-anchor="middle">Week 2</text>
+  <text x="240" y="186" class="small" text-anchor="middle" font-weight="600">project starts</text>
+
+  <text x="430" y="155" class="small" text-anchor="middle">Weeks 3-8</text>
+  <text x="430" y="141" class="small" text-anchor="middle" font-weight="600">the questions</text>
+
+  <text x="610" y="100" class="small" text-anchor="middle">Week 9</text>
+  <text x="610" y="86" class="small" text-anchor="middle" font-weight="600">prep</text>
+
+  <text x="760" y="70" class="small" text-anchor="end" font-weight="600" fill="#10a37f">Week 10 · presentation</text>
+
+  <!-- Vertical labels -->
+  <text x="48" y="280" text-anchor="end" class="small" transform="rotate(-90 48 280)">low confidence</text>
+  <text x="48" y="80" text-anchor="start" class="small" transform="rotate(-90 48 80)">high confidence</text>
+
+  <!-- The ask -->
+  <g transform="translate(40,320)">
+    <rect width="720" height="60" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="label">The ask: <tspan font-weight="400">2 hours/week × 10 weeks = 20 hours total · paid by your employer in most cases · all logistics handled by Spark</tspan></text>
+    <text x="14" y="42" class="small">The match coordinator pairs the student to your interests. You don't lecture; you let them sit beside you and translate your work.</text>
+    <text x="14" y="56" class="small">The active ingredient: <tspan font-weight="600">consistent, predictable presence of one adult outside the family during identity formation.</tspan></text>
+  </g>
+</svg>

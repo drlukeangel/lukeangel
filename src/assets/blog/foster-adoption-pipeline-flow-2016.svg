@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="t d">
+  <title id="t">Foster-to-adoption pipeline — how a foster placement multiplies shelter throughput</title>
+  <desc id="d">2016-era flat horizontal pipeline showing the foster-to-adoption flow: animal enters shelter, foster takes them home for 2-12 weeks of socialization, animal is more adoptable, gets adopted, foster repeats. Annotations show the multiplier effect on shelter capacity.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#fff;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="380" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">The foster pipeline — multiplying shelter throughput</text>
+
+  <!-- 5 stages -->
+  <g transform="translate(40,90)">
+    <rect width="130" height="80" fill="#1a1d24" rx="6"/>
+    <text x="65" y="32" text-anchor="middle" class="label">1. Intake</text>
+    <text x="65" y="52" text-anchor="middle" class="small" fill="#9aa3ad">animal arrives</text>
+    <text x="65" y="68" text-anchor="middle" class="small" fill="#9aa3ad">at shelter</text>
+  </g>
+  <line x1="170" y1="130" x2="200" y2="130" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <g transform="translate(210,90)">
+    <rect width="130" height="80" fill="#ff6b35" rx="6"/>
+    <text x="65" y="32" text-anchor="middle" class="label">2. Foster</text>
+    <text x="65" y="52" text-anchor="middle" class="small" fill="#fff5ee">2-12 weeks</text>
+    <text x="65" y="68" text-anchor="middle" class="small" fill="#fff5ee">in your home</text>
+  </g>
+  <line x1="340" y1="130" x2="370" y2="130" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <g transform="translate(380,90)">
+    <rect width="130" height="80" fill="#0066cc" rx="6"/>
+    <text x="65" y="32" text-anchor="middle" class="label">3. Socialize</text>
+    <text x="65" y="52" text-anchor="middle" class="small" fill="#cfe0f5">manners, leash,</text>
+    <text x="65" y="68" text-anchor="middle" class="small" fill="#cfe0f5">human confidence</text>
+  </g>
+  <line x1="510" y1="130" x2="540" y2="130" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <g transform="translate(550,90)">
+    <rect width="130" height="80" fill="#10a37f" rx="6"/>
+    <text x="65" y="32" text-anchor="middle" class="label">4. Adopt</text>
+    <text x="65" y="52" text-anchor="middle" class="small" fill="#d1fae5">found forever home</text>
+    <text x="65" y="68" text-anchor="middle" class="small" fill="#d1fae5">from your home</text>
+  </g>
+
+  <!-- Loop back arrow -->
+  <path d="M 615 170 Q 615 230 275 230 Q 275 170 275 170" fill="none" stroke="#0066cc" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ar)"/>
+  <text x="445" y="248" text-anchor="middle" class="small" fill="#0066cc">foster takes the next one →</text>
+
+  <!-- Bottom math -->
+  <g transform="translate(40,270)">
+    <rect width="720" height="90" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="small" font-weight="600">The throughput math</text>
+    <text x="14" y="44" class="small">- Shelter capacity = N kennels.  Average length of stay without foster = ~30 days.  Animals/year = N × 12.</text>
+    <text x="14" y="60" class="small">- With 1 active foster: that animal vacates a kennel for the duration. Net additional capacity = N + 1 over the period.</text>
+    <text x="14" y="76" class="small">- With 10 active fosters: net capacity = N + 10. <tspan font-weight="600" fill="#10a37f">Tenfold leverage per volunteer hour, on shelter throughput.</tspan></text>
+  </g>
+</svg>

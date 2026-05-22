@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2a52be"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots2)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+
+  <line x1="80" y1="100" x2="1120" y2="100" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="80" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">THE LOOP</text>
+  <text x="1120" y="80" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2a52be" text-anchor="end">4 STEPS</text>
+
+  <text x="80" y="180" font-family="Newsreader, serif" font-weight="500" font-size="48" fill="#1a1d24" letter-spacing="-1">The 4-step PM playbook</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(80, 250)">
+    <rect x="0" y="0" width="240" height="180" rx="10" fill="#ffffff" stroke="#1a1d24" stroke-width="2"/>
+    <text x="20" y="36" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#2a52be">STEP 01</text>
+    <text x="20" y="78" font-family="Newsreader, serif" font-weight="500" font-size="26" fill="#1a1d24">Golden dataset</text>
+    <text x="20" y="118" font-family="Newsreader, serif" font-size="16" fill="#7a808c">30 - 50 real user</text>
+    <text x="20" y="140" font-family="Newsreader, serif" font-size="16" fill="#7a808c">queries paired with</text>
+    <text x="20" y="162" font-family="Newsreader, serif" font-size="16" fill="#7a808c">ideal answers.</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(360, 250)">
+    <rect x="0" y="0" width="240" height="180" rx="10" fill="#ffffff" stroke="#1a1d24" stroke-width="2"/>
+    <text x="20" y="36" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#2a52be">STEP 02</text>
+    <text x="20" y="78" font-family="Newsreader, serif" font-weight="500" font-size="26" fill="#1a1d24">Pick metrics</text>
+    <text x="20" y="118" font-family="Newsreader, serif" font-size="16" fill="#7a808c">Accuracy. Tone.</text>
+    <text x="20" y="140" font-family="Newsreader, serif" font-size="16" fill="#7a808c">Format. Hallucination.</text>
+    <text x="20" y="162" font-family="Newsreader, serif" font-size="16" fill="#7a808c">Keep it small.</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(640, 250)">
+    <rect x="0" y="0" width="240" height="180" rx="10" fill="#ffffff" stroke="#1a1d24" stroke-width="2"/>
+    <text x="20" y="36" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#2a52be">STEP 03</text>
+    <text x="20" y="78" font-family="Newsreader, serif" font-weight="500" font-size="26" fill="#1a1d24">Score it</text>
+    <text x="20" y="118" font-family="Newsreader, serif" font-size="16" fill="#7a808c">Deterministic checks</text>
+    <text x="20" y="140" font-family="Newsreader, serif" font-size="16" fill="#7a808c">where exact, judge LLM</text>
+    <text x="20" y="162" font-family="Newsreader, serif" font-size="16" fill="#7a808c">where semantic.</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g transform="translate(920, 250)">
+    <rect x="0" y="0" width="200" height="180" rx="10" fill="#2a52be"/>
+    <text x="20" y="36" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#fdfaf2">STEP 04</text>
+    <text x="20" y="78" font-family="Newsreader, serif" font-weight="500" font-size="26" fill="#fdfaf2">Wire CI</text>
+    <text x="20" y="118" font-family="Newsreader, serif" font-size="16" fill="#ffffff" opacity="0.85">Every PR runs the</text>
+    <text x="20" y="140" font-family="Newsreader, serif" font-size="16" fill="#ffffff" opacity="0.85">eval. Failing build</text>
+    <text x="20" y="162" font-family="Newsreader, serif" font-size="16" fill="#ffffff" opacity="0.85">protects the score.</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="320" y1="340" x2="360" y2="340" stroke="#2a52be" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="600" y1="340" x2="640" y2="340" stroke="#2a52be" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="880" y1="340" x2="920" y2="340" stroke="#2a52be" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Loop-back -->
+  <path d="M 1020 430 Q 1020 520 600 520 Q 200 520 200 460" stroke="#1a1d24" stroke-width="2" fill="none" stroke-dasharray="6,8" marker-end="url(#arrow)"/>
+  <text x="600" y="555" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">REGRESS · REPEAT · GROW THE DATASET</text>
+
+  <line x1="80" y1="592" x2="1120" y2="592" stroke="#1a1d24" stroke-width="2"/>
+</svg>

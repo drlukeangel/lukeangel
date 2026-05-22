@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Netflix Kafka event bus — producers emit events, consumers subscribe, replayable log in the middle</title>
+  <desc id="d">2016-era flat-material diagram: three producer services on the left emit playback events to a central Kafka topic; four downstream consumer services (recommendations, analytics, ML, billing) subscribe to the same log; replay arrow shows the log can be re-read at any time.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e50914"/>
+    </marker>
+    <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Netflix's event bus — producers + Kafka log + consumers</text>
+
+  <!-- Producers on left -->
+  <g transform="translate(40,90)">
+    <rect width="140" height="56" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="70" y="32" text-anchor="middle" class="label">playback service</text>
+    <text x="70" y="48" text-anchor="middle" class="small">emits: play, pause, seek</text>
+  </g>
+  <g transform="translate(40,170)">
+    <rect width="140" height="56" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="70" y="32" text-anchor="middle" class="label">ratings service</text>
+    <text x="70" y="48" text-anchor="middle" class="small">emits: rate, thumbs-up</text>
+  </g>
+  <g transform="translate(40,250)">
+    <rect width="140" height="56" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="70" y="32" text-anchor="middle" class="label">session service</text>
+    <text x="70" y="48" text-anchor="middle" class="small">emits: login, abandon, idle</text>
+  </g>
+
+  <!-- arrows producers → kafka -->
+  <line x1="180" y1="118" x2="320" y2="180" stroke="#e50914" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="180" y1="198" x2="320" y2="200" stroke="#e50914" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="180" y1="278" x2="320" y2="220" stroke="#e50914" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- Kafka log in middle -->
+  <g transform="translate(320,140)">
+    <rect width="160" height="140" fill="#1a1d24" rx="6"/>
+    <text x="80" y="32" text-anchor="middle" class="label" fill="#fff">Kafka topic</text>
+    <text x="80" y="50" text-anchor="middle" class="small" fill="#9aa3ad">user-events</text>
+    <!-- event ticks -->
+    <g fill="#e50914">
+      <rect x="14" y="68" width="14" height="14"/>
+      <rect x="32" y="68" width="14" height="14"/>
+      <rect x="50" y="68" width="14" height="14"/>
+      <rect x="68" y="68" width="14" height="14"/>
+      <rect x="86" y="68" width="14" height="14"/>
+      <rect x="104" y="68" width="14" height="14"/>
+      <rect x="122" y="68" width="14" height="14"/>
+    </g>
+    <text x="80" y="106" text-anchor="middle" class="small" fill="#9aa3ad">immutable log</text>
+    <text x="80" y="122" text-anchor="middle" class="small" fill="#9aa3ad">replayable · partitioned</text>
+  </g>
+
+  <!-- arrows kafka → consumers -->
+  <line x1="480" y1="160" x2="600" y2="100" stroke="#0066cc" stroke-width="2" marker-end="url(#ar2)"/>
+  <line x1="480" y1="190" x2="600" y2="180" stroke="#0066cc" stroke-width="2" marker-end="url(#ar2)"/>
+  <line x1="480" y1="220" x2="600" y2="260" stroke="#0066cc" stroke-width="2" marker-end="url(#ar2)"/>
+  <line x1="480" y1="250" x2="600" y2="340" stroke="#0066cc" stroke-width="2" marker-end="url(#ar2)"/>
+
+  <!-- Consumers on right -->
+  <g transform="translate(600,72)">
+    <rect width="160" height="56" fill="#fff" stroke="#0066cc" rx="4"/>
+    <text x="80" y="32" text-anchor="middle" class="label">recommendations</text>
+    <text x="80" y="48" text-anchor="middle" class="small">personalization model</text>
+  </g>
+  <g transform="translate(600,152)">
+    <rect width="160" height="56" fill="#fff" stroke="#0066cc" rx="4"/>
+    <text x="80" y="32" text-anchor="middle" class="label">analytics warehouse</text>
+    <text x="80" y="48" text-anchor="middle" class="small">BI &amp; dashboards</text>
+  </g>
+  <g transform="translate(600,232)">
+    <rect width="160" height="56" fill="#fff" stroke="#0066cc" rx="4"/>
+    <text x="80" y="32" text-anchor="middle" class="label">ML training pipeline</text>
+    <text x="80" y="48" text-anchor="middle" class="small">offline batch jobs</text>
+  </g>
+  <g transform="translate(600,312)">
+    <rect width="160" height="56" fill="#fff" stroke="#0066cc" rx="4"/>
+    <text x="80" y="32" text-anchor="middle" class="label">billing &amp; ops</text>
+    <text x="80" y="48" text-anchor="middle" class="small">usage metering</text>
+  </g>
+
+  <!-- Replay arc -->
+  <path d="M 480 280 Q 400 380 320 280" fill="none" stroke="#ff6b35" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#ar)"/>
+  <text x="400" y="380" text-anchor="middle" class="small" fill="#ff6b35">replay any time — events are immutable</text>
+
+  <!-- Footnote -->
+  <text x="40" y="424" class="small">- producers don't know who's consuming · consumers don't compete for the producer's DB</text>
+  <text x="40" y="440" class="small">- adding a new consumer = a SQL query, not a migration</text>
+</svg>

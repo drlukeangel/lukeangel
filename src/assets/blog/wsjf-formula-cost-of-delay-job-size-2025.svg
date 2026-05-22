@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">WSJF — Weighted Shortest Job First formula and component breakdown</title>
+  <desc id="d">2025-era modern flat diagram of the WSJF formula: WSJF = Cost of Delay (made up of user-business value + time criticality + risk/opportunity) divided by Job Size. Visual stack showing how scores combine and rank.</desc>
+  <style>
+    .label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:600;fill:#1a1d24;font-size:14px}
+    .small{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;fill:#5a6470}
+    .title{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+    .mono{font-family:'JetBrains Mono','Menlo','Consolas',monospace;font-size:14px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="460" fill="#fafbfc"/>
+  <text x="400" y="38" text-anchor="middle" class="title">WSJF — Weighted Shortest Job First</text>
+
+  <!-- The formula -->
+  <g transform="translate(80,80)">
+    <rect width="640" height="80" fill="#fff" stroke="#1a1d24" stroke-width="2" rx="8"/>
+    <text x="320" y="36" text-anchor="middle" class="mono">WSJF = Cost of Delay ÷ Job Size</text>
+    <text x="320" y="60" text-anchor="middle" class="small">rank highest WSJF first → maximize value per unit of effort</text>
+  </g>
+
+  <!-- Cost of delay breakdown -->
+  <g transform="translate(80,200)">
+    <rect width="380" height="60" fill="#0066cc" rx="6"/>
+    <text x="190" y="22" text-anchor="middle" class="label">User / Business Value</text>
+    <text x="190" y="44" text-anchor="middle" class="small" fill="#cfe0f5">How much revenue, retention, or strategic value?</text>
+  </g>
+  <text x="270" y="290" text-anchor="middle" class="mono" font-size="20">+</text>
+
+  <g transform="translate(80,300)">
+    <rect width="380" height="60" fill="#0a5fb8" rx="6"/>
+    <text x="190" y="22" text-anchor="middle" class="label">Time Criticality</text>
+    <text x="190" y="44" text-anchor="middle" class="small" fill="#cfe0f5">Does waiting actively hurt? Is there a deadline?</text>
+  </g>
+  <text x="270" y="390" text-anchor="middle" class="mono" font-size="20">+</text>
+
+  <g transform="translate(80,400)">
+    <rect width="380" height="40" fill="#1657a8" rx="6"/>
+    <text x="190" y="18" text-anchor="middle" class="label">Risk Reduction / Opportunity</text>
+    <text x="190" y="34" text-anchor="middle" class="small" fill="#cfe0f5">Does shipping this de-risk a bigger bet?</text>
+  </g>
+
+  <!-- = Cost of Delay -->
+  <text x="490" y="320" text-anchor="middle" class="mono" font-size="18">=</text>
+
+  <!-- Cost of Delay = pillar -->
+  <g transform="translate(520,200)">
+    <rect width="240" height="200" fill="#dd0031" rx="8"/>
+    <text x="120" y="32" text-anchor="middle" class="label">COST OF DELAY</text>
+    <line x1="20" y1="44" x2="220" y2="44" stroke="#fff" stroke-opacity="0.3"/>
+    <text x="120" y="74" text-anchor="middle" class="small" fill="#fff">if we wait one extra sprint,</text>
+    <text x="120" y="92" text-anchor="middle" class="small" fill="#fff">this is what we lose</text>
+
+    <text x="120" y="130" text-anchor="middle" class="mono" fill="#fff" font-size="32">÷</text>
+
+    <text x="120" y="160" text-anchor="middle" class="small" fill="#fff" font-weight="600">divided by</text>
+    <text x="120" y="180" text-anchor="middle" class="small" fill="#fff">Job Size (story points)</text>
+  </g>
+
+  <!-- bottom note -->
+  <text x="400" y="450" text-anchor="middle" class="small">Score each factor 1-21 (Fibonacci). Highest WSJF wins the next sprint slot.</text>
+</svg>

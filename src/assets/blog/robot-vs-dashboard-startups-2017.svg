@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="t d">
+  <title id="t">Robot startups vs dashboard startups — what the customer has to do after they buy</title>
+  <desc id="d">2017-era flat material-design diagram comparing dashboard-style ag-tech startups (left, ingest data → render chart → recommend → farmer still does the work) with robot-style ag-tech startups (right, robot enters field → identifies plant → pulls weed → work delivered). The right column shows a clear value handoff; the left shows a value gap.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .col{font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600}
+  </style>
+  <rect width="800" height="360" fill="#f5f7fa"/>
+  <text x="40" y="34" class="title">Dashboard vs robot — same problem, very different unit of value</text>
+
+  <!-- Dashboard column -->
+  <g transform="translate(40,60)">
+    <rect width="350" height="240" rx="6" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="24" class="col" fill="#0066cc">Dashboard startup</text>
+    <text x="14" y="60" class="small" font-weight="600">1. Ingest field data (sensors, satellite, soil)</text>
+    <text x="14" y="92" class="small" font-weight="600">2. Render chart, dashboard, alert</text>
+    <text x="14" y="124" class="small" font-weight="600">3. Recommend action</text>
+    <text x="14" y="156" class="small" font-weight="600">4. Farmer still walks the field</text>
+    <text x="14" y="188" class="small" font-weight="600">5. Farmer still pulls the weed</text>
+    <rect x="14" y="200" width="322" height="34" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="175" y="222" text-anchor="middle" class="small" fill="#7f1d1d" font-weight="600">Value gap — customer does the labor</text>
+  </g>
+
+  <!-- Robot column -->
+  <g transform="translate(410,60)">
+    <rect width="350" height="240" rx="6" fill="#fff" stroke="#10a37f" stroke-width="1.5"/>
+    <text x="14" y="24" class="col" fill="#0d8068">Robot startup</text>
+    <text x="14" y="60" class="small" font-weight="600">1. Robot enters field at dawn</text>
+    <text x="14" y="92" class="small" font-weight="600">2. Identifies crop vs weed in real time</text>
+    <text x="14" y="124" class="small" font-weight="600">3. Mechanically removes weed</text>
+    <text x="14" y="156" class="small" font-weight="600">4. Continues to next row</text>
+    <text x="14" y="188" class="small" font-weight="600">5. Farmer sleeps in</text>
+    <rect x="14" y="200" width="322" height="34" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="175" y="222" text-anchor="middle" class="small" fill="#14532d" font-weight="600">Value delivered — customer's back is rested</text>
+  </g>
+
+  <!-- bottom note -->
+  <g transform="translate(40,320)">
+    <text x="0" y="14" class="small">The PM read: a recommendation engine competes with the farmer's intuition (free). A robot competes with the farmer's tired back (universal). Easier sell.</text>
+  </g>
+</svg>

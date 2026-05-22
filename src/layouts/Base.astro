@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Seo from '@jdevalk/astro-seo-graph/Seo.astro';
+import { getImage } from 'astro:assets';
+import defaultOgImage from '../assets/pages/luke-angel-profile.jpg';
 import '../styles/global.css';
 
 interface Props {
@@ -12,11 +14,13 @@ interface Props {
   ogType?: 'website' | 'article';
 }
 
+const defaultOg = await getImage({ src: defaultOgImage, format: 'webp', width: 1200, height: 630 });
+
 const {
   title,
   description = 'Luke Angel — product, programs, AI, and a daily ledger of small thank-yous.',
   current,
-  image = '/og.png',
+  image = defaultOg.src,
   ogType = 'website',
 } = Astro.props;
 ---
@@ -26,9 +30,13 @@ const {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Favicon — the cropped-wing mark from lukeangel.co -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="mask-icon" href="/favicon.png" color="#2a52be" />
+
   <Seo
     title={title}
-    titleTemplate="%s · Luke Angel"
     description={description}
     ogType={ogType}
     ogImage={new URL(image, Astro.site).toString()}

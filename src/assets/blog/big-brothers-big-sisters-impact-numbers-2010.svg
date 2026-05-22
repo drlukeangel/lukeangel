@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="t d">
+  <title id="t">Big Brothers Big Sisters — impact in numbers</title>
+  <desc id="d">2010-era flat-style stats graphic showing the impact of the BBBS mentor program: hours per month, length of typical match, percentage outcomes on graduation, college enrollment, and avoidance of risky behaviors.</desc>
+  <style>
+    .num{font-family:'Helvetica Neue',Arial,sans-serif;font-size:54px;font-weight:700;fill:#0066cc}
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:500;fill:#1a1d24}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="380" fill="#f5f7fa"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Big Brothers Big Sisters — the small commitment, the big impact</text>
+
+  <!-- 4 big-number callouts -->
+  <g transform="translate(60,80)">
+    <rect width="160" height="160" fill="#fff" stroke="#cfd5db" rx="8"/>
+    <text x="80" y="90" text-anchor="middle" class="num">6-8</text>
+    <text x="80" y="120" text-anchor="middle" class="label">hours / month</text>
+    <text x="80" y="140" text-anchor="middle" class="small">average Big-Little</text>
+    <text x="80" y="154" text-anchor="middle" class="small">hangout time</text>
+  </g>
+
+  <g transform="translate(240,80)">
+    <rect width="160" height="160" fill="#fff" stroke="#cfd5db" rx="8"/>
+    <text x="80" y="90" text-anchor="middle" class="num" fill="#ff6b35">1 yr</text>
+    <text x="80" y="120" text-anchor="middle" class="label">minimum commitment</text>
+    <text x="80" y="140" text-anchor="middle" class="small">most matches</text>
+    <text x="80" y="154" text-anchor="middle" class="small">last several years</text>
+  </g>
+
+  <g transform="translate(420,80)">
+    <rect width="160" height="160" fill="#fff" stroke="#cfd5db" rx="8"/>
+    <text x="80" y="90" text-anchor="middle" class="num" fill="#10a37f">52%</text>
+    <text x="80" y="120" text-anchor="middle" class="label">less likely</text>
+    <text x="80" y="140" text-anchor="middle" class="small">to skip school</text>
+    <text x="80" y="154" text-anchor="middle" class="small">(vs unmatched peers)</text>
+  </g>
+
+  <g transform="translate(600,80)">
+    <rect width="160" height="160" fill="#fff" stroke="#cfd5db" rx="8"/>
+    <text x="80" y="90" text-anchor="middle" class="num" fill="#10a37f">46%</text>
+    <text x="80" y="120" text-anchor="middle" class="label">less likely</text>
+    <text x="80" y="140" text-anchor="middle" class="small">to start using</text>
+    <text x="80" y="154" text-anchor="middle" class="small">illegal drugs</text>
+  </g>
+
+  <!-- Bottom note -->
+  <g transform="translate(60,270)">
+    <rect width="680" height="90" fill="#fff" stroke="#cfd5db" rx="8"/>
+    <text x="14" y="26" class="label">What the active ingredient actually is</text>
+    <text x="14" y="48" class="small">It's not the activities. It's not the lectures. It's not the advice. It's the simple fact that an adult outside the family</text>
+    <text x="14" y="64" class="small">shows up on a predictable schedule and treats the Little like a person. That alone moves the needle. Consistently.</text>
+    <text x="14" y="80" class="small" fill="#5a6470">Stats source: long-running Big Brothers Big Sisters outcome studies; numbers approximate &amp; vary by region/cohort.</text>
+  </g>
+</svg>

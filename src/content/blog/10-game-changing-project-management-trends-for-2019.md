@@ -1,16 +1,21 @@
 ---
-title: "10 Game-Changing Project Management Trends for 2019"
-date: 2019-01-01T14:27:00
+title: 10 Game-Changing Project Management Trends for 2019
+date: 2019-01-01T14:27:00.000Z
 category: projects
-tags: ["agile", "ai", "hybrid-work-models", "project-management", "trends"]
-excerpt: "1. AI: Your New BFF (Best Forecasting Friend) Forget crystal balls – Artificial Intelligence is the fortune-teller of the future! In 2019, AI will become your secret weapon for: Pro tip: Embrace th…"
-wpCategory: "project-management"
-wpUrl: "/project-management/10-game-changing-project-management-trends-for-2019/"
-cover: "/blog/migrated/2025/01/10-Game-Changing-Project-Management-Trends-for-2019-.png"
-coverAlt: "10 Game-Changing Project Management Trends for 2019"
+tags:
+  - agile
+  - ai
+  - hybrid-work-models
+  - project-management
+  - trends
+excerpt: '1. AI: Your New BFF (Best Forecasting Friend) Forget crystal balls – Artificial Intelligence is the fortune-teller of the future! In 2019, AI will become your secret weapon for: Pro tip…'
+wpCategory: project-management
+wpUrl: /project-management/10-game-changing-project-management-trends-for-2019/
+cover: ../../assets/blog/10-game-changing-project-management-trends-for-2019-cover.png
+coverAlt: 10 Game-Changing Project Management Trends for 2019
 ---
 
-[![](/blog/migrated/2025/01/10-Game-Changing-Project-Management-Trends-for-2019-.png)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2025/01/10-Game-Changing-Project-Management-Trends-for-2019-.png)
+![Cover graphic for "10 Game-Changing Project Management Trends for 2019" — overview of project management trends](../../assets/blog/10-game-changing-project-management-trends-for-2019-cover.png)
 
 ## 1. AI: Your New BFF (Best Forecasting Friend)
 
@@ -36,7 +41,7 @@ Pro tip: Embrace the AI revolution, but don’t forget to bring your human touch
 
 Remember: There’s no one-size-fits-all solution. Be the chameleon your projects need!
 
-[![](/blog/migrated/2025/01/Data-Driven-Decisions.png)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2025/01/Data-Driven-Decisions.png)
+![Illustration of data-driven decision-making — 2019 project management trend toward using analytics to guide PM choices](../../assets/blog/data-driven-project-management-decisions-2019.png)
 
 ## 3. Data-Driven Decisions: Numbers Don’t Lie
 

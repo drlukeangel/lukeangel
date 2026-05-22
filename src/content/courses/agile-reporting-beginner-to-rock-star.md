@@ -1,17 +1,17 @@
 ---
-title: "Agile Reporting – Beginner To Rock Star"
+title: Agile Reporting – Beginner To Rock Star
 order: 9
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row][vc_column][vc_column_text][/vc_column_text][/vc_column][/vc_row][vc_row][vc_column][vc_single_image image= 8060 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visibl…"
-wpUrl: "/courses/agile-reporting-beginner-to-rock-star/"
-cover: "/courses/agile-reporting-beginner-to-rock-star.svg"
-coverAlt: "Agile Reporting – Beginner To Rock Star"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: Learn to communicate agile progress clearly. Prioritize the backlog, update taskboards, and use burndown charts to show project health — without meeting overhead.
+wpUrl: /courses/agile-reporting-beginner-to-rock-star/
+cover: ../../assets/courses/agile-reporting-beginner-to-rock-star.svg
+coverAlt: Agile Reporting – Beginner To Rock Star
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row][vc_column][vc_column_text][/vc_column_text][/vc_column][/vc_row][vc_row][vc_column][vc_single_image image=”8060″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

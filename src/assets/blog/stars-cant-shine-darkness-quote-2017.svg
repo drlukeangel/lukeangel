@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Quote poster — Stars can't shine without darkness</title>
+  <desc id="d">2017-era flat poster: dark navy background with scattered small stars, large serif quote across the middle in cream, attribution and Luke Angel byline in mono lowercase at the bottom.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#1c2438"/>
+      <stop offset="100%" stop-color="#0a0e1a"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- stars -->
+  <g fill="#f4d27a">
+    <circle cx="120" cy="90" r="2"/>
+    <circle cx="270" cy="60" r="1.5"/>
+    <circle cx="380" cy="130" r="2.5"/>
+    <circle cx="520" cy="80" r="1.5"/>
+    <circle cx="700" cy="50" r="2"/>
+    <circle cx="850" cy="110" r="1.5"/>
+    <circle cx="970" cy="70" r="2.5"/>
+    <circle cx="1090" cy="160" r="2"/>
+    <circle cx="60" cy="220" r="1.5"/>
+    <circle cx="180" cy="500" r="2"/>
+    <circle cx="350" cy="540" r="1.5"/>
+    <circle cx="800" cy="490" r="2.5"/>
+    <circle cx="980" cy="510" r="2"/>
+    <circle cx="1100" cy="480" r="1.5"/>
+    <!-- one bright star -->
+    <circle cx="900" cy="180" r="4"/>
+    <line x1="900" y1="168" x2="900" y2="192" stroke="#f4d27a" stroke-width="1"/>
+    <line x1="888" y1="180" x2="912" y2="180" stroke="#f4d27a" stroke-width="1"/>
+  </g>
+  <!-- quote -->
+  <text x="600" y="320" text-anchor="middle" font-family="'Newsreader','Georgia',serif" font-size="68" font-weight="500" font-style="italic" fill="#f5efe1">Stars can't shine</text>
+  <text x="600" y="395" text-anchor="middle" font-family="'Newsreader','Georgia',serif" font-size="68" font-weight="500" font-style="italic" fill="#f5efe1">without darkness.</text>
+  <!-- byline -->
+  <text x="600" y="500" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="14" letter-spacing="0.2em" fill="#9aa3b8">— ON DARK MONTHS BEFORE BRIGHT WORK</text>
+  <text x="600" y="540" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13" letter-spacing="0.15em" fill="#6b7385">LUKEANGEL.CO · THE JOURNAL · 2017</text>
+</svg>

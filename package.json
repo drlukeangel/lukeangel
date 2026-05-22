@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist && npm run sync-pagefind",
+    "reindex": "pagefind --site dist && npm run sync-pagefind",
+    "sync-pagefind": "node -e \"const fs=require('node:fs'),p=require('node:path'); fs.rmSync('public/pagefind',{recursive:true,force:true}); fs.cpSync('dist/pagefind','public/pagefind',{recursive:true}); console.log('synced dist/pagefind → public/pagefind');\"",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -21,6 +23,8 @@
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.50",
     "astro": "^5.0.0",
+    "astro-breadcrumbs": "^3.4.0",
+    "astro-robots-txt": "^1.0.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

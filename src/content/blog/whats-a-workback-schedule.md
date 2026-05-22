@@ -1,13 +1,17 @@
 ---
-title: "What’s A Workback Schedule?"
-date: 2016-10-20T10:59:19
+title: What’s A Workback Schedule?
+date: 2016-10-20T10:59:19.000Z
 category: projects
-tags: ["iron-triangle", "project-management", "project-management-traingle", "shceudling", "work-back"]
-excerpt: "I tend to get a lot of projects that start with a launch date and then come to me with a product vision and little else. This requires the reverse of normal planning forward technique. We now need …"
-wpCategory: "project-management"
-wpUrl: "/project-management/whats-a-workback-schedule/"
-cover: "/blog/migrated/2016/10/waterfall-v-agile-iron-triangle-v03.png"
-coverAlt: "What’s A Workback Schedule?"
+tags:
+  - iron-triangle
+  - project-management
+  - scheduling
+  - work-back
+excerpt: I tend to get a lot of projects that start with a launch date and then come to me with a product vision and little else. This requires the reverse of normal planning forward technique. We now…
+wpCategory: project-management
+wpUrl: /project-management/whats-a-workback-schedule/
+cover: ../../assets/blog/waterfall-v-agile-iron-triangle-v03.png
+coverAlt: What’s A Workback Schedule?
 ---
 
 I tend to get a lot of projects that start with a launch date and then come to me with a product vision and little else. This requires the reverse of normal planning forward technique.  We now need to use what is refereed to as a work-back or backward loading method.
@@ -18,9 +22,7 @@ Work-back scheduling is taking a job with a number of tasks and allocates those 
 
 ## Iron Triangle
 
-[![project management Iron triangle](/blog/migrated/2016/10/Project-Management-Triangle.png)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/10/Project-Management-Triangle.png)
-
- 
+![Project management iron triangle — scope, time, and cost constraints relevant to building a backward-planned workback schedule](../../assets/blog/workback-schedule-project-management-iron-triangle.png)
 
 There’s different versions of this triangle diagram but I am going to look at the one which covers three key project constraints – Quality, Time to build and Cost. The premise of this triangle is that **you can’t have all three of these outcomes – you can only pick two** and by doing so the third option will suffer.
 
@@ -31,6 +33,8 @@ If high quality and a large feature set is your most important goal then expect 
 ### How to manage this constraint
 
 You can maximize the quality of your product by hiring the best people you can and doing plenty of prep work yourself so that your professionals know exactly what you want and can get to work quickly and efficiently.
+
+![Workback schedule reverse-timeline diagram — TODAY on the left, LAUNCH on the right, with five milestones (kickoff, dev complete, content lock, beta, final QA) planned backward from the launch date with realistic durations between each](../../assets/blog/workback-schedule-reverse-timeline-2016.svg)
 
 ## Time to build
 
@@ -66,13 +70,9 @@ Unfortunately the flip-side is if you do not have a suitable budget then you may
 
 If money is tight then consider starting out small. Features can be added to over time so you don’t need to have a full feature set from day one.
 
- 
-
 ## Conclusion
 
 The Iron Triangle is a great way to help you clarify product goals and priorities. The project becomes a three-way tug of war between time, cost and quality and in the end only two of these options wins out. Which two are the most important to you?
-
- 
 
 A Work-back Schedule is a useful method that reveals the milestones that a project will have to meet. It forces you to think about what a successful project will look like, and the steps you will have to take to get there. If the deadline is not able to met with the feature set that is required then the Iron Triangle is your friend.
 

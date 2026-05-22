@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Lean innovation — the build, measure, learn loop with validated learning at the center</title>
+  <desc id="d">2016-era flat-material diagram of the Lean Startup build-measure-learn loop: three labeled rectangles in a triangle pattern with arrows forming a continuous cycle; a center node labeled "validated learning"; tight callout boxes for what each step actually means in practice.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:14px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+    .center{font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600;fill:#fff}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Lean innovation — build, measure, learn (and learn for real)</text>
+
+  <!-- Center hub -->
+  <circle cx="400" cy="240" r="80" fill="#ff6b35"/>
+  <text x="400" y="234" text-anchor="middle" class="center">Validated</text>
+  <text x="400" y="254" text-anchor="middle" class="center">Learning</text>
+
+  <!-- Build node -->
+  <g transform="translate(120,120)">
+    <rect width="180" height="64" fill="#0066cc" rx="4"/>
+    <text x="90" y="38" text-anchor="middle" class="label" fill="#fff">1. Build</text>
+    <text x="90" y="56" text-anchor="middle" class="small" fill="#cfe0f5">smallest possible MVP</text>
+  </g>
+
+  <!-- Measure node -->
+  <g transform="translate(500,120)">
+    <rect width="180" height="64" fill="#0066cc" rx="4"/>
+    <text x="90" y="38" text-anchor="middle" class="label" fill="#fff">2. Measure</text>
+    <text x="90" y="56" text-anchor="middle" class="small" fill="#cfe0f5">actuals, not proxies</text>
+  </g>
+
+  <!-- Learn node -->
+  <g transform="translate(310,360)">
+    <rect width="180" height="64" fill="#0066cc" rx="4"/>
+    <text x="90" y="38" text-anchor="middle" class="label" fill="#fff">3. Learn</text>
+    <text x="90" y="56" text-anchor="middle" class="small" fill="#cfe0f5">persevere or pivot</text>
+  </g>
+
+  <!-- Arrows around the loop -->
+  <path d="M 300 156 Q 400 100 500 156" fill="none" stroke="#0066cc" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M 660 184 Q 720 280 500 392" fill="none" stroke="#0066cc" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M 310 392 Q 100 280 160 184" fill="none" stroke="#0066cc" stroke-width="3" marker-end="url(#ar)"/>
+
+  <!-- Callouts on the side -->
+  <g transform="translate(40,210)">
+    <rect width="180" height="58" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="small" font-weight="600">Build smaller than feels safe</text>
+    <text x="14" y="40" class="small">a landing page, a fake button,</text>
+    <text x="14" y="54" class="small">a Wizard-of-Oz prototype</text>
+  </g>
+
+  <g transform="translate(580,210)">
+    <rect width="180" height="58" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="14" y="22" class="small" font-weight="600">Measure behavior, not opinions</text>
+    <text x="14" y="40" class="small">activation, retention, conversion</text>
+    <text x="14" y="54" class="small">— never "would you use this"</text>
+  </g>
+</svg>

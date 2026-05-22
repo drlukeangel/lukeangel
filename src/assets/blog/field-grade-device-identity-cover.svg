@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="fgd-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#fgd-dots)"/>
+  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
+  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">FIELD GRADE — NOV 2024</text>
+  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">FLEET = 10K+</text>
+  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+
+  <g transform="translate(810, 170)" stroke="#1a1d24" stroke-width="2" fill="none">
+    <rect x="0" y="0" width="60" height="60" rx="4"/>
+    <text x="30" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" fill="#1a1d24" stroke="none">🔑</text>
+    <line x1="60" y1="30" x2="100" y2="30" stroke-dasharray="3,3"/>
+    <rect x="100" y="0" width="60" height="60" rx="4" fill="#2a52be" stroke="#2a52be"/>
+    <text x="130" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#fdfaf2" stroke="none">SE</text>
+    <line x1="160" y1="30" x2="200" y2="30" stroke-dasharray="3,3"/>
+    <rect x="200" y="0" width="80" height="60" rx="4"/>
+    <text x="240" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">JITR</text>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="64" fill="#1a1d24">Field-grade device identity</text>
+  <text x="80" y="360" font-family="Newsreader, serif" font-style="italic" font-weight="400" font-size="46" fill="#2a52be">at fleet scale.</text>
+  <text x="80" y="420" font-family="Newsreader, serif" font-style="italic" font-size="28" fill="#7a808c">— certs, secure elements, the rotation problem.</text>
+
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
+  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT SECURITY</text>
+</svg>

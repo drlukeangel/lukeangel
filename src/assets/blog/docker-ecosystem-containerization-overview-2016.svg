@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="t d">
+  <title id="t">Docker containerization overview — host kernel, isolated containers, image layers</title>
+  <desc id="d">2016-era flat-material diagram: one Linux host kernel at the bottom, the Docker engine in the middle, three isolated containers stacked above, each composed of read-only image layers plus a writable container layer on top.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="450" fill="#f5f7fa"/>
+  <text x="40" y="42" class="title">Docker — One host, isolated containers</text>
+
+  <!-- Host kernel bar -->
+  <rect x="40" y="380" width="720" height="40" fill="#1a1d24" rx="2"/>
+  <text x="60" y="406" class="label" fill="#fff">Linux host kernel</text>
+  <text x="640" y="406" class="small" fill="#9aa3ad">cgroups · namespaces · netfilter</text>
+
+  <!-- Docker engine bar -->
+  <rect x="40" y="320" width="720" height="50" fill="#0066cc" rx="2"/>
+  <text x="60" y="352" class="label" fill="#fff">Docker engine</text>
+  <text x="640" y="352" class="small" fill="#cfe0f5">dockerd · containerd</text>
+
+  <!-- Container 1: nginx -->
+  <g transform="translate(60,80)">
+    <rect width="200" height="220" fill="#fff" stroke="#cfd5db" stroke-width="1" rx="4"/>
+    <rect width="200" height="32" fill="#00bcd4" rx="4"/>
+    <rect y="20" width="200" height="12" fill="#00bcd4"/>
+    <text x="14" y="22" class="label" fill="#fff" font-size="13">nginx container</text>
+    <!-- layers -->
+    <rect x="16" y="50" width="168" height="26" fill="#e8eef3" stroke="#cfd5db"/>
+    <text x="28" y="68" class="small">writable layer</text>
+    <rect x="16" y="80" width="168" height="22" fill="#dfe6ec"/>
+    <text x="28" y="95" class="small">nginx-config layer</text>
+    <rect x="16" y="106" width="168" height="22" fill="#d3dce4"/>
+    <text x="28" y="121" class="small">nginx binary layer</text>
+    <rect x="16" y="132" width="168" height="22" fill="#c6d2dc"/>
+    <text x="28" y="147" class="small">debian base layer</text>
+    <text x="100" y="195" text-anchor="middle" class="small">image: nginx:latest</text>
+  </g>
+
+  <!-- Container 2: node app -->
+  <g transform="translate(300,80)">
+    <rect width="200" height="220" fill="#fff" stroke="#cfd5db" stroke-width="1" rx="4"/>
+    <rect width="200" height="32" fill="#ff6b35" rx="4"/>
+    <rect y="20" width="200" height="12" fill="#ff6b35"/>
+    <text x="14" y="22" class="label" fill="#fff" font-size="13">node app container</text>
+    <rect x="16" y="50" width="168" height="26" fill="#e8eef3" stroke="#cfd5db"/>
+    <text x="28" y="68" class="small">writable layer</text>
+    <rect x="16" y="80" width="168" height="22" fill="#dfe6ec"/>
+    <text x="28" y="95" class="small">app code layer</text>
+    <rect x="16" y="106" width="168" height="22" fill="#d3dce4"/>
+    <text x="28" y="121" class="small">node_modules layer</text>
+    <rect x="16" y="132" width="168" height="22" fill="#c6d2dc"/>
+    <text x="28" y="147" class="small">node base layer</text>
+    <text x="100" y="195" text-anchor="middle" class="small">image: my-app:v1.4</text>
+  </g>
+
+  <!-- Container 3: postgres -->
+  <g transform="translate(540,80)">
+    <rect width="200" height="220" fill="#fff" stroke="#cfd5db" stroke-width="1" rx="4"/>
+    <rect width="200" height="32" fill="#7b3ff2" rx="4"/>
+    <rect y="20" width="200" height="12" fill="#7b3ff2"/>
+    <text x="14" y="22" class="label" fill="#fff" font-size="13">postgres container</text>
+    <rect x="16" y="50" width="168" height="26" fill="#e8eef3" stroke="#cfd5db"/>
+    <text x="28" y="68" class="small">writable layer</text>
+    <rect x="16" y="80" width="168" height="22" fill="#dfe6ec"/>
+    <text x="28" y="95" class="small">postgres config layer</text>
+    <rect x="16" y="106" width="168" height="22" fill="#d3dce4"/>
+    <text x="28" y="121" class="small">postgres binary layer</text>
+    <rect x="16" y="132" width="168" height="22" fill="#c6d2dc"/>
+    <text x="28" y="147" class="small">debian base layer</text>
+    <text x="100" y="195" text-anchor="middle" class="small">image: postgres:9.6</text>
+  </g>
+
+  <!-- Connection lines from containers down to engine -->
+  <line x1="160" y1="300" x2="160" y2="320" stroke="#0066cc" stroke-width="2"/>
+  <line x1="400" y1="300" x2="400" y2="320" stroke="#0066cc" stroke-width="2"/>
+  <line x1="640" y1="300" x2="640" y2="320" stroke="#0066cc" stroke-width="2"/>
+</svg>

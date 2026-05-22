@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="t d">
+  <title id="t">ITIL value mindset vs cost-center mindset — side-by-side comparison</title>
+  <desc id="d">2024-era modern diagram contrasting the cost-center IT mindset (focus on tickets, throughput, response time) with the value mindset (focus on user outcomes, business impact, root cause). Each side lists the metric, the question, and the conversation tone.</desc>
+  <style>
+    .label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .col{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600}
+  </style>
+  <defs>
+    <linearGradient id="cold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="100%" stop-color="#a7f3d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" fill="#f8fafc"/>
+  <text x="40" y="34" class="title">From cost center to strategic partner — the mindset shift</text>
+
+  <!-- Cost center -->
+  <g transform="translate(40,60)">
+    <rect width="350" height="270" rx="12" fill="url(#cold)" stroke="#94a3b8" stroke-width="1"/>
+    <text x="175" y="32" text-anchor="middle" class="col" fill="#3730a3">Cost-center mindset</text>
+    <text x="20" y="68" class="label">Metric</text>
+    <text x="20" y="86" class="small">Tickets closed per week, avg response time</text>
+    <text x="20" y="114" class="label">Question asked</text>
+    <text x="20" y="132" class="small">"How fast did we close this ticket?"</text>
+    <text x="20" y="160" class="label">Conversation tone</text>
+    <text x="20" y="178" class="small">Defensive. Justify the headcount.</text>
+    <text x="20" y="206" class="label">Stakeholder relationship</text>
+    <text x="20" y="224" class="small">Service provider ↔ internal customer</text>
+    <text x="20" y="252" class="label">Outcome at year-end</text>
+    <text x="20" y="270" class="small">Budget cut by 8% to "improve efficiency"</text>
+  </g>
+
+  <!-- Value -->
+  <g transform="translate(410,60)">
+    <rect width="350" height="270" rx="12" fill="url(#warm)" stroke="#10b981" stroke-width="1"/>
+    <text x="175" y="32" text-anchor="middle" class="col" fill="#065f46">Value mindset</text>
+    <text x="20" y="68" class="label">Metric</text>
+    <text x="20" y="86" class="small">Hours of productive work enabled, ⁠incidents avoided</text>
+    <text x="20" y="114" class="label">Question asked</text>
+    <text x="20" y="132" class="small">"Did the user get back to the work that matters?"</text>
+    <text x="20" y="160" class="label">Conversation tone</text>
+    <text x="20" y="178" class="small">Curious. Surface the upstream cause.</text>
+    <text x="20" y="206" class="label">Stakeholder relationship</text>
+    <text x="20" y="224" class="small">Strategic partner ↔ business outcome owner</text>
+    <text x="20" y="252" class="label">Outcome at year-end</text>
+    <text x="20" y="270" class="small">Budget grows to fund the next prevention bet</text>
+  </g>
+</svg>

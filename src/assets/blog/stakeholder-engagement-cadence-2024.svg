@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Stakeholder engagement cadence — different rhythms for different stakeholders</title>
+  <desc id="d">2024-era modern flat schedule grid showing four stakeholder archetypes with different engagement cadences: high-power high-interest (weekly 1:1), high-power low-interest (monthly briefing), low-power high-interest (biweekly update), low-power low-interest (quarterly newsletter).</desc>
+  <style>
+    .label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:600;fill:#fff;font-size:14px}
+    .small{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+    .archtype{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;fill:#1a1d24}
+  </style>
+  <rect width="800" height="460" fill="#fafbfc"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Stakeholder engagement cadence by quadrant</text>
+
+  <!-- timeline header -->
+  <text x="240" y="78" text-anchor="middle" class="small" font-weight="600">Week 1</text>
+  <text x="340" y="78" text-anchor="middle" class="small" font-weight="600">Week 2</text>
+  <text x="440" y="78" text-anchor="middle" class="small" font-weight="600">Week 3</text>
+  <text x="540" y="78" text-anchor="middle" class="small" font-weight="600">Week 4</text>
+  <text x="640" y="78" text-anchor="middle" class="small" font-weight="600">Week 5</text>
+  <text x="740" y="78" text-anchor="middle" class="small" font-weight="600">Week 6</text>
+
+  <line x1="200" y1="84" x2="780" y2="84" stroke="#cfd5db"/>
+
+  <!-- Row 1: Manage closely (high power, high interest) -->
+  <g transform="translate(20,100)">
+    <text x="0" y="22" class="archtype">Manage closely</text>
+    <text x="0" y="38" class="small">High power · high interest</text>
+    <text x="0" y="56" class="small" fill="#059669">weekly 1:1</text>
+  </g>
+  <g fill="#059669">
+    <circle cx="240" cy="125" r="10"/>
+    <circle cx="340" cy="125" r="10"/>
+    <circle cx="440" cy="125" r="10"/>
+    <circle cx="540" cy="125" r="10"/>
+    <circle cx="640" cy="125" r="10"/>
+    <circle cx="740" cy="125" r="10"/>
+  </g>
+
+  <!-- Row 2: Keep satisfied (high power, low interest) -->
+  <g transform="translate(20,170)">
+    <text x="0" y="22" class="archtype">Keep satisfied</text>
+    <text x="0" y="38" class="small">High power · low interest</text>
+    <text x="0" y="56" class="small" fill="#fbbf24">monthly briefing</text>
+  </g>
+  <g fill="#fbbf24">
+    <circle cx="240" cy="195" r="10"/>
+    <circle cx="640" cy="195" r="10"/>
+  </g>
+
+  <!-- Row 3: Keep informed (low power, high interest) -->
+  <g transform="translate(20,240)">
+    <text x="0" y="22" class="archtype">Keep informed</text>
+    <text x="0" y="38" class="small">Low power · high interest</text>
+    <text x="0" y="56" class="small" fill="#0066cc">biweekly update</text>
+  </g>
+  <g fill="#0066cc">
+    <circle cx="240" cy="265" r="10"/>
+    <circle cx="440" cy="265" r="10"/>
+    <circle cx="640" cy="265" r="10"/>
+  </g>
+
+  <!-- Row 4: Monitor (low power, low interest) -->
+  <g transform="translate(20,310)">
+    <text x="0" y="22" class="archtype">Monitor</text>
+    <text x="0" y="38" class="small">Low power · low interest</text>
+    <text x="0" y="56" class="small" fill="#9ca3af">quarterly newsletter</text>
+  </g>
+  <g fill="#9ca3af">
+    <circle cx="240" cy="335" r="10"/>
+  </g>
+
+  <!-- bottom note -->
+  <g transform="translate(40,370)">
+    <rect width="720" height="70" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="archtype">Sizing the cadence</text>
+    <text x="14" y="42" class="small">Too sparse and stakeholders feel surprised when the project shifts. Too dense and you burn calendar time without moving outcomes.</text>
+    <text x="14" y="58" class="small">Match the *rate of change in your project* to the *rate of update for each quadrant*. Recalibrate quarterly.</text>
+  </g>
+</svg>

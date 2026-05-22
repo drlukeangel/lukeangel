@@ -1,14 +1,13 @@
 ---
 const { current = 'home' } = Astro.props;
 const items = [
-  { href: '/',          key: 'home',      label: 'cover' },
-  { href: '/courses/',  key: 'courses',   label: 'classroom' },
-  { href: '/blog/',     key: 'blog',      label: 'the journal' },
-  { href: '/gratitude/',key: 'gratitude', label: 'gratitude' },
-  { href: '/speaking/', key: 'speaking',  label: 'speaking' },
-  { href: '/projects/', key: 'projects',  label: 'projects' },
-  { href: '/about/',    key: 'about',     label: 'about' },
-  { href: '/contact/',  key: 'contact',   label: 'contact' },
+  { href: '/blog/',      key: 'blog',      label: 'journal' },
+  { href: '/courses/',   key: 'courses',   label: 'learn' },
+  { href: '/gratitude/', key: 'gratitude', label: 'gratitude' },
+  { href: '/give/',      key: 'give',      label: 'give' },
+  { href: '/speaking/',  key: 'speaking',  label: 'speak' },
+  { href: '/projects/',  key: 'projects',  label: 'build' },
+  { href: '/about/',     key: 'about',     label: 'about' },
 ];
 ---
 <header class="site">
@@ -18,6 +17,85 @@ const items = [
       {items.map((it) => (
         <a href={it.href} class={current === it.key ? 'active' : ''}>{it.label}</a>
       ))}
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="/contact/" class={`nav-icon${current === 'contact' ? ' active' : ''}`} aria-label="Contact" title="Contact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="M3 7l9 6 9-6"></path>
+        </svg>
+      </a>
+      <button class="nav-icon mode-toggle" id="mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg id="moon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg id="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+      </button>
     </nav>
   </div>
 </header>
+
+<style>
+  /* additive only — does not override existing header.site nav layout in global.css */
+  header.site nav .nav-divider {
+    display: inline-block;
+    width: 1px;
+    height: 18px;
+    background: rgba(244, 241, 232, 0.25);
+    margin: 0 2px;
+    vertical-align: middle;
+  }
+  header.site nav .nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid rgba(244, 241, 232, 0.25);
+    background: transparent;
+    color: var(--header-ink);
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    line-height: 1;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+    border-bottom: 1px solid rgba(244, 241, 232, 0.25); /* match existing nav a border baseline so heights align */
+  }
+  header.site nav .nav-icon:hover {
+    border-color: var(--header-ink);
+    color: var(--header-ink);
+  }
+  header.site nav .nav-icon.active {
+    background: var(--accent);
+    color: var(--header-ink);
+    border-color: var(--accent);
+  }
+  header.site nav .nav-icon svg { display: block; }
+</style>
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') root.setAttribute('data-theme', 'dark');
+
+    const btn = document.getElementById('mode-toggle');
+    const moon = document.getElementById('moon');
+    const sun  = document.getElementById('sun');
+    const sync = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      if (moon) moon.style.display = dark ? 'none' : '';
+      if (sun)  sun.style.display  = dark ? '' : 'none';
+    };
+    sync();
+    btn?.addEventListener('click', () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      if (dark) { root.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+      else      { root.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
+      sync();
+    });
+  })();
+</script>

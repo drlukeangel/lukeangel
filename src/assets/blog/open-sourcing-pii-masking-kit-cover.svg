@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="pii-launch-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#pii-launch-dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">LAUNCH — FEB 2026</text>
+  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 03 OPEN SOURCE</text>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+
+  <g transform="translate(820, 170)" stroke="#1a1d24" stroke-width="2" fill="none">
+    <rect x="0"   y="0" width="68" height="44" rx="6"/>
+    <rect x="78"  y="0" width="68" height="44" rx="6"/>
+    <rect x="156" y="0" width="68" height="44" rx="6"/>
+    <rect x="234" y="0" width="68" height="44" rx="6" fill="#2a52be" stroke="#2a52be"/>
+    <text x="34"  y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#2a52be" stroke="none">DIRECT</text>
+    <text x="34"  y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#1a1d24" stroke="none">hash</text>
+    <text x="112" y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#2a52be" stroke="none">QUASI</text>
+    <text x="112" y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#1a1d24" stroke="none">token</text>
+    <text x="190" y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#2a52be" stroke="none">SENSE</text>
+    <text x="190" y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#1a1d24" stroke="none">general</text>
+    <text x="268" y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#fdfaf2" stroke="none">BEHAV</text>
+    <text x="268" y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#fdfaf2" stroke="none">keep</text>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24">Open-sourcing the</text>
+  <text x="80" y="360" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#2a52be">PII Masking</text>
+  <text x="80" y="424" font-family="Newsreader, serif" font-weight="500" font-size="42" fill="#1a1d24">Starter Kit.</text>
+
+  <line x1="80" y1="468" x2="1120" y2="468" stroke="#1a1d24" stroke-width="1" stroke-dasharray="6,8"/>
+  <text x="80" y="510" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="3" fill="#1a1d24">PYTHON · PYSPARK · AWS GLUE · DATABREW</text>
+
+  <line x1="80" y1="560" x2="1120" y2="560" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="600" font-family="Newsreader, serif" font-weight="500" font-size="22" fill="#1a1d24">Luke Angel</text>
+  <text x="1120" y="600" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c" text-anchor="end">LUKEANGEL.CO / JOURNAL</text>
+</svg>

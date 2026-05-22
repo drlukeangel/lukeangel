@@ -1,17 +1,17 @@
 ---
-title: "SharePoint Advanced: Metadata,Columns,Lists,Taxonomy & More"
+title: 'SharePoint Advanced: Metadata,Columns,Lists,Taxonomy & More'
 order: 8
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row][vc_column][vc_single_image image= 8073 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ][/vc_column][/vc_row][vc_row][vc_column][vc_column_text] [/vc_column_t…"
-wpUrl: "/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more/"
-cover: "/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more.svg"
-coverAlt: "SharePoint Advanced: Metadata,Columns,Lists,Taxonomy & More"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: SharePoint can be a powerful tool to support documents and data in an organization, when sites are properly constructed. By implementing a taxonomy (aka a content categorization and storage sc...
+wpUrl: /courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more/
+cover: ../../assets/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more.svg
+coverAlt: 'SharePoint Advanced: Metadata,Columns,Lists,Taxonomy & More'
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row][vc_column][vc_single_image image=”8073″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

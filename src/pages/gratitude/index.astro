@@ -5,16 +5,21 @@ import { getCollection } from 'astro:content';
 const entries = (await getCollection('gratitude'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-// Group by month
+// Group by month (descending)
 const byMonth: Record<string, typeof entries> = {};
 for (const e of entries) {
   const key = e.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   (byMonth[key] = byMonth[key] || []).push(e);
 }
 const months = Object.keys(byMonth);
-const allTags = Array.from(new Set(entries.map((e) => e.data.tag)));
+
+const topicOrder = ['team', 'home', 'readers', 'world', 'tech', 'everyday', 'craft', 'trailblazers'] as const;
+const levelOrder = ['small', 'medium', 'large'] as const;
+
+const topicCounts = Object.fromEntries(topicOrder.map((t) => [t, entries.filter((e) => e.data.topic === t).length]));
+const levelCounts = Object.fromEntries(levelOrder.map((l) => [l, entries.filter((e) => e.data.level === l).length]));
 ---
-<Base title="The Gratitude Index" current="gratitude" description="One small thank-you, every day. A running ledger.">
+<Base title="The Gratitude Ledger — small thank-yous, daily" current="gratitude" description="One small thank-you, every day. A running ledger of acknowledgments, mentors, and people worth remembering.">
   <section class="wrap" style="padding: 56px 32px;">
     <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 18px;">
       <div>
@@ -23,38 +28,166 @@ const allTags = Array.from(new Set(entries.map((e) => e.data.tag)));
         <div style="font-style: italic; color: var(--muted); margin-top: 6px;">One small thank-you, every day. A running ledger.</div>
       </div>
       <div style="text-align: right;">
-        <div class="mono">{entries.length} entries · updated daily</div>
+        <div class="mono"><span id="grat-visible-count">{entries.length}</span> entries · updated daily</div>
         <a href="/rss.xml" class="mono" style="color: var(--accent);">subscribe via rss →</a>
       </div>
     </div>
 
-    <!-- Tag filter (anchor-jump) -->
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--rule);">
-      <span class="mono" style="align-self: center;">filter —</span>
-      {allTags.map((t) => (
-        <a href={`#${t}`} class="chip">#{t}</a>
-      ))}
+    <!-- Filter bars -->
+    <div id="grat-filter" style="margin-top: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--rule);">
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+        <span class="mono" style="margin-right: 4px; min-width: 56px;">topic —</span>
+        <button type="button" class="chip is-active" data-axis="topic" data-value="all">all <span class="mono mono-count">{entries.length}</span></button>
+        {topicOrder.map((t) => (
+          <button type="button" class="chip" data-axis="topic" data-value={t}>#{t} <span class="mono mono-count">{topicCounts[t]}</span></button>
+        ))}
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px;">
+        <span class="mono" style="margin-right: 4px; min-width: 56px;">level —</span>
+        <button type="button" class="chip is-active" data-axis="level" data-value="all">all</button>
+        {levelOrder.map((l) => (
+          <button type="button" class={`chip level-pip level-${l}`} data-axis="level" data-value={l}>
+            <span class="pip"></span>{l} <span class="mono mono-count">{levelCounts[l]}</span>
+          </button>
+        ))}
+      </div>
     </div>
 
     <!-- Timeline by month -->
-    {months.map((mo) => (
-      <div style="margin-top: 36px;">
-        <div style="display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 16px;">
-          <div style="font-style: italic; font-size: 36px; letter-spacing: -0.02em;">{mo}</div>
-          <div class="mono">{byMonth[mo].length} entries</div>
+    <div id="grat-list">
+      {months.map((mo) => (
+        <div class="grat-month" style="margin-top: 36px;">
+          <div style="display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 16px;">
+            <div style="font-style: italic; font-size: 36px; letter-spacing: -0.02em;">{mo}</div>
+            <div class="mono"><span class="grat-month-count">{byMonth[mo].length}</span> entries</div>
+          </div>
+          <div class="grat-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            {byMonth[mo].map((g) => {
+              const isLarge = g.data.level === 'large';
+              const isMedium = g.data.level === 'medium';
+              const colSpan = isLarge ? 'grid-column: span 2;' : '';
+              const fontSize = isLarge ? 22 : isMedium ? 19 : 17;
+              return (
+                <article class={`card grat-card grat-${g.data.level}`} data-topic={g.data.topic} data-level={g.data.level} style={colSpan}>
+                  <div style="display: flex; justify-content: space-between;" class="mono">
+                    <span>{g.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
+                    <span style="color: var(--accent);">#{g.data.topic}</span>
+                  </div>
+                  <div style={`font-size: ${fontSize}px; line-height: 1.45; margin-top: 12px;`} set:html={g.body.replace(/^---[\s\S]+?---/, '').trim()}></div>
+                </article>
+              );
+            })}
+          </div>
+          <div class="grat-empty mono" style="display: none; color: var(--muted); padding: 12px 0;">no entries this month for the selected filter</div>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-          {byMonth[mo].map((g) => (
-            <div class="card" style={g.data.long ? 'grid-column: span 2;' : ''} id={g.data.tag}>
-              <div style="display: flex; justify-content: space-between;" class="mono">
-                <span>{g.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
-                <span style="color: var(--accent);">#{g.data.tag}</span>
-              </div>
-              <div style={`font-size: ${g.data.long ? 22 : 17}px; line-height: 1.45; margin-top: 12px;`} set:html={g.body.replace(/^---[\s\S]+?---/, '').trim()}></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </section>
+
+  <style>
+    #grat-filter .chip {
+      cursor: pointer; user-select: none;
+      border: 1px solid var(--rule); background: var(--paper);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    #grat-filter .chip:hover { border-color: var(--ink); }
+    #grat-filter .chip.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    #grat-filter .mono-count { opacity: 0.65; }
+    #grat-filter .chip.is-active .mono-count { opacity: 0.75; }
+
+    /* level pip in filter chips */
+    #grat-filter .level-pip .pip {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      border: 1px solid currentColor;
+    }
+    #grat-filter .chip.level-medium .pip { width: 10px; height: 10px; background: currentColor; opacity: 0.4; }
+    #grat-filter .chip.level-large  .pip { width: 12px; height: 12px; background: currentColor; }
+
+    /* level visual treatment on cards */
+    .grat-card { position: relative; }
+    .grat-card.grat-medium {
+      border-top: 3px solid var(--accent);
+      padding-top: 21px;
+    }
+    /* large cards stay dark-inverted across both themes */
+    .grat-card.grat-large {
+      background: #1a1d24;
+      color: #fdfaf2;
+      border-color: #1a1d24;
+    }
+    .grat-card.grat-large .mono { color: #fdfaf2; }
+    .grat-card.grat-large .mono :global(span:last-child) { color: var(--accent); }
+  </style>
+
+  <script is:inline>
+    (() => {
+      const filterBar = document.getElementById('grat-filter');
+      if (!filterBar) return;
+      const visibleCount = document.getElementById('grat-visible-count');
+      const months = Array.from(document.querySelectorAll('.grat-month'));
+      const chips = Array.from(filterBar.querySelectorAll('.chip'));
+      const STORAGE_KEY = 'grat-filter-v2';
+
+      const state = { topic: new Set(), level: new Set() };
+      try {
+        const raw = sessionStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed.topic) state.topic = new Set(parsed.topic);
+          if (parsed.level) state.level = new Set(parsed.level);
+        }
+      } catch (_) {}
+
+      function apply() {
+        const showAllTopic = state.topic.size === 0;
+        const showAllLevel = state.level.size === 0;
+        let total = 0;
+        for (const m of months) {
+          const cards = Array.from(m.querySelectorAll('.grat-card'));
+          let monthVisible = 0;
+          for (const c of cards) {
+            const topicMatch = showAllTopic || state.topic.has(c.dataset.topic);
+            const levelMatch = showAllLevel || state.level.has(c.dataset.level);
+            const show = topicMatch && levelMatch;
+            c.style.display = show ? '' : 'none';
+            if (show) monthVisible++;
+          }
+          m.querySelector('.grat-month-count').textContent = monthVisible;
+          m.querySelector('.grat-empty').style.display = monthVisible === 0 ? '' : 'none';
+          total += monthVisible;
+        }
+        if (visibleCount) visibleCount.textContent = total;
+        for (const chip of chips) {
+          const axis = chip.dataset.axis;
+          const value = chip.dataset.value;
+          const set = state[axis];
+          const isAll = value === 'all';
+          const on = (isAll && set.size === 0) || set.has(value);
+          chip.classList.toggle('is-active', on);
+        }
+      }
+
+      filterBar.addEventListener('click', (e) => {
+        const chip = e.target.closest('.chip');
+        if (!chip) return;
+        const axis = chip.dataset.axis;
+        const value = chip.dataset.value;
+        const set = state[axis];
+        if (value === 'all') {
+          set.clear();
+        } else {
+          if (set.has(value)) set.delete(value); else set.add(value);
+        }
+        try {
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+            topic: Array.from(state.topic),
+            level: Array.from(state.level),
+          }));
+        } catch (_) {}
+        apply();
+      });
+
+      apply();
+    })();
+  </script>
 </Base>

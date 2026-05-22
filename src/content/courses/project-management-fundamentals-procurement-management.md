@@ -1,17 +1,17 @@
 ---
-title: "Project Management Fundamentals: Procurement Management"
+title: 'Project Management Fundamentals: Procurement Management'
 order: 2
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row] [vc_column] [vc_single_image image= 8039 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ] [/vc_column] [/vc_row] [vc_row] [vc_column] [vc_cta h2= Project Man…"
-wpUrl: "/courses/project-management-fundamentals-procurement-management/"
-cover: "/courses/project-management-fundamentals-procurement-management.svg"
-coverAlt: "Project Management Fundamentals: Procurement Management"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: The more complex a project is, the more likely it is that you’ll need help from outside vendors and partners. Enter project procurement, the processes of planning, managing, and executing purc...
+wpUrl: /courses/project-management-fundamentals-procurement-management/
+cover: ../../assets/courses/project-management-fundamentals-procurement-management.svg
+coverAlt: 'Project Management Fundamentals: Procurement Management'
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row]**

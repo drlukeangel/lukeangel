@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect x="0" y="0" width="12" height="630" fill="#1a1d24"/>
+  <text x="60" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">FIRST IMPRESSIONS — DEC 2023</text>
+  <line x1="60" y1="120" x2="1140" y2="120" stroke="#1a1d24" stroke-width="1"/>
+  <text x="60" y="280" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#1a1d24">First week with</text>
+  <text x="60" y="360" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#2a52be">Bedrock.</text>
+  <text x="60" y="424" font-family="Newsreader, serif" font-style="italic" font-size="32" fill="#7a808c">A PM's read on the September GA.</text>
+  <line x1="60" y1="480" x2="1140" y2="480" stroke="#1a1d24" stroke-width="1"/>
+  <text x="60" y="530" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">CLAUDE 2.1 · TITAN · COHERE · AI21</text>
+</svg>

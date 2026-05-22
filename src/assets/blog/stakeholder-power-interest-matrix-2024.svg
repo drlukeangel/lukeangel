@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t d">
+  <title id="t">Stakeholder management 2x2 — Power vs Interest matrix with engagement strategy per quadrant</title>
+  <desc id="d">2024-era modern flat 2x2 matrix: x-axis is Interest (low to high), y-axis is Power/Influence (low to high). Four quadrants labeled with the engagement strategy and example stakeholder archetypes.</desc>
+  <style>
+    .label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:600;fill:#1a1d24;font-size:16px}
+    .small{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;fill:#5a6470}
+    .title{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:18px;font-weight:600;fill:#1a1d24}
+    .axis{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;fill:#1a1d24}
+    .strategy{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;fill:#fff}
+  </style>
+  <rect width="800" height="600" fill="#fafbfc"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Stakeholder Power × Interest matrix</text>
+
+  <!-- Y axis -->
+  <text x="40" y="120" class="axis">HIGH</text>
+  <text x="40" y="430" class="axis">LOW</text>
+  <text x="38" y="300" class="axis" transform="rotate(-90 38 300)">POWER / INFLUENCE</text>
+
+  <!-- X axis -->
+  <text x="200" y="540" text-anchor="middle" class="axis">LOW</text>
+  <text x="600" y="540" text-anchor="middle" class="axis">HIGH</text>
+  <text x="400" y="568" text-anchor="middle" class="axis">INTEREST IN PROJECT</text>
+
+  <!-- Quadrants -->
+  <!-- Top-left: high power, low interest = Keep Satisfied -->
+  <g transform="translate(80,80)">
+    <rect width="320" height="220" fill="#fbbf24" rx="6"/>
+    <text x="20" y="32" class="strategy">KEEP SATISFIED</text>
+    <text x="20" y="58" class="small" fill="#fff">High power, low interest</text>
+    <line x1="20" y1="72" x2="280" y2="72" stroke="#fff" stroke-opacity="0.4"/>
+    <text x="20" y="100" class="small" fill="#fff" font-weight="600">Examples</text>
+    <text x="20" y="118" class="small" fill="#fff">- Executive sponsor 2 layers up</text>
+    <text x="20" y="136" class="small" fill="#fff">- Legal / compliance owner</text>
+    <text x="20" y="154" class="small" fill="#fff">- Finance reviewer</text>
+    <text x="20" y="180" class="small" fill="#fff" font-weight="600">Tactic</text>
+    <text x="20" y="198" class="small" fill="#fff">Quarterly briefing, no churn</text>
+  </g>
+
+  <!-- Top-right: high power, high interest = Manage Closely -->
+  <g transform="translate(400,80)">
+    <rect width="320" height="220" fill="#059669" rx="6"/>
+    <text x="20" y="32" class="strategy">MANAGE CLOSELY</text>
+    <text x="20" y="58" class="small" fill="#fff">High power, high interest</text>
+    <line x1="20" y1="72" x2="280" y2="72" stroke="#fff" stroke-opacity="0.4"/>
+    <text x="20" y="100" class="small" fill="#fff" font-weight="600">Examples</text>
+    <text x="20" y="118" class="small" fill="#fff">- Direct sponsor</text>
+    <text x="20" y="136" class="small" fill="#fff">- Lead customer / paying client</text>
+    <text x="20" y="154" class="small" fill="#fff">- Engineering director</text>
+    <text x="20" y="180" class="small" fill="#fff" font-weight="600">Tactic</text>
+    <text x="20" y="198" class="small" fill="#fff">Weekly 1:1, named owner</text>
+  </g>
+
+  <!-- Bottom-left: low power, low interest = Monitor -->
+  <g transform="translate(80,300)">
+    <rect width="320" height="220" fill="#9ca3af" rx="6"/>
+    <text x="20" y="32" class="strategy">MONITOR (MINIMUM EFFORT)</text>
+    <text x="20" y="58" class="small" fill="#fff">Low power, low interest</text>
+    <line x1="20" y1="72" x2="280" y2="72" stroke="#fff" stroke-opacity="0.4"/>
+    <text x="20" y="100" class="small" fill="#fff" font-weight="600">Examples</text>
+    <text x="20" y="118" class="small" fill="#fff">- Adjacent team unaware of project</text>
+    <text x="20" y="136" class="small" fill="#fff">- Distant department head</text>
+    <text x="20" y="180" class="small" fill="#fff" font-weight="600">Tactic</text>
+    <text x="20" y="198" class="small" fill="#fff">Quarterly newsletter, that's it</text>
+  </g>
+
+  <!-- Bottom-right: low power, high interest = Keep Informed -->
+  <g transform="translate(400,300)">
+    <rect width="320" height="220" fill="#0066cc" rx="6"/>
+    <text x="20" y="32" class="strategy">KEEP INFORMED</text>
+    <text x="20" y="58" class="small" fill="#fff">Low power, high interest</text>
+    <line x1="20" y1="72" x2="280" y2="72" stroke="#fff" stroke-opacity="0.4"/>
+    <text x="20" y="100" class="small" fill="#fff" font-weight="600">Examples</text>
+    <text x="20" y="118" class="small" fill="#fff">- End users in pilot</text>
+    <text x="20" y="136" class="small" fill="#fff">- Support / on-call team</text>
+    <text x="20" y="154" class="small" fill="#fff">- Internal advocates</text>
+    <text x="20" y="180" class="small" fill="#fff" font-weight="600">Tactic</text>
+    <text x="20" y="198" class="small" fill="#fff">Newsletter + open Q&amp;A monthly</text>
+  </g>
+</svg>

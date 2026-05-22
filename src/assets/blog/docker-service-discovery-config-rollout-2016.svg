@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="t d">
+  <title id="t">Distributed config rollout via the service discovery store</title>
+  <desc id="d">2016-era flat diagram showing config changes propagating from a single write to many service instances via the kv store: admin writes a config key, all instances are watching that key, change propagates in seconds across the fleet.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .mono{font-family:'JetBrains Mono','Menlo','Consolas',monospace;font-size:11px;fill:#1a1d24}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="360" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Distributed config rollout — one write, fleet-wide change in seconds</text>
+
+  <!-- Admin -->
+  <g transform="translate(40,80)">
+    <rect width="160" height="80" fill="#fff" stroke="#cfd5db" rx="4"/>
+    <text x="80" y="32" text-anchor="middle" class="label">admin / CI pipeline</text>
+    <text x="80" y="54" text-anchor="middle" class="mono">PUT /config/api/v1</text>
+    <text x="80" y="70" text-anchor="middle" class="small">{ logLevel: "debug" }</text>
+  </g>
+  <line x1="200" y1="120" x2="260" y2="120" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- KV store -->
+  <g transform="translate(260,80)">
+    <rect width="160" height="80" fill="#1a1d24" rx="4"/>
+    <text x="80" y="32" text-anchor="middle" class="label" fill="#fff">kv store</text>
+    <text x="80" y="54" text-anchor="middle" class="small" fill="#9aa3ad">/config/api/v1</text>
+    <text x="80" y="70" text-anchor="middle" class="small" fill="#9aa3ad">version: 17</text>
+  </g>
+
+  <!-- Watches -->
+  <line x1="420" y1="100" x2="490" y2="80" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="420" y1="120" x2="490" y2="120" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="420" y1="140" x2="490" y2="160" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="420" y1="160" x2="490" y2="200" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="450" y="252" text-anchor="middle" class="small" fill="#0066cc">watch fires</text>
+
+  <!-- Service instances -->
+  <g transform="translate(500,60)">
+    <rect width="260" height="50" fill="#fff" stroke="#0066cc"/>
+    <text x="14" y="22" class="small" font-weight="600">api · 10.0.9.4</text>
+    <text x="14" y="38" class="mono">logLevel → debug ✓</text>
+  </g>
+  <g transform="translate(500,120)">
+    <rect width="260" height="50" fill="#fff" stroke="#0066cc"/>
+    <text x="14" y="22" class="small" font-weight="600">api · 10.0.9.7</text>
+    <text x="14" y="38" class="mono">logLevel → debug ✓</text>
+  </g>
+  <g transform="translate(500,180)">
+    <rect width="260" height="50" fill="#fff" stroke="#0066cc"/>
+    <text x="14" y="22" class="small" font-weight="600">api · 10.0.9.9</text>
+    <text x="14" y="38" class="mono">logLevel → debug ✓</text>
+  </g>
+
+  <!-- Bottom -->
+  <g transform="translate(40,260)">
+    <rect width="720" height="80" fill="#fff" stroke="#cfd5db" rx="6"/>
+    <text x="14" y="22" class="label">Why this is better than environment variables</text>
+    <text x="14" y="44" class="small">- env vars require a restart to change. Watched config keys propagate live, with no restart.</text>
+    <text x="14" y="60" class="small">- versioned keys give you an audit trail and easy rollback. Set version 16 instead of 17 to revert in seconds.</text>
+    <text x="14" y="76" class="small">- the same store provides discovery + config + feature flags. Three needs, one infrastructure dependency.</text>
+  </g>
+</svg>

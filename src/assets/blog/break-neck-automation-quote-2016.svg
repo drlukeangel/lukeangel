@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Break-neck automation — quote poster with motion-blurred gears and four expectation axes</title>
+  <desc id="d">2016-era flat-material poster: cream background, fast geometric arrows accelerating right, four labeled blocks for efficiency / value / convenience / delight, quote across the top.</desc>
+  <rect width="1200" height="630" fill="#f5efe1"/>
+  <!-- arrows of acceleration -->
+  <g fill="#0066cc" opacity="0.85">
+    <polygon points="60,160 220,160 240,180 220,200 60,200"/>
+    <polygon points="280,180 460,180 490,210 460,240 280,240" opacity="0.7"/>
+    <polygon points="520,210 720,210 760,250 720,290 520,290" opacity="0.55"/>
+    <polygon points="780,250 1010,250 1060,300 1010,350 780,350" opacity="0.4"/>
+  </g>
+
+  <!-- title quote -->
+  <text x="100" y="100" font-family="'Newsreader','Georgia',serif" font-size="34" font-style="italic" fill="#1a1d24">"The break-neck automation of tasks once performed by people — by</text>
+  <text x="100" y="138" font-family="'Newsreader','Georgia',serif" font-size="34" font-style="italic" fill="#1a1d24">intelligent software and physical infrastructure — will bring new</text>
+  <text x="100" y="176" font-family="'Newsreader','Georgia',serif" font-size="34" font-style="italic" fill="#1a1d24">expectations of efficiency, value, convenience and delight."</text>
+
+  <!-- four axes -->
+  <g transform="translate(100,420)">
+    <rect width="220" height="80" fill="#fff" stroke="#0066cc" stroke-width="2" rx="4"/>
+    <text x="110" y="34" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="600" fill="#0066cc">Efficiency</text>
+    <text x="110" y="56" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5a6470">sub-second is the new neutral</text>
+  </g>
+  <g transform="translate(340,420)">
+    <rect width="220" height="80" fill="#fff" stroke="#0066cc" stroke-width="2" rx="4"/>
+    <text x="110" y="34" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="600" fill="#0066cc">Value</text>
+    <text x="110" y="56" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5a6470">right beats fast every time</text>
+  </g>
+  <g transform="translate(580,420)">
+    <rect width="220" height="80" fill="#fff" stroke="#0066cc" stroke-width="2" rx="4"/>
+    <text x="110" y="34" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="600" fill="#0066cc">Convenience</text>
+    <text x="110" y="56" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5a6470">zero-click wins three-click</text>
+  </g>
+  <g transform="translate(820,420)">
+    <rect width="220" height="80" fill="#fff" stroke="#0066cc" stroke-width="2" rx="4"/>
+    <text x="110" y="34" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="600" fill="#0066cc">Delight</text>
+    <text x="110" y="56" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#5a6470">tone is now a feature</text>
+  </g>
+
+  <!-- byline -->
+  <text x="600" y="580" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12" letter-spacing="0.2em" fill="#6b7385">LUKEANGEL.CO · THE JOURNAL · 2016</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="t d">
+  <title id="t">Data-driven program management wins — before vs after instrumented dashboards</title>
+  <desc id="d">2025-era modern flat diagram showing the impact of data-driven program management: before (gut feelings, late surprises, blame retros) vs after (live dashboards, early signals, focused retros). Five labeled metrics improve in the after-column.</desc>
+  <style>
+    .label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:600;fill:#1a1d24;font-size:14px}
+    .small{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;fill:#5a6470}
+    .title{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .head{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600}
+    .metric{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;fill:#fff}
+  </style>
+  <rect width="800" height="380" fill="#fafbfc"/>
+  <text x="40" y="38" class="title">Crushing program goals with data — what changes</text>
+
+  <!-- BEFORE column -->
+  <g transform="translate(40,80)">
+    <rect width="340" height="260" fill="#fef2f2" stroke="#fecaca" rx="10"/>
+    <text x="20" y="32" class="head" fill="#dc2626">BEFORE — gut-feel programs</text>
+    <line x1="20" y1="42" x2="320" y2="42" stroke="#fecaca"/>
+
+    <rect x="20" y="60" width="300" height="36" fill="#dc2626" rx="4"/>
+    <text x="170" y="84" text-anchor="middle" class="metric">Status reports = vibes ✗</text>
+
+    <rect x="20" y="106" width="300" height="36" fill="#dc2626" rx="4"/>
+    <text x="170" y="130" text-anchor="middle" class="metric">Surprises arrive in month 4 ✗</text>
+
+    <rect x="20" y="152" width="300" height="36" fill="#dc2626" rx="4"/>
+    <text x="170" y="176" text-anchor="middle" class="metric">Retros = blame sessions ✗</text>
+
+    <rect x="20" y="198" width="300" height="36" fill="#dc2626" rx="4"/>
+    <text x="170" y="222" text-anchor="middle" class="metric">Stakeholders disengaged ✗</text>
+  </g>
+
+  <!-- AFTER column -->
+  <g transform="translate(420,80)">
+    <rect width="340" height="260" fill="#ecfdf5" stroke="#a7f3d0" rx="10"/>
+    <text x="20" y="32" class="head" fill="#059669">AFTER — instrumented programs</text>
+    <line x1="20" y1="42" x2="320" y2="42" stroke="#a7f3d0"/>
+
+    <rect x="20" y="60" width="300" height="36" fill="#059669" rx="4"/>
+    <text x="170" y="84" text-anchor="middle" class="metric">Live dashboards ✓</text>
+
+    <rect x="20" y="106" width="300" height="36" fill="#059669" rx="4"/>
+    <text x="170" y="130" text-anchor="middle" class="metric">Early signals in week 1 ✓</text>
+
+    <rect x="20" y="152" width="300" height="36" fill="#059669" rx="4"/>
+    <text x="170" y="176" text-anchor="middle" class="metric">Retros = action items ✓</text>
+
+    <rect x="20" y="198" width="300" height="36" fill="#059669" rx="4"/>
+    <text x="170" y="222" text-anchor="middle" class="metric">Stakeholders pulled in ✓</text>
+  </g>
+</svg>

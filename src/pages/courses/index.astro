@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const courses = (await getCollection('courses', ({ data }) => !data.draft))
   .sort((a, b) => a.data.order - b.data.order);
 ---
-<Base title="Courses" current="courses">
+<Base title="Courses — The Classroom by Luke Angel" current="courses" description="Self-paced courses on agile, project management, program management, and developer tools. Taught from a working PM's desk.">
   <section class="wrap" style="padding: 56px 32px;">
     <div class="mono" style="color: var(--accent);">The Classroom</div>
     <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">Small cohorts, taught from a working PM's <em style="color: var(--accent);">desk</em>.</h1>

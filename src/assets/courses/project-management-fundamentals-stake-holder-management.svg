@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#7a808c">COURSE</text>
+  <text x="1120" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 31</text>
+  <g transform="translate(900, 200)" stroke="#2a52be" stroke-width="3" fill="none">
+    <rect x="0" y="0" width="60" height="60" fill="#2a52be" fill-opacity="0.85"/>
+    <rect x="80" y="0" width="60" height="60"/>
+    <rect x="0" y="80" width="60" height="60"/>
+    <rect x="80" y="80" width="60" height="60" fill="#2a52be" fill-opacity="0.85"/>
+    <line x1="30" y1="60" x2="30" y2="80" stroke-dasharray="4 4"/>
+    <line x1="110" y1="60" x2="110" y2="80" stroke-dasharray="4 4"/>
+    <line x1="60" y1="30" x2="80" y2="30" stroke-dasharray="4 4"/>
+    <line x1="60" y1="110" x2="80" y2="110" stroke-dasharray="4 4"/>
+  </g>
+  <text x="80" y="340" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24" letter-spacing="-1">PM Fundamentals:</text>
+  <text x="80" y="416" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24" letter-spacing="-1">Stakeholder Management</text>
+  <text x="80" y="492" font-family="Newsreader, serif" font-style="italic" font-size="30" fill="#5a6470">Find them all. Map them right. Engage them well. Ship the project.</text>
+  <line x1="80" y1="540" x2="200" y2="540" stroke="#2a52be" stroke-width="3"/>
+  <text x="80" y="580" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="2" fill="#7a808c">SELF-PACED · PMI REGISTERED · PDUs INCLUDED</text>
+</svg>

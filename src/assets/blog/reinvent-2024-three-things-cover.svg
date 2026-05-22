@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="ri-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ri-dots)"/>
+  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
+  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">re:INVENT — DEC 2024</text>
+  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">3 OF 200</text>
+  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+
+  <g transform="translate(820, 170)" stroke="#1a1d24" stroke-width="2" fill="none">
+    <rect x="0"   y="0" width="80" height="44" rx="4"/>
+    <text x="40"  y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">cache</text>
+    <rect x="100" y="0" width="80" height="44" rx="4"/>
+    <text x="140" y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">nova</text>
+    <rect x="200" y="0" width="80" height="44" rx="4" fill="#2a52be" stroke="#2a52be"/>
+    <text x="240" y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#fdfaf2" stroke="none">sm.ai</text>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="66" fill="#1a1d24">Three things from</text>
+  <text x="80" y="360" font-family="Newsreader, serif" font-weight="500" font-size="66" fill="#2a52be">re:Invent</text>
+  <text x="80" y="420" font-family="Newsreader, serif" font-style="italic" font-size="32" fill="#7a808c">that actually change my roadmap.</text>
+
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
+  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — re:INVENT 2024</text>
+</svg>

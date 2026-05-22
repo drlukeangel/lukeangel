@@ -1,45 +1,77 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Search" current="blog" description="Search the journal — by title, tag, or excerpt.">
+<Base title="Search the Journal — by title, tag, or text" current="blog" description="Search the journal — by title, tag, body text, or excerpt. Indexed at build time by Pagefind across every post.">
   <section class="wrap" style="padding: 56px 32px;">
     <div class="mono" style="color: var(--accent);">Search</div>
     <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">Find a <em style="color: var(--accent);">note</em>.</h1>
-    <p style="font-style: italic; color: var(--muted); margin-top: 14px;">Indexed at build time by Pagefind. Searches titles, body text, tags, and excerpts.</p>
+    <p style="font-style: italic; color: var(--ink2); margin-top: 14px;">Indexed at build time by Pagefind. Searches titles, body text, tags, and excerpts.</p>
 
     <div id="search" style="margin-top: 32px;"></div>
   </section>
 
-  <script type="module">
-    import { PagefindUI } from '/pagefind/pagefind-ui.js';
-    new PagefindUI({
-      element: '#search',
-      showSubResults: true,
-      showImages: false,
-      resetStyles: false,
-      translations: {
-        placeholder: 'evals, prompting, gratitude…',
-        clear_search: 'Clear',
-        zero_results: 'Nothing matched "[SEARCH_TERM]". Try a tag, or browse all entries.',
-      },
+  <!-- Pagefind UI ships as an IIFE that attaches `PagefindUI` to the global scope,
+       NOT as an ES module. Load via script tag, then init on DOM ready. -->
+  <script src="/pagefind/pagefind-ui.js" defer is:inline></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof PagefindUI !== 'function') {
+        console.warn('Pagefind UI failed to load — make sure /pagefind/ is populated.');
+        return;
+      }
+      new PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+        resetStyles: false,
+        translations: {
+          placeholder: 'evals, prompting, gratitude…',
+          clear_search: 'Clear',
+          zero_results: 'Nothing matched "[SEARCH_TERM]". Try a tag, or browse all entries.',
+        },
+      });
     });
   </script>
   <style is:global>
+    /* Theme Pagefind via its official CSS custom properties — these flow into
+       the input border, the icon color (driven by --pagefind-ui-text), result
+       titles, tag pills, etc. No more !important overrides. */
+    #search {
+      --pagefind-ui-scale: 1;
+      --pagefind-ui-primary: var(--accent);
+      --pagefind-ui-text: var(--ink);
+      --pagefind-ui-background: var(--paper);
+      --pagefind-ui-border: var(--ink);
+      --pagefind-ui-tag: var(--bg);
+      --pagefind-ui-border-width: 2px;
+      --pagefind-ui-border-radius: 0;
+      --pagefind-ui-font: 'Newsreader', serif;
+    }
+    /* The icon's :before opacity is 0.2 for the placeholder; lift it so it
+       reads on either theme without being shouty. */
+    .pagefind-ui__form::before { opacity: 0.5 !important; }
+
+    /* Input doesn't inherit color from its container — set it explicitly so
+       the typed text matches the theme in both light and dark mode. */
     .pagefind-ui__search-input {
-      font-family: 'Newsreader', serif !important;
-      font-size: 22px !important;
-      padding: 16px 18px !important;
-      border: 2px solid var(--ink) !important;
-      background: var(--paper) !important;
-      color: var(--ink) !important;
-      border-radius: 0 !important;
+      color: var(--pagefind-ui-text);
     }
-    .pagefind-ui__result {
-      padding: 16px 0;
-      border-bottom: 1px dashed var(--rule);
+    .pagefind-ui__search-input::placeholder { color: var(--pagefind-ui-text); opacity: 0.45; }
+
+    /* Center the "Clear" label inside its absolutely-positioned button. */
+    .pagefind-ui__search-clear {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      color: var(--pagefind-ui-text);
+      border: 1px solid var(--rule);
     }
-    .pagefind-ui__result-title { font-family: 'Newsreader', serif; font-size: 22px; }
-    .pagefind-ui__result-link { color: var(--ink) !important; text-decoration: none !important; }
-    .pagefind-ui__result-link:hover { color: var(--accent) !important; }
+
+    /* Excerpts and the "5 results" message — slightly muted but still readable
+       across themes (uses --ink2, which brightens in dark mode). */
+    .pagefind-ui__result-excerpt,
+    .pagefind-ui__message { color: var(--ink2); }
+    /* Result link hover picks up the accent. */
+    .pagefind-ui__result-link:hover { color: var(--accent); }
   </style>
 </Base>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dd-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1" fill="#1a1d24" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dd-dots)"/>
+  <rect x="0" y="0" width="16" height="630" fill="#1a1d24"/>
+  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" letter-spacing="4" fill="#7a808c">PATTERNS — MAR 2024</text>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="1"/>
+
+  <g transform="translate(820, 180)">
+    <rect x="0" y="0" width="280" height="40" fill="none" stroke="#1a1d24" stroke-width="2"/>
+    <line x1="70" y1="0"  x2="70"  y2="40" stroke="#1a1d24" stroke-width="2"/>
+    <line x1="140" y1="0" x2="140" y2="40" stroke="#1a1d24" stroke-width="2"/>
+    <line x1="210" y1="0" x2="210" y2="40" stroke="#1a1d24" stroke-width="2"/>
+    <text x="35" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">pk</text>
+    <text x="105" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">sk</text>
+    <text x="175" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">data</text>
+    <text x="245" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">ttl</text>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#1a1d24">DynamoDB for</text>
+  <text x="80" y="370" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#1a1d24">time-series IoT.</text>
+  <text x="80" y="430" font-family="Newsreader, serif" font-style="italic" font-size="30" fill="#7a808c">— when the relational urge is wrong.</text>
+
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
+  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT · DATA</text>
+</svg>

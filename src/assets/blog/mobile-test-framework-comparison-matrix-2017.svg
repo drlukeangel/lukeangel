@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Mobile test framework comparison — feature matrix across Appium, Calabash, Robotium, Frank, Selenium-Cucumber</title>
+  <desc id="d">2017-era flat comparison matrix: rows are open-source mobile test frameworks, columns are key features (iOS, Android, language, BDD, community size). Cells are color-coded yes/partial/no.</desc>
+  <style>
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .head{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:600;fill:#1a1d24}
+    .cell{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;fill:#1a1d24}
+    .name{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:600;fill:#1a1d24}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+  </style>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Open-source mobile test frameworks at a glance</text>
+
+  <!-- Headers row -->
+  <g transform="translate(40,70)">
+    <rect width="720" height="40" fill="#1a1d24" rx="4"/>
+    <text x="14" y="26" class="head" fill="#fff">Framework</text>
+    <text x="190" y="26" text-anchor="middle" class="head" fill="#fff">iOS</text>
+    <text x="270" y="26" text-anchor="middle" class="head" fill="#fff">Android</text>
+    <text x="360" y="26" text-anchor="middle" class="head" fill="#fff">Language</text>
+    <text x="500" y="26" text-anchor="middle" class="head" fill="#fff">BDD</text>
+    <text x="610" y="26" text-anchor="middle" class="head" fill="#fff">Community</text>
+  </g>
+
+  <!-- Rows -->
+  <g transform="translate(40,118)">
+    <!-- Appium -->
+    <rect width="720" height="50" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="20" class="name">Appium</text>
+    <text x="14" y="38" class="small">Cross-platform standard</text>
+    <text x="190" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="270" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="360" y="30" text-anchor="middle" class="cell">JS · Py · Ruby · Java</text>
+    <text x="500" y="30" text-anchor="middle" class="cell" fill="#f59e0b">~ via Cucumber</text>
+    <text x="610" y="30" text-anchor="middle" class="cell" fill="#10a37f">Large &amp; active</text>
+  </g>
+  <g transform="translate(40,168)">
+    <rect width="720" height="50" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="20" class="name">Calabash</text>
+    <text x="14" y="38" class="small">BDD-first, touch-focused</text>
+    <text x="190" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="270" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="360" y="30" text-anchor="middle" class="cell">Ruby</text>
+    <text x="500" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ Cucumber-native</text>
+    <text x="610" y="30" text-anchor="middle" class="cell" fill="#f59e0b">Smaller, declining</text>
+  </g>
+  <g transform="translate(40,218)">
+    <rect width="720" height="50" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="20" class="name">iOS UI Automation</text>
+    <text x="14" y="38" class="small">Apple's first-party tool</text>
+    <text x="190" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="270" y="30" text-anchor="middle" class="cell" fill="#dc2626">✗ no</text>
+    <text x="360" y="30" text-anchor="middle" class="cell">JavaScript</text>
+    <text x="500" y="30" text-anchor="middle" class="cell" fill="#dc2626">✗ no</text>
+    <text x="610" y="30" text-anchor="middle" class="cell" fill="#f59e0b">Apple-only docs</text>
+  </g>
+  <g transform="translate(40,268)">
+    <rect width="720" height="50" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="20" class="name">Frank</text>
+    <text x="14" y="38" class="small">iOS with Symbiote inspector</text>
+    <text x="190" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="270" y="30" text-anchor="middle" class="cell" fill="#dc2626">✗ no</text>
+    <text x="360" y="30" text-anchor="middle" class="cell">Ruby</text>
+    <text x="500" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ Cucumber-native</text>
+    <text x="610" y="30" text-anchor="middle" class="cell" fill="#f59e0b">Niche</text>
+  </g>
+  <g transform="translate(40,318)">
+    <rect width="720" height="50" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="20" class="name">Robotium</text>
+    <text x="14" y="38" class="small">Android black-box UI testing</text>
+    <text x="190" y="30" text-anchor="middle" class="cell" fill="#dc2626">✗ no</text>
+    <text x="270" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="360" y="30" text-anchor="middle" class="cell">Java</text>
+    <text x="500" y="30" text-anchor="middle" class="cell" fill="#dc2626">✗ no</text>
+    <text x="610" y="30" text-anchor="middle" class="cell" fill="#10a37f">Stable, mature</text>
+  </g>
+  <g transform="translate(40,368)">
+    <rect width="720" height="50" fill="#fff" stroke="#cfd5db"/>
+    <text x="14" y="20" class="name">Selenium-Cucumber</text>
+    <text x="14" y="38" class="small">Web + Android web</text>
+    <text x="190" y="30" text-anchor="middle" class="cell" fill="#f59e0b">~ via Appium</text>
+    <text x="270" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ yes</text>
+    <text x="360" y="30" text-anchor="middle" class="cell">Ruby · Java</text>
+    <text x="500" y="30" text-anchor="middle" class="cell" fill="#10a37f">✓ Cucumber-native</text>
+    <text x="610" y="30" text-anchor="middle" class="cell" fill="#10a37f">Strong Selenium base</text>
+  </g>
+
+  <text x="40" y="448" class="small">Recommendation: Start with Appium unless you have a specific reason not to. Cross-platform + multi-language + active community.</text>
+</svg>

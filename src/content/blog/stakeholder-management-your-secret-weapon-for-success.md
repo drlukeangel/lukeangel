@@ -1,16 +1,22 @@
 ---
 title: "Stakeholder Management: Your Secret Weapon for Success"
-date: 2025-01-21T18:15:04
+date: 2025-01-21T18:15:04.000Z
 category: projects
-tags: ["communication", "influence", "product-management", "product-success", "program-management", "project-management", "project-success", "stakeholder", "stakeholder-analysis", "stakeholder-engagement", "stakeholder-management", "stakeholder-managemnet"]
-excerpt: "What is Stakeholder Management? You&#8217;re a project, program, or product manager. So, you have a lot on your plate. You&#8217;re dealing with deadlines, resources, and many different priorities.…"
-wpCategory: "project-management"
-wpUrl: "/project-management/stakeholder-management-your-secret-weapon-for-success/"
-cover: "/blog/migrated/2025/01/Stakeholder-Management-Your-Secret-Weapon-for-Project-Program-and-Product-Success.png"
+tags:
+  - communication
+  - influence
+  - product
+  - program-management
+  - project-management
+  - stakeholder-management
+excerpt: What is Stakeholder Management? You’re a project, program, or product manager. So, you have a lot on your plate. You’re dealing with deadlines, resources, and many different priorities.…
+wpCategory: project-management
+wpUrl: /project-management/stakeholder-management-your-secret-weapon-for-success/
+cover: ../../assets/blog/stakeholder-management-secret-weapon-project-program-product-success.png
 coverAlt: "Stakeholder Management: Your Secret Weapon for Success"
 ---
 
-[![](/blog/migrated/2025/01/Stakeholder-Management-Your-Secret-Weapon-for-Project-Program-and-Product-Success.png)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2025/01/Stakeholder-Management-Your-Secret-Weapon-for-Project-Program-and-Product-Success.png)
+![Cover graphic for "Stakeholder Management: Your Secret Weapon for Project, Program and Product Success" — diagram of stakeholder mapping and influence](../../assets/blog/stakeholder-management-secret-weapon-project-program-product-success.png)
 
 ## **What is Stakeholder Management?**
 
@@ -48,11 +54,17 @@ This shows what happens when you don’t manage stakeholders well. What if you t
 
 - **Power/Interest Matrix:** Next, figure out how much power and interest each stakeholder has. This helps you know who to focus on.
 
+![Stakeholder Power × Interest matrix — four quadrants: Manage Closely (high power, high interest), Keep Satisfied (high power, low interest), Keep Informed (low power, high interest), Monitor (low power, low interest) — each with example stakeholder types and engagement tactics](../../assets/blog/stakeholder-power-interest-matrix-2024.svg)
+
+
 - **Stakeholder Register:** Finally, make a document about each stakeholder. Include their needs, expectations, and how much influence they have.
 
 **2. Make an Engagement Plan:**
 
 - **Different Strokes for Different Folks:** Some stakeholders need more attention than others. So, plan your approach accordingly.
+
+![Stakeholder engagement cadence diagram — four archetypes on a six-week schedule grid: Manage Closely (weekly), Keep Satisfied (monthly), Keep Informed (biweekly), Monitor (quarterly). Each row uses colored dots to show when the touch happens.](../../assets/blog/stakeholder-engagement-cadence-2024.svg)
+
 
 - **Choose Communication Channels:** How will you talk to them? Emails? Meetings? Newsletters? Pick what works best for each stakeholder.
 

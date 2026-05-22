@@ -1,13 +1,15 @@
 ---
-title: "Agile Hardware Development – Part 1"
-date: 2017-03-09T10:29:51
+title: Agile Hardware Development – Part 1
+date: 2017-03-09T10:29:51.000Z
 category: projects
-tags: ["agile", "hardware"]
-excerpt: "Although Agile principles can be applied with benefit in hardware product development (Agile hardware development), it misses the mark in terms of a complete solution for hardware product developme…"
-wpCategory: "project-management"
-wpUrl: "/project-management/agile-hardware-development-part-1/"
-cover: "/blog/migrated/2017/03/featred-Agile-Hardware-Development-Part-1-1.jpg"
-coverAlt: "Agile Hardware Development – Part 1"
+tags:
+  - agile
+  - hardware
+excerpt: Although Agile principles can be applied with benefit in hardware product development (Agile hardware development), it misses the mark in terms of a complete solution for hardware product…
+wpCategory: project-management
+wpUrl: /project-management/agile-hardware-development-part-1/
+cover: ../../assets/blog/featred-Agile-Hardware-Development-Part-1-1.jpg
+coverAlt: Agile Hardware Development – Part 1
 ---
 
 Although [Agile principles ](http://agilemanifesto.org/principles.html)can be applied with benefit in hardware product development (Agile hardware development), it misses the mark in terms of a complete solution for hardware product development. Let me explain.
@@ -20,11 +22,9 @@ That is not to say that there aren’t similarities. Just as [Lean Manufacturing
 
 However, just as there are critical differences between Lean manufacturing and Lean product development, there are critical differences between Lean software development and Lean hardware development.
 
-**
+![Agile hardware development diagram — three parallel sprint tracks (mechanical 4-6 weeks, electronics 2-3 weeks, firmware/software 1-2 weeks) feeding an integration sprint every 8-12 weeks](../../assets/blog/agile-hardware-development-cycle-2017.svg)
 
 ***Lean manufacturing practices can do more harm than good if blindly applied to new product development. The same is true of applying Agile to hardware.***
-
-**
 
 It is time we saw the differences clearly and built our software and development systems to operate *Leanly* under these different conditions.
 
@@ -42,10 +42,6 @@ Software development is almost all labor cost. It isn’t difficult or expensive
 
 Where software teams are comprised of several different skill sets such as marketing, design, a few different fields of development, and quality, hardware teams are typically comprised of these and a great many more. In addition to the software increasingly present in new hardware products, there are often molded components, optics, sheet metal, castings, cabling, piping, circuitry, assembly, and packaging skills needed by different people who must stay in sync during product development. There are other additional skills needed in hardware development such as the research scientists, supply chain, manufacturing, receiving/inspection, and field service not typically involved in a software project. The list goes on and on.
 
-**
-
 ***The complexity of the communication channels and keeping everyone in sync on such a necessarily large team, like component lead time and cost, changes what we do in hardware product development.***
-
-**
 
 This blog series will explore many differences between these two types of product development. We will not only cover what is different but, more importantly, the implications of these differences and how we must modify the principles, practices and tools to meet the challenges of hardware Lean New Product Development.

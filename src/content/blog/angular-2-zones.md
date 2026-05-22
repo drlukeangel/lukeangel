@@ -1,16 +1,21 @@
 ---
-title: "Angular 2 – Zones"
-date: 2016-10-01T22:08:57
+title: Angular 2 – Zones
+date: 2016-10-01T22:08:57.000Z
 category: tools
-tags: ["angular", "front-end", "zones"]
-excerpt: "At NG-Conf 2014, Brian gave an excellent talk on zones and how they can change the way we deal with asynchronous code. If you haven’t watched this talk yet, give it a shot, it’s just ~15 minutes lo…"
-wpCategory: "developers"
-wpUrl: "/developers/angular/angular-2-zones/"
-cover: "/blog/migrated/2016/10/500628_a962.jpg"
-coverAlt: "Angular 2 – Zones"
+tags:
+  - angular
+  - front-end
+  - zones
+excerpt: At NG-Conf 2014, Brian gave an excellent talk on zones and how they can change the way we deal with asynchronous code. If you haven’t watched this talk yet, give it a shot, it’s just ~15…
+wpCategory: developers
+wpUrl: /developers/angular/angular-2-zones/
+cover: ../../assets/blog/500628_a962.jpg
+coverAlt: Angular 2 – Zones
 ---
 
 At NG-Conf 2014, [Brian](http://twitter.com/briantford) gave an excellent [talk on zones](https://www.youtube.com/watch?v=3IqtmUscE_U) and how they can change the way we deal with asynchronous code. If you haven’t watched this talk yet, give it a shot, it’s just ~15 minutes long. APIs might be different nowadays, but the semantics and underlying concepts are the same. In this article we’d like to dive a bit deeper into how zones work.
+
+![Angular zones diagram — synchronous code enters the zone, schedules an async task, zone fires onScheduleTask and onInvokeTask hooks around the callback, then triggers change detection when the microtask queue empties](../../assets/blog/angular-2-zones-execution-context-2016.svg)
 
 **The problem to be solved**
 
@@ -27,8 +32,6 @@ function foo() {...}
 function bar() {...}
 function baz() {...}
 ```
-
- 
 
 Nothing special going on here. We have three functions foo, bar and baz that are executed in sequence. Let’s say we want to measure the execution time of this code. We could easily extend the snippet with some profiling bits like this:
 
@@ -48,8 +51,6 @@ time = timer() - start;
 console.log(Math.floor(time*100) / 100 + 'ms');
 ```
 
- 
-
 However, often we have asynchronous work todo. This can be an AJAX request to fetch some data from a remote server, or a maybe we just want to schedule some work for the next frame. Whatever this asynchronous work is, it happens, as the name claims, asynchronously. Which basically means, those operations won’t be considered by our profiler. Take a look at this snippet:
 
 ```
@@ -66,8 +67,6 @@ baz();
 // stop timer
 time = timer() - start;
 ```
-
- 
 
 We extended the code sequence with another operation, but this time it’s asynchronous. What effect does that have on our profiling? Well, we’ll see that there’s not such a big difference.
 
@@ -95,8 +94,6 @@ baz();
 
 zone.run(main);
 ```
-
- 
 
 Okay cool. But what’s the point of this? Well… currently there’s in fact no difference in the outcome, except that we had to write slightly more code. However, at this point, our code runs in a zone (another execution context) and as we learned earlier, Zones can perform an operation each time our code enters or exits a zone.
 
@@ -139,13 +136,13 @@ myZone.run(main);
 // After task
 ```
 
- 
-
 Oh wait! What’s that? Both hooks are executed twice? Why is that? Sure, we’ve learned that zone.run is obviously considered a “task” which is why the first two messages are logged. But it seems like the setTimeout() call is treated as a task too. How is that possible?
 
 **Monkey-patched Hooks**
 
-It turns out that there are a few other hooks. In fact, those aren’t just hooks, but monkey-patched methods on the global scope. As soon as we embed zone.js in our site, pretty much all methods that cause asynchronous operations are monkey-patched to run in a new zone.
+It turns out that there are a few other hooks. In fact, those aren't just hooks, but monkey-patched methods on the global scope. As soon as we embed zone.js in our site, pretty much all methods that cause asynchronous operations are monkey-patched to run in a new zone.
+
+![Zone.js monkey-patching diagram — native browser APIs (setTimeout, setInterval, Promise.then, fetch/XHR, addEventListener, requestAnimationFrame) on the left, replaced at bootstrap with zone-wrapped versions on the right, all routed through ngZone with its lifecycle hooks](../../assets/blog/angular-2-zones-monkey-patched-apis-2016.svg)
 
 For example, when we call setTimeout() we actually call Zone.setTimeout(), which in turn creates a new zone usingzone.fork() in which the given handler is executed. And that’s why our hooks are executed as well, because the forked zone in which the handler will be executed, simply inherits from the parent zone.
 
@@ -196,8 +193,6 @@ time = 0;
 }());
 ```
 
- 
-
 Pretty much the same code as the one we started off with at the beginning of this article, just wrapped in a zone specification. The example also adds a .time() and .reset() method to the zone, which can be invoked on the zone object like this:
 
 ```
@@ -211,10 +206,12 @@ console.log('Took: ' + zone.time());
 .run(main);
 ```
 
- 
-
 The + syntax is a shorthand DSL that allows us to extend the parent zone’s hook. Neat ha?
 
 There’s also a [LongStackTraceZone](https://github.com/angular/zone.js/tree/master/lib/zones/long-stack-trace.ts) we can take advantage of and even more [examples](https://github.com/angular/zone.js/tree/master/example/profiling.html). Make sure to check those out too!
 
-Watch out for more articles as we’re going to discuss very soon what role Zones play in the Angular 2 framework. Find more useful and related links below.
+Watch out for more articles as we're going to discuss very soon what role Zones play in the Angular 2 framework.
+
+![Angular change detection cycle — async event fires → ngZone hook (onMicrotaskEmpty) → ApplicationRef.tick() walks the component tree → each component compares previous vs current binding values → dirty bindings update the DOM. Opt out per-component with ChangeDetectionStrategy.OnPush.](../../assets/blog/angular-change-detection-cycle-2016.svg)
+
+Find more useful and related links below.

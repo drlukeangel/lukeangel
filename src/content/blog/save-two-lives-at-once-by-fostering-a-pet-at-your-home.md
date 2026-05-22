@@ -1,18 +1,23 @@
 ---
-title: "Save Two Lives At Once By Fostering a Pet at Your Home"
-date: 2016-10-16T06:50:18
-category: craft
-tags: ["give"]
-excerpt: "By being a pet foster parent, you provide a temporary home for an animal prior to adoption. Fostering animals is a wonderful and personal way to contribute to saving homeless pets. Dogs and cats ar…"
-wpCategory: "give"
-wpUrl: "/give/save-two-lives-at-once-by-fostering-a-pet-at-your-home/"
-cover: "/blog/migrated/2016/10/catBehindHead.png"
-coverAlt: "Save Two Lives At Once By Fostering a Pet at Your Home"
+title: Save Two Lives At Once By Fostering a Pet at Your Home
+date: 2016-10-16T06:50:18.000Z
+category: give
+tags:
+  - volunteer
+  - gratitude
+  - pets
+excerpt: By being a pet foster parent, you provide a temporary home for an animal prior to adoption. Fostering animals is a wonderful and personal way to contribute to saving homeless pets. Dogs and…
+wpCategory: give
+wpUrl: /give/save-two-lives-at-once-by-fostering-a-pet-at-your-home/
+cover: ../../assets/blog/catBehindHead.png
+coverAlt: Save Two Lives At Once By Fostering a Pet at Your Home
 ---
 
 ## 
 
 By being a pet foster parent, you provide a temporary home for an animal prior to adoption. Fostering animals is a wonderful and personal way to contribute to saving homeless pets. Dogs and cats are the most common pets needing foster homes, but some organizations may also need help with rabbits, birds, or even farm animals. By fostering at your home the shelter is allowed to bring another pet saving it plus your own pet at once.
+
+![Fostering math diagram — shelter at capacity, foster takes one animal home, that opens a slot for the next intake animal who would otherwise be turned away. Two lives saved per foster placement.](../../assets/blog/foster-pet-saves-two-lives-2016.svg)
 
 ## **Why do animals need foster care?**
 
@@ -39,6 +44,8 @@ If you want to do something to help the animals, fostering can be a ﬂexible, f
 - Would you like to add a dog or cat to your household, but you’re not sure? Fostering can be a great way to ﬁnd out.
 
 Taking animals into your home, loving them, and then letting them go requires a special kind of person. Your role as a foster parent is to prepare the animal for adoption into a loving home.
+
+![Foster-to-adoption pipeline diagram — intake at shelter → 2-12 weeks in foster home → socialization (manners, leash, human confidence) → adopted from foster home → foster takes the next one. Bottom annotation shows the throughput math: 10 active fosters = N + 10 additional shelter capacity.](../../assets/blog/foster-adoption-pipeline-flow-2016.svg)
 
 ## **How much time will it take?**
 

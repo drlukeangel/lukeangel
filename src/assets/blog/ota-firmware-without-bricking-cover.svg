@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="ota-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ota-dots)"/>
+  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
+  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">FLEET OPS — MAY 2025</text>
+  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">A/B SLOTS</text>
+  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+
+  <g transform="translate(810, 168)" stroke="#1a1d24" stroke-width="2" fill="none">
+    <rect x="0"   y="0" width="60" height="80" rx="4"/>
+    <text x="30" y="32" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#1a1d24" stroke="none">A</text>
+    <text x="30" y="56" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#2a52be" stroke="none">v1</text>
+    <line x1="60" y1="40" x2="100" y2="40"/>
+    <rect x="100" y="0" width="60" height="80" rx="4" fill="#2a52be" stroke="#2a52be"/>
+    <text x="130" y="32" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#fdfaf2" stroke="none">B</text>
+    <text x="130" y="56" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#fdfaf2" stroke="none">v2</text>
+    <line x1="160" y1="40" x2="200" y2="40"/>
+    <text x="220" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24" stroke="none">→ boot</text>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">OTA firmware updates</text>
+  <text x="80" y="358" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">without bricking the fleet.</text>
+  <text x="80" y="422" font-family="Newsreader, serif" font-style="italic" font-size="28" fill="#7a808c">— the staged-rollout playbook.</text>
+
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
+  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT OPS</text>
+</svg>

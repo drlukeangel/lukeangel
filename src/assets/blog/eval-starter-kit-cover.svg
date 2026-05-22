@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#7a808c">FIELD STUDY</text>
+  <text x="1120" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 01</text>
+
+  <g transform="translate(820, 180)" stroke="#2a52be" fill="none" stroke-width="3">
+    <rect x="0" y="0" width="80" height="56" rx="6"/>
+    <rect x="100" y="0" width="80" height="56" rx="6"/>
+    <rect x="200" y="0" width="80" height="56" rx="6"/>
+    <line x1="80" y1="28" x2="100" y2="28"/>
+    <line x1="180" y1="28" x2="200" y2="28"/>
+    <line x1="280" y1="28" x2="304" y2="28"/>
+    <circle cx="320" cy="28" r="16" fill="#2a52be" fill-opacity="0.15"/>
+    <circle cx="320" cy="28" r="6" fill="#2a52be"/>
+    <text x="40" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" fill="#2a52be" stroke="none">{ }</text>
+    <text x="140" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" fill="#2a52be" stroke="none">py</text>
+    <text x="240" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#2a52be" stroke="none">JUDGE</text>
+  </g>
+
+  <text x="80" y="340" font-family="Newsreader, serif" font-weight="500" font-size="76" fill="#1a1d24" letter-spacing="-1">Eval Starter Kit</text>
+  <text x="80" y="408" font-family="Newsreader, serif" font-weight="400" font-style="italic" font-size="34" fill="#7a808c">for product managers</text>
+
+  <line x1="80" y1="468" x2="1120" y2="468" stroke="#1a1d24" stroke-width="1" stroke-dasharray="6,8"/>
+  <text x="80" y="510" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="3" fill="#1a1d24">5 FILES · 1 NOTEBOOK · 1 RUBRIC</text>
+
+  <line x1="80" y1="560" x2="1120" y2="560" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="600" font-family="Newsreader, serif" font-weight="500" font-size="22" fill="#1a1d24">Luke Angel</text>
+  <text x="1120" y="600" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c" text-anchor="end">LUKEANGEL.CO / PROJECTS</text>
+</svg>

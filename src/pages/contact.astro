@@ -1,32 +1,217 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Contact" current="contact">
+<Base title="Contact Luke Angel — write me a letter" current="contact" description="Write me a letter — a proper note via the form below, or any of the inbox addresses if email is more your speed.">
   <section class="wrap" style="padding: 72px 32px;">
-    <div class="mono" style="color: var(--accent);">Write to me</div>
-    <h1 style="font-size: clamp(64px, 9vw, 128px); margin-top: 14px;">Drop me a <em style="color: var(--accent);">line</em>.</h1>
+    <div class="mono" style="color: var(--accent);">Write to me —</div>
+    <h1 style="font-size: clamp(64px, 9vw, 128px); margin-top: 14px;">Write me a <em style="color: var(--accent);">letter</em>.</h1>
     <p style="font-size: 22px; max-width: 720px; margin-top: 22px; color: var(--ink2);">
-      I answer most emails within a few days, unless I'm teaching a cohort — then it's a week. Either is a thing I'm grateful you took time to do.
+      I answer most notes within a few days — unless I'm teaching, then it's about a week. Either is a thing I'm grateful you took time to do.
     </p>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px;">
-      <div class="card" style="padding: 36px;">
-        <div class="mono" style="color: var(--accent);">Email</div>
-        <div style="font-size: 36px; margin-top: 14px; letter-spacing: -0.02em;"><a href="mailto:luke@lukeangel.co" style="color: var(--ink); text-decoration: none;">luke@lukeangel.co</a></div>
-        <div style="font-style: italic; color: var(--muted); margin-top: 12px;">For anything that fits in an inbox.</div>
+
+    <form
+      class="card letter-form"
+      action="https://formspree.io/f/xeedgwql"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="row two">
+        <label class="field">
+          <span class="mono">Your name</span>
+          <input type="text" name="name" required placeholder="Jane Doe" />
+        </label>
+        <label class="field">
+          <span class="mono">Email</span>
+          <input type="email" name="email" required placeholder="you@inbox.com" />
+        </label>
       </div>
-      <div class="card" style="padding: 36px;">
-        <div class="mono" style="color: var(--accent);">Subscribe</div>
-        <form action="https://buttondown.com/api/emails/embed-subscribe/drlukeangel" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/drlukeangel', 'popupwindow')" style="display: flex; gap: 10px; margin-top: 18px;">
-          <input type="email" name="email" placeholder="you@inbox.com" required style="flex: 1; padding: 14px 16px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font-family: 'Newsreader', serif; font-size: 16px;" />
-          <button type="submit" style="padding: 14px 22px; background: var(--ink); color: var(--paper); border: none; font-family: 'Newsreader', serif; font-size: 16px; cursor: pointer; border-radius: 999px;">Subscribe</button>
-        </form>
-        <div style="font-style: italic; color: var(--muted); margin-top: 14px;">Twice a month-ish. Unsubscribe with gratitude.</div>
+
+      <fieldset class="field reasons">
+        <legend>
+          <span class="mono">What's this about?</span>
+          <span class="hint"> (pick any that apply)</span>
+        </legend>
+        <div class="checks">
+          <label><input type="checkbox" name="reason" value="Course / cohort question" /><span>Course / cohort question</span></label>
+          <label><input type="checkbox" name="reason" value="Advisory / consulting" /><span>Advisory / consulting</span></label>
+          <label><input type="checkbox" name="reason" value="Speaking invitation" /><span>Speaking invitation</span></label>
+          <label><input type="checkbox" name="reason" value="Podcast / press" /><span>Podcast / press</span></label>
+          <label><input type="checkbox" name="reason" value="Just saying hi" /><span>Just saying hi</span></label>
+          <label><input type="checkbox" name="reason" value="Something else" /><span>Something else</span></label>
+        </div>
+      </fieldset>
+
+      <label class="field">
+        <span class="mono">The letter</span>
+        <textarea name="message" required rows="7" placeholder="Hi Luke —"></textarea>
+      </label>
+
+      <label class="field">
+        <span class="mono">Attachment <span class="hint"> — pdf, png, jpg, doc (optional, max 10MB)</span></span>
+        <input type="file" name="attachment" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx" />
+      </label>
+
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="gotcha" />
+      <input type="hidden" name="_subject" value="New letter via lukeangel.co" />
+
+      <div class="actions">
+        <div class="privacy">I never share email addresses.</div>
+        <button type="submit" class="cta-dark">Send the letter →</button>
       </div>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px;">
-      <div class="card"><div class="mono">Speaking</div><div style="margin-top: 10px;"><a href="mailto:speak@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">speak@lukeangel.co</a></div></div>
-      <div class="card"><div class="mono">Advisory</div><div style="margin-top: 10px;"><a href="mailto:hello@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">hello@lukeangel.co</a></div></div>
-      <div class="card"><div class="mono">Press</div><div style="margin-top: 10px;"><a href="mailto:press@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">press@lukeangel.co</a></div></div>
+    </form>
+
+    <div class="inbox-row">
+      <div class="mono" style="color: var(--accent);">or by inbox —</div>
+      <div class="inbox-grid">
+        <div class="card"><div class="mono">General</div><div style="margin-top: 10px;"><a href="mailto:luke@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">luke@lukeangel.co</a></div></div>
+        <div class="card"><div class="mono">Speaking</div><div style="margin-top: 10px;"><a href="mailto:speak@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">speak@lukeangel.co</a></div></div>
+        <div class="card"><div class="mono">Advisory</div><div style="margin-top: 10px;"><a href="mailto:hello@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">hello@lukeangel.co</a></div></div>
+      </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .letter-form {
+    margin-top: 56px;
+    padding: 36px;
+    display: grid;
+    gap: 22px;
+  }
+
+  .letter-form .row.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .letter-form .field {
+    display: grid;
+    gap: 8px;
+  }
+
+  .letter-form .mono {
+    color: var(--accent);
+  }
+
+  .letter-form .hint {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .letter-form input[type="text"],
+  .letter-form input[type="email"],
+  .letter-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', serif;
+    font-size: 17px;
+    line-height: 1.5;
+    border-radius: 0;
+  }
+
+  .letter-form input[type="text"]:focus,
+  .letter-form input[type="email"]:focus,
+  .letter-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+
+  .letter-form textarea {
+    resize: vertical;
+    min-height: 168px;
+  }
+
+  .letter-form input[type="file"] {
+    font-family: 'Newsreader', serif;
+    font-size: 15px;
+    color: var(--ink2);
+    padding: 6px 0;
+  }
+
+  .letter-form fieldset.reasons {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .letter-form fieldset.reasons legend {
+    padding: 0;
+    margin-bottom: 12px;
+  }
+
+  .letter-form .checks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 22px;
+  }
+
+  .letter-form .checks label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .letter-form .checks input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  .letter-form .gotcha {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .letter-form .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-top: 1px dashed var(--rule);
+    padding-top: 22px;
+    margin-top: 4px;
+  }
+
+  .letter-form .privacy {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .inbox-row {
+    margin-top: 64px;
+  }
+
+  .inbox-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 720px) {
+    .letter-form { padding: 24px; }
+    .letter-form .row.two { grid-template-columns: 1fr; gap: 18px; }
+    .letter-form .checks { grid-template-columns: 1fr; }
+    .letter-form .actions { flex-direction: column; align-items: stretch; }
+    .letter-form .actions .cta-dark { text-align: center; }
+    .inbox-grid { grid-template-columns: 1fr; }
+  }
+</style>

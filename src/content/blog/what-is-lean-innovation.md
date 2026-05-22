@@ -1,18 +1,23 @@
 ---
-title: "What is Lean Innovation?"
-date: 2016-10-21T14:51:50
+title: What is Lean Innovation?
+date: 2016-10-21T14:51:50.000Z
 category: craft
-tags: ["inovation", "lean", "learning", "project-management"]
-excerpt: "Lean innovation is being embraced by everyone — from the smallest start-ups to the largest global organizations. But in most cases, it’s still falling well short of its full potential because it ei…"
-wpCategory: "inovation"
-wpUrl: "/inovation/what-is-lean-innovation/"
-cover: "/blog/migrated/2016/10/lean-inovation.jpg"
-coverAlt: "What is Lean Innovation?"
+tags:
+  - innovation
+  - lean
+  - project-management
+excerpt: Lean innovation is being embraced by everyone — from the smallest start-ups to the largest global organizations. But in most cases, it’s still falling well short of its full potential because…
+wpCategory: inovation
+wpUrl: /inovation/what-is-lean-innovation/
+cover: ../../assets/blog/lean-inovation.jpg
+coverAlt: What is Lean Innovation?
 ---
 
 Lean innovation is being embraced by everyone — from the smallest start-ups to the largest global organizations. But in most cases, it’s still falling well short of its full potential because it either lacks or fails to tightly integrate with the mechanisms needed to systematically capture lessons learned and share them outside the team. And that’s where the money is in innovation.
 
 Lean innovation embraces a philosophy of not letting perfection get in the way of progress. It leverages the Pareto principle that 20% of a product’s features (what’s distilled down into the minimal viable product) will most likely deliver 80% of the benefits sought by customers.
+
+![Lean innovation diagram — the build-measure-learn loop with validated learning at the center, callouts explaining each step in practice](../../assets/blog/lean-innovation-build-measure-learn-2016.svg)
 
 As an approach, lean innovation lends itself especially well to corporate cultures, often engineering ones and others strongly focused on process-improvement programs such as Six Sigma. Its straightforward, step-by-step methodology makes it relatively easy to explain and to implement:
 

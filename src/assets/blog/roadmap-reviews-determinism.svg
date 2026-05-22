@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360">
+  <rect width="1200" height="360" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="rrDDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="360" fill="url(#rrDDots)"/>
+  <rect x="0" y="0" width="24" height="360" fill="#2a52be"/>
+
+  <text x="80" y="56" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="4" fill="#7a808c">A FEATURE, TWO WAYS OF EXISTING</text>
+
+  <!-- Deterministic: clean Gantt bar -->
+  <g transform="translate(80, 110)">
+    <text x="0" y="0" font-family="Newsreader, serif" font-style="italic" font-size="20" fill="#1a1d24">Deterministic work</text>
+    <line x1="0" y1="20" x2="1040" y2="20" stroke="#1a1d24" stroke-width="1" stroke-dasharray="3,4" opacity="0.4"/>
+    <rect x="0" y="36" width="700" height="20" rx="4" fill="#1a1d24"/>
+    <text x="0" y="86" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" letter-spacing="2" fill="#7a808c">start → ship · in a straight line</text>
+  </g>
+
+  <!-- Non-deterministic: wobbly line over same duration -->
+  <g transform="translate(80, 220)">
+    <text x="0" y="0" font-family="Newsreader, serif" font-style="italic" font-size="20" fill="#2a52be">Non-deterministic work</text>
+    <line x1="0" y1="20" x2="1040" y2="20" stroke="#1a1d24" stroke-width="1" stroke-dasharray="3,4" opacity="0.4"/>
+    <path d="M 0 46
+             C 60 10, 120 80, 180 40
+             S 280 12, 340 50
+             S 460 80, 520 30
+             S 640 70, 700 38
+             S 820 14, 880 56
+             L 1040 46"
+          fill="none" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="0" cy="46" r="5" fill="#2a52be"/>
+    <circle cx="1040" cy="46" r="5" fill="#2a52be"/>
+    <text x="0" y="96" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" letter-spacing="2" fill="#7a808c">same start, same ship · the line wobbles</text>
+  </g>
+
+  <line x1="80" y1="334" x2="1120" y2="334" stroke="#1a1d24" stroke-width="2"/>
+</svg>

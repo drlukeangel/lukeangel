@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Angular Zones — how Zone.js monkey-patches every browser async API at startup</title>
+  <desc id="d">2016-era flat diagram showing the browser's native async APIs (setTimeout, Promise, fetch, XHR, addEventListener) wrapped by Zone.js patched versions that route through the Angular zone, enabling automatic change detection.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .mono{font-family:'JetBrains Mono','Menlo','Consolas',monospace;font-size:11px;fill:#1a1d24}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dd0031"/>
+    </marker>
+  </defs>
+  <rect width="800" height="460" fill="#f5f7fa"/>
+  <text x="40" y="38" class="title">Zone.js — monkey-patches every browser async API at startup</text>
+
+  <!-- Native APIs column -->
+  <text x="100" y="78" class="label">Native browser APIs</text>
+  <g transform="translate(40,90)">
+    <rect width="220" height="36" fill="#fff" stroke="#cfd5db" rx="2"/>
+    <text x="14" y="22" class="mono">window.setTimeout</text>
+  </g>
+  <g transform="translate(40,134)">
+    <rect width="220" height="36" fill="#fff" stroke="#cfd5db" rx="2"/>
+    <text x="14" y="22" class="mono">window.setInterval</text>
+  </g>
+  <g transform="translate(40,178)">
+    <rect width="220" height="36" fill="#fff" stroke="#cfd5db" rx="2"/>
+    <text x="14" y="22" class="mono">Promise.then</text>
+  </g>
+  <g transform="translate(40,222)">
+    <rect width="220" height="36" fill="#fff" stroke="#cfd5db" rx="2"/>
+    <text x="14" y="22" class="mono">fetch / XMLHttpRequest</text>
+  </g>
+  <g transform="translate(40,266)">
+    <rect width="220" height="36" fill="#fff" stroke="#cfd5db" rx="2"/>
+    <text x="14" y="22" class="mono">EventTarget.addEventListener</text>
+  </g>
+  <g transform="translate(40,310)">
+    <rect width="220" height="36" fill="#fff" stroke="#cfd5db" rx="2"/>
+    <text x="14" y="22" class="mono">requestAnimationFrame</text>
+  </g>
+
+  <!-- patches -->
+  <g>
+    <line x1="270" y1="108" x2="320" y2="108" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="270" y1="152" x2="320" y2="152" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="270" y1="196" x2="320" y2="196" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="270" y1="240" x2="320" y2="240" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="270" y1="284" x2="320" y2="284" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="270" y1="328" x2="320" y2="328" stroke="#dd0031" stroke-width="2" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- Patched APIs column -->
+  <text x="380" y="78" class="label" fill="#dd0031">Zone-patched versions</text>
+  <g transform="translate(320,90)">
+    <rect width="220" height="36" fill="#fff5f5" stroke="#dd0031" rx="2"/>
+    <text x="14" y="22" class="mono">zone.run(() ⇒ setTimeout(...))</text>
+  </g>
+  <g transform="translate(320,134)">
+    <rect width="220" height="36" fill="#fff5f5" stroke="#dd0031" rx="2"/>
+    <text x="14" y="22" class="mono">zone-wrapped setInterval</text>
+  </g>
+  <g transform="translate(320,178)">
+    <rect width="220" height="36" fill="#fff5f5" stroke="#dd0031" rx="2"/>
+    <text x="14" y="22" class="mono">zone-aware promise resolution</text>
+  </g>
+  <g transform="translate(320,222)">
+    <rect width="320" height="36" fill="#fff5f5" stroke="#dd0031" rx="2"/>
+    <text x="14" y="22" class="mono">zone-wrapped XHR &amp; fetch chains</text>
+  </g>
+  <g transform="translate(320,266)">
+    <rect width="320" height="36" fill="#fff5f5" stroke="#dd0031" rx="2"/>
+    <text x="14" y="22" class="mono">zone-wrapped event handlers</text>
+  </g>
+  <g transform="translate(320,310)">
+    <rect width="220" height="36" fill="#fff5f5" stroke="#dd0031" rx="2"/>
+    <text x="14" y="22" class="mono">zone-aware rAF callbacks</text>
+  </g>
+
+  <!-- Zone container -->
+  <g transform="translate(580,90)">
+    <rect width="180" height="290" fill="#dd0031" rx="6"/>
+    <text x="90" y="32" text-anchor="middle" class="label" fill="#fff">ngZone</text>
+    <line x1="14" y1="44" x2="166" y2="44" stroke="#fff" stroke-opacity="0.4"/>
+    <text x="90" y="64" text-anchor="middle" class="small" fill="#fff">tracks every</text>
+    <text x="90" y="80" text-anchor="middle" class="small" fill="#fff">pending async</text>
+
+    <text x="14" y="120" class="small" fill="#fff">- onScheduleTask</text>
+    <text x="14" y="140" class="small" fill="#fff">- onInvokeTask</text>
+    <text x="14" y="160" class="small" fill="#fff">- onInvokeError</text>
+    <text x="14" y="180" class="small" fill="#fff">- onMicrotaskEmpty</text>
+    <text x="14" y="200" class="small" fill="#fff">- onHasTask</text>
+
+    <line x1="14" y1="220" x2="166" y2="220" stroke="#fff" stroke-opacity="0.4"/>
+
+    <text x="90" y="244" text-anchor="middle" class="small" fill="#fff">queue drained →</text>
+    <text x="90" y="260" text-anchor="middle" class="small" fill="#fff">tick() → CD walks tree</text>
+    <text x="90" y="276" text-anchor="middle" class="small" fill="#fff">→ DOM updates</text>
+  </g>
+
+  <!-- Footnote -->
+  <text x="40" y="404" class="small">- the monkey-patching happens once, at app bootstrap, before your code ever runs</text>
+  <text x="40" y="420" class="small">- this is why Angular can re-render automatically without an explicit "setState"-style call</text>
+  <text x="40" y="436" class="small">- it's also why setTimeout inside an Angular component triggers a full change-detection pass — that's the cost</text>
+</svg>

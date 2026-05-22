@@ -1,13 +1,19 @@
 ---
-title: "What is Responsive Design?"
-date: 2016-09-26T04:42:00
+title: What is Responsive Design?
+date: 2016-09-26T04:42:00.000Z
 category: tools
-tags: ["cross-platform", "design", "desktop", "mobile", "responsive-design", "tablet"]
-excerpt: "Every person these days wants a mobile version of their website. It’s practically essential after all: one design for the Android, another for the iPhone, the iPad, netbook, Kindle — and all screen…"
-wpCategory: "cross-platform"
-wpUrl: "/cross-platform/what-is-responsive-design/"
-cover: "/blog/migrated/2016/09/devices.png"
-coverAlt: "What is Responsive Design?"
+tags:
+  - cross-platform
+  - design
+  - desktop
+  - mobile
+  - responsive-design
+  - tablet
+excerpt: 'Every person these days wants a mobile version of their website. It’s practically essential after all: one design for the Android, another for the iPhone, the iPad, netbook, Kindle — and all…'
+wpCategory: cross-platform
+wpUrl: /cross-platform/what-is-responsive-design/
+cover: ../../assets/blog/devices.png
+coverAlt: What is Responsive Design?
 ---
 
 Every person these days wants a mobile version of their website. It’s practically essential after all: one design for the Android, another for the iPhone, the iPad, netbook, Kindle — and all screen resolutions must be compatible, too. In the next five years, we’ll likely need to design for a number of additional inventions. When will the madness stop? It won’t, of course. In the field of design and development, we’re quickly getting to the point of being unable to keep up with the endless new resolutions and devices. For many apps, creating a version for each resolution and new device would be impossible, or at least impractical. Should we just suffer the consequences of losing visitors from one device, for the benefit of gaining visitors from another? Or is there another option?
@@ -18,11 +24,7 @@ Every person these days wants a mobile version of their website. It’s practica
 
 [Ethan Marcotte](http://ethanmarcotte.com/) wrote an introductory article about the approach, “[Responsive Web Design](http://www.alistapart.com/articles/responsive-web-design/),” for A List Apart. It stems from the notion of responsive architectural design, whereby a room or space automatically adjusts to the number and flow of people within it:
 
-**
-
 “Recently, an emergent discipline called “responsive architecture” has begun asking how physical spaces can respond to the presence of people passing through them. Through a combination of embedded robotics and tensile materials, architects are experimenting with art installations and wall structures that bend, flex, and expand as crowds approach them. Motion sensors can be paired with climate control systems to adjust a room’s temperature and ambient lighting as it fills with people. Companies have already produced “smart glass technology” that can automatically become opaque when a room’s occupants reach a certain density threshold, giving them an additional layer of privacy.”
-
-**
 
 Transplant this discipline onto design, and we have a similar yet whole new idea. Why should we create a custom design for each group of users; after all, architects don’t design a building for each group size and type that passes through it? Like responsive architecture, Web design should automatically adjust. It shouldn’t require countless custom-made solutions for each new category of users.
 
@@ -34,13 +36,13 @@ But responsive design is **not only about adjustable screen resolutions and auto
 
 With more devices come varying screen resolutions, definitions and orientations. New devices with new screen sizes are being developed every day, and each of these devices may be able to handle variations in size, functionality and even color. Some are in landscape, others in portrait, still others even completely square. As we know from the rising popularity of the iPhone, iPad and advanced smartphones, many new devices are able to switch from portrait to landscape at the user’s whim. How is one to design for these situations?
 
-[![Responsive Design portrait-landscape](/blog/migrated/2016/09/portrait-landscape.jpg)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/09/portrait-landscape.jpg)
+![Diagram comparing portrait and landscape orientations of a mobile device — challenge of designing for multiple screen orientations](../../assets/blog/responsive-design-portrait-vs-landscape-orientations.jpg)
 
 In addition to designing for both landscape and portrait (and enabling those orientations to possibly switch in an instant upon page load), we must consider the hundreds of different screen sizes. Yes, it is possible to group them into major categories, design for each of them, and make each design as flexible as necessary. But that can be overwhelming, and who knows what the usage figures will be in five years? Besides, [many users do not maximize their browsers](http://www.456bereastreet.com/archive/200704/poll_results_504_of_respondents_maximise_windows/), which itself leaves far too much room for variety among screen sizes.
 
 Morten Hjerde and a few of his colleagues [identified statistics on about 400 devices](http://sender11.typepad.com/sender11/2008/04/mobile-screen-s.html) sold between 2005 and 2008. Below are some of the most common:
 
-[![Responsive Design sizes](/blog/migrated/2016/09/sizes.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/sizes.jpg)
+![Chart of common mobile device screen sizes (2005-2008) compiled by Morten Hjerde — illustrates the proliferation of resolutions designers must support](../../assets/blog/responsive-design-mobile-screen-sizes-2005-2008.jpg)
 
 Since then even [more devices have come out](http://www.quirksmode.org/mobile/mobilemarket.html). It’s obvious that we can’t keep creating custom solutions for each one. So, how do we deal with the situation?
 
@@ -52,7 +54,7 @@ Now we can make things more flexible. Images can be automatically adjusted, and 
 
 In Ethan Marcotte’s article, he created a sample design that features this better flexible layout:
 
-[![Responsive Design fluid  flexible design ](/blog/migrated/2016/09/moreflexible.jpg)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/09/moreflexible.jpg)
+![Ethan Marcotte's sample design demonstrating a fluid, flexible responsive layout from his A List Apart article](../../assets/blog/responsive-design-ethan-marcotte-fluid-flexible-layout.jpg)
 
 The entire design is a lovely mix of [fluid grids](http://www.alistapart.com/articles/fluidgrids/), [fluid images](http://unstoppablerobotninja.com/entry/fluid-images) and smart mark-up where needed. Creating fluid grids is fairly common practice, and there are a number of techniques for creating fluid images:
 
@@ -66,12 +68,12 @@ For more information on creating fluid app, be sure to look at the book “Flexi
 
 While from a technical perspective this is all easily possible, it’s not just about plugging these features in and being done. Look at the logo in this design, for example:
 
-[![Responsive Design image optimization ](/blog/migrated/2016/09/croppinglogo.jpg)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/croppinglogo.jpg)
+![Responsive logo cropping example — illustration set as a cropped background image while the brand name resizes proportionally](../../assets/blog/responsive-design-logo-cropping-flexible-image.jpg)
 
 If resized too small, the image would appear to be of low quality, but keeping the name of the app visible and not cropping it off was important. So, the image is divided into two: one (of the illustration) set as a background, to be cropped and to maintain its size, and the other (of the name) resized proportionally.
 
 ```
-`~~~~<~~h1 ~~id~~~~~~=~~~~"~~logo~~"~~~~~~>~~~~~~~~<~~a ~~href~~~~~~=~~~~"~~#~~"~~~~~~>~~~~~~~~<~~img ~~src~~~~~~=~~~~"~~site/logo.png~~"~~~~ ~~alt~~~~~~=~~~~"~~The Baker Street Inquirer~~"~~~~ ~~/>~~~~~~~~</~~a~~>~~~~~~~~</~~h1~~>~~~~`
+`<~~h1 ~~id="~~logo~~"><~~a ~~href="~~#~~"><~~img ~~src="~~site/logo.png~~" ~~alt="~~The Baker Street Inquirer~~" ~~/></~~a~~></~~h1~~>`
 ```
 
 Above, the `h1` element holds the illustration as a background, and the image is aligned according to the container’s background (the heading).
@@ -83,7 +85,7 @@ This is just one example of the kind of thinking that makes responsive App desig
 One major problem that needs to be solved with responsive App design is working with images. There are a number of techniques to resize images proportionately, and many are easily done. The most popular option, noted in Ethan Marcotte’s article on [fluid images](http://unstoppablerobotninja.com/entry/fluid-images/) but first experimented with by[Richard Rutter](http://clagnut.com/sandbox/imagetest3/), is to use CSS’s `max-width` for an easy fix.
 
 ```
-`~~img ~~~~{~~ ~~max-width~~~~:~~ 100%~~;~~ ~~}~~`
+`~~img {~~ ~~max-width:~~ 100%~~;~~ ~~}~~`
 ```
 
 As long as no other width-based image styles override this rule, every image will load in its original size, unless the viewing area becomes narrower than the image’s original width. The **maximum width** of the image is set to 100% of the screen or browser width, so when that 100% becomes narrower, so does the image. Essentially, as Jason Grigsby[noted](http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/), “The idea behind fluid images is that you deliver images at the maximum size they will be used at. You don’t declare the height and width in your code, but instead let the browser resize the images as needed while using CSS to guide their relative size”. It’s a great and simple technique to resize images beautifully.
@@ -96,12 +98,12 @@ While the above is a great quick fix and good start to responsive images, image 
 
 This technique, presented by the Filament Group, takes this issue into consideration and not only resizes images proportionately, but shrinks image resolution on smaller devices, so very large images don’t waste space unnecessarily on small screens. Check out [the demo page here.](http://filamentgroup.com/examples/responsive-images/)
 
-[![Responsive Design filament group](/blog/migrated/2016/09/filamentgroup.jpg)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/filamentgroup.jpg)
+![Filament Group's responsive images demo — technique that shrinks image resolution on smaller devices instead of just rescaling large images](../../assets/blog/responsive-design-filament-group-responsive-images-demo.jpg)
 
 This technique requires a few files, all of which are available on [Github](https://github.com/filamentgroup/Responsive-Images). First, a JavaScript file (*rwd-images.js*), the *.htaccess* file and an image file (*rwd.gif*). Then, we can use just a bit of HTML to reference both the larger and smaller resolution images: first, the small image, with an *.r* prefix to clarify that it should be responsive, and then a reference to the bigger image using `data-fullsrc`.
 
 ```
-`~~~~<~~img ~~src~~~~~~=~~~~"~~smallRes.jpg~~"~~~~ ~~data-fullsrc~~~~~~=~~~~"~~largeRes.jpg~~"~~~~~~>~~~~`
+`<~~img ~~src="~~smallRes.jpg~~" ~~data-fullsrc="~~largeRes.jpg~~">`
 ```
 
 The `data-fullsrc` is a custom HTML5 attribute, defined in the files linked to above. For any screen that is wider than 480 pixels, the larger-resolution image (*largeRes.jpg*) will load; smaller screens wouldn’t need to load the bigger image, and so the smaller image (*smallRes.jpg*) will load.
@@ -116,13 +118,13 @@ One nice thing about the iPhone and iPod Touch is that app designs automatically
 
 There was, however, one issue this simulator created. When responsive design took off, many noticed that images were still changing proportionally with the page even if they were specifically made for (or could otherwise fit) the tiny screen. This in turn scaled down text and other elements.
 
-[![Responsive Design iphone scale](/blog/migrated/2016/09/iphonescale.jpg)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/09/iphonescale.jpg)**
+![iPhone simulator rescaling issue — images shrinking proportionally with the page and scaling text smaller than intended](../../assets/blog/responsive-design-iphone-simulator-image-resizing-issue.jpg)**
 *(Image: [Think Vitamin](http://thinkvitamin.com/design/responsive-design-image-gotcha/) | Website referenced: [8 Faces](http://8faces.com/))*
 
 Because this works only with Apple’s simulator, we can use an Apple-specific meta tag to fix the problem, placing it *below* the website’s ``section. Thanks to [Think Vitamin’s article on image resizing](http://thinkvitamin.com/design/responsive-design-image-gotcha/), we have the meta tag below:
 
 ```
-`~~~~<~~meta ~~name~~~~~~=~~~~"~~viewport~~"~~~~ ~~content~~~~~~=~~~~"~~width~~=~~device-width; initial-scale~~=~~1.0~~"~~~~~~>~~~~`
+`<~~meta ~~name="~~viewport~~" ~~content="~~width~~=~~device-width; initial-scale~~=~~1.0~~">`
 ```
 
 Setting the `initial-scale` to `1` overrides the default to resize images proportionally, while leaving them as is if their width is the same as the device’s width (in either portrait or lanscape mode). Apple’s documentation has a lot more information on the [viewport meta tag](http://developer.apple.com/library/safari/#documentation/appleapplications/reference/safarihtmlref/Articles/MetaTags.html).
@@ -138,75 +140,75 @@ If a style sheet made the layout too narrow, short, wide or tall, we could then 
 Here is the ***style.css* (default) content:**
 
 ```
-`~~/* Default styles that will carry to the child style sheet */~~
+`~~/* Default styles that will carry to the child style sheet */
 
-~~html,body~~~~{~~
+html,body{
    background...
    font...
    color...
-~~}~~
+}
 
-~~h1,h2,h3~~~~{~~~~}~~
-~~p, blockquote, pre, code, ol, ul~~~~{~~~~}~~
+h1,h2,h3{}
+p, blockquote, pre, code, ol, ul{}
 
-~~/* Structural elements */~~
-~~#wrapper~~~~{~~
-  ~~width~~~~:~~ 80%~~;~~
-  ~~margin~~~~:~~ 0 auto~~;~~
+/* Structural elements */
+#wrapper{
+  width:~~ 80%~~;
+  margin:~~ 0 auto~~;
 
-  ~~background~~~~:~~ #fff~~;~~
-  ~~padding~~~~:~~ 20px~~;~~
-~~}~~
+  background:~~ #fff~~;
+  padding:~~ 20px~~;
+}
 
-~~#content~~~~{~~
-  ~~width~~~~:~~ 54%~~;~~
-  ~~float~~~~:~~ left~~;~~
-  ~~margin-right~~~~:~~ 3%~~;~~
-~~}~~
+#content{
+  width:~~ 54%~~;
+  float:~~ left~~;
+  margin-right:~~ 3%~~;
+}
 
-~~#sidebar-left~~~~{~~
-  ~~width~~~~:~~ 20%~~;~~
-  ~~float~~~~:~~ left~~;~~
-  ~~margin-right~~~~:~~ 3%~~;~~
-~~}~~
+#sidebar-left{
+  width:~~ 20%~~;
+  float:~~ left~~;
+  margin-right:~~ 3%~~;
+}
 
-~~#sidebar-right~~~~{~~
-  ~~width~~~~:~~ 20%~~;~~
-  ~~float~~~~:~~ left~~;~~
-~~}~~`
+#sidebar-right{
+  width:~~ 20%~~;
+  float:~~ left~~;
+}~~`
 ```
 
 Here is the ***mobile.css* (child)** content:
 
 ```
-`~~#wrapper~~~~{~~
-  ~~width~~~~:~~ 90%~~;~~
-~~}~~
+`~~#wrapper{
+  width:~~ 90%~~;
+}
 
-~~#content~~~~{~~
-  ~~width~~~~:~~ 100%~~;~~
-~~}~~
+#content{
+  width:~~ 100%~~;
+}
 
-~~#sidebar-left~~~~{~~
-  ~~width~~~~:~~ 100%~~;~~
-  ~~clear~~~~:~~ both~~;~~
+#sidebar-left{
+  width:~~ 100%~~;
+  clear:~~ both~~;
 
-  ~~/* Additional styling for our new layout */~~
-  ~~border-top~~~~:~~ 1px solid #ccc~~;~~
-  ~~margin-top~~~~:~~ 20px~~;~~
-~~}~~
+  /* Additional styling for our new layout */
+  border-top:~~ 1px solid #ccc~~;
+  margin-top:~~ 20px~~;
+}
 
-~~#sidebar-right~~~~{~~
-  ~~width~~~~:~~ 100%~~;~~
-  ~~clear~~~~:~~ both~~;~~
+#sidebar-right{
+  width:~~ 100%~~;
+  clear:~~ both~~;
 
-  ~~/* Additional styling for our new layout */~~
-  ~~border-top~~~~:~~ 1px solid #ccc~~;~~
-  ~~margin-top~~~~:~~ 20px~~;~~
-~~}~~`
+  /* Additional styling for our new layout */
+  border-top:~~ 1px solid #ccc~~;
+  margin-top:~~ 20px~~;
+}~~`
 ```
 
-[![Responsive Design responsive moving content](/blog/migrated/2016/09/movingcontent.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/movingcontent.jpg)
+![Mobile.css child stylesheet rearranging the layout — sidebars cleared, content widened to 100%, structural elements re-floated](../../assets/blog/responsive-design-mobile-css-content-rearrangement.jpg)
 
 #### MEDIA QUERIES
 
@@ -215,9 +217,9 @@ CSS3 supports all of the same media types as CSS 2.1, such as `screen`,`print` a
 In Ethan Marcotte’s article, we see an example of a media query in action:
 
 ```
-`~~~~<~~link ~~rel~~~~~~=~~~~"~~stylesheet~~"~~~~ ~~type~~~~~~=~~~~"~~text/css~~"~~~~
-  ~~media~~~~~~=~~~~"~~screen and (max-device-width: 480px)~~"~~~~
-  ~~href~~~~~~=~~~~"~~shetland.css~~"~~~~ ~~/>~~~~`
+`<~~link ~~rel="~~stylesheet~~" ~~type="~~text/css~~"
+  media="~~screen and (max-device-width: 480px)~~"
+  href="~~shetland.css~~" ~~/>`
 ```
 
 This media query is fairly self-explanatory: if the browser displays this page on a screen (rather than print, etc.), and if the width of the screen (not necessarily the viewport) is 480 pixels or less, then load *shetland.css*.
@@ -229,24 +231,24 @@ One can create multiple style sheets, as well as basic layout alterations define
 Multiple media queries can also be dropped right into a single style sheet, which is the most efficient option when used:
 
 ```
-`~~/* Smartphones (portrait and landscape) ----------- */~~
-~~@media only screen
+`~~/* Smartphones (portrait and landscape) ----------- */
+@media only screen
 and (min-device-width : 320px)
-and (max-device-width : 480px) ~~~~{~~
-~~/* Styles */~~
-~~}~~
+and (max-device-width : 480px) {
+/* Styles */
+}
 
-~~/* Smartphones (landscape) ----------- */~~
-~~@media only screen
-and (min-width : 321px) ~~~~{~~
-~~/* Styles */~~
-~~}~~
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+}
 
-~~/* Smartphones (portrait) ----------- */~~
-~~@media only screen
-and (max-width : 320px) ~~~~{~~
-~~/* Styles */~~
-~~}~~`
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}~~`
 ```
 
 The code above is from a free template for multiple media queries between popular devices by Andy Clark. See the differences between this approach and including different style sheet files in the mark-up as shown in the post “[Hardboiled CSS3 Media Queries](http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries).”
@@ -260,23 +262,23 @@ The **min-width and max-width** properties do exactly what they suggest. The `mi
 Note in the examples below that we’re using the syntax for media queries that could be used all in one style sheet. As mentioned above, the most efficient way to use media queries is to place them all in one CSS style sheet, with the rest of the styles for the app. This way, multiple requests don’t have to be made for multiple style sheets.
 
 ```
-`~~@media screen and (min-width: 600px) ~~~~{~~
-     ~~.hereIsMyClass ~~~~{~~
-          ~~width~~~~:~~ 30%~~;~~
-          ~~float~~~~:~~ right~~;~~
-     ~~}~~
-~~}~~`
+`~~@media screen and (min-width: 600px) {
+     .hereIsMyClass {
+          width:~~ 30%~~;
+          float:~~ right~~;
+     }
+}~~`
 ```
 
 The class specified in the media query above (`hereIsMyClass`) will work only if the browser or screen width is above 600 pixels. In other words, this media query will run only if the **minimum width is 600 pixels** (therefore, 600 pixels or wider).
 
 ```
-`~~@media screen and (max-width: 600px) ~~~~{~~
-     ~~.aClassforSmallScreens ~~~~{~~
-          ~~clear~~~~:~~ both~~;~~
-      ~~font-size~~~~:~~ 1.3em~~;~~
-     ~~}~~
-~~}~~`
+`~~@media screen and (max-width: 600px) {
+     .aClassforSmallScreens {
+          clear:~~ both~~;
+      font-size:~~ 1.3em~~;
+     }
+}~~`
 ```
 
 Now, with the use of `max-width`, this media query will apply only to browser or screen widths with a maximum width of 600 pixels or narrower.
@@ -284,20 +286,20 @@ Now, with the use of `max-width`, this media query will apply only to browser or
 While the above `min-width` and `max-width` can apply to either screen size or browser width, sometimes we’d like a media query that is relevant to device width specifically. This means that even if a browser or other viewing area is minimized to something smaller, the media query would still apply to the size of the actual device. The **min-device-width and max-device-width** media query properties are great for targeting certain devices with set dimensions, without applying the same styles to other screen sizes in a browser that mimics the device’s size.
 
 ```
-`~~@media screen and (max-device-width: 480px) ~~~~{~~
-     ~~.classForiPhoneDisplay ~~~~{~~
-          ~~font-size~~~~:~~ 1.2em~~;~~
-     ~~}~~
-~~}~~`
+`~~@media screen and (max-device-width: 480px) {
+     .classForiPhoneDisplay {
+          font-size:~~ 1.2em~~;
+     }
+}~~`
 ```
 
 ```
-`~~@media screen and (min-device-width: 768px) ~~~~{~~
-     ~~.minimumiPadWidth ~~~~{~~
-          ~~clear~~~~:~~ both~~;~~
-      ~~margin-bottom~~~~:~~ 2px solid #ccc~~;~~
-     ~~}~~
-~~}~~`
+`~~@media screen and (min-device-width: 768px) {
+     .minimumiPadWidth {
+          clear:~~ both~~;
+      margin-bottom:~~ 2px solid #ccc~~;
+     }
+}~~`
 ```
 
 There are also other tricks with media queries to target specific devices. Thomas Maier has written two short snippets and explanations for targeting the iPhone and iPad only:
@@ -309,20 +311,20 @@ There are also other tricks with media queries to target specific devices. Thoma
 For the iPad specifically, there is also a media query property called**orientation**. The value can be either landscape (horizontal orientation) or portrait (vertical orientation).
 
 ```
-`~~@media screen and (orientation: landscape) ~~~~{~~
-     ~~.iPadLandscape ~~~~{~~
-          ~~width~~~~:~~ 30%~~;~~
-      ~~float~~~~:~~ right~~;~~
-     ~~}~~
-~~}~~`
+`~~@media screen and (orientation: landscape) {
+     .iPadLandscape {
+          width:~~ 30%~~;
+      float:~~ right~~;
+     }
+}~~`
 ```
 
 ```
-`~~@media screen and (orientation: portrait) ~~~~{~~
-     ~~.iPadPortrait ~~~~{~~
-          ~~clear~~~~:~~ both~~;~~
-     ~~}~~
-~~}~~`
+`~~@media screen and (orientation: portrait) {
+     .iPadPortrait {
+          clear:~~ both~~;
+     }
+}~~`
 ```
 
 Unfortunately, this property works only on the iPad. When [determining the orientation for the iPhone](http://www.thecssninja.com/css/iphone-orientation-css) and other devices, the use of `max-device-width`and `min-device-width` should do the trick.
@@ -330,13 +332,13 @@ Unfortunately, this property works only on the iPad. When [determining the orien
 There are also many media queries that **make sense when combined**. For example, the `min-width` and `max-width` media queries are combined all the time to set a style specific to a certain range.
 
 ```
-`~~@media screen and (min-width: 800px) and (max-width: 1200px) ~~~~{~~
-     ~~.classForaMediumScreen ~~~~{~~
-          ~~background~~~~:~~ #cc0000~~;~~
-          ~~width~~~~:~~ 30%~~;~~
-          ~~float~~~~:~~ right~~;~~
-     ~~}~~
-~~}~~`
+`~~@media screen and (min-width: 800px) and (max-width: 1200px) {
+     .classForaMediumScreen {
+          background:~~ #cc0000~~;
+          width:~~ 30%~~;
+          float:~~ right~~;
+     }
+}~~`
 ```
 
 The above code in this media query applies only to screen and browser widths between 800 and 1200 pixels. A good use of this technique is to show certain content or entire sidebars in a layout depending on how much horizontal space is available.
@@ -350,9 +352,9 @@ Another example is a flexible design meant for a standard computer screen with a
 Nevertheless, organization can be key, and a designer may wish to define media queries in a standard HTML link tag:
 
 ```
-`~~~~<~~link ~~rel~~~~~~=~~~~"~~stylesheet~~"~~~~ ~~media~~~~~~=~~~~"~~screen and (max-width: 600px)~~"~~~~ ~~href~~~~~~=~~~~"~~small.css~~"~~~~ ~~/>~~~~
-~~~~<~~link ~~rel~~~~~~=~~~~"~~stylesheet~~"~~~~ ~~media~~~~~~=~~~~"~~screen and (min-width: 600px)~~"~~~~ ~~href~~~~~~=~~~~"~~large.css~~"~~~~ ~~/>~~~~
-~~~~<~~link ~~rel~~~~~~=~~~~"~~stylesheet~~"~~~~ ~~media~~~~~~=~~~~"~~print~~"~~~~ ~~href~~~~~~=~~~~"~~print.css~~"~~~~ ~~/>~~~~`
+`<~~link ~~rel="~~stylesheet~~" ~~media="~~screen and (max-width: 600px)~~" ~~href="~~small.css~~" ~~/>
+<~~link ~~rel="~~stylesheet~~" ~~media="~~screen and (min-width: 600px)~~" ~~href="~~large.css~~" ~~/>
+<~~link ~~rel="~~stylesheet~~" ~~media="~~print~~" ~~href="~~print.css~~" ~~/>`
 ```
 
 #### JAVASCRIPT
@@ -362,21 +364,21 @@ Another method that can be used is JavaScript, especially as a back-up to device
 In addition, below is a sample jQuery snippet that detects browser width and changes the style sheet accordingly — if one prefers a more hands-on approach:
 
 ```
-`~~<~~script type~~=~~~~"text/javascript"~~ src~~=~~~~"http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"~~~~>~~~~<~~~~/~~script~~>~~
+`~~<~~script type~~="text/javascript"~~ src~~="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></~~script~~>
 
-~~<~~script type~~=~~~~"text/javascript"~~~~>~~
-  $~~(~~document~~)~~~~.~~~~ready~~(~~~~~~function~~~~(~~~~)~~~~{~~
-    $~~(~~window~~)~~~~.~~~~bind~~(~~~~~~"resize"~~~~,~~ resizeWindow~~)~~~~;~~
-    ~~function~~ ~~resizeWindow~~(~~~~e~~)~~~~{~~
-      ~~var~~ newWindowWidth ~~=~~ $~~(~~window~~)~~~~.~~~~width~~(~~~~~~)~~~~;~~
+<~~script type~~="text/javascript">
+  $~~(~~document~~).ready~~(function(){
+    $~~(~~window~~).bind~~("resize",~~ resizeWindow~~);
+    function~~ ~~resizeWindow~~(e~~){
+      var~~ newWindowWidth ~~=~~ $~~(~~window~~).width~~();
 
-     ~~ // If width width is below 600px, switch to the mobile stylesheet
-~~      ~~if~~~~(~~newWindowWidth ~~<~~ ~~600~~~~)~~~~{~~        $~~(~~~~"link[rel=stylesheet]"~~~~)~~~~.~~~~attr~~(~~~~~~{~~href ~~:~~ ~~"mobile.css"~~~~}~~~~)~~~~;~~        ~~}~~      ~~ // Else if width is above 600px, switch to the large stylesheet       else if(newWindowWidth > 600){
-~~        $~~(~~~~"link[rel=stylesheet]"~~~~)~~~~.~~~~attr~~(~~~~~~{~~href ~~:~~ ~~"style.css"~~~~}~~~~)~~~~;~~
-      ~~}~~
-    ~~}~~
-  ~~}~~~~)~~~~;~~
-~~<~~~~/~~script~~>~~`
+      // If width width is below 600px, switch to the mobile stylesheet
+      ~~if(~~newWindowWidth ~~<~~ ~~600){~~        $~~("link[rel=stylesheet]").attr~~({~~href ~~:~~ ~~"mobile.css"});~~        ~~}~~      ~~ // Else if width is above 600px, switch to the large stylesheet       else if(newWindowWidth > 600){
+        $~~("link[rel=stylesheet]").attr~~({~~href ~~:~~ ~~"style.css"});
+      }
+    }
+  });
+</~~script~~>~~`
 ```
 
 There are many solutions for pairing up JavaScript with CSS media queries. Remember that media queries are not an absolute answer, but rather are fantastic options for responsive design when it comes to pure CSS-based solutions. With the addition of JavaScript, we can accomodate far more variations. For detailed information on using JavaScript to mimic or work with media queries, look at “[Combining Media Queries and JavaScript](http://www.quirksmode.org/blog/archives/2010/08/combining_media.html).”
@@ -385,37 +387,37 @@ There are many solutions for pairing up JavaScript with CSS media queries. Remem
 
 It is possible to shrink things proportionally and rearrange elements as necessary to make everything fit (reasonably well) as a screen gets smaller. It’s great that that’s possible, but making every piece of content from a large screen available on a smaller screen or mobile device isn’t always the best answer. We have best practices for mobile environments: simpler navigation, more focused content, lists or rows instead of multiple columns.
 
-[![Responsive Design mobile to desktop](/blog/migrated/2016/09/diggmobile.jpg)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/diggmobile.jpg)
+![Side-by-side comparison of Digg's mobile and desktop views — simpler navigation, more focused content, single-column layout on mobile](../../assets/blog/responsive-design-digg-mobile-vs-desktop-comparison.jpg)
 
 Responsive design shouldn’t be just about how to create a flexible layout on a wide range of platforms and screen sizes. It should also be about the user being able to pick and choose content. Fortunately, CSS has been allowing us to show and hide content with ease for years!
 
 ```
-`~~display~~~~:~~ none~~;~~`
+`~~display:~~ none~~;~~`
 ```
 
 Either declare `display: none` for the HTML block element that needs to be hidden in a specific style sheet or detect the browser width and do it through JavaScript. In addition to hiding content on smaller screens, we can also hide content in our default style sheet (for bigger screens) that should be available only in mobile versions or on smaller devices. For example, as we hide major pieces of content, we could replace them with navigation to that content, or with a different navigation structure altogether.
 
 Note that we haven’t used `visibility: hidden` here; this just hides the content (although it is still there), whereas the `display` property gets rid of it altogether. For smaller devices, there is no need to keep the mark-up on the page — it just takes up resources and might even cause unnecessary scrolling or break the layout.
 
-[![Responsive Design showing hiding content](/blog/migrated/2016/09/showinghidingcontent.jpg)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/09/showinghidingcontent.jpg)
+![Showing and hiding content with display: none — sidebars hidden on small screens with their navigation links revealed instead](../../assets/blog/responsive-design-show-hide-content-display-none.jpg)
 
 Here is **our mark-up**:
 
 ```
-`~~~~<~~p ~~class~~~~~~=~~~~"~~sidebar-nav~~"~~~~~~>~~~~~~~~<~~a ~~href~~~~~~=~~~~"~~#~~"~~~~~~>~~~~Left Sidebar Content~~~~</~~a~~>~~~~ | ~~~~<~~a ~~href~~~~~~=~~~~"~~#~~"~~~~~~>~~~~Right Sidebar Content~~~~</~~a~~>~~~~~~~~</~~p~~>~~~~
+`<~~p ~~class="~~sidebar-nav~~"><~~a ~~href="~~#~~">Left Sidebar Content</~~a~~> | <~~a ~~href="~~#~~">Right Sidebar Content</~~a~~></~~p~~>
 
-~~~~<~~div ~~id~~~~~~=~~~~"~~content~~"~~~~~~>~~~~
-  ~~~~<~~h2~~>~~~~Main Content~~~~</~~h2~~>~~~~
-~~~~</~~div~~>~~~~
+<~~div ~~id="~~content~~">
+  <~~h2~~>Main Content</~~h2~~>
+</~~div~~>
 
-~~~~<~~div ~~id~~~~~~=~~~~"~~sidebar-left~~"~~~~~~>~~~~
-  ~~~~<~~h2~~>~~~~A Left Sidebar~~~~</~~h2~~>~~~~
+<~~div ~~id="~~sidebar-left~~">
+  <~~h2~~>A Left Sidebar</~~h2~~>
 
-~~~~</~~div~~>~~~~
+</~~div~~>
 
-~~~~<~~div ~~id~~~~~~=~~~~"~~sidebar-right~~"~~~~~~>~~~~
-  ~~~~<~~h2~~>~~~~A Right Sidebar~~~~</~~h2~~>~~~~
-~~~~</~~div~~>~~~~`
+<~~div ~~id="~~sidebar-right~~">
+  <~~h2~~>A Right Sidebar</~~h2~~>
+</~~div~~>`
 ```
 
 In our default style sheet below, we have hidden the links to the sidebar content. Because our screen is large enough, we can display this content on page load.
@@ -423,23 +425,23 @@ In our default style sheet below, we have hidden the links to the sidebar conten
 Here is the ***style.css* (default)** content:
 
 ```
-`~~#content~~~~{~~
-  ~~width~~~~:~~ 54%~~;~~
-  ~~float~~~~:~~ left~~;~~
-  ~~margin-right~~~~:~~ 3%~~;~~
-~~}~~
+`~~#content{
+  width:~~ 54%~~;
+  float:~~ left~~;
+  margin-right:~~ 3%~~;
+}
 
-~~#sidebar-left~~~~{~~
-  ~~width~~~~:~~ 20%~~;~~
-  ~~float~~~~:~~ left~~;~~
-  ~~margin-right~~~~:~~ 3%~~;~~
-~~}~~
+#sidebar-left{
+  width:~~ 20%~~;
+  float:~~ left~~;
+  margin-right:~~ 3%~~;
+}
 
-~~#sidebar-right~~~~{~~
-  ~~width~~~~:~~ 20%~~;~~
-  ~~float~~~~:~~ left~~;~~
-~~}~~
-~~.sidebar-nav~~~~{~~~~display~~~~:~~ none~~;~~~~}~~`
+#sidebar-right{
+  width:~~ 20%~~;
+  float:~~ left~~;
+}
+.sidebar-nav{display:~~ none~~;}~~`
 ```
 
 Now, we hide the two sidebars (below) and show the links to these pieces of content. As an alternative, the links could call to JavaScript to just cancel out the `display: none` when clicked, and the sidebars could be realigned in the CSS to float below the content (or in another reasonable way).
@@ -447,18 +449,18 @@ Now, we hide the two sidebars (below) and show the links to these pieces of cont
 Here is the ***mobile.css* (simpler)** content:
 
 ```
-`~~#content~~~~{~~
-  ~~width~~~~:~~ 100%~~;~~
-~~}~~
+`~~#content{
+  width:~~ 100%~~;
+}
 
-~~#sidebar-left~~~~{~~
-  ~~display~~~~:~~ none~~;~~
-~~}~~
+#sidebar-left{
+  display:~~ none~~;
+}
 
-~~#sidebar-right~~~~{~~
-  ~~display~~~~:~~ none~~;~~
-~~}~~
-~~.sidebar-nav~~~~{~~~~display~~~~:~~ inline~~;~~~~}~~`
+#sidebar-right{
+  display:~~ none~~;
+}
+.sidebar-nav{display:~~ inline~~;}~~`
 ```
 
 With the ability to easily show and hide content, rearrange layout elements and automatically resize images, form elements and more, a design can be transformed to fit a huge variety of screen sizes and device types. As the screen gets smaller, rearrange elements to fit mobile guidelines; for example, use a script or alternate style sheet to increase white space or to replace image navigation sources on mobile devices for better usability (icons would be more beneficial on smaller screens).
@@ -473,7 +475,7 @@ Below are a couple of relevant resources:
 
 Touchscreens are becoming increasingly popular. Assuming that smaller devices are more likely to be given touchscreen functionality is easy, but don’t be so quick. Right now touchscreens are mainly on smaller devices, but many laptops and desktops on the market also have touchscreen capability. For example, the [HP Touchsmart tm2t](http://www.shopping.hp.com/webapp/shopping/store_access.do?template_type=series_detail&category=notebooks&series_name=tm2t_series&aoid=51320&keyword=hp+touchsmart+tm2&tafcjnef=fy10&DS_KWID=p117477087) is a basic touchscreen laptop with traditional keyboard and mouse that can transform into a tablet.
 
-[![Responsive Design touch screen](/blog/migrated/2016/09/touchscreen.jpg)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/09/touchscreen.jpg)
+![Touchscreen laptop like the HP Touchsmart tm2t — designing for both touch and cursor interaction without relying on CSS hovers](../../assets/blog/responsive-design-touchscreen-laptop-vs-cursor.jpg)
 
 Touchscreens obviously come with different design guidelines than purely cursor-based interaction, and the two have different capabilities as well. Fortunately, making a design work for both doesn’t take a lot of effort. Touchscreens have no capability to display CSS hovers because there is no cursor; once the user touches the screen, they click. So, don’t rely on CSS hovers for link definition; they should be considered an additional feature only for cursor-based devices.
 
@@ -486,36 +488,32 @@ Below we have a few examples of responsive design in practice today. For many of
 [Art Equals Work](http://artequalswork.com/)**
 Art Equals Work is a simple yet great example of responsive design. The first screenshot below is the view from a standard computer screen dimension. The website is flexible with browser widths by traditional standars, but once the browser gets too narrow or is otherwise switched to a device with a smaller screen, then the layout switches to a more readable and user-friendly format. The sidebar disappears, navigation goes to the top, and text is enlarged for easy and simple vertical reading.
 
-[![Responsive Design artequalswork1](/blog/migrated/2016/09/artequalswork1.jpg)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/artequalswork1.jpg)
+![Art Equals Work website on a standard desktop browser — sidebar visible, multi-column layout](../../assets/blog/responsive-design-art-equals-work-desktop-view.jpg)
 
-[![ Responsive Design artequalswork2](/blog/migrated/2016/09/artequalswork2.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/artequalswork2.jpg)
+![Art Equals Work website on a narrow viewport — sidebar removed, navigation pushed to top, text enlarged for vertical reading](../../assets/blog/responsive-design-art-equals-work-mobile-view.jpg)
 
 [Think Vitamin](http://thinkvitamin.com/)**
 With Think Vitamin, we see a similar approach. When on a smaller screen or browser, the sidebar and top bar are removed, the navigation simplifies and moves directly above the content, as does the logo. The logo keeps its general look yet is modified for a more vertical orientation, with the tagline below the main icon. The white space around the content on larger screens is also more spacious and interesting, whereas it is simplified for practical purposes on smaller screens.
 
-[![Responsive Designthink vitamin1](/blog/migrated/2016/09/thinkvitamin1.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/thinkvitamin1.jpg)
+![Think Vitamin website desktop view — sidebar and top bar present with generous white space](../../assets/blog/responsive-design-think-vitamin-desktop-view.jpg)
 
-[![Responsive Design 8faces2](/blog/migrated/2016/09/8faces2.jpg)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/8faces2.jpg) [![thinkvitamin2](/blog/migrated/2016/09/thinkvitamin2.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/thinkvitamin2.jpg)
+![8 Faces website on a narrow screen — featured issue cut, content shortened and rearranged to essentials only](../../assets/blog/responsive-design-8-faces-mobile-narrow-view.jpg) ![Think Vitamin website mobile view — sidebar and top bar removed, navigation moved above the content, logo simplified vertically](../../assets/blog/responsive-design-think-vitamin-mobile-view.jpg)
 
 [8 Faces](http://8faces.com/)**
 8 Faces’ website design is flexible, right down to a standard netbook or tablet device, and expands in content quantity and layout width when viewed on wider screens or expanded browsers. When viewed on narrower screens, the featured issue on the right is cut out, and the content below is shortened and rearranged in layout, leaving only the essential information.
 
-[![8faces1](/blog/migrated/2016/09/8faces1.jpg)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/09/8faces1.jpg)
+![8 Faces magazine website on a wide desktop screen — full layout with featured issue and expanded content](../../assets/blog/responsive-design-8-faces-desktop-view.jpg)
 
-[![ Responsive Design 8faces2](/blog/migrated/2016/09/8faces2-1.jpg)](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/09/8faces2-1.jpg)
+![8 Faces website at a tablet-width viewport — content rearranged and simplified for the narrower layout](../../assets/blog/responsive-design-8-faces-tablet-narrower-view.jpg)
 
 [Hicksdesign](http://hicksdesign.co.uk/)**
 The Hicksdesign website has three columns when viewed on a conventional computer screen with a maximized browser. When minimized in width, the design takes on a new layout: the third column to the right is rearranged above the second, and the logo moves next to the introductory text. Thus, no content needs to be removed for the smaller size. For even narrower screens and browser widths, the side content is removed completely and a simplified version is moved up top. Finally, the font size changes with the screen and browser width; as the browser gets narrower, the font size throughout gets smaller and remains proportional.
 
- 
-
-[![hicksdesign1](/blog/migrated/2016/09/hicksdesign1.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/hicksdesign1.jpg)[![Responsive Design hicksdesign2](/blog/migrated/2016/09/hicksdesign2.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/hicksdesign2.jpg)
-
- 
+![Hicksdesign three-column desktop layout — logo on the left, two content columns to the right](../../assets/blog/responsive-design-hicksdesign-desktop-three-columns.jpg)![Hicksdesign at a narrower width — third column rearranged above the second, logo moves next to the intro text](../../assets/blog/responsive-design-hicksdesign-narrow-rearranged.jpg)
 
 [Information Architects](http://www.informationarchitects.jp/en/)**
 Here is a great example of a flexible image. The image in this design automatically resizes after certain “break” points, but in between those width changes, only the side margins and excess white space are altered. On smaller screens and minimized browsers, the navigation simplifies and the columns of navigation at the top fall off. At the design’s smallest version, the navigation simplifies to just a drop-down menu, perfect for saving space without sacrificing critical navigation links.
 
-[![informationarchitects1](/blog/migrated/2016/09/informationarchitects1.jpg)](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/informationarchitects1.jpg)
+![Information Architects website on a wide screen — full navigation row across the top with proportional flexible images](../../assets/blog/responsive-design-information-architects-wide-view.jpg)
 
-[![Responsive Design informationarchitects2](/blog/migrated/2016/09/informationarchitects2.jpg)](https://i1.wp.com/lukeangel.co/wp-content/uploads/2016/09/informationarchitects2.jpg)
+![Information Architects website at its narrowest width — navigation collapses into a dropdown menu to save space](../../assets/blog/responsive-design-information-architects-narrow-dropdown.jpg)

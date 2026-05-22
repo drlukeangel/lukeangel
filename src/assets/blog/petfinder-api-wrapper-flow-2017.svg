@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-labelledby="t d">
+  <title id="t">Pet Finder API wrapper — what the library does between the wire format and your code</title>
+  <desc id="d">2017-era flat diagram showing the request flow: app code calls the pet-finder-api library, which authenticates and signs the request, hits the Petfinder API, receives nested JSON with the awkward t-prefix shape, flattens and normalizes it, and returns a clean object to the app.</desc>
+  <style>
+    .label{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:500;fill:#1a1d24;font-size:13px}
+    .small{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .mono{font-family:'Menlo','Consolas',monospace;font-size:10px;fill:#1a1d24}
+    .title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+  </style>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="320" fill="#f5f7fa"/>
+  <text x="40" y="34" class="title">pet-finder-api — what the wrapper hides from your app code</text>
+
+  <!-- app code -->
+  <g transform="translate(40,80)">
+    <rect width="150" height="80" rx="4" fill="#fff" stroke="#cfd5db"/>
+    <text x="75" y="24" text-anchor="middle" class="label">Your app</text>
+    <text x="75" y="46" text-anchor="middle" class="mono">client.pet.find({</text>
+    <text x="75" y="60" text-anchor="middle" class="mono">  animal:'dog' })</text>
+  </g>
+  <line x1="190" y1="120" x2="240" y2="120" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- library -->
+  <g transform="translate(240,80)">
+    <rect width="180" height="80" rx="4" fill="#1a1d24"/>
+    <text x="90" y="24" text-anchor="middle" class="label" fill="#fff">pet-finder-api</text>
+    <text x="90" y="46" text-anchor="middle" class="small" fill="#9aa3ad">sign · transform</text>
+    <text x="90" y="62" text-anchor="middle" class="small" fill="#9aa3ad">normalize · promise</text>
+  </g>
+  <line x1="420" y1="120" x2="470" y2="120" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- petfinder api -->
+  <g transform="translate(470,80)">
+    <rect width="180" height="80" rx="4" fill="#fff" stroke="#cfd5db"/>
+    <text x="90" y="24" text-anchor="middle" class="label">Petfinder API</text>
+    <text x="90" y="46" text-anchor="middle" class="small">returns:</text>
+    <text x="90" y="62" text-anchor="middle" class="mono">{ name:{ "$t":"Rex" } }</text>
+  </g>
+  <line x1="560" y1="160" x2="560" y2="200" stroke="#0066cc" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- response shape -->
+  <g transform="translate(40,210)">
+    <rect width="720" height="70" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="14" y="22" class="label" fill="#14532d">After the library normalizes:</text>
+    <text x="14" y="44" class="mono">[ { name: "Rex", breed: "Lab", shelter: "AZ223", photo: "https://..." } ]</text>
+    <text x="14" y="60" class="small">- nested {"$t":"..."} shapes are flattened. - missing fields are null, not undefined. - dates are real Date objects, not strings.</text>
+  </g>
+</svg>

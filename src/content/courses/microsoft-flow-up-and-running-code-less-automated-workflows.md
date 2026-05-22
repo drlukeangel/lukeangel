@@ -1,17 +1,17 @@
 ---
-title: "Microsoft Flow Up And Running Code-less Automated Workflows"
+title: Microsoft Flow Up And Running Code-less Automated Workflows
 order: 11
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row][vc_column][vc_single_image image= 8042 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ][/vc_column][/vc_row][vc_row][vc_column][vc_column_text] [/vc_column_t…"
-wpUrl: "/courses/microsoft-flow-up-and-running-code-less-automated-workflows/"
-cover: "/courses/microsoft-flow-up-and-running-code-less-automated-workflows.svg"
-coverAlt: "Microsoft Flow Up And Running Code-less Automated Workflows"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: With the cloud-based Microsoft Flow, you can quickly and easily build custom automations from your desktop, laptop, or mobile device without needing to write a single line of code. In this cou...
+wpUrl: /courses/microsoft-flow-up-and-running-code-less-automated-workflows/
+cover: ../../assets/courses/microsoft-flow-up-and-running-code-less-automated-workflows.svg
+coverAlt: Microsoft Flow Up And Running Code-less Automated Workflows
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row][vc_column][vc_single_image image=”8042″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

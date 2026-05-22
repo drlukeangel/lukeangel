@@ -1,0 +1,49 @@
+---
+title: "Connected Products Starter Kit"
+year: "2023"
+role: "Sr. Director, Technical Program / Product Management"
+summary: "Reference architecture from leading connected-product teams — wireless decision rubric, end-to-end AWS IoT Core stack, runnable device code in Python and Rust. Open-sourced October 2025."
+stack: [typescript, python, rust, aws-iot-core, aws-cdk, aws-lambda, dynamodb]
+outcome: "Open source · MIT · github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management"
+---
+
+The kit is the canonical artifact I hand a new connected-product team on day one — a wireless decision rubric, an end-to-end reference architecture, and runnable code for the parts that always slow teams down (mTLS, topic rules, certificate provisioning).
+
+→ **[github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management](https://github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management)**
+
+## Why this exists
+
+Every PM and engineering manager I've worked with on connected hardware has run the same first 30 days: they Google "AWS IoT Core tutorial," follow a six-screen wizard, end up with a single device publishing MQTT with a hardcoded cert, and have no idea how to scale it to 10,000 units. I built this kit as the answer to that 30-day problem so the teams I lead don't have to re-discover it every time.
+
+## What's in the box
+
+| Piece | What it does |
+| --- | --- |
+| `docs/rubric.md` | Five-question decision rubric — BLE vs LoRa vs cellular vs LPWAN |
+| `docs/ARCHITECTURE.md` | The reference diagram + the trade-offs behind it |
+| `device/python/` | Pure-Python MQTT simulator (quick start, no hardware) |
+| `device/rust/` | ESP32-C3 firmware (production-shaped, secure-element-ready) |
+| `cloud/cdk/` | TypeScript CDK: IoT Core + topic rule + Lambda + DynamoDB + HTTP API |
+| `cloud/lambda/` | Ingest + query Lambdas, shared Zod schema |
+| `dashboard/` | Minimal Vite + TS dashboard reading from the API |
+
+Stack: `typescript (CDK + lambda + dashboard)` · `python (device sim)` · `rust (embedded)` · `aws iot core` · `aws lambda` · `dynamodb`.
+
+## How teams use it
+
+Different audiences read different parts:
+
+- **Engineering managers** fork the whole repo as a starting template
+- **Product managers** read `rubric.md` and stop there
+- **Architects** read `ARCHITECTURE.md` and push back on the trade-offs
+- **Firmware engineers** lift `device/rust/` as a known-good MQTT + TLS starting point
+- **Cloud engineers** lift `cloud/cdk/` as the smallest production-shaped IoT-to-DDB stack
+
+## The arc
+
+| When | What |
+| --- | --- |
+| Late 2023 | Built first version privately while leading a connected-products engineering team |
+| 2024 – 2025 | Iterated through several real deployments, hardened the rubric |
+| October 2025 | Cleaned up and open-sourced the kit |
+| Today | Pairs with the [PII Masking Starter Kit](/projects/pii-masking-kit/) for connected-products teams that need both halves of the data engineering story |

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="t d">
+  <title id="t">Time horizons of project, program, product, and portfolio management</title>
+  <desc id="d">2024-era modern flat horizontal timeline comparing the time horizons of the four disciplines: project (weeks-months), program (months-years), product (quarters-years), portfolio (multi-year). Each as a bar on a shared timeline axis.</desc>
+  <style>
+    .label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-weight:600;fill:#fff;font-size:14px}
+    .small{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+    .title{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:600;fill:#1a1d24}
+    .axis{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#5a6470}
+  </style>
+  <rect width="800" height="360" fill="#fafbfc"/>
+  <text x="40" y="38" class="title">Time horizons — same week, different planning lens</text>
+
+  <!-- timeline axis -->
+  <line x1="180" y1="290" x2="760" y2="290" stroke="#5a6470" stroke-width="1.5"/>
+  <text x="180" y="312" text-anchor="middle" class="axis">now</text>
+  <text x="296" y="312" text-anchor="middle" class="axis">1 mo</text>
+  <text x="412" y="312" text-anchor="middle" class="axis">6 mo</text>
+  <text x="528" y="312" text-anchor="middle" class="axis">1 yr</text>
+  <text x="644" y="312" text-anchor="middle" class="axis">3 yr</text>
+  <text x="760" y="312" text-anchor="middle" class="axis">5+ yr</text>
+
+  <!-- 4 bars -->
+  <g transform="translate(0,80)">
+    <text x="170" y="20" text-anchor="end" class="small" font-weight="600">Project</text>
+    <rect x="180" y="0" width="180" height="32" fill="#059669" rx="4"/>
+    <text x="270" y="20" text-anchor="middle" class="label">weeks → months · single outcome</text>
+  </g>
+  <g transform="translate(0,130)">
+    <text x="170" y="20" text-anchor="end" class="small" font-weight="600">Program</text>
+    <rect x="180" y="0" width="360" height="32" fill="#ff6b35" rx="4"/>
+    <text x="360" y="20" text-anchor="middle" class="label">months → years · capability delivered</text>
+  </g>
+  <g transform="translate(0,180)">
+    <text x="170" y="20" text-anchor="end" class="small" font-weight="600">Product</text>
+    <rect x="180" y="0" width="520" height="32" fill="#0066cc" rx="4"/>
+    <text x="440" y="20" text-anchor="middle" class="label">quarters → years · customer value over the lifecycle</text>
+  </g>
+  <g transform="translate(0,230)">
+    <text x="170" y="20" text-anchor="end" class="small" font-weight="600">Portfolio</text>
+    <rect x="180" y="0" width="580" height="32" fill="#1a1d24" rx="4"/>
+    <text x="470" y="20" text-anchor="middle" class="label">multi-year · strategic allocation across products + programs</text>
+  </g>
+
+  <!-- note -->
+  <text x="40" y="334" class="small">Same calendar week; four different review cadences. The portfolio doesn't get reviewed at sprint cadence; the project doesn't get reviewed at board cadence.</text>
+</svg>

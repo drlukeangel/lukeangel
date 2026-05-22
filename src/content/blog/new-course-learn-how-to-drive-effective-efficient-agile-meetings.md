@@ -1,43 +1,80 @@
 ---
-title: "New Course – Learn How To Drive Effective, Efficient Agile Meetings"
-date: 2017-11-20T19:37:41
+title: 'New: Drive Effective, Efficient Agile Meetings'
+date: 2017-11-20T19:37:41.000Z
 category: projects
-tags: ["agile", "meetings"]
-excerpt: "Many new agile teams think flexibility in their meetings allows them to do whatever feels right. In reality, agile projects move more smoothly by running short, well-structured activities. Each act…"
-wpCategory: "project-management"
-wpUrl: "/project-management/agile/meetings/new-course-learn-how-to-drive-effective-efficient-agile-meetings/"
-cover: "/blog/migrated/2016/10/meeting.jpg"
-coverAlt: "New Course – Learn How To Drive Effective, Efficient Agile Meetings"
+tags:
+  - agile
+  - meetings
+  - course
+  - teams
+excerpt: "Agile meetings should be short, time-boxed, and over before anyone notices. The new course teaches the operator's manual for each of the five core ceremonies — without the consultant-speak."
+pullquote: "Flexibility ≠ formlessness. A flexible meeting is a 15-minute meeting with a tight agenda, not an open mic."
+wpCategory: project-management
+wpUrl: /project-management/agile/meetings/new-course-learn-how-to-drive-effective-efficient-agile-meetings/
+cover: ../../assets/blog/meeting.jpg
+coverAlt: "Course cover — Learn How To Drive Effective, Efficient Agile Meetings"
 ---
 
-Many new agile teams think flexibility in their meetings allows them to do whatever feels right. In reality, agile projects move more smoothly by running short, well-structured activities. Each activity is time boxed, so the teams stay on track and work within a set time and agenda.
+New course just dropped: **Drive Effective, Efficient Agile Meetings**. Self-paced, pre-recorded, open enrollment.
 
-In this course, agile expert Luke Angel outlines how to make agile meetings as productive as possible. He provides guidance on common activities such as release planning, daily stand-ups, sprint planning, retrospectives, and product demos. Throughout the course,you will learn about common meeting pitfalls and the challenges of keeping activities on track.
 
-An Agile project has less upfront planning. When you start an Agile project, you don’t know what the completed vvvvproduct will look like. You start with a general notion of where you’re going and you make frequent improvements v how to get there. Agile is adaptive, not predictive. Much of the energy comes from new ideas and changes. In this course we’ll take a deeper dive into some of the Agile ceremonies. We’ll go further into the planning meetings and talk about
+![Course cover — Learn How To Drive Effective, Efficient Agile Meetings](../../assets/blog/meeting.jpg)
 
-Whether your a Project Manager, a Software Developer, or a Senior Manager, this course is designed to help you get greater agility from your team.  So let’s get started, Driving Productive Agile Meetings.
+Most new agile teams misread the word *flexible* and let their meetings drift into formless conversation. They think "no fixed agenda" is the agile move. It isn't. Agile teams ship faster than waterfall teams *because* the ceremonies are tight, time-boxed, and over before anyone notices. The flexibility is in *what you build between meetings*, not what happens inside them.
 
-In this course you will learn
+This course is the operator's manual for each ceremony — sprint planning, daily stand-up, sprint review, retrospective, refinement — including the bit nobody teaches: how to *re-tighten* a ceremony that has started to drift.
 
-Topics include:
+## What's in the box
 
-- How to Run Agile Meetings
+- **Sprint planning** that doesn't take three hours (it shouldn't)
+- **Daily stand-up** that doesn't become a status report for the manager
+- **Sprint review** where stakeholders actually see working software, not slides
+- **Retrospectives** that produce 1-3 action items, not 12 vague feelings
+- **Backlog refinement** that runs *between* sprints so planning is calm
+- **The drift detector** — how to spot a ceremony that's gone from useful to ritual, and what to do about it
 
-- How to Keep Meetings Lightweight
+## Who this is for
 
-- How to timebox to avoid meetings that run on forever.
+- **New scrum masters** who got the role last quarter and the meetings are running them
+- **Engineering managers** running scrum with senior engineers who think ceremonies are "extra meetings"
+- **PMs and POs** trying to graduate the team off ad-hoc Slack threads back into structured rhythm
+- **Anyone running cross-team standups** where the format has stopped fitting the work
 
-- How to create a release schedule
+## What you'll be able to do after
 
-- Delivering without scope
+- Run a 15-minute stand-up that nobody dreads
+- Cut sprint planning in half without losing precision
+- Recognize the four most common ceremony failure modes (silence, theater, sprawl, repetition) and fix each
+- Run agile meetings for distributed teams without making remote folks feel like second-class participants
 
-- Inviting the right groups
+## → [Take the course](/courses/learn-how-to-drive-effective-efficient-agile-meetings/)
 
-- Hosting awesome daily stand ups
+Self-paced, pre-recorded, open enrollment. PMI Registered Education Provider — this course qualifies for PDUs.
 
-- Break through roadblocks
+---
 
-- Avoiding common pitfalls
+Thanks to every team that put up with me running their stand-ups badly while I figured this out. Especially the team in 2014 that pushed back hard on the "status report" version — that conversation became the entire fourth module. *Thank you.*
 
-[Click To Sign Up Today!](http://lukeangel.co/courses/learn-how-to-drive-effective-efficient-agile-meetings/)
+## The four ceremony anti-patterns this course actively un-teaches
+
+**The "status report" stand-up.** Three questions, answered to the manager, while everyone else zones out. Net value: zero. The course teaches the team-facing alternative: blockers first, dependencies second, signals to leadership *separately*.
+
+**The "vibes" retrospective.** "What went well, what could go better." Nobody owns anything, nothing changes, you do it again in two weeks. The course replaces this with the action-item-owner-date format that produces 1-3 real changes per retro.
+
+**The "everyone demos" sprint review.** Three engineers each spend 15 minutes walking through their code while stakeholders glaze over. The course teaches the *product-narrative* format — one person tells the story, screens move accordingly, stakeholders see working software in 20 minutes total.
+
+**The "open backlog" refinement.** Two hours of discussing every story in the queue. Net velocity loss: massive. The course teaches the *3-2-1* model — refine 3 stories deeply, 2 medium, 1 lightly. Hard stop at 60 minutes.
+
+## Quick test: are your meetings working?
+
+A meeting is working if every attendee can finish this sentence: *"In this meeting I learned X, which changes my next 24 hours by Y."*
+
+If three or more attendees can't fill that in, **the meeting is theater.** Cut, restructure, or replace.
+
+## The five-meeting baseline the course teaches as a starting point
+
+A team running scrum properly has *exactly five recurring ceremonies* — daily standup (15 min), refinement (60 min weekly), sprint planning (90 min biweekly), sprint review (45 min biweekly), retrospective (60 min biweekly). That's about 6.5 hours of structured meeting time per two-week sprint per person.
+
+Anything beyond that is overhead, and the course walks the audit pattern to find which "extra" meeting can be cut, which can be merged, and which is actually a *replacement* for a missing ceremony in disguise. The single highest-impact change most teams make after the course: deleting one recurring meeting that nobody could justify when asked. *That hour back, per person, per week, is the entire ROI of the course.*
+
+Self-paced, pre-recorded, open enrollment.

@@ -1,17 +1,17 @@
 ---
-title: "Critical Thinking: Beginner to Advanced"
+title: 'Critical Thinking: Beginner to Advanced'
 order: 4
-schedule: "Self-paced — pre-recorded"
-duration: "varies"
-price: "see platform"
-seats: "Open enrollment"
-summary: "[vc_row] [vc_column] [vc_single_image image= 8039 img_size= alignment= center style= vc_box_rounded full_width= yes animation= animate-when-visible ] [/vc_column] [/vc_row] [vc_row] [vc_column] [vc_cta h2= Critical Th…"
-wpUrl: "/courses/critical-thinking-beginner-to-advanced/"
-cover: "/courses/critical-thinking-beginner-to-advanced.svg"
-coverAlt: "Critical Thinking: Beginner to Advanced"
-enrollUrl: ""
-enrollLabel: "Sign Up!"
-recordings: "Yes"
+schedule: Self-paced — pre-recorded
+duration: varies
+price: see platform
+seats: Open enrollment
+summary: Critical thinking is the ability to think reflectively and independently in order to make thoughtful decisions. By focusing on root-cause issues, critical thinking helps you avoid future probl...
+wpUrl: /courses/critical-thinking-beginner-to-advanced/
+cover: ../../assets/courses/critical-thinking-beginner-to-advanced.svg
+coverAlt: 'Critical Thinking: Beginner to Advanced'
+enrollUrl: ''
+enrollLabel: Sign Up!
+recordings: 'Yes'
 ---
 
 [vc_row]**
