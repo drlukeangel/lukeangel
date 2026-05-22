@@ -1,0 +1,544 @@
+{
+  "redirects": [
+    {
+      "source": "/cross-platform/how-to-break-a-single-md-file-into-multiple-docs",
+      "destination": "/blog/how-to-break-a-single-md-file-into-multiple-docs/",
+      "permanent": true
+    },
+    {
+      "source": "/program-management/mastering-root-cause-analysis-with-fishbone-diagrams",
+      "destination": "/blog/mastering-root-cause-analysis-with-fishbone-diagrams/",
+      "permanent": true
+    },
+    {
+      "source": "/cross-platform/project-management-program-management-product-management-and-portfolio-management-a-comprehensive-guide-with-examples",
+      "destination": "/blog/project-management-program-management-product-management-and-portfolio-management-a-comprehensive-guide-with-examples/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/stakeholder-management-your-secret-weapon-for-success",
+      "destination": "/blog/stakeholder-management-your-secret-weapon-for-success/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/unleash-your-inner-jedi-7-mind-blowing-soft-skills-to-skyrocket-project-success-%f0%9f%9a%80",
+      "destination": "/blog/unleash-your-inner-jedi-7-mind-blowing-soft-skills-to-skyrocket-project-success-%f0%9f%9a%80/",
+      "permanent": true
+    },
+    {
+      "source": "/cross-platform/10-game-changing-project-management-trends-for-2025",
+      "destination": "/blog/10-game-changing-project-management-trends-for-2025/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/8411",
+      "destination": "/blog/8411/",
+      "permanent": true
+    },
+    {
+      "source": "/frameworks/bridging-the-gap-how-itils-focus-on-value-principle-transforms-a-frustrating-user-experience",
+      "destination": "/blog/bridging-the-gap-how-itils-focus-on-value-principle-transforms-a-frustrating-user-experience/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/wsjf-prioritize-like-a-product-ninja",
+      "destination": "/blog/wsjf-prioritize-like-a-product-ninja/",
+      "permanent": true
+    },
+    {
+      "source": "/product-management/rock-product-decisions-with-data",
+      "destination": "/blog/rock-product-decisions-with-data/",
+      "permanent": true
+    },
+    {
+      "source": "/program-management/crush-goals-with-data-2-real-world-program-management-wins",
+      "destination": "/blog/crush-goals-with-data-2-real-world-program-management-wins/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/10-game-changing-project-management-trends-to-dominate-2024",
+      "destination": "/blog/10-game-changing-project-management-trends-to-dominate-2024/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/2023-project-management-ai-dominance-hybrid-wins",
+      "destination": "/blog/2023-project-management-ai-dominance-hybrid-wins/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/10-game-changing-project-management-trends-for-2022",
+      "destination": "/blog/10-game-changing-project-management-trends-for-2022/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/2021s-pm-tsunami-10-trends-you-cant-surf-past-%f0%9f%8c%8a",
+      "destination": "/blog/2021s-pm-tsunami-10-trends-you-cant-surf-past-%f0%9f%8c%8a/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/good-fast-cheap-the-golden-triangle-of-project-management",
+      "destination": "/blog/good-fast-cheap-the-golden-triangle-of-project-management/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/top-10-project-management-trends-2020",
+      "destination": "/blog/top-10-project-management-trends-2020/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/unlock-soft-skills-for-project-triumphs",
+      "destination": "/blog/unlock-soft-skills-for-project-triumphs/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/10-game-changing-project-management-trends-for-2019",
+      "destination": "/blog/10-game-changing-project-management-trends-for-2019/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/agile/new-course-agile-product-ownership-from-beginner-to-professional",
+      "destination": "/blog/new-course-agile-product-ownership-from-beginner-to-professional/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/agile/new-course-agile-retrospectives-make-good-teams-great",
+      "destination": "/blog/new-course-agile-retrospectives-make-good-teams-great/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/agile/new-course-agile-reporting-beginner-to-rock-star",
+      "destination": "/blog/new-course-agile-reporting-beginner-to-rock-star/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/agile/meetings/new-course-learn-how-to-drive-effective-efficient-agile-meetings",
+      "destination": "/blog/new-course-learn-how-to-drive-effective-efficient-agile-meetings/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/new-course-project-management-fundamentals-stake-holder-management",
+      "destination": "/blog/new-course-project-management-fundamentals-stake-holder-management/",
+      "permanent": true
+    },
+    {
+      "source": "/wordpress/new-course-wordpress-e-commerce-with-woocommerce-novice-to-store-owner",
+      "destination": "/blog/new-course-wordpress-e-commerce-with-woocommerce-novice-to-store-owner/",
+      "permanent": true
+    },
+    {
+      "source": "/microsoft/new-course-sharepoint-2016-metadata-columnsliststaxonomy-and-more",
+      "destination": "/blog/new-course-sharepoint-2016-metadata-columnsliststaxonomy-and-more/",
+      "permanent": true
+    },
+    {
+      "source": "/microsoft/share-point-codeless-mobile-appslistsflowpower-apps",
+      "destination": "/blog/share-point-codeless-mobile-appslistsflowpower-apps/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/new-course-microsoft-project-reporting-beginner-to-rock-star",
+      "destination": "/blog/new-course-microsoft-project-reporting-beginner-to-rock-star/",
+      "permanent": true
+    },
+    {
+      "source": "/cross-platform/docker-servless-faas-functions-as-a-service",
+      "destination": "/blog/docker-servless-faas-functions-as-a-service/",
+      "permanent": true
+    },
+    {
+      "source": "/autonomous/robots-take-on-the-small-farm",
+      "destination": "/blog/robots-take-on-the-small-farm/",
+      "permanent": true
+    },
+    {
+      "source": "/inovation/cool-robot-farmers",
+      "destination": "/blog/cool-robot-farmers/",
+      "permanent": true
+    },
+    {
+      "source": "/microsoft/new-course-microsoft-flow-up-and-running-code-less-automated-workflows",
+      "destination": "/blog/new-course-microsoft-flow-up-and-running-code-less-automated-workflows/",
+      "permanent": true
+    },
+    {
+      "source": "/quotes/opportunity-is-missed-by-most-because-it-is-dressed-in-overalls-and-looks-like-work",
+      "destination": "/blog/opportunity-is-missed-by-most-because-it-is-dressed-in-overalls-and-looks-like-work/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/agile-hardware-development-part-1",
+      "destination": "/blog/agile-hardware-development-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/agile/hardware-development-accelerating-to-agility-and-beyond",
+      "destination": "/blog/hardware-development-accelerating-to-agility-and-beyond/",
+      "permanent": true
+    },
+    {
+      "source": "/mobile/open-source-mobile-test-automation-tools",
+      "destination": "/blog/open-source-mobile-test-automation-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/quote/we-dont-see-things-as-they-are-we-see-them-as-we-are",
+      "destination": "/blog/we-dont-see-things-as-they-are-we-see-them-as-we-are/",
+      "permanent": true
+    },
+    {
+      "source": "/developers/node-js-developers/new-course-node-js-the-essentials-api-frameworks-express-koa-sails",
+      "destination": "/blog/new-course-node-js-the-essentials-api-frameworks-express-koa-sails/",
+      "permanent": true
+    },
+    {
+      "source": "/developers/angular/new-course-angular-2-router-up-and-running",
+      "destination": "/blog/new-course-angular-2-router-up-and-running/",
+      "permanent": true
+    },
+    {
+      "source": "/quote/when-forming-a-solution-to-a-problem-we-have-two-eyes-two-ears-and-one-mouth-and-we-should-use-them-in-that-proportion-iise-crawford",
+      "destination": "/blog/when-forming-a-solution-to-a-problem-we-have-two-eyes-two-ears-and-one-mouth-and-we-should-use-them-in-that-proportion-iise-crawford/",
+      "permanent": true
+    },
+    {
+      "source": "/cross-platform/stars-cant-shine-without-darkness",
+      "destination": "/blog/stars-cant-shine-without-darkness/",
+      "permanent": true
+    },
+    {
+      "source": "/developement/pet-finder-api-javascript-library",
+      "destination": "/blog/pet-finder-api-javascript-library/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/docker-1-13-released",
+      "destination": "/blog/docker-1-13-released/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/a-shortlist-of-where-to-find-docker-hosting",
+      "destination": "/blog/a-shortlist-of-where-to-find-docker-hosting/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/docker-networking-drivers-use-cases-and-definitions",
+      "destination": "/blog/docker-networking-drivers-use-cases-and-definitions/",
+      "permanent": true
+    },
+    {
+      "source": "/developers/angular/angular-architecture-overview-the-building-blocks-part-1",
+      "destination": "/blog/angular-architecture-overview-the-building-blocks-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/azure/use-ssh-on-windows-to-connect-to-linux-virtual-machines-or-docker-containers-on-microsoft-azure-from-a-mac-or-windows-machine",
+      "destination": "/blog/use-ssh-on-windows-to-connect-to-linux-virtual-machines-or-docker-containers-on-microsoft-azure-from-a-mac-or-windows-machine/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/dockerizing-a-node-js-web-app",
+      "destination": "/blog/dockerizing-a-node-js-web-app/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/docker-monitoring-setup-docker-monitoring-with-using-cadvisor-influxdb-and-grafana",
+      "destination": "/blog/docker-monitoring-setup-docker-monitoring-with-using-cadvisor-influxdb-and-grafana/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/traditional-vwaterfall-vs-agile-project-management-for-innovators-product-managers",
+      "destination": "/blog/traditional-vwaterfall-vs-agile-project-management-for-innovators-product-managers/",
+      "permanent": true
+    },
+    {
+      "source": "/cross-platform/the-break-neck-automation-of-tasks-once-performed-by-people-by-intelligent-software-and-physical-infrastructure-will-bring-new-expectations-of-efficiency-value-convenience-an",
+      "destination": "/blog/the-break-neck-automation-of-tasks-once-performed-by-people-by-intelligent-software-and-physical-infrastructure-will-bring-new-expectations-of-efficiency-value-convenience-an/",
+      "permanent": true
+    },
+    {
+      "source": "/developers/angular/angular-2-cli-moves-from-systemjs-to-webpack",
+      "destination": "/blog/angular-2-cli-moves-from-systemjs-to-webpack/",
+      "permanent": true
+    },
+    {
+      "source": "/autonomous/autonomous-office-chairs",
+      "destination": "/blog/autonomous-office-chairs/",
+      "permanent": true
+    },
+    {
+      "source": "/quotes/entrepreneurs-are-the-only-people-who-will-work-80-hours-a-week-to-avoid-working-40-hours-a-week",
+      "destination": "/blog/entrepreneurs-are-the-only-people-who-will-work-80-hours-a-week-to-avoid-working-40-hours-a-week/",
+      "permanent": true
+    },
+    {
+      "source": "/inovation/what-is-lean-innovation",
+      "destination": "/blog/what-is-lean-innovation/",
+      "permanent": true
+    },
+    {
+      "source": "/project-management/whats-a-workback-schedule",
+      "destination": "/blog/whats-a-workback-schedule/",
+      "permanent": true
+    },
+    {
+      "source": "/iot/how-does-iot-work-with-the-smart-clothing-market",
+      "destination": "/blog/how-does-iot-work-with-the-smart-clothing-market/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/docker-swarm-mode-beggining-built-in-orchestration-and-service-creation",
+      "destination": "/blog/docker-swarm-mode-beggining-built-in-orchestration-and-service-creation/",
+      "permanent": true
+    },
+    {
+      "source": "/give/save-two-lives-at-once-by-fostering-a-pet-at-your-home",
+      "destination": "/blog/save-two-lives-at-once-by-fostering-a-pet-at-your-home/",
+      "permanent": true
+    },
+    {
+      "source": "/mobile/how-to-get-to-your-mobile-app-to-market-faster-by-optimizing-your-mobile-development-release-pipeline",
+      "destination": "/blog/how-to-get-to-your-mobile-app-to-market-faster-by-optimizing-your-mobile-development-release-pipeline/",
+      "permanent": true
+    },
+    {
+      "source": "/developers/angular/angular-2-zones",
+      "destination": "/blog/angular-2-zones/",
+      "permanent": true
+    },
+    {
+      "source": "/developement/how-instagram-scales-by-the-architect-himself-mike-krieger",
+      "destination": "/blog/how-instagram-scales-by-the-architect-himself-mike-krieger/",
+      "permanent": true
+    },
+    {
+      "source": "/cross-platform/what-is-responsive-design",
+      "destination": "/blog/what-is-responsive-design/",
+      "permanent": true
+    },
+    {
+      "source": "/developement/css/learn-css-in-16-post-it-notes",
+      "destination": "/blog/learn-css-in-16-post-it-notes/",
+      "permanent": true
+    },
+    {
+      "source": "/developers/angular/angular-2-dependency-injection",
+      "destination": "/blog/angular-2-dependency-injection/",
+      "permanent": true
+    },
+    {
+      "source": "/give/volunteer-at-nkla",
+      "destination": "/blog/volunteer-at-nkla/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/run-windows-and-linux-containers-on-windows-10",
+      "destination": "/blog/run-windows-and-linux-containers-on-windows-10/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/the-docker-ecosystem-scheduling-and-orchestration-digitalocean",
+      "destination": "/blog/the-docker-ecosystem-scheduling-and-orchestration-digitalocean/",
+      "permanent": true
+    },
+    {
+      "source": "/developement/netflix-deck-on-data-pipeline-with-kafka",
+      "destination": "/blog/netflix-deck-on-data-pipeline-with-kafka/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/the-docker-ecosystem-networking-and-communication",
+      "destination": "/blog/the-docker-ecosystem-networking-and-communication/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/the-docker-ecosystem-service-discovery-and-distributed-configuration-stores",
+      "destination": "/blog/the-docker-ecosystem-service-discovery-and-distributed-configuration-stores/",
+      "permanent": true
+    },
+    {
+      "source": "/cross-platform/wearable-predictions-for-2016",
+      "destination": "/blog/wearable-predictions-for-2016/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/the-docker-ecosystem-an-introduction-to-common-components",
+      "destination": "/blog/the-docker-ecosystem-an-introduction-to-common-components/",
+      "permanent": true
+    },
+    {
+      "source": "/docker/the-docker-ecosystem-an-overview-of-containerization",
+      "destination": "/blog/the-docker-ecosystem-an-overview-of-containerization/",
+      "permanent": true
+    },
+    {
+      "source": "/give/why-mentor-with-spark",
+      "destination": "/blog/why-mentor-with-spark/",
+      "permanent": true
+    },
+    {
+      "source": "/give/help-your-community-out-by-becoming-cert-certified",
+      "destination": "/blog/help-your-community-out-by-becoming-cert-certified/",
+      "permanent": true
+    },
+    {
+      "source": "/iot/the-internet-of-things-version-0-5",
+      "destination": "/blog/the-internet-of-things-version-0-5/",
+      "permanent": true
+    },
+    {
+      "source": "/give/volunteer-fight-fighting",
+      "destination": "/blog/volunteer-fight-fighting/",
+      "permanent": true
+    },
+    {
+      "source": "/give/big-bother-and-sister",
+      "destination": "/blog/big-bother-and-sister/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/project-management-fundamentals-quality-management",
+      "destination": "/courses/project-management-fundamentals-quality-management/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/project-management-fundamentals-procurement-management",
+      "destination": "/courses/project-management-fundamentals-procurement-management/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/project-management-fundamentals-integration-management",
+      "destination": "/courses/project-management-fundamentals-integration-management/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/critical-thinking-beginner-to-advanced",
+      "destination": "/courses/critical-thinking-beginner-to-advanced/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/project-management-fundamentals-working-with-small-projects",
+      "destination": "/courses/project-management-fundamentals-working-with-small-projects/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/wordpress-e-commerce-with-woocommerce-novice-to-store-owner",
+      "destination": "/courses/wordpress-e-commerce-with-woocommerce-novice-to-store-owner/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/share-point-codeless-mobile-appslistsflowpower-apps",
+      "destination": "/courses/share-point-codeless-mobile-appslistsflowpower-apps/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more",
+      "destination": "/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/agile-reporting-beginner-to-rock-star",
+      "destination": "/courses/agile-reporting-beginner-to-rock-star/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/microsoft-project-reporting-beginner-to-rock-star",
+      "destination": "/courses/microsoft-project-reporting-beginner-to-rock-star/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/microsoft-flow-up-and-running-code-less-automated-workflows",
+      "destination": "/courses/microsoft-flow-up-and-running-code-less-automated-workflows/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/project-management-fundamentals-the-art-of-scheduling",
+      "destination": "/courses/project-management-fundamentals-the-art-of-scheduling/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/agile-product-ownership-from-beginner-to-professional",
+      "destination": "/courses/agile-product-ownership-from-beginner-to-professional/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/angular-2-router-up-and-running",
+      "destination": "/courses/angular-2-router-up-and-running/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/agile-project-management-utilizing-microsoft-project",
+      "destination": "/courses/agile-project-management-utilizing-microsoft-project/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/docker-and-continuous-integration-code-build-test-deploy",
+      "destination": "/courses/docker-and-continuous-integration-code-build-test-deploy/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/angular-2-step-by-step-from-beginner-to-advanced-coming-soon",
+      "destination": "/courses/angular-2-step-by-step-from-beginner-to-advanced-coming-soon/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/waterfall-to-agile-project-management-a-step-by-step-guide",
+      "destination": "/courses/waterfall-to-agile-project-management-a-step-by-step-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/node-js-codeless-api-creation-up-and-running-with-swagger",
+      "destination": "/courses/node-js-codeless-api-creation-up-and-running-with-swagger/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/agile-retrospectives-review-learn-prosper",
+      "destination": "/courses/agile-retrospectives-review-learn-prosper/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/agile-charts-and-boards-how-to-track-and-show-the-progress-of-your-agile-project",
+      "destination": "/courses/agile-charts-and-boards-how-to-track-and-show-the-progress-of-your-agile-project/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/learn-how-to-drive-effective-efficient-agile-meetings",
+      "destination": "/courses/learn-how-to-drive-effective-efficient-agile-meetings/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/successful-agile-team-planning-through-user-stories",
+      "destination": "/courses/successful-agile-team-planning-through-user-stories/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/how-to-build-awesome-agile-teams-with-scrumkanbanextreme",
+      "destination": "/courses/how-to-build-awesome-agile-teams-with-scrumkanbanextreme/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/getting-started-with-onenote-2016",
+      "destination": "/courses/getting-started-with-onenote-2016/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/docker-for-developers-newest-version-1-12-with-swarm-mode",
+      "destination": "/courses/docker-for-developers-newest-version-1-12-with-swarm-mode/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/docker-and-containers-the-essentials",
+      "destination": "/courses/docker-and-containers-the-essentials/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/learn-agile-project-management-for-teams-and-individuals",
+      "destination": "/courses/learn-agile-project-management-for-teams-and-individuals/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/docker-swarm-from-beginner-to-advanced",
+      "destination": "/courses/docker-swarm-from-beginner-to-advanced/",
+      "permanent": true
+    }
+  ]
+}

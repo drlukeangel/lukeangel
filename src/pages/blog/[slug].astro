@@ -29,11 +29,19 @@ const related = all
   <article class="post wrap" style="padding: 40px 32px;" data-pagefind-body>
     <a href="/blog/" class="mono">← back to the journal</a>
 
-    <!-- Cover band -->
-    <div style="margin-top: 24px; height: 220px; background: var(--paper); border: 1px solid var(--rule); position: relative;">
-      <a href={`/category/${post.data.category}/`} style="position: absolute; top: 16px; left: 20px; background: var(--ink); color: var(--paper); padding: 6px 12px;" class="mono">{post.data.category}</a>
-      <div style="position: absolute; bottom: 16px; right: 20px;" class="mono">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}</div>
-    </div>
+    <!-- Cover band: real image when set, fallback panel otherwise -->
+    {post.data.cover ? (
+      <img
+        src={post.data.cover}
+        alt={post.data.coverAlt ?? ''}
+        style="display:block; width:100%; height:320px; object-fit:cover; margin-top:24px; border:1px solid var(--rule);"
+      />
+    ) : (
+      <div style="margin-top: 24px; height: 220px; background: var(--paper); border: 1px solid var(--rule); position: relative;">
+        <a href={`/category/${post.data.category}/`} style="position: absolute; top: 16px; left: 20px; background: var(--ink); color: var(--paper); padding: 6px 12px;" class="mono">{post.data.category}</a>
+        <div style="position: absolute; bottom: 16px; right: 20px;" class="mono">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}</div>
+      </div>
+    )}
 
     <!-- Title block -->
     <div style="max-width: 1100px; margin: 32px auto 0; text-align: center;">

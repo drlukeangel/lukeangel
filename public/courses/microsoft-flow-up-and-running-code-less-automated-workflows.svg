@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"></rect>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"></circle>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"></rect>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"></rect>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"></line>
+  <text x="80" y="100" font-family="ui-monospace, &#39;JetBrains Mono&#39;, monospace" font-size="22" letter-spacing="6" fill="#7a808c">COURSE</text>
+  <text x="1120" y="100" font-family="ui-monospace, &#39;JetBrains Mono&#39;, monospace" font-size="22" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 17</text>
+  <g transform="translate(880, 180) scale(3.2)" fill="#2a52be" stroke="#2a52be" color="#2a52be"><g fill="none" stroke="currentColor" stroke-width="5"><rect x="20" y="28" width="20" height="20" rx="2" fill="currentColor"></rect><rect x="60" y="28" width="20" height="20" rx="2" fill="currentColor"></rect><rect x="20" y="60" width="20" height="20" rx="2" fill="currentColor"></rect><rect x="60" y="60" width="20" height="20" rx="2" fill="currentColor"></rect><line x1="40" y1="38" x2="60" y2="38"></line><line x1="70" y1="48" x2="70" y2="60"></line><line x1="60" y1="70" x2="40" y2="70"></line></g></g>
+  <text x="80" y="350" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24" letter-spacing="-1">Microsoft Flow Up And</text><text x="80" y="426" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24" letter-spacing="-1">Running Code-less</text><text x="80" y="502" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24" letter-spacing="-1">Automated Workflows</text>
+  <line x1="80" y1="560" x2="1120" y2="560" stroke="#1a1d24" stroke-width="2"></line>
+  <text x="80" y="600" font-family="Newsreader, serif" font-weight="500" font-size="22" fill="#1a1d24">Luke Angel</text>
+  <text x="1120" y="600" font-family="ui-monospace, &#39;JetBrains Mono&#39;, monospace" font-size="14" letter-spacing="2" fill="#7a808c" text-anchor="end">LUKEANGEL.CO / COURSES</text>
+</svg>

@@ -70,7 +70,57 @@ long: false         # true to span 2 columns
 For whoever or whatever. One sentence is best.
 ```
 
-## Deploy to Vercel (recommended)
+## Adding images to a post
+
+Three ways, easiest first:
+
+### 1. Drop in `public/` (no optimization)
+
+Save the image at `public/blog/your-image.jpg`. In your post:
+
+```markdown
+![Caption text](/blog/your-image.jpg)
+```
+
+Ship a properly-sized JPG (max 1600px wide, ~200KB).
+
+### 2. Cover image via frontmatter (recommended)
+
+Add to the post's frontmatter:
+
+```markdown
+---
+cover: /blog/your-cover.jpg
+coverAlt: "What the image shows"
+---
+```
+
+That single field drives:
+- The hero image on the post page
+- The thumbnail on the journal index + featured card
+- The Open Graph preview when the link is shared
+
+Use 1200×630 for best social-preview behavior.
+
+### 3. Optimized `<Image>` mid-post (best Lighthouse score)
+
+Rename the post from `.md` to `.mdx`, put images in `src/assets/blog/`, and use the `<Image>` component:
+
+```mdx
+---
+title: "..."
+date: 2026-05-21
+---
+import { Image } from 'astro:assets';
+import diagram from '../../assets/blog/your-image.png';
+
+<Image src={diagram} alt="..." width={900} />
+```
+
+Astro generates WebP/AVIF, lazy-loads, and computes aspect ratio.
+See `src/content/blog/example-with-images.mdx` for a working sample.
+
+
 
 1. **Push to GitHub** (private or public).
 2. Go to [vercel.com/new](https://vercel.com/new), import the repo, click **Deploy**. Vercel auto-detects Astro.
