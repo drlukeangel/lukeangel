@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 8073 img_size= alignment= c
 wpUrl: "/courses/share-point-codeless-mobile-appslistsflowpower-apps/"
 cover: "/courses/share-point-codeless-mobile-appslistsflowpower-apps.svg"
 coverAlt: "Share Point – Codeless Mobile Apps,lists,Flow,Power Apps"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”8073″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

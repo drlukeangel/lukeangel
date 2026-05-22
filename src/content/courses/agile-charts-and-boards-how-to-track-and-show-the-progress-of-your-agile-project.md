@@ -20,6 +20,9 @@ coverAlt: >-
 wpUrl: >-
   /courses/agile-charts-and-boards-how-to-track-and-show-the-progress-of-your-agile-project/
 draft: false
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 Agile teams need a lightweight way to report their progress. Agile reports should be simple and easy to read, and radiate information across the room to the entire team. In this course, agile expert Luke Angel outlines a process for reporting on the progress of your agile project. He shows how to prioritize the product backlog, update the task board, and monitor the project’s health with burndown charts. You’ll also see the most common pitfalls, such as retrofitting and working with distributed teams.
 

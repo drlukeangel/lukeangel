@@ -1,0 +1,15 @@
+---
+interface Props {
+  collection: string;
+  slug: string;
+}
+const { collection, slug } = Astro.props;
+---
+{import.meta.env.DEV && (
+  <a
+    href={`/keystatic/collection/${collection}/item/${slug}`}
+    style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: var(--accent); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 13px; font-family: 'IBM Plex Mono', ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.18);"
+  >
+    ✎ Edit in Keystatic
+  </a>
+)}

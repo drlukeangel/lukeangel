@@ -9,6 +9,9 @@ summary: "[vc_row] [vc_column] [vc_single_image image= 8039 img_size= alignment=
 wpUrl: "/courses/project-management-fundamentals-working-with-small-projects/"
 cover: "/courses/project-management-fundamentals-working-with-small-projects.svg"
 coverAlt: "Project Management Fundamentals: Working With Small Projects"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row]**

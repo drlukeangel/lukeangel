@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 7445 img_size= full alignme
 wpUrl: "/courses/docker-and-containers-the-essentials/"
 cover: "/courses/docker-and-containers-the-essentials.svg"
 coverAlt: "Docker and Containers: The Essentials"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”7445″ img_size=”full” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Docker and Containers: The Essentials” h4=”Get up to speed with all of the essentials of containers and Docker. Course is alpha release chapters 5-8 coming soon.” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:http%3A%2F%2Fbtreepress.teachable.com%2Fp%2Fdocker-and-containers-the-essentials%2F|title:Sign%20Up%20Today!||” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]Whether you’re a business user who wants to know more Docker and Containers, or a hard core techie looking to dip her toes into the container waters, you will definitely enjoy and learn from this course.

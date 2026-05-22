@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 7592 img_size= alignment= c
 wpUrl: "/courses/successful-agile-team-planning-through-user-stories/"
 cover: "/courses/successful-agile-team-planning-through-user-stories.svg"
 coverAlt: "Successful Agile Team planning through User Stories"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”7592″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Successful Agile Team Planning Through User Stories” h4=”Successful Agile Team Planning Through User Stories” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:http%3A%2F%2Fbtreepress.teachable.com%2Fp%2Fsuccessful-agile-team-planning-through-user-stories%2F|title:Sign%20Up%20Today!|target:%20_blank|” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]

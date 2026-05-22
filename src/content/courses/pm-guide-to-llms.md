@@ -13,6 +13,9 @@ syllabus:
   - { week: "IV",  title: "Programs at AI speed", blurb: "Roadmaps with non-deterministic work." }
   - { week: "V",   title: "Safety, with empathy", blurb: "Guardrails, refusals, escalation paths." }
   - { week: "VI",  title: "Launch & aftermath",   blurb: "Comms, monitoring, gratitude." }
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 A working PM's curriculum for shipping AI features. Bring a notebook and a real product. We'll do the rest.

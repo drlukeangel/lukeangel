@@ -9,6 +9,9 @@ summary: "[vc_row] [vc_column] [vc_single_image image= 8049 img_size= alignment=
 wpUrl: "/courses/microsoft-project-reporting-beginner-to-rock-star/"
 cover: "/courses/microsoft-project-reporting-beginner-to-rock-star.svg"
 coverAlt: "Microsoft Project Reporting: Beginner To Rock Star"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row]**

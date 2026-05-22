@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 7805 img_size= alignment= c
 wpUrl: "/courses/docker-and-continuous-integration-code-build-test-deploy/"
 cover: "/courses/docker-and-continuous-integration-code-build-test-deploy.svg"
 coverAlt: "Docker and Continuous Integration: Code, Build, Test, Deploy"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”7805″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Docker and Continuous Integration: Code, Build, Test, Deploy” h4=”This hands-on course walks through the process of integrating a Dockerized app into a DevOps style automated workflow” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:https%3A%2F%2Fwww.udemy.com%2Fcourse%2F1031292%2F|title:Sign%20Up%20Today!|target:%20_blank|” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]Thank You for taking a look at this course Docker and Continuous Integration. In this course  we will go over hands-on walk-through that enable the process of integrating a Dockerized app into a DevOps style automated workflow that includes Continuous Integration (CI) and Continuous Delivery (CD) elements.  This course walks through the process of integrating a Dockerized app with DevOps style automated workflows.

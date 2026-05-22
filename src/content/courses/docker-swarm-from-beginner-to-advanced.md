@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 7413 img_size= full alignme
 wpUrl: "/courses/docker-swarm-from-beginner-to-advanced/"
 cover: "/courses/docker-swarm-from-beginner-to-advanced.svg"
 coverAlt: "Docker Swarm: From Begginer to Advanced"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”7413″ img_size=”full” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Learn Docker Swarm” h4=”In this course You will learn everything you need to know about Docker Swarm, the native solution for managing Docker environments at scale. ” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:http%3A%2F%2Fbtreepress.teachable.com%2Fp%2Fdocker-swarm-from-begginer-to-advanced%20|title:Sign%20Up%20Today!||” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]Managing Docker at scale is the next challenge facing IT. This course, Docker Swarm: Native Docker Clustering, will teach you everything you need to know about Docker Swarm, the native solution for managing Docker environments at scale. First, you’ll learn how to build highly available, production-grade Swarm clusters. You’ll also cover how to secure them with TLS and certificates. Finally, you’ll discover how Docker Swarm is used behind the scenes by other technologies such as Docker Datacenter and Universal Control Plane. By the end of this course, you’ll have a foundational knowledge of Docker Swarm and you’ll know how to use it to manage Docker’s infrastructure.

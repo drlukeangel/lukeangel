@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_column_text][/vc_column_text][/vc_column][/vc_r
 wpUrl: "/courses/agile-reporting-beginner-to-rock-star/"
 cover: "/courses/agile-reporting-beginner-to-rock-star.svg"
 coverAlt: "Agile Reporting – Beginner To Rock Star"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_column_text][/vc_column_text][/vc_column][/vc_row][vc_row][vc_column][vc_single_image image=”8060″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

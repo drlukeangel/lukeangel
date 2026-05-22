@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import EditInKeystatic from '../../components/EditInKeystatic.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -79,4 +80,5 @@ const related = all
       </div>
     )}
   </article>
+  <EditInKeystatic collection="blog" slug={post.slug} />
 </Base>

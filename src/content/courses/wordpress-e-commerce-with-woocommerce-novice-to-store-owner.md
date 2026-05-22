@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 8082 img_size= alignment= c
 wpUrl: "/courses/wordpress-e-commerce-with-woocommerce-novice-to-store-owner/"
 cover: "/courses/wordpress-e-commerce-with-woocommerce-novice-to-store-owner.svg"
 coverAlt: "WordPress E-Commerce With WooCommerce: Novice To Store Owner"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”8082″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

@@ -12,6 +12,7 @@ export default config({
       path: 'src/content/blog/*',
       format: { contentField: 'content' },
       entryLayout: 'content',
+      previewUrl: '/blog/{slug}/',
       schema: {
         title: fields.slug({
           name: { label: 'Title' },
@@ -69,6 +70,7 @@ export default config({
       slugField: 'title',
       path: 'src/content/projects/*',
       format: { contentField: 'content' },
+      previewUrl: '/projects/{slug}/',
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         year: fields.text({ label: 'Year' }),
@@ -89,6 +91,7 @@ export default config({
       slugField: 'title',
       path: 'src/content/courses/*',
       format: { contentField: 'content' },
+      previewUrl: '/courses/{slug}/',
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         order: fields.integer({ label: 'Order' }),
@@ -108,6 +111,15 @@ export default config({
             itemLabel: (props) => `${props.fields.week.value} — ${props.fields.title.value}`,
           },
         ),
+        enrollUrl: fields.text({
+          label: 'Enroll button URL',
+          description: 'Where the "Sign Up!" button goes (e.g. https://btreepress.teachable.com/p/...).',
+        }),
+        enrollLabel: fields.text({
+          label: 'Enroll button label',
+          defaultValue: 'Sign Up!',
+        }),
+        recordings: fields.text({ label: 'Recordings', defaultValue: 'Yes' }),
         cover: fields.text({
           label: 'Cover image path',
           description: 'e.g. /courses/my-cover.svg (place file in public/courses/)',

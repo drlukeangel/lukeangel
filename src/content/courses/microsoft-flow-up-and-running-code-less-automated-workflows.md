@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 8042 img_size= alignment= c
 wpUrl: "/courses/microsoft-flow-up-and-running-code-less-automated-workflows/"
 cover: "/courses/microsoft-flow-up-and-running-code-less-automated-workflows.svg"
 coverAlt: "Microsoft Flow Up And Running Code-less Automated Workflows"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”8042″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

@@ -11,6 +11,9 @@ syllabus:
   - { week: "II",  title: "Roadmap rituals",       blurb: "Four-column reviews, weekly evals." }
   - { week: "III", title: "Comms under change",    blurb: "Telling leadership the truth, gracefully." }
   - { week: "IV",  title: "Retro & next quarter",  blurb: "What to keep, kill, hand off." }
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 A four-week program for PgMs and PMs running roadmaps with non-deterministic stacks.

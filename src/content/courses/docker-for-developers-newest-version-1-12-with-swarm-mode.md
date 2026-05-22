@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 7445 img_size= full alignme
 wpUrl: "/courses/docker-for-developers-newest-version-1-12-with-swarm-mode/"
 cover: "/courses/docker-for-developers-newest-version-1-12-with-swarm-mode.svg"
 coverAlt: "Docker for Developers – Newest Version 1.12 with Swarm Mode"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”7445″ img_size=”full” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Docker for Developers – Newest Version 1.12 with Swarm Mode” h4=”Use Docker to streamline your developer workflow. Impress colleagues with your knowledge of Docker. All this and more!” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:http%3A%2F%2Fbtreepress.teachable.com%2Fp%2Fdocker-for-developers-newest-version-1-12-with-swarm-mode%2F|title:Sign%20Up%20Today!||” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]Update for the new docker 1.12 version with Native Swarm Mode.

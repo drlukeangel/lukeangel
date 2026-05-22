@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 7788 img_size= full alignme
 wpUrl: "/courses/node-js-codeless-api-creation-up-and-running-with-swagger/"
 cover: "/courses/node-js-codeless-api-creation-up-and-running-with-swagger.svg"
 coverAlt: "Node.js Codeless API Creation: Up And Running With Swagger"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”7788″ img_size=”full” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Node.js Codeless API Creation: Up And Running With Swagger” h4=”Use Swagger To Generate a Node.js API Without Knowing Any Code, Work with React(SPA) , and Load Test and Monitor A API” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:https%3A%2F%2Fwww.udemy.com%2Fcourse%2F1076002%2F|title:Sign%20Up%20Today!|target:%20_blank|” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]Hi and Welcome to Node API’s: Up and Running with Swagger (Open API Spec).

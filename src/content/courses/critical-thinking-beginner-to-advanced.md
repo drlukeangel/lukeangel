@@ -9,6 +9,9 @@ summary: "[vc_row] [vc_column] [vc_single_image image= 8039 img_size= alignment=
 wpUrl: "/courses/critical-thinking-beginner-to-advanced/"
 cover: "/courses/critical-thinking-beginner-to-advanced.svg"
 coverAlt: "Critical Thinking: Beginner to Advanced"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row]**

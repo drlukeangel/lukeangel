@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 8073 img_size= alignment= c
 wpUrl: "/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more/"
 cover: "/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more.svg"
 coverAlt: "SharePoint Advanced: Metadata,Columns,Lists,Taxonomy & More"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”8073″ img_size=”” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_column_text]**

@@ -9,6 +9,9 @@ summary: "[vc_row][vc_column][vc_single_image image= 7991 img_size= full alignme
 wpUrl: "/courses/agile-product-ownership-from-beginner-to-professional/"
 cover: "/courses/agile-product-ownership-from-beginner-to-professional.svg"
 coverAlt: "Agile Product Owner(ship) – From Beginner to Professional"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row][vc_column][vc_single_image image=”7991″ img_size=”full” alignment=”center” style=”vc_box_rounded” full_width=”yes” animation=”animate-when-almost-visible”][/vc_column][/vc_row][vc_row][vc_column][vc_cta h2=”Agile Product Owner(ship) – From Beginner to Professional ” h4=”Learn How Own Your Product Like A Pro From A Pro” add_button=”right” btn_title=”Sign Up!” btn_color=”danger” btn_i_icon_fontawesome=”fa fa-rocket” btn_link=”url:https%3A%2F%2Fwww.udemy.com%2Fagile-product-ownership-from-beginner-to-professional%2F|title:Sign%20Up%20Today!|target:%20_blank|” btn_add_icon=”true” btn_custom_onclick=”true”][/vc_cta][/vc_column][/vc_row][vc_row][vc_column][vc_column_text responsive_font=”yes”]

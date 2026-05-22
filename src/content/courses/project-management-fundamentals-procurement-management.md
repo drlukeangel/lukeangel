@@ -9,6 +9,9 @@ summary: "[vc_row] [vc_column] [vc_single_image image= 8039 img_size= alignment=
 wpUrl: "/courses/project-management-fundamentals-procurement-management/"
 cover: "/courses/project-management-fundamentals-procurement-management.svg"
 coverAlt: "Project Management Fundamentals: Procurement Management"
+enrollUrl: ""
+enrollLabel: "Sign Up!"
+recordings: "Yes"
 ---
 
 [vc_row]**
