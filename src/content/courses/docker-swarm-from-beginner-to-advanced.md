@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: 'Managing Docker at scale is the next challenge facing IT. This course, Docker Swarm: Native Docker Clustering, will teach you everything you need to know about Docker Swarm, the native solutio...'
-wpUrl: /courses/docker-swarm-from-beginner-to-advanced/
 cover: ../../assets/courses/docker-swarm-from-beginner-to-advanced.svg
 coverAlt: 'Docker Swarm: From Begginer to Advanced'
 enrollUrl: ''

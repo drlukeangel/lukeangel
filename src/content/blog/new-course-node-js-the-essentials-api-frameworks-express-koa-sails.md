@@ -10,8 +10,6 @@ tags:
   - sails
 excerpt: "New Node.js course just dropped — zero to a working JWT-authenticated API in eight chapters. Express, Koa, and Sails all get airtime so you know which one to reach for and why."
 pullquote: "Most Node tutorials show you the framework. Few show you when to pick which one. That's the gap this course fills."
-wpCategory: developers
-wpUrl: /developers/node-js-developers/new-course-node-js-the-essentials-api-frameworks-express-koa-sails/
 cover: ../../assets/blog/udemyBannerRobot-NodeEssentials-1024x576.png
 coverAlt: "Course cover — Node.js: The Essentials + API Frameworks Express, KOA, Sails"
 ---

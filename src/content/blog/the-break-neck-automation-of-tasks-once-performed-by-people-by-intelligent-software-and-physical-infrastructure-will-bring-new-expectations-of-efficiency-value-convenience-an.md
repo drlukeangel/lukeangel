@@ -9,8 +9,6 @@ tags:
   - leadership
 excerpt: "The original quote landed in 2016 and aged terrifyingly well. Every PM I know is now staring at the bill the quote predicted. Here's what the expectation reset looks like in practice."
 pullquote: "The new bar isn't 'is this fast' — it's 'is this fast and right and free and obvious.' That's a four-dimensional ask, and it's the real bar now."
-wpCategory: cross-platform
-wpUrl: /cross-platform/the-break-neck-automation-of-tasks-once-performed-by-people-by-intelligent-software-and-physical-infrastructure-will-bring-new-expectations-of-efficiency-value-convenience-an/
 cover: ../../assets/blog/break-neck-automation-quote-2016.svg
 coverAlt: "Quote poster with the break-neck automation quote and four labeled axes: Efficiency (sub-second), Value (right beats fast), Convenience (zero-click), Delight (tone as feature)"
 ---

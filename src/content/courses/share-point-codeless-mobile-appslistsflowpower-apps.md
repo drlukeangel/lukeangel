@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Whether you are a hard core share point user or just getting started this course has something for you. This course will teach you how take a SharePoint list and transform it into a full funct...
-wpUrl: /courses/share-point-codeless-mobile-appslistsflowpower-apps/
 cover: ../../assets/courses/share-point-codeless-mobile-appslistsflowpower-apps.svg
 coverAlt: Share Point – Codeless Mobile Apps,lists,Flow,Power Apps
 enrollUrl: ''

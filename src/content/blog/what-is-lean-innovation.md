@@ -7,8 +7,6 @@ tags:
   - lean
   - project-management
 excerpt: Lean innovation is being embraced by everyone — from the smallest start-ups to the largest global organizations. But in most cases, it’s still falling well short of its full potential because…
-wpCategory: inovation
-wpUrl: /inovation/what-is-lean-innovation/
 cover: ../../assets/blog/lean-inovation.jpg
 coverAlt: What is Lean Innovation?
 ---

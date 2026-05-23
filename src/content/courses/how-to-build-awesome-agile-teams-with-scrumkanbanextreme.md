@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: At the heart of any agile project lies an agile team. As Agile becomes the preferred project management approach for fast-moving projects you will need to know how to build and manage these ty...
-wpUrl: /courses/how-to-build-awesome-agile-teams-with-scrumkanbanextreme/
 cover: ../../assets/courses/how-to-build-awesome-agile-teams-with-scrumkanbanextreme.svg
 coverAlt: How to Build Awesome Agile Teams with Scrum/Kanban/Extreme
 enrollUrl: ''

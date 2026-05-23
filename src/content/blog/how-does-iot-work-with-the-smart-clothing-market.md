@@ -6,8 +6,6 @@ tags:
   - iot
   - smart-clothes
 excerpt: While I was at an event last weekend I got into conversation where I was explaining to a group of people what the term IoT(internet of things) means. Since the term is used so broadly now I can…
-wpCategory: iot
-wpUrl: /iot/how-does-iot-work-with-the-smart-clothing-market/
 cover: ../../assets/blog/smart-clothing-athos-biosignal-monitoring-shirt-emg.jpeg
 coverAlt: How does IoT work with The Smart Clothing Market
 ---
@@ -20,9 +18,13 @@ Given the fact that the average use of a fitness tracking device is less than th
 
 ## Nike/Apple
 
-These two creative powerhouses have always had a close relationship. Nike started this whole fitness measuring business almost a decade ago, with Nike+iPod, a partnership with Apple. The FuelBand was released in early 2012 and it fared pretty well, grabbing 10% of the market by 2013, behind Jawbone and Fitbit. But as more and more companies joined in the fitness wristbands craze, the market quickly became saturated. And Nike concluded it no longer needed its own gadget.  Recently they released the custom Apple Watch the Nike+ . Since this is not a piece of clothing lets leave it be and move on to clothes.![Custom Apple Watch Nike+ edition — the Nike-branded smartwatch from the Nike/Apple partnership](../../assets/blog/smart-clothing-nike-apple-watch.png)
+These two creative powerhouses have always had a close relationship. Nike started this whole fitness measuring business almost a decade ago, with Nike+iPod, a partnership with Apple. The FuelBand was released in early 2012 and it fared pretty well, grabbing 10% of the market by 2013, behind Jawbone and Fitbit. But as more and more companies joined in the fitness wristbands craze, the market quickly became saturated. And Nike concluded it no longer needed its own gadget.  Recently they released the custom Apple Watch the Nike+ . Since this is not a piece of clothing lets leave it be and move on to clothes.
 
-In Q1 2016 Nike announced the [HyperAdapt 1.0](http://news.nike.com/news/hyperadapt-adaptive-lacing), which is a self-tightening/lacing shoe. Once you step into it, your heel activates a sensor that adjusts the shoe perfectly to fit your precise foot shape. There are + /- buttons on ![Nike HyperAdapt 1.0 self-tightening shoe — heel sensor triggers automatic lacing with +/- adjustment buttons](../../assets/blog/smart-clothing-nike-hyperadapt-self-lacing-shoe.png)the side that let you fine-tune it if you wish. It’s likely the realization of a long-term vision that started with the [Reebok Pump sneaker](https://en.wikipedia.org/wiki/Reebok_Pump) at the end of the 80s.
+![Custom Apple Watch Nike+ edition — the Nike-branded smartwatch from the Nike/Apple partnership](../../assets/blog/smart-clothing-nike-apple-watch.png)
+
+In Q1 2016 Nike announced the [HyperAdapt 1.0](http://news.nike.com/news/hyperadapt-adaptive-lacing), which is a self-tightening/lacing shoe. Once you step into it, your heel activates a sensor that adjusts the shoe perfectly to fit your precise foot shape. There are + /- buttons on ![Nike HyperAdapt 1.0 self-tightening shoe — heel sensor triggers automatic lacing with +/- adjustment buttons](../../assets/blog/smart-clothing-nike-hyperadapt-self-lacing-shoe.png)
+
+the side that let you fine-tune it if you wish. It’s likely the realization of a long-term vision that started with the [Reebok Pump sneaker](https://en.wikipedia.org/wiki/Reebok_Pump) at the end of the 80s.
 
 Nike re-launched Nike+ app will be more focused on selling products.  Nike’s other apps — Nike+ Training Club and Nike+ Running — will remain fitness-centric
 
@@ -40,17 +42,11 @@ Not sure if it would look anything like this but you could see it being close.
 
 ## Adidas
 
-## 
 
 Teamed with NuMetrex the company’s wearable heart monitoring garments include a sports bra for women and an athletic shirt for men. Both garments employ “smart fabric” technology consists of special sensing fiber electrodes woven directly into the product. These fibers look like nothing more than a small decorative weave pattern, about the size of two postage stamps side by side and placed near the heart of the wearer. Of note, running a finger over these fibers, they feel like very soft cotton, posing no discomfort of any kind to the wearer.
 
-[OLYMPUS DIGITAL CAMERA
+![Adidas / NuMetrex original sports bra — heart-rate sensing fibre electrodes woven into the smart-fabric garment](../../assets/blog/smart-clothing-adidas-numetrex-original-bra.jpg) ![Adidas / NuMetrex athletic shirt for men — companion smart-fabric garment with the same woven heart-rate sensor electrodes](../../assets/blog/smart-clothing-adidas-numetrex-athletic-shirt.jpg)
 
-" data-medium-file="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg?fit=300%2C225&ssl=1" data-large-file="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg?fit=800%2C600&ssl=1" class="size-full wp-image-7583" src="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg?resize=800%2C600" alt="OLYMPUS DIGITAL CAMERA" width="800" height="600" srcset="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg?w=800&ssl=1 800w, https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg?resize=300%2C225&ssl=1 300w, https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg?resize=768%2C576&ssl=1 768w, https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg?resize=672%2C504&ssl=1 672w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" />](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/10/addias-bra.jpg)
-
-[OLYMPUS DIGITAL CAMERA
-
-" data-medium-file="https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/10/addidas-shirt.jpg?fit=225%2C300&ssl=1" data-large-file="https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/10/addidas-shirt.jpg?fit=600%2C800&ssl=1" class="size-full wp-image-7584" src="https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/10/addidas-shirt.jpg?resize=600%2C800" alt="OLYMPUS DIGITAL CAMERA" width="600" height="800" srcset="https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/10/addidas-shirt.jpg?w=600&ssl=1 600w, https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/10/addidas-shirt.jpg?resize=225%2C300&ssl=1 225w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" />](https://i2.wp.com/lukeangel.co/wp-content/uploads/2016/10/addidas-shirt.jpg)
 
 In 2013 They even went so far to create a wireless base station that serves as the gathering point for collecting wearable tech-derived data. This is a true M2M application — in this case a many-to-one set of interactions that are able to monitor all kinds of player activities, including heart rate as well as sweat and hydration levels. The adidas base station, soccer uniform and application that make up miCoach Elite are shown below.Underneath these M2M applications based on wearable technology there are also many collections of big data analysis at play. In the case of adidas, the analyses themselves also happen in real time although analysis can also be further conducted later on. On and in the field, coaches and doctors are able to monitor and react in real time to numerous player circumstances, both at the individual and team level.
 
@@ -69,7 +65,9 @@ created specifically to measure, monitor, and manage the factors that determine 
 
 The $400 HealthBox, which includes an activity-tracking band, a heart rate strap, and a “smart” scale that records your weight and body-fat data and tracks them over time
 
-.![How does IoT work with The Smart Clothing Market](https://fortunedotcom.files.wordpress.com/2016/06/shoe.jpg?w=1024&h=591&resize=1024%2C591)
+.
+
+![How does IoT work with The Smart Clothing Market](https://fortunedotcom.files.wordpress.com/2016/06/shoe.jpg?w=1024&h=591&resize=1024%2C591)
 
 UA’s $150 smart shoes that come with a built-in sensor—allowing youto run without any hardware, and that is where I know the biggest Gaines will be. Executives say this sensor-adorned gear can mold dedicated, higher-performing athletes, making them more conscious of their diets and the intensity of workouts. Under Armour has bet heavily on this strategy, spending $710 million in the past three years to buy just three mobile apps, including MapMyFitness. Together they create a digital community of 170 million members that log billions of activities and meals and offer continual advice.
 
@@ -77,7 +75,7 @@ UA’s $150 smart shoes that come with a built-in sensor—allowing youto run wi
 
 ![Samsung NFC smart suit built with Rogatis — unlocks phones, swaps business cards, and toggles office/drive modes via the wearer's cuff](../../assets/blog/smart-clothing-samsung-rogatis-nfc-smart-suit.jpg)
 
-![SIUVIPNG ](file:///C:/Users/geoff/AppData/Local/Temp/msohtmlclip1/02/clip_image001.jpg)
+
 
 ![Samsung Smart Pay smart-clothing concept — contactless payment functionality embedded in the garment](../../assets/blog/smart-clothing-samsung-smart-pay-jacket.jpg)
 
@@ -87,7 +85,7 @@ The Korean giant also has an NFC smart suit, built in collaboration with Rogatis
 
 It’s already sale in Korea for roughly $500, with no news yet as to whether it’s going to break out into other territories.
 
-$TBD, ~~[~~samsung.com~~](http://www.samsung.com/)
+$TBD, [samsung.com](http://www.samsung.com/)
 
 ## Heddoko
 
@@ -159,14 +157,13 @@ Manufacturer MSRP: $249
 
 ![Lyle & Scott contactless payment jacket with Barclaycard bPay chip in the right cuff — pay up to £30 contactlessly across 300,000 UK locations](../../assets/blog/smart-clothing-lyle-and-scott-bpay-contactless-jacket.jpg)
 
-![Machine generated alternative text:
-](file:///C:/Users/geoff/AppData/Local/Temp/msohtmlclip1/02/clip_image001.jpg)
+
 
 Can I pay by cuff? Barclaycard and Lyle & Scott recently teamed up to design a contactless payment jacket powered by bPay. The Contactless Jacket, which features the same contactless payment chip found in debit/credit cards discretely hidden in the cuff of the right sleeve, allows the wearer to pay for anything up to £30 across 300,000 shops, bars, restaurants and stations around the UK.
 
 The double-faced, hooded jacket is available from the heritage brand in Admiral Blue and True Black online, or if you happen to stumble across Lyle & Scott’s Carnaby Street store.
 
-£150, ~~[~~Lyle & Scott~~](http://www.lyleandscott.com/)
+£150, [Lyle & Scott](http://www.lyleandscott.com/)
 
 ## Athos
 
@@ -186,9 +183,9 @@ Manufacturer MSRP: Manufacturer Pre-Order Only
 
 From the makers of the Lumo Lift posture tracker, these smart running shorts and capris pack in a sensor that can monitor a host of metrics including cadence, ground contact time, pelvic rotation and stride length. The smart running gear supports real time coaching with feedback sent through to your headphones to help improve running form and reduce the chances of injury.
 
-There’s no change on the battery front either, giving you an impressive one month off a single charge. If you don’t want to buy the shorts, there’s also the ~~[~~Lumo Run sensor~~](http://www.wareable.com/smart-clothing/lumo-run-sensor-specs-price-release-date-2393)~~ that can smarten up your current running kit.
+There’s no change on the battery front either, giving you an impressive one month off a single charge. If you don’t want to buy the shorts, there’s also the [Lumo Run sensor](http://www.wareable.com/smart-clothing/lumo-run-sensor-specs-price-release-date-2393) that can smarten up your current running kit.
 
-$149 (shorts) /$169 (capris), ~~[~~lumobodytech.com~~](http://www.lumobodytech.com/lumo-run/)
+$149 (shorts) /$169 (capris), [lumobodytech.com](http://www.lumobodytech.com/lumo-run/)
 
 ## Clothing+
 
@@ -338,8 +335,7 @@ Manufacturer MSRP: Displayed at CES 2015
 
 ![Neopenda newborn vital-signs monitor built into a baby hat — measures temperature, heart rate, respiratory rate, and blood oxygen for up to 24 babies on one tablet](../../assets/blog/smart-clothing-neopenda-newborn-vital-signs-hat.jpg)
 
-![Machine generated alternative text:
-](file:///C:/Users/geoff/AppData/Local/Temp/msohtmlclip1/02/clip_image001.jpg)
+
 
 Neopenda’s vital signs monitor is fitted inside a hat for newborn babies.
 
@@ -347,7 +343,7 @@ It can measure temperature, heart rate, respiratory rate and blood oxygen satura
 
 Up to 24 baby hats can be wirelessly synced, via Bluetooth, to one tablet which will run custom software. The idea is that doctors and nurses can check up on the vital signs of the whole room at a glance and get alerts if any changes in temperature or heart rate, say, are cause for concern. They are still at prototype stage but could cost as little as $1 each.
 
-$TBC, ~~[~~neopenda.com~~](http://www.neopenda.com/products.html)
+$TBC, [neopenda.com](http://www.neopenda.com/products.html)
 
 These new smart technologies are certainly going to be one of the biggest parts of an emerging market and economy. Smart clothes these days are engineered to make sure that people of all ages are monitored well and efficiently and that up to date and correct information is given. Diabetic patients have seen smart socks used to monitor temperature and joint angles in case there could be something wrong. There are the various shirts out there with monitors and sensors that can give real time data and if a workout is too slack or if it is too intense. There are sites such as LikeAGlove.com which can customize smartclothes for a person by just having them put their size information into their website.
 

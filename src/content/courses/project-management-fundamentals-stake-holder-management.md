@@ -39,7 +39,6 @@ enrollLabel: Sign Up!
 recordings: 'Yes'
 cover: ../../assets/courses/project-management-fundamentals-stake-holder-management.svg
 coverAlt: 'Course cover — Project Management Fundamentals: Stakeholder Management'
-wpUrl: /courses/project-management-fundamentals-stake-holder-management/
 ---
 
 Stakeholder management is the **unglamorous skill that decides whether your project ships or stalls**. It's also the one nobody teaches well — most PM training treats it as a soft skill to be mentioned and moved past, when in reality it's the single largest predictor of project outcomes outside the team itself.

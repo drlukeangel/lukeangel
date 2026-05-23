@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Agile project teams create short user stories as a way to plan out the work for upcoming sprints. In this course, agile expert Luke Angel shows how to write these user stories and prioritize t...
-wpUrl: /courses/successful-agile-team-planning-through-user-stories/
 cover: ../../assets/courses/successful-agile-team-planning-through-user-stories.svg
 coverAlt: Successful Agile Team planning through User Stories
 enrollUrl: ''

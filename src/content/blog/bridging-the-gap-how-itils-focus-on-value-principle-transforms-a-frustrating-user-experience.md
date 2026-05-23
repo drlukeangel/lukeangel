@@ -12,8 +12,6 @@ tags:
   - user-experience
   - ux
 excerpt: We’ve all been there. Staring at a frozen computer screen, deadline looming, frustration mounting. You call IT support, only to be met with a robotic script and a long wait time. This isn&#82…
-wpCategory: frameworks
-wpUrl: /frameworks/bridging-the-gap-how-itils-focus-on-value-principle-transforms-a-frustrating-user-experience/
 cover: ../../assets/blog/d46b7b77-5067-49ae-8e02-200fb576e99b.png
 coverAlt: "Bridging the Gap: How ITIL's “Focus on Value” Principle Transforms a Frustrating User Experience"
 ---

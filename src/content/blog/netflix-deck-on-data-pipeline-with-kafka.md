@@ -10,8 +10,6 @@ tags:
   - product
 excerpt: Netflix posted a deck on their Kafka-based data pipeline in 2016 and I haven't stopped pointing at it. Four ideas every PM and engineer should steal.
 pullquote: 'You don''t need Netflix''s scale to use Netflix''s architecture. You just need to want the same things Netflix wanted: decoupling, replay, and one source of truth.'
-wpCategory: developement
-wpUrl: /developement/netflix-deck-on-data-pipeline-with-kafka/
 ---
 
 A long time ago — by tech standards, anyway; it was 2016 — Netflix posted [a SlideShare deck](https://www.slideshare.net/wangxia5/netflix-kafka) walking through their event-based data pipeline built on Apache Kafka. The deck is dated. **The architecture is not.** I keep pointing at it in roadmap reviews ten years later because the ideas underneath are independent of the year.

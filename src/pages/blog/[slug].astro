@@ -2,8 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import EditInKeystatic from '../../components/EditInKeystatic.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { Breadcrumbs } from 'astro-breadcrumbs';
-import 'astro-breadcrumbs/breadcrumbs.css';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { Image, getImage } from 'astro:assets';
 import fallbackOg from '../../assets/pages/luke-angel-profile.jpg';
@@ -15,6 +14,27 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+// If this post belongs to a series, fetch the series + sibling posts
+let seriesEntry: any = null;
+let seriesSiblings: any[] = [];
+let seriesIndex = -1;
+if (post.data.notebook) {
+  const allSeries = await getCollection('notebooks');
+  seriesEntry = allSeries.find((s) => s.slug === post.data.notebook) ?? null;
+  if (seriesEntry) {
+    const allInSeries = await getCollection('blog', ({ data }) => !data.draft);
+    seriesSiblings = allInSeries
+      .filter((p) => p.data.notebook === post.data.notebook)
+      .sort((a, b) => {
+        const ao = a.data.notebookOrder ?? 999;
+        const bo = b.data.notebookOrder ?? 999;
+        if (ao !== bo) return ao - bo;
+        return a.data.date.getTime() - b.data.date.getTime();
+      });
+    seriesIndex = seriesSiblings.findIndex((p) => p.slug === post.slug);
+  }
+}
 
 const canonical = new URL(`/blog/${post.slug}/`, Astro.site).toString();
 const ogImageMeta = post.data.cover
@@ -48,6 +68,18 @@ const blogPostingSchema = {
   articleSection: post.data.category,
 };
 
+const faqSchema = post.data.faq && post.data.faq.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: post.data.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    }
+  : null;
+
 // Auto-related posts: tag overlap + category match, scored
 const all = await getCollection('blog', ({ data }) => !data.draft);
 const related = all
@@ -65,16 +97,19 @@ const related = all
 ---
 <Base title={post.data.title} current="blog" description={post.data.excerpt} image={ogImage} ogType="article">
   <JsonLd data={blogPostingSchema} />
+  {faqSchema && <JsonLd data={faqSchema} />}
   <article class="post wrap" style="padding: 40px 32px;" data-pagefind-body>
-    <Breadcrumbs ariaLabel="Breadcrumb" mainBemClass="breadcrumb">
-      <svg slot="separator" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-    </Breadcrumbs>
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'The Journal', href: '/blog/' },
+      { label: post.data.title },
+    ]} />
 
     <!-- Cover band: real image when set, fallback panel otherwise -->
     {post.data.cover ? (
       <Image
         src={post.data.cover}
-        alt={post.data.coverAlt ?? ''}
+        alt={post.data.coverAlt || post.data.title}
         widths={[480, 960, 1440, 1920]}
         sizes="(max-width: 720px) 100vw, 1440px"
         loading="eager"
@@ -101,7 +136,48 @@ const related = all
 
     <!-- Body -->
     <div style="max-width: 960px; margin: 56px auto 0; font-size: 19px; line-height: 1.75;">
+      {seriesEntry && (
+        <aside style={`background: var(--paper); border-left: 6px solid ${seriesEntry.data.accent ?? 'var(--accent)'}; padding: 20px 24px; margin-bottom: 40px;`}>
+          <div class="mono" style={`color: ${seriesEntry.data.accent ?? 'var(--accent)'};`}>
+            Part {seriesIndex >= 0 ? seriesIndex + 1 : '?'} of {seriesSiblings.length} · Notebook
+          </div>
+          <a href={`/notebooks/${seriesEntry.slug}/`} style="font-size: 24px; display: block; margin-top: 8px; color: var(--ink); text-decoration: underline; text-underline-offset: 4px;">{seriesEntry.data.title}</a>
+          <ol style="list-style: none; padding: 0; margin: 14px 0 0;">
+            {seriesSiblings.map((p, i) => {
+              const isMe = p.slug === post.slug;
+              return (
+                <li style="display: flex; gap: 10px; padding: 4px 0; align-items: baseline;">
+                  <span class="mono" style={`color: ${isMe ? 'var(--ink)' : 'var(--muted)'};`}>{String(i + 1).padStart(2, '0')}</span>
+                  {isMe ? (
+                    <span style="font-style: italic; color: var(--ink); font-weight: 600;">
+                      {p.data.title} <span class="mono" style="color: var(--accent); margin-left: 4px;">· you are here</span>
+                    </span>
+                  ) : (
+                    <a href={`/blog/${p.slug}/`} style="color: var(--ink); text-decoration: none;">{p.data.title}</a>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </aside>
+      )}
       <Content />
+      {seriesEntry && seriesSiblings.length > 1 && (
+        <nav style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; border-top: 1px solid var(--rule); padding-top: 24px;">
+          {seriesIndex > 0 ? (
+            <a href={`/blog/${seriesSiblings[seriesIndex - 1].slug}/`} style="text-decoration: none; color: var(--ink);">
+              <div class="mono" style="color: var(--accent);">← Previous in series</div>
+              <div style="font-size: 18px; margin-top: 6px;">{seriesSiblings[seriesIndex - 1].data.title}</div>
+            </a>
+          ) : <span />}
+          {seriesIndex >= 0 && seriesIndex < seriesSiblings.length - 1 ? (
+            <a href={`/blog/${seriesSiblings[seriesIndex + 1].slug}/`} style="text-decoration: none; color: var(--ink); text-align: right;">
+              <div class="mono" style="color: var(--accent);">Next in series →</div>
+              <div style="font-size: 18px; margin-top: 6px;">{seriesSiblings[seriesIndex + 1].data.title}</div>
+            </a>
+          ) : <span />}
+        </nav>
+      )}
     </div>
 
     <!-- Related -->

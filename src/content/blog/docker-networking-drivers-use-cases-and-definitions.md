@@ -6,15 +6,13 @@ tags:
   - docker
   - networking
 excerpt: Applications requirements and networking environments are diverse and sometimes opposing forces. In between applications and the network sits Docker networking, affectionately called the…
-wpCategory: docker
-wpUrl: /docker/docker-networking-drivers-use-cases-and-definitions/
 cover: ../../assets/blog/docker-networking-macvlan-driver-diagram.png
 coverAlt: 'Docker Networking Drivers: Use Cases And Definitions'
 ---
 
-Applications requirements and networking environments are diverse and sometimes opposing forces. In between applications and the network sits Docker networking, affectionately called the ~~[~~Container Network Model~~](https://github.com/docker/libnetwork/blob/master/docs/design.md)~~ or CNM. It’s CNM that brokers connectivity for your Docker containers and also what abstracts away the diversity and complexity so common in networking. The result is portability and it comes from CNM’s powerful network drivers. These are pluggable interfaces for the Docker Engine, Swarm, and UCP that provide special capabilities like multi-host networking, network layer encryption, and service discovery.
+Applications requirements and networking environments are diverse and sometimes opposing forces. In between applications and the network sits Docker networking, affectionately called the [Container Network Model](https://github.com/docker/libnetwork/blob/master/docs/design.md) or CNM. It’s CNM that brokers connectivity for your Docker containers and also what abstracts away the diversity and complexity so common in networking. The result is portability and it comes from CNM’s powerful network drivers. These are pluggable interfaces for the Docker Engine, Swarm, and UCP that provide special capabilities like multi-host networking, network layer encryption, and service discovery.
 
-Naturally, the next question is which network driver should I use? Each driver offers tradeoffs and has different advantages depending on the use case. There are built-in network drivers that come included with Docker Engine and there are also plug-in network drivers offered by networking vendors and the community. The most commonly used built-in network drivers are bridge, overlay and macvlan. Together they cover a very broad list of networking use cases and environments. For a more in depth comparison and discussion of even more network drivers, check out the~~[~~ ~~](https://success.docker.com/Datacenter/Apply/Docker_Reference_Architecture%3A_Designing_Scalable%2C_Portable_Docker_Container_Networks)[~~Docker Network Reference Architecture.~~](https://success.docker.com/Datacenter/Apply/Docker_Reference_Architecture%3A_Designing_Scalable%2C_Portable_Docker_Container_Networks)
+Naturally, the next question is which network driver should I use? Each driver offers tradeoffs and has different advantages depending on the use case. There are built-in network drivers that come included with Docker Engine and there are also plug-in network drivers offered by networking vendors and the community. The most commonly used built-in network drivers are bridge, overlay and macvlan. Together they cover a very broad list of networking use cases and environments. For a more in depth comparison and discussion of even more network drivers, check out the[ ](https://success.docker.com/Datacenter/Apply/Docker_Reference_Architecture%3A_Designing_Scalable%2C_Portable_Docker_Container_Networks)[~~Docker Network Reference Architecture.~~](https://success.docker.com/Datacenter/Apply/Docker_Reference_Architecture%3A_Designing_Scalable%2C_Portable_Docker_Container_Networks)
 
 ### Bridge Network Driver
 
@@ -26,7 +24,7 @@ In the following examples, we use a fictitious app called pets comprised of a we
 
 docker network create -d bridge mybridge docker run -d –net mybridge –name db redis docker run -d –net mybridge -e DB=db -p 8000:5000 –name web chrch/web
 
-![Docker bridge network driver diagram — default isolated network for single-host containers communicating through a virtual bridge](../../assets/blog/docker-networking-bridge-driver-diagram.png)![Docker Bridge Network Driver](file:////Users/luke/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/1BB405A6-81B0-524D-9572-D7E91FAEBA61.png)
+![Docker bridge network driver diagram — default isolated network for single-host containers communicating through a virtual bridge](../../assets/blog/docker-networking-bridge-driver-diagram.png)
 
 Our application is now being served on our host at port 8000. The Docker bridge is allowing web to communicate with db by its container name. The bridge driver does the service discovery for us automatically because they are on the same network. All of the port mappings, security rules, and pipework between Linux bridges is handled for us by the networking driver as containers are scheduled and rescheduled across a cluster.
 
@@ -38,7 +36,7 @@ The built-in Docker overlay network driver radically simplifies many of the comp
 
 The overlay driver utilizes an industry-standard VXLAN data plane that decouples the container network from the underlying physical network (the underlay). This has the advantage of providing maximum portability across various cloud and on-premises networks. Network policy, visibility, and security is controlled centrally through the Docker Universal Control Plane (UCP).
 
-![Docker overlay network driver diagram — VXLAN-based network connecting containers across multiple Docker hosts in a Swarm](../../assets/blog/docker-networking-overlay-driver-multi-host.png)![Docker Overlay Network driver](file:////Users/luke/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/A0FFA4CC-A47B-BE4A-A9EA-8CFA34220C91.png)
+![Docker overlay network driver diagram — VXLAN-based network connecting containers across multiple Docker hosts in a Swarm](../../assets/blog/docker-networking-overlay-driver-multi-host.png)
 
 In this example we create an overlay network in UCP so we can connect our web and db containers when they are living on different hosts. Native DNS-based service discovery for services & containers within an overlay network will ensure that web can resolve to db and vice-versa. We turned on encryption so that communication between our containers is secure by default.  Furthermore, visibility and use of the network in UCP is restricted by the permissions label we use.
 
@@ -48,7 +46,7 @@ Feel free to run this example against your UCP cluster with the following CLI co
 
 docker network create -d overlay –opt encrypted pets-overlay docker service create –network pets-overlay –name db redis docker service create –network pets-overlay -p 8000:5000 -e DB=db –name web chrch/web
 
-![Docker host network driver diagram — container shares the host network namespace directly without isolation](../../assets/blog/docker-networking-host-driver-no-isolation.png)![Docker networking](file:////Users/luke/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/FA3AB07C-1B21-FA47-96FA-5D3545916E22.png)
+![Docker host network driver diagram — container shares the host network namespace directly without isolation](../../assets/blog/docker-networking-host-driver-no-isolation.png)
 
 In this example we are still serving our web app on port 8000 but now we have deployed our application across different hosts. If we wanted to scale our web containers, Swarm & UCP networking would load balance the traffic for us automatically.
 
@@ -64,11 +62,7 @@ The macvlan driver uses the concept of a parent interface. This interface can be
 
 The macvlan driver can be configured in different ways to achieve different results. In the below example we create two MACVLAN networks joined to different subinterfaces. This type of configuration can be used to extend multiple L2 VLANs through the host interface directly to containers. The VLAN default gateway exists in the external network.
 
-![Docker macvlan network driver diagram — assigns containers their own MAC and IP on the physical LAN](../../assets/blog/docker-networking-macvlan-driver-diagram.png)![Docker and macvlan](file:////Users/luke/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/653BF211-288B-3242-A5A2-5342D2AD3834.png)
-
-![Docker and macvlan](file:////Users/luke/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/11555CD7-A225-FD4A-8B58-4898DC55B282.png)![Docker and macvlan](file:////Users/luke/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/653BF211-288B-3242-A5A2-5342D2AD3834.png)
-
-![Docker and macvlan](file:////Users/luke/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/C0F529ED-1F60-444F-863E-16DC682185F3.png)
+![Docker macvlan network driver diagram — assigns containers their own MAC and IP on the physical LAN](../../assets/blog/docker-networking-macvlan-driver-diagram.png)
 
 The db and web containers are connected to different MACVLAN networks in this example. Each container resides on its respective external network with an external IP provided from that network. Using this design an operator can control network policy outside of the host and segment containers at L2. The containers could have also been placed in the same VLAN by configuring them on the same MACVLAN network. This just shows the amount of flexibility offered by each network driver.
 
@@ -82,4 +76,4 @@ More Resources:
 
 - [~~Read the latest RA:~~](https://success.docker.com/?cid=ucp112ra)~~ Docker UCP Service Discovery and Load Balancing
 
-- ~~See ~~[~~What’s New in Docker Datacenter~~](https://blog.docker.com/2016/11/docker-datacenter-adds-enterprise-orchestration-security-policy-refreshed-ui/)
+- ~~See [What’s New in Docker Datacenter](https://blog.docker.com/2016/11/docker-datacenter-adds-enterprise-orchestration-security-policy-refreshed-ui/)

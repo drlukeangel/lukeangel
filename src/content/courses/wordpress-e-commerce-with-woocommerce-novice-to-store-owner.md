@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Learn How to Build an E-Commerce Website By using WordPress and WooCommerce Plugin, Building an online complete shopping store.
-wpUrl: /courses/wordpress-e-commerce-with-woocommerce-novice-to-store-owner/
 cover: ../../assets/courses/wordpress-e-commerce-with-woocommerce-novice-to-store-owner.svg
 coverAlt: 'WordPress E-Commerce With WooCommerce: Novice To Store Owner'
 enrollUrl: ''

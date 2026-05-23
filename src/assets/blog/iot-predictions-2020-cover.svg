@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t">
+  <title id="t">IoT & Connected Devices — 2020 Predictions and Outcomes cover</title>
+  <defs>
+    <linearGradient id="g20" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g20)"/>
+  <g fill="#fff" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
+    <text x="80" y="100" font-size="22" letter-spacing="6" opacity="0.7">CONNECTED DEVICES · YEAR IN REVIEW</text>
+    <text x="80" y="220" font-size="120" font-weight="500" letter-spacing="-2">2020</text>
+    <text x="80" y="320" font-size="44" font-weight="300">Predictions &amp; outcomes</text>
+  </g>
+  <g transform="translate(720,170)">
+    <rect x="0" y="0" width="160" height="140" rx="14" fill="#fff"/>
+    <rect x="10" y="10" width="140" height="100" rx="6" fill="#dc2626"/>
+    <text x="80" y="170" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">Peloton</text>
+  </g>
+  <g transform="translate(900,180)">
+    <circle cx="50" cy="80" r="60" fill="#fff"/>
+    <circle cx="50" cy="80" r="30" fill="#dc2626"/>
+    <text x="50" y="180" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">Oura Ring</text>
+  </g>
+  <g transform="translate(1060,170)">
+    <ellipse cx="40" cy="50" rx="30" ry="50" fill="#fff"/>
+    <ellipse cx="120" cy="50" rx="30" ry="50" fill="#fff"/>
+    <text x="80" y="160" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">AirPods Pro</text>
+  </g>
+  <text x="80" y="580" fill="#fff" opacity="0.6" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="4">LUKEANGEL.CO · THE JOURNAL</text>
+</svg>

@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Are you looking to understand what Agile Project Management is? Are you currently running a waterfall project and want to make the jump to Agile? Then this is the course for you. In this cours...
-wpUrl: /courses/waterfall-to-agile-project-management-a-step-by-step-guide/
 cover: ../../assets/courses/waterfall-to-agile-project-management-a-step-by-step-guide.svg
 coverAlt: 'Agile Projects: How To Transition From Waterfall'
 enrollUrl: ''

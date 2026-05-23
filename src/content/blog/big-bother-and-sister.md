@@ -9,8 +9,6 @@ tags:
   - leadership
 excerpt: Being a Big through Big Brothers Big Sisters is the most fun volunteering I've ever done. Low time commitment, big payoff for the kid, embarrassingly high for the adult.
 pullquote: Being a Big is the rare volunteer commitment that feels less like volunteering and more like having a really good friend who happens to be 11.
-wpCategory: give
-wpUrl: /give/big-bother-and-sister/
 cover: ../../assets/blog/bbd.jpg
 coverAlt: Big Brothers Big Sisters mentorship — adult mentor and child Little spending time together on an outing
 ---

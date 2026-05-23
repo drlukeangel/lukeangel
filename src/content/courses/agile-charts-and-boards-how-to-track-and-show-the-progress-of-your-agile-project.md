@@ -9,7 +9,6 @@ summary: Agile teams need a lightweight way to report their progress. Agile repo
 syllabus: []
 cover: ../../assets/courses/agile-charts-and-boards-how-to-track-and-show-the-progress-of-your-agile-project.svg
 coverAlt: 'Agile Charts and Boards: How to track and show the progress of your agile project'
-wpUrl: /courses/agile-charts-and-boards-how-to-track-and-show-the-progress-of-your-agile-project/
 draft: false
 enrollUrl: ''
 enrollLabel: Sign Up!

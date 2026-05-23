@@ -7,8 +7,6 @@ tags:
   - gratitude
 excerpt: You can walk dogs and play with cats at your local animal shelter for free. It's a workout, a friend-maker, and a community good rolled into one. Here's how it actually works.
 pullquote: At some point during the walk you stop being sure who's rehabilitating whom. That's the point. That's also when you're hooked.
-wpCategory: give
-wpUrl: /give/volunteer-at-nkla/
 cover: ../../assets/blog/me.jpg
 coverAlt: Volunteer dog walker at an animal shelter — getting the morning dogs out for exercise and bathroom breaks
 ---

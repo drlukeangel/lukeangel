@@ -9,11 +9,11 @@ tags:
   - soft-skills
   - sustainability
   - trends
+notebook: pm-trends
+notebookOrder: 4
 excerpt: Hold onto your Gantt charts, folks – 2022 is about to shake up project management like a snow globe at a toddler convention. Based on emerging patterns and industry whispers, here’s what’ll…
 cover: ../../assets/blog/2022-project-management-trends-hybrid-team-illustration.png
 coverAlt: 10 Game-Changing Project Management Trends for 2022
-wpCategory: project-management
-wpUrl: /project-management/10-game-changing-project-management-trends-for-2022/
 featured: false
 draft: false
 ---

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Tractive Base Station teardown — nRF52840 cover</title>
+  <desc id="d">2025-era teardown cover showing the Tractive Base Station opened up with the Nordic nRF52840 chip visible on the PCB, surrounded by labels for the radio protocols it supports (BLE 5, LE Coded PHY, Thread, Matter, 802.15.4) and which one Tractive actually uses (plain BLE advertising).</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c11"/>
+      <stop offset="100%" stop-color="#1a1d24"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+  <g fill="#fdfaf2" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+    <text x="80" y="70" font-size="20" letter-spacing="6" opacity="0.6">TEARDOWN · OCT 2025</text>
+    <text x="80" y="160" font-size="64" font-weight="500" letter-spacing="-1.5">Tractive Base Station</text>
+    <text x="80" y="220" font-size="40" font-weight="300" opacity="0.85">2025 silicon, 2013 architecture</text>
+  </g>
+
+  <!-- PCB illustration with chip -->
+  <g transform="translate(80,290)">
+    <!-- PCB outline -->
+    <rect x="0" y="0" width="500" height="280" rx="8" fill="#1a3a2e" stroke="#10a37f" stroke-width="2"/>
+    <!-- Traces -->
+    <path d="M 40 40 L 200 40 L 200 80 L 280 80" stroke="#10a37f" stroke-width="1" fill="none" opacity="0.6"/>
+    <path d="M 40 240 L 180 240 L 180 200 L 260 200" stroke="#10a37f" stroke-width="1" fill="none" opacity="0.6"/>
+    <path d="M 460 60 L 320 60 L 320 100" stroke="#10a37f" stroke-width="1" fill="none" opacity="0.6"/>
+    <path d="M 460 200 L 340 200" stroke="#10a37f" stroke-width="1" fill="none" opacity="0.6"/>
+    <!-- Pads -->
+    <circle cx="40" cy="40" r="4" fill="#fbbf24"/>
+    <circle cx="40" cy="240" r="4" fill="#fbbf24"/>
+    <circle cx="460" cy="60" r="4" fill="#fbbf24"/>
+    <circle cx="460" cy="200" r="4" fill="#fbbf24"/>
+    <!-- nRF52840 chip -->
+    <rect x="200" y="100" width="120" height="80" fill="#1a1d24" stroke="#9aa3ad" stroke-width="2"/>
+    <text x="260" y="135" text-anchor="middle" fill="#fdfaf2" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="600">Nordic</text>
+    <text x="260" y="155" text-anchor="middle" fill="#fdfaf2" font-family="'JetBrains Mono',monospace" font-size="16" font-weight="700">nRF52840</text>
+    <text x="260" y="172" text-anchor="middle" fill="#9aa3ad" font-family="'JetBrains Mono',monospace" font-size="10">multi-protocol radio</text>
+    <!-- PCB label -->
+    <text x="14" y="270" fill="#10a37f" font-family="'JetBrains Mono',monospace" font-size="11" opacity="0.7">BASE STATION REV B · 2024</text>
+  </g>
+
+  <!-- Capability list -->
+  <g transform="translate(640,300)" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+    <text x="0" y="0" fill="#fdfaf2" font-size="16" letter-spacing="3" opacity="0.7">CHIP SUPPORTS</text>
+    <g transform="translate(0,28)">
+      <rect x="0" y="0" width="14" height="14" fill="#10a37f"/>
+      <text x="26" y="12" fill="#fdfaf2" font-size="18" font-weight="500">BLE 5 · LE Coded PHY (4× range)</text>
+    </g>
+    <g transform="translate(0,56)">
+      <rect x="0" y="0" width="14" height="14" fill="#10a37f"/>
+      <text x="26" y="12" fill="#fdfaf2" font-size="18" font-weight="500">Thread mesh</text>
+    </g>
+    <g transform="translate(0,84)">
+      <rect x="0" y="0" width="14" height="14" fill="#10a37f"/>
+      <text x="26" y="12" fill="#fdfaf2" font-size="18" font-weight="500">Matter</text>
+    </g>
+    <g transform="translate(0,112)">
+      <rect x="0" y="0" width="14" height="14" fill="#10a37f"/>
+      <text x="26" y="12" fill="#fdfaf2" font-size="18" font-weight="500">802.15.4</text>
+    </g>
+
+    <text x="0" y="170" fill="#dc2626" font-size="16" letter-spacing="3" opacity="0.9">TRACTIVE USES</text>
+    <g transform="translate(0,198)">
+      <rect x="0" y="0" width="14" height="14" fill="#dc2626"/>
+      <text x="26" y="12" fill="#fdfaf2" font-size="18" font-weight="500">Plain BLE advertising</text>
+    </g>
+    <text x="0" y="240" fill="#9aa3ad" font-size="14" font-style="italic">~25% of the chip's capability</text>
+  </g>
+
+  <text x="80" y="608" fill="#fdfaf2" opacity="0.5" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="4">LUKEANGEL.CO · PET IOT FIELD GUIDE</text>
+</svg>

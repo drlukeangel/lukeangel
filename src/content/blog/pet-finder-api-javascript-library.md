@@ -11,8 +11,6 @@ tags:
   - open-source
 excerpt: "I just published a JavaScript library that wraps the Petfinder API — because the official one returns JSON that fights you. Here's what it does, how to use it, and why I built it."
 pullquote: "The Petfinder API is a great public service wrapped in a JSON shape that violates every API design principle I know. This library is the buffer."
-wpCategory: developement
-wpUrl: /developement/pet-finder-api-javascript-library/
 cover: ../../assets/blog/npde-npm-package-manager-petfinder.jpg
 coverAlt: npm logo over the Pet Finder API JavaScript library — published package for Node.js developers
 ---

@@ -9,14 +9,11 @@ tags:
   - course
 excerpt: "Most SharePoint sites look like a garage after a yard sale. The new course teaches the taxonomy and metadata patterns that make a site usable five years later — without rebuilding it three times."
 pullquote: "A SharePoint site without a taxonomy is just OneDrive with extra clicks. The taxonomy *is* the product."
-wpCategory: microsoft
-wpUrl: /microsoft/new-course-sharepoint-2016-metadata-columnsliststaxonomy-and-more/
 cover: ../../assets/blog/SharePoint2016MetadataColumnsListsTaxonomyandMoreSharePoint-udemyCourseImage.jpg
 coverAlt: "Course cover — SharePoint Advanced: Metadata, Columns, Lists, Taxonomy"
 ---
 
 New course just dropped: **SharePoint Advanced — Metadata, Columns, Lists, Taxonomy**. Self-paced, pre-recorded, open enrollment.
-
 
 ![Course cover — SharePoint Advanced: Metadata, Columns, Lists, Taxonomy](../../assets/blog/SharePoint2016MetadataColumnsListsTaxonomyandMoreSharePoint-udemyCourseImage.jpg)
 

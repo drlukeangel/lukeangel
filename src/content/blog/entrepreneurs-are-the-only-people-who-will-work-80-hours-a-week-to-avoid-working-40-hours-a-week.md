@@ -9,8 +9,6 @@ tags:
   - founders
 excerpt: "Lori Greiner's joke is funnier when you've worked both sides of it. The trade isn't hours — it's whose calendar you're living in. Here's the actual math, including the unromantic parts."
 pullquote: "Founders are not avoiding 40-hour weeks because they hate work. They're avoiding being on somebody else's calendar."
-wpCategory: quotes
-wpUrl: /quotes/entrepreneurs-are-the-only-people-who-will-work-80-hours-a-week-to-avoid-working-40-hours-a-week/
 cover: ../../assets/blog/lori-greiner-shark-tank.jpg
 coverAlt: Portrait of Lori Greiner — Shark Tank investor who popularized the entrepreneur-80-hours quip
 ---

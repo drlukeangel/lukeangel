@@ -8,14 +8,20 @@ tags:
   - course
 excerpt: New course just dropped — Angular Router from zero to working SPA in your lunch hour. Routes, guards, lazy modules, the whole stack. No padding, no slides for slides' sake.
 pullquote: Most Angular Router tutorials front-load 40 minutes of theory before you load a second route. This course front-loads working code in 90 seconds.
-wpCategory: developers
-wpUrl: /developers/angular/new-course-angular-2-router-up-and-running/
 cover: ../../assets/blog/AngularRouting-1024x576.png
 coverAlt: "Course cover — Angular Router: Up and Running"
+faq:
+  - q: "Does this still apply to current Angular?"
+    a: "Yes. The router APIs covered (RouterLink, ActivatedRoute, route guards, resolvers, lazy modules) are stable across all Angular versions from 2 through 17+. The course material ages well because the router's core contract is one of the most stable parts of the framework."
+  - q: "Do I need to know NgRx or RxJS first?"
+    a: "No on NgRx — the router doesn't require a state library. Yes on RxJS basics — you should be comfortable with subscribe, pipe, and the async pipe. If you're not, watch a 30-minute RxJS primer first; the rest will click."
+  - q: "What's the longest sticking point?"
+    a: "Lazy-loaded modules + AOT. The course spends extra time on the loadChildren syntax change and the build-time implications because that's where I've watched the most teams trip."
+  - q: "Will this prep me for the Angular CLI / standalone components migration?"
+    a: "Indirectly. The router patterns are the same; the surface around them (NgModule vs standalone components) is what's changed. Once you understand routes deeply, the migration is mostly mechanical."
 ---
 
 Fresh course on **the Angular Router**. Self-paced, pre-recorded, lunch-hour material.
-
 
 ![Course cover — Angular Router: Up and Running](../../assets/blog/AngularRouting-1024x576.png)
 

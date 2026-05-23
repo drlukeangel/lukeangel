@@ -8,8 +8,6 @@ tags:
   - quotes
 excerpt: Every product I've shipped that meant anything had a dark month before launch. Here's how to tell you're in the dark — not lost — and what to do while you wait for the lights.
 pullquote: Every bright launch I can name had a quiet, embarrassing, low-confidence month right before it.
-wpCategory: cross-platform
-wpUrl: /cross-platform/stars-cant-shine-without-darkness/
 cover: ../../assets/blog/stars-cant-shine-darkness-quote-2017.svg
 coverAlt: "Quote poster — dark sky with scattered stars and the cream-colored text: 'Stars can't shine without darkness.'"
 ---

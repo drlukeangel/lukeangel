@@ -9,9 +9,9 @@ tags:
   - program-management
   - project-management
   - stakeholder-management
+notebook: pm-fundamentals
+notebookOrder: 4
 excerpt: What is Stakeholder Management? You’re a project, program, or product manager. So, you have a lot on your plate. You’re dealing with deadlines, resources, and many different priorities.…
-wpCategory: project-management
-wpUrl: /project-management/stakeholder-management-your-secret-weapon-for-success/
 cover: ../../assets/blog/stakeholder-management-secret-weapon-project-program-product-success.png
 coverAlt: "Stakeholder Management: Your Secret Weapon for Success"
 ---
@@ -56,7 +56,6 @@ This shows what happens when you don’t manage stakeholders well. What if you t
 
 ![Stakeholder Power × Interest matrix — four quadrants: Manage Closely (high power, high interest), Keep Satisfied (high power, low interest), Keep Informed (low power, high interest), Monitor (low power, low interest) — each with example stakeholder types and engagement tactics](../../assets/blog/stakeholder-power-interest-matrix-2024.svg)
 
-
 - **Stakeholder Register:** Finally, make a document about each stakeholder. Include their needs, expectations, and how much influence they have.
 
 **2. Make an Engagement Plan:**
@@ -64,7 +63,6 @@ This shows what happens when you don’t manage stakeholders well. What if you t
 - **Different Strokes for Different Folks:** Some stakeholders need more attention than others. So, plan your approach accordingly.
 
 ![Stakeholder engagement cadence diagram — four archetypes on a six-week schedule grid: Manage Closely (weekly), Keep Satisfied (monthly), Keep Informed (biweekly), Monitor (quarterly). Each row uses colored dots to show when the touch happens.](../../assets/blog/stakeholder-engagement-cadence-2024.svg)
-
 
 - **Choose Communication Channels:** How will you talk to them? Emails? Meetings? Newsletters? Pick what works best for each stakeholder.
 

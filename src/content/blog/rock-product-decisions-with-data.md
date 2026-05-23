@@ -8,8 +8,6 @@ tags:
   - leadership
   - ai
 excerpt: Why Data is Your Product BFF Imagine you’re crafting a killer playlist. You wouldn’t just throw on any old tunes, right? You’d consider the vibe, the listener, and what’s to…
-wpCategory: product-management
-wpUrl: /product-management/rock-product-decisions-with-data/
 cover: ../../assets/blog/rock-product-decisions-data-database-rockstar.png
 coverAlt: Rock Product Decisions With Data
 ---

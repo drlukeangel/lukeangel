@@ -3,9 +3,9 @@ title: "2021's PM Tsunami: 10 Trends You Can't Surf Past"
 date: 2021-01-05T15:07:00
 category: projects
 tags: ["collaboration-tools", "hybrid-project-management", "remote-team", "sustainability", "trends", "workflows"]
+notebook: pm-trends
+notebookOrder: 3
 excerpt: "Project Management, Future Trends, Workplace Strategy /categories post # Grab Your Board: 2021’s Project Management Megatrends Plot twist: Waterfall just joined TikTok. Hybrid work became your new …"
-wpCategory: "project-management"
-wpUrl: "/project-management/2021s-pm-tsunami-10-trends-you-cant-surf-past-%f0%9f%8c%8a/"
 cover: "../../assets/blog/2021-pm-tsunami-10-trends-cover.png"
 coverAlt: "2021's PM Tsunami: 10 Trends You Can't Surf Past"
 ---

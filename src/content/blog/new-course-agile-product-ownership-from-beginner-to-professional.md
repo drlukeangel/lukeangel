@@ -9,14 +9,11 @@ tags:
   - course
 excerpt: New course on Agile Product Ownership — the role most teams hire badly for and then quietly blame for everything. What's in it, who it's for.
 pullquote: Most teams hire a product owner like they're hiring a project manager who knows JIRA. That's the bug. This course is the fix.
-wpCategory: project-management
-wpUrl: /project-management/agile/new-course-agile-product-ownership-from-beginner-to-professional/
 cover: ../../assets/blog/courseCover-AgileProductOwnership-From-Beginner-to-ProfessionalimagescourseCover.jpg
 coverAlt: 'Course cover — Agile Product Owner(ship): From Beginner to Professional'
 ---
 
 Course launch day. Pour yourself a coffee, this is a long one.
-
 
 ![Course cover — Agile Product Owner(ship): From Beginner to Professional](../../assets/blog/courseCover-AgileProductOwnership-From-Beginner-to-ProfessionalimagescourseCover.jpg)
 

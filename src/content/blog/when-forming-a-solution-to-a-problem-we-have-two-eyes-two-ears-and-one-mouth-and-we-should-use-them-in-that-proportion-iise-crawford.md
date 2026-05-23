@@ -10,8 +10,6 @@ tags:
   - design
 excerpt: Ilse Crawford had a number for the listen/observe/talk ratio in product work. It's not a metaphor — it's the actual math. Here's the discipline behind it.
 pullquote: If your stand-up has more talking than observing, you're not making decisions. You're broadcasting your priors.
-wpCategory: quote
-wpUrl: /quote/when-forming-a-solution-to-a-problem-we-have-two-eyes-two-ears-and-one-mouth-and-we-should-use-them-in-that-proportion-iise-crawford/
 cover: ../../assets/blog/two-eyes-two-ears-one-mouth-quote-2017.svg
 coverAlt: Quote poster — line-art icons of two eyes, two ears, and one mouth above Ilse Crawford's quote on the 2:2:1 listening ratio for problem-solving
 ---

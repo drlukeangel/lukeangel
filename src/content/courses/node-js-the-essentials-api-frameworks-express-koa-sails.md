@@ -36,7 +36,6 @@ enrollLabel: Sign Up!
 recordings: 'Yes'
 cover: ../../assets/courses/node-js-the-essentials-api-frameworks-express-koa-sails.svg
 coverAlt: 'Course cover — Node.js: The Essentials + API Frameworks (Express, Koa, Sails)'
-wpUrl: /courses/node-js-the-essentials-api-frameworks-express-koa-sails/
 ---
 
 Node.js is a lightweight, efficient runtime for building network apps — and (still) the easiest path to a working API if you already know JavaScript. This course walks you through the runtime mental model, the three frameworks worth knowing (**Express, Koa, Sails**), and lands the trip with a small user-auth API you can fork as the starting point for whatever you build next.

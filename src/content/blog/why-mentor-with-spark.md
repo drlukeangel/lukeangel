@@ -9,8 +9,6 @@ tags:
   - gratitude
 excerpt: Spark matches middle-schoolers with workplace mentors for 10 weeks. Two hours a week of the most fun work you'll do all month — and it makes a real dent in a kid's trajectory.
 pullquote: Mentoring sounds like a heavy lift. Two hours a week, for ten weeks, in the workplace you're already sitting in. That's the whole ask. The kid is the easy part.
-wpCategory: give
-wpUrl: /give/why-mentor-with-spark/
 cover: ../../assets/blog/spark2-1.jpg
 coverAlt: Spark mentorship — a working professional and a middle-school student collaborating at a desk during a workplace mentoring session
 ---

@@ -9,9 +9,9 @@ tags:
   - hybrid-methodologies
   - project-management
   - trends
+notebook: pm-trends
+notebookOrder: 6
 excerpt: 'Hold onto your Gantt charts, PM warriors—2024 will rewrite the rules of project management. Based on emerging patterns and tech breakthroughs, here’s what’ll shake up your workflow: 1. …'
-wpCategory: project-management
-wpUrl: /project-management/10-game-changing-project-management-trends-to-dominate-2024/
 cover: ../../assets/blog/10-game-changing-project-management-trends-2024-cover.jpg
 coverAlt: 10 Game-Changing Project Management Trends to Dominate 2024
 ---

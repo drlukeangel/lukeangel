@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="qd-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#qd-dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">DEVOPS — MAR 2026</text>
+  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2a52be" text-anchor="end">Q DEVELOPER</text>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+
+  <g transform="translate(810, 168)" stroke="#1a1d24" stroke-width="2" fill="none">
+    <rect x="0"   y="0"  width="80" height="36" rx="4"/>
+    <text x="40"  y="22" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">PR open</text>
+    <line x1="40" y1="36" x2="40" y2="52" stroke="#2a52be"/>
+    <rect x="0"   y="52" width="80" height="36" rx="4" fill="#2a52be" stroke="#2a52be"/>
+    <text x="40"  y="74" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#fdfaf2" stroke="none">agent run</text>
+    <line x1="40" y1="88" x2="40" y2="104" stroke="#2a52be"/>
+    <rect x="0"   y="104" width="80" height="36" rx="4"/>
+    <text x="40"  y="126" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">merge</text>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="60" fill="#1a1d24">Agent-based DevOps</text>
+  <text x="80" y="360" font-family="Newsreader, serif" font-weight="500" font-size="60" fill="#1a1d24">with <em style="color: #2a52be;">Q Developer</em> —</text>
+  <text x="80" y="424" font-family="Newsreader, serif" font-style="italic" font-size="30" fill="#7a808c">what we kept, what we tossed.</text>
+
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — DEVOPS · AGENTS</text>
+</svg>

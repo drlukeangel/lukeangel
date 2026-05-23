@@ -8,8 +8,6 @@ tags:
   - linux
   - windows
 excerpt: At DockerCon 2016 in Seattle Docker announced the public beta of Docker for Windows. With this you can work with Docker running Linux containers in a very easy way on Windows 10 Pro with…
-wpCategory: docker
-wpUrl: /docker/run-windows-and-linux-containers-on-windows-10/
 cover: ../../assets/blog/windows-docker.png
 coverAlt: Run Windows and Linux Containers on Windows 10
 ---
@@ -22,7 +20,7 @@ But there is a little bit of confusion which sort of containers can be started w
 
 This is because each of the installations use the same default named pipe ~~//./pipe/docker_engine~~ causing one of the engines to fail to start.
 
-**Beta 26 to rule them all****
+**Beta 26 to rule them all**
 
 Beginning with the Docker for Windows Beta 26 there is a very easy approach to solve this confusion. You only have to install Docker for Windows with the MSI installer. There is a new menu item in the Docker tray icon to switch between Linux and Windows containers.
 
@@ -42,7 +40,7 @@ There also is a command line tool to switch the engine. In a PowerShell windows 
 
 and it switches from Linux to Windows or vice versa. Take care and type the option as shown here as the option is case sensitive.
 
-**Proxy for the rescue****
+**Proxy for the rescue**
 
 But how does the switching work without the need to use another named pipe or socket from the Docker client?
 
@@ -50,7 +48,7 @@ The answer is that there is running a Proxy process ~~com.docker.proxy.exe~~ whi
 
 If you switch from Linux to Windows the Windows Docker engine ~~dockerd.exe~~will be started for you which is listening on another named pipe ~~//./pipe/docker_engine_windows~~ and a new started Proxy process redirects to this.
 
-**Under the hood****
+**Under the hood**
 
 I have installed the [Sysinternals Process Monitor](https://technet.microsoft.com/sysinternals/bb896645) tool to learn what happens while switching from Linux to Windows containers. With the Process Tree function you can see a timeline with green bars when each process has started or exited.
 
@@ -64,11 +62,11 @@ The ~~dockerd.exe~~ Windows Docker engine is started, as well as a new ~~com.doc
 
 So just after the switch you still can use the ~~docker.exe~~ Client or your Docker integration in your favorite editor or IDE without any environment changes.
 
-**Running both container worlds in parallel****
+**Running both container worlds in parallel**
 
 The proxy process just switches the connection to the Docker engine. After such a switch both the Linux and Windows Docker engine are running.
 
-**Run a Linux web server****
+**Run a Linux web server**
 
 To try this out we first switch back to the Linux containers. Now we run the default nginx web server on port 80
 
@@ -82,7 +80,7 @@ then switch to the Windows containers with
 
 Now let’s run some Windows containers. But first we try if the Linux container is still running and reachable with
 
-start [http://localhost](http://localhost)**
+start [http://localhost](http://localhost)
 
 With the ~~start~~ command you open Edge with the welcome page of the nginx running in a Linux container
 
@@ -90,7 +88,7 @@ With the ~~start~~ command you open Edge with the welcome page of the nginx runn
 
 Yes, the Linux container is still running.
 
-**Build a Windows web server****
+**Build a Windows web server**
 
 On Windows 10 you only can run Nanoserver containers. There is no IIS docker image for Nanoserver. **Ignite update**: You can run Nanoserver **AND**windowsservercore containers on Windows 10.
 
@@ -100,11 +98,11 @@ notepad app.js
 
 Enter this code as the mini web server in the file ~~app.js~~ and save the file.
 
-var http = require(‘http’);**
+var http = require(‘http’);
 var port = 81;
 
-function handleRequest(req, res) {**
-res.end(‘Hello from Windows container, path = ‘ + req.url);**
+function handleRequest(req, res) {
+res.end(‘Hello from Windows container, path = ‘ + req.url);
 }
 
 var server = http.createServer(handleRequest);
@@ -149,7 +147,7 @@ Additionally the port forwarding from the host to the container allows you to co
 
 And yes, the Windows container is also handling requests.
 
-**Conclusion****
+**Conclusion**
 
 The new Docker for Windows beta combines the two container worlds and simplifies building Docker images for both Linux and Windows, making a Windows 10 machine a good development platform for both.
 

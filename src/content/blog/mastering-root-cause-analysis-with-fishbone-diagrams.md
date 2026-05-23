@@ -6,9 +6,9 @@ tags:
   - fishbone
   - program-management
   - project-management
+notebook: pm-fundamentals
+notebookOrder: 5
 excerpt: Key Highlights Fishbone Diagrams Introduction Root Cause Analaysis In the quest for ongoing improvement, good problem-solving methods are very important. Root cause analysis plays a key role in…
-wpCategory: program-management
-wpUrl: /program-management/mastering-root-cause-analysis-with-fishbone-diagrams/
 cover: ../../assets/blog/fishbone-1.png
 coverAlt: Mastering Root Cause Analysis with Fishbone Diagrams
 ---

@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: SharePoint can be a powerful tool to support documents and data in an organization, when sites are properly constructed. By implementing a taxonomy (aka a content categorization and storage sc...
-wpUrl: /courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more/
 cover: ../../assets/courses/sharepoint-advanced-metadata-columns-lists-taxonomy-and-more.svg
 coverAlt: 'SharePoint Advanced: Metadata,Columns,Lists,Taxonomy & More'
 enrollUrl: ''

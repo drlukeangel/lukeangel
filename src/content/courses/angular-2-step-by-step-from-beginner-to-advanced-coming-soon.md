@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: 'Angular Step by Step: introduces you to the essentials of this “superheroic” framework, including powerful features such as rich templates, change detection, user interactions, two-way data bi...'
-wpUrl: /courses/angular-2-step-by-step-from-beginner-to-advanced-coming-soon/
 cover: ../../assets/courses/angular-2-step-by-step-from-beginner-to-advanced-coming-soon.svg
 coverAlt: 'Angular Step by Step: From Beginner to Advanced'
 enrollUrl: ''

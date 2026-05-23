@@ -7,10 +7,18 @@ price: "$900"
 seats: "11 / 24 seats"
 summary: "How to run a program when half the engineering work is non-deterministic and the spec changes weekly. Four weeks, async, with three live office hours."
 syllabus:
-  - { week: "I",   title: "What changes",          blurb: "The new shape of the work." }
-  - { week: "II",  title: "Roadmap rituals",       blurb: "Four-column reviews, weekly evals." }
-  - { week: "III", title: "Comms under change",    blurb: "Telling leadership the truth, gracefully." }
-  - { week: "IV",  title: "Retro & next quarter",  blurb: "What to keep, kill, hand off." }
+  - week: "I"
+    title: "What changes"
+    blurb: "The new shape of the work."
+  - week: "II"
+    title: "Roadmap rituals"
+    blurb: "Four-column reviews, weekly evals."
+  - week: "III"
+    title: "Comms under change"
+    blurb: "Telling leadership the truth, gracefully."
+  - week: "IV"
+    title: "Retro & next quarter"
+    blurb: "What to keep, kill, hand off."
 enrollUrl: ""
 enrollLabel: "Sign Up!"
 recordings: "Yes"

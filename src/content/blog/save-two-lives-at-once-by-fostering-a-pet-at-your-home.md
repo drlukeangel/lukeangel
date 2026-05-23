@@ -7,13 +7,9 @@ tags:
   - gratitude
   - pets
 excerpt: By being a pet foster parent, you provide a temporary home for an animal prior to adoption. Fostering animals is a wonderful and personal way to contribute to saving homeless pets. Dogs and…
-wpCategory: give
-wpUrl: /give/save-two-lives-at-once-by-fostering-a-pet-at-your-home/
 cover: ../../assets/blog/catBehindHead.png
 coverAlt: Save Two Lives At Once By Fostering a Pet at Your Home
 ---
-
-## 
 
 By being a pet foster parent, you provide a temporary home for an animal prior to adoption. Fostering animals is a wonderful and personal way to contribute to saving homeless pets. Dogs and cats are the most common pets needing foster homes, but some organizations may also need help with rabbits, birds, or even farm animals. By fostering at your home the shelter is allowed to bring another pet saving it plus your own pet at once.
 

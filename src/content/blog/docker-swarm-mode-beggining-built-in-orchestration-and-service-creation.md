@@ -7,13 +7,11 @@ tags:
   - orchestration
   - services
 excerpt: What’s new in Docker 1.12 Multi-Host and Multi-Container Orchestration built-in Docker Service and Node added to Docker Engine Security is built into Swarm by default New File format – …
-wpCategory: docker
-wpUrl: /docker/docker-swarm-mode-beggining-built-in-orchestration-and-service-creation/
 cover: ../../assets/blog/docker-swarm-compose-cover.png
 coverAlt: 'Docker Swarm Mode: Beggining Built-In Orchestration and Service Creation'
 ---
 
-[**
+[
 ](http://lukeangel.co/wp-content/uploads/2016/10/Compose.png)What’s new in Docker 1.12
 
 - ~~Multi-Host and Multi-Container Orchestration built-in
@@ -30,12 +28,10 @@ Built-In Orchestration
 
 Orchestration has become an integral component in the container ecosystem. Actually it so much a key component that Docker has taken the lead and built it directly into the Docker Engine! So what does this mean for our applications? 
 
-![Docker 1.12](file:///C:/Users/geoff/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
-
-Starting with Docker 1.12 we now can deploy and manage applications on a ~~[~~Docker Swarm~~](https://docs.docker.com/swarm/)~~.
+Starting with Docker 1.12 we now can deploy and manage applications on a [Docker Swarm](https://docs.docker.com/swarm/).
 
 If you are using 
-[~~Docker for Mac~~](https://docs.docker.com/engine/installation/mac/)~~ or ~~[~~Docker for Windows~~](https://docs.docker.com/engine/installation/windows/)~~ you are lucky enough to already have Docker 1.12 installed by the latest update. Let’s install a Swarm locally for testing, shall we? 
+[~~Docker for Mac~~](https://docs.docker.com/engine/installation/mac/)~~ or [Docker for Windows](https://docs.docker.com/engine/installation/windows/) you are lucky enough to already have Docker 1.12 installed by the latest update. Let’s install a Swarm locally for testing, shall we? 
 
 Open your CLI and run:
 
@@ -61,7 +57,9 @@ Let’s create a service which Ping’s our Localhost. We will create the servic
 
 First, create the ping service:
 
-![Terminal: docker service create with a ping localhost service running on the Swarm — first deployment](../../assets/blog/docker-service-create-ping-localhost.png)This will now download the image and start the process on your Docker Swarm.
+![Terminal: docker service create with a ping localhost service running on the Swarm — first deployment](../../assets/blog/docker-service-create-ping-localhost.png)
+
+This will now download the image and start the process on your Docker Swarm.
 
 Check the status of our Ping job:
 
@@ -71,7 +69,7 @@ Our service is now running and pinging our Localhost. If you want to see your co
 
 Docker Service Scale
 
-Now[**
+Now[
 ](http://lukeangel.co/wp-content/uploads/2016/10/SNAG-0001.png) that our service is running and successfully pinging Localhost let’s scale the ping service. The next command will scale our service from 1 to 3 instances of our process and orchestrate them onto our Swarm.
 
 Scale the ping service:

@@ -9,8 +9,6 @@ tags:
   - automotive
 excerpt: Nissan built self-parking office chairs as a marketing stunt for their intelligent parking tech. Best 'show, don't tell' demo I've seen — and a model for any team.
 pullquote: Nissan didn't post a whitepaper on intelligent parking. They built a chair that tucks itself back under the desk. Two minutes of YouTube did more than a quarter of marketing spend.
-wpCategory: autonomous
-wpUrl: /autonomous/autonomous-office-chairs/
 cover: ../../assets/blog/AutonomousChairs.gif
 coverAlt: Animated GIF of self-parking Nissan office chairs sliding back under a conference table
 ---

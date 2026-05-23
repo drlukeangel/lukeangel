@@ -9,7 +9,6 @@ summary: Ensure you’re producing results that meet the needs of stakeholders, 
 syllabus: []
 cover: ../../assets/courses/project-management-fundamentals-quality-management.svg
 coverAlt: 'Project Management Fundamentals: Quality Management'
-wpUrl: /courses/project-management-fundamentals-quality-management/
 draft: false
 enrollUrl: ''
 enrollLabel: Sign Up!

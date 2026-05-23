@@ -8,6 +8,8 @@ tags:
   - iot
   - architecture
   - data
+notebook: connected-products
+notebookOrder: 5
 excerpt: "Every six months an engineer on my team proposes putting our device telemetry into Postgres. Every six months I have to explain why DynamoDB is the right answer. Here it is, in writing."
 pullquote: "A Postgres query that does a sequential scan on six months of telemetry is a Friday-afternoon meeting waiting to happen."
 cover: "../../assets/blog/dynamodb-time-series-iot-cover.svg"
@@ -17,6 +19,8 @@ coverAlt: "Cover graphic — DynamoDB for time-series IoT, when the relational u
 Every six months a senior engineer on my team has the same idea, with the same energy, and pitches putting our device telemetry into Postgres. *We know SQL. We have an RDS instance running. We could just add a table.* Every six months I have to explain why the answer is no.
 
 I'm writing it down once so the next person can read this instead of me re-explaining it in a meeting.
+
+**Note before the argument:** previously, on my first connected product (the [v1 series](/notebooks/building-medical-iot-connected-products/), 2017-2019), we put a million devices' worth of telemetry into Postgres and it worked fine. So I've actually run the experiment the engineers are proposing. It worked at v1's shape of workload — ~3 sessions per device per day, ~500 bytes per session, mostly relational access patterns. It would *not* have worked at v2's shape, which is what this post is about.
 
 ## Why the relational urge happens
 

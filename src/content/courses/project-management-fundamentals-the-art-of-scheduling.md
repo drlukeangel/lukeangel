@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: If you’re new to project scheduling, or want to improve your scheduling skills, this course will give you what you need to be successful. We’ll begin by examining what project scheduling is an...
-wpUrl: /courses/project-management-fundamentals-the-art-of-scheduling/
 cover: ../../assets/courses/project-management-fundamentals-the-art-of-scheduling.svg
 coverAlt: Project Management Fundamentals The Art of Scheduling
 enrollUrl: ''

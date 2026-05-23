@@ -1,0 +1,321 @@
+---
+import Base from '../../layouts/Base.astro';
+import EditInKeystatic from '../../components/EditInKeystatic.astro';
+import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import fallbackOg from '../../assets/pages/luke-angel-profile.jpg';
+
+export async function getStaticPaths() {
+  const series = await getCollection('notebooks', ({ data }) => !data.draft);
+  return series.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+
+const { s } = Astro.props;
+const { Content: OverviewContent } = await s.render();
+
+const ogImageMeta = s.data.cover
+  ? await getImage({ src: s.data.cover, format: 'webp', width: 1200, height: 630 })
+  : await getImage({ src: fallbackOg, format: 'webp', width: 1200, height: 630 });
+const ogImage = new URL(ogImageMeta.src, Astro.site).toString();
+
+// All posts in this notebook, sorted by notebookOrder then date
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft && data.notebook === s.slug))
+  .sort((a, b) => {
+    const ao = a.data.notebookOrder ?? 999;
+    const bo = b.data.notebookOrder ?? 999;
+    if (ao !== bo) return ao - bo;
+    return a.data.date.getTime() - b.data.date.getTime();
+  });
+
+// Pre-render each post's body so we can show it inside the right-side panel
+const parts = await Promise.all(allPosts.map(async (p, i) => ({
+  p,
+  i,
+  partId: `part-${String(i + 1).padStart(2, '0')}`,
+  rendered: await p.render(),
+})));
+
+const manila = ['#f3e2c2', '#eed6b8', '#e9cea7', '#e3c596', '#dcbb84', '#d6b272'];
+
+function trunc(str: string, n: number) {
+  return str.length > n ? str.slice(0, n - 1) + '…' : str;
+}
+---
+<Base title={s.data.title} current="blog" description={s.data.summary} image={ogImage} ogType="article">
+  <section class="wrap notebook-detail" style="padding: 40px 32px 80px;">
+    <a href="/notebooks/" class="mono" style="color: var(--muted);">← back to the bookcase</a>
+
+    <div class="nb-grid" style="margin-top: 20px; display: grid; grid-template-columns: 230px 1fr; align-items: start;">
+      <!-- Manila folder tabs — one per part of THIS notebook -->
+      <aside class="nb-tabs" style="position: relative; z-index: 2;">
+        <div class="mono nb-tabs-label" style="padding-left: 14px; margin-bottom: 4px;">Inside this notebook</div>
+
+        <a href="#overview" data-target="overview" class="nb-tab nb-tab-overview nb-tab-active" style="
+          display: block; text-decoration: none; color: var(--ink);
+          padding: 12px 16px 14px 22px;
+          background: #ebd9b3;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+          margin-left: 4px; margin-right: -10px; margin-top: 6px;
+          box-shadow: 2px 2px 0 rgba(0,0,0,0.08);
+          position: relative; z-index: 5;
+        ">
+          <div class="mono" style="color: var(--muted);">☰ start</div>
+          <div style="font-size: 15px; margin-top: 2px; letter-spacing: -0.15px;">Overview</div>
+        </a>
+
+        {parts.map(({ p, i, partId }) => (
+          <a href={`#${partId}`} data-target={partId} class="nb-tab" style={`
+            display: block; text-decoration: none; color: var(--ink);
+            padding: 12px 16px 12px 22px;
+            background: ${manila[i % manila.length]};
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+            margin-left: ${4 + i}px; margin-right: -2px; margin-top: 6px;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.05);
+            position: relative;
+          `}>
+            <div class="mono" style="color: var(--muted);">part · {String(i + 1).padStart(2, '0')}</div>
+            <div style="font-family: 'Newsreader', serif; font-size: 15px; line-height: 1.2; margin-top: 2px; letter-spacing: -0.15px;">{trunc(p.data.title, 42)}</div>
+          </a>
+        ))}
+
+        <div class="nb-pull-note" style="margin-top: 22px; padding-left: 14px; font-family: 'Caveat', cursive; font-size: 18px; color: var(--muted); transform: rotate(-2deg);">
+          ↳ pull a page out
+        </div>
+      </aside>
+
+      <!-- Open folder — panels swap in here -->
+      <article class="nb-body" style="
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-left: 4px solid var(--ink);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        position: relative; z-index: 4;
+      ">
+        <!-- OVERVIEW PANEL -->
+        <div class="nb-panel nb-panel-active" id="overview">
+          {s.data.cover ? (
+            <div style="position: relative;">
+              <Image
+                src={s.data.cover}
+                alt={s.data.coverAlt || s.data.title}
+                widths={[640, 960, 1280, 1600]}
+                sizes="(max-width: 720px) 100vw, 960px"
+                loading="eager"
+                style="display:block; width:100%; height:300px; object-fit:cover;"
+              />
+              <span class="mono" style="position: absolute; top: 14px; left: 14px; background: rgba(26,29,36,0.78); color: var(--paper); padding: 4px 10px;">Notebook · {String(parts.length).padStart(2, '0')} parts</span>
+            </div>
+          ) : (
+            <div style="height: 120px; background: var(--bg); display:flex; align-items:center; padding: 0 30px;">
+              <span class="mono" style="color: var(--accent);">Notebook · {parts.length} parts</span>
+            </div>
+          )}
+
+          <div style="padding: 26px 30px 0;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+              <div class="mono">Notebook · {parts.length} parts · read in order</div>
+              <div class="mono">~{parts.length * 9} min total</div>
+            </div>
+            <h1 style="font-size: clamp(36px, 5vw, 52px); margin-top: 12px;">{s.data.title}</h1>
+            <p style="font-size: 18px; font-style: italic; color: var(--muted); line-height: 1.55; margin-top: 14px; max-width: 640px;">{s.data.summary}</p>
+          </div>
+
+          <div class="nb-intro" style="padding: 18px 30px 0; font-size: 17px; line-height: 1.7;">
+            <OverviewContent />
+          </div>
+
+          <div style="padding: 22px 30px 28px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--ink); padding-bottom: 8px; margin-bottom: 4px;">
+              <div style="font-family: 'Caveat', cursive; font-size: 22px; color: var(--accent);">inside this notebook —</div>
+              <div class="mono">01 → {String(parts.length).padStart(2, '0')}</div>
+            </div>
+            {parts.map(({ p, i, partId }) => (
+              <a href={`#${partId}`} data-target={partId} class="nb-row nb-toc-row" style="
+                display: grid; grid-template-columns: 76px 34px 1fr 90px;
+                gap: 14px; padding: 12px 0; align-items: center;
+                border-bottom: 1px dashed var(--rule);
+                text-decoration: none; color: var(--ink);
+              ">
+                <div style="width: 76px; height: 50px; overflow: hidden; background: var(--ink);">
+                  {p.data.cover && (
+                    <Image
+                      src={p.data.cover}
+                      alt={p.data.coverAlt || p.data.title}
+                      widths={[76, 152]}
+                      sizes="76px"
+                      loading="lazy"
+                      style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                    />
+                  )}
+                </div>
+                <span style="font-family: 'Newsreader', serif; font-style: italic; font-size: 22px; color: var(--muted);">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <div style="font-size: 18px; letter-spacing: -0.2px; line-height: 1.2;">{p.data.title}</div>
+                  <div class="mono" style="margin-top: 3px;">{p.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</div>
+                </div>
+                <span class="mono" style="text-align: right;">open →</span>
+              </a>
+            ))}
+            {parts.length === 0 && (
+              <p style="font-style: italic; color: var(--muted); padding: 24px 0;">No pages in this notebook yet.</p>
+            )}
+          </div>
+
+          {parts.length > 0 && (
+            <div style="border-top: 1px solid var(--rule); padding: 18px 30px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.025); gap: 16px; flex-wrap: wrap;">
+              <div>
+                <div class="mono">Start here</div>
+                <div style="font-size: 20px; margin-top: 4px; letter-spacing: -0.3px;">01 · {parts[0].p.data.title}</div>
+              </div>
+              <a href={`#${parts[0].partId}`} data-target={parts[0].partId} class="nb-jump-start" style="background: var(--ink); color: var(--paper); padding: 11px 20px; text-decoration: none; font-size: 15px;">open part 01 →</a>
+            </div>
+          )}
+        </div>
+
+        <!-- PART PANELS -->
+        {parts.map(({ p, i, partId, rendered }) => {
+          const PartContent = rendered.Content;
+          const next = parts[i + 1];
+          const prev = parts[i - 1];
+          return (
+            <div class="nb-panel" id={partId}>
+              {p.data.cover ? (
+                <div style="position: relative;">
+                  <Image
+                    src={p.data.cover}
+                    alt={p.data.coverAlt || p.data.title}
+                    widths={[640, 960, 1280, 1600]}
+                    sizes="(max-width: 720px) 100vw, 960px"
+                    loading="lazy"
+                    style="display:block; width:100%; height:260px; object-fit:cover;"
+                  />
+                  <span class="mono" style="position: absolute; top: 14px; left: 14px; background: rgba(26,29,36,0.78); color: var(--paper); padding: 4px 10px;">Part {String(i + 1).padStart(2, '0')} of {String(parts.length).padStart(2, '0')}</span>
+                </div>
+              ) : (
+                <div style="height: 80px; background: var(--bg); display:flex; align-items:center; padding: 0 30px;">
+                  <span class="mono" style="color: var(--accent);">Part {String(i + 1).padStart(2, '0')} of {parts.length}</span>
+                </div>
+              )}
+
+              <div style="padding: 26px 30px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+                  <div class="mono" style="color: var(--accent);">{s.data.title} · part {String(i + 1).padStart(2, '0')}</div>
+                  <div class="mono">{p.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</div>
+                </div>
+                <h2 style="font-size: clamp(32px, 4.4vw, 46px); margin-top: 12px;">{p.data.title}</h2>
+                {p.data.excerpt && (
+                  <p style="font-size: 18px; font-style: italic; color: var(--muted); line-height: 1.55; margin-top: 14px; max-width: 640px;">{p.data.excerpt}</p>
+                )}
+              </div>
+
+              <div class="nb-part-body" style="padding: 18px 30px 6px; font-size: 17px; line-height: 1.7;">
+                <PartContent />
+              </div>
+
+              <div style="border-top: 1px solid var(--rule); padding: 18px 30px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.025); gap: 16px; flex-wrap: wrap;">
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                  {prev && (
+                    <a href={`#${prev.partId}`} data-target={prev.partId} class="nb-nav-prev mono" style="color: var(--muted); text-decoration: none;">← part {String(i).padStart(2, '0')}</a>
+                  )}
+                  <a href="#overview" data-target="overview" class="mono" style="color: var(--muted); text-decoration: none;">↑ overview</a>
+                </div>
+                <div style="display: flex; gap: 14px; align-items: center;">
+                  <a href={`/blog/${p.slug}/`} class="mono" style="color: var(--muted); text-decoration: none;">open on its own page ↗</a>
+                  {next && (
+                    <a href={`#${next.partId}`} data-target={next.partId} style="background: var(--ink); color: var(--paper); padding: 11px 20px; text-decoration: none; font-size: 15px;">next: part {String(i + 2).padStart(2, '0')} →</a>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </article>
+    </div>
+  </section>
+  <EditInKeystatic collection="series" slug={s.slug} />
+</Base>
+
+<style is:global>
+  .nb-panel { display: none; }
+  .nb-panel.nb-panel-active { display: block; }
+</style>
+
+<style>
+  /* Active tab — flips manila background to ink/paper. Inline styles set the
+     manila color, so we need higher specificity to override on the active tab. */
+  a.nb-tab.nb-tab-active,
+  div.nb-tab.nb-tab-active {
+    background: var(--ink) !important;
+    color: var(--paper) !important;
+    z-index: 5;
+  }
+  a.nb-tab.nb-tab-active .mono,
+  div.nb-tab.nb-tab-active .mono {
+    color: rgba(244, 241, 232, 0.7) !important;
+  }
+  .nb-tab:not(.nb-tab-active):hover {
+    transform: translateX(2px);
+    transition: transform 120ms ease;
+  }
+  @media (max-width: 720px) {
+    .nb-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+    .nb-tabs {
+      display: flex; flex-direction: row; gap: 0; overflow-x: auto;
+      padding-bottom: 4px; margin-bottom: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nb-tabs-label { display: none; }
+    .nb-tab {
+      flex: 0 0 auto;
+      margin: 0 -8px 0 0 !important;
+      padding: 10px 22px 10px 16px !important;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%) !important;
+      min-width: 140px;
+    }
+    .nb-pull-note { display: none !important; }
+    .nb-body { border-left-width: 1px !important; }
+    .nb-row { grid-template-columns: 60px 1fr 60px !important; }
+    .nb-row > span:nth-child(2) { display: none; }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const tabs = document.querySelectorAll('[data-target]');
+    const panels = document.querySelectorAll('.nb-panel');
+
+    function activate(panelId) {
+      const target = panelId || 'overview';
+      panels.forEach((p) => p.classList.toggle('nb-panel-active', p.id === target));
+      tabs.forEach((t) => {
+        const tt = t.getAttribute('data-target');
+        if (tt) t.classList.toggle('nb-tab-active', tt === target);
+      });
+    }
+
+    function fromHash() {
+      const h = window.location.hash.replace(/^#/, '');
+      activate(h || 'overview');
+    }
+
+    tabs.forEach((t) => {
+      t.addEventListener('click', (e) => {
+        const targetId = t.getAttribute('data-target');
+        if (!targetId) return;
+        e.preventDefault();
+        history.pushState(null, '', '#' + targetId);
+        activate(targetId);
+        // Scroll the notebook body into view on small screens
+        if (window.innerWidth <= 720) {
+          const body = document.querySelector('.nb-body');
+          if (body) body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    });
+
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  })();
+</script>

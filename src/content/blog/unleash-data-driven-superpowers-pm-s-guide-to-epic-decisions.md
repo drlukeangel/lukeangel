@@ -9,8 +9,6 @@ excerpt: >-
   because we’re about to turbocharge your…
 cover: ../../assets/blog/Data-Driven-Superpowers.png
 coverAlt: 'Unleash Data-Driven Superpowers: PM''s Guide to Epic Decisions'
-wpCategory: project-management
-wpUrl: /project-management/8411/
 featured: false
 draft: false
 ---

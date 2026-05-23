@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Have you wondered how to make your small projects run as smoothly as possible—without building in so many steps that they get cumbersome? In this course, author and project manager Luke Angel...
-wpUrl: /courses/project-management-fundamentals-working-with-small-projects/
 cover: ../../assets/courses/project-management-fundamentals-working-with-small-projects.svg
 coverAlt: 'Project Management Fundamentals: Working With Small Projects'
 enrollUrl: ''

@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Whether you’re a business user who wants to know more Docker and Containers, or a hard core techie looking to dip her toes into the container waters, you will definitely enjoy and learn from t...
-wpUrl: /courses/docker-and-containers-the-essentials/
 cover: ../../assets/courses/docker-and-containers-the-essentials.svg
 coverAlt: 'Docker and Containers: The Essentials'
 enrollUrl: ''

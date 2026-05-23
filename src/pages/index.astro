@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import SubscribeBlock from '../components/SubscribeBlock.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { Image } from 'astro:assets';
 import lukeProfile from '../assets/pages/luke-angel-profile.jpg';
 
@@ -15,8 +16,31 @@ const courses = (await getCollection('courses', ({ data }) => !data.draft))
 const gratitude = (await getCollection('gratitude'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://lukeangel.co';
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Luke Angel',
+  url: siteUrl + '/',
+  description: 'Luke Angel — Engineer, PM, PgM, and Teacher. Notes on product, programs, AI, and a working philosophy of gratitude.',
+  publisher: {
+    '@type': 'Person',
+    name: 'Luke Angel',
+    url: siteUrl + '/about/',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: siteUrl + '/search/?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
 ---
 <Base title="Luke Angel — Engineer, PM, PgM, and Teacher" current="home" description="Twenty years of building, leading, and teaching — two courses, a journal, and a working philosophy of gratitude. Notes on product, programs, and AI.">
+  <JsonLd data={websiteSchema} />
   <!-- HERO -->
   <section class="wrap" style="padding: 88px 32px 64px;">
     <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center;">
@@ -26,7 +50,7 @@ const gratitude = (await getCollection('gratitude'))
           Build. Lead. <em style="color: var(--accent);">+ Teach</em>.
         </h1>
         <p style="font-size: 22px; max-width: 560px; margin-top: 28px; color: var(--ink2);">
-          I'm Luke. 20+ years of PM, PgM &amp; portfolio work — and the kind who never quit being an engineer. I read the PRs, write the evals, an when needed ship the prototype. Many courses, one journal, and a working philosophy: <a href="/gratitude/" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">an attitude of gratitude</a>.
+          I'm Luke — a technical product, program, and portfolio manager who never quit being an engineer. I write the roadmaps, read the PRs, write the evals, and ship. Fortune 500s to startups, and everything between. Many courses, one journal, and a working philosophy: <a href="/gratitude/" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">an attitude of gratitude</a>.
         </p>
         <div style="display: flex; gap: 16px; margin-top: 32px;">
           <a href="/courses/" class="cta-dark">Visit the classroom</a>

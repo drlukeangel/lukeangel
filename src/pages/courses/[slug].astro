@@ -2,8 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import EditInKeystatic from '../../components/EditInKeystatic.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { Breadcrumbs } from 'astro-breadcrumbs';
-import 'astro-breadcrumbs/breadcrumbs.css';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 import { getImage } from 'astro:assets';
 import fallbackOg from '../../assets/pages/luke-angel-profile.jpg';
@@ -49,11 +48,12 @@ const courseSchema = {
 ---
 <Base title={course.data.title} current="courses" description={course.data.summary} image={ogImage} ogType="article">
   <JsonLd data={courseSchema} />
-  <Breadcrumbs ariaLabel="Breadcrumb" mainBemClass="breadcrumb">
-    <svg slot="separator" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-  </Breadcrumbs>
   <section class="wrap" style="padding: 40px 32px;">
-    <a href="/courses/" class="mono">← back to courses</a>
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Courses', href: '/courses/' },
+      { label: course.data.title },
+    ]} />
     <div style="margin-top: 32px;">
       <div class="mono" style="color: var(--accent);">№ {String(course.data.order).padStart(2, '0')} · {course.data.schedule}</div>
       <h1 style="font-size: clamp(56px, 8vw, 104px); margin-top: 20px;">{course.data.title}<span style="color: var(--accent);">.</span></h1>

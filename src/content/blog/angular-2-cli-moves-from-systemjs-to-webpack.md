@@ -10,8 +10,6 @@ tags:
   - build-tools
 excerpt: "The Angular CLI swapped SystemJS for Webpack near 1.0 release. Sounds small. Was actually a defining moment for the JS ecosystem's consolidation around one bundler."
 pullquote: "When the official CLI of a major framework switches bundlers, it isn't a build-tool change. It's a vote — and Webpack just got the deciding ballot."
-wpCategory: developers
-wpUrl: /developers/angular/angular-2-cli-moves-from-systemjs-to-webpack/
 cover: ../../assets/blog/110916_1644_Angular2CLI1.jpg
 coverAlt: Angular CLI logo with Webpack — the Angular team's move from SystemJS to Webpack module loading
 ---

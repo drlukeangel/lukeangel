@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Project integration ensures all processes in a project run smoothly, and results in a properly synchronized series of deliverables such as the project charter, project plan, and preliminary pr...
-wpUrl: /courses/project-management-fundamentals-integration-management/
 cover: ../../assets/courses/project-management-fundamentals-integration-management.svg
 coverAlt: 'Project Management Fundamentals: Integration Management'
 enrollUrl: ''

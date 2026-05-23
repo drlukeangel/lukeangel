@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Stakeholders and team members better understand project performance when they can actually see the project plan and how work is progressing. Follow along with project management expert Luke An...
-wpUrl: /courses/microsoft-project-reporting-beginner-to-rock-star/
 cover: ../../assets/courses/microsoft-project-reporting-beginner-to-rock-star.svg
 coverAlt: 'Microsoft Project Reporting: Beginner To Rock Star'
 enrollUrl: ''

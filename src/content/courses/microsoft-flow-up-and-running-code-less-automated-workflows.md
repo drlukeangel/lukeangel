@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: With the cloud-based Microsoft Flow, you can quickly and easily build custom automations from your desktop, laptop, or mobile device without needing to write a single line of code. In this cou...
-wpUrl: /courses/microsoft-flow-up-and-running-code-less-automated-workflows/
 cover: ../../assets/courses/microsoft-flow-up-and-running-code-less-automated-workflows.svg
 coverAlt: Microsoft Flow Up And Running Code-less Automated Workflows
 enrollUrl: ''

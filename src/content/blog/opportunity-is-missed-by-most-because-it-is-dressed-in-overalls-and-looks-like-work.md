@@ -9,8 +9,6 @@ tags:
   - product
 excerpt: "Thomas Edison nailed it: opportunity is not a lottery ticket. It's the unglamorous Tuesday-morning slog nobody wants. Where I see it hiding now."
 pullquote: Opportunity looks like sitting in a triage doc on a Tuesday morning when nobody else volunteered.
-wpCategory: quotes
-wpUrl: /quotes/opportunity-is-missed-by-most-because-it-is-dressed-in-overalls-and-looks-like-work/
 cover: ../../assets/blog/opportunity-overalls-quote-2017.svg
 coverAlt: "Quote poster — silhouette of denim overalls on cream background with Edison's quote: 'Opportunity is missed by most because it is dressed in overalls and looks like work.'"
 ---

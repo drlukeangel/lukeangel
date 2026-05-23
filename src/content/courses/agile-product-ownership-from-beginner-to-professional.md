@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Agile product owners are critical to every agile team’s success and it just might be the toughest role on the team. If your Agile projects result in valuable products quickly, you likely have...
-wpUrl: /courses/agile-product-ownership-from-beginner-to-professional/
 cover: ../../assets/courses/agile-product-ownership-from-beginner-to-professional.svg
 coverAlt: Agile Product Owner(ship) – From Beginner to Professional
 enrollUrl: ''

@@ -7,80 +7,79 @@ tags:
   - orchestration
   - scheduling
 excerpt: "The Docker Ecosystem: Scheduling and Orchestration Introduction The Docker tool provides all of the functions necessary to build, upload, download, start, and stop containers. It is well-suited…"
-wpCategory: docker
-wpUrl: /docker/the-docker-ecosystem-scheduling-and-orchestration-digitalocean/
 cover: ../../assets/blog/docker-ecosystem-scheduling-orchestration-cover.png
 coverAlt: Docker scheduling and orchestration ecosystem overview — Swarm, Kubernetes, Fleet, and Marathon as cluster managers for containerized workloads
+notebook: docker-ecosystem
+notebookOrder: 5
 ---
 
-The Docker Ecosystem: Scheduling and Orchestration**
+The Docker Ecosystem: Scheduling and Orchestration
 
-Introduction**
+Introduction
 
 The Docker tool provides all of the functions necessary to build, upload, download, start, and stop containers. It is well-suited for managing these processes in single-host environments with a minimal number of containers.
 
-However, many Docker users are leveraging the platform as a tool for easily scaling large numbers of containers across many different hosts. Clustered Docker hosts present special management challenges that require a different set of tools.**
+However, many Docker users are leveraging the platform as a tool for easily scaling large numbers of containers across many different hosts. Clustered Docker hosts present special management challenges that require a different set of tools.
 
 In this guide, we will discuss Docker schedulers and orchestration tools. These represent the primary container management interface for administrators of distributed deployments.
 
 ![Docker orchestration diagram — scheduler reads a service spec, consults cluster state, and bin-packs container tasks across three worker nodes](../../assets/blog/docker-ecosystem-scheduling-orchestration-2016.svg)
 
-Scheduling Containers, Orchestration and Cluster Management**
+Scheduling Containers, Orchestration and Cluster Management
 
 When applications are scaled out across multiple host systems, the ability to manage each host system and abstract away the complexity of the underlying platform becomes attractive. Orchestration is a broad term that refers to container scheduling, cluster management, and possibly the provisioning of additional hosts.
 
-In this environment, “scheduling” refers to the ability for an administrator to load a service file onto a host system that establishes how to run a specific container. While scheduling refers to the specific act of loading the service definition, in a more general sense, schedulers are responsible for hooking into a host’s init system to manage services in whatever capacity needed.**
+In this environment, “scheduling” refers to the ability for an administrator to load a service file onto a host system that establishes how to run a specific container. While scheduling refers to the specific act of loading the service definition, in a more general sense, schedulers are responsible for hooking into a host’s init system to manage services in whatever capacity needed.
 
-Cluster management is the process of controlling a group of hosts. This can involve adding and removing hosts from a cluster, getting information about the current state of hosts and containers, and starting and stopping processes. Cluster management is closely tied to scheduling because the scheduler must have access to each host in the cluster in order to schedule services. For this reason, the same tool is often used for both purposes.**
+Cluster management is the process of controlling a group of hosts. This can involve adding and removing hosts from a cluster, getting information about the current state of hosts and containers, and starting and stopping processes. Cluster management is closely tied to scheduling because the scheduler must have access to each host in the cluster in order to schedule services. For this reason, the same tool is often used for both purposes.
 
-In order to run and manage containers on hosts throughout the cluster, the scheduler must interact with each host’s individual init system. At the same time, for ease of management, the scheduler presents a unified view of the state of services throughout the cluster. This ends up functioning like a cluster-wide init system. For this reason, many schedulers mirror the command structure of the init system’s they are abstracting.**
+In order to run and manage containers on hosts throughout the cluster, the scheduler must interact with each host’s individual init system. At the same time, for ease of management, the scheduler presents a unified view of the state of services throughout the cluster. This ends up functioning like a cluster-wide init system. For this reason, many schedulers mirror the command structure of the init system’s they are abstracting.
 
-One of the biggest responsibilities of schedulers is host selection. If an administrator decides to run a service (container) on the cluster, the scheduler often is charged with automatically selecting a host. The administrator can optionally provide scheduling constraints according to their needs or desires, but the scheduler is ultimately responsible for executing on these requirements.**
+One of the biggest responsibilities of schedulers is host selection. If an administrator decides to run a service (container) on the cluster, the scheduler often is charged with automatically selecting a host. The administrator can optionally provide scheduling constraints according to their needs or desires, but the scheduler is ultimately responsible for executing on these requirements.
 
-How Does a Scheduler Make Scheduling Decisions?**
+How Does a Scheduler Make Scheduling Decisions?
 
 Schedulers often define a default scheduling policy. This determines how services are scheduled when no input is given from the administrator. For instance, a scheduler might choose to place new services on hosts with the fewest currently active services.
 
-Schedulers typically provide override mechanisms that administrators can use to fine-tune the selection processes to satisfy specific requirements. For instance, if two containers should always run on the same host because they operate as a unit, that affinity can often be declared during the scheduling. Likewise, if two containers should *not* be placed on the same host, for example to ensure high availability of two instances of the same service, this can be defined as well.**
+Schedulers typically provide override mechanisms that administrators can use to fine-tune the selection processes to satisfy specific requirements. For instance, if two containers should always run on the same host because they operate as a unit, that affinity can often be declared during the scheduling. Likewise, if two containers should *not* be placed on the same host, for example to ensure high availability of two instances of the same service, this can be defined as well.
 
-Other constraints that a scheduler may pay attention to can be represented by arbitrary metadata. Individual hosts may be labeled and targeted by schedulers. This may be necessary, for instance, if a host contains the data volume needed by an application. Some services may need to be deployed on every individual host in the cluster. Most schedulers allow you to do this.**
+Other constraints that a scheduler may pay attention to can be represented by arbitrary metadata. Individual hosts may be labeled and targeted by schedulers. This may be necessary, for instance, if a host contains the data volume needed by an application. Some services may need to be deployed on every individual host in the cluster. Most schedulers allow you to do this.
 
-What Cluster Management Functions do Schedulers Provide?**
+What Cluster Management Functions do Schedulers Provide?
 
 Scheduling is often tied to cluster management functions because both functions require the ability to operate on specific hosts and on the cluster as a whole.
 
-Cluster management software may be used to query information about members of a cluster, add or remove members, or even connect to individual hosts for more granular administration. These functions may be included in the scheduler, or may be the responsibility of another process.**
+Cluster management software may be used to query information about members of a cluster, add or remove members, or even connect to individual hosts for more granular administration. These functions may be included in the scheduler, or may be the responsibility of another process.
 
-Often, cluster management is also associated with the service discovery tool or distributed key-value store. These are particularly well-suited for storing this type of information because the information is dispersed throughout the cluster itself and the platform already exists for its primary function.**
+Often, cluster management is also associated with the service discovery tool or distributed key-value store. These are particularly well-suited for storing this type of information because the information is dispersed throughout the cluster itself and the platform already exists for its primary function.
 
-Because of this, if the scheduler itself does not provide methods, some cluster management operations may have to be done by modifying the values in the configuration store using the provided APIs. For example, cluster membership changes may need to be handled through raw changes to the discovery service.**
+Because of this, if the scheduler itself does not provide methods, some cluster management operations may have to be done by modifying the values in the configuration store using the provided APIs. For example, cluster membership changes may need to be handled through raw changes to the discovery service.
 
-The key-value store is also usually the location where metadata about individual hosts can be stored. As mentioned before, labelling hosts allows you to target individuals or groups for scheduling decisions.**
+The key-value store is also usually the location where metadata about individual hosts can be stored. As mentioned before, labelling hosts allows you to target individuals or groups for scheduling decisions.
 
-How Do Multi-Container Deployments Fit into Scheduling?**
+How Do Multi-Container Deployments Fit into Scheduling?
 
 Sometimes, even though each component of an application has been broken out into a discrete service, they should be managed as a single unit. There are times when it wouldn’t make sense to ever deploy one service without another because of the functions each provide.
 
-Advanced scheduling that takes into account container grouping is available through a few different projects. There are quite a few benefits that users gain from having access to this functionality.**
+Advanced scheduling that takes into account container grouping is available through a few different projects. There are quite a few benefits that users gain from having access to this functionality.
 
-Group container management allows an administrator to deal with a collection of containers as a single application. Running tightly integrated components as a unit simplifies application management without sacrificing the benefits of compartmentalizing individual functionality. In effect, it allows administrators to keep the gains won from containerization and service-oriented architecture while minimizing the additional management overhead.**
+Group container management allows an administrator to deal with a collection of containers as a single application. Running tightly integrated components as a unit simplifies application management without sacrificing the benefits of compartmentalizing individual functionality. In effect, it allows administrators to keep the gains won from containerization and service-oriented architecture while minimizing the additional management overhead.
 
 Grouping applications together can mean simply scheduling them together and providing the ability to start and stop them at the same time. It can also allow for more complex scenarios like configuring separate subnets for each group of applications or scaling entire sets of containers where we previously would only be able to scale on the container scale.
 
 ![Rolling update diagram — at t=0 all four containers run v1.4; at t=1 one is replaced with v1.5; at t=2 two are; at t=3 all four are v1.5. The scheduler waits for the new container to pass health checks before killing the next old one, and rolls back automatically if health probes fail.](../../assets/blog/docker-rolling-update-scaling-2016.svg)
 
-
-What Is Provisioning?**
+What Is Provisioning?
 
 A concept related to cluster management is provisioning. Provisioning is the processes of bringing new hosts online and configuring them in a basic way so that they are ready for work. With Docker deployments, this often implies configuring Docker and setting up the new host to join an existing cluster.
 
-While the end result of provisioning a host should always be that a new system is available for work, the methodology varies significantly depending on the tools used and the type of host. For instance, if the host will be a virtual machine, tools like ~~vagrant~~ can be used to spin up a new host. Most cloud providers allow you to create new hosts using APIs. In contrast, provisioning of bare hardware would probably require some manual steps. Configuration management tools like Chef, Puppet, Ansible, or Salt may be involved in order to take care of the initial configuration of the host and to provide it with the information it needs to connect to an existing cluster.**
+While the end result of provisioning a host should always be that a new system is available for work, the methodology varies significantly depending on the tools used and the type of host. For instance, if the host will be a virtual machine, tools like ~~vagrant~~ can be used to spin up a new host. Most cloud providers allow you to create new hosts using APIs. In contrast, provisioning of bare hardware would probably require some manual steps. Configuration management tools like Chef, Puppet, Ansible, or Salt may be involved in order to take care of the initial configuration of the host and to provide it with the information it needs to connect to an existing cluster.
 
 Provisioning may be left as an administrator-initiated process, or it's possible that it may be hooked into the cluster management tools for automatic scaling. This latter method involves defining the process for requesting additional hosts as well as the conditions under which this should automatically be triggered. For instance, if your application is suffering from severe load, you may wish your system to spin up additional hosts and horizontally scale the containers across the new infrastructure in order to alleviate the congestion.
 
 ![Cluster autoscaling diagram — load curve rises from low to high; scheduler responds by adding container replicas (fast, seconds); when host capacity runs out, the scheduler adds a new worker host (slower, minutes); as load drops, the scheduler drains and removes hosts.](../../assets/blog/docker-cluster-autoscale-2016.svg)
 
-What Are Some Common Schedulers?**
+What Are Some Common Schedulers?
 
 In terms of basic scheduling and cluster management, some popular projects are:
 

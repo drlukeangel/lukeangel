@@ -9,14 +9,11 @@ tags:
   - course
 excerpt: "Microsoft Flow (now Power Automate) lets you wire up automations without writing code. The new course teaches the right way to think about it — so you don't end up with 47 broken flows nobody owns."
 pullquote: "Flow makes it easy to ship automation. It does not make it easy to *maintain* automation. This course is the second part."
-wpCategory: microsoft
-wpUrl: /microsoft/new-course-microsoft-flow-up-and-running-code-less-automated-workflows/
 cover: ../../assets/blog/SharePoint2016MetadataColumnsListsTaxonomyandMoreSharePoint-udemyCourseImage.jpg
 coverAlt: "Course cover — Microsoft Flow Up And Running: Code-less Automated Workflows"
 ---
 
 New course just dropped: **Microsoft Flow Up And Running**. Self-paced, pre-recorded, open enrollment.
-
 
 ![Course cover — Microsoft Flow Up And Running: Code-less Automated Workflows](../../assets/blog/SharePoint2016MetadataColumnsListsTaxonomyandMoreSharePoint-udemyCourseImage.jpg)
 

@@ -14,8 +14,6 @@ tags:
   - soft-skills
   - teamwork
 excerpt: "Beyond the Gantt Chart: Why Soft Skills Rule the Project Realm Alright, project people, let’s get real. You can wield a mean WBS and juggle dependencies like a circus pro. But, if your soft s…"
-wpCategory: project-management
-wpUrl: /project-management/unlock-soft-skills-for-project-triumphs/
 cover: ../../assets/blog/unlock-soft-skills-conflict-resolution-fight-club-kumbaya.png
 coverAlt: Unlock Soft Skills for Project Triumphs!
 ---

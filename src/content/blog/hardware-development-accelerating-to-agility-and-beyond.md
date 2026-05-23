@@ -7,8 +7,6 @@ tags:
   - hardware
   - innovation
 excerpt: You pretty much have to have your head in the sand not to notice the changes in hardware product design innovation and new product development that are condensing product delivery timelines…
-wpCategory: project-management
-wpUrl: /project-management/agile/hardware-development-accelerating-to-agility-and-beyond/
 cover: ../../assets/blog/featured-Hardware-Development-Accelerating-To-Agility-And-Beyond.jpg
 coverAlt: Hardware Development Accelerating To Agility And Beyond
 ---

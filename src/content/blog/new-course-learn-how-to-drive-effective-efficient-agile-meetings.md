@@ -9,14 +9,11 @@ tags:
   - teams
 excerpt: "Agile meetings should be short, time-boxed, and over before anyone notices. The new course teaches the operator's manual for each of the five core ceremonies — without the consultant-speak."
 pullquote: "Flexibility ≠ formlessness. A flexible meeting is a 15-minute meeting with a tight agenda, not an open mic."
-wpCategory: project-management
-wpUrl: /project-management/agile/meetings/new-course-learn-how-to-drive-effective-efficient-agile-meetings/
 cover: ../../assets/blog/meeting.jpg
 coverAlt: "Course cover — Learn How To Drive Effective, Efficient Agile Meetings"
 ---
 
 New course just dropped: **Drive Effective, Efficient Agile Meetings**. Self-paced, pre-recorded, open enrollment.
-
 
 ![Course cover — Learn How To Drive Effective, Efficient Agile Meetings](../../assets/blog/meeting.jpg)
 

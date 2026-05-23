@@ -9,10 +9,10 @@ tags:
   - remote-teams
   - sustainability
   - trends
+notebook: pm-trends
+notebookOrder: 2
 excerpt: 'Picture this: It’s 2019. Project managers are juggling Gantt charts like circus performers, while Waterfall and Agile fanboys argue in Slack channels. Then 2020 happened.'
 pullquote: "2020 didn't just change project management. It yeeted us into the future. The PMs who thrived became equal parts data whisperers, empathy ninjas, and hybrid-methodology DJs."
-wpCategory: project-management
-wpUrl: /project-management/top-10-project-management-trends-2020/
 cover: ../../assets/blog/8be370cf-7e4f-4f6d-ad3f-a1fb83e8adce.png
 coverAlt: 2020 Project Management Trends — cover graphic
 ---

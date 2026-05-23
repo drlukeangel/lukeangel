@@ -10,14 +10,11 @@ tags:
   - course
 excerpt: Most MS Project files look great inside MS Project and incomprehensible everywhere else. The new course teaches reports stakeholders actually open.
 pullquote: If your project plan only makes sense inside Microsoft Project, you don't have a project plan. You have a hostage.
-wpCategory: project-management
-wpUrl: /project-management/new-course-microsoft-project-reporting-beginner-to-rock-star/
 cover: ../../assets/blog/udemyCover-MSPROJ_VARIMP-Microsoft-Project-Reporting-Beginner-to-Rock-Star.jpg
 coverAlt: 'Course cover — Microsoft Project Reporting: Beginner to Rock Star'
 ---
 
 Fresh course on **Microsoft Project Reporting**. Self-paced, pre-recorded, open enrollment.
-
 
 ![Course cover — Microsoft Project Reporting: Beginner to Rock Star](../../assets/blog/udemyCover-MSPROJ_VARIMP-Microsoft-Project-Reporting-Beginner-to-Rock-Star.jpg)
 

@@ -5,9 +5,9 @@
   "private": true,
   "description": "lukeangel.co — Luke Angel's personal site. Astro + Markdown + Pagefind.",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build && pagefind --site dist && npm run sync-pagefind",
+    "dev": "cross-env NODE_OPTIONS=\"--require ./patch-fs.cjs\" UV_THREADPOOL_SIZE=32 astro dev",
+    "start": "cross-env NODE_OPTIONS=\"--require ./patch-fs.cjs\" UV_THREADPOOL_SIZE=32 astro dev",
+    "build": "cross-env NODE_OPTIONS=\"--require ./patch-fs.cjs\" UV_THREADPOOL_SIZE=32 astro build && pagefind --site dist && npm run sync-pagefind",
     "reindex": "pagefind --site dist && npm run sync-pagefind",
     "sync-pagefind": "node -e \"const fs=require('node:fs'),p=require('node:path'); fs.rmSync('public/pagefind',{recursive:true,force:true}); fs.cpSync('dist/pagefind','public/pagefind',{recursive:true}); console.log('synced dist/pagefind → public/pagefind');\"",
     "preview": "astro preview",
@@ -31,6 +31,8 @@
   "devDependencies": {
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
+    "cross-env": "^10.1.0",
+    "graceful-fs": "^4.2.11",
     "pagefind": "^1.1.1"
   }
 }

@@ -6,8 +6,6 @@ tags:
   - angular
   - dependency-injection
 excerpt: Dependency injection has always been one of Angular’s biggest features and selling points. It allows us to inject dependencies in different components across our applications, without needing…
-wpCategory: developers
-wpUrl: /developers/angular/angular-2-dependency-injection/
 cover: ../../assets/blog/angular2-Depnedency-injction-1.png
 coverAlt: 'Angular 2: Dependency Injection'
 ---
@@ -320,7 +318,9 @@ injector.get(Engine) !== childInjector.get(Engine);
 ```
 
 Child injectors are even more interesting. It turns out that a child injector will look up a token binding on it’s parent injector if no binding for the given token is registered on the child injector. The following graphic visualises what happens:**
-![Angular 2 dependency injection diagram — hierarchical injector tree mirroring the component tree, services flowing down to children](../../assets/blog/angular-2-dependency-injection-component-tree.png) ![Angular 2 transient dependencies diagram — how the injector chain resolves dependencies up through parent injectors](../../assets/blog/angular-2-transient-dependencies-injector-chain.png)![Angular 2 transient dependencies diagram — how the injector chain resolves dependencies up through parent injectors](../../assets/blog/angular-2-transient-dependencies-injector-chain.png)
+![Angular 2 dependency injection diagram — hierarchical injector tree mirroring the component tree, services flowing down to children](../../assets/blog/angular-2-dependency-injection-component-tree.png) ![Angular 2 transient dependencies diagram — how the injector chain resolves dependencies up through parent injectors](../../assets/blog/angular-2-transient-dependencies-injector-chain.png)
+
+![Angular 2 transient dependencies diagram — how the injector chain resolves dependencies up through parent injectors](../../assets/blog/angular-2-transient-dependencies-injector-chain.png)
 
 The graphic shows three injectors where two of them are child injectors. Each injector gets its own configuration of providers. Now, if we ask the second child injector for an instance of type `Car`, the car object will be created by that child injector. However, the engine will be created by the first child injector and the tires and doors will be created by the outer most parent injector. It kind of works like a prototype chain.
 

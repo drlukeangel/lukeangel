@@ -7,8 +7,6 @@ tags:
   - front-end
   - zones
 excerpt: At NG-Conf 2014, Brian gave an excellent talk on zones and how they can change the way we deal with asynchronous code. If you haven’t watched this talk yet, give it a shot, it’s just ~15…
-wpCategory: developers
-wpUrl: /developers/angular/angular-2-zones/
 cover: ../../assets/blog/500628_a962.jpg
 coverAlt: Angular 2 – Zones
 ---

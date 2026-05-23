@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Learn to communicate agile progress clearly. Prioritize the backlog, update taskboards, and use burndown charts to show project health — without meeting overhead.
-wpUrl: /courses/agile-reporting-beginner-to-rock-star/
 cover: ../../assets/courses/agile-reporting-beginner-to-rock-star.svg
 coverAlt: Agile Reporting – Beginner To Rock Star
 enrollUrl: ''

@@ -5,8 +5,6 @@ category: tools
 tags:
   - css
 excerpt: Cascading Style Sheets Operate on Inheritance CSS has a ancestor-descendant relationships. Anything previously defined by an ancestor will automatically be inherited by one of its children…
-wpCategory: developement
-wpUrl: /developement/css/learn-css-in-16-post-it-notes/
 cover: ../../assets/blog/css-cascading-inheritance-postit.png
 coverAlt: Learn CSS in 16 Post-it® Notes
 ---
@@ -21,11 +19,7 @@ CSS has a ancestor-descendant relationships. Anything previously defined by an a
 
 If an element is defined in more than one place within CSS, the last definition overrides the previous. (If these stickies represented colors we styled our h1’s, the h1 would appear pink.)
 
-[Cascading Style Sheets Tags
-
-" data-medium-file="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/1_4ijMAYWy9MHEvXfGkaSqoQ.png?fit=300%2C300&ssl=1" data-large-file="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/1_4ijMAYWy9MHEvXfGkaSqoQ.png?fit=550%2C550&ssl=1" class="wp-image-7075 size-full" src="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/1_4ijMAYWy9MHEvXfGkaSqoQ.png?resize=550%2C550" alt="h tags" width="550" height="550" srcset="https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/1_4ijMAYWy9MHEvXfGkaSqoQ.png?w=550&ssl=1 550w, https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/1_4ijMAYWy9MHEvXfGkaSqoQ.png?resize=150%2C150&ssl=1 150w, https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/1_4ijMAYWy9MHEvXfGkaSqoQ.png?resize=300%2C300&ssl=1 300w" sizes="(max-width: 550px) 100vw, 550px" data-recalc-dims="1" />](https://i0.wp.com/lukeangel.co/wp-content/uploads/2016/09/1_4ijMAYWy9MHEvXfGkaSqoQ.png)
-
-Cascading Style Sheets Tags
+![Six colored sticky-note cards labelled with HTML heading tags from h1 through h6, illustrating the "Cascading Style Sheets Tags" / heading hierarchy — last definition wins](../../assets/blog/css-h-tags-types-of-html-headings.png)
 
 **3. Key Value Pairs**
 
@@ -97,7 +91,9 @@ Set a parent element to position: relative and its child to position: absolute t
 
 Setting an element to float, like the img below for example, will allow the text to flow around it.
 
-![Post-it note labeled FLOAT showing a red IMG block on the right with handwritten "bunch of text" wrapping around it on the left and below](../../assets/blog/css-float-image-text-wrap-postit.png)[**
+![Post-it note labeled FLOAT showing a red IMG block on the right with handwritten "bunch of text" wrapping around it on the left and below](../../assets/blog/css-float-image-text-wrap-postit.png)
+
+[
 ](http://lukeangel.co/wp-content/uploads/2016/09/1-oWCUvy2oHzi56nIzMDOR8w.png)
 
 **15. Fixed**

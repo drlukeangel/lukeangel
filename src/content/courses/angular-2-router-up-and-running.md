@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Angular 2’s router comes with many features for routing based on path’s and loading specific components. This course gives you a fast and furious intro to how to configure your routes, navigat...
-wpUrl: /courses/angular-2-router-up-and-running/
 cover: ../../assets/courses/angular-2-router-up-and-running.svg
 coverAlt: 'Angular Router: Up and Running'
 enrollUrl: ''

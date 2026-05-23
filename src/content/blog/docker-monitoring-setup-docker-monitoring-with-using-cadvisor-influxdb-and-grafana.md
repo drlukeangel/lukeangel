@@ -7,8 +7,6 @@ tags:
   - docker
   - monitoring
 excerpt: Docker monitoring of servers and containers is becoming necessary the more Docker hosts and containers we provision. This tutorial will walk you through how to glue together several different…
-wpCategory: docker
-wpUrl: /docker/docker-monitoring-setup-docker-monitoring-with-using-cadvisor-influxdb-and-grafana/
 cover: ../../assets/blog/docker-monitoring-grafana-complete-dashboard-cpu-memory-bandwidth.png
 coverAlt: Docker Monitoring – Setup Docker monitoring with using cAdvisor, InfluxDB, and Grafana.
 ---
@@ -158,9 +156,6 @@ Here is a compose file for you get up and running,
 
 Use the docker-compose.yml file to easily stand up the entire Monitoring Stack.
 
-## 
-
-## 
 
 ```
 version: '2'
@@ -216,7 +211,6 @@ services:
     - INFLUXDB_PASS=root
 ```
 
-## 
 
 ## Here is a repo to help you build some the different dashboards.
 

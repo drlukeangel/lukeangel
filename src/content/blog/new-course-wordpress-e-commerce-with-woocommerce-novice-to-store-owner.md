@@ -9,14 +9,11 @@ tags:
   - course
 excerpt: If you've ever wanted to put a Buy button on the internet without paying Shopify $40/month forever, this course is the door. WordPress + WooCommerce, soup to nuts, in your own afternoon.
 pullquote: Shopify is a great product. It is also a $480/year subscription you don't strictly need for a small store. This course is the other path.
-wpCategory: wordpress
-wpUrl: /wordpress/new-course-wordpress-e-commerce-with-woocommerce-novice-to-store-owner/
 cover: ../../assets/blog/Learn-eCommerce-With-WordPress-WooCommerce-UDemyCourseCover.jpg
 coverAlt: 'Course cover — WordPress E-Commerce With WooCommerce: Novice to Store Owner'
 ---
 
 New course just dropped: **WordPress E-Commerce With WooCommerce — Novice to Store Owner**. Self-paced, pre-recorded, open enrollment.
-
 
 ![Course cover — WordPress E-Commerce With WooCommerce: Novice to Store Owner](../../assets/blog/Learn-eCommerce-With-WordPress-WooCommerce-UDemyCourseCover.jpg)
 

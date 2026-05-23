@@ -11,8 +11,6 @@ tags:
   - course
 excerpt: "Combine a SharePoint list, PowerApps, and Microsoft Flow and you have a working mobile app — zero lines of code. The new course walks the build end to end."
 pullquote: "Most enterprises are sitting on hundreds of internal apps they could build in a weekend if they knew the SharePoint + PowerApps + Flow trick. This is that trick."
-wpCategory: microsoft
-wpUrl: /microsoft/share-point-codeless-mobile-appslistsflowpower-apps/
 cover: ../../assets/blog/SharePoint2016MetadataColumnsListsTaxonomyandMoreSharePoint-udemyCourseImage.jpg
 coverAlt: "Course cover — SharePoint + PowerApps + Flow: Codeless Mobile Apps"
 ---

@@ -9,14 +9,11 @@ tags:
   - leadership
 excerpt: Stakeholder management is the soft skill nobody trains for that decides whether your project ships. The new course teaches the full discipline.
 pullquote: Most PMs lose projects in month four because the wrong person had the wrong expectation in month one. This course is how you stop being that PM.
-wpCategory: project-management
-wpUrl: /project-management/new-course-project-management-fundamentals-stake-holder-management/
 cover: ../../assets/blog/PMO_MPS-Managing-Project-Stakeholders-udemyCover.jpg
 coverAlt: 'Course cover — Project Management Fundamentals: Stakeholder Management'
 ---
 
 New course just dropped: **Project Management Fundamentals — Stakeholder Management**. Self-paced, pre-recorded, open enrollment, PDUs included.
-
 
 ![Course cover — Project Management Fundamentals: Stakeholder Management](../../assets/blog/PMO_MPS-Managing-Project-Stakeholders-udemyCover.jpg)
 

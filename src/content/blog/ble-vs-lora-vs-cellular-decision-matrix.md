@@ -9,6 +9,8 @@ tags:
   - lora
   - cellular
   - hardware
+notebook: connected-products
+notebookOrder: 6
 excerpt: "Five questions, one table, one answer. The wireless choice on a connected product is usually decided by the time you finish question two."
 pullquote: "If your spec says real-time and your power budget says two AA batteries for a year, the spec is wrong."
 cover: "../../assets/blog/ble-lora-cellular-decision-matrix-cover.svg"
@@ -18,6 +20,8 @@ coverAlt: "Cover graphic — BLE vs LoRa vs cellular, the connected-product deci
 The engineering team I lead has now argued about wireless choice on three different connected-product designs. The argument always goes the same way, and ends the same way: I ask the same five questions, and the choice picks itself by question two.
 
 I am writing the questions down so I can stop having the argument.
+
+(The rubric started as a one-pager I sketched on my first connected product back in 2018 — the [v1 series](/notebooks/building-medical-iot-connected-products/) — where the answer was always BLE because the device had no WiFi antenna. That constraint forced the choice and we never had to argue about it. Without the constraint, the argument expands to fill the room. Hence the rubric.)
 
 ## The five questions, in order
 
@@ -79,9 +83,11 @@ Consumer, commercial, and industrial deployments have wildly different threat mo
 
 Tier 2 and 3 add $1.50 – $5 of BOM for the secure element. If the buyer is regulated and your BOM doesn't include this, you have a problem before you ship.
 
-## A worked example
+## Two worked examples — same rubric, very different answers
 
-Pretend we're scoping a connected hand-tool.
+### Example 1: a connected power tool
+
+Pretend we're scoping a connected power tool — the kind of thing a construction company tracks across a job site.
 
 | Question | Our answer | Implication |
 | --- | --- | --- |
@@ -92,6 +98,26 @@ Pretend we're scoping a connected hand-tool.
 | 5. Security? | Commercial; fleet-managed by the construction company | Add secure element ($2), cert per tool, anti-tamper |
 
 End result: BLE + LoRa dual radio, secure element, fleet management via AWS IoT Core Thing Groups. The five questions did the work.
+
+### Example 2: a consumer Bluetooth tracker (Samsung-SmartTag-style)
+
+Same rubric, a wildly different product. Pretend we're scoping a $30 retail Bluetooth tracker — a tag you stick on your keys, your bike, your kid's backpack — that finds itself via a crowdsourced finder network.
+
+| Question | Our answer | Implication |
+| --- | --- | --- |
+| 1. Range? | ≤ 10 m to the owner's phone; crowdsourced via every nearby phone running the vendor's app beyond that | **BLE only** — finder network does the long range |
+| 2. Cadence? | Advertising every 2-10 seconds; no scheduled telemetry uplink | BLE advertising mode (no persistent connection) |
+| 3. BOM? | $4 of radio on a $30 retail product | BLE single-chip ($1-2 in volume) — only option that fits |
+| 4. Power? | CR2032 coin cell, 12+ months expected | BLE 5.0 advertising-only, sub-µA average draw |
+| 5. Security? | Consumer privacy + anti-stalking | Rotating identifier per 15 min, AES-128, finder-network E2E encryption (Apple Find My / Samsung SmartThings Find spec) |
+
+End result: BLE 5.0 only. No LoRa. No cellular. Crowdsourced finder network (the vendor's existing installed-base of phones) for the long-range case. Anti-stalking via rotating identifiers per the regulatory pressure on this category (the FCC + several state laws coming into force).
+
+### Same rubric, opposite answer
+
+The same five questions on two products: one wants BLE + LoRa + secure element + fleet management; the other wants BLE-only + finder network + rotating IDs + a sub-microamp average draw. The rubric isn't a recipe. It's a question-list that surfaces the constraints. The constraints decide.
+
+This is the part that makes the matrix portable across product categories: it doesn't tell you what to build, it tells you what to think about. Power tool vs key fob vs medical device vs cattle tracker — the questions stay the same. The answers don't.
 
 ## What about Sigfox?
 

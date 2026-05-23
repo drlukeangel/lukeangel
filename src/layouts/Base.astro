@@ -29,6 +29,7 @@ const {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2a52be" />
 
   <!-- Favicon — the cropped-wing mark from lukeangel.co -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -49,17 +50,25 @@ const {
     ]}
   />
 
-  <!-- Fonts -->
+  <!-- Fonts — preconnect, then load non-blocking via media-swap trick -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  </noscript>
 
   <!-- Pagefind UI for /search page -->
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
 
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QEMMZ9SQJ4"></script>
-  <script is:inline>
+  <!-- Google Analytics (GA4) — deferred, fires after page is interactive -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QEMMZ9SQJ4"></script>
+  <script is:inline defer>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());

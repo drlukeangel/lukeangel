@@ -10,8 +10,6 @@ tags:
   - ai
 excerpt: "Most ag-tech startups build dashboards. A few build robots that actually walk into the field and pull weeds. Here's why the small physical ones might matter more than the giant data ones."
 pullquote: "The dashboard tells you the weeds are there. The robot pulls the weed. Guess which one the farmer is going to pay for."
-wpCategory: inovation
-wpUrl: /inovation/cool-robot-farmers/
 cover: ../../assets/blog/041917_0400_FrenchAgrib1.jpg
 coverAlt: Cool Robot Farmers — French agribot from Naïo Technologies weeding a row crop
 ---

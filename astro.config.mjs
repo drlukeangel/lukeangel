@@ -37,4 +37,17 @@ export default defineConfig({
       wrap: true,
     },
   },
+  vite: {
+    server: {
+      watch: {
+        // Polling-based file watching catches files created in new subdirectories
+        // (Keystatic creates `src/assets/blog/<slug>/cover.jpg` on every image upload).
+        // Native fs-event watching on Windows misses these reliably enough to break dev.
+        // Polling adds ~1% CPU but means image uploads via Keystatic don't require a
+        // dev-server restart.
+        usePolling: true,
+        interval: 300,
+      },
+    },
+  },
 });

@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Learn how to use Microsoft Project to manage agile projects. Author Luke Angel covers setting up agile projects for success, creating custom fields to track elements unique to the agile projec...
-wpUrl: /courses/agile-project-management-utilizing-microsoft-project/
 cover: ../../assets/courses/agile-project-management-utilizing-microsoft-project.svg
 coverAlt: Agile Project Management Utilizing Microsoft Project
 enrollUrl: ''

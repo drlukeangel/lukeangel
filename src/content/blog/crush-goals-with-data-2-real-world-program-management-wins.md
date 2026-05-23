@@ -8,8 +8,6 @@ tags:
   - leadership
   - product
 excerpt: Hey there, fellow program management ninjas! Ready to dive into the wild world of data-driven decision-making? Buckle up, because we’re about to embark on a thrilling journey that’ll ma…
-wpCategory: program-management
-wpUrl: /program-management/crush-goals-with-data-2-real-world-program-management-wins/
 cover: ../../assets/blog/crush-goals-with-data-program-manager-dashboards.png
 coverAlt: "Crush Goals with Data: 2 Real-World Program Management Wins"
 ---

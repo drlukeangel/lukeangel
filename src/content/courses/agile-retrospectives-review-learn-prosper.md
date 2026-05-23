@@ -9,7 +9,6 @@ summary: An agile retrospective allows a team to continuously improve and get be
 syllabus: []
 cover: ../../assets/courses/agile-retrospectives-review-learn-prosper.svg
 coverAlt: 'Agile Retrospectives: Review, Learn, Prosper'
-wpUrl: /courses/agile-retrospectives-review-learn-prosper/
 draft: false
 enrollUrl: ''
 enrollLabel: Sign Up!

@@ -6,17 +6,17 @@ tags:
   - components
   - docker
 excerpt: Introduction Containerization is the process of distributing and deploying applications in a portable and predictable way. It accomplishes this by packaging components and their dependencies…
-wpCategory: docker
-wpUrl: /docker/the-docker-ecosystem-an-introduction-to-common-components/
 cover: ../../assets/blog/docker-ecosystem-host-engine-containers-diagram.png
 coverAlt: 'Docker: An Introduction to Common Components'
+notebook: docker-ecosystem
+notebookOrder: 2
 ---
 
 Introduction
 
 Containerization is the process of distributing and deploying applications in a portable and predictable way. It accomplishes this by packaging components and their dependencies into standardized, isolated, lightweight process environments called containers.  Many organizations are now interested in designing applications and services that can be easily deployed to distributed systems, allowing the system to scale easily and survive machine and application failures.  Docker, a containerization platform developed to simplify and standardize deployment in various environments, was largely instrumental in spurring the adoption of this style of service design and management.  A large amount of software has been created to build on this ecosystem of distributed container management.
 
-Docker and Containerization**
+Docker and Containerization
 
 Docker is the most common containerization software in use today. While other containerizing systems exist, Docker makes container creation and management simple and integrates with many open source projects.
 
@@ -24,7 +24,7 @@ Docker is the most common containerization software in use today. While other co
 
 In this image, you can begin to see (in a simplified view) how containers relate to the host system. Containers isolate individual applications and use operating system resources that have been abstracted by Docker. In the exploded view on the right, we can see that containers can be built by “layering”, with multiple containers sharing underlying layers, decreasing resource usage.
 
-Docker’s main advantages are:**
+Docker’s main advantages are:
 
 - ~~**Lightweight resource utilization**: instead of virtualizing an entire operating system, containers isolate at the process level and use the host’s kernel.** 
 

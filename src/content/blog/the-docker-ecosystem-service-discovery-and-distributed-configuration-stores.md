@@ -7,10 +7,10 @@ tags:
   - docker
   - service-discovery
 excerpt: Introduction Containers provide an elegant solution for those looking to design and deploy applications at scale. While Docker provides the actual containerizing technology, many other projects…
-wpCategory: docker
-wpUrl: /docker/the-docker-ecosystem-service-discovery-and-distributed-configuration-stores/
 cover: ../../assets/blog/consul-service-structure-5.png
 coverAlt: 'Docker: Service Discovery and Distributed Configuration Stores'
+notebook: docker-ecosystem
+notebookOrder: 4
 ---
 
 Introduction
@@ -70,7 +70,6 @@ What About Failure Detection?~~**
 Failure detection can be implemented in a number of ways. The concern is whether, if a component fails, the discovery service will be updated to reflect the fact that it is no longer available. This type of information is vital in order to minimize application or service failures.
 
 ![Service discovery failover diagram — three service instances heartbeat into the kv store; one stops heartbeating; the store evicts it after the timeout; consumers querying the store only see healthy instances and route around the dead one automatically](../../assets/blog/docker-service-discovery-health-check-failover-2016.svg)
-
 
 Many service discovery platforms allow values to be set with a configurable timeout. The component can set a value with a timeout, and ping the discovery service at regular intervals to reset the timeout. If the component fails and the timeout is reached, that instance’s connection info is removed from the store. The length of the timeout is largely a function of how quickly the application needs to respond to a component failure.~~** 
 

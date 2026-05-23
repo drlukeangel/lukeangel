@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t">
+  <title id="t">IoT & Connected Devices — 2024 Predictions and Outcomes cover</title>
+  <defs>
+    <linearGradient id="g24" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1d24"/>
+      <stop offset="100%" stop-color="#0a0c11"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g24)"/>
+  <rect width="1200" height="6" y="80" fill="#2a52be"/>
+  <g fill="#fdfaf2" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
+    <text x="80" y="60" font-size="22" letter-spacing="6" opacity="0.6">CONNECTED DEVICES · YEAR IN REVIEW</text>
+    <text x="80" y="240" font-size="120" font-weight="500" letter-spacing="-2">2024</text>
+    <text x="80" y="340" font-size="44" font-weight="300" opacity="0.9">Predictions &amp; outcomes</text>
+  </g>
+  <g transform="translate(720,180)">
+    <ellipse cx="80" cy="80" rx="80" ry="55" fill="#fdfaf2"/>
+    <rect x="50" y="60" width="60" height="40" rx="6" fill="#2a52be"/>
+    <text x="80" y="180" text-anchor="middle" fill="#fdfaf2" font-family="'Inter', Arial" font-size="14">Vision Pro</text>
+  </g>
+  <g transform="translate(900,180)">
+    <rect x="0" y="0" width="120" height="140" rx="14" fill="#fdfaf2"/>
+    <circle cx="60" cy="70" r="32" fill="#1a1d24"/>
+    <text x="60" y="76" text-anchor="middle" fill="#fdfaf2" font-family="'Inter', Arial" font-size="12">AI</text>
+    <text x="60" y="180" text-anchor="middle" fill="#fdfaf2" font-family="'Inter', Arial" font-size="14">AI Pin / R1</text>
+  </g>
+  <g transform="translate(1060,180)">
+    <ellipse cx="60" cy="80" rx="60" ry="35" fill="#fdfaf2"/>
+    <rect x="40" y="68" width="40" height="25" rx="4" fill="#2a52be"/>
+    <text x="60" y="170" text-anchor="middle" fill="#fdfaf2" font-family="'Inter', Arial" font-size="14">Ray-Ban Meta</text>
+  </g>
+  <text x="80" y="580" fill="#fdfaf2" opacity="0.55" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="4">LUKEANGEL.CO · THE JOURNAL</text>
+</svg>

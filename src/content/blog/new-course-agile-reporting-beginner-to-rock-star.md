@@ -9,14 +9,11 @@ tags:
   - course
 excerpt: "Agile reports usually fail in one of two ways: too sparse to be useful, or so cluttered nobody reads them. The new course teaches the middle. Light, honest, and skimmable in 30 seconds."
 pullquote: "A good agile report is a postcard. A bad one is a slide deck. Most teams keep shipping the slide deck."
-wpCategory: project-management
-wpUrl: /project-management/agile/new-course-agile-reporting-beginner-to-rock-star/
 cover: ../../assets/blog/AGILE_ARBTRS-Agile-Reporting-Beginner-To-Rock-Star_courseImage.jpg
 coverAlt: "Course cover — Agile Reporting: Beginner to Rock Star"
 ---
 
 Just dropped a new course on **Agile Reporting**. Self-paced, pre-recorded, open enrollment.
-
 
 ![Course cover — Agile Reporting: Beginner to Rock Star](../../assets/blog/AGILE_ARBTRS-Agile-Reporting-Beginner-To-Rock-Star_courseImage.jpg)
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t">
+  <title id="t">IoT & Connected Devices — 2025 Predictions and Outcomes cover</title>
+  <defs>
+    <linearGradient id="g25" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a52be"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g25)"/>
+  <g fill="#fdfaf2" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
+    <text x="80" y="100" font-size="22" letter-spacing="6" opacity="0.7">CONNECTED DEVICES · YEAR IN REVIEW</text>
+    <text x="80" y="220" font-size="120" font-weight="500" letter-spacing="-2">2025</text>
+    <text x="80" y="320" font-size="44" font-weight="300">Predictions &amp; outcomes</text>
+  </g>
+  <g transform="translate(720,180)">
+    <ellipse cx="60" cy="80" rx="60" ry="35" fill="#fdfaf2"/>
+    <rect x="40" y="68" width="40" height="25" rx="4" fill="#2a52be"/>
+    <text x="60" y="170" text-anchor="middle" fill="#fdfaf2" font-family="'Inter', Arial" font-size="14">Ray-Ban Meta</text>
+  </g>
+  <g transform="translate(880,200)">
+    <circle cx="60" cy="60" r="55" fill="#fdfaf2"/>
+    <circle cx="60" cy="60" r="30" fill="#2a52be"/>
+    <text x="60" y="160" text-anchor="middle" fill="#fdfaf2" font-family="'Inter', Arial" font-size="14">Galaxy Ring</text>
+  </g>
+  <g transform="translate(1050,180)">
+    <rect x="0" y="0" width="130" height="180" rx="22" fill="#fdfaf2"/>
+    <rect x="10" y="10" width="110" height="100" rx="6" fill="#2a52be"/>
+    <line x1="20" y1="120" x2="120" y2="120" stroke="#2a52be" stroke-width="2"/>
+    <text x="65" y="200" text-anchor="middle" fill="#fdfaf2" font-family="'Inter', Arial" font-size="14">Watch S10</text>
+  </g>
+  <text x="80" y="580" fill="#fdfaf2" opacity="0.6" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="4">LUKEANGEL.CO · THE JOURNAL</text>
+</svg>

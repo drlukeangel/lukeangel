@@ -7,8 +7,6 @@ tags:
   - node-js
   - tutorials
 excerpt: The goal of this example is to show you how to get a Node.js application into a Docker container. The guide is intended for development, and not for a production deployment. The guide also…
-wpCategory: docker
-wpUrl: /docker/dockerizing-a-node-js-web-app/
 cover: ../../assets/blog/111416_1840_Dockerizing1.png
 coverAlt: Dockerizing a Node.js web app
 ---
@@ -17,7 +15,9 @@ The goal of this example is to show you how to get a Node.js application into a 
 
 You can pull the finished code/image from my git/docker hub:
 
-![GitHub logo — source-control destination for the dockerized Node.js web app and its Dockerfile](../../assets/blog/dockerizing-nodejs-github-source-icon.png)[https://github.com/drlukeangel/Docker-Node-Basic-App-Example](https://github.com/drlukeangel/Docker-Node-Basic-App-Example)
+![GitHub logo — source-control destination for the dockerized Node.js web app and its Dockerfile](../../assets/blog/dockerizing-nodejs-github-source-icon.png)
+
+[https://github.com/drlukeangel/Docker-Node-Basic-App-Example](https://github.com/drlukeangel/Docker-Node-Basic-App-Example)
 
 ![Docker Hub logo — public registry where the dockerized Node.js web app image is published](../../assets/blog/dockerizing-nodejs-dockerhub-logo.png)
 

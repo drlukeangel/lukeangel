@@ -8,8 +8,6 @@ tags:
   - product
 excerpt: Mike Krieger's deck on scaling Instagram is the single best resource I've found on the 'keep it boring until you absolutely can't' principle. Five things every architect should steal from it.
 pullquote: Most architecture failures I've seen weren't because the team picked the wrong tool. They were because the team picked the *exciting* tool when boring would have worked.
-wpCategory: developement
-wpUrl: /developement/how-instagram-scales-by-the-architect-himself-mike-krieger/
 cover: ../../assets/blog/scaling-instagram.png
 coverAlt: Slide cover from Mike Krieger's "Scaling Instagram" talk at Airbnb
 ---

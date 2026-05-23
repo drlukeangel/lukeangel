@@ -5,9 +5,9 @@ category: tools
 tags:
   - program-management
   - project-management
+notebook: pm-fundamentals
+notebookOrder: 1
 excerpt: 'Unlocking Business Success: Understanding Project, Program, Product, and Portfolio Management In today’s fast-paced business world, organizations leverage various management methodologies to …'
-wpCategory: cross-platform
-wpUrl: /cross-platform/project-management-program-management-product-management-and-portfolio-management-a-comprehensive-guide-with-examples/
 cover: ../../assets/blog/project-program-product-portfolio-management-comprehensive-guide-cover.png
 coverAlt: 'Project Management , Program Management, Product Management, and Portfolio Management: A Comprehensive Guide with Examples'
 ---

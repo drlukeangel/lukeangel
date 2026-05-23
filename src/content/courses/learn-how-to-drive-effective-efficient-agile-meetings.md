@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Many new agile teams think flexibility in their meetings allows them to do whatever feels right. In reality, agile projects move more smoothly by running short, well-structured activities. Eac...
-wpUrl: /courses/learn-how-to-drive-effective-efficient-agile-meetings/
 cover: ../../assets/courses/learn-how-to-drive-effective-efficient-agile-meetings.svg
 coverAlt: Learn How To Drive Effective, Efficient Agile Meetings
 enrollUrl: ''

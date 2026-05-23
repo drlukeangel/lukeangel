@@ -12,8 +12,6 @@ tags:
   - soft-skills
   - team-building
 excerpt: Alright, fellow project padawans and management maestros! Buckle up, because we’re about to embark on a wild ride through the galaxy of soft skills. These aren’t your grandma’s pr…
-wpCategory: project-management
-wpUrl: /project-management/unleash-your-inner-jedi-7-mind-blowing-soft-skills-to-skyrocket-project-success-%f0%9f%9a%80/
 cover: ../../assets/blog/soft-skills-leadership-channeling-inner-yoda.png
 coverAlt: "Unleash Your Inner Jedi: 7 Mind-Blowing Soft Skills to Skyrocket Project Success"
 ---

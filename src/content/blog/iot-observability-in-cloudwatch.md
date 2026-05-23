@@ -8,6 +8,8 @@ tags:
   - cloudwatch
   - observability
   - ops
+notebook: connected-products
+notebookOrder: 7
 excerpt: "Six months into running a connected-product fleet in production, here's the CloudWatch setup we wish we'd had on day one. Three dashboards, four alarms, one log query."
 pullquote: "An IoT product without per-device-percentile latency dashboards is a product that doesn't know it's broken."
 cover: "../../assets/blog/iot-observability-cloudwatch-cover.svg"
@@ -17,6 +19,8 @@ coverAlt: "Cover graphic — What good IoT observability looks like in CloudWatc
 We've been running our connected-product fleet in production for about six months. The first incident, predictably, was an observability incident — we couldn't tell whether 200 devices had stopped talking because the devices were broken, the network was broken, the cloud was broken, or our parsing of the data was broken. It took us a full day to figure out which.
 
 This is the CloudWatch setup we'd have built on day one if we'd known better.
+
+(Previously, on [v1](/notebooks/building-medical-iot-connected-products/), we built our own dashboards from scratch in 2018. The IoT-native cloud metrics weren't mature yet, and we ended up running everything off custom metrics emitted from serverless functions. On v2 the native side is much better. The setup below would have saved us about two engineer-months on the v1 build. It's now ~one engineer-week.)
 
 ## The three dashboards
 

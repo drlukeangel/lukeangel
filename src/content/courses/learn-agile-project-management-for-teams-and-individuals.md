@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Agile project management permits you to provide smaller deliverables more frequently and efficiently, this makes it a excellent choice for teams that work in product development, business anal...
-wpUrl: /courses/learn-agile-project-management-for-teams-and-individuals/
 cover: ../../assets/courses/learn-agile-project-management-for-teams-and-individuals.svg
 coverAlt: Learn Agile Project Management for Teams and Individuals
 enrollUrl: ''

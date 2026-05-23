@@ -7,8 +7,6 @@ tags:
   - mobile
   - open-source
 excerpt: Mobile applications have become increasingly important for businesses these days, and consumers are demanding higher quality apps for their mobile devices. Adapting to this new demand, testing…
-wpCategory: mobile
-wpUrl: /mobile/open-source-mobile-test-automation-tools/
 cover: ../../assets/blog/Featured-Open-Source-Mobile-Test-Automation-Tools.png
 coverAlt: Open-Source Mobile Test Automation Tools
 ---

@@ -8,9 +8,9 @@ tags:
   - hybrid-work-models
   - project-management
   - trends
+notebook: pm-trends
+notebookOrder: 1
 excerpt: '1. AI: Your New BFF (Best Forecasting Friend) Forget crystal balls – Artificial Intelligence is the fortune-teller of the future! In 2019, AI will become your secret weapon for: Pro tip…'
-wpCategory: project-management
-wpUrl: /project-management/10-game-changing-project-management-trends-for-2019/
 cover: ../../assets/blog/10-game-changing-project-management-trends-for-2019-cover.png
 coverAlt: 10 Game-Changing Project Management Trends for 2019
 ---

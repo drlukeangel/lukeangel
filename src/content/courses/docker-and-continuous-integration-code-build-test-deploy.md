@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Thank You for taking a look at this course Docker and Continuous Integration. In this course we will go over hands-on walk-through that enable the process of integrating a Dockerized app into...
-wpUrl: /courses/docker-and-continuous-integration-code-build-test-deploy/
 cover: ../../assets/courses/docker-and-continuous-integration-code-build-test-deploy.svg
 coverAlt: 'Docker and Continuous Integration: Code, Build, Test, Deploy'
 enrollUrl: ''

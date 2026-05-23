@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Critical thinking is the ability to think reflectively and independently in order to make thoughtful decisions. By focusing on root-cause issues, critical thinking helps you avoid future probl...
-wpUrl: /courses/critical-thinking-beginner-to-advanced/
 cover: ../../assets/courses/critical-thinking-beginner-to-advanced.svg
 coverAlt: 'Critical Thinking: Beginner to Advanced'
 enrollUrl: ''

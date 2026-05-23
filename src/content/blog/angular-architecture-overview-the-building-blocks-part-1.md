@@ -5,8 +5,6 @@ category: tools
 tags:
   - angular
 excerpt: In this post i am going to revie the basic building blocks of Angular applications. The Angular is a framework for building client applications in HTML and either JavaScript or a language (like…
-wpCategory: developers
-wpUrl: /developers/angular/angular-architecture-overview-the-building-blocks-part-1/
 cover: ../../assets/blog/angular-template-html-component-view.png
 coverAlt: Angular Architecture Overview – The Building Blocks – Part 1
 ---
@@ -505,4 +503,3 @@ It displays a price of “42.33” as $42.33.**
 
 [~~**Testing**~~](https://angular.io/docs/ts/latest/guide/testing.html)~~: Run unit tests on your application parts as they interact with the Angular framework using the *Angular Testing Platform*.
 
-###

@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: 'Hi and Welcome to Node API’s: Up and Running with Swagger (Open API Spec).'
-wpUrl: /courses/node-js-codeless-api-creation-up-and-running-with-swagger/
 cover: ../../assets/courses/node-js-codeless-api-creation-up-and-running-with-swagger.svg
 coverAlt: 'Node.js Codeless API Creation: Up And Running With Swagger'
 enrollUrl: ''

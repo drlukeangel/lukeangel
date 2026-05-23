@@ -6,10 +6,10 @@ tags:
   - project-management
   - leadership
   - iron-triangle
+notebook: pm-fundamentals
+notebookOrder: 3
 excerpt: "Every project lives inside the same triangle — Good, Fast, Cheap, pick two. Sounds glib. Is actually load-bearing physics for every project decision you'll make this quarter."
 pullquote: "Customers who say 'we want all three' aren't being unreasonable. They've just never had the trade explained in a way they could feel. Your job is to make them feel it before sprint 4."
-wpCategory: project-management
-wpUrl: /project-management/good-fast-cheap-the-golden-triangle-of-project-management/
 cover: ../../assets/blog/good-fast-cheap-iron-triangle-pick-two.jpg
 coverAlt: 'The iron / golden triangle of project management — "Good, Fast, Cheap: pick two" diagram showing the inherent tradeoffs'
 ---

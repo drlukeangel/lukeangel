@@ -9,8 +9,6 @@ tags:
   - user-research
 excerpt: "Anaïs Nin (or maybe the Talmud, depending who you ask) nailed the central PM hazard: every roadmap is a projection of the person who wrote it. Here's how to notice when you're doing it."
 pullquote: Every roadmap I've ever written is partly an X-ray of me — what I'm scared of, what I think is cool, who I want to impress.
-wpCategory: quote
-wpUrl: /quote/we-dont-see-things-as-they-are-we-see-them-as-we-are/
 cover: ../../assets/blog/Featured-WeDontSeeThingsAsTheyAreWeSeeThingsAsWeAre.png
 coverAlt: We don't see things as they are, we see them as we are — quote on perception and projection in product work
 ---

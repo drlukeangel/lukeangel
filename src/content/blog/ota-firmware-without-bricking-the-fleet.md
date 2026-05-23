@@ -8,6 +8,8 @@ tags:
   - aws
   - ota
   - hardware
+notebook: iot-security
+notebookOrder: 3
 excerpt: "We finally rolled OTA to production last quarter. Eighteen months of planning, two months of execution, three near-misses. The pieces that actually mattered, written down."
 pullquote: "Bricking a device in the field is a quarter you don't get back."
 cover: "../../assets/blog/ota-firmware-without-bricking-cover.svg"

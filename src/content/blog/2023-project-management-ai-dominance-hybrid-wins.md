@@ -10,9 +10,9 @@ tags:
   - strategy
   - sustainability
   - trends
+notebook: pm-trends
+notebookOrder: 5
 excerpt: 'Let’s face it: 2023 will be the year project managers either ride the wave of change or get crushed by it. Buckle up as we unpack the seismic shifts transforming workflows, tools, and team…'
-wpCategory: project-management
-wpUrl: /project-management/2023-project-management-ai-dominance-hybrid-wins/
 cover: ../../assets/blog/2023-Project-Management-AI-Dominance-Hybrid-Wins-.jpg
 coverAlt: 2023 Project Management predictions and demize!
 ---

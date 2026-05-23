@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EditInKeystatic from '../../components/EditInKeystatic.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,7 +13,11 @@ const { Content } = await p.render();
 ---
 <Base title={p.data.title} current="projects" description={p.data.summary}>
   <article class="post wrap" style="padding: 40px 32px;">
-    <a href="/projects/" class="mono">← back to projects</a>
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Projects', href: '/projects/' },
+      { label: p.data.title },
+    ]} />
     <div style="margin-top: 32px;">
       <div class="mono" style="color: var(--accent);">{p.data.year} · {p.data.role}</div>
       <h1 style="font-size: clamp(48px, 6vw, 84px); margin-top: 18px;">{p.data.title}</h1>
@@ -23,7 +28,7 @@ const { Content } = await p.render();
       <div><div class="mono" style="color: var(--accent);">Stack</div><div style="font-size: 16px; margin-top: 8px;">{p.data.stack.join(' · ')}</div></div>
       <div><div class="mono" style="color: var(--accent);">Outcome</div><div style="font-size: 16px; margin-top: 8px;">{p.data.outcome}</div></div>
     </div>
-    <div style="max-width: 720px; margin: 48px auto; font-size: 19px; line-height: 1.75;">
+    <div style="max-width: 960px; margin: 48px auto; font-size: 19px; line-height: 1.75;">
       <Content />
     </div>
   </article>

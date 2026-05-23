@@ -9,14 +9,11 @@ tags:
   - teams
 excerpt: "Most agile retros are a polite hour of 'what could we do better' followed by zero behavior change. The new course is the *opposite* of that. Five phases. Two memorable formats. Real action items."
 pullquote: "If your retro produces three action items per sprint and zero of them survive to the next sprint, you don't have a retro — you have a feelings meeting."
-wpCategory: project-management
-wpUrl: /project-management/agile/new-course-agile-retrospectives-make-good-teams-great/
 cover: ../../assets/blog/udemyCover.png
 coverAlt: "Course cover — Agile Retrospectives: Make Good Teams Great"
 ---
 
 New course just dropped: **Agile Retrospectives — Make Good Teams Great**. Self-paced, pre-recorded, open enrollment.
-
 
 ![Course cover — Agile Retrospectives: Make Good Teams Great](../../assets/blog/udemyCover.png)
 

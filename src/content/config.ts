@@ -14,9 +14,22 @@ const blog = defineCollection({
     pullquote: z.string().optional(),
     cover: image().optional(),
     coverAlt: z.string().optional(),
-    wpCategory: z.string().optional(),
-    wpUrl: z.string().optional(),
+    notebook: z.string().optional(),
+    notebookOrder: z.number().optional(),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
     featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
+  }),
+});
+
+const notebooks = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    summary: z.string(),
+    cover: image().optional(),
+    coverAlt: z.string().optional(),
+    accent: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
@@ -63,10 +76,8 @@ const courses = defineCollection({
     recordings: z.string().default('Yes'),
     cover: image().optional(),
     coverAlt: z.string().optional(),
-    wpCategory: z.string().optional(),
-    wpUrl: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
 
-export const collections = { blog, gratitude, projects, courses };
+export const collections = { blog, gratitude, projects, courses, notebooks };

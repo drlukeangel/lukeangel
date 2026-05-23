@@ -30,6 +30,7 @@ export default config({
             { label: 'Projects', value: 'projects' },
             { label: 'Programs', value: 'programs' },
             { label: 'Product', value: 'product' },
+            { label: 'Give', value: 'give' },
           ],
           defaultValue: 'craft',
         }),
@@ -41,11 +42,30 @@ export default config({
         pullquote: fields.text({ label: 'Pullquote', multiline: true }),
         cover: fields.text({
           label: 'Cover image path',
-          description: 'e.g. /blog/my-cover.jpg (place file in public/blog/)',
+          description: 'Drop image into src/assets/blog/, then reference it with the relative path ../../assets/blog/my-cover.svg. Optimal dimensions: 1200×630 (16:9 / OG-card ratio). SVG preferred; JPG/PNG/WebP fine.',
         }),
-        coverAlt: fields.text({ label: 'Cover alt text' }),
-        wpCategory: fields.text({ label: 'WP category (legacy)' }),
-        wpUrl: fields.text({ label: 'Original WP URL (legacy)' }),
+        coverAlt: fields.text({
+          label: 'Cover alt text',
+          description: 'Plain-language description of the image for screen readers and SEO. One short sentence.',
+        }),
+        notebook: fields.text({
+          label: 'Notebook',
+          description: 'Optional. Slug of the notebook this post belongs to (e.g. iot-predictions).',
+        }),
+        notebookOrder: fields.integer({
+          label: 'Notebook order',
+          description: 'Optional. Position of this post within the notebook.',
+        }),
+        faq: fields.array(
+          fields.object({
+            q: fields.text({ label: 'Question' }),
+            a: fields.text({ label: 'Answer', multiline: true }),
+          }),
+          {
+            label: 'FAQ',
+            itemLabel: (props) => props.fields.q.value || 'New question',
+          },
+        ),
         featured: fields.checkbox({ label: 'Featured', defaultValue: false }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
         content: fields.markdoc({ label: 'Content', extension: 'md' }),
@@ -81,6 +101,32 @@ export default config({
           itemLabel: (props) => props.value,
         }),
         outcome: fields.text({ label: 'Outcome', multiline: true }),
+        draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
+        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+      },
+    }),
+
+    notebooks: collection({
+      label: 'Notebooks',
+      slugField: 'title',
+      path: 'src/content/notebooks/*',
+      format: { contentField: 'content' },
+      previewUrl: '/notebooks/{slug}/',
+      schema: {
+        title: fields.slug({ name: { label: 'Title' } }),
+        summary: fields.text({ label: 'Summary', multiline: true }),
+        cover: fields.text({
+          label: 'Cover image path',
+          description: 'Drop image into src/assets/blog/ (notebooks share the blog assets directory), then reference it with the relative path ../../assets/blog/my-cover.svg. Optimal dimensions: 1200×630 (16:9 / OG-card ratio). SVG preferred; JPG/PNG/WebP fine.',
+        }),
+        coverAlt: fields.text({
+          label: 'Cover alt text',
+          description: 'Plain-language description of the image for screen readers and SEO. One short sentence.',
+        }),
+        accent: fields.text({
+          label: 'Accent color',
+          description: 'Optional hex color (e.g. #0066cc) for notebook-specific accents.',
+        }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
         content: fields.markdoc({ label: 'Content', extension: 'md' }),
       },
@@ -122,11 +168,12 @@ export default config({
         recordings: fields.text({ label: 'Recordings', defaultValue: 'Yes' }),
         cover: fields.text({
           label: 'Cover image path',
-          description: 'e.g. /courses/my-cover.svg (place file in public/courses/)',
+          description: 'Drop image into src/assets/courses/, then reference it with the relative path ../../assets/courses/my-cover.svg. Optimal dimensions: 1200×630 (16:9 / OG-card ratio). SVG preferred; JPG/PNG/WebP fine.',
         }),
-        coverAlt: fields.text({ label: 'Cover alt text' }),
-        wpUrl: fields.text({ label: 'Original WP URL (legacy)' }),
-        wpCategory: fields.text({ label: 'WP category (legacy)' }),
+        coverAlt: fields.text({
+          label: 'Cover alt text',
+          description: 'Plain-language description of the image for screen readers and SEO. One short sentence.',
+        }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
         content: fields.markdoc({ label: 'Content', extension: 'md' }),
       },

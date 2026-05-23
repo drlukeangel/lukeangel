@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="did-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#did-dots)"/>
+  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
+  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">DEFENSE IN DEPTH — MAR 2025</text>
+  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">7 LAYERS</text>
+  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+
+  <g transform="translate(810, 152)">
+    <rect x="0"   y="0"  width="280" height="22" rx="2" fill="none" stroke="#1a1d24" stroke-width="2"/>
+    <text x="10"  y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" letter-spacing="2" fill="#1a1d24">01 · HARDWARE</text>
+    <rect x="0"   y="26" width="260" height="22" rx="2" fill="none" stroke="#1a1d24" stroke-width="2"/>
+    <text x="10"  y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" letter-spacing="2" fill="#1a1d24">02 · FIRMWARE</text>
+    <rect x="0"   y="52" width="240" height="22" rx="2" fill="none" stroke="#1a1d24" stroke-width="2"/>
+    <text x="10"  y="68" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" letter-spacing="2" fill="#1a1d24">03 · IDENTITY</text>
+    <rect x="0"   y="78" width="220" height="22" rx="2" fill="#2a52be"/>
+    <text x="10"  y="94" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" letter-spacing="2" fill="#fdfaf2">04 · TRANSPORT</text>
+    <rect x="0"   y="104" width="200" height="22" rx="2" fill="none" stroke="#1a1d24" stroke-width="2"/>
+    <text x="10"  y="120" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" letter-spacing="2" fill="#1a1d24">05 · CLOUD</text>
+    <rect x="0"   y="130" width="180" height="22" rx="2" fill="none" stroke="#1a1d24" stroke-width="2"/>
+    <text x="10"  y="146" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" letter-spacing="2" fill="#1a1d24">06 · DATA</text>
+    <rect x="0"   y="156" width="160" height="22" rx="2" fill="none" stroke="#1a1d24" stroke-width="2"/>
+    <text x="10"  y="172" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" letter-spacing="2" fill="#1a1d24">07 · DETECT</text>
+  </g>
+
+  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">Defense in depth</text>
+  <text x="80" y="360" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">for a connected</text>
+  <text x="80" y="424" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#2a52be">product fleet.</text>
+  <text x="80" y="460" font-family="Newsreader, serif" font-style="italic" font-size="22" fill="#7a808c">— what readers asked about after the cert post.</text>
+
+  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
+  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT SECURITY</text>
+</svg>

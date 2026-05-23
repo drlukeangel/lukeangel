@@ -9,8 +9,6 @@ tags:
   - emergency-services
 excerpt: Most public fire stations accept volunteer firefighters. Harder than mentoring, easier than full-time fire service, one of the most rewarding things I've done.
 pullquote: Volunteer firefighting is one of the few volunteer paths where the training itself is a credential you can use forever. Even if you never run another call, you walk out knowing things most adults never learn.
-wpCategory: give
-wpUrl: /give/volunteer-fight-fighting/
 cover: ../../assets/blog/IMG_0111-e1476626003325.jpg
 coverAlt: Volunteer firefighter at the El Camino Fire Academy completing training in turnout gear
 ---

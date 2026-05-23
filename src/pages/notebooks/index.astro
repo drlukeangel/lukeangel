@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const seriesList = (await getCollection('notebooks', ({ data }) => !data.draft));
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+// Count posts per notebook + year range
+type Meta = { count: number; minYear: number | ''; maxYear: number | ''; lastUpdated: number };
+const meta: Record<string, Meta> = {};
+for (const p of allPosts) {
+  if (!p.data.notebook) continue;
+  const slug = p.data.notebook;
+  const year = p.data.date.getFullYear();
+  const ts = p.data.date.getTime();
+  if (!meta[slug]) meta[slug] = { count: 0, minYear: year, maxYear: year, lastUpdated: ts };
+  meta[slug].count += 1;
+  meta[slug].minYear = Math.min(meta[slug].minYear as number, year);
+  meta[slug].maxYear = Math.max(meta[slug].maxYear as number, year);
+  meta[slug].lastUpdated = Math.max(meta[slug].lastUpdated, ts);
+}
+
+const sorted = [...seriesList].sort((a, b) => {
+  const am = meta[a.slug]?.lastUpdated ?? 0;
+  const bm = meta[b.slug]?.lastUpdated ?? 0;
+  return bm - am;
+});
+
+const totalEntries = Object.values(meta).reduce((acc, m) => acc + m.count, 0);
+---
+<Base title="The Notebooks — The Bookcase" current="blog" description="Multi-part essays and guides, bound together as notebooks. Pull one down and read it in order — or pick the entry you need.">
+  <section class="wrap" style="padding: 56px 32px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 18px; gap: 24px; flex-wrap: wrap;">
+      <div>
+        <div class="mono" style="color: var(--accent);">The Bookcase</div>
+        <h1 style="font-size: clamp(56px, 7vw, 88px); margin-top: 8px;">The <em style="color: var(--accent);">Notebooks</em>.</h1>
+        <p style="font-style: italic; color: var(--muted); margin-top: 14px; max-width: 540px;">Multi-part guides, bound and shelved. Pull one down.</p>
+      </div>
+      <div style="text-align: right;">
+        <div class="mono">{seriesList.length} notebooks · {totalEntries} entries</div>
+        <div style="margin-top: 12px; display: flex; gap: 8px; justify-content: flex-end;">
+          <a href="/blog/" class="chip">Articles</a>
+          <a href="/notebooks/" class="chip ink">Notebooks</a>
+        </div>
+      </div>
+    </div>
+
+    {seriesList.length === 0 ? (
+      <p style="margin-top: 48px; color: var(--muted); font-style: italic;">No notebooks shelved yet.</p>
+    ) : (
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;">
+        {sorted.map((s) => {
+          const m = meta[s.slug] ?? { count: 0, minYear: '', maxYear: '', lastUpdated: 0 };
+          const range = m.minYear === m.maxYear ? `${m.minYear}` : `${m.minYear}–${m.maxYear}`;
+          return (
+            <a href={`/notebooks/${s.slug}/`} class="card" style="display: block; padding: 0; position: relative;">
+              {s.data.cover ? (
+                <Image
+                  src={s.data.cover}
+                  alt={s.data.coverAlt || s.data.title}
+                  widths={[320, 640, 960]}
+                  sizes="(max-width: 720px) 100vw, 400px"
+                  loading="lazy"
+                  style="display:block; width:100%; height:210px; object-fit:cover;"
+                />
+              ) : (
+                <div style="height: 210px; background: var(--bg); display: flex; align-items: center; justify-content: center;">
+                  <div class="mono" style="color: var(--muted);">Notebook</div>
+                </div>
+              )}
+              <div style="padding: 18px 22px 22px;">
+                <div class="mono" style="color: var(--muted);">Notebook · {m.count} {m.count === 1 ? 'part' : 'parts'}</div>
+                <h2 style="font-size: 26px; margin-top: 10px; line-height: 1.15;">{s.data.title}</h2>
+                <p style="font-style: italic; color: var(--muted); margin-top: 10px; line-height: 1.5; font-size: 15px;">"{s.data.summary}"</p>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--rule);" class="mono">
+                  <span>{range}</span>
+                  <span style="color: var(--muted);">open →</span>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    )}
+  </section>
+</Base>

@@ -10,6 +10,8 @@ tags:
   - typescript
   - open-source
   - hardware
+notebook: connected-products
+notebookOrder: 8
 excerpt: "Two years of private notes, runbooks, and reference code from leading connected-product teams. Cleaned up, scoped down, and pushed to a repo. The starter kit I wish someone had handed me on day one."
 pullquote: "The first 30 days of a connected-product team are mostly the same six pitfalls. Open-source what doesn't need to be re-discovered."
 cover: "../../assets/blog/open-sourcing-connected-products-kit-cover.svg"
@@ -17,7 +19,7 @@ coverAlt: "Cover graphic — Open-sourcing the Connected Products Starter Kit. O
 featured: true
 ---
 
-I started a private sandbox in late 2023, two months into leading my first connected-product engineering team. It started as one Python script that pretended to be a sensor. By mid-2024 it had grown into a full reference stack — device firmware, CDK infrastructure, a tiny dashboard — that I'd hand to new engineers on day one with a "read this before we have the architecture conversation."
+I started a private sandbox in late 2023, two months into running a connected-product engineering team for the second time around. (My first was 2017-2019 — a BLE-connected consumer-health platform, covered in the [v1 series](/notebooks/building-medical-iot-connected-products/).) The sandbox started as one Python script that pretended to be a sensor. By mid-2024 it had grown into a full reference stack — device firmware, CDK infrastructure, a tiny dashboard — that I'd hand to new engineers on day one with a "read this before we have the architecture conversation." Most of the patterns in it carried forward from v1; the implementations are all v2-era.
 
 This week I cleaned it up and pushed it public.
 

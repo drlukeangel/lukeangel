@@ -4,8 +4,6 @@ date: 2016-02-18T06:42:15.000Z
 category: tools
 tags: []
 excerpt: Set aside thoughts of mince pies and look ahead to what’s in store for wearable tech in 2016. 50. Gran Turismo Sport The upcoming 2016 VR explosion needs games and games don’t get much …
-wpCategory: cross-platform
-wpUrl: /cross-platform/wearable-predictions-for-2016/
 ---
 
 Set aside thoughts of mince pies and look ahead to what’s in store for wearable tech in 2016.
@@ -348,4 +346,4 @@ It’s a make or break year for virtual reality in 2016. [Oculus Rift](http://ww
 
 Movie studios, games publishers, sports, music, art, porn, gambling and just about everyone else is trying to figure out how they can use this astonishing tech, finally set to emerge, as a phoenix from its early 1990s flames.
 
-From <[http://www.wareable.com/wareable50/best-wearable-tech](http://www.wareable.com/wareable50/best-wearable-tech)>**
+From <[http://www.wareable.com/wareable50/best-wearable-tech](http://www.wareable.com/wareable50/best-wearable-tech)>

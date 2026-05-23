@@ -10,8 +10,6 @@ tags:
   - responsive-design
   - tablet
 excerpt: 'Every person these days wants a mobile version of their website. It’s practically essential after all: one design for the Android, another for the iPhone, the iPad, netbook, Kindle — and all…'
-wpCategory: cross-platform
-wpUrl: /cross-platform/what-is-responsive-design/
 cover: ../../assets/blog/devices.png
 coverAlt: What is Responsive Design?
 ---
@@ -118,7 +116,9 @@ One nice thing about the iPhone and iPod Touch is that app designs automatically
 
 There was, however, one issue this simulator created. When responsive design took off, many noticed that images were still changing proportionally with the page even if they were specifically made for (or could otherwise fit) the tiny screen. This in turn scaled down text and other elements.
 
-![iPhone simulator rescaling issue — images shrinking proportionally with the page and scaling text smaller than intended](../../assets/blog/responsive-design-iphone-simulator-image-resizing-issue.jpg)**
+![iPhone simulator rescaling issue — images shrinking proportionally with the page and scaling text smaller than intended](../../assets/blog/responsive-design-iphone-simulator-image-resizing-issue.jpg)
+
+**
 *(Image: [Think Vitamin](http://thinkvitamin.com/design/responsive-design-image-gotcha/) | Website referenced: [8 Faces](http://8faces.com/))*
 
 Because this works only with Apple’s simulator, we can use an Apple-specific meta tag to fix the problem, placing it *below* the website’s ``section. Thanks to [Think Vitamin’s article on image resizing](http://thinkvitamin.com/design/responsive-design-image-gotcha/), we have the meta tag below:
@@ -509,7 +509,9 @@ With Think Vitamin, we see a similar approach. When on a smaller screen or brows
 [Hicksdesign](http://hicksdesign.co.uk/)**
 The Hicksdesign website has three columns when viewed on a conventional computer screen with a maximized browser. When minimized in width, the design takes on a new layout: the third column to the right is rearranged above the second, and the logo moves next to the introductory text. Thus, no content needs to be removed for the smaller size. For even narrower screens and browser widths, the side content is removed completely and a simplified version is moved up top. Finally, the font size changes with the screen and browser width; as the browser gets narrower, the font size throughout gets smaller and remains proportional.
 
-![Hicksdesign three-column desktop layout — logo on the left, two content columns to the right](../../assets/blog/responsive-design-hicksdesign-desktop-three-columns.jpg)![Hicksdesign at a narrower width — third column rearranged above the second, logo moves next to the intro text](../../assets/blog/responsive-design-hicksdesign-narrow-rearranged.jpg)
+![Hicksdesign three-column desktop layout — logo on the left, two content columns to the right](../../assets/blog/responsive-design-hicksdesign-desktop-three-columns.jpg)
+
+![Hicksdesign at a narrower width — third column rearranged above the second, logo moves next to the intro text](../../assets/blog/responsive-design-hicksdesign-narrow-rearranged.jpg)
 
 [Information Architects](http://www.informationarchitects.jp/en/)**
 Here is a great example of a flexible image. The image in this design automatically resizes after certain “break” points, but in between those width changes, only the side margins and excess white space are altered. On smaller screens and minimized browsers, the navigation simplifies and the columns of navigation at the top fall off. At the design’s smallest version, the navigation simplifies to just a drop-down menu, perfect for saving space without sacrificing critical navigation links.

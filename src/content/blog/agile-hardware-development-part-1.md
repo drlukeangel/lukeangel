@@ -6,8 +6,6 @@ tags:
   - agile
   - hardware
 excerpt: Although Agile principles can be applied with benefit in hardware product development (Agile hardware development), it misses the mark in terms of a complete solution for hardware product…
-wpCategory: project-management
-wpUrl: /project-management/agile-hardware-development-part-1/
 cover: ../../assets/blog/featred-Agile-Hardware-Development-Part-1-1.jpg
 coverAlt: Agile Hardware Development – Part 1
 ---

@@ -8,8 +8,6 @@ tags:
   - scheduling
   - work-back
 excerpt: I tend to get a lot of projects that start with a launch date and then come to me with a product vision and little else. This requires the reverse of normal planning forward technique. We now…
-wpCategory: project-management
-wpUrl: /project-management/whats-a-workback-schedule/
 cover: ../../assets/blog/waterfall-v-agile-iron-triangle-v03.png
 coverAlt: What’s A Workback Schedule?
 ---
@@ -78,4 +76,3 @@ A Work-back Schedule is a useful method that reveals the milestones that a proje
 
 I like to use the triangle to really flush out a MVP(most valuable product) its always better to deliver something rather then nothing. By focusing on whats really important and getting that out and then layering on features to the delivery date is by far the best solution and will produce the happiest clients.
 
-##

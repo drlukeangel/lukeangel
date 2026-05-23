@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Update for the new docker 1.12 version with Native Swarm Mode.
-wpUrl: /courses/docker-for-developers-newest-version-1-12-with-swarm-mode/
 cover: ../../assets/courses/docker-for-developers-newest-version-1-12-with-swarm-mode.svg
 coverAlt: Docker for Developers – Newest Version 1.12 with Swarm Mode
 enrollUrl: ''

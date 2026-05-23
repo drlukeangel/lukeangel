@@ -6,10 +6,10 @@ tags:
   - docker
   - networking
 excerpt: Introduction When constructing distributed systems to serve Docker containers, communication and networking become extremely important. Service-oriented architecture, undeniably, relies heavily…
-wpCategory: docker
-wpUrl: /docker/the-docker-ecosystem-networking-and-communication/
 cover: ../../assets/blog/docker-networking.png
 coverAlt: 'Docker: Networking and Communication'
+notebook: docker-ecosystem
+notebookOrder: 3
 ---
 
 Introduction

@@ -8,6 +8,8 @@ tags:
   - security
   - hardware
   - certificates
+notebook: iot-security
+notebookOrder: 1
 excerpt: "Per-device certs are easy when there are ten devices on a desk. At ten thousand, the cert-rotation problem becomes a fleet-operations problem. Notes from designing for it."
 pullquote: "If you can't revoke a single device in under a minute, you don't have device identity. You have hope."
 cover: "../../assets/blog/field-grade-device-identity-cover.svg"

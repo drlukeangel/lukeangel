@@ -10,9 +10,9 @@ tags:
   - hybrid-work
   - project-management-trends
   - sustainability
+notebook: pm-trends
+notebookOrder: 7
 excerpt: Project management is transforming faster than ever, and 2025 is no exception. As businesses adapt to new challenges and opportunities, project managers must stay ahead of the curve. This…
-wpCategory: cross-platform
-wpUrl: /cross-platform/10-game-changing-project-management-trends-for-2025/
 cover: ../../assets/blog/2025-squad-based-teams-reduce-bureaucracy.png
 coverAlt: 10 Game-Changing Project Management Trends for 2025
 ---

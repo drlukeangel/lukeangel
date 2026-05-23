@@ -6,7 +6,6 @@ duration: varies
 price: see platform
 seats: Open enrollment
 summary: Beginning OneNote 2016 is your must-have companion for anyone getting starting with OneNote 2016. This friendly, quick, 100% practical tutorial walks you through the various tasks for building...
-wpUrl: /courses/getting-started-with-onenote-2016/
 cover: ../../assets/courses/getting-started-with-onenote-2016.svg
 coverAlt: Getting Started With OneNote 2016
 enrollUrl: ''
