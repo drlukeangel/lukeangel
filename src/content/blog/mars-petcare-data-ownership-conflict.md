@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 32
 excerpt: "Seven years after Mars Petcare acquired Whistle, the consolidation is obvious. Same company sells the collar, sells the food, runs the vet, analyzes the data. The conflict isn't theoretical anymore."
 pullquote: "Pet wellness 'recommendations' that come from a company that also sells the prescribed food, runs the prescribing vet, and owns the analytics that 'detected' the need are not health advice. They're marketing channels. The conflict isn't subtle anymore."
+cover: "../../assets/blog/mars-petcare-data-ownership-conflict-cover.png"
+coverAlt: "Mars Petcare — the food company that owns your dog's collar"
 ---
 
 Mars Petcare's pet-empire consolidation has been the slow-burn story of the last seven years. Time to step back and see where it's landed.

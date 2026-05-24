@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 17
 excerpt: "Litter-Robot III Connect joined the house. Fi announced (will ship 2019). Petnet had three single-day outages. 2017 scored 70%. 2019: Fi ships, Petnet wobbles harder, smart-litter expands."
 pullquote: "Looking back: 5.5/8 on 2017's forecasts. The miss was 'a vet-integration platform actually gets traction' — still vapor. The interesting part of 2018 was the absence of pet-IoT consolidation news. Calm year before the storm."
+cover: "../../assets/blog/2018-pet-iot-year-in-review-cover.png"
+coverAlt: "2018 pet IoT — Fi announced, Litter-Robot landed"
 ---
 
 End of 2018.

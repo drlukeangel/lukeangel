@@ -14,6 +14,8 @@ notebook: connected-products
 notebookOrder: 3
 excerpt: "Part 3 of the v2 PRD. The identity model, the payment-data-handling architecture, the PII classification scheme, and the compliance threat model."
 pullquote: "The PRD's job in the compliance section is to draw a small box around payment data and a smaller box around customer identity, and then design every other system component to stay outside both boxes."
+cover: "../../assets/blog/prd-part-3-identity-and-compliance-cover.png"
+coverAlt: "v2 PRD, Part 3 — identity, payment, PII, compliance"
 ---
 
 This is **Part 3 of 3** in the v2 PRD I've been writing across August and September. [Part 1](/blog/prd-part-1-hardware-specs/) covered the hardware spec. [Part 2](/blog/prd-part-2-application-and-data/) covered application capability and the entity model.

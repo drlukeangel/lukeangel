@@ -13,6 +13,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 9
 excerpt: "Samsung just closed the SmartThings acquisition two weeks ago. The hub they ship today (Kickstarter-era v1 design) is the first credible all-in-one."
 pullquote: "A hub with two radios, a rules engine, and a Groovy SmartApp platform is the first thing that makes a multi-vendor smart home tractable. Eighteen months overdue, finally here."
+cover: "../../assets/blog/smartthings-starter-kit-unboxing-zwave-zigbee-first-hub-cover.png"
+coverAlt: "SmartThings starter kit unboxing — first credible hub"
 ---
 
 Samsung closed the SmartThings acquisition two weeks ago — announced August 14, $200M. SmartThings is now a Samsung subsidiary. They're still shipping the original Kickstarter-era hub (call it v1; rumors are a successor is in design but won't ship until next year at earliest).

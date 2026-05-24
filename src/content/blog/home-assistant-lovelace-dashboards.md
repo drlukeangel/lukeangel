@@ -12,6 +12,8 @@ series: smart-home-iot-journey
 seriesOrder: 24
 excerpt: "HA 0.72 shipped Lovelace as the new default UI. Six months of waiting; six weekends to build the kitchen wall-mounted dashboard."
 pullquote: "Lovelace is YAML-configurable, custom-card-supporting, and exposes every HA entity as a first-class widget. The dashboard isn't just a control surface — it's the front end of the smart home, the thing the family actually sees."
+cover: "../../assets/blog/home-assistant-lovelace-dashboards-cover.png"
+coverAlt: "Home Assistant Lovelace — building kitchen wall display"
 ---
 
 HA 0.72 shipped Lovelace as the new default UI in April. Forecast #1 from last December: confirmed. After a few weeks of tinkering, the kitchen wall dashboard is up. Refurbished iPad mini 2 mounted next to the fridge, running Fully Kiosk Browser fullscreen pointing at the HA Lovelace URL.

@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 20
 excerpt: "Fi shipped, Atom switched off Mars-owned Whistle. Petnet's outages got worse. 2018 scored 60%. 2020: Petnet finally collapses, smart-litter expands, COVID pet boom drives a surge."
 pullquote: "Looking back: 5/8 on 2018's forecasts. The miss was 'first credible HomeKit pet device' — still nothing. Pet IoT continues to be a HomeKit blind spot. Apple just doesn't care about this category."
+cover: "../../assets/blog/2019-pet-iot-year-in-review-cover.png"
+coverAlt: "2019 pet IoT — Fi shipped, Petnet still hanging on"
 ---
 
 End of 2019. Seven years of pet IoT documented.

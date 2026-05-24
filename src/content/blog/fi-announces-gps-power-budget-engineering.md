@@ -13,6 +13,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 15
 excerpt: "Fi closed a $5M seed and announced a smart collar with claimed 3-week battery — 5-10× Whistle 3. Notes on the power-budget engineering for a cellular pet collar, and whether the claim is plausible."
 pullquote: "Cellular pet tracker battery life is a power-budget engineering problem disguised as a marketing number. If Fi delivers 3 weeks where Whistle delivers 3-4 days, they've solved something other vendors haven't."
+cover: "../../assets/blog/fi-announces-gps-power-budget-engineering-cover.png"
+coverAlt: "Fi announces — and the GPS power-budget engineering"
 ---
 
 Fi closed a $5M seed round in October. The company's product — a smart collar for dogs — isn't shipping yet (planned 2019). What's interesting is the **claimed battery life**: 3 weeks, up from Whistle 3's real-world 3-4 days.

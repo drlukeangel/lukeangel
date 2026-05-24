@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 16
 excerpt: "Whisker's Litter-Robot III Connect arrived. Self-cleaning + WiFi + iOS app. Joule has been side-eyeing the rotating spaceship. Notes on the mechanism, the sensor model, and what 'smart' means here."
 pullquote: "Litter-Robot is the rare smart-pet device where the connected layer adds something the basic device cannot. A self-cleaning litter box is already great; one that tells you when the cat used it, how long, and what their weight is — that's medical-grade telemetry no other device delivers."
+cover: "../../assets/blog/litter-robot-iii-connect-smart-self-cleaning-litter-cover.png"
+coverAlt: "Litter-Robot III Connect — first smart-litter device"
 ---
 
 Litter-Robot III Connect arrived this month. $549 (pricey). The Connect version is Whisker's existing self-cleaning litter robot (which has been around since 2000-ish in some form) with WiFi added in 2017. Joule has been side-eyeing it for two weeks.

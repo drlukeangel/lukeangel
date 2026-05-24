@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 32
 excerpt: "Three years on HA. A weekend audit + migration: every device on a vendor cloud got either replaced or migrated to a local integration."
 pullquote: "When the internet went out during a March storm and the family's school + work calls all dropped, the lights, locks, and security alarm kept running. Local-first was an architectural opinion until the pandemic; now it's a requirement."
+cover: "../../assets/blog/ripping-out-vendor-clouds-local-first-ha-cover.png"
+coverAlt: "Ripping out vendor clouds — going local-first on Home Assistant"
 ---
 
 Three years on Home Assistant. Tonight finished a weekend-long audit + migration: every smart-home device that depended on a vendor cloud got either replaced with a local-protocol device or migrated to a local integration. The house runs on the LAN.

@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 43
 excerpt: "Matter 1.0 ratified, LoRa garden automation working, Frigate matured. House sale process started — we're building."
 pullquote: "Looking back: 5.5/8 on 2021's forecasts, ~70%. Matter hit on schedule, ESPHome exploded as predicted, HA Yellow shipped. The miss: Tesla Powerwall didn't happen — going natural-gas for backup power in the new build."
+cover: "../../assets/blog/2022-in-review-and-2023-forecast-cover.png"
+coverAlt: "2022 review — Matter shipped, LoRa garden worked"
 ---
 
 ## Scoring the 2021 forecast

@@ -12,6 +12,8 @@ series: smart-home-iot-journey
 seriesOrder: 22
 excerpt: "Forecast #4 hit: Aqara/Xiaomi Zigbee sensors available in the US (via AliExpress). Six door/window sensors ordered."
 pullquote: "Aqara door sensors are 1/3 the size of SmartThings Multipurpose, last 2 years on a single CR1632 button cell, and cost $10 each. The catch: you need a Zigbee coordinator that speaks their slightly-non-standard interpretation of the HA cluster spec."
+cover: "../../assets/blog/aqara-zigbee-sensors-at-scale-cover.png"
+coverAlt: "Aqara Zigbee door/window sensors at scale — title: 0 each"
 ---
 
 Aqara (sub-brand of Xiaomi/Mi Home) Zigbee sensors are finally available in the US — via AliExpress with 2-3 week shipping. Six MCCGQ11LM door/window sensors landed last week. $9.30 each. Compared to SmartThings's $40 Multipurpose, that's a fourfold price drop with comparable functionality.

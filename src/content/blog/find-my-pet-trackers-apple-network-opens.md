@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 36
 excerpt: "Apple's Find My opened to third-party trackers in 2021. 2024 brought pet-specific versions: Pebblebee Clip for Cats, Chipolo One Spot, Eufy SmartTrack. Do they replace cellular trackers like Fi?"
 pullquote: "Find My-network pet trackers don't replace cellular trackers like Fi. They complement them. BLE + 1 billion iPhones crowdsourced relay works for finding a lost pet in a city. It doesn't work in rural areas, and it never tracks in real-time. For active outdoor tracking, cellular still wins."
+cover: "../../assets/blog/find-my-pet-trackers-apple-network-opens-cover.png"
+coverAlt: "Find My pet trackers — Apple's network opens to third-party"
 ---
 
 Apple opened the Find My network to third-party accessories in 2021. The first generation of certified Find My pet trackers landed in 2024:

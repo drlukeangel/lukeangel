@@ -11,6 +11,8 @@ notebook: building-medical-iot-connected-products
 notebookOrder: 1
 excerpt: "Taking over the API platform behind a connected toothbrush line means first reckoning with what BLE 4.2 actually offers — and what it doesn't."
 pullquote: "A BLE device with no WiFi is a phone-shaped product. Every connected feature pivots through the customer's iPhone, including the ones the customer never asked to participate in."
+cover: "../../assets/blog/designing-a-connected-consumer-health-device-with-ble-4-2-cover.png"
+coverAlt: "Designing a connected health device with BLE 4.2"
 ---
 
 I'm six weeks into running the API platform behind a connected-health portfolio. The flagship is a connected-toothbrush line — an adult brush with brush-head-aware features, and a kids' brush with a companion app that turns brushing into a game. These first six weeks have been a crash course in what consumer-health BLE actually looks like in 2017.

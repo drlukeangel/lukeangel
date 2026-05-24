@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 35
 excerpt: "The pandemic year. Internet outages cost more, local-first paid off. Z2M migration done. Z-Wave JS replaced OpenZWave. Yale Assure lock — finally."
 pullquote: "Looking back: 6.5/8 on 2019's forecasts, ~78%. Smart lock and BLE presence hit; Wink still alive; Matter still vapor. The pandemic compressed two years of smart-home maturation into nine months."
+cover: "../../assets/blog/2020-in-review-and-2021-forecast-cover.png"
+coverAlt: "2020 review — local-first arrived early, alarm landed"
 ---
 
 2020 done. Pattern.

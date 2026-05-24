@@ -12,6 +12,8 @@ series: smart-home-iot-journey
 seriesOrder: 30
 excerpt: "Four years of humidity-triggered bathroom fan automation. Three different sensors. Two different fan controllers. One algorithm that finally works."
 pullquote: "Most bathroom fan switches are dumb timers. The fan needs to run until humidity is below the bedroom's level — not for a fixed 15 minutes. Dewpoint-targeting beats time-based by every measure."
+cover: "../../assets/blog/humidity-triggered-bathroom-fans-cover.png"
+coverAlt: "Humidity-triggered bathroom fans — the daily automation"
 ---
 
 The humidity-triggered bathroom fan automation has been running in some form since October 2015. It's evolved through three sensors and two fan controllers. The current version, finally, works correctly.

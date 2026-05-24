@@ -12,6 +12,8 @@ series: smart-home-iot-journey
 seriesOrder: 28
 excerpt: "iOS 12.2 shipped with better BLE background scan permissions. HA Companion App 2.0 uses them properly. Room-level presence works."
 pullquote: "Room-level presence isn't 'where is the phone.' It's 'is a human here right now.' That distinction is what makes automations feel intentional instead of creepy."
+cover: "../../assets/blog/ble-presence-detection-ha-companion-app-cover.png"
+coverAlt: "BLE presence detection — HA Companion + iBeacons"
 ---
 
 iOS 12.2 (late March) granted apps better BLE-background-scan permissions. HA Companion App 2.0 shipped early April with proper iBeacon-region-monitoring support. Room-level presence in my house is now reliable enough to build automations on.

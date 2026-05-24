@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 19
 excerpt: "Fi Series 1 shipped October. Bought one for Atom — first non-Mars cellular tracker. LTE-M, three-week claimed battery, no Mars Petcare ownership. Notes on setup, real battery life, vs Whistle."
 pullquote: "Two weeks on Fi. Battery life: 14 days actual, on a healthy active dog. That's 4-5× what Whistle 3 delivered. The LTE-M bet has paid off."
+cover: "../../assets/blog/fi-ships-first-units-atom-first-non-mars-tracker-cover.png"
+coverAlt: "Fi ships first units — Atom finally has a non-Mars tracker"
 ---
 
 Fi Series 1 finally shipped to early-access waitlists in October. Broader availability hit November 1. Bought one for Atom — first cellular pet tracker on him since I [shelved the Whistle 3 in 2016](/blog/six-months-on-whistle-3-cellular-realities/). Two weeks of use.

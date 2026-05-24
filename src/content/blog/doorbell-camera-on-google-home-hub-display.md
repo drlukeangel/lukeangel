@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 37
 excerpt: "Reolink doorbell PoE camera + WebRTC bridge + Google Home Hub display + Frigate-detected person events. When someone rings, every display shows them."
 pullquote: "Three platforms (Reolink, Frigate, Google) participating in one experience: when the doorbell button is pressed, every screen shows the visitor in under 2 seconds. That's the smart-home magic that justifies all the YAML."
+cover: "../../assets/blog/doorbell-camera-on-google-home-hub-display-cover.png"
+coverAlt: "Doorbell camera on the Google Home Hub display"
 ---
 
 The Reolink doorbell PoE camera arrived in May. Took until August to make the full experience work end-to-end. Notes.

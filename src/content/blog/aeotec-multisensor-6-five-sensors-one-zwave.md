@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 14
 excerpt: "Aeotec shipped Multisensor 6 — motion, temperature, humidity, light, UV, and vibration in one Z-Wave Plus device."
 pullquote: "Six sensors in one device on one Z-Wave node means six new automations are one device install away. Cost per sensor reading drops by a factor of six."
+cover: "../../assets/blog/aeotec-multisensor-6-five-sensors-one-zwave-cover.png"
+coverAlt: "Aeotec Multisensor 6 — six sensors in one Z-Wave device"
 ---
 
 Aeotec's **Multisensor 6** shipped last month — Z-Wave Plus, 500-series chip, six sensors in a tennis-ball-sized package:

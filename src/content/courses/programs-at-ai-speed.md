@@ -22,6 +22,8 @@ syllabus:
 enrollUrl: ""
 enrollLabel: "Sign Up!"
 recordings: "Yes"
+cover: "../../assets/courses/programs-at-ai-speed-cover.png"
+coverAlt: "Programs at AI Speed"
 ---
 
 A four-week program for PgMs and PMs running roadmaps with non-deterministic stacks.

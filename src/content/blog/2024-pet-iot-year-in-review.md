@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 37
 excerpt: "Atom passed in October — eleven years of pet-IoT data, end of an era. Find My pet trackers launched. DIY ESP32 feeders matured. 2023 scored 56%. 2025: more DIY local-first, AI behavior mostly hype."
 pullquote: "Looking back: a hard year. The pet-IoT data did its job — caught Atom's decline if I'd been looking at the right metrics. The lesson, expensive: dashboards must adapt to the pet's life stage. I missed the signal because I wasn't watching the right view."
+cover: "../../assets/blog/2024-pet-iot-year-in-review-cover.png"
+coverAlt: "2024 pet IoT — Atom passed, Find My trackers landed"
 ---
 
 End of 2024. The year I'd been quietly dreading and that came anyway.

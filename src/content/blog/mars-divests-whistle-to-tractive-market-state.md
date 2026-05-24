@@ -48,7 +48,7 @@ Two main cellular collar vendors in the US:
 | Vendor | Cellular | Vitals | Cat tracker | Subscription | Origin |
 |---|---|---|---|---|---|
 | **Fi** | LTE-M | Activity only | No | $99/yr | Independent, US |
-| **Tractive** | LTE-M (+ 2G fallback intl) | HR, activity, sleep, scratch, bark | **Yes (CAT 6 Mini)** | from ~$5/mo | Independent, Austrian |
+| **Tractive** | LTE-M (+ 2G fallback intl) | HR, activity, sleep, scratch, bark | **Yes (GPS Cat Mini)** | from ~$5/mo | Independent, Austrian |
 | Halo Collar | LTE-M | Activity | No | $9.95/mo | Independent, US ([returned mine](/blog/halo-collar-tried-it-returned-it/)) |
 
 Plus BLE / Find My ecosystem:
@@ -68,8 +68,8 @@ That's the meaningful set. The category consolidated faster than I expected.
 
 ## Three things changed in 2025
 
-**1. The cat-tracker gap finally got filled.**
-Cat IoT has trailed dog IoT by ~3 years on every axis for twelve years; the missing piece for outdoor cats has been a purpose-built cellular cat tracker. Whistle never made one. Fi never made one. Tractive's CAT 6 Mini is the first credible cellular cat tracker at consumer prices — 7-day battery, $79, LTE-M, sized for cats 3-18 lbs. The category finally has a product to fit Joule and Boson's outdoor patterns.
+**1. The cat-tracker gap has a credible option.**
+Cat IoT has trailed dog IoT by ~3 years on every axis for twelve years; the missing piece for outdoor cats has been a purpose-built cellular cat tracker. Whistle never made one. Fi never made one. Tractive's GPS Cat Mini — launched late 2022, ~1.4 oz, sized for cats down to ~7 lbs — is the most viable cellular cat tracker at consumer prices. Joule and Boson have worn it since 2022; it covers the off-property outdoor dimension the SureFlap door logs don't capture.
 
 **2. Vitals stopped being Mars-locked.**
 Tractive's DOG 6 / DOG 6 XL ship with heart rate + activity + sleep + scratch detection + bark detection — covering most of what Whistle Health & GPS Plus delivered, in an independent (non-food-company-owned) hardware vendor. The [data-ownership conflict I documented two years ago](/blog/mars-petcare-data-ownership-conflict/) just got a meaningful alternative for the first time since Whistle Health shipped in 2021.
@@ -80,7 +80,7 @@ Mars still owns Banfield + VCA + AniCura + Royal Canin + Pedigree + Champion. Th
 ## What I'm buying
 
 - **DOG 6 XL** ($89) + **Base Station** ($19.99) — evaluating against [Quark's Fi](/blog/quark-arrives-puppy-second-dog-pet-iot-baseline/) when his battery degrades. The claimed 6-week battery is the test that decides whether Tractive beats Fi on the engineering Fi pioneered.
-- **CAT 6 Mini** ($79) for Joule and Boson — the first cellular cat tracker in the house in 12 years of pet IoT. Their outdoor patterns are well-documented via [SureFlap door logs](/blog/sureflap-microchip-cat-door-joules-first-iot/); cellular adds the off-property dimension we don't currently see.
+- **GPS Cat Mini** for Joule and Boson — already deployed since late 2022. Their outdoor patterns are well-documented via [SureFlap door logs](/blog/sureflap-microchip-cat-door-joules-first-iot/); cellular covers the off-property dimension the door logs don't capture. Will continue evaluating as part of the broader Tractive assessment.
 - Not buying: any Whistle device (obviously). PetPace gets a wait.
 
 ## What's next

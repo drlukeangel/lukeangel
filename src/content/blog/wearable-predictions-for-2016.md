@@ -4,6 +4,8 @@ date: 2016-02-18T06:42:15.000Z
 category: tools
 tags: []
 excerpt: Set aside thoughts of mince pies and look ahead to what’s in store for wearable tech in 2016. 50. Gran Turismo Sport The upcoming 2016 VR explosion needs games and games don’t get much …
+cover: "../../assets/blog/wearable-predictions-for-2016-cover.png"
+coverAlt: "Wearable Predictions for 2016"
 ---
 
 Set aside thoughts of mince pies and look ahead to what’s in store for wearable tech in 2016.

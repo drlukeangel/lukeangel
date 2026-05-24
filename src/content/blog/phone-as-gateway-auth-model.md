@@ -12,6 +12,8 @@ notebook: building-medical-iot-connected-products
 notebookOrder: 4
 excerpt: "A consumer device with no WiFi can't authenticate to the cloud directly. The trust model has to bridge two separate auth domains."
 pullquote: "Bluetooth bonding gives you trust between two specific physical objects. OAuth gives you trust between a human and a cloud. The interesting work is in the wiring between them."
+cover: "../../assets/blog/phone-as-gateway-auth-model-cover.png"
+coverAlt: "Phone-as-gateway — the auth model for BLE-only devices"
 ---
 
 The device has no WiFi. Every byte of telemetry, every firmware update, every command — all of it goes through the user's phone. That sounds obvious until you sit down to design the auth model, and you realize you're trying to authenticate a device-to-cloud relationship through a phone that you can't trust by default.

@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 29
 excerpt: "Bought a Halo Collar 2 for the new house's backyard — no physical fence. Used on Atom and Quark two weeks. Returned. Engineering is sound; the application is a welfare problem."
 pullquote: "Halo's GPS-fence engineering is impressive — sub-meter accuracy, low-latency boundary detection, multi-mode correction options. The application — delivering uncomfortable stimuli to a dog who doesn't understand the boundary as an abstraction — is where the engineering excellence stops mattering."
+cover: "../../assets/blog/halo-collar-tried-it-returned-it-cover.png"
+coverAlt: "Halo Collar — I tried it, returned it within the trial window"
 ---
 
 Bought a Halo Collar 2 for the new house. The backyard doesn't have a physical fence on the back property line; we're considering options. Virtual-fence systems are pitched as the modern alternative.

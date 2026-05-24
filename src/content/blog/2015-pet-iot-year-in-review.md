@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 7
 excerpt: "Joule got her SureFlap. FitBark 2 competes with Whistle on Atom's collar. Petnet still hasn't shipped. 2014 scored 75%. 2016: Whistle 3 cellular, Petnet finally, smart cams real."
 pullquote: "Looking back: 6 of 8 on 2014's forecasts. The misses were timing (Petnet, no surprise) and Tagg's surprisingly persistent survival despite the obvious threats."
+cover: "../../assets/blog/2015-pet-iot-year-in-review-cover.png"
+coverAlt: "2015 pet IoT review — SureFlap in, FitBark vs Whistle"
 ---
 
 End of 2015. Pattern continues — score the forecast, document the year, place 2016 bets.

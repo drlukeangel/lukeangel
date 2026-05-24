@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 35
 excerpt: "Atom passed in October — 11 years old, mitral valve disease, peaceful at home. Read the Whistle Health data for signals I missed. Scratching drifted up 40%. I watched activity. Wrong metric."
 pullquote: "I read the data for six months. The signal was there. I was watching the wrong metric. The metric a healthy dog tracks is not the same metric a sick dog tracks. Different dashboards for different stages."
+cover: "../../assets/blog/atoms-last-year-data-told-us-cover.png"
+coverAlt: "Atom's last year — what the data told us, and what I missed"
 ---
 
 Atom passed October 16, 2024. Peacefully at home with the family. He was 11 years old. The diagnosis confirmed at the September vet appointment: end-stage degenerative mitral valve disease, the standard older-Lab cardiac progression.

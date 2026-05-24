@@ -37,7 +37,7 @@ End of 2025. Closing the annual cadence of the pet-IoT field guide.
 - **Second Pebblebee Clip for Boson's collar** (May).
 - **The long-arc retrospective post** (July) — written two weeks after Mars's Whistle divestiture, then revised to acknowledge it.
 - **Tractive DOG 6 XL + Base Station** (September) — evaluating against Fi for Quark.
-- **Tractive CAT 6 Mini ×2** (October) — first cellular cat trackers in the house in 12 years of pet IoT.
+- **Tractive GPS Cat Mini ×2** — already running on Joule and Boson since late 2022; continued evaluation alongside the new DOG 6 XL + Base Station setup.
 - **A small DIY ESP32 cat-water-fountain monitor** (September) — knows when the water filter needs replacing.
 
 ## What worked
@@ -69,7 +69,7 @@ End of 2025. Closing the annual cadence of the pet-IoT field guide.
 
 - Whatever Apple ships for pet-specific Find My (rumored at WWDC 2026).
 - Quark's next collar — Fi or Tractive DOG 6 XL, depending on the 6-week battery test.
-- More Tractive evaluation if the CAT 6 Mini holds up through winter.
+- More Tractive evaluation — GPS Cat Mini on the cats, DOG 6 XL battery test result decision on Quark's next collar.
 - A few more ESP32 modules for the next round of DIY pet-IoT projects — possibly including a community-firmware attempt on the Tractive Base Station.
 
 ## What's next

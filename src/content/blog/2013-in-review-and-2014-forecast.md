@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 7
 excerpt: "Year-end check-in. Hue is solid, Wemo is fine, IFTTT is duct tape. Forecast: 2014 is the year of the hub. Samsung just acquired SmartThings; Amazon is rumored to ship Echo; Apple's HomeKit is real."
 pullquote: "Voice control is the inflection point. Whoever wins voice in 2014 owns the smart-home conversation for the next decade."
+cover: "../../assets/blog/2013-in-review-and-2014-forecast-cover.png"
+coverAlt: "2013 review — three vendors, one annoyed homeowner"
 ---
 
 End of year — time to take stock. The kit is in three buckets:

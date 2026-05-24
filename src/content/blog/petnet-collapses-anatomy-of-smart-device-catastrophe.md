@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 21
 excerpt: "Petnet's servers went down February 14. Stayed down over a week. Cats and dogs didn't get fed. The cautionary tale I [forecast in 2017](/blog/petnet-smart-feeder-long-term-review/) finally arrived."
 pullquote: "Petnet's nine-day outage is the case study every connected-device pitch deck will cite for the next decade. The company that promised to feed your pet failed to feed your pet for a week and a half. The 'smart' became the failure mode."
+cover: "../../assets/blog/petnet-collapses-anatomy-of-smart-device-catastrophe-cover.png"
+coverAlt: "Petnet collapses — the pet-IoT cautionary tale, written"
 ---
 
 Petnet's cloud went down February 14. Stayed down until February 23. Nine days.

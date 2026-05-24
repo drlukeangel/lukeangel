@@ -13,6 +13,8 @@ notebook: connected-products
 notebookOrder: 1
 excerpt: "The PRD I'm writing before v2 hardware goes into prototyping. Part 1 of three — the hardware spec for a wheeled scanner-and-payment workstation."
 pullquote: "The PRD answers one question at every layer: 'what does this device need to do that a smartphone with the same app couldn't do?' Every part of the spec earns its place against that question."
+cover: "../../assets/blog/prd-part-1-hardware-specs-cover.png"
+coverAlt: "v2 PRD, Part 1 — hardware specs for a battery device"
 ---
 
 I'm writing the product requirements document for the v2 connected hardware product. **This is my second time writing one of these.** I led the API platform for a BLE-connected consumer-health portfolio from 2017 to 2019 — the [v1 series](/notebooks/building-medical-iot-connected-products/) is the full story. That experience is shaping every section of this PRD. The team is freshly chartered, the budget just landed, and we have eight weeks to decide what we're building before we run out of "Q3 is for figuring it out" runway.

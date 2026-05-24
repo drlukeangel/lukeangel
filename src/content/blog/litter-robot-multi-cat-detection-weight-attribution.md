@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 23
 excerpt: "Four months with Joule + Boson sharing a Litter-Robot. Pulled the CSV export and analyzed entry weights. Joule (9.5 lb) and Boson (3.5 lb) separate 90% of the time. The other 10% is interesting."
 pullquote: "Multi-cat attribution by weight works when the cats are weight-different. Litter-Robot's data plus a 30-line Python script give per-cat analytics today, despite the official app not supporting it."
+cover: "../../assets/blog/litter-robot-multi-cat-detection-weight-attribution-cover.png"
+coverAlt: "Litter-Robot multi-cat detection — Joule vs Boson"
 ---
 
 Four months of Joule + Boson sharing the same Litter-Robot III Connect. The official app still doesn't do per-cat attribution. The data is there in the entry-weight column; just no UI to slice it.

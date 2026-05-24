@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 27
 excerpt: "AirTag was the headline. Whistle Health shipped vitals. Halo Collar shipped with welfare concerns. 2020 scored 80%. 2022: Quark joins, Petivity multi-cat litter, Mars consolidation accelerates."
 pullquote: "Looking back: 6.5/8 on 2020's forecasts. The hits were AirTag launching, the AirTag-on-collar controversy materializing, Petivity finally getting closer. The miss was a non-Halo GPS-fence competitor — still nothing credible."
+cover: "../../assets/blog/2021-pet-iot-year-in-review-cover.png"
+coverAlt: "2021 pet IoT — AirTag, vitals, Halo Collar shipped"
 ---
 
 End of 2021.

@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 39
 excerpt: "Five PoE cameras + one WiFi cam, all routing through Frigate + Coral. The doorbell experience finally landed. Wink folded for real."
 pullquote: "Looking back: 6/8 on 2020's forecasts, ~75%. Cameras hit, ESP DIY hit, Wink hit, Matter still vapor. The miss: voice-assistant fatigue formalization (Amazon/Google did nothing about it — Echo/Google Home stay muted in our house)."
+cover: "../../assets/blog/2021-in-review-and-2022-forecast-cover.png"
+coverAlt: "2021 in review — cameras everywhere, Coral landed. 2022 forecast."
 ---
 
 End of year.

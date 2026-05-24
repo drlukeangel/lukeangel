@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 4
 excerpt: "A year on Whistle for Atom. Joule's been home eight months. Dog activity shows breed-baseline patterns; the cat side is empty. 2015 forecast: SureFlap, Whistle GPS, cat IoT still unfilled."
 pullquote: "First year of pet IoT: dog gets a tracker, cat gets a chip in her shoulder blade. The dog side has products and a market; the cat side has neither."
+cover: "../../assets/blog/2014-pet-iot-year-in-review-cover.png"
+coverAlt: "2014 pet IoT review — Whistle works, cat IoT empty"
 ---
 
 End of 2014. First full year of pet IoT in the house. Time to grade the year and forecast 2015.

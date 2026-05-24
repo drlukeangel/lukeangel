@@ -10,6 +10,8 @@ series: smart-home-iot-journey
 seriesOrder: 27
 excerpt: "HA Lovelace shipped (predicted). HomePod shipped — mediocre (predicted). Water shutoff + smoke / CO on the platform (predicted)."
 pullquote: "Looking back: 6.5/8 on 2017's forecasts. ~81%. Better than 2016 (64%) and 2015 (71%), worse than 2013 (83%). The arc seems to be: my confidence calibration is improving; my Apple-timing intuition is not."
+cover: "../../assets/blog/2018-in-review-and-2019-forecast-cover.png"
+coverAlt: "2018 review — Lovelace, leak shutoff, smoke + CO"
 ---
 
 End of year. Pattern continues.

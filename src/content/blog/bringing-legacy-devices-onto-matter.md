@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 50
 excerpt: "Two years after Matter 1.0, the legacy-device bridge story is finally usable. Aqara M2 bridges Aqara Zigbee. Hue bridge bridges Hue."
 pullquote: "Matter bridges turn 'I need to repurchase 200 sensors' into 'my existing sensors join my Apple Home / Google Home / Alexa via the device they already talk to.' That's the migration path that makes Matter actually useful."
+cover: "../../assets/blog/bringing-legacy-devices-onto-matter-cover.png"
+coverAlt: "Bringing legacy Zigbee + Z-Wave devices onto Matter — the bridges"
 ---
 
 Two years after [Matter 1.0 shipped](/blog/matter-1-0-ships-protocol-primer/), the bridge story is finally usable. Three bridges in my house, expose hundreds of legacy Zigbee + Z-Wave devices to the Matter fabric. Notes on each.

@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 44
 excerpt: "Construction starts in six weeks. Plans approved last month, framing scheduled for May. Tonight I finished the connected-home wire spec."
 pullquote: "Cat6 in the walls during framing costs $40 per drop. Cat6 retrofitted after drywall costs $400 per drop. Plan everything you might possibly want before the studs are covered."
+cover: "../../assets/blog/designing-new-build-for-smartthings-day-one-cover.png"
+coverAlt: "Designing the new build for SmartThings from day one"
 ---
 
 Construction starts in six weeks. Tonight finalized the connected-home wire spec for the build. Every Cat6 drop, every PoE camera location, every conduit run, every smart switch box. Anything I forget now is a $400 retrofit later.

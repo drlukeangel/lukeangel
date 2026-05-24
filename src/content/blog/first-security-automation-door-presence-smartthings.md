@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 12
 excerpt: "Six months on SmartThings. Starter kit's door/window sensors and Arrival Sensors sat in a drawer waiting for the first useful automation."
 pullquote: "The Arrival Sensor is a Bluetooth dongle the size of a key fob with a CR2450 battery. It's also unreliable enough that I'm already planning to replace it with phone-based presence."
+cover: "../../assets/blog/first-security-automation-door-presence-smartthings-cover.png"
+coverAlt: "First security automation — door/window + presence"
 ---
 
 Six months on the [SmartThings hub I bought last August](/blog/smartthings-starter-kit-unboxing-zwave-zigbee-first-hub/). The starter kit's two door/window sensors and one Arrival Sensor have been sitting in a drawer waiting for me to build something with them. Tonight is the night.

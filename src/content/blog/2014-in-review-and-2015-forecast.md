@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 11
 excerpt: "Big year. SmartThings + Samsung happened, Echo arrived, Lutron Caseta solved the no-neutral problem, HomeKit got announced."
 pullquote: "Looking back at the 2013 forecast: hub-as-unifier (✓), Amazon voice (✓), HomeKit announcement (✓), Zigbee 3.0 (just-barely ✓). Net forecast accuracy: 83%."
+cover: "../../assets/blog/2014-in-review-and-2015-forecast-cover.png"
+coverAlt: "2014 review — SmartThings + Alexa change everything"
 ---
 
 Bigger year than I expected. 2014 was when the smart-home tooling caught up to what I needed.

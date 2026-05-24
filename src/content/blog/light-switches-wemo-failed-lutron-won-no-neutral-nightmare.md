@@ -13,6 +13,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 8
 excerpt: "Smart bulbs are useless when the switch is off. Three vendors tried; the no-neutral wiring of my old house ruled out two. Lutron Caseta won — notes from a frustrated homeowner."
 pullquote: "An old house with no neutral wire in the switch box rules out 80% of smart switches on the market. The remaining 20% earn their premium."
+cover: "../../assets/blog/light-switches-wemo-failed-lutron-won-no-neutral-nightmare-cover.png"
+coverAlt: "Light switches — Wemo failed, Lutron won, no-neutral pain"
 ---
 
 Eighteen months of controlling Hue bulbs from an app and from voice (more on Echo later this year). The pain point is now obvious: anyone who flips the physical wall switch off renders all the smart-bulb features useless. The bulb is unpowered. The app can't dim it. Schedules don't fire. Voice control can't reach it.

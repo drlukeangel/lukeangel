@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 30
 excerpt: "Petivity Smart Litterbox Monitor shipped March; bought in July. Sits under any litter box. Reads weight + visit duration + frequency. Multi-cat aware. Purina-built — same conflict as Mars/Whistle."
 pullquote: "Petivity is built by Purina to find UTI signals and feed-them-back-to-Royal-Canin-recommendations. The signal is real. The recommendation layer is the conflict. The data is worth the conflict if you ignore the recommendations."
+cover: "../../assets/blog/petivity-smart-litter-multi-cat-analytics-cover.png"
+coverAlt: "Petivity smart-litter — multi-cat analytics, Purina-built"
 ---
 
 Petivity Smart Litterbox Monitor shipped in March 2022; bought one in July for evaluation. It's a smart base that sits under any existing litter box — agnostic to the box type. Weight sensor + visit detection + multi-cat profiling.

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Smart Home IoT — An Engineer's Journey notebook cover: stylized house front view with smart devices and central hub, plus protocol list">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">SMART HOME · ENGINEER'S JOURNEY</text>
+  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#6a4c93" text-anchor="end">NOTEBOOK № 04</text>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+
+  <!-- HERO: Stylized house (front view) with smart devices and central hub.
+       Origin at translate(160, 160). House: 400 wide x 320 tall total. -->
+  <g transform="translate(160, 160)">
+    <!-- House outline -->
+    <g fill="none" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <!-- Walls + roof outline -->
+      <path d="M 0 320 L 0 130 L 200 0 L 400 130 L 400 320 Z"/>
+      <!-- Floor divider -->
+      <line x1="0" y1="200" x2="400" y2="200" opacity="0.4"/>
+      <!-- Door -->
+      <rect x="170" y="240" width="60" height="80"/>
+      <circle cx="218" cy="280" r="2" fill="#1a1d24"/>
+      <!-- Windows top floor -->
+      <rect x="50" y="150" width="50" height="40"/>
+      <line x1="75" y1="150" x2="75" y2="190"/>
+      <line x1="50" y1="170" x2="100" y2="170"/>
+      <rect x="300" y="150" width="50" height="40"/>
+      <line x1="325" y1="150" x2="325" y2="190"/>
+      <line x1="300" y1="170" x2="350" y2="170"/>
+      <!-- Windows lower floor -->
+      <rect x="50" y="230" width="50" height="40"/>
+      <line x1="75" y1="230" x2="75" y2="270"/>
+      <line x1="50" y1="250" x2="100" y2="250"/>
+      <rect x="300" y="230" width="50" height="40"/>
+      <line x1="325" y1="230" x2="325" y2="270"/>
+      <line x1="300" y1="250" x2="350" y2="250"/>
+    </g>
+
+    <!-- Hub-to-device connection lines (rendered first so they're behind dots) -->
+    <g stroke="#6a4c93" stroke-width="1.2" stroke-dasharray="3 3" fill="none" opacity="0.5">
+      <line x1="200" y1="358" x2="75"  y2="120"/>
+      <line x1="200" y1="358" x2="325" y2="120"/>
+      <line x1="200" y1="358" x2="30"  y2="170"/>
+      <line x1="200" y1="358" x2="200" y2="220"/>
+      <line x1="200" y1="358" x2="230" y2="280"/>
+      <line x1="200" y1="358" x2="420" y2="280"/>
+      <line x1="200" y1="358" x2="200" y2="60"/>
+    </g>
+
+    <!-- Smart device dots placed around the house -->
+    <!-- Bulb top-left (above window) -->
+    <g transform="translate(75, 120)">
+      <circle r="9" fill="#6a4c93" stroke="#1a1d24" stroke-width="1.5"/>
+      <circle r="3" fill="#fdfaf2"/>
+    </g>
+    <!-- Bulb top-right -->
+    <g transform="translate(325, 120)">
+      <circle r="9" fill="#6a4c93" stroke="#1a1d24" stroke-width="1.5"/>
+      <circle r="3" fill="#fdfaf2"/>
+    </g>
+    <!-- Motion sensor outside left -->
+    <g transform="translate(30, 170)">
+      <rect x="-7" y="-7" width="14" height="14" rx="2" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5"/>
+      <circle r="3" fill="#1a1d24"/>
+    </g>
+    <!-- Camera above door -->
+    <g transform="translate(200, 220)">
+      <rect x="-9" y="-7" width="18" height="14" rx="2" fill="#1a1d24"/>
+      <circle r="3" fill="#6a4c93"/>
+    </g>
+    <!-- Door sensor -->
+    <g transform="translate(230, 280)">
+      <rect x="-7" y="-7" width="14" height="14" rx="2" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5"/>
+      <circle r="3" fill="#1a1d24"/>
+    </g>
+    <!-- Outdoor sensor (right of house) -->
+    <g transform="translate(420, 280)">
+      <circle r="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5"/>
+      <circle r="2.5" fill="#6a4c93"/>
+    </g>
+    <!-- Roof apex device -->
+    <g transform="translate(200, 60)">
+      <circle r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5"/>
+      <circle r="4" fill="#6a4c93"/>
+    </g>
+
+    <!-- Central hub at the floor of the house -->
+    <g transform="translate(200, 380)">
+      <rect x="-32" y="-22" width="64" height="44" rx="6" fill="#6a4c93" stroke="#1a1d24" stroke-width="2.5"/>
+      <text y="6" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#fdfaf2" letter-spacing="2">HUB</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: Protocols list -->
+  <g>
+    <text x="700" y="200" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="4" fill="#7a808c">PROTOCOLS · IN SERVICE</text>
+    <line x1="700" y1="216" x2="1120" y2="216" stroke="#1a1d24" stroke-width="1" opacity="0.35"/>
+
+    <text x="700" y="252" font-family="'Newsreader', serif" font-size="22" font-style="italic" fill="#1a1d24">WiFi</text>
+    <text x="700" y="274" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5a6470">2012 — present  ·  always-on</text>
+
+    <text x="700" y="312" font-family="'Newsreader', serif" font-size="22" font-style="italic" fill="#1a1d24">Z-Wave</text>
+    <text x="700" y="334" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5a6470">2014 — present  ·  door / lock / motion</text>
+
+    <text x="700" y="372" font-family="'Newsreader', serif" font-size="22" font-style="italic" fill="#1a1d24">Zigbee</text>
+    <text x="700" y="394" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5a6470">2014 — present  ·  bulbs / sensors</text>
+
+    <text x="700" y="432" font-family="'Newsreader', serif" font-size="22" font-style="italic" fill="#1a1d24">Thread + Matter</text>
+    <text x="700" y="454" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5a6470">2023 — present  ·  cross-vendor</text>
+
+    <text x="700" y="492" font-family="'Newsreader', serif" font-size="22" font-style="italic" fill="#1a1d24">LoRa</text>
+    <text x="700" y="514" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5a6470">2019 — present  ·  outdoor / mailbox</text>
+  </g>
+
+  <line x1="80" y1="555" x2="1120" y2="555" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="600" font-family="'Newsreader', serif" font-size="19" font-style="italic" fill="#5a6470">Hue gen 1 in 2012 → Samsung Bespoke kitchen in 2025. Same house, thirteen years.</text>
+  <text x="1120" y="600" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="3" fill="#7a808c">2012 — 2025</text>
+</svg>

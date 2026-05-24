@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 34
 excerpt: "Five years of piecemeal security automations. Six door sensors, two glass-break, six vibration, two presence signals. Tonight all of it became one panel."
 pullquote: "An arm/disarm state machine isn't optional once the sensor count crosses a threshold. With 14 security sensors and 3 modes, the alarm-panel abstraction is the only way the family can use the system without me on call."
+cover: "../../assets/blog/building-security-alarm-panel-in-ha-cover.png"
+coverAlt: "Building the security alarm panel in Home Assistant"
 ---
 
 Five years of piecemeal security automations. Six door/window contact sensors, two glass-break, six vibration, two presence signals. The automations work but they're disjoint — each "if X happens, do Y" lives separately in YAML. The family interface is "Luke configured something."

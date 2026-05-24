@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 5
 excerpt: "I now have a Wemo Insight plug controlling the coffee maker. The Wemo app is fine for the plug. It can't see my Hue bulbs. The multi-vendor app problem starts here."
 pullquote: "Three apps open just to turn off the kitchen lights and the coffee maker. There's a startup waiting for the unification problem."
+cover: "../../assets/blog/wemo-plugs-and-the-multi-vendor-app-problem-cover.png"
+coverAlt: "Wemo plugs and the multi-vendor app problem"
 ---
 
 Wemo Insight Switch arrived this morning. Plugs into a wall outlet, the coffee maker plugs into it, install the Wemo app, find the new SSID `WemoNet.xxxxxx`, join it, hand over home WiFi credentials, switch back, online. Eight steps. Twelve minutes.

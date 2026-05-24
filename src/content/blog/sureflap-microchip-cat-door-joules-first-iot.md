@@ -13,6 +13,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 5
 excerpt: "Joule turned one. Installed a SureFlap Microchip Pet Door this weekend. Notes on the RFID reader, the chip-allow-list config, the latch, and why this is the first real cat IoT product I've owned."
 pullquote: "The SureFlap door reads Joule's chip in under 200 ms as she approaches. The neighbor's cat — which has been getting into my garage by squeezing through gaps — gets denied. Identity-as-physical-access just shipped to consumers."
+cover: "../../assets/blog/sureflap-microchip-cat-door-joules-first-iot-cover.png"
+coverAlt: "SureFlap microchip cat door — Joule's first pet IoT"
 ---
 
 Joule turned a year old last week. She's been an indoor cat until now; we want to give her supervised outdoor access in the fenced yard. The cat-door choice: pet IoT enters the picture for cats, finally.

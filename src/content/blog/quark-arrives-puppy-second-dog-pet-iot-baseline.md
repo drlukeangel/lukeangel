@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 28
 excerpt: "Brought home Quark — 9-week chocolate Lab. Atom is 8.5 and gracious. Pet-IoT setup begins again: new Fi collar, new baseline. Same 2013 questions, different answers."
 pullquote: "When the same engineer brings home a second puppy nine years apart, the pet-IoT landscape they're shopping has changed completely. In 2013, Whistle was new and risky. In 2022, the right collar is obvious — Fi — and the integration story is mature."
+cover: "../../assets/blog/quark-arrives-puppy-second-dog-pet-iot-baseline-cover.png"
+coverAlt: "Quark arrives — a second dog, the pet-IoT baseline restarted"
 ---
 
 Brought home **Quark** this weekend. A 9-week-old chocolate Lab puppy, named per the household convention (Atom: dog, Joule: cat, Boson: cat, Quark: dog, all particle/energy-themed). Atom is 8.5 years old now, gracious about the puppy-energy. Joule and Boson are mildly horrified.

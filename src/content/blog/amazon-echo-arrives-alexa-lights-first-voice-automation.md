@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 10
 excerpt: "Amazon launched Echo on November 6 as Prime-only invitation pre-order. Mine arrived this week. Notes on what voice control actually does and doesn't do in 2014."
 pullquote: "Voice as a control surface fundamentally changes what 'smart home' means. The pain point was never the protocol; it was getting your phone out."
+cover: "../../assets/blog/amazon-echo-arrives-alexa-lights-first-voice-automation-cover.png"
+coverAlt: "Amazon Echo arrives — Alexa, lights, first voice automation"
 ---
 
 Amazon Echo launched November 6, 2014 — Prime-only invitation pre-order at $199 ($99 for Prime members). I got in on the early wave; the device arrived Tuesday.

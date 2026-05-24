@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 53
 excerpt: "Eighteen months into the full Bespoke ecosystem. Fridge, oven, dishwasher, washer/dryer, Frame TV, and SmartThings hub now genuinely cooperate."
 pullquote: "Connected appliances are interesting individually. The collective behavior — when the kitchen knows what's cooking and routes information across screens — is what justifies the ecosystem investment."
+cover: "../../assets/blog/frame-tv-kitchen-appliance-sync-cover.png"
+coverAlt: "Frame TV + kitchen appliance sync — kitchen talks"
 ---
 
 Eighteen months in the full Samsung Bespoke ecosystem. Eighteen months of figuring out what cross-appliance routines actually matter. This is the cookbook of what works.

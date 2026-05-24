@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 48
 excerpt: "Three more Bespoke appliances installed. Slide-in induction oven, dishwasher, washer/dryer combo. All on SmartThings, all on the Family Hub fridge."
 pullquote: "An induction oven that texts you when the roast hits 145°F is useful. A washer that texts you when the cycle ends is useful. The collective 'kitchen + laundry as one system' is what changes how you use the appliances."
+cover: "../../assets/blog/samsung-oven-dishwasher-washer-dryer-cover.png"
+coverAlt: "Samsung Bespoke oven + dishwasher + washer/dryer"
 ---
 
 Three more Samsung Bespoke appliances installed today. The kitchen + laundry suite is complete.

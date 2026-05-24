@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 18
 excerpt: "Petnet had two outages in April — one 18-hour, one 6-hour. No communication. Layoffs rumored in pet-tech press. Three+ years of consolidation about to claim a victim. Notes on what to do."
 pullquote: "When a connected pet device's cloud goes down repeatedly without explanation, the company is in trouble. The outage history is the leading indicator of the company's solvency. By the time the bankruptcy notice comes, the pets have already been hungry for days."
+cover: "../../assets/blog/petnets-cracks-visible-early-warning-cover.png"
+coverAlt: "Petnet's cracks are visible — the early warning"
 ---
 
 [Petnet had two outages this month](/blog/petnet-smart-feeder-long-term-review/). One 18-hour event, one 6-hour event. The 18-hour outage missed *three* feeds for Joule + Atom. My backup PetSafe Smart Feed feeder caught two of them. One was missed entirely.

@@ -12,6 +12,8 @@ notebook: building-medical-iot-connected-products
 notebookOrder: 6
 excerpt: "Connected hardware products live or die in the cross-functional meeting where hardware, firmware, API, mobile, and ops engineers negotiate."
 pullquote: "The hardware team ships every 18 months. The API team ships every two weeks. The forward-compatibility you build into the API contract is the bridge between those two clocks."
+cover: "../../assets/blog/where-hardware-specs-meet-api-contracts-cover.png"
+coverAlt: "Where hardware specs meet API contracts — the room"
 ---
 
 A connected hardware product has four engineering disciplines that have to ship the same feature at the same time:

@@ -12,6 +12,8 @@ series: smart-home-iot-journey
 seriesOrder: 26
 excerpt: "First Alert ZCOMBO smoke + CO detector on Z-Wave. Three of them throughout the house, replacing the dumb battery-only smokes that were 12 years old."
 pullquote: "Smoke detectors are the one device class where ALL the automation around them is downstream of one signal you absolutely cannot afford to miss. The integration matters; the dependency on the network for the actual alert does not. Standalone alarm first; HA second."
+cover: "../../assets/blog/smoke-detector-integration-cant-fake-this-safety-cover.png"
+coverAlt: "Smoke detector integration — alerts that actually matter"
 ---
 
 Three First Alert ZCOMBO smoke + CO detectors installed last weekend. They replace the dumb battery-only Kidde models that had been beeping at 3 AM for years on dying 9V batteries.

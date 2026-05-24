@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 49
 excerpt: "The 65\" Frame TV has been the great room's center for eight months. Art display when off, TV when on, SmartThings hub always."
 pullquote: "The Frame TV's killer feature isn't 4K HDR or the matte screen. It's that it's a SmartThings hub + Thread Border Router + the largest display in the house, all in one device. The fact that it's also a great TV is a bonus."
+cover: "../../assets/blog/frame-tv-as-household-display-surface-cover.png"
+coverAlt: "Frame TV as household display — art, dashboards, hub"
 ---
 
 The 65" Frame TV (QN65LS03BAFXZA) has been the great room's center for eight months. Eight months of art-mode-by-default, TV-mode-on-demand, and SmartThings-hub-always-on. Time to write it up.

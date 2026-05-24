@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 15
 excerpt: "Echo went GA, Alexa Skills Kit shipped, HomeKit got real with iOS 9, first piece of a security system built."
 pullquote: "Looking back at the 2014 forecast: 5/7 hit, 2 missed. ~71% accurate. Worse than 2013's 83% — partly because I was more confident this year, partly because Apple and Google moved at different speeds than I predicted."
+cover: "../../assets/blog/2015-in-review-and-2016-forecast-cover.png"
+coverAlt: "2015 review — voice + HomeKit land. Security starts"
 ---
 
 End of year. Time to grade 2014's forecast and place bets for 2016.

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Building IoT Connected Products v2 notebook cover: a stylized device PCB top view and four platform pillars">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+
+  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">CONNECTED PRODUCTS · PLATFORM</text>
+  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2a52be" text-anchor="end">NOTEBOOK № 02 · v2</text>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+
+  <!-- HERO: Stylized PCB top view, components labeled.
+       Origin group at translate(140, 200). PCB spans 420x280. -->
+  <g transform="translate(140, 200)">
+    <!-- Enclosure (dashed outline) -->
+    <rect x="0" y="0" width="420" height="280" rx="14" fill="none" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="10 5" opacity="0.45"/>
+    <!-- PCB rectangle -->
+    <rect x="30" y="30" width="360" height="220" rx="4" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- Decorative trace lines -->
+    <g stroke="#2a52be" stroke-width="1.2" opacity="0.45" fill="none">
+      <path d="M 60 90 L 160 90 L 160 60"/>
+      <path d="M 260 60 L 260 90 L 320 90"/>
+      <path d="M 60 200 L 100 200 L 100 220"/>
+      <path d="M 320 220 L 320 200 L 360 200"/>
+    </g>
+    <!-- MCU (center, accent fill) -->
+    <rect x="160" y="110" width="100" height="80" rx="3" fill="#2a52be" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="210" y="146" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="2" fill="#fdfaf2">MCU</text>
+    <text x="210" y="166" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#fdfaf2" opacity="0.75">Cortex-M4F</text>
+    <!-- Radio chip -->
+    <rect x="290" y="120" width="70" height="60" rx="3" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="325" y="146" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">RADIO</text>
+    <text x="325" y="164" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9" fill="#5a6470">BLE · LTE-M</text>
+    <!-- Antenna trace -->
+    <path d="M 360 138 L 380 138 L 380 70 L 350 70 L 350 80" fill="none" stroke="#2a52be" stroke-width="2"/>
+    <circle cx="350" cy="78" r="3" fill="#2a52be"/>
+    <!-- Battery -->
+    <rect x="60" y="110" width="80" height="80" rx="3" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="100" y="146" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">BATT</text>
+    <text x="100" y="164" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9" fill="#5a6470">3.7V Li</text>
+    <!-- Sensor strip -->
+    <rect x="160" y="60" width="100" height="22" rx="3" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="210" y="76" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#1a1d24">SENSORS</text>
+    <!-- USB / debug pads bottom -->
+    <g transform="translate(160, 220)" fill="#1a1d24" opacity="0.55">
+      <rect x="0" y="0" width="8" height="14"/>
+      <rect x="14" y="0" width="8" height="14"/>
+      <rect x="28" y="0" width="8" height="14"/>
+      <rect x="42" y="0" width="8" height="14"/>
+      <rect x="56" y="0" width="8" height="14"/>
+      <rect x="70" y="0" width="8" height="14"/>
+      <rect x="84" y="0" width="8" height="14"/>
+    </g>
+  </g>
+
+  <text x="350" y="510" text-anchor="middle" font-family="'Newsreader', serif" font-size="15" font-style="italic" fill="#7a808c">fig. 02 — connected device, top view · platform v2</text>
+
+  <!-- RIGHT: Platform pillars -->
+  <g>
+    <text x="640" y="200" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="4" fill="#7a808c">PLATFORM PILLARS · 04</text>
+    <line x1="640" y1="216" x2="1120" y2="216" stroke="#1a1d24" stroke-width="1" opacity="0.35"/>
+
+    <text x="640" y="258" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#2a52be">№ 01</text>
+    <text x="700" y="258" font-family="'Newsreader', serif" font-size="22" fill="#1a1d24">Wireless rubric</text>
+    <text x="700" y="280" font-family="'Newsreader', serif" font-size="15" font-style="italic" fill="#5a6470">BLE vs LoRa vs cellular, decided up front</text>
+
+    <text x="640" y="318" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#2a52be">№ 02</text>
+    <text x="700" y="318" font-family="'Newsreader', serif" font-size="22" fill="#1a1d24">Fleet identity</text>
+    <text x="700" y="340" font-family="'Newsreader', serif" font-size="15" font-style="italic" fill="#5a6470">per-device cert, per-tenant scope</text>
+
+    <text x="640" y="378" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#2a52be">№ 03</text>
+    <text x="700" y="378" font-family="'Newsreader', serif" font-size="22" fill="#1a1d24">OTA, safely</text>
+    <text x="700" y="400" font-family="'Newsreader', serif" font-size="15" font-style="italic" fill="#5a6470">signed, staged, rollback-able</text>
+
+    <text x="640" y="438" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#2a52be">№ 04</text>
+    <text x="700" y="438" font-family="'Newsreader', serif" font-size="22" fill="#1a1d24">Telemetry</text>
+    <text x="700" y="460" font-family="'Newsreader', serif" font-size="15" font-style="italic" fill="#5a6470">DynamoDB time-series, CloudWatch</text>
+  </g>
+
+  <line x1="80" y1="540" x2="1120" y2="540" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="585" font-family="'Newsreader', serif" font-size="19" font-style="italic" fill="#5a6470">v1 lessons, baked in — built the platform a second time on purpose.</text>
+  <text x="1120" y="585" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="3" fill="#7a808c">AUG 2023 → NOV 2025</text>
+</svg>

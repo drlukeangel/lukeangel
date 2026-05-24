@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 11
 excerpt: "Eighteen months of Petnet SmartFeeder (1st gen, 2014 Kickstarter). Three missed feeds, two cloud outages this winter. Why cloud-dependent food dispensers are riskier than the marketing admits."
 pullquote: "A smart feeder that depends on a cloud to dispense food is a hardware contract on the vendor's solvency. When the cloud goes down at midnight, my cat goes hungry. The product's only as reliable as the company's server uptime."
+cover: "../../assets/blog/petnet-smart-feeder-long-term-review-cover.png"
+coverAlt: "Petnet SmartFeeder — eighteen months in, the cracks are showing"
 ---
 
 Petnet SmartFeeder, the original 1st-gen Kickstarter unit, has been in operation for eighteen months. It feeds Atom (twice a day, 3/4 cup of kibble) and Joule (once a day, 1/4 cup). Long enough to write a real review.

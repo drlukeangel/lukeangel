@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 13
 excerpt: "SureFlap's connected hub finally shipped. Pairs with my [2015 microchip pet door](/blog/sureflap-microchip-cat-door-joules-first-iot/). Joule's entries/exits log to the app. Notes on protocol + data."
 pullquote: "Joule goes outside 3-4 times per day. Average outdoor duration: 23 minutes in summer, 8 minutes in winter. Without the connected hub, I'd never have known. This is what data tells you that direct observation can't."
+cover: "../../assets/blog/sureflap-hub-connected-cat-door-cover.png"
+coverAlt: "SureFlap Hub — finally, a connected cat door for Joule"
 ---
 
 SureFlap's connected hub finally shipped this spring after being announced in 2015 and slipping all of 2016. Picked one up. Pairs with my existing [SureFlap microchip cat door for Joule](/blog/sureflap-microchip-cat-door-joules-first-iot/) — door stays, hub adds the network layer.

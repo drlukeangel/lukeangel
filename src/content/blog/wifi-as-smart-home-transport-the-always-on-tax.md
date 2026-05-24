@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 4
 excerpt: "A year on SmartThings + Hue. WiFi smart bulbs and plugs sounded great — until the router was rebooted and 30 devices went offline at once."
 pullquote: "A 15-device WiFi smart home draws 22 watts before you turn anything on. That's $30/year in electricity to power the radios that command the radios."
+cover: "../../assets/blog/wifi-as-smart-home-transport-the-always-on-tax-cover.png"
+coverAlt: "WiFi as smart-home transport — the always-on tax"
 ---
 
 Wemo has been shipping WiFi smart plugs for six months. Belkin's about to add light switches, light bulbs (rebranded GE/Wemo bulbs), and a motion sensor to the lineup. A handful of smaller vendors are queuing up too — Quirky's Spotter, Lowe's Iris-branded outlets, a few smaller startups. WiFi is the cheap path to smart home for any vendor that doesn't want to design a hub.

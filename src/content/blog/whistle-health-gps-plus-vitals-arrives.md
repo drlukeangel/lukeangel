@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 26
 excerpt: "Whistle Health & GPS Plus shipped — first consumer collar with temperature, heart-rate, scratching, licking, drinking. Mars-owned but first to cross into vet-grade telemetry."
 pullquote: "A collar that measures heart rate, respiratory rate, scratching, and licking is no longer a fitness tracker. It's a continuous-monitoring medical device — which Whistle carefully doesn't call it, because the FDA category for animal-medical-device is a different regulatory beast."
+cover: "../../assets/blog/whistle-health-gps-plus-vitals-arrives-cover.png"
+coverAlt: "Whistle Health & GPS Plus — vet vitals on a consumer collar"
 ---
 
 Whistle Health & GPS Plus shipped in June. I held off until August to read reviews. Bought one for Atom in late August — the first collar I've put on him since [decommissioning the Whistle 2 in 2018](/blog/2018-pet-iot-year-in-review/) and replacing with [Fi](/blog/fi-ships-first-units-atom-first-non-mars-tracker/).

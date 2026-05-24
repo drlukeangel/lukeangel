@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 55
 excerpt: "Thirteen years since the first Hue bulb on the dining-room pendant. Two houses, ten major platform transitions, ~250 connected devices today."
 pullquote: "The smart home I have now isn't a continuous evolution of the smart home I started with. It's three different architectures stacked on top of each other, with the seams visible if you look. That's fine. It's also instructive."
+cover: "../../assets/blog/thirteen-years-on-long-arc-retrospective-cover.png"
+coverAlt: "Thirteen years on — the long-arc smart-home retrospective"
 ---
 
 October 29, 2012 — picked up the Hue starter kit at the Apple Store. November 15, 2025 — writing this in front of 250+ connected devices across two SmartThings hubs, one HA installation, four Matter bridges, and uncounted ESPHome boards.

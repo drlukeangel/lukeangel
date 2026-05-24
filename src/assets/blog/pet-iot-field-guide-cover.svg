@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Pet IoT — An Engineer's Field Guide notebook cover: stylized smart pet collar with concentric signal arcs">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#c87533"/>
+
+  <!-- Signal arcs (rendered first, behind collar) — emanate up-right from the tracker -->
+  <g transform="translate(620, 350)" fill="none" stroke="#c87533" stroke-linecap="round">
+    <path d="M 60 -30 A 110 110 0 0 1 140 80"  stroke-width="4" opacity="0.95"/>
+    <path d="M 100 -65 A 180 180 0 0 1 210 105" stroke-width="4" opacity="0.7"/>
+    <path d="M 140 -100 A 250 250 0 0 1 285 135" stroke-width="4" opacity="0.45"/>
+    <path d="M 180 -135 A 320 320 0 0 1 360 170" stroke-width="4" opacity="0.25"/>
+    <path d="M 220 -170 A 390 390 0 0 1 440 210" stroke-width="4" opacity="0.12"/>
+  </g>
+
+  <!-- Collar (large, dominant) -->
+  <g transform="translate(540, 310)">
+    <!-- Stitching outline (faint dashed) -->
+    <ellipse cx="0" cy="0" rx="280" ry="76" fill="none" stroke="#1a1d24" stroke-width="1.2" stroke-dasharray="7 7" opacity="0.3"/>
+    <!-- Main collar loop -->
+    <ellipse cx="0" cy="0" rx="280" ry="76" fill="none" stroke="#1a1d24" stroke-width="7"/>
+    <!-- Buckle (left side) -->
+    <rect x="-262" y="-26" width="42" height="52" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <line x1="-241" y1="-26" x2="-241" y2="26" stroke="#1a1d24" stroke-width="3"/>
+    <!-- D-ring (top center) -->
+    <circle cx="0" cy="-66" r="16" fill="none" stroke="#1a1d24" stroke-width="4.5"/>
+    <line x1="0" y1="-76" x2="0" y2="-58" stroke="#1a1d24" stroke-width="3"/>
+    <!-- Smart tracker puck on bottom center (large, accent fill) -->
+    <rect x="-70" y="50" width="140" height="92" rx="16" fill="#c87533" stroke="#1a1d24" stroke-width="6"/>
+    <!-- LED indicator -->
+    <circle cx="0" cy="92" r="11" fill="#fdfaf2"/>
+    <circle cx="0" cy="92" r="5" fill="#c87533"/>
+    <!-- Status notches on tracker right edge -->
+    <line x1="48" y1="68" x2="48" y2="80" stroke="#fdfaf2" stroke-width="3.5"/>
+    <line x1="48" y1="104" x2="48" y2="116" stroke="#fdfaf2" stroke-width="3.5"/>
+  </g>
+</svg>

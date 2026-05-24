@@ -25,6 +25,8 @@ This week I cleaned it up and pushed it public.
 
 → **[github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management](https://github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management)**
 
+![The Connected Products Starter Kit reference dashboard showing live tool telemetry — 20V MAX drills, drivers, and impact wrenches reporting battery, torque, usage minutes, and fault codes per job site, read from DynamoDB through the HTTP API the CDK stack provisions.](../../assets/blog/Connected-Products-Telemetry-Dashboard-Starter-Kit.png)
+
 ## What's in the box
 
 A reference IoT stack that runs end to end:

@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 42
 excerpt: "CSA ratified Matter 1.0 on October 4 and Apple, Google, Amazon, and Samsung committed support on November 3. After ten years of standards drama."
 pullquote: "Matter solves vendor-to-vendor commissioning. It does not solve the multi-hub problem, the privacy problem, or the API-versioning problem. It is the foundation, not the building."
+cover: "../../assets/blog/matter-1-0-ships-protocol-primer-cover.png"
+coverAlt: "Matter 1.0 ships — the protocol primer ten years late"
 ---
 
 Matter 1.0 was ratified by the Connectivity Standards Alliance (CSA) on October 4. On November 3, Apple, Google, Amazon, and Samsung announced production support. Ten years of "the unified smart-home protocol is coming" turned into "the unified smart-home protocol is here." Sort of.

@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 31
 excerpt: "Quark arrived. Halo Collar tried and returned. Petivity installed for multi-cat. 2021 scored 75%. 2023: Atom's vitals drift, Mars consolidation accelerates, AI behavior detection is pitch-fodder."
 pullquote: "Looking back: 6/8 on 2021's forecasts. The hit I'm proud of: Halo Collar continues to be welfare-controversial, exactly as predicted. The miss: still no credible non-Mars-aligned vitals tracker."
+cover: "../../assets/blog/2022-pet-iot-year-in-review-cover.png"
+coverAlt: "2022 pet IoT — Quark joined, Halo returned, Petivity"
 ---
 
 End of 2022.

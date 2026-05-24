@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 33
 excerpt: "Three options for talking Zigbee to Home Assistant: ZHA (built in), deCONZ (Phoscon-based), Zigbee2MQTT (MQTT-bridged). Trade-offs differ."
 pullquote: "If you're starting fresh in 2020: Sonoff ZBDongle + Zigbee2MQTT. If you want a UI included: ConBee II + deCONZ. If you want zero add-ons: Sonoff dongle + ZHA. The three are within 10% of each other on reliability; they differ on ergonomics."
+cover: "../../assets/blog/picking-the-zigbee-stack-z2m-deconz-zha-cover.png"
+coverAlt: "Picking the Zigbee stack — Zigbee2MQTT vs deCONZ vs ZHA"
 ---
 
 Three options for running Zigbee on Home Assistant. I've used two; reading enough about the third to compare. This is what I'd tell anyone starting fresh in 2020.

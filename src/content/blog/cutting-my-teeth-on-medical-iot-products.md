@@ -12,6 +12,8 @@ notebook: building-medical-iot-connected-products
 notebookOrder: 7
 excerpt: "September 2017 to September 2019 — timeline of building the API platform behind a connected-health portfolio, things I got right, things I got wrong."
 pullquote: "The connected health portfolio was where I learned that 'API team' and 'IoT team' are two names for the same job. The hardware ships once. The platform supports it forever."
+cover: "../../assets/blog/cutting-my-teeth-on-medical-iot-products-cover.png"
+coverAlt: "Two years on medical IoT — the platform retrospective"
 ---
 
 I spent two years leading the API platform behind a connected-health portfolio at Philips Connected Health — September 2017 to September 2019. It was my first time owning the platform layer of a connected hardware product. The cumulative lesson, in retrospect, was that the boundary between "platform engineering" and "IoT engineering" is mostly fictional.

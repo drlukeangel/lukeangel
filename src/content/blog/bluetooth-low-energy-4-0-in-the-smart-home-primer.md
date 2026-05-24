@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 3
 excerpt: "BLE 4.0 has been shipping in phones since the iPhone 4S (Oct 2011). It's now showing up in fitness trackers, beacons, and the first smart-home devices. A protocol primer before the products land."
 pullquote: "BLE solves one specific problem: a peripheral that runs for a year on a coin cell while still being discoverable by your phone. That constraint shapes everything else about the protocol."
+cover: "../../assets/blog/bluetooth-low-energy-4-0-in-the-smart-home-primer-cover.png"
+coverAlt: "Bluetooth Low Energy 4.0 in the smart home — the protocol primer"
 ---
 
 BLE 4.0 was ratified in June 2010. iPhone 4S (October 2011) was the first major handset to ship with it. By early 2013, BLE peripherals are common — Fitbit Flex ships next month, Pebble shipped in January, smart locks (Lockitron, August Smart Lock) are about to land. Smart-home is the next wave.

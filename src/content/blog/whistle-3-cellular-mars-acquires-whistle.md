@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 8
 excerpt: "Whistle 3 launched with built-in cellular + GPS — no base station. Three days later, Mars Petcare acquired Whistle. The 2014 and 2015 forecasts both hit in the same week. Notes on what changes."
 pullquote: "A pet-food company now owns the device that tells you how active your dog is. The conflict of interest isn't theoretical — it's the same company telling you 'feed more' and selling you the food."
+cover: "../../assets/blog/whistle-3-cellular-mars-acquires-whistle-cover.png"
+coverAlt: "Whistle 3 ships with cellular — Mars Petcare buys Whistle"
 ---
 
 Big week. Two predictions from previous year-end forecasts landing within days of each other:

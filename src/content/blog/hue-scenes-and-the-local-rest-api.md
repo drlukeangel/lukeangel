@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 2
 excerpt: "Two months with Hue. Time to move past the app. Notes on scene storage, group commands, and the cron job that turns on the porch light at sunset."
 pullquote: "The bridge's local REST API has no authentication beyond one bearer token. That's fine on a trusted LAN. It will become a concern in 2016 when Hue bridges go online to the public internet."
+cover: "../../assets/blog/hue-scenes-and-the-local-rest-api-cover.png"
+coverAlt: "Hue scenes and the local REST API — first Python automation"
 ---
 
 Two months into the Hue setup. The official Philips app is fine for ad-hoc lighting changes; it's terrible for schedules. The "schedule" feature is bridge-resident but UI-driven and won't let me express "twenty minutes before sunset" without manual recalculation every couple of weeks.

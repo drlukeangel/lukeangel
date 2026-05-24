@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 18
 excerpt: "Google Home launched November 4. Mine arrived three days ago. Echo and Google Home in the same house, both listening for wake words."
 pullquote: "Two voice assistants in one house means two wake words, two skill ecosystems, two integration accounts. The 'unified smart home' was supposed to solve this. It made it worse."
+cover: "../../assets/blog/google-home-two-voice-assistants-one-house-cover.png"
+coverAlt: "Google Home — two voice assistants, one house"
 ---
 
 Google Home launched November 4. I ordered one immediately ($129); arrived Saturday. It's been running for three days alongside the Echo in the kitchen and the Echo Dot in the bedroom.

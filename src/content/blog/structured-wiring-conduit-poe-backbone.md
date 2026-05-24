@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 45
 excerpt: "Framing finished last week. Today I walked the house with the low-voltage installer and signed off on every Cat6 run, every conduit, every PoE drop."
 pullquote: "Forty-two Cat6 drops, twelve conduit runs, six exterior camera locations, and one mailbox sensor signal pair. The single buildable-once moment in the house's life ended this afternoon."
+cover: "../../assets/blog/structured-wiring-conduit-poe-backbone-cover.png"
+coverAlt: "Structured wiring + conduit + PoE backbone for framing"
 ---
 
 Framing done last week. Today I walked the house with the low-voltage installer, signed off every Cat6 run, every conduit, every PoE camera location. Drywall starts Monday.

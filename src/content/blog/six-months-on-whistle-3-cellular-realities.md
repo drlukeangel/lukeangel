@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 9
 excerpt: "Bought a Whistle 3 for Atom in May to evaluate the cellular GPS path. Six months in. Notes on real battery life (worse than claimed), GPS accuracy, subscription fatigue, the Mars layer."
 pullquote: "Claimed 7-day battery. Real 3-day battery when GPS is active. The 'when it matters' battery is closer to one day. Engineers, do not believe the marketing battery number."
+cover: "../../assets/blog/six-months-on-whistle-3-cellular-realities-cover.png"
+coverAlt: "Six months on Whistle 3 — the cellular pet tracker realities"
 ---
 
 Caved. Bought a Whistle 3 in May after the [acquisition + launch combo](/blog/whistle-3-cellular-mars-acquires-whistle/) for evaluation purposes. Six months in. Notes.

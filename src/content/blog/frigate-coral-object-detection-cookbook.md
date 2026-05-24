@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 41
 excerpt: "Eight months of Frigate tuning. Confidence thresholds, masks, zones, motion masks, retained / discarded events. The cookbook of what to set."
 pullquote: "The difference between a useful Frigate setup and a noise-fountain isn't the model. It's the masks and thresholds. The model is the easy part; the YAML tuning is the work."
+cover: "../../assets/blog/frigate-coral-object-detection-cookbook-cover.png"
+coverAlt: "Frigate + Coral cookbook — eight months of tuning"
 ---
 
 Eight months running Frigate 0.10 → 0.11. Five PoE cameras + one WiFi cam, all routing through one Coral USB. Detection runs at 10 fps per stream. ~150 events per day, ~5 push-notification-worthy.

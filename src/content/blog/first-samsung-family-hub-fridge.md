@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 46
 excerpt: "Samsung Bespoke 4-Door Flex with Family Hub installed. 21\" touchscreen on the front door. SmartThings integrated. Talks to the Frame TV."
 pullquote: "The fridge is now a SmartThings hub, a display, a camera, a calendar surface, and a recipe-search tool. It's also a fridge. It does all six things well enough that the kitchen actually got more functional."
+cover: "../../assets/blog/first-samsung-family-hub-fridge-cover.png"
+coverAlt: "First Samsung Family Hub fridge — kitchen has an OS"
 ---
 
 Samsung Bespoke 4-Door Flex with Family Hub installed in the new kitchen last Thursday. RF29A9675AP/AA — the 29 cu ft model with the 21" touchscreen on the front-right door.

@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 20
 excerpt: "Raspberry Pi 3, microSD, Hass.io image flashed in eight minutes. Home Assistant 0.49 is on the local network. First integrations: Hue, SmartThings."
 pullquote: "The pitch: everything you've been running through SmartThings's cloud now runs on a $35 board in your closet. Tonight I'm finding out if the pitch is true."
+cover: "../../assets/blog/first-home-assistant-install-yaml-configs-cover.png"
+coverAlt: "First Home Assistant install — YAML and local-first"
 ---
 
 Forecast #1 from 2016 done: Home Assistant is running on a Raspberry Pi 3 in the closet. Eight months later than I told myself I'd install it, finally got around to it tonight.

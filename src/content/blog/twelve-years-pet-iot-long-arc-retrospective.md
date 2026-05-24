@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 40
 excerpt: "Twelve years since Whistle launched. Four pets — Atom (2013-2024), Joule, Boson, Quark. Lessons on cloud dependency, vendor consolidation, multi-pet detection, vet telemetry, the DIY response."
 pullquote: "Twelve years in. Mars just divested Whistle to Tractive — the empire that bought the device leg in 2016 sold it back nine years later. Cloud-dependency lesson written. DIY response just starting. The pet-IoT category is the smart-home category five years behind — same arc, smaller scale, higher stakes."
+cover: "../../assets/blog/twelve-years-pet-iot-long-arc-retrospective-cover.png"
+coverAlt: "Twelve years of pet IoT — the long-arc retrospective"
 ---
 
 October 8, 2012 — Whistle shipped the first consumer dog activity tracker. I bought one when [Atom arrived in October 2013](/blog/atom-arrives-whistle-activity-monitor-launches/). Twelve years and change later — Atom's gone, Quark's three, Joule's eleven, Boson's five — time to step back.
@@ -99,7 +101,7 @@ If you're shopping pet IoT in 2025:
 1. **Buy the SureFlap door** (or equivalent microchip door). Best $200 in the category.
 2. **Buy a Litter-Robot** if you have cats. The cleaning is worth it; the data is bonus.
 3. **Buy a Fi or Tractive collar** for outdoor dogs. Both independent vendors. Real engineering on battery life. Tractive's DOG 6 XL claims 6-week battery; evaluating against Fi for Quark's next collar.
-3b. **Tractive CAT 6 Mini for outdoor cats.** First credible consumer cellular cat tracker the category has produced. Twelve years late, finally here.
+3b. **Tractive GPS Cat Mini for outdoor cats.** First credible consumer cellular cat tracker the category produced — ships since late 2022. Joule and Boson have worn them since then; covers the off-property outdoor dimension the SureFlap door logs miss.
 4. **DIY your feeder** with ESP32 + ESPHome. Vendor-cloud-independent.
 5. **Add a Pebblebee Clip** to indoor pets' collars for Find My backup.
 6. **Skip the wellness subscriptions** (Furbo Dog Nanny, etc.). They're not signal.

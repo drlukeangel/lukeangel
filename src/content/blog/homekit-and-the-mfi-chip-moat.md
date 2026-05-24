@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 16
 excerpt: "Nine months with HomeKit (since iOS 9). Three HomeKit devices working, ten more I wish would work but can't. The MFi chip is the moat."
 pullquote: "Every HomeKit device costs $2-5 of BOM for an Apple-licensed authentication chip. The chip is the wall. Inside the wall, the security model is the best in the industry. Outside, you don't exist."
+cover: "../../assets/blog/homekit-and-the-mfi-chip-moat-cover.png"
+coverAlt: "HomeKit and the MFi chip moat — the hardware tax"
 ---
 
 Nine months on HomeKit, since iOS 9 shipped in September 2015. Three devices in the house work with Siri:

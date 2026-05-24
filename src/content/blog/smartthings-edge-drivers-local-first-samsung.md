@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 52
 excerpt: "Samsung's Edge driver framework matured into a real platform. Custom Lua-based drivers run locally on the SmartThings hub (the Family Hub fridge)."
 pullquote: "After ten years of cloud-mediated SmartThings, the platform finally executes locally. The lesson: every platform eventually moves toward local-first if it wants to survive."
+cover: "../../assets/blog/smartthings-edge-drivers-local-first-samsung-cover.png"
+coverAlt: "SmartThings Edge drivers — local-first Samsung, finally"
 ---
 
 SmartThings shipped its **Edge driver** framework in 2022, but the early version was rough — limited capabilities, sparse documentation, mostly used by Samsung's internal team. As of HA 2025.2 + SmartThings hub firmware 47.x, the platform is finally credible. Local-first is real on SmartThings.

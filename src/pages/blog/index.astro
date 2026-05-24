@@ -24,6 +24,16 @@ const totalTagCount = Object.keys(tagTally).length;
 const featured = posts.find((p) => p.data.featured) ?? posts[0];
 const rest = featured ? posts.filter((p) => p.slug !== featured.slug) : [];
 
+// Group rest posts by year, preserving newest-first order within each group.
+type YearGroup = { year: number; posts: typeof rest };
+const restByYear: YearGroup[] = [];
+for (const p of rest) {
+  const y = p.data.date.getFullYear();
+  const last = restByYear[restByYear.length - 1];
+  if (last && last.year === y) last.posts.push(p);
+  else restByYear.push({ year: y, posts: [p] });
+}
+
 // Notebooks — priority order = most recently updated notebook first
 const seriesList = (await getCollection('notebooks', ({ data }) => !data.draft));
 const notebookMeta = seriesList.map((s) => {
@@ -152,25 +162,34 @@ const topNotebooks = notebookMeta.slice(0, 3);
       </div>
     )}
 
-    <!-- Mosaic grid -->
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;">
-      {rest.map((p) => (
-        <a href={`/blog/${p.slug}/`} class="card" style="display: block; padding: 0;">
-          {p.data.cover && (
-            <Image src={p.data.cover} alt={p.data.coverAlt || p.data.title} widths={[240, 480, 720]} sizes="(max-width: 720px) 100vw, 400px" loading="lazy" style="display:block; width:100%; height:180px; object-fit:cover;" />
-          )}
-          <div style="padding: 22px 24px 24px;">
-            <div class="mono" style="color: var(--accent);">{p.data.category}</div>
-            <div style="font-size: 22px; margin-top: 10px; line-height: 1.2;">{p.data.title}</div>
-            <div style="font-style: italic; color: var(--muted); margin-top: 10px;">“{p.data.pullquote ?? p.data.excerpt}”</div>
-            <div style="display: flex; justify-content: space-between; margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--rule);" class="mono">
-              <span>{p.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
-              <span style="color: var(--accent);">read →</span>
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
+    <!-- Mosaic grid — grouped by year with separator rows -->
+    {restByYear.map((group, gi) => (
+      <Fragment>
+        <div style={`display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center; margin-top: ${gi === 0 ? 40 : 56}px;`}>
+          <div style="font-family: 'Newsreader', serif; font-size: 52px; font-weight: 500; letter-spacing: -1.6px; line-height: 1;">{group.year}</div>
+          <div style="height: 1px; background: var(--ink);"></div>
+          <div class="mono">{group.posts.length} {group.posts.length === 1 ? 'entry' : 'entries'}</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px;">
+          {group.posts.map((p) => (
+            <a href={`/blog/${p.slug}/`} class="card" style="display: block; padding: 0;">
+              {p.data.cover && (
+                <Image src={p.data.cover} alt={p.data.coverAlt || p.data.title} widths={[240, 480, 720]} sizes="(max-width: 720px) 100vw, 400px" loading="lazy" style="display:block; width:100%; height:180px; object-fit:cover;" />
+              )}
+              <div style="padding: 22px 24px 24px;">
+                <div class="mono" style="color: var(--accent);">{p.data.category}</div>
+                <div style="font-size: 22px; margin-top: 10px; line-height: 1.2;">{p.data.title}</div>
+                <div style="font-style: italic; color: var(--muted); margin-top: 10px;">“{p.data.pullquote ?? p.data.excerpt}”</div>
+                <div style="display: flex; justify-content: space-between; margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--rule);" class="mono">
+                  <span>{p.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}</span>
+                  <span style="color: var(--accent);">read →</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </Fragment>
+    ))}
 
     <!-- Subscribe -->
     <div style="margin-top: 56px;">

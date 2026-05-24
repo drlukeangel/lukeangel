@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 6
 excerpt: "IFTTT recipes connect Hue to Wemo to Gmail. The latency is bad, the reliability is patchy, but it's the first thing that's crossed vendor lines. Notes on what works and what doesn't."
 pullquote: "5-15 second latency on a cross-vendor automation is the lower bound of 'I would not have noticed myself'. It is not the lower bound of 'good UX'."
+cover: "../../assets/blog/ifttt-first-cross-vendor-automation-cover.png"
+coverAlt: "IFTTT — first cross-vendor automation attempt"
 ---
 
 IFTTT (If This Then That) launched in 2010 with Gmail as one of the original channels. They added channels for **Philips Hue** in July and **Belkin Wemo** earlier this year — that's the cross-vendor unification I've been waiting for. Three months in — here's what I've built and what's broken.

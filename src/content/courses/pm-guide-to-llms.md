@@ -28,6 +28,8 @@ syllabus:
 enrollUrl: ""
 enrollLabel: "Sign Up!"
 recordings: "Yes"
+cover: "../../assets/courses/pm-guide-to-llms-cover.png"
+coverAlt: "The PM's Guide to LLMs"
 ---
 
 A working PM's curriculum for shipping AI features. Bring a notebook and a real product. We'll do the rest.

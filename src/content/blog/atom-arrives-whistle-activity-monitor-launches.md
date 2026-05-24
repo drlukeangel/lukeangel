@@ -11,6 +11,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 1
 excerpt: "Brought home an 8-week-old yellow lab on Sunday. Named him Atom. Two weeks ago a startup called Whistle shipped the first consumer fitness tracker for dogs. Suspiciously perfect timing."
 pullquote: "Whistle is Fitbit for dogs. That's the easy comparison. The harder question is whether tracking activity actually tells you anything about a dog's health or whether it's just a number we like to look at."
+cover: "../../assets/blog/atom-arrives-whistle-activity-monitor-launches-cover.png"
+coverAlt: "Atom arrives — Whistle launches a dog fitness tracker"
 ---
 
 Brought home an 8-week-old yellow lab puppy on Sunday. Named him **Atom**. The name fits — particle-physics-themed because we like that around here, and also he is small and energetic and basically all motion. The plan: pet-tech-curious engineer becomes dog person, dog gets all the gadgets, engineer writes about it.

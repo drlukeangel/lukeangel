@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 21
 excerpt: "Three months on Home Assistant. The Z-Wave stick arrived in September; door sensors moved off SmartThings onto direct Z-Wave on the Pi."
 pullquote: "Same automation. Sub-second latency instead of three seconds. Runs when the internet is down. Cost: a $50 Z-Wave stick and a Saturday afternoon."
+cover: "../../assets/blog/migrating-smartthings-security-to-home-assistant-cover.png"
+coverAlt: "Migrating the SmartThings security automation to Home Assistant"
 ---
 
 Three months on [Home Assistant](/blog/first-home-assistant-install-yaml-configs/). The Aeotec Z-Stick Gen5 arrived in September. Time to move the [SmartThings security automation](/blog/first-security-automation-door-presence-smartthings/) over to HA and run it locally.

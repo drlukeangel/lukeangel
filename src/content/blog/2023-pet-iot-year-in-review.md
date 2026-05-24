@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 34
 excerpt: "Moved into the new house, four pets relocated. Mars consolidation accelerated. Atom's vitals started drifting. 2022 scored 75%. 2024: Atom's health central; Find My trackers; behavioral AI matures."
 pullquote: "Looking back: 6/8 on 2022's forecasts. The vitals-drift prediction landed — Atom's 8% heart rate elevation showed up exactly when expected. The pet-IoT story is starting to be about an aging dog, not new toys."
+cover: "../../assets/blog/2023-pet-iot-year-in-review-cover.png"
+coverAlt: "2023 pet IoT — new house, Mars consolidation accelerates"
 ---
 
 End of 2023. Move-in year + Atom turning 10.

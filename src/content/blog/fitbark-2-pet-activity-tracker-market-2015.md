@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 6
 excerpt: "FitBark 2 shipped this summer. Bone-shaped, brightly colored, BLE-only. Tested on Atom alongside Whistle. Notes on what's different, the sensor model, and whether competition improved either."
 pullquote: "Two activity trackers on one dog's collar for a week. The accelerometers agree on broad strokes. They disagree on the details. The details are where the marketing claims live."
+cover: "../../assets/blog/fitbark-2-pet-activity-tracker-market-2015-cover.png"
+coverAlt: "FitBark 2 — pet activity tracker market in 2015"
 ---
 
 FitBark 2 shipped this summer — bone-shaped (yes), brightly colored, $69. Backed the Kickstarter in 2013, took two years to ship, finally landed. Bought one and put it on Atom's collar next to his Whistle for a week-long side-by-side.

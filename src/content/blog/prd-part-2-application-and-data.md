@@ -13,6 +13,8 @@ notebook: connected-products
 notebookOrder: 2
 excerpt: "Part 2 of the v2 PRD. What the cart, the customer's mobile app, the store-staff tablet, and the ops dashboard each do — plus the entity model."
 pullquote: "An entity model is a contract with your future self. Get it wrong and every feature spends the next five years paying interest on the mistake."
+cover: "../../assets/blog/prd-part-2-application-and-data-cover.png"
+coverAlt: "v2 PRD, Part 2 — applications, data model, cloud"
 ---
 
 This is **Part 2 of 3** in the v2 PRD I'm writing this month. [Part 1](/blog/prd-part-1-hardware-specs/) covers the hardware spec. [Part 3](/blog/prd-part-3-identity-and-compliance/) covers identity, payment, PII, and compliance.

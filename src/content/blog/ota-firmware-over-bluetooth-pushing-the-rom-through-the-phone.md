@@ -12,6 +12,8 @@ notebook: building-medical-iot-connected-products
 notebookOrder: 5
 excerpt: "The hardest single problem on the connected platform is firmware updates. The device has no WiFi, no internet, no way to download anything on its own."
 pullquote: "A brick in the field is a customer-support call, a warranty replacement, and a one-star review. We've shipped about a million units. The math on getting OTA wrong is not subtle."
+cover: "../../assets/blog/ota-firmware-over-bluetooth-pushing-the-rom-through-the-phone-cover.png"
+coverAlt: "OTA firmware over Bluetooth — pushing through the phone"
 ---
 
 The single hardest problem on our connected-health platform is over-the-air firmware updates. Not because firmware itself is hard — it isn't, particularly. Because the topology makes it hard:

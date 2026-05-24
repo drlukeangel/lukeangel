@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 38
 excerpt: "Three months ago I'd have said WiFi cameras are a bad idea. Then the kids needed a temporary camera in the garage where there's no PoE."
 pullquote: "PoE is structurally better for cameras. WiFi cameras are a pragmatic 'good enough' when running Cat6 isn't an option. The bandwidth math is the constraint that decides."
+cover: "../../assets/blog/wireless-cameras-and-bandwidth-tradeoff-cover.png"
+coverAlt: "Wireless cameras and bandwidth — when WiFi cams work"
 ---
 
 I've been buying PoE cameras exclusively for two years. Tonight I'm writing this from a chair next to a WiFi camera I just installed in the garage, where running Cat6 was going to take a weekend I didn't have.

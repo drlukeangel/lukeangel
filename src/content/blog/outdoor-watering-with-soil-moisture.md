@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 40
 excerpt: "Six raised garden beds + three planters + a sprinkler zone. Eight soil-moisture sensors on LoRa-WAN. Three valves on Z-Wave."
 pullquote: "The sprinkler runs only when soil is dry AND no rain is expected in the next 6 hours. Sounds simple. Took three iterations and two soaked planters before the algorithm was actually right."
+cover: "../../assets/blog/outdoor-watering-with-soil-moisture-cover.png"
+coverAlt: "Outdoor watering automation — the LoRa-and-rain story"
 ---
 
 The vegetable garden is at the far corner of the back yard. ~40m from the house, behind a 6-foot privacy fence. WiFi doesn't reach reliably — measured signal strength below -85 dBm at the planters. Zigbee doesn't reach at all.

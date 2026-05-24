@@ -12,6 +12,8 @@ series: smart-home-iot-journey
 seriesOrder: 29
 excerpt: "Two Ecolink Z-Wave glass-break detectors plus six Aqara vibration sensors. The first sensor class that catches what contact sensors miss."
 pullquote: "Door sensors catch the opening. Glass-break sensors catch the breaking. The second one matters because the first one assumes the intruder walks in like a guest."
+cover: "../../assets/blog/glass-break-and-vibration-sensors-cover.png"
+coverAlt: "Glass-break and vibration sensors — the second-layer security"
 ---
 
 Two **Ecolink Z-Wave glass-break detectors** (GBHA1-ECO) and six **Aqara DJT11LM vibration sensors**. The first sensors I've added that catch the failure mode my door/window contact sensors miss.

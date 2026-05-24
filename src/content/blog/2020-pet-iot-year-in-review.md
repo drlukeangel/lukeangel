@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 24
 excerpt: "Two big stories: Petnet collapsed, Boson arrived. The COVID-era pet boom is real. 2019 scored 75%. 2021: AirTag launches, Whistle Health ships, multi-cat litter products arrive."
 pullquote: "Looking back: 6/8 on 2019's forecasts. The hits I'm proud of: Petnet's collapse, Halo Collar shipping. The miss: still no credible HomeKit pet device. The category is now eight years old. Apple still doesn't care."
+cover: "../../assets/blog/2020-pet-iot-year-in-review-cover.png"
+coverAlt: "2020 pet IoT — Petnet died, Boson arrived, multi-cat real"
 ---
 
 End of 2020. The year of Petnet's death + Boson's arrival + COVID-era pet boom.

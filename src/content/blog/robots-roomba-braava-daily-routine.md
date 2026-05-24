@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 54
 excerpt: "Five years of iRobot Roomba + Braava in the house. The vacuum is a Roomba i7+; the mop is a Braava jet m6. Both join the home routine via SmartThings."
 pullquote: "The Roomba doesn't make the floor cleaner than I would. It makes the floor cleaner more often. Frequency beats thoroughness for whole-house hygiene."
+cover: "../../assets/blog/robots-roomba-braava-daily-routine-cover.png"
+coverAlt: "Robots in the routine — Roomba + Braava choreography"
 ---
 
 Five years of iRobot Roomba i7+ (vacuum) and Braava jet m6 (mop). Both joined the family before the new-house move. Both are part of the daily routine now in ways that wouldn't work without the connected-home integration.

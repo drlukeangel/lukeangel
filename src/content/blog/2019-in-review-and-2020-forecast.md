@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 31
 excerpt: "BLE presence finally works. Glass-break sensors caught the failure mode contact sensors miss. The kid's bedroom dashboard joined the kitchen."
 pullquote: "Looking back: 5.5/8 on 2018's forecasts. ~73%. The miss was Frigate's maturity — running on a Pi without a Coral, the detection was too slow."
+cover: "../../assets/blog/2019-in-review-and-2020-forecast-cover.png"
+coverAlt: "2019 review — local-first arrives, security maturing"
 ---
 
 End of year. Pattern.

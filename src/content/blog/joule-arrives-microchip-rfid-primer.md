@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 3
 excerpt: "Brought home a 9-week-old tabby yesterday. Named her Joule. Cat IoT is barely a category — microchipping is established but smart products are thin. Notes on RFID for indoor cats."
 pullquote: "Cat pet-IoT in 2014 is barely a category. The cat IS the device — implanted with an RFID chip — and everything else hasn't caught up yet."
+cover: "../../assets/blog/joule-arrives-microchip-rfid-primer-cover.png"
+coverAlt: "Joule arrives — pet IoT for cats is a different category"
 ---
 
 Brought home a 9-week-old tabby kitten yesterday. **Joule.** Named per the household physics convention (Atom: particle, Joule: energy unit). She immediately found the highest perch in the house and stayed there for six hours.

@@ -147,6 +147,6 @@ I'm paying it for now (the device requires the Tractive app to enable the Power 
 
 DOG 6 XL battery test ongoing — 3 weeks in, I'm at 18 days on a charge with the Base Station active. Not the claimed 6 weeks; still well above Fi's 14-day real-world. Reporting at the 6-week mark.
 
-CAT 6 Mini arrived for Joule and Boson. First time either cat has worn a cellular tracker in 12 years of pet IoT. Writing that up separately.
+GPS Cat Mini still on Joule and Boson — both cats have worn them since late 2022. Separately evaluating how the cat tracker performs against the Base Station's power-saving zone; writing that up.
 
 The Base Station teardown is the headline finding: post-Whistle, the vendor that took the category's torch ships an architecture that's twelve years behind what its own silicon can deliver. The category is going to take another product cycle — or another vendor — to actually use the radio it ships.

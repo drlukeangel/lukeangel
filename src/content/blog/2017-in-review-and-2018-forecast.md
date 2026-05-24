@@ -10,6 +10,8 @@ series: smart-home-iot-journey
 seriesOrder: 23
 excerpt: "HA on the Pi. Z-Wave + Zigbee local. Six Aqara door sensors. SmartThings hub heading to the spare-parts drawer."
 pullquote: "Looking back: 5/8 on 2016's forecasts. ~64% — my worst year so far. Two of the misses were timing (Apple HomePod slipped, Echo Show shipped earlier than I expected). The big call I got right: Home Assistant is the unifier I'd been waiting for since 2013."
+cover: "../../assets/blog/2017-in-review-and-2018-forecast-cover.png"
+coverAlt: "2017 review — Home Assistant lands, cheap Zigbee opens"
 ---
 
 2017 done. Time for the year-end pattern.

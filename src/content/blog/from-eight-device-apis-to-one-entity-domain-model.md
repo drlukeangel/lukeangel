@@ -12,6 +12,8 @@ notebook: building-medical-iot-connected-products
 notebookOrder: 3
 excerpt: "The connected-health portfolio I inherited has eight separate device APIs in production. Each has its own user model, its own session contract."
 pullquote: "Eight APIs with eight definitions of 'user' aren't a portfolio. They're a billing engineer's nightmare. Consolidation isn't an aesthetic preference."
+cover: "../../assets/blog/from-eight-device-apis-to-one-entity-domain-model-cover.png"
+coverAlt: "From eight device APIs to one entity domain model"
 ---
 
 When I took the platform role in September 2017, the connected-health portfolio had eight separate device APIs in production. The adult toothbrush had one. The kids' brush had another. The interdental device had a third. There were three more for other body-care lines, plus two legacy services that were technically deprecated but still serving traffic. Each had been built by a different product team at a different time with a different stack.

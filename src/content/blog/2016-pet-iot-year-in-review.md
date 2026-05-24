@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 10
 excerpt: "Whistle 3 shipped. Mars acquired Whistle. SureFlap announced a connected hub. Petnet's mostly fine after a year. 2015 scored 75%. 2017: SureFlap Hub ships, Furbo lands, Fi arrives."
 pullquote: "Looking back: 6/8 on 2015's forecasts. The big call I got right was Whistle going cellular + getting acquired. The miss was timing on the connected cat door (still coming)."
+cover: "../../assets/blog/2016-pet-iot-year-in-review-cover.png"
+coverAlt: "2016 pet IoT review — Whistle 3, Mars, cellular tech"
 ---
 
 End of 2016. Big year.

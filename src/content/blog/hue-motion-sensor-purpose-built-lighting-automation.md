@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 17
 excerpt: "Philips finally shipped the Hue Motion sensor. Battery-powered, Zigbee Light Link, joins the Hue bridge natively. First hardware that lets us automate without rules."
 pullquote: "A motion sensor that's actually paired to its bulb ecosystem reacts in under 200 ms. Cross-ecosystem (SmartThings → Hue cloud → bulb) is 2-3 seconds. The difference is between 'magic' and 'frustrating'."
+cover: "../../assets/blog/hue-motion-sensor-purpose-built-lighting-automation-cover.png"
+coverAlt: "Hue Motion sensor — Hue's first native automation device"
 ---
 
 Hue Motion sensor finally shipped this month after nine months of rumors. Battery-powered (2× AAA, claimed 2-year life), Zigbee Light Link, pairs with the Hue v2 bridge directly. $40.

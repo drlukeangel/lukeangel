@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 47
 excerpt: "Construction finished. Move-in October. Family Hub fridge running. 42 Cat6 drops paying off already. 2022 forecast scored 85%."
 pullquote: "Looking back: 6.5/8 on 2022's forecasts, ~85%. The new house transformed the smart home from 'a layer on top of a house' to 'the house was designed for this.' Different rules apply now."
+cover: "../../assets/blog/2023-in-review-and-2024-forecast-cover.png"
+coverAlt: "2023 review — built the house, kitchen has an OS"
 ---
 
 ## Scoring the 2022 forecast

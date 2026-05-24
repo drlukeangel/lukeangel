@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 36
 excerpt: "Four Reolink PoE cameras + Frigate 0.10 + Coral USB Accelerator. Object detection runs locally on the home server at 10 fps per stream."
 pullquote: "Cloud camera services charge $5-15/mo per camera. Frigate + a Coral USB does the same object detection locally for $75 of one-time hardware. The cost-per-camera-month asymptote is zero."
+cover: "../../assets/blog/poe-cameras-and-frigate-nvr-cover.png"
+coverAlt: "PoE cameras + Frigate NVR — local object detection"
 ---
 
 Four PoE cameras now live around the house: front porch, backyard, side yard, driveway. RTSP feeds flow into Frigate 0.10 running on a small Pi 4. Frigate uses the Coral USB Accelerator for object detection — runs at 10 fps per stream across all four streams concurrently. All local. No vendor cloud.

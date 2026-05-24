@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 56
 excerpt: "Final year-in-review of the series, for now. SmartThings Edge drivers finally local. Frame TV + appliances genuinely cooperating."
 pullquote: "Looking back: 6.5/8 on 2024's forecasts, ~82%. Steady. The series passes 50 posts. The smart home passes 250 devices. The arc continues."
+cover: "../../assets/blog/2025-in-review-and-2026-forecast-cover.png"
+coverAlt: "2025 review — Edge drivers local, robots choreographed"
 ---
 
 End of 2025. End of the year-in-review chain for the series.

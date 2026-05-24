@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="IoT Security — The Full Stack notebook cover: seven nested security layers protecting an application asset, with corresponding failure modes">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#c14a3a"/>
+
+  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">IOT SECURITY · DEFENSE IN DEPTH</text>
+  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#c14a3a" text-anchor="end">NOTEBOOK № 03</text>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+
+  <!-- HERO: Seven nested rounded rectangles (defense in depth).
+       Outer at 0,0 size 420x340. Each inner shrinks by 24 horizontal + 36 vertical margin, all at translate(140, 160). -->
+  <g transform="translate(140, 160)">
+    <!-- Layer 07: Physical (outermost) -->
+    <rect x="0"   y="0"   width="420" height="340" rx="18" fill="none" stroke="#c14a3a" stroke-width="2.2" opacity="0.95"/>
+    <text x="14" y="22" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#c14a3a">07 · PHYSICAL</text>
+    <!-- Layer 06: Network -->
+    <rect x="22"  y="38"  width="376" height="284" rx="15" fill="none" stroke="#c14a3a" stroke-width="2.2" opacity="0.9"/>
+    <text x="36" y="60" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#c14a3a">06 · NETWORK</text>
+    <!-- Layer 05: Transport -->
+    <rect x="44"  y="76"  width="332" height="228" rx="13" fill="none" stroke="#c14a3a" stroke-width="2.2" opacity="0.85"/>
+    <text x="58" y="98" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#c14a3a">05 · TRANSPORT  ·  TLS 1.3</text>
+    <!-- Layer 04: Identity -->
+    <rect x="66"  y="114" width="288" height="172" rx="11" fill="none" stroke="#c14a3a" stroke-width="2.2" opacity="0.8"/>
+    <text x="80" y="136" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#c14a3a">04 · IDENTITY  ·  mTLS</text>
+    <!-- Layer 03: Authorization -->
+    <rect x="88"  y="152" width="244" height="116" rx="9" fill="none" stroke="#c14a3a" stroke-width="2.2" opacity="0.75"/>
+    <text x="102" y="174" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#c14a3a">03 · AUTHZ</text>
+    <!-- Layer 02: Data -->
+    <rect x="110" y="190" width="200" height="60" rx="7" fill="none" stroke="#c14a3a" stroke-width="2.2" opacity="0.7"/>
+    <text x="124" y="212" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#c14a3a">02 · DATA  ·  E2EE</text>
+    <!-- Layer 01: App (innermost, filled) -->
+    <rect x="162" y="228" width="96" height="22" rx="4" fill="#c14a3a" stroke="#c14a3a" stroke-width="2"/>
+    <text x="210" y="244" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#fdfaf2">01 · APP</text>
+  </g>
+
+  <text x="350" y="525" text-anchor="middle" font-family="'Newsreader', serif" font-size="15" font-style="italic" fill="#7a808c">fig. 03 — seven layers, one fleet</text>
+
+  <!-- RIGHT: Failure modes per layer -->
+  <g>
+    <text x="640" y="200" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="4" fill="#7a808c">FAILURE MODES · BY LAYER</text>
+    <line x1="640" y1="216" x2="1120" y2="216" stroke="#1a1d24" stroke-width="1" opacity="0.35"/>
+
+    <text x="640" y="254" font-family="'Newsreader', serif" font-size="20" font-style="italic" fill="#1a1d24">Physical access  →</text>
+    <text x="640" y="278" font-family="'Newsreader', serif" font-size="15" fill="#5a6470">tampering, JTAG, side channel</text>
+
+    <text x="640" y="316" font-family="'Newsreader', serif" font-size="20" font-style="italic" fill="#1a1d24">Network  →</text>
+    <text x="640" y="340" font-family="'Newsreader', serif" font-size="15" fill="#5a6470">rogue gateway, eavesdropping, MITM</text>
+
+    <text x="640" y="378" font-family="'Newsreader', serif" font-size="20" font-style="italic" fill="#1a1d24">Identity  →</text>
+    <text x="640" y="402" font-family="'Newsreader', serif" font-size="15" fill="#5a6470">cert theft, replay, lateral movement</text>
+
+    <text x="640" y="440" font-family="'Newsreader', serif" font-size="20" font-style="italic" fill="#1a1d24">Update  →</text>
+    <text x="640" y="464" font-family="'Newsreader', serif" font-size="15" fill="#5a6470">unsigned OTA, rollback to vulnerable</text>
+  </g>
+
+  <line x1="80" y1="555" x2="1120" y2="555" stroke="#1a1d24" stroke-width="2"/>
+  <text x="80" y="600" font-family="'Newsreader', serif" font-size="19" font-style="italic" fill="#5a6470">No single layer holds. Assume each one fails, design for the next.</text>
+  <text x="1120" y="600" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="3" fill="#7a808c">EDITION I · 2024 — 2025</text>
+</svg>

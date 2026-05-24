@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 38
 excerpt: "Built a DIY pet feeder for Boson — ESP32 + servo + 3D-printed hopper + ESPHome. Local-only, no vendor cloud, integrates with HA. The thing I should've built after Petnet collapsed in 2020."
 pullquote: "An ESP32 + servo + 3D-printed hopper is $35 in parts and zero monthly subscription. The reliability is whatever I make it. The vendor solvency dependency is gone. This is what the post-Petnet pet-IoT category should have shipped years ago."
+cover: "../../assets/blog/diy-esp32-pet-feeder-vendor-cloud-independence-cover.png"
+coverAlt: "DIY ESP32 pet feeder — vendor-cloud independence for $35"
 ---
 
 Built a DIY pet feeder for Boson over a weekend. ESP32 + servo + 3D-printed hopper. ESPHome firmware. Integrates with Home Assistant. Total cost: $35 in parts.

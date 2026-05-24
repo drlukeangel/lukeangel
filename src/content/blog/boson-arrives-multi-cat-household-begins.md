@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 22
 excerpt: "Brought home Boson last weekend — 11-week-old tabby, COVID-era addition. Two-cat household now. Same feeder, same litter box, same cat door — two cats, two identities. Notes on what changes."
 pullquote: "Multi-cat households break the single-cat assumption in every pet-IoT device. The 'which cat is using this?' question becomes the central engineering problem. Some devices have already solved it. Most haven't."
+cover: "../../assets/blog/boson-arrives-multi-cat-household-begins-cover.png"
+coverAlt: "Boson arrives — the multi-cat engineering problem"
 ---
 
 Brought home **Boson** last weekend. An 11-week-old gray tabby kitten, adopted from the local shelter. Pandemic adoptions are surging — adoption fee waived, both cats fixed already, microchipped at the shelter. Standard intake.

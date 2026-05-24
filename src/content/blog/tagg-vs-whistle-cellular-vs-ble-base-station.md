@@ -13,6 +13,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 2
 excerpt: "A month into the Whistle Activity Monitor. The fitness-tracker model is clear. Tagg The Pet Tracker — a Qualcomm spin-off from 2011 — took a different approach. Notes on the two architectures."
 pullquote: "Cellular pet tracker for $7.95/month. BLE pet tracker for zero/month. The subscription difference dwarfs the hardware difference; the architecture difference is what makes one of these die a slow death."
+cover: "../../assets/blog/tagg-vs-whistle-cellular-vs-ble-base-station-cover.png"
+coverAlt: "Tagg vs Whistle — cellular vs BLE pet-tracker philosophies"
 ---
 
 A month into the [Whistle Activity Monitor on Atom](/blog/atom-arrives-whistle-activity-monitor-launches/). The fitness-tracker model is clear: BLE to a home base station, activity counted, no cellular, no subscription, ~7-day battery.

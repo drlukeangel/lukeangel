@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 19
 excerpt: "Google Home shipped (predicted), Hue Motion shipped (predicted), Apple's HomeKit hub didn't (missed). 2015 forecast scored 88%."
 pullquote: "Looking back at the 2015 forecast: 7/8 hit and the one miss was Apple's HomePod, which slipped. ~88% accurate. The pattern: Apple is always a year later than I predict."
+cover: "../../assets/blog/2016-in-review-and-2017-forecast-cover.png"
+coverAlt: "2016 review — Google Home, HomeKit, Hue automation"
 ---
 
 2016 done. Time to grade and forecast.

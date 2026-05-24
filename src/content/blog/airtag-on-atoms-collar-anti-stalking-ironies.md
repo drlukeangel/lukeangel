@@ -13,6 +13,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 25
 excerpt: "AirTag shipped April 30. Strapped one to Atom's collar — Apple tells you not to. Notes on why anti-stalking design is structurally incompatible with intentional pet tracking, and Find My's limits."
 pullquote: "AirTag's anti-stalking features are designed to alert an unsuspecting person that an AirTag is following them. When the AirTag is on your dog who's exited the geofence, your dog gets the 'someone is tracking you' chirp. Apple's design assumes the tagged entity is a person, and pet tracking breaks that assumption in interesting ways."
+cover: "../../assets/blog/airtag-on-atoms-collar-anti-stalking-ironies-cover.png"
+coverAlt: "AirTag on Atom's collar — anti-stalking vs pet tracking"
 ---
 
 Apple shipped AirTag April 30. Bought a four-pack ($99) immediately. Strapped one to Atom's collar in a silicone case.

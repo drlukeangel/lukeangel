@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 12
 excerpt: "Furbo finally shipped in March. Treat-tossing 1080p camera with bark alerts. Six weeks in. Hardware works, bark detection mediocre, treat-toss clever. Atom thinks it's a slot machine."
 pullquote: "The treat-toss mechanism is the engineering achievement. Spring-loaded, calibrated for a 2-meter arc, with three different launch angles selectable from the app. Atom now stares at it like it's a slot machine."
+cover: "../../assets/blog/furbo-dog-camera-first-impressions-cover.png"
+coverAlt: "Furbo Dog Camera — first impressions, treat-toss engineering"
 ---
 
 Furbo Dog Camera shipped to Kickstarter backers in March. Mine arrived early April. Six weeks of use, plenty of treats tossed at Atom.

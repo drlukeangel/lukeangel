@@ -12,6 +12,8 @@ series: smart-home-iot-journey
 seriesOrder: 25
 excerpt: "Five Z-Wave water leak sensors (basement, laundry, dishwasher, under both bathroom sinks) plus a Z-Wave motorized ball valve on the main."
 pullquote: "Insurance averages a flooded-basement claim at $11,000. The Z-Wave ball valve + sensors cost $800 installed. It pays for itself the first time it works — and even if it never works, it's still cheaper than the deductible."
+cover: "../../assets/blog/water-leak-sensors-automatic-shutoff-cover.png"
+coverAlt: "Water leak sensors + automatic shutoff — $800 insurance"
 ---
 
 Five water leak sensors. One Z-Wave motorized ball valve on the main water inlet. Five hours of plumber time. The house can now shut its own water off when something leaks.

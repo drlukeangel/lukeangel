@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 13
 excerpt: "A year living with all three protocols on the SmartThings hub plus Hue's separate Zigbee bridge. The frequency bands, the mesh behaviors."
 pullquote: "Z-Wave for sensors, Zigbee for lights, WiFi for cameras. If you can't remember anything else from this post, remember that."
+cover: "../../assets/blog/zwave-vs-zigbee-vs-wifi-year-with-smartthings-cover.png"
+coverAlt: "Z-Wave vs Zigbee vs WiFi — a year on SmartThings"
 ---
 
 A year with all three radio protocols running in the same house. The SmartThings hub carries Z-Wave + Zigbee HA; the Hue bridge carries Zigbee Light Link separately; Wemo plugs and a new LIFX bulb hang off WiFi. Time for a proper comparison.

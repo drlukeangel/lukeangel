@@ -10,6 +10,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 14
 excerpt: "Furbo shipped, SureFlap Hub shipped, Petnet had a worrying year of small outages. 2016 scored 65%. 2018: Fi launches, Litter-Robot III Connect ships, Petnet's first multi-day outage."
 pullquote: "Looking back: 5/8 on 2016's forecasts, ~63%. Three years running the misses are always the same — vendor ship dates. I keep predicting on calendars. Vendors do not."
+cover: "../../assets/blog/2017-pet-iot-year-in-review-cover.png"
+coverAlt: "2017 pet IoT — Furbo, SureFlap Hub, Petnet wobbles"
 ---
 
 End of 2017. Five years of pet IoT documented.

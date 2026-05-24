@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 51
 excerpt: "Full Samsung Bespoke kitchen + laundry. Frame TV as household display. Three Matter bridges live. EV charger installed."
 pullquote: "Looking back: 6/8 on 2023's forecasts, ~76%. Solar + battery slipped again. The new-house era of automations has run for 14 months — long enough to see what works."
+cover: "../../assets/blog/2024-in-review-and-2025-forecast-cover.png"
+coverAlt: "2024 review — Bespoke kitchen, Frame TV, Matter bridges"
 ---
 
 ## Scoring the 2023 forecast

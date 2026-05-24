@@ -12,6 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 33
 excerpt: "Furbo Dog Nanny shipped its AI subscription. Companion AI dog trainer launched. Tested three pitches against ground truth. Real signals vs AI that exists for marketing."
 pullquote: "The behavioral AI that works in 2023 lives in veterinary clinics with $40,000 high-frame-rate cameras and trained-classifier pipelines for lameness detection. The behavioral AI on a $250 consumer camera doing 'is your dog happy' is marketing. The category distinction matters."
+cover: "../../assets/blog/behavioral-ai-on-pet-cameras-bullshit-and-real-cover.png"
+coverAlt: "Behavioral AI on pet cameras — what works, what's marketing"
 ---
 
 Three "behavioral AI" pitches for pets in 2023:

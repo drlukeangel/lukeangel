@@ -8,6 +8,8 @@ tags:
   - microservices
   - scaling
 excerpt: So what Is Faas? FaaS is a framework for building serverless functions on Docker Swarm with first class support for metrics. Any UNIX process can be packaged as a function enabling you to…
+cover: "../../assets/blog/docker-servless-faas-functions-as-a-service-cover.png"
+coverAlt: "Docker + Servless = FaaS (Functions As A Service)"
 ---
 
 So what Is Faas? FaaS is a framework for building serverless functions on Docker Swarm with first class support for metrics. Any UNIX process can be packaged as a function enabling you to consume a range of web events without repetitive boilerplate coding.
