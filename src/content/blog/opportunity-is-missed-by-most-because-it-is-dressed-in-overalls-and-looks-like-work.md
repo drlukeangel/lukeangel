@@ -2,6 +2,7 @@
 title: Opportunity is dressed in overalls — and looks like work
 date: 2017-04-12T10:31:00.000Z
 category: craft
+draft: true
 tags:
   - quotes
   - career

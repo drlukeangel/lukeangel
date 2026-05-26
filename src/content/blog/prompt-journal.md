@@ -2,6 +2,7 @@
 title: A PM's prompt journal — write prompts by hand first
 date: 2026-04-28T00:00:00.000Z
 category: method
+draft: true
 tags:
   - prompting
   - evals
@@ -10,8 +11,8 @@ tags:
 excerpt: On writing prompts like you're writing to a tired teammate.
 pullquote: The shape of a good prompt is the shape of a good ask of a person.
 featured: true
-cover: "../../assets/blog/prompt-journal-cover.png"
-coverAlt: "A PM's prompt journal — write prompts by hand first"
+cover: "../../assets/blog/prompt-journal-cover.svg"
+coverAlt: "A ruled journal page divided into four columns, each topped with a small colored tab, a fountain pen resting diagonally across it — prompts drafted by hand before they go near a keyboard."
 ---
 
 The first time I wrote a prompt that mattered, it was inside a Slack thread to a tired teammate. I was apologizing for the spec, asking for help, and trying to make the ask precise enough that an LLM could finish it overnight. It worked. Then I tried to do it again at my desk, in an IDE, and it didn't.

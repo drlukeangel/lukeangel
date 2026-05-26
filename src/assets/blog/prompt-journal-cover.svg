@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A handwritten prompt-journal page divided into four ruled columns, each topped with a small colored tab, with a fountain pen resting diagonally across it">
+  <defs>
+    <pattern id="pj-dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="#ddd6c4"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#faf7ee"/>
+  <rect width="1200" height="630" fill="url(#pj-dots)"/>
+  <rect width="14" height="630" fill="#234c3a"/>
+
+  <!-- journal page -->
+  <g transform="translate(150,96)">
+    <rect x="6" y="8" width="900" height="438" rx="12" fill="#000000" opacity="0.06"/>
+    <rect x="0" y="0" width="900" height="438" rx="12" fill="#fffdf8" stroke="#2b2b2b" stroke-width="2.5"/>
+
+    <!-- column dividers -->
+    <g stroke="#e7dfcd" stroke-width="1.5">
+      <line x1="225" y1="22" x2="225" y2="416"/>
+      <line x1="450" y1="22" x2="450" y2="416"/>
+      <line x1="675" y1="22" x2="675" y2="416"/>
+    </g>
+
+    <!-- four column header tabs (context / constraint / success / gratitude) -->
+    <rect x="57"  y="38" width="110" height="22" rx="11" fill="#3b6ea5"/>
+    <rect x="282" y="38" width="110" height="22" rx="11" fill="#c4892f"/>
+    <rect x="507" y="38" width="110" height="22" rx="11" fill="#3a7d44"/>
+    <rect x="732" y="38" width="110" height="22" rx="11" fill="#b0506b"/>
+
+    <!-- header rule -->
+    <line x1="22" y1="82" x2="878" y2="82" stroke="#2b2b2b" stroke-width="2"/>
+
+    <!-- ruled lines -->
+    <g stroke="#efe7d5" stroke-width="1.5">
+      <line x1="22" y1="126" x2="878" y2="126"/>
+      <line x1="22" y1="170" x2="878" y2="170"/>
+      <line x1="22" y1="214" x2="878" y2="214"/>
+      <line x1="22" y1="258" x2="878" y2="258"/>
+      <line x1="22" y1="302" x2="878" y2="302"/>
+      <line x1="22" y1="346" x2="878" y2="346"/>
+      <line x1="22" y1="390" x2="878" y2="390"/>
+    </g>
+
+    <!-- handwriting (text-free squiggles), sitting on the ruled lines -->
+    <g stroke="#6a655c" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.72">
+      <!-- col 1 -->
+      <path d="M40 122 q14 -7 28 0 t28 0 t28 0 t28 0 t28 0"/>
+      <path d="M40 166 q14 -7 28 0 t28 0 t28 0"/>
+      <path d="M40 210 q14 -7 28 0 t28 0 t28 0 t28 0"/>
+      <path d="M40 254 q14 -7 28 0 t28 0"/>
+      <!-- col 2 -->
+      <path d="M247 122 q14 -7 28 0 t28 0 t28 0 t28 0"/>
+      <path d="M247 166 q14 -7 28 0 t28 0 t28 0"/>
+      <path d="M247 210 q14 -7 28 0 t28 0 t28 0 t28 0 t28 0"/>
+      <!-- col 3 -->
+      <path d="M472 122 q14 -7 28 0 t28 0 t28 0"/>
+      <path d="M472 166 q14 -7 28 0 t28 0 t28 0 t28 0 t28 0"/>
+      <path d="M472 210 q14 -7 28 0 t28 0"/>
+      <path d="M472 254 q14 -7 28 0 t28 0 t28 0"/>
+      <!-- col 4 (gratitude) -->
+      <path d="M697 122 q14 -7 28 0 t28 0 t28 0"/>
+    </g>
+    <!-- a small hand-drawn heart in the gratitude column -->
+    <path d="M712 168 c-7 -9 -22 -4 -22 7 c0 9 13 16 22 24 c9 -8 22 -15 22 -24 c0 -11 -15 -16 -22 -7 z" fill="#b0506b"/>
+  </g>
+
+  <!-- fountain pen, resting diagonally across the lower page -->
+  <g transform="translate(548,322) rotate(34)">
+    <!-- nib -->
+    <path d="M0 0 L46 -11 L46 11 Z" fill="#d4af37" stroke="#9c7d1e" stroke-width="1.5"/>
+    <line x1="8" y1="0" x2="40" y2="0" stroke="#9c7d1e" stroke-width="1.6"/>
+    <circle cx="34" cy="0" r="3.2" fill="#fffdf8" stroke="#9c7d1e" stroke-width="1.2"/>
+    <!-- grip -->
+    <rect x="46" y="-10" width="34" height="20" fill="#2b2b2b"/>
+    <!-- barrel -->
+    <rect x="80" y="-14" width="210" height="28" rx="14" fill="#234c3a" stroke="#16271d" stroke-width="1.5"/>
+    <!-- band -->
+    <rect x="80" y="-14" width="16" height="28" fill="#d4af37"/>
+    <!-- end cap -->
+    <circle cx="290" cy="0" r="14" fill="#1b3a2c"/>
+    <!-- clip -->
+    <rect x="150" y="-14" width="9" height="58" rx="4" fill="#d4af37"/>
+  </g>
+</svg>

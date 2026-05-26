@@ -2,6 +2,7 @@
 title: Two eyes, two ears, one mouth — use them in proportion
 date: 2017-02-26T15:31:42.000Z
 category: craft
+draft: true
 tags:
   - quotes
   - user-research

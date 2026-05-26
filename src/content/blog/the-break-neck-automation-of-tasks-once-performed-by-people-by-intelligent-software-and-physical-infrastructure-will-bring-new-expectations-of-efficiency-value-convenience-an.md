@@ -2,6 +2,7 @@
 title: Break-neck automation will reset our expectations
 date: 2016-11-09T09:04:48.000Z
 category: tools
+draft: true
 tags:
   - automation
   - ai

@@ -2,6 +2,7 @@
 title: Entrepreneurs work 80 hours a week to avoid working 40
 date: 2016-10-24T04:26:51.000Z
 category: craft
+draft: true
 tags:
   - quotes
   - career

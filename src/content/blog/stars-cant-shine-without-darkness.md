@@ -2,6 +2,7 @@
 title: Stars can't shine without darkness
 date: 2017-02-25T23:28:56.000Z
 category: craft
+draft: true
 tags:
   - career
   - leadership

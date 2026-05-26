@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=\"--require ./patch-fs.cjs\" UV_THREADPOOL_SIZE=32 astro dev",
     "start": "cross-env NODE_OPTIONS=\"--require ./patch-fs.cjs\" UV_THREADPOOL_SIZE=32 astro dev",
-    "build": "cross-env NODE_OPTIONS=\"--require ./patch-fs.cjs\" UV_THREADPOOL_SIZE=32 astro build && pagefind --site dist && npm run sync-pagefind",
-    "reindex": "pagefind --site dist && npm run sync-pagefind",
-    "sync-pagefind": "node -e \"const fs=require('node:fs'),p=require('node:path'); fs.rmSync('public/pagefind',{recursive:true,force:true}); fs.cpSync('dist/pagefind','public/pagefind',{recursive:true}); console.log('synced dist/pagefind → public/pagefind');\"",
+    "build": "cross-env NODE_OPTIONS=\"--require ./patch-fs.cjs\" UV_THREADPOOL_SIZE=32 astro build && pagefind --site dist/client && npm run sync-pagefind",
+    "reindex": "pagefind --site dist/client && npm run sync-pagefind",
+    "sync-pagefind": "node -e \"const fs=require('node:fs'),p=require('node:path'); fs.rmSync('public/pagefind',{recursive:true,force:true}); fs.cpSync('dist/client/pagefind','public/pagefind',{recursive:true}); console.log('synced dist/client/pagefind → public/pagefind');\"",
     "preview": "astro preview",
     "astro": "astro"
   },

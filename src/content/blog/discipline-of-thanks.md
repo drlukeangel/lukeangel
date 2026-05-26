@@ -2,6 +2,7 @@
 title: "The discipline of thanks"
 date: 2026-03-31
 category: craft
+draft: true
 tags: [gratitude, writing]
 excerpt: "Writing thank-you notes as a PM ritual. No, really."
 pullquote: "A thank-you note is a roadmap artifact. Fight me about it later."
