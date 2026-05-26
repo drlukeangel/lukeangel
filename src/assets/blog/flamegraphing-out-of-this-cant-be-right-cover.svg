@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.2" fill="#1a1d24" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#b7410e"/>
+
+  <!-- baseline (the ground that flamegraph stacks sit on) -->
+  <line x1="100" y1="525" x2="1140" y2="525" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- background flamegraph rectangles (ink, low-stack, normal width) -->
+  <g fill="#1a1d24" fill-opacity="0.65">
+    <!-- row 1 (bottom) — wide low frames -->
+    <rect x="100"  y="497" width="200" height="28"/>
+    <rect x="305"  y="497" width="220" height="28"/>
+    <rect x="530"  y="497" width="190" height="28"/>
+    <rect x="725"  y="497" width="120" height="28"/>
+    <rect x="850"  y="497" width="290" height="28"/>
+
+    <!-- row 2 -->
+    <rect x="120"  y="469" width="170" height="28"/>
+    <rect x="320"  y="469" width="180" height="28"/>
+    <rect x="555"  y="469" width="140" height="28"/>
+    <rect x="730"  y="469" width="95"  height="28"/>
+    <rect x="870"  y="469" width="240" height="28"/>
+
+    <!-- row 3 -->
+    <rect x="140"  y="441" width="135" height="28"/>
+    <rect x="340"  y="441" width="140" height="28"/>
+    <rect x="570"  y="441" width="110" height="28"/>
+    <rect x="900"  y="441" width="190" height="28"/>
+
+    <!-- row 4 -->
+    <rect x="160"  y="413" width="100" height="28"/>
+    <rect x="360"  y="413" width="100" height="28"/>
+    <rect x="585"  y="413" width="85"  height="28"/>
+    <rect x="920"  y="413" width="150" height="28"/>
+
+    <!-- row 5 -->
+    <rect x="380"  y="385" width="70"  height="28"/>
+    <rect x="945"  y="385" width="110" height="28"/>
+
+    <!-- row 6 -->
+    <rect x="395"  y="357" width="50"  height="28"/>
+    <rect x="970"  y="357" width="75"  height="28"/>
+  </g>
+
+  <!-- THE hot column: disproportionately tall, rust-orange highlighted -->
+  <g fill="#b7410e">
+    <rect x="600"  y="497" width="90" height="28"/>
+    <rect x="600"  y="469" width="90" height="28"/>
+    <rect x="600"  y="441" width="90" height="28"/>
+    <rect x="600"  y="413" width="90" height="28"/>
+    <rect x="600"  y="385" width="90" height="28"/>
+    <rect x="600"  y="357" width="90" height="28"/>
+    <rect x="600"  y="329" width="90" height="28"/>
+    <rect x="600"  y="301" width="90" height="28"/>
+    <rect x="600"  y="273" width="90" height="28"/>
+    <rect x="600"  y="245" width="90" height="28"/>
+    <rect x="600"  y="217" width="90" height="28"/>
+    <rect x="600"  y="189" width="90" height="28"/>
+    <rect x="600"  y="161" width="90" height="28"/>
+    <rect x="600"  y="133" width="90" height="28"/>
+  </g>
+
+  <!-- ink stroke around the hot column for emphasis -->
+  <rect x="600" y="133" width="90" height="392" fill="none"
+        stroke="#1a1d24" stroke-width="2"/>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.2" fill="#1a1d24" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#b7410e"/>
+
+  <!-- spokes within each side cluster (ink, subtle) -->
+  <g stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1.5" fill="none">
+    <!-- left cluster spokes from left hub (380, 315) -->
+    <line x1="380" y1="315" x2="220" y2="180"/>
+    <line x1="380" y1="315" x2="170" y2="290"/>
+    <line x1="380" y1="315" x2="220" y2="440"/>
+    <line x1="380" y1="315" x2="320" y2="510"/>
+    <line x1="380" y1="315" x2="500" y2="190"/>
+    <line x1="380" y1="315" x2="490" y2="470"/>
+
+    <!-- right cluster spokes from right hub (820, 315) -->
+    <line x1="820" y1="315" x2="700" y2="190"/>
+    <line x1="820" y1="315" x2="710" y2="470"/>
+    <line x1="820" y1="315" x2="880" y2="510"/>
+    <line x1="820" y1="315" x2="980" y2="440"/>
+    <line x1="820" y1="315" x2="1030" y2="290"/>
+    <line x1="820" y1="315" x2="980" y2="180"/>
+  </g>
+
+  <!-- leaves -->
+  <g fill="#1a1d24">
+    <circle cx="220" cy="180" r="14"/>
+    <circle cx="170" cy="290" r="14"/>
+    <circle cx="220" cy="440" r="14"/>
+    <circle cx="320" cy="510" r="14"/>
+    <circle cx="500" cy="190" r="14"/>
+    <circle cx="490" cy="470" r="14"/>
+
+    <circle cx="700" cy="190" r="14"/>
+    <circle cx="710" cy="470" r="14"/>
+    <circle cx="880" cy="510" r="14"/>
+    <circle cx="980" cy="440" r="14"/>
+    <circle cx="1030" cy="290" r="14"/>
+    <circle cx="980" cy="180" r="14"/>
+  </g>
+
+  <!-- hubs -->
+  <circle cx="380" cy="315" r="32" fill="#b7410e"/>
+  <circle cx="380" cy="315" r="32" fill="none" stroke="#1a1d24" stroke-width="2"/>
+  <circle cx="380" cy="315" r="14" fill="#fdfaf2" fill-opacity="0.85"/>
+
+  <circle cx="820" cy="315" r="32" fill="#b7410e"/>
+  <circle cx="820" cy="315" r="32" fill="none" stroke="#1a1d24" stroke-width="2"/>
+  <circle cx="820" cy="315" r="14" fill="#fdfaf2" fill-opacity="0.85"/>
+
+  <!-- THE chaos cut: a jagged lightning-bolt path through the middle of the cluster.
+       White fill behind it so the line cuts visually; then rust-orange jagged stroke on top. -->
+  <path d="M 600,40 L 565,180 L 615,200 L 545,330 L 620,355 L 540,510 L 595,540 L 555,610"
+        fill="none" stroke="#fdfaf2" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 600,40 L 565,180 L 615,200 L 545,330 L 620,355 L 540,510 L 595,540 L 555,610"
+        fill="none" stroke="#b7410e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- a small "X" mark at the chaos epicenter -->
+  <g stroke="#b7410e" stroke-width="5" stroke-linecap="round" fill="none">
+    <line x1="580" y1="290" x2="610" y2="320"/>
+    <line x1="610" y1="290" x2="580" y2="320"/>
+  </g>
+</svg>

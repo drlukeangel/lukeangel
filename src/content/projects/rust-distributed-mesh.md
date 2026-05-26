@@ -1,0 +1,60 @@
+---
+title: "Rust Distributed Mesh"
+year: "2026"
+role: "Solo build · open source experiment"
+summary: "A peer-to-peer mesh substrate in Rust on iroh QUIC. The interesting part isn't what it does — it's the engineering arc of figuring out why 18 nodes pegged an 80-core box at 100% CPU, and what it took to settle to a 5% steady state."
+stack: [rust, iroh, quic, tokio, opentelemetry, react, vite]
+outcome: "Open source · MIT · github.com/drlukeangel/rust-distributed-mesh"
+---
+
+![Cover graphic for the Rust Distributed Mesh — two clusters of peer nodes arranged around large rust-orange hubs, with small ink-colored leaf nodes radiating out, and a dashed accent-colored bridge link crossing the gap between the two clusters through an intermediate bridge node. The illustration sits on a cream background with a faint dot grid and a vertical rust-orange accent bar at the left edge.](../../assets/blog/rust-distributed-mesh-cover.svg)
+
+I wanted to know what it actually costs to run a self-organizing P2P mesh on commodity hardware. The substrate is the long-running need underneath bigger Rafka work — Kafka-protocol-compatible event streaming over a NAT-traversing iroh fabric. Before the app layer made sense, I needed to know whether the substrate itself was sound. So I built it small and ran it hard.
+
+→ **[github.com/drlukeangel/rust-distributed-mesh](https://github.com/drlukeangel/rust-distributed-mesh)**
+
+## Why this exists
+
+Every "production-ready" distributed system I've worked with assumed something the documentation didn't say out loud: that nodes share a datacenter network, that broker discovery is a config file, that the gossip cadence is some unstated default someone tuned in 2014. I wanted to feel that assumption from the inside — find out where the iroh-as-substrate story breaks at small scale, before betting a real product on it.
+
+Spoiler from the journey below: it broke in places that had nothing to do with iroh. It broke in places where I'd written `tokio::spawn(...)` without thinking about who owned the resulting tasks.
+
+## What's in the box
+
+| Piece | What it does |
+| --- | --- |
+| `crates/rafka-node-base` | The substrate. Identity, gossip emit loop, peer registry, the `LoadSampler` for self-reported CPU/RAM, the staleness pruner. Built on iroh-gossip 0.98 (Plumtree + HyParView). |
+| `crates/rafka-mesh-transport` | Thin layer over iroh's `Endpoint`. Sets the ALPN, the mDNS toggle, the bind-addr surface, the idle timeout. |
+| `crates/rafka-telemetry` | OTLP/tracing init. Single source of truth for how every node's spans land in Jaeger. |
+| `admin-ui/` | React + Vite topology view. The thing you stare at when you don't believe the numbers. Live node grid, hub-and-leaf layout, CPU/RAM bars per node, kill button per card. |
+| `broker / gateway / compute / registry / bridge` | Example node types. Each is just `NodeRuntime::new("type").run().await` and a `.env.dev` preset. From the substrate's perspective they're interchangeable. |
+
+Stack: `rust (substrate)` · `iroh 0.98 + iroh-gossip` (QUIC + NAT traversal + Plumtree/HyParView) · `tokio` · `opentelemetry → Jaeger` · `react + vite (UI)`.
+
+## The arc
+
+| When | What |
+| --- | --- |
+| Early May 2026 | First 18-node bootstrap. Host pegged at 100% CPU. Hypothesis: "iroh-gossip is expensive at this scale." |
+| Mid May | Killed mDNS (explicit seed nodes only), bumped gossip cadence 500ms → 2000ms, TRACE-demoted per-frame INFO spans. Host CPU: 100% → 35%. Better, still wrong. |
+| Late May | Almost forked the project — spent two days seriously considering a centralized-Controller architecture to escape "gossip costs." |
+| Late May | Took a flamegraph instead. Found the actual bug: a `join_peers()` call inside a 100ms tick that retriggered TLS handshakes for every known peer every 1/10th of a second. **3,240 QUIC handshakes per second across the cluster, accomplishing nothing.** |
+| End of May | Fixed the storm. Found four more leaks while in there: ghost QUIC connections on peer reconnect, span queue accumulation under `#[instrument]` on infinite loops, unbounded global state maps, busy-wait on a closed channel. Host CPU: 35% → **5%**. Per-node settled at 0.05–0.10 cores. Competitive with an idle Bitcoin node. |
+| Now | Cleaning up. Writing it up. |
+
+## What I'd tell someone building one
+
+- **Comments lie. Flamegraphs don't.** Every CPU bug I found had a comment next to it claiming the code was cheap. The flamegraph said otherwise on every one.
+- **Don't blame the protocol before you've measured.** I was two days into "we need to abandon gossip" when a 30-second profile capture made the question moot. The protocol was fine. My *usage* of it was the bug.
+- **Per-node telemetry lies too.** sysinfo's `cpu_usage()` on Windows over-counts by 1.5–2× at high process counts. Task Manager was the ground truth; my own telemetry was inflating the cost picture. Always cross-check against the OS.
+- **The substrate isn't the product.** Half the bugs were because I treated gossip as a *data plane* — every node broadcasts its full state every 2 seconds, forever — when it's a *control plane* primitive. The day I stopped treating "everyone shouts everything constantly" as a normal pattern, the architecture made sense.
+
+## What's next
+
+Three posts walking through the work, going up at lukeangel.com:
+
+1. *Why I built a P2P mesh substrate in Rust* — the architecture, the iroh choice, what the substrate buys you that direct TCP doesn't.
+2. *When 18 nodes pegged my 80-core box at 100%* — the bug cascade, with the actual diff next to each one.
+3. *Flamegraphing your way out of "this can't possibly be right"* — the engineering process, including the day I almost forked the architecture for the wrong reason.
+
+The Rafka app layer (Kafka-protocol-compatible event streaming on this substrate) is the next sprint. This kit is the substrate it sits on.

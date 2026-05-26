@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.2" fill="#1a1d24" fill-opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#b7410e"/>
+
+  <!-- chart axes (subtle ink lines) -->
+  <g stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2" fill="none">
+    <line x1="160" y1="120" x2="160" y2="520"/>
+    <line x1="160" y1="520" x2="1080" y2="520"/>
+  </g>
+
+  <!-- gridlines (very subtle) -->
+  <g stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1" fill="none">
+    <line x1="160" y1="200" x2="1080" y2="200"/>
+    <line x1="160" y1="280" x2="1080" y2="280"/>
+    <line x1="160" y1="360" x2="1080" y2="360"/>
+    <line x1="160" y1="440" x2="1080" y2="440"/>
+    <line x1="344" y1="120" x2="344" y2="520"/>
+    <line x1="528" y1="120" x2="528" y2="520"/>
+    <line x1="712" y1="120" x2="712" y2="520"/>
+    <line x1="896" y1="120" x2="896" y2="520"/>
+  </g>
+
+  <!-- The leak curve: starts flat-ish, then climbs linearly + accelerates a touch.
+       Polyline points walk left-to-right, RAM growing over time. -->
+  <polyline
+    points="160,485 220,478 280,470 340,461 400,448 460,432 520,412
+            580,388 640,360 700,328 760,294 820,258 880,222 940,188
+            1000,158 1060,135"
+    fill="none" stroke="#b7410e" stroke-width="4"
+    stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- emphasize the curve continues off the chart (no plateau) — a small arrow head -->
+  <polygon points="1060,135 1054,150 1072,144" fill="#b7410e"/>
+
+  <!-- a few sample points on the curve so it reads as measured data, not just a line -->
+  <g fill="#1a1d24">
+    <circle cx="160" cy="485" r="4"/>
+    <circle cx="340" cy="461" r="4"/>
+    <circle cx="520" cy="412" r="4"/>
+    <circle cx="700" cy="328" r="4"/>
+    <circle cx="880" cy="222" r="4"/>
+    <circle cx="1060" cy="135" r="4"/>
+  </g>
+</svg>
