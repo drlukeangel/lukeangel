@@ -68,7 +68,7 @@ export default config({
         ),
         featured: fields.checkbox({ label: 'Featured', defaultValue: false }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
-        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+        content: fields.markdoc({ label: 'Content', extension: 'mdoc' }),
       },
     }),
 
@@ -81,7 +81,7 @@ export default config({
         tag: fields.slug({ name: { label: 'Tag' } }),
         date: fields.date({ label: 'Date', defaultValue: { kind: 'today' } }),
         long: fields.checkbox({ label: 'Long (spans 2 columns)', defaultValue: false }),
-        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+        content: fields.markdoc({ label: 'Content', extension: 'mdoc' }),
       },
     }),
 
@@ -102,7 +102,7 @@ export default config({
         }),
         outcome: fields.text({ label: 'Outcome', multiline: true }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
-        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+        content: fields.markdoc({ label: 'Content', extension: 'mdoc' }),
       },
     }),
 
@@ -128,7 +128,7 @@ export default config({
           description: 'Optional hex color (e.g. #0066cc) for notebook-specific accents.',
         }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
-        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+        content: fields.markdoc({ label: 'Content', extension: 'mdoc' }),
       },
     }),
 
@@ -175,7 +175,7 @@ export default config({
           description: 'Plain-language description of the image for screen readers and SEO. One short sentence.',
         }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: false }),
-        content: fields.markdoc({ label: 'Content', extension: 'md' }),
+        content: fields.markdoc({ label: 'Content', extension: 'mdoc' }),
       },
     }),
   },

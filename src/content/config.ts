@@ -48,7 +48,7 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     year: z.string(),
-    role: z.string(),
+    role: z.string().optional(),
     summary: z.string(),
     stack: z.array(z.string()).default([]),
     outcome: z.string().optional(),

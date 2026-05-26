@@ -1,15 +1,26 @@
 ---
-title: "Connected Products Starter Kit"
-year: "2023"
-role: "Sr. Director, Technical Program / Product Management"
-summary: "Reference architecture from leading connected-product teams — wireless decision rubric, end-to-end AWS IoT Core stack, runnable device code in Python and Rust. Open-sourced October 2025."
-stack: [typescript, python, rust, aws-iot-core, aws-cdk, aws-lambda, dynamodb]
-outcome: "Open source · MIT · github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management"
+title: Connected Products Starter Kit
+year: '2025'
+summary: >-
+  Reference architecture from leading connected-product teams — wireless
+  decision rubric, end-to-end AWS IoT Core stack, runnable device code in Python
+  and Rust. Open-sourced October 2025.
+stack:
+  - typescript
+  - python
+  - rust
+  - aws-iot-core
+  - aws-cdk
+  - aws-lambda
+  - dynamodb
+outcome: >-
+  Open source · MIT ·
+  github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management
+draft: false
 ---
-
 The kit is the canonical artifact I hand a new connected-product team on day one — a wireless decision rubric, an end-to-end reference architecture, and runnable code for the parts that always slow teams down (mTLS, topic rules, certificate provisioning).
 
-→ **[github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management](https://github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management)**
+→ [**github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management**](https://github.com/drlukeangel/Connected-Products-Starter-Kit-Product-Management)
 
 ## Why this exists
 
@@ -18,7 +29,7 @@ Every PM and engineering manager I've worked with on connected hardware has run 
 ## What's in the box
 
 | Piece | What it does |
-| --- | --- |
+|---|---|
 | `docs/rubric.md` | Five-question decision rubric — BLE vs LoRa vs cellular vs LPWAN |
 | `docs/ARCHITECTURE.md` | The reference diagram + the trade-offs behind it |
 | `device/python/` | Pure-Python MQTT simulator (quick start, no hardware) |
@@ -42,7 +53,7 @@ Different audiences read different parts:
 ## The arc
 
 | When | What |
-| --- | --- |
+|---|---|
 | Late 2023 | Built first version privately while leading a connected-products engineering team |
 | 2024 – 2025 | Iterated through several real deployments, hardened the rubric |
 | October 2025 | Cleaned up and open-sourced the kit |

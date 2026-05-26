@@ -19,12 +19,11 @@ const { Content } = await p.render();
       { label: p.data.title },
     ]} />
     <div style="margin-top: 32px;">
-      <div class="mono" style="color: var(--accent);">{p.data.year} · {p.data.role}</div>
+      <div class="mono" style="color: var(--accent);">{p.data.year}</div>
       <h1 style="font-size: clamp(48px, 6vw, 84px); margin-top: 18px;">{p.data.title}</h1>
     </div>
-    <div style="margin-top: 32px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 24px 0;">
+    <div style="margin-top: 32px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 24px 0;">
       <div><div class="mono" style="color: var(--accent);">Year</div><div style="font-size: 20px; margin-top: 8px;">{p.data.year}</div></div>
-      <div><div class="mono" style="color: var(--accent);">Role</div><div style="font-size: 20px; margin-top: 8px;">{p.data.role}</div></div>
       <div><div class="mono" style="color: var(--accent);">Stack</div><div style="font-size: 16px; margin-top: 8px;">{p.data.stack.join(' · ')}</div></div>
       <div><div class="mono" style="color: var(--accent);">Outcome</div><div style="font-size: 16px; margin-top: 8px;">{p.data.outcome}</div></div>
     </div>

@@ -1,0 +1,54 @@
+---
+title: "Building a multi-tenant LLM platform, 0 → 1"
+date: 2024-10-15T09:00:00-04:00
+category: teams
+tags:
+  - llms
+  - platform
+  - evals
+  - leadership
+notebook: building-with-ai-ml
+notebookOrder: 5
+excerpt: "The internal name was Plural: a multi-tenant LLM platform enterprises could trust with their own data. Three engineers to nineteen, eighteen months. The hard part was never the model calls."
+pullquote: "The rubric outranked the org chart. That's the only way a call like that ever survives."
+cover: "../../assets/blog/building-a-multi-tenant-llm-platform-0-to-1-cover.svg"
+coverAlt: "A multi-tenant platform diagram: separate tenant lanes feeding a shared application layer that sits on a stable abstraction above a row of interchangeable model blocks, with an evaluation gate guarding what ships."
+---
+
+The internal name was *Plural*. I'll write about it the way I write about any former employer's internals — the shape of the work, not the logos: a multi-tenant LLM platform that enterprise teams could trust with their own data.
+
+That phrase — *trust with their own data* — is the whole engineering problem hiding inside a sentence the sales deck loved. It means real tenant isolation, data boundaries you can defend in a security review, and an audit story that holds up — not a good demo. That was the load-bearing work. The model calls were the easy part.
+
+## The floor kept moving
+
+![A stable application layer sitting on an abstraction line, with a row of interchangeable model blocks underneath that can be swapped without the layer above changing; a side note marks that model choice is an evaluation and a config value, not a rewrite.](../../assets/blog/multi-tenant-llm-abstraction-over-model-layer.svg)
+
+The defining constraint of building on LLMs in 2024 was that the model layer underneath you changed every few weeks — new models, bigger context windows, new prices. Wire a product straight to a model and every one of those is a migration.
+
+So the architectural bet was to put the product on an abstraction it could stand on while the models churned underneath: model choice became something you *evaluate and configure*, not something you *rewrite around*. That single decision is the reason a team of nineteen kept shipping product instead of chasing the model of the month — and it's the bet I'd make first on any platform sitting on a volatile layer, not just an AI one.
+
+## Evals were the quality system, not a ritual
+
+![A pull request flowing into a held-out evaluation set, scored against a rubric; a threshold gate then forks to "ship" on pass and "blocked" on fail — the regression gate for a non-deterministic system.](../../assets/blog/eval-rubric-as-regression-gate.svg)
+
+A non-deterministic system needs a regression gate the way deterministic code needs a test suite — it just can't be a string compare. We ran a weekly eval rubric the whole team scored against a held-out set, and it became the thing we shipped *against*, not a report we filed after.
+
+Two things fell out of that. A model swap stopped being a leap of faith and became a number you could read before you committed. And when the data said a feature wasn't earning its place, we killed it — including one my CEO loved. The rubric outranked the org chart. That's the only way a call like that ever survives.
+
+## Multi-tenant is a discipline, not a feature
+
+Isolation is the kind of thing that's cheap when you design it in and brutally expensive when you bolt it on after the first enterprise customer signs. The platform's tenancy story was a first-class design constraint from the first architecture review, not a hardening pass before launch — because "trust with their own data" is a promise you either build the system around or spend the next year apologizing for.
+
+## Scaling the team and the system together
+
+Three engineers to nineteen over eighteen months. Seven enterprise customers. And the number I'm quietly proudest of: zero lost weekends — because the abstraction layer and the eval gate meant we were rarely firefighting a model change at midnight. Calm is a leading indicator that the architecture is doing its job.
+
+The launch playbook and the post-launch retro we wrote became company-standard, and they traveled with those engineers wherever they went next. That's the only real test of whether the rigor was load-bearing or theater: does it outlive the project and the people who wrote it.
+
+## What I'd carry into the next one
+
+- **Build the abstraction over the volatile layer before you have to.** The migration you avoid is worth more than the one you execute well.
+- **Stand up the eval gate before there's much to gate.** It's culture as much as code — the team has to believe the number outranks the opinion, and that belief is easier to build early.
+- **Treat isolation as a design constraint, not a feature.** "Trust with their own data" is architecture, not a checkbox.
+
+The eval discipline, distilled to its smallest open-source shape, is the [Eval Starter Kit](/projects/eval-lab/); the rest of this thread runs through the [Building with AI/ML](/notebooks/building-with-ai-ml/) notebook.

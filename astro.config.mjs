@@ -6,6 +6,7 @@ import keystatic from '@keystatic/astro';
 import vercel from '@astrojs/vercel';
 import seoGraph from '@jdevalk/astro-seo-graph/integration';
 import robotsTxt from 'astro-robots-txt';
+import markdoc from '@astrojs/markdoc';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +16,7 @@ export default defineConfig({
     react(),
     keystatic(),
     mdx(),
+    markdoc(),
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
