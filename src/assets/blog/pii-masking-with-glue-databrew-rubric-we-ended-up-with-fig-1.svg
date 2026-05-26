@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 430" width="1060" height="430" role="img" aria-label="Audit-evidence trail">
+  <rect width="1060" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHAT THE AUDIT ASKED FOR — THREE ARTIFACTS THE PIPELINE NOW EMITS</text>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- masking job -->
+    <rect x="40" y="150" width="210" height="120" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="60" y="200" font-size="13" fill="#2a52be">Masking job</text>
+    <text x="60" y="224" font-size="11" fill="#7a808c">applies the rubric,</text>
+    <text x="60" y="242" font-size="11" fill="#7a808c">version-stamped</text>
+
+    <!-- fan-out arrows -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+      <line x1="250" y1="178" x2="404" y2="120"/><path d="M408 118 l-16 -2 l6 13 z"/>
+      <line x1="250" y1="210" x2="404" y2="210"/><path d="M408 210 l-15 -7 v14 z"/>
+      <line x1="250" y1="242" x2="404" y2="300"/><path d="M408 302 l-16 2 l6 -13 z"/>
+    </g>
+
+    <!-- artifact 1: decision log -->
+    <rect x="412" y="80" width="290" height="80" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="432" y="110" font-size="12.5" fill="#1a1d24">Masking decision log</text>
+    <text x="432" y="132" font-size="11" fill="#7a808c">per row: bucket · treatment ·</text>
+    <text x="432" y="150" font-size="11" fill="#7a808c">rubric version · append-only</text>
+
+    <!-- artifact 2: kept columns -->
+    <rect x="412" y="172" width="290" height="76" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="432" y="200" font-size="12.5" fill="#1a1d24">kept_columns.md</text>
+    <text x="432" y="222" font-size="11" fill="#7a808c">what was kept + why,</text>
+    <text x="432" y="240" font-size="11" fill="#7a808c">reviewed in PR</text>
+
+    <!-- artifact 3: rollback runbook -->
+    <rect x="412" y="260" width="290" height="80" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="432" y="290" font-size="12.5" fill="#1a1d24">Re-mask runbook</text>
+    <text x="432" y="312" font-size="11" fill="#7a808c">if a "behavioral" column</text>
+    <text x="432" y="330" font-size="11" fill="#7a808c">was actually PII — remediate</text>
+
+    <!-- converge to auditor -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+      <line x1="702" y1="120" x2="852" y2="190"/><path d="M856 192 l-16 -1 l4 -14 z"/>
+      <line x1="702" y1="210" x2="852" y2="210"/><path d="M856 210 l-15 -7 v14 z"/>
+      <line x1="702" y1="300" x2="852" y2="230"/><path d="M856 228 l-16 1 l4 14 z"/>
+    </g>
+
+    <!-- auditor / evidence seal -->
+    <rect x="860" y="150" width="160" height="120" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="940" y="186" font-size="12.5" fill="#3a7d44" text-anchor="middle">Auditor</text>
+    <circle cx="940" cy="222" r="20" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <path d="M929 222 l7 8 l14 -17" stroke="#3a7d44" stroke-width="4" fill="none"/>
+    <text x="940" y="262" font-size="10.5" fill="#7a808c" text-anchor="middle">"show me this row"</text>
+  </g>
+
+  <text x="530" y="404" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#2a52be">masking the data was half the job — proving the masking is the other half</text>
+</svg>

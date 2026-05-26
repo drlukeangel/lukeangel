@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Eight small mismatched API cards scattered on the left, each a different size and slightly rotated with clashing internal shapes, converge through a funnel into a single clean, aligned five-row entity stack on the right.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="apis-cover-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#apis-cover-dots)"/>
+  <rect width="24" height="630" fill="#357a8c"/>
+
+  <!-- ================= LEFT: eight mismatched API cards, fragmented ================= -->
+  <!-- each card a slightly different size, rotation, and clashing inner glyph: rows, dots, a slash -->
+  <g stroke="#7a808c" stroke-width="2.5" fill="#fdfaf2">
+    <!-- card 1 -->
+    <g transform="translate(96,70) rotate(-5)">
+      <rect width="116" height="74" rx="9"/>
+      <line x1="16" y1="26" x2="92" y2="26" stroke="#357a8c" stroke-width="3"/>
+      <line x1="16" y1="44" x2="72" y2="44" stroke="#7a808c" stroke-width="2.5"/>
+    </g>
+    <!-- card 2 -->
+    <g transform="translate(250,58) rotate(4)">
+      <rect width="92" height="92" rx="9"/>
+      <circle cx="46" cy="40" r="11" fill="none" stroke="#357a8c" stroke-width="3"/>
+      <line x1="20" y1="68" x2="72" y2="68" stroke="#7a808c" stroke-width="2.5"/>
+    </g>
+    <!-- card 3 -->
+    <g transform="translate(120,182) rotate(7)">
+      <rect width="100" height="64" rx="9"/>
+      <line x1="16" y1="22" x2="84" y2="22" stroke="#7a808c" stroke-width="2.5"/>
+      <line x1="16" y1="40" x2="60" y2="40" stroke="#357a8c" stroke-width="3"/>
+    </g>
+    <!-- card 4 -->
+    <g transform="translate(268,178) rotate(-6)">
+      <rect width="120" height="80" rx="9"/>
+      <path d="M18 24 L40 52 M40 24 L18 52" stroke="#357a8c" stroke-width="3" stroke-linecap="round"/>
+      <line x1="58" y1="30" x2="104" y2="30" stroke="#7a808c" stroke-width="2.5"/>
+      <line x1="58" y1="50" x2="92" y2="50" stroke="#7a808c" stroke-width="2.5"/>
+    </g>
+    <!-- card 5 -->
+    <g transform="translate(86,300) rotate(-3)">
+      <rect width="108" height="70" rx="9"/>
+      <circle cx="28" cy="34" r="9" fill="none" stroke="#7a808c" stroke-width="2.5"/>
+      <line x1="48" y1="30" x2="92" y2="30" stroke="#357a8c" stroke-width="3"/>
+      <line x1="48" y1="48" x2="80" y2="48" stroke="#7a808c" stroke-width="2.5"/>
+    </g>
+    <!-- card 6 -->
+    <g transform="translate(238,318) rotate(6)">
+      <rect width="96" height="86" rx="9"/>
+      <line x1="18" y1="26" x2="78" y2="26" stroke="#7a808c" stroke-width="2.5"/>
+      <line x1="18" y1="44" x2="78" y2="44" stroke="#357a8c" stroke-width="3"/>
+      <line x1="18" y1="62" x2="54" y2="62" stroke="#7a808c" stroke-width="2.5"/>
+    </g>
+    <!-- card 7 (legacy, dashed = deprecated) -->
+    <g transform="translate(118,430) rotate(4)">
+      <rect width="104" height="64" rx="9" stroke-dasharray="6 6" stroke="#c14a3a" stroke-opacity="0.7"/>
+      <line x1="16" y1="24" x2="84" y2="24" stroke="#7a808c" stroke-width="2.5" stroke-opacity="0.6"/>
+      <line x1="16" y1="42" x2="64" y2="42" stroke="#7a808c" stroke-width="2.5" stroke-opacity="0.6"/>
+    </g>
+    <!-- card 8 (legacy, dashed = deprecated) -->
+    <g transform="translate(262,442) rotate(-5)">
+      <rect width="96" height="58" rx="9" stroke-dasharray="6 6" stroke="#c14a3a" stroke-opacity="0.7"/>
+      <line x1="16" y1="22" x2="76" y2="22" stroke="#7a808c" stroke-width="2.5" stroke-opacity="0.6"/>
+      <line x1="16" y1="38" x2="58" y2="38" stroke="#7a808c" stroke-width="2.5" stroke-opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- ================= FUNNEL / consolidation gate (center) ================= -->
+  <!-- converging guide lines from the scattered cluster toward the funnel mouth -->
+  <g stroke="#357a8c" stroke-width="2.5" fill="none" opacity="0.5" stroke-linecap="round">
+    <path d="M392 110 C 470 150, 500 250, 556 286"/>
+    <path d="M396 470 C 470 430, 500 340, 556 322"/>
+    <path d="M404 300 H 556"/>
+  </g>
+
+  <!-- funnel body -->
+  <g>
+    <path d="M556 250 L660 290 L660 340 L556 380 Z"
+          fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="4" stroke-linejoin="round"/>
+    <!-- spout -->
+    <rect x="660" y="298" width="60" height="34" rx="6" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="4"/>
+  </g>
+
+  <!-- flow arrow out of the spout into the unified model -->
+  <g stroke="#357a8c" stroke-width="5" fill="#357a8c" stroke-linecap="round">
+    <line x1="720" y1="315" x2="812" y2="315"/>
+    <path d="M828 315 l-22 -11 v22 z"/>
+  </g>
+
+  <!-- ================= RIGHT: one clean, aligned five-row entity stack ================= -->
+  <g transform="translate(852,150)">
+    <!-- outer container -->
+    <rect x="-16" y="-22" width="312" height="356" rx="18" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+
+    <!-- five identical, aligned entity rows = the unified model -->
+    <g>
+      <!-- row 1 -->
+      <rect x="16" y="8" width="248" height="48" rx="10" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <circle cx="44" cy="32" r="9" fill="none" stroke="#357a8c" stroke-width="3"/>
+      <line x1="68" y1="32" x2="240" y2="32" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.55"/>
+      <!-- row 2 -->
+      <rect x="16" y="68" width="248" height="48" rx="10" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <rect x="36" y="84" width="16" height="16" rx="3" fill="none" stroke="#357a8c" stroke-width="3"/>
+      <line x1="68" y1="92" x2="240" y2="92" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.55"/>
+      <!-- row 3 -->
+      <rect x="16" y="128" width="248" height="48" rx="10" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <path d="M36 152 h18 M45 143 v18" stroke="#357a8c" stroke-width="3" stroke-linecap="round"/>
+      <line x1="68" y1="152" x2="240" y2="152" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.55"/>
+      <!-- row 4 -->
+      <rect x="16" y="188" width="248" height="48" rx="10" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <circle cx="44" cy="212" r="9" fill="none" stroke="#357a8c" stroke-width="3"/>
+      <line x1="68" y1="212" x2="240" y2="212" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.55"/>
+      <!-- row 5 -->
+      <rect x="16" y="248" width="248" height="48" rx="10" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <path d="M36 264 v16 M44 264 v16 M52 264 v16" stroke="#357a8c" stroke-width="3" stroke-linecap="round"/>
+      <line x1="68" y1="272" x2="240" y2="272" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.55"/>
+    </g>
+
+    <!-- spine connector down the left of the stack: the Account->Device->... relationship -->
+    <line x1="6" y1="32" x2="6" y2="272" stroke="#357a8c" stroke-width="3"/>
+    <g fill="#357a8c">
+      <circle cx="6" cy="32" r="5"/>
+      <circle cx="6" cy="92" r="5"/>
+      <circle cx="6" cy="152" r="5"/>
+      <circle cx="6" cy="212" r="5"/>
+      <circle cx="6" cy="272" r="5"/>
+    </g>
+  </g>
+</svg>

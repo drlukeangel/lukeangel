@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" role="img" aria-label="The structured-wiring closet rack, top to bottom">
+  <rect width="1000" height="470" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #7a808c; letter-spacing: 1.2px; }
+    .lbl { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #1a1d24; }
+    .sub { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 11px; fill: #5b616b; }
+    .cap { font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 13.5px; fill: #7a808c; }
+  </style>
+
+  <text x="40" y="34" class="h">THE CLOSET, TOP TO BOTTOM — ~6 SQ FT NEXT TO THE FURNACE, ~80W STEADY</text>
+
+  <!-- rack column (left) -->
+  <g transform="translate(60,60)">
+    <rect x="0" y="0" width="360" height="370" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g>
+      <rect x="16" y="14" width="328" height="38" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="32" y="38" class="lbl">UPS — CyberPower CP1500</text>
+      <rect x="16" y="60" width="328" height="48" rx="5" fill="#6a4c93" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2"/><text x="32" y="82" class="lbl">24-port PoE switch (UniFi)</text><text x="32" y="100" class="sub">1–6 cameras · 7–12 rooms · 13–24 patch</text>
+      <rect x="16" y="116" width="328" height="34" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="32" y="138" class="lbl">36-port Cat6 patch panel</text>
+      <rect x="16" y="158" width="328" height="34" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="32" y="180" class="lbl">UDM Pro — modem + router</text>
+      <rect x="16" y="200" width="328" height="34" rx="5" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="2.4"/><text x="32" y="222" class="lbl">HA Yellow (DIN rail)</text>
+      <rect x="16" y="242" width="328" height="34" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="32" y="264" class="lbl">Synology DS920+ (NAS)</text>
+      <rect x="16" y="284" width="328" height="34" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="32" y="306" class="lbl">Lutron Smart Bridge Pro 2</text>
+      <rect x="16" y="326" width="328" height="34" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="32" y="348" class="lbl">LoRa gateway (RAK7268)</text>
+    </g>
+  </g>
+
+  <!-- what it feeds (right) -->
+  <g transform="translate(500,80)">
+    <text x="0" y="0" class="sub">FROM THE RACK, OUT TO:</text>
+    <g transform="translate(0,20)"><rect x="0" y="0" width="420" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8"/><text x="16" y="20" class="lbl">42 Cat6 drops</text><text x="16" y="37" class="sub">rooms, TVs, the fridge, wall dashboards</text></g>
+    <g transform="translate(0,76)"><rect x="0" y="0" width="420" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8"/><text x="16" y="20" class="lbl">6 PoE camera runs</text><text x="16" y="37" class="sub">4 installed at move-in, 2 reserved</text></g>
+    <g transform="translate(0,132)"><rect x="0" y="0" width="420" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8"/><text x="16" y="20" class="lbl">attic antenna run</text><text x="16" y="37" class="sub">LoRa gateway in closet, antenna up high</text></g>
+    <g transform="translate(0,188)"><rect x="0" y="0" width="420" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8"/><text x="16" y="20" class="lbl">2 backbone runs</text><text x="16" y="37" class="sub">to second-floor + garage sub-hubs</text></g>
+  </g>
+  <!-- connector -->
+  <line x1="420" y1="240" x2="500" y2="200" stroke="#6a4c93" stroke-width="3"/>
+
+  <text x="500" y="452" text-anchor="middle" class="cap">One closet, ~4,200 ft of cable, every run terminating here — the spine the rest of the house plugs into.</text>
+</svg>

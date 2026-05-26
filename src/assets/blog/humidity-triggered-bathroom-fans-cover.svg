@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Humidity sensing drives a variable-speed fan">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="hf-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#hf-dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- humidity sensor puck (left): water droplet inside a rounded chip -->
+  <g transform="translate(160,250)">
+    <rect x="0" y="0" width="150" height="150" rx="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="7"/>
+    <path d="M75 38 C108 80 100 116 75 116 C50 116 42 80 75 38 Z" fill="#6a4c93" opacity="0.85"/>
+    <path d="M66 96 a14 14 0 0 0 14 10" fill="none" stroke="#fdfaf2" stroke-width="5" stroke-linecap="round"/>
+    <!-- rising vapor lines above sensor -->
+    <g stroke="#6a4c93" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.6">
+      <path d="M50 -10 q-12 -22 0 -44"/>
+      <path d="M100 -10 q12 -22 0 -44"/>
+    </g>
+  </g>
+
+  <!-- flow arrows to controller -->
+  <g stroke="#1a1d24" stroke-width="5" fill="none" opacity="0.5" stroke-linecap="round">
+    <path d="M330 325 H470"/>
+    <path d="M455 312 l18 13 -18 13"/>
+  </g>
+
+  <!-- the curve: humidity decaying, fan ramping (rising then falling step) -->
+  <g transform="translate(500,180)">
+    <rect x="0" y="0" width="320" height="280" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- decay curve -->
+    <path d="M30 60 C90 70 120 150 180 200 S270 250 290 250" fill="none" stroke="#6a4c93" stroke-width="7" stroke-linecap="round"/>
+    <!-- fan-speed step under it -->
+    <path d="M30 230 H120 V180 H210 V250 H290" fill="none" stroke="#1a1d24" stroke-width="5" stroke-opacity="0.5" stroke-linejoin="round"/>
+    <!-- baseline -->
+    <line x1="30" y1="250" x2="290" y2="250" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.3"/>
+  </g>
+
+  <!-- flow arrow to fan -->
+  <g stroke="#1a1d24" stroke-width="5" fill="none" opacity="0.5" stroke-linecap="round">
+    <path d="M840 320 H960"/>
+    <path d="M945 307 l18 13 -18 13"/>
+  </g>
+
+  <!-- variable-speed fan -->
+  <g transform="translate(1050,320)">
+    <circle cx="0" cy="0" r="78" fill="#fdfaf2" stroke="#1a1d24" stroke-width="7"/>
+    <g fill="#6a4c93" opacity="0.85">
+      <path d="M0 0 C-8 -54 12 -64 30 -52 C20 -34 4 -20 0 0 Z"/>
+      <path d="M0 0 C54 -8 64 12 52 30 C34 20 20 4 0 0 Z"/>
+      <path d="M0 0 C8 54 -12 64 -30 52 C-20 34 -4 20 0 0 Z"/>
+      <path d="M0 0 C-54 8 -64 -12 -52 -30 C-34 -20 -20 -4 0 0 Z"/>
+    </g>
+    <circle cx="0" cy="0" r="11" fill="#1a1d24"/>
+  </g>
+</svg>

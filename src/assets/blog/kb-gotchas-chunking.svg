@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" width="1000" height="440" role="img" aria-label="Fixed-size chunking cuts units; structure-aware chunking keeps them whole.">
+  <rect width="1000" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">CHUNKING IS THE KNOB — DON'T CUT MID-UNIT</text>
+  <line x1="34" y1="60" x2="966" y2="60" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- a shared "document" stripe being chunked two ways -->
+  <text x="34" y="96" font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">one doc: prose &#183; a code sample &#183; an API parameter table</text>
+
+  <!-- LEFT: fixed-size 300-token chunker -->
+  <rect x="40" y="116" width="440" height="280" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text x="260" y="144" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">FIXED-SIZE (300 tok, 20% overlap)</text>
+
+  <!-- content blocks, with chunk boundaries slicing through them -->
+  <g font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">
+    <rect x="70" y="166" width="380" height="40" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="1.5"/>
+    <text x="80" y="190" fill="#5b616b">prose paragraph</text>
+    <rect x="70" y="214" width="380" height="64" rx="6" fill="#4f46b8" fill-opacity="0.10" stroke="#4f46b8" stroke-width="1.5"/>
+    <text x="80" y="238" fill="#4f46b8">def handle(req):  # code sample</text>
+    <text x="80" y="262" fill="#4f46b8">    return validate(req)</text>
+    <rect x="70" y="286" width="380" height="86" rx="6" fill="#7a808c" fill-opacity="0.10" stroke="#7a808c" stroke-width="1.5"/>
+    <text x="80" y="310" fill="#5b616b">| param | type | default |</text>
+    <text x="80" y="332" fill="#5b616b">| limit | int  | 100     |</text>
+    <text x="80" y="354" fill="#5b616b">| retry | bool | false   |</text>
+  </g>
+  <!-- chunk-boundary cuts (red dashed) slicing mid-unit -->
+  <g stroke="#c14a3a" stroke-width="2" stroke-dasharray="6 4">
+    <line x1="60" y1="248" x2="460" y2="248"/>
+    <line x1="60" y1="328" x2="460" y2="328"/>
+  </g>
+  <text x="466" y="252" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a" text-anchor="middle" transform="rotate(90 466 252)">cut mid-fn</text>
+  <text x="466" y="332" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a" text-anchor="middle" transform="rotate(90 466 332)">table split</text>
+
+  <!-- RIGHT: hierarchical + semantic -->
+  <rect x="520" y="116" width="440" height="280" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="740" y="144" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">HIERARCHICAL + SEMANTIC</text>
+
+  <g font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">
+    <!-- prose: semantic chunk, kept whole -->
+    <rect x="550" y="166" width="380" height="40" rx="6" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+    <text x="560" y="190" fill="#3a7d44">prose paragraph &#10003; whole</text>
+    <!-- code: one unit -->
+    <rect x="550" y="214" width="380" height="64" rx="6" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="2"/>
+    <text x="560" y="238" fill="#1a1d24">def handle(req):</text>
+    <text x="560" y="262" fill="#1a1d24">    return validate(req)  &#10003;</text>
+    <!-- table: one unit -->
+    <rect x="550" y="286" width="380" height="86" rx="6" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="2"/>
+    <text x="560" y="310" fill="#1a1d24">| param | type | default |</text>
+    <text x="560" y="332" fill="#1a1d24">| limit | int  | 100     |</text>
+    <text x="560" y="354" fill="#1a1d24">| retry | bool | false   &#10003;</text>
+  </g>
+
+  <text x="500" y="426" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a3f4a">Same corpus, two chunkers: the default sliced code and tables mid-unit; structure-aware kept each unit retrievable as a whole.</text>
+</svg>

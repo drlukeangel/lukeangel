@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Three Zigbee stack architectures">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24" text-anchor="middle">
+
+    <!-- shared coordinator + mesh at bottom -->
+    <g transform="translate(500 410)">
+      <rect x="-50" y="-22" width="100" height="36" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="-12" y="-34" width="24" height="14" rx="3" fill="#1a1d24"/>
+      <text x="0" y="36" font-size="12" fill="#5b616b">CC2652 / ConBee coordinator + Zigbee mesh</text>
+    </g>
+
+    <!-- THREE columns -->
+    <!-- ZHA (left) -->
+    <text x="180" y="40" font-size="15" fill="#6a4c93">ZHA</text>
+    <g transform="translate(180 70)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2.5"/><text x="0" y="28" font-size="13">Home Assistant</text></g>
+    <path d="M180 116 L180 388" stroke="#6a4c93" stroke-width="3" marker-end="url(#a)"/>
+    <text x="180" y="250" font-size="11" fill="#3a7d44">direct — no add-on</text>
+
+    <!-- deCONZ (center) -->
+    <text x="500" y="40" font-size="15" fill="#6a4c93">deCONZ</text>
+    <g transform="translate(500 70)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2.5"/><text x="0" y="28" font-size="13">Home Assistant</text></g>
+    <path d="M500 116 L500 170" stroke="#6a4c93" stroke-width="3" marker-end="url(#a)"/>
+    <text x="560" y="148" font-size="10" fill="#5b616b">WebSocket</text>
+    <g transform="translate(500 174)"><rect x="-60" y="0" width="120" height="40" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/><text x="0" y="25" font-size="12">Phoscon svc</text></g>
+    <path d="M500 214 L500 384" stroke="#6a4c93" stroke-width="3" marker-end="url(#a)"/>
+
+    <!-- Z2M (right) -->
+    <text x="820" y="40" font-size="15" fill="#6a4c93">Zigbee2MQTT</text>
+    <g transform="translate(820 70)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2.5"/><text x="0" y="28" font-size="13">Home Assistant</text></g>
+    <path d="M820 116 L820 150" stroke="#6a4c93" stroke-width="3" marker-end="url(#a)"/>
+    <g transform="translate(820 154)"><rect x="-50" y="0" width="100" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/><text x="0" y="22" font-size="11">MQTT broker</text></g>
+    <path d="M820 188 L820 222" stroke="#6a4c93" stroke-width="3" marker-end="url(#a)"/>
+    <g transform="translate(820 226)"><rect x="-50" y="0" width="100" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/><text x="0" y="22" font-size="11">Z2M svc</text></g>
+    <path d="M820 260 L820 384" stroke="#6a4c93" stroke-width="3" marker-end="url(#a)"/>
+
+    <text x="500" y="466" font-size="12" fill="#5b616b">more hops = broader device support + nicer UI, at the cost of more to run + debug</text>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+    </defs>
+  </g>
+</svg>

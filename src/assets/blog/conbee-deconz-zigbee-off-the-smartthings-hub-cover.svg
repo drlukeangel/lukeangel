@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A Zigbee mesh moving from a cloud-tethered hub to a USB stick on a local Pi">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- OLD: a hub tethered up to a cloud (left), being left behind -->
+  <g transform="translate(140,210)" opacity="0.5">
+    <!-- cloud above -->
+    <g transform="translate(40,-40)"><path d="M30 50 a18 18 0 0 1 4 -34 a22 22 0 0 1 40 4 a16 16 0 0 1 -2 30 z" fill="#7a808c" fill-opacity="0.14" stroke="#7a808c" stroke-width="3"/></g>
+    <!-- tether (dashed) -->
+    <line x1="80" y1="38" x2="80" y2="80" stroke="#7a808c" stroke-width="2.6" stroke-dasharray="3 6"/>
+    <!-- the hub -->
+    <rect x="40" y="80" width="80" height="80" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="80" cy="120" r="14" fill="#7a808c" fill-opacity="0.3"/>
+    <!-- a red X over it (retired for Zigbee) -->
+    <line x1="44" y1="84" x2="116" y2="156" stroke="#c14a3a" stroke-width="4"/>
+  </g>
+
+  <!-- migration arrow -->
+  <g transform="translate(300,290)">
+    <path d="M0 20 H120" fill="none" stroke="#6a4c93" stroke-width="5"/>
+    <path d="M126 20 l-20 -11 v22 z" fill="#6a4c93"/>
+  </g>
+
+  <!-- NEW: the Pi with a ConBee USB stick, hosting the local mesh (right) -->
+  <g transform="translate(480,250)">
+    <!-- pi -->
+    <rect x="0" y="0" width="150" height="100" rx="12" fill="#6a4c93" fill-opacity="0.10" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="56" y="34" width="44" height="36" rx="5" fill="#1a1d24"/>
+    <circle cx="22" cy="80" r="6" fill="#3a7d44"/>
+    <!-- ConBee USB stick poking out the right -->
+    <rect x="150" y="36" width="70" height="26" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="214" y="40" width="16" height="18" rx="2" fill="#1a1d24" opacity="0.5"/>
+    <!-- antenna waves off the stick -->
+    <g stroke="#6a4c93" stroke-width="3" fill="none">
+      <path d="M232 49 a14 14 0 0 1 0 0"/>
+      <path d="M236 38 a18 18 0 0 1 0 22"/>
+      <path d="M246 30 a30 30 0 0 1 0 38"/>
+    </g>
+  </g>
+
+  <!-- the Zigbee mesh nodes, rooted at the ConBee -->
+  <!-- mains routers (filled) + battery leaves (hollow), wired in a mesh -->
+  <g>
+    <!-- positions -->
+    <g fill="#6a4c93"><circle cx="800" cy="170" r="16"/><circle cx="930" cy="280" r="16"/><circle cx="810" cy="400" r="16"/></g>
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"><circle cx="940" cy="150" r="12"/><circle cx="1020" cy="350" r="12"/><circle cx="900" cy="450" r="12"/><circle cx="720" cy="300" r="12"/></g>
+    <!-- mesh links -->
+    <g stroke="#6a4c93" stroke-width="2.4" fill="none" opacity="0.7">
+      <line x1="755" y1="295" x2="784" y2="180"/>
+      <line x1="800" y1="170" x2="930" y2="280"/>
+      <line x1="800" y1="170" x2="940" y2="150"/>
+      <line x1="930" y1="280" x2="1020" y2="350"/>
+      <line x1="930" y1="280" x2="810" y2="400"/>
+      <line x1="810" y1="400" x2="900" y2="450"/>
+      <line x1="810" y1="400" x2="720" y2="300"/>
+    </g>
+    <!-- link from ConBee antenna into the mesh root -->
+    <line x1="726" y1="299" x2="660" y2="300" stroke="#6a4c93" stroke-width="3"/>
+  </g>
+</svg>

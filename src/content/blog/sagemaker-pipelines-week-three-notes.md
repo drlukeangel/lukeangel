@@ -10,8 +10,10 @@ tags:
   - pipelines
 excerpt: "Three weeks into moving our ML pipeline onto SageMaker Pipelines. What stuck, what I'd swap, and the one decision I'd undo if I started over."
 pullquote: "MLOps is just DevOps with a worse vocabulary."
+notebook: building-with-ai-ml
+notebookOrder: 4
 cover: "../../assets/blog/sagemaker-pipelines-week-three-cover.svg"
-coverAlt: "Cover graphic — SageMaker Pipelines week three notes. April 2024."
+coverAlt: "An ML pipeline drawn as a left-to-right DAG — prep, train, and eval steps feeding a conditional gate, which either passes to a stacked model-registry card with a check seal or halts on regression — with a dashed feedback loop returning from the deployed end back to data prep."
 ---
 
 We've been moving our ML training pipeline onto SageMaker Pipelines for three weeks. The pipeline trains a small predictive model that lives behind one of our features; nothing exotic, just a real workload that was a tangle of glue scripts that nobody on the team wanted to own anymore.
@@ -24,6 +26,8 @@ A DAG runner for ML steps. Each step is a typed thing — `ProcessingStep`, `Tra
 
 The simplest way to think about it: it's an Airflow that *knows what an ML step is*, runs on someone else's infrastructure, and integrates with the rest of the SageMaker ecosystem (Studio for notebooks, Model Registry for versioning, Model Monitor for drift) without you having to wire those integrations.
 
+![A SageMaker Pipelines DAG laid out left to right. A ProcessingStep (prep) feeds a TrainingStep (train), which feeds a second ProcessingStep (eval). Eval feeds a ConditionStep — a diamond asking "new ≥ old?". On pass, the flow continues to a RegisterModel step that writes to the Model Registry; on regression it drops to a red "halt — no register" box. A dashed indigo band beneath the prep, train, and eval steps marks the step cache: steps with identical input artifacts and config are skipped rather than re-run.](../../assets/blog/sagemaker-pipelines-dag-cache.svg)
+
 ## What stuck in week three
 
 **The Model Registry.** Before this, our "model versioning" was a folder in S3 with a date in the name and a markdown file describing what was inside. The Model Registry replaces that with first-class versioning, approval workflows, and a model lineage graph that shows you which training run, which data slice, and which hyperparameters produced a given artifact. It is the single biggest "why didn't we have this years ago" feeling of the project.
@@ -31,6 +35,10 @@ The simplest way to think about it: it's an Airflow that *knows what an ML step 
 **Conditional steps.** The pipeline has a step that compares the new model's eval score to the deployed one. If new < old by more than a threshold, the pipeline halts and the registration step never runs. This used to be a Slack thread on Friday afternoons. Now it's a JSON condition in the pipeline definition.
 
 **The cache.** Steps with identical input artifacts and config get cached. A data-prep step that takes 18 minutes runs once; subsequent pipeline executions that haven't changed the input or the code skip it. This made iterating on the *back half* of the pipeline (training, eval, deploy) about three times faster.
+
+The mechanism is a cache key built from the step's inputs and config — change neither and the step is skipped, change either and it re-runs:
+
+![A flowchart of the SageMaker Pipelines step cache deciding hit or miss. A pipeline step that takes 18 minutes to run feeds into a cache key built from its input artifacts in S3 plus its step config plus its container image and arguments. That key reaches a decision diamond asking whether the key has been seen before. On a hit the green path skips the step and reuses the cached output in roughly zero minutes — the source of the threefold speedup. On a miss the red path runs the step, because an input or the code changed. The point: identical inputs and identical code produce an identical key, so a slow step runs once and is skipped on every later execution.](../../assets/blog/sagemaker-pipelines-week-three-notes-fig-1.svg)
 
 ## What I'd swap
 
@@ -45,6 +53,8 @@ The simplest way to think about it: it's an Airflow that *knows what an ML step 
 We tried to put *everything* in the pipeline on day one. Data prep, feature engineering, training, eval, model registration, batch transform, monitoring setup, even the Slack notification at the end — all of it as pipeline steps.
 
 I would not do this again. The right move is to **put the production-critical steps in the pipeline and leave the experimental steps in a notebook for as long as possible.** Once a piece of the workflow is stable, then promote it. We've spent more time refactoring "experimental step in pipeline shape" than we did building the original pipeline.
+
+![Two columns. On the left, a dashed-border box labelled NOTEBOOK — "still changing week to week" — holding loose, movable cards: feature experiments, new model candidates, ad-hoc data slices; the caption reads "cheap to change, nothing breaks." An indigo "promote" arrow crosses the gap, labelled "when stable, about a month." On the right, a solid indigo box labelled PIPELINE — "production-critical" — holding a fixed sequence: prep to train to eval, conditional register, deploy plus monitor; the caption reads "you'd be mad if it ran differently."](../../assets/blog/sagemaker-pipelines-pipeline-vs-notebook.svg)
 
 The rule the team is settling on: *if the step has been the same for a month and you'd be mad if it ran differently next week, it belongs in the pipeline. Otherwise it lives in a notebook.*
 

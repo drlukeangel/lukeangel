@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 440" width="1080" height="440" role="img" aria-label="An update isn't one thing. Bootloader/ROM has the largest blast radius and the most-protected key; then OS/kernel; then application; then config and models with the smallest blast radius — each signed by a key matched to its blast radius.">
+  <rect width="1080" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">AN UPDATE ISN'T ONE THING — BLAST RADIUS VARIES</text>
+
+  <text x="40" y="92" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">▲ biggest blast · most-protected key</text>
+
+  <g font-family="ui-monospace,monospace">
+    <rect x="40" y="104" width="900" height="64" rx="10" fill="#c14a3a" fill-opacity="0.16" stroke="#c14a3a" stroke-width="2.5"/>
+    <g transform="translate(60,124)" stroke="#c14a3a" stroke-width="2.4" fill="none"><rect x="0" y="9" width="18" height="14" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4"/></g>
+    <text x="96" y="132" font-size="14" fill="#1a1d24">BOOTLOADER / ROM</text><text x="96" y="152" font-size="11" fill="#7a808c">owns everything · defeats Secure Boot · updated almost never</text>
+
+    <rect x="40" y="182" width="720" height="58" rx="10" fill="#c14a3a" fill-opacity="0.11" stroke="#c14a3a" stroke-width="2.5"/>
+    <g transform="translate(60,200)" stroke="#c14a3a" stroke-width="2.4" fill="none"><rect x="0" y="9" width="18" height="14" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4"/></g>
+    <text x="96" y="206" font-size="14" fill="#1a1d24">OS / KERNEL</text><text x="96" y="226" font-size="11" fill="#7a808c">high · owns the app + the radios</text>
+
+    <rect x="40" y="254" width="540" height="58" rx="10" fill="#c14a3a" fill-opacity="0.07" stroke="#c14a3a" stroke-width="2.5"/>
+    <g transform="translate(60,272)" stroke="#c14a3a" stroke-width="2.4" fill="none"><rect x="0" y="9" width="18" height="14" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4"/></g>
+    <text x="96" y="278" font-size="14" fill="#1a1d24">APPLICATION</text><text x="96" y="298" font-size="11" fill="#7a808c">medium · highest churn</text>
+
+    <rect x="40" y="326" width="360" height="58" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <g transform="translate(60,344)" stroke="#c14a3a" stroke-width="2.4" fill="none"><rect x="0" y="9" width="18" height="14" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4"/></g>
+    <text x="96" y="350" font-size="14" fill="#1a1d24">CONFIG / MODELS</text><text x="96" y="370" font-size="11" fill="#7a808c">low — still signed</text>
+  </g>
+
+  <text x="1040" y="406" text-anchor="end" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">Match the signing key to the blast radius.</text>
+</svg>

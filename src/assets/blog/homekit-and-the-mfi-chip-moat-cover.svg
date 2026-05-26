@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="the MFi moat">
+  <defs>
+    <pattern id="dotsMF" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsMF)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <line x1="90" y1="500" x2="1120" y2="500" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- the wall (a tall castellated wall down the middle-right) -->
+  <g transform="translate(720,0)">
+    <rect x="-16" y="120" width="32" height="380" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="4"/>
+    <!-- crenellations -->
+    <g fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="4">
+      <rect x="-26" y="104" width="20" height="24"/>
+      <rect x="6" y="104" width="20" height="24"/>
+    </g>
+    <!-- the single gate, guarded by an auth chip -->
+    <rect x="-16" y="300" width="32" height="80" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+    <!-- auth chip on the gate -->
+    <g transform="translate(0,340)">
+      <rect x="-22" y="-18" width="44" height="36" rx="4" fill="#1a1d24"/>
+      <g stroke="#6a4c93" stroke-width="2.5">
+        <line x1="-22" y1="-10" x2="-30" y2="-10"/><line x1="-22" y1="0" x2="-30" y2="0"/><line x1="-22" y1="10" x2="-30" y2="10"/>
+        <line x1="22" y1="-10" x2="30" y2="-10"/><line x1="22" y1="0" x2="30" y2="0"/><line x1="22" y1="10" x2="30" y2="10"/>
+      </g>
+      <!-- keyhole on chip -->
+      <circle cx="0" cy="-2" r="5" fill="#6a4c93"/>
+      <rect x="-2" y="-2" width="4" height="9" fill="#6a4c93"/>
+    </g>
+  </g>
+
+  <!-- INSIDE the wall (right): a few premium devices, each with a small chip badge -->
+  <g transform="translate(950,300)">
+    <!-- thermostat -->
+    <g transform="translate(0,-80)">
+      <circle cx="0" cy="0" r="34" fill="#fff" stroke="#1a1d24" stroke-width="3.5"/>
+      <circle cx="0" cy="0" r="18" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="2.5"/>
+      <rect x="22" y="-30" width="14" height="11" rx="2" fill="#6a4c93"/>
+    </g>
+    <!-- smart bridge -->
+    <g transform="translate(-40,40)">
+      <rect x="-30" y="-22" width="60" height="44" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="3.5"/>
+      <circle cx="0" cy="0" r="8" fill="#3a7d44"/>
+      <rect x="20" y="-30" width="14" height="11" rx="2" fill="#6a4c93"/>
+    </g>
+    <!-- premium bulb -->
+    <g transform="translate(50,52)">
+      <circle cx="0" cy="-6" r="20" fill="#6a4c93" fill-opacity="0.14" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="-9" y="12" width="18" height="14" rx="2" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="14" y="-28" width="14" height="11" rx="2" fill="#6a4c93"/>
+    </g>
+  </g>
+
+  <!-- OUTSIDE the wall (left): a crowd of cheap devices, locked out (faded, small X) -->
+  <g transform="translate(330,330)" opacity="0.7">
+    <!-- $20 plug -->
+    <g transform="translate(-120,-60)">
+      <rect x="-22" y="-26" width="44" height="52" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+      <circle cx="-7" cy="-4" r="3" fill="#1a1d24" fill-opacity="0.4"/><circle cx="7" cy="-4" r="3" fill="#1a1d24" fill-opacity="0.4"/>
+    </g>
+    <!-- generic sensor -->
+    <g transform="translate(20,-70)">
+      <rect x="-20" y="-20" width="40" height="40" rx="6" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+      <circle cx="0" cy="0" r="8" fill="#1a1d24" fill-opacity="0.2"/>
+    </g>
+    <!-- wifi bulb -->
+    <g transform="translate(-60,50)">
+      <circle cx="0" cy="-6" r="20" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="-9" y="12" width="18" height="14" rx="2" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    </g>
+    <!-- another sensor -->
+    <g transform="translate(80,40)">
+      <rect x="-18" y="-18" width="36" height="36" rx="6" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    </g>
+    <!-- a faded "no entry" X over the cluster -->
+    <g transform="translate(0,-10)" stroke="#c14a3a" stroke-width="5" stroke-linecap="round" opacity="0.55">
+      <line x1="-130" y1="-90" x2="120" y2="90"/>
+      <line x1="120" y1="-90" x2="-130" y2="90"/>
+    </g>
+  </g>
+</svg>

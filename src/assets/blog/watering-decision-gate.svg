@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="four-condition watering gate">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">FOUR GATES, EACH A SCAR</text>
+  <text x="40" y="70" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">6:30 AM check &#183; all four must pass before the valve opens</text>
+
+  <!-- four condition boxes in series -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <g transform="translate(40,110)">
+      <rect x="0" y="0" width="380" height="70" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="18" y="30" font-size="14" font-weight="700" fill="#1a1d24">soil &lt; 35%</text>
+      <text x="18" y="52" font-size="11.5" fill="#c14a3a">set too dry at first (25%) &#8594; tomatoes wilted</text>
+    </g>
+    <g transform="translate(40,196)">
+      <rect x="0" y="0" width="380" height="70" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="18" y="30" font-size="14" font-weight="700" fill="#1a1d24">soil &gt; 5%  (outlier guard)</text>
+      <text x="18" y="52" font-size="11.5" fill="#c14a3a">stuck sensor read 5% all week &#8594; drowned</text>
+    </g>
+    <g transform="translate(40,282)">
+      <rect x="0" y="0" width="380" height="70" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="18" y="30" font-size="14" font-weight="700" fill="#1a1d24">rain next 6h &lt; 5mm</text>
+      <text x="18" y="52" font-size="11.5" fill="#7a808c">no point watering ahead of rain</text>
+    </g>
+    <g transform="translate(40,368)">
+      <rect x="0" y="0" width="380" height="70" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="18" y="30" font-size="14" font-weight="700" fill="#1a1d24">&gt; 18h since last water</text>
+      <text x="18" y="52" font-size="11.5" fill="#c14a3a">two forecast cycles &#8594; double-watered, lettuce washed out</text>
+    </g>
+    <!-- AND connectors -->
+    <g stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2" fill="#7a808c" font-size="11">
+      <line x1="230" y1="180" x2="230" y2="196"/><text x="240" y="192">AND</text>
+      <line x1="230" y1="266" x2="230" y2="282"/><text x="240" y="278">AND</text>
+      <line x1="230" y1="352" x2="230" y2="368"/><text x="240" y="364">AND</text>
+    </g>
+  </g>
+
+  <!-- the pass path to the valve -->
+  <g transform="translate(560,250)">
+    <path d="M-100 153 L20 153 L20 -50 L60 -50" fill="none" stroke="#3a7d44" stroke-width="3"/>
+    <path d="M-100 67 L20 67" fill="none" stroke="#3a7d44" stroke-width="0"/>
+    <!-- bracket from the 4 boxes -->
+    <path d="M-140 -110 L-120 -110 L-120 196 L-140 196" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+    <line x1="-120" y1="43" x2="-100" y2="43" stroke="#3a7d44" stroke-width="2.5"/>
+    <path d="M-100 43 l-10 -4 l0 8 Z" fill="#3a7d44"/>
+    <!-- valve -->
+    <g transform="translate(120,43)">
+      <circle cx="0" cy="0" r="34" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M-14 0 l10 0 M4 0 l10 0 M-4 -12 l0 24" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+      <text x="0" y="60" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#3a7d44" font-weight="700">valve 8 min</text>
+    </g>
+  </g>
+
+  <text x="700" y="430" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">Three of four conditions exist only because a plant died first.</text>
+</svg>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" width="1120" height="540" role="img" aria-label="Three isolated identity layers">
+  <rect width="1120" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THREE IDENTITIES, ISOLATED</text>
+
+  <!-- ===== CART IDENTITY (left) ===== -->
+  <rect x="44" y="92" width="296" height="232" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="192" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#2a52be">CART — as a thing</text>
+  <!-- chip glyph -->
+  <g transform="translate(160,142)">
+    <rect x="0" y="0" width="64" height="52" rx="6" fill="#1a1d24"/>
+    <g stroke="#fdfaf2" stroke-width="2.5" stroke-opacity="0.8">
+      <line x1="-9" y1="13" x2="0" y2="13"/><line x1="-9" y1="39" x2="0" y2="39"/>
+      <line x1="64" y1="13" x2="73" y2="13"/><line x1="64" y1="39" x2="73" y2="39"/>
+    </g>
+    <rect x="22" y="20" width="20" height="16" rx="2.5" fill="none" stroke="#2a52be" stroke-width="2.6"/>
+    <path d="M25 20 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#2a52be" stroke-width="2.6"/>
+  </g>
+  <g font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">
+    <text x="192" y="226" text-anchor="middle">ECDSA P-256 in ATECC608A</text>
+    <text x="192" y="248" text-anchor="middle">X.509 cert · serial number</text>
+    <text x="192" y="270" text-anchor="middle">IoT Core MQTT credential</text>
+  </g>
+  <text x="192" y="302" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">never identifies a human</text>
+
+  <!-- ===== CUSTOMER IDENTITY (right) ===== -->
+  <rect x="780" y="92" width="296" height="232" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="928" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#2a52be">CUSTOMER — as an account</text>
+  <!-- person glyph -->
+  <g transform="translate(928,168)" fill="#1a1d24" opacity="0.7">
+    <circle cx="0" cy="-14" r="14"/>
+    <path d="M-26 22 a26 22 0 0 1 52 0 z"/>
+  </g>
+  <g font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">
+    <text x="928" y="232" text-anchor="middle">loyalty tap · tap-to-pay · QR</text>
+    <text x="928" y="254" text-anchor="middle">resolved in the cloud only</text>
+    <text x="928" y="276" text-anchor="middle">Account entity holds the PII</text>
+  </g>
+  <text x="928" y="308" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">cart never learns name / email</text>
+
+  <!-- ===== SESSION (center, the disposable join) ===== -->
+  <rect x="404" y="150" width="312" height="118" rx="14" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="4"/>
+  <text x="560" y="182" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">SESSION — the join</text>
+  <text x="560" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#2a52be">per-trip UUID</text>
+  <text x="560" y="232" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">pseudonymous · meaningless</text>
+  <text x="560" y="250" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">without the cloud join tables</text>
+
+  <!-- connectors: cart -> session (ephemeral id) , session -> customer (cloud join) -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="344" y1="208" x2="400" y2="208"/><path d="M404 208 l-15 -7 v14 z"/>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="716" y1="208" x2="772" y2="208"/><path d="M776 208 l-15 -7 v14 z"/>
+  </g>
+  <!-- short labels seated clear above each arrow -->
+  <text x="372" y="200" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">ephemeral</text>
+  <text x="748" y="200" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">cloud join</text>
+  <text x="560" y="350" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="13.5" font-style="italic" fill="#3a3f4a">the session is session-scoped and logged — the only authenticated bridge between the two ends</text>
+
+  <!-- ===== isolation callout ===== -->
+  <g transform="translate(0,360)">
+    <rect x="44" y="0" width="1032" height="116" rx="12" fill="#3a7d44" fill-opacity="0.07" stroke="#3a7d44" stroke-width="2"/>
+    <text x="68" y="34" font-family="ui-monospace,monospace" font-size="12.5" letter-spacing="1.5" fill="#3a7d44">WHY THE LAYERING</text>
+    <g font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">
+      <text x="68" y="68">› a leaked cart cert tells an attacker nothing about any customer</text>
+      <text x="68" y="94">› a leaked customer account tells an attacker nothing about a specific cart</text>
+    </g>
+    <text x="1052" y="64" text-anchor="end" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">compromise of one layer</text>
+    <text x="1052" y="88" text-anchor="end" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">does not compromise the others</text>
+  </g>
+</svg>

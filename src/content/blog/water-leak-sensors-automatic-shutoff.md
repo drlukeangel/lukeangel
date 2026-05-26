@@ -1,5 +1,5 @@
 ---
-title: "Water leak sensors + automatic shutoff — $800 insurance"
+title: "Water leak sensors + automatic shutoff"
 date: 2018-08-12T11:00:00-04:00
 category: tools
 tags:
@@ -8,31 +8,31 @@ tags:
   - zwave
   - water-leak
   - automation
-series: smart-home-iot-journey
-seriesOrder: 25
-excerpt: "Five Z-Wave water leak sensors (basement, laundry, dishwasher, under both bathroom sinks) plus a Z-Wave motorized ball valve on the main."
-pullquote: "Insurance averages a flooded-basement claim at $11,000. The Z-Wave ball valve + sensors cost $800 installed. It pays for itself the first time it works — and even if it never works, it's still cheaper than the deductible."
-cover: "../../assets/blog/water-leak-sensors-automatic-shutoff-cover.png"
-coverAlt: "Water leak sensors + automatic shutoff — $800 insurance"
+notebook: smart-home-iot-journey
+notebookOrder: 24
+excerpt: "Five Z-Wave water leak sensors plus a motorized actuator that clamps over the main shutoff. The first smart-home automation where the insurance math, not the convenience, justifies the spend."
+pullquote: "Every other piece of smart-home gear is a quality-of-life argument. Leak detection plus main-valve shutoff is an insurance argument — and that makes it the one piece I'd hand a non-enthusiast first."
+cover: "../../assets/blog/water-leak-sensors-automatic-shutoff-cover.svg"
+coverAlt: "A house water main with a motorized actuator clamped over the existing quarter-turn ball valve, fed by leak sensors on the floor near a water heater, washer, and sinks; a wet sensor triggers the actuator to rotate the valve closed."
 ---
 
-Five water leak sensors. One Z-Wave motorized ball valve on the main water inlet. Five hours of plumber time. The house can now shut its own water off when something leaks.
+Five water leak sensors. One motorized actuator clamped over the main shutoff valve. A screwdriver, no plumber. The house can now shut its own water off when something leaks — and shut it off fast enough to matter.
 
 ## The hardware
 
 **Leak sensors (5×):**
-- **Aeotec Water Sensor 6** — Z-Wave Plus, CR123A battery (~5-year life), reports water-detected within 2 seconds.
-- $35 each. $175 total.
+- **Aeotec Water Sensor 6** — Z-Wave Plus, CR123A battery (claimed ~2-year life on default settings), four sensing points, detects as little as half a millimetre of water and reports within a couple of seconds. It also has a built-in 60 dB siren, which matters more than I expected — see below.
+- ~$35 each. $175 total.
 
-**Main-water shutoff valve:**
-- **Z-Wave Plus Motorized Ball Valve** by Zooz (ZAC36). Brass body, 3/4" NPT, replaces the existing manual ball valve on the inlet.
-- $185.
+**Main-water shutoff:**
+- **Dome Home Automation Water Main Shut-Off (DMWV1)** — Z-Wave Plus. This is the part that surprised me. It's not a valve you plumb in; it's a *motorized actuator* that clamps over your existing quarter-turn ball valve and physically turns it. Works on any standard ball valve up to 1½", mounts with two pipe clamps and a screwdriver, no cutting, no soldering, no draining the system.
+- $100.
 
-**Plumber:**
-- Cut the existing copper inlet, install the new motorized valve, re-solder, pressure test.
-- 5 hours @ $80/hr = $400.
+**Install:**
+- Forty-five minutes with a screwdriver and a level. The actuator straddles the existing valve's lever; you set the open and closed end-stops once during pairing and it remembers them.
+- $0 — no plumber. That clamp-on design is the whole reason this project went from "schedule a plumber" to "do it Saturday morning."
 
-**Total**: $760. Less than one flood-damage insurance claim deductible.
+**Total: ~$275.** Worth keeping that number in mind against what a single water-damage claim runs.
 
 ## Sensor placement
 
@@ -44,7 +44,11 @@ Where I put them and why:
 4. **Under the master bath vanity.** P-trap, supply lines, shutoff valves — three failure points within 18 inches of each other.
 5. **Under the half-bath vanity downstairs.** Same.
 
-That covers ~90% of the residential water-leak failure modes. Anything happening in a wall (slab leak, freeze-burst inside framing) is invisible to floor-mounted sensors — that's why the main valve shutoff is critical: it stops a wall-leak too.
+That covers ~90% of the residential water-leak failure modes. Anything happening in a wall (slab leak, freeze-burst inside framing) is invisible to floor-mounted sensors — that's why the main-valve shutoff is critical: it stops a wall-leak the floor sensors never saw, because closing the main cuts pressure to *everything*.
+
+![A house cutaway showing the five leak-sensor positions — basement floor by the water heater, behind the washer, under the dishwasher, and under each bathroom vanity — all reporting to the hub, with the main inlet carrying the motorized actuator clamped over the existing shutoff valve.](../../assets/blog/water-leak-sensor-placement.svg)
+
+One thing I underrated: the Aeotec's onboard 60 dB siren. The valve closing is silent, and a push notification is easy to miss in another room. The local siren is what actually gets someone's feet moving toward the basement. I leave it enabled on every sensor.
 
 ## The automation
 
@@ -63,8 +67,8 @@ That covers ~90% of the residential water-leak failure modes. Anything happening
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.main_water_valve  # the Z-Wave ball valve, "off" = closed
-    - service: notify.mobile_app_luke_iphone
+        entity_id: switch.main_water_valve  # the Dome actuator, "off" = valve closed
+    - service: notify.ios_luke_iphone
       data:
         title: "🚰 LEAK + MAIN VALVE CLOSED"
         message: >
@@ -74,8 +78,8 @@ That covers ~90% of the residential water-leak failure modes. Anything happening
           push:
             sound: "default"
             badge: 1
-          priority: high
-    - service: notify.mobile_app_wife_iphone
+          category: "leak"
+    - service: notify.ios_wife_iphone
       data:
         title: "🚰 LEAK + MAIN VALVE CLOSED"
         message: >
@@ -94,7 +98,7 @@ That covers ~90% of the residential water-leak failure modes. Anything happening
           Action taken: main water shut off; lights red.
 ```
 
-End-to-end latency from sensor wet → valve closed: ~3-4 seconds. The valve takes 2 seconds to mechanically rotate 90°.
+End-to-end latency from sensor wet to valve fully closed: about 10 seconds. The sensor reports within a couple of seconds, the automation fires instantly, and then the slow part is mechanical — the Dome actuator drives the ball-valve lever through its 90° arc in roughly eight seconds. That's the trade for a clamp-on actuator versus a plumbed-in motorized valve: it's torquing a stiff manual lever, not spinning a purpose-built motor, so it's deliberate rather than fast. Ten seconds is still orders of magnitude faster than "nobody's home for the weekend."
 
 ## The "we just turned the dishwasher on" false-positive problem
 
@@ -114,6 +118,8 @@ Fix: the dishwasher sensor reports only after **the same sensor reports wet for 
 
 The 30-second debounce is unique to the dishwasher sensor; the other four trigger immediately because their false-positive risk is much lower. A basement floor next to the water heater either is wet or isn't.
 
+![The leak-response sequence: a wet sensor fires the automation, the dishwasher sensor passing through a thirty-second debounce while the others trigger at once; the automation then drives the main valve closed, sounds the sensor siren, sends a push to both phones, and turns the indoor lights red.](../../assets/blog/water-leak-response-sequence.svg)
+
 ## What about the "valve closed when I want water" problem?
 
 The main valve closed automation runs even if I'm home. Which means: someone is washing dishes, the dishwasher leaks, valve shuts, *all water in the house stops*.
@@ -123,9 +129,13 @@ The recovery flow:
 2. Tap "investigate" link — opens HA dashboard showing the sensor that triggered.
 3. Manually inspect the leak. Fix or contain.
 4. From the HA dashboard, tap "Open main valve."
-5. Valve opens (3-second rotation), water flows again.
+5. Actuator drives the lever back open (about eight seconds), water flows again.
 
-This is exactly the friction I want. The default is "shut things down and ask questions later"; the recovery is one tap from the phone. Insurance would pay $11k to avoid having to do this.
+This is exactly the friction I want. The default is "shut things down and ask questions later"; the recovery is one tap from a phone. The Insurance Information Institute puts the average non-weather water claim around $11,000 — I'll happily walk to the basement to re-open a valve to never file one of those.
+
+The whole design comes down to which failure you'd rather have, and the two are not symmetric: a false shutoff costs you a one-tap re-open, while a missed leak costs a five-figure claim. When the downside of one branch is a minor annoyance and the downside of the other is the basement, you bias hard toward shutting off.
+
+![A fail-safe trade-off comparison: a false alarm leads to a brief no-water annoyance recovered with one tap, while a missed leak leads to a five-figure water-damage claim — the lopsided cost is why the automation defaults to closing the valve and asking questions later.](../../assets/blog/water-leak-failsafe-tradeoff.svg)
 
 ## What's next
 

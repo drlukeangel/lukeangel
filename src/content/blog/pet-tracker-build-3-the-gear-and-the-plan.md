@@ -12,6 +12,8 @@ tags:
   - build-in-public
 notebook: iot-pet-health-tracker-build
 notebookOrder: 3
+cover: "../../assets/blog/pet-tracker-build-3-the-gear-and-the-plan-cover.svg"
+coverAlt: "A pet collar tracker at the center, emitting concentric LoRa signal arcs to a base station and taking a GPS fix from a satellite overhead, with a small battery gauge on the tag — the gear at the heart of the build."
 excerpt: "The spec is set, so today I hit buy — but the order got smarter than the plan. I was going to build the handheld base station from modules; turns out it already exists off the shelf, pre-flashed and FCC-certified, as a two-pack. So step one is a proof-of-concept I can strap to Quark the day it lands, then the collar build behind it."
 pullquote: "Step one isn't a product. It's a proof-of-concept I can strap to Quark the day it lands."
 featured: false
@@ -63,11 +65,17 @@ Plus a passive piezo buzzer (Amazon) and LiPos (Adafruit). The RAK4631 inside th
 **3 — Cellular (already ordered, for phase 2):**
 - **Nordic Thingy:91 + nRF9160 DK** (~$295, DigiKey). The DK doubles as my debugger for everything above.
 
+![Three buys reordered around a proof-of-concept: Buy 1 is the pre-flashed Wio Tracker L1 two-pack that needs no firmware or soldering; Buy 2 is the RAK4631 collar kit, deferred until range proves out, sharing the same nRF52840 plus SX1262 chip family so one firmware codebase carries across both; Buy 3 is the cellular nRF9160 Thingy:91 and DK on a separate LTE path for phase two, with the DK doubling as the debugger for all of it.](../../assets/blog/pet-tracker-build-3-shared-chip-family.svg)
+
+The thread that ties the first two buys together is the silicon: the Wio L1 and the RAK4631 collar are both **nRF52840 + SX1262**, so the firmware I prove on the proof-of-concept is the firmware the custom collar runs. Cellular is the one part on a different chip — and it's deliberately last.
+
 ## The phases, and what each one has to prove
 
 1. **Location — BLE + LoRa.** Presence at home, the geofence flip to findable mode, collar → base over LoRa, data into the existing cloud, beep + proximity search. The hard part, first.
 2. **Cellular.** Swap in the nRF9160 path for the "anywhere" collar. Lower risk — a well-documented road.
 3. **Health.** Resting heart rate and respiratory rate off the accelerometer the collar already carries. Only after the dot is boringly reliable.
+
+![The phased build plan: phase one is location over BLE and LoRa — the hard part, taken first; phase two is the cellular nRF9160 path, lower risk and well-documented; phase three is health, heart rate and respiratory rate from the collar's accelerometer, attempted only once the location dot is boringly reliable. Below, a six-month phase-one timeline of nights and weekends: month one a proof-of-concept and range tests, month two the collar publishing GPS and battery to the cloud, month three BLE presence and the geofence-exit flip, month four base-station behaviors and an RSSI proximity beep, month five enclosure and charging that survives a wet Lab, month six a field test on Quark and a write-up of what broke.](../../assets/blog/pet-tracker-build-3-phased-plan.svg)
 
 ## The honest timeline
 

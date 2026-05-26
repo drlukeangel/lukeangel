@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Cutting vendor clouds, local-first">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- top row: vendor clouds, each tether cut -->
+  <g>
+    <g transform="translate(230 120)">
+      <path d="M-60 18 a28 28 0 0 1 15 -50 a38 38 0 0 1 72 6 a26 26 0 0 1 2 44 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    </g>
+    <g transform="translate(490 120)">
+      <path d="M-60 18 a28 28 0 0 1 15 -50 a38 38 0 0 1 72 6 a26 26 0 0 1 2 44 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    </g>
+    <g transform="translate(750 120)">
+      <path d="M-60 18 a28 28 0 0 1 15 -50 a38 38 0 0 1 72 6 a26 26 0 0 1 2 44 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    </g>
+    <g transform="translate(1010 120)">
+      <path d="M-60 18 a28 28 0 0 1 15 -50 a38 38 0 0 1 72 6 a26 26 0 0 1 2 44 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    </g>
+  </g>
+
+  <!-- cut tethers (dashed, severed with red X) from clouds down toward devices -->
+  <g stroke="#c14a3a" stroke-width="4" stroke-dasharray="4 9" opacity="0.65">
+    <line x1="230" y1="150" x2="230" y2="250"/>
+    <line x1="490" y1="150" x2="490" y2="250"/>
+    <line x1="750" y1="150" x2="750" y2="250"/>
+    <line x1="1010" y1="150" x2="1010" y2="250"/>
+  </g>
+  <g stroke="#c14a3a" stroke-width="5" stroke-linecap="round">
+    <g transform="translate(230 200)"><line x1="-12" y1="-12" x2="12" y2="12"/><line x1="12" y1="-12" x2="-12" y2="12"/></g>
+    <g transform="translate(490 200)"><line x1="-12" y1="-12" x2="12" y2="12"/><line x1="12" y1="-12" x2="-12" y2="12"/></g>
+    <g transform="translate(750 200)"><line x1="-12" y1="-12" x2="12" y2="12"/><line x1="12" y1="-12" x2="-12" y2="12"/></g>
+    <g transform="translate(1010 200)"><line x1="-12" y1="-12" x2="12" y2="12"/><line x1="12" y1="-12" x2="-12" y2="12"/></g>
+  </g>
+
+  <!-- the local hub, center bottom, now connected to all devices -->
+  <g transform="translate(600 470)">
+    <rect x="-80" y="-50" width="160" height="100" rx="18" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="7"/>
+    <g stroke="#6a4c93" stroke-width="5" stroke-linecap="round">
+      <line x1="-40" y1="-20" x2="40" y2="-20"/>
+      <line x1="-40" y1="2" x2="40" y2="2"/>
+      <line x1="-40" y1="24" x2="20" y2="24"/>
+    </g>
+    <circle cx="0" cy="-90" r="0" fill="none"/>
+  </g>
+
+  <!-- solid local links from devices to hub -->
+  <g stroke="#6a4c93" stroke-width="4" fill="none">
+    <path d="M230 250 C 300 380, 480 420, 522 440"/>
+    <path d="M490 250 C 520 360, 560 400, 565 420"/>
+    <path d="M750 250 C 720 360, 660 400, 640 420"/>
+    <path d="M1010 250 C 920 380, 720 420, 680 440"/>
+  </g>
+  <!-- device pucks on the local links -->
+  <g>
+    <g transform="translate(230 250)"><circle r="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><circle r="7" fill="#6a4c93"/></g>
+    <g transform="translate(490 250)"><rect x="-20" y="-20" width="40" height="40" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><circle r="7" fill="#6a4c93"/></g>
+    <g transform="translate(750 250)"><rect x="-22" y="-18" width="44" height="36" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><line x1="0" y1="-18" x2="0" y2="18" stroke="#1a1d24" stroke-width="3"/></g>
+    <g transform="translate(1010 250)"><rect x="-20" y="-20" width="40" height="40" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><path d="M-10 6 a12 12 0 0 1 20 0" fill="none" stroke="#6a4c93" stroke-width="3"/></g>
+  </g>
+</svg>

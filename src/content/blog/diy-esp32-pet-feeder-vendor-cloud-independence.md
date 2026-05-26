@@ -12,8 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 38
 excerpt: "Built a DIY pet feeder for Boson — ESP32 + servo + 3D-printed hopper + ESPHome. Local-only, no vendor cloud, integrates with HA. The thing I should've built after Petnet collapsed in 2020."
 pullquote: "An ESP32 + servo + 3D-printed hopper is $35 in parts and zero monthly subscription. The reliability is whatever I make it. The vendor solvency dependency is gone. This is what the post-Petnet pet-IoT category should have shipped years ago."
-cover: "../../assets/blog/diy-esp32-pet-feeder-vendor-cloud-independence-cover.png"
-coverAlt: "DIY ESP32 pet feeder — vendor-cloud independence for $35"
+cover: "../../assets/blog/diy-esp32-pet-feeder-vendor-cloud-independence-cover.svg"
+coverAlt: "A home-built pet feeder: a 3D-printed kibble hopper feeds an auger driven by a servo, an ESP32 board wired alongside, kibble dropping into a bowl. To the right, a house holds a small local hub with a healthy status light, under a crossed-out cloud — the whole thing runs on the home network with no vendor cloud."
 ---
 
 Built a DIY pet feeder for Boson over a weekend. ESP32 + servo + 3D-printed hopper. ESPHome firmware. Integrates with Home Assistant. Total cost: $35 in parts.
@@ -36,6 +36,10 @@ The thing I should have built right after Petnet's [9-day cloud-failure catastro
 | **Total** | | **~$35** |
 
 3D printing took about 8 hours (4-color filament, food-safe PETG for the hopper interior surfaces). The mechanical assembly took an hour.
+
+Mechanically it's almost embarrassingly simple. A servo turns an auger — a printed screw — under the hopper; spin it for a fixed time and a known volume of kibble walks out the end and drops into the bowl. The only "smarts" are two cheap sensors: a microswitch that trips when the hopper runs low, and an optional load cell under the bowl so I can read how much is actually in there.
+
+![The dispense mechanism laid out left to right: a 3D-printed PETG hopper of kibble sits above an MG996R servo on GPIO13, which turns a printed auger inside a tube; rotating it for about 4.5 seconds walks roughly a third of a cup of kibble out the end and drops it into a bowl. A low-food microswitch on GPIO14 rides the hopper wall and trips when kibble runs low, skipping the feed and firing an alert; an optional HX711 load cell on GPIO16/17 under the bowl reads the current weight. A caption notes that one cheap servo turning an auger for a fixed time is the whole machine, and the sensors only tell it when to stop and when to shout.](../../assets/blog/diy-feeder-dispense-mechanism.svg)
 
 ## The firmware — ESPHome
 
@@ -156,6 +160,10 @@ End-to-end latency from "scheduled feed" to "kibble dispensed": about 200 ms. Ze
 | Privacy | Vendor cloud | LAN-only |
 
 The DIY pet-IoT is strictly better on every dimension that matters for me.
+
+The difference that actually mattered the day Petnet's servers went dark isn't in any spec row — it's *where the feed decision lives.* Petnet kept the schedule and the "is it time to feed?" logic in its cloud, so every meal round-tripped through a server I didn't own; when that server went away, the feeder forgot how to feed. The DIY version keeps the schedule on the HA box in my closet and the dispense logic on the ESP32 itself. The internet can be down for a week and Boson still eats at 07:00 and 18:00.
+
+![Two feeder control paths side by side. On the left, Petnet: a phone app talks to a vendor cloud that holds the schedule and the brains, which then tells the feeder to dispense — and the cloud is crossed out in red, with notes that if the cloud goes down or the vendor folds, the feeder bricks, because every meal round-trips through a server you don't own. On the right, the DIY build: a Home Assistant hub and the ESP32 and the servo all sit inside a dashed box labelled home LAN, no internet needed; the hub tells the ESP32 which tells the servo, entirely on the local network, with notes that if the internet is down it still feeds and the vendor is irrelevant because I own the firmware — about 200 milliseconds from closet to bowl, no server involved.](../../assets/blog/diy-feeder-local-vs-cloud-path.svg)
 
 ## What this lacks vs Petnet
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A yellow Lab puppy wearing a small clip-on collar monitor that sends Bluetooth waves to a phone.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="atom-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#atom-dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- ground line -->
+  <line x1="120" y1="512" x2="700" y2="512" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="3"/>
+
+  <!-- sitting yellow lab puppy, profile facing right -->
+  <g>
+    <!-- tail -->
+    <path d="M222 430 q-46 -10 -64 -52 q24 18 58 22" fill="#e8b873" stroke="#c87533" stroke-width="3"/>
+    <!-- haunch / body -->
+    <path d="M250 512 q-40 0 -52 -54 q-14 -64 30 -120 q40 -50 110 -50 q70 0 104 44 q22 28 22 70 l0 96 q0 14 -16 14 l-36 0 q-14 0 -14 -14 l0 -34 q-44 18 -94 18 q-8 26 -10 40 q-2 16 -18 16 l-22 0 q-14 0 -14 -14 z" fill="#edbf7d" stroke="#c87533" stroke-width="3.5"/>
+    <!-- front leg -->
+    <path d="M356 462 l0 50 q0 14 -16 14 l-22 0 q-14 0 -14 -14 l6 -54 q26 4 46 -2 z" fill="#e8b873" stroke="#c87533" stroke-width="3"/>
+    <!-- chest highlight -->
+    <path d="M404 360 q22 28 22 70 l0 60 q-30 8 -56 4 l0 -110 q18 -20 34 -24 z" fill="#f3d09a" stroke="none" opacity="0.7"/>
+    <!-- neck + head -->
+    <path d="M404 300 q24 -34 70 -40 q44 -6 74 22 q26 24 22 58 q-4 34 -36 50 q-34 16 -70 6 q-44 -12 -60 -42 q-14 -28 0 -54 z" fill="#edbf7d" stroke="#c87533" stroke-width="3.5"/>
+    <!-- ear -->
+    <path d="M470 264 q-30 -6 -44 22 q-8 28 14 48 q12 -38 40 -52 z" fill="#dca85f" stroke="#c87533" stroke-width="3"/>
+    <!-- muzzle -->
+    <path d="M548 312 q44 -2 64 18 q18 18 8 40 q-8 18 -34 20 q-30 2 -50 -14 q-16 -14 -12 -36 q4 -22 24 -28 z" fill="#f0c98c" stroke="#c87533" stroke-width="3"/>
+    <!-- nose -->
+    <ellipse cx="618" cy="338" rx="13" ry="11" fill="#1a1d24"/>
+    <!-- eye -->
+    <circle cx="556" cy="300" r="7" fill="#1a1d24"/>
+    <!-- mouth -->
+    <path d="M598 366 q-14 12 -34 8" fill="none" stroke="#c87533" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- collar -->
+    <path d="M470 372 q44 22 92 8" fill="none" stroke="#1a1d24" stroke-width="11" stroke-linecap="round"/>
+    <!-- clip-on monitor puck on collar -->
+    <g transform="translate(508,392)">
+      <rect x="-22" y="-18" width="44" height="40" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+      <circle cx="0" cy="2" r="9" fill="none" stroke="#c87533" stroke-width="4"/>
+      <circle cx="0" cy="2" r="2.5" fill="#c87533"/>
+    </g>
+  </g>
+
+  <!-- BLE waves radiating from the puck toward the phone, concentric arcs centered on the puck -->
+  <g fill="none" stroke="#c87533" stroke-width="5" stroke-linecap="round" transform="translate(530,394)">
+    <path d="M22 -22 a31 31 0 0 1 0 44" opacity="0.95"/>
+    <path d="M44 -40 a57 57 0 0 1 0 80" opacity="0.6"/>
+    <path d="M66 -58 a83 83 0 0 1 0 116" opacity="0.35"/>
+  </g>
+
+  <!-- phone receiving the activity readout -->
+  <g transform="translate(800,250)">
+    <rect x="0" y="0" width="180" height="320" rx="28" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <rect x="16" y="44" width="148" height="232" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+    <circle cx="90" cy="24" r="5" fill="#1a1d24" opacity="0.4"/>
+    <!-- activity ring -->
+    <circle cx="90" cy="108" r="40" fill="none" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="12"/>
+    <path d="M90 68 a40 40 0 1 1 -34 60" fill="none" stroke="#c87533" stroke-width="12" stroke-linecap="round"/>
+    <!-- activity bars -->
+    <g fill="#c87533">
+      <rect x="40" y="232" width="20" height="26" rx="3"/>
+      <rect x="70" y="214" width="20" height="44" rx="3"/>
+      <rect x="100" y="196" width="20" height="62" rx="3"/>
+      <rect x="130" y="222" width="20" height="36" rx="3" opacity="0.55"/>
+    </g>
+    <line x1="32" y1="258" x2="158" y2="258" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="3"/>
+  </g>
+</svg>

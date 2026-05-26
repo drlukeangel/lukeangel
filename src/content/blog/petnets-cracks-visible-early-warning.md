@@ -12,8 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 18
 excerpt: "Petnet had two outages in April — one 18-hour, one 6-hour. No communication. Layoffs rumored in pet-tech press. Three+ years of consolidation about to claim a victim. Notes on what to do."
 pullquote: "When a connected pet device's cloud goes down repeatedly without explanation, the company is in trouble. The outage history is the leading indicator of the company's solvency. By the time the bankruptcy notice comes, the pets have already been hungry for days."
-cover: "../../assets/blog/petnets-cracks-visible-early-warning-cover.png"
-coverAlt: "Petnet's cracks are visible — the early warning"
+cover: "../../assets/blog/petnets-cracks-visible-early-warning-cover.svg"
+coverAlt: "A connected smart feeder fracturing with a dead cloud-link icon overhead, while a simple mechanical-timer feeder beside it keeps running — the cloud-dependent device failing while the dumb backup carries on."
 ---
 
 [Petnet had two outages this month](/blog/petnet-smart-feeder-long-term-review/). One 18-hour event, one 6-hour event. The 18-hour outage missed *three* feeds for Joule + Atom. My backup PetSafe Smart Feed feeder caught two of them. One was missed entirely.
@@ -36,13 +36,15 @@ This is a category that's playing out for the first time in pet IoT. The pattern
 
 3. **Software development slows**. The Petnet iOS app hasn't had a meaningful update in 8 months. iOS 12 compatibility was patched late. iOS 13 (rumored September) is going to be a problem.
 
-4. **Hardware shipping slows or stops**. Petnet 2.0 was announced 2017, never shipped in volume. Inventory of replacement parts is rumored low.
+4. **Hardware momentum stalls**. The SmartFeeder 2.0 they showed at CES in January 2018 — sleeker shell, Alexa and Google Assistant hooks — shipped, but it carried the *same* cloud dependency and the *same* reliability problems. A new lid doesn't fix a fragile backend. Replacement-part inventory is rumored low.
 
 5. **Then the company quietly stops responding**. Servers eventually go offline.
 
 6. **THEN the bankruptcy notice arrives** (or doesn't, and the company just vanishes — happens with foreign-owned VC-backed startups).
 
 We're somewhere between steps 3 and 5 with Petnet.
+
+![The death spiral of a cloud-dependent consumer-hardware company: outages grow more frequent year over year (2 in 2017, 3 in 2018, 4 in Q1 2019 alone), communication degrades from same-day to never, software updates slow, hardware momentum stalls, the servers go quiet, and finally the company vanishes or files. Petnet sits between the slowing-software and silent-servers stages.](../../assets/blog/petnet-vendor-death-spiral.svg)
 
 ## What pets actually experience
 
@@ -86,6 +88,8 @@ The pet-IoT category is the first connected-hardware category where **vendor sol
 A class of pet devices that **schedule lives on the device, not the cloud**. The cloud is for *changing* the schedule. If the cloud is unreachable, the device executes the last-known schedule from local storage.
 
 This is the architecture I've been arguing for since [Petnet's first outage in 2018](/blog/petnet-smart-feeder-long-term-review/). Nobody has built it yet. The market opportunity is real.
+
+![Two feeder architectures contrasted. Cloud-authoritative (what Petnet built): the feeding schedule lives in the cloud, the device asks the cloud when to dispense, so a dead cloud means missed feeds. Device-authoritative (what I want): the schedule is stored on the device and executed locally; the cloud is only used to change the schedule, so a dead cloud means the device keeps running its last-known schedule and the pet still eats.](../../assets/blog/petnet-device-vs-cloud-schedule.svg)
 
 ## What's next
 

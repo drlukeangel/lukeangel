@@ -10,15 +10,19 @@ tags:
   - gdpr
   - data-engineering
   - privacy
+notebook: connected-products
+notebookOrder: 13
 excerpt: "Three months after open-sourcing the PII masking kit. What held up, what didn't, and the one bucket the rubric got wrong."
 pullquote: "A rubric that survives contact with auditors is a rubric. Everything else is a draft."
 cover: "../../assets/blog/pii-rubric-three-months-later-cover.svg"
-coverAlt: "Cover graphic — PII masking with Glue DataBrew, the rubric we ended up with. May 2026."
+coverAlt: "Four PII buckets feeding a masking job that emits an audit-evidence trail — three buckets steady, one cracked and patched, a fifth bucket added for free-text fields."
 ---
 
 Three months ago I [open-sourced the PII Masking Starter Kit](/blog/open-sourcing-the-pii-masking-starter-kit/). The rubric had been in private use for nine months at that point; I figured it was settled.
 
 Three months of real-world contact later — including one audit and three new pipelines that adopted it — I have a slightly different rubric. This is the follow-up.
+
+![The rubric's evolution across three months. The four original PII buckets — direct identifiers (hash with rotating salt), sensitive attributes (generalize), behavioral data (keep), and quasi-identifiers (tokenize) — feed a single masking job. Three buckets held up unchanged; the quasi-identifier bucket cracked under cross-dataset token collision and was patched with per-domain namespacing; and a fifth bucket was added for free-text fields, redacted via named-entity recognition. The job now emits a masking decision log as audit evidence.](../../assets/blog/pii-rubric-evolution.svg)
 
 ## What held up
 
@@ -39,6 +43,8 @@ Original rule: tokenize quasi-identifiers (employee ID, MAC address, names) to s
 What went wrong: **stable tokenization across multiple datasets in the same org turned out to create a cross-dataset join key by accident.** When two pipelines tokenized the same operator name using the same namespace, the resulting tokens *matched*. The privacy team's whole point in tokenizing was to prevent cross-dataset linking; we'd defeated the purpose without realizing it.
 
 The fix that landed: **namespace tokens per data domain, not per organization**. The PII masking job now takes a `--domain` argument (e.g., `tool-telemetry`, `support-tickets`, `billing`) and the token namespace is mixed into the hash so the same name in different domains gets different tokens.
+
+![The cross-dataset token-collision bug and the per-domain-namespacing fix. Before: the same operator name tokenized in two separate pipelines with one org-wide namespace produced identical tokens, creating an accidental join key that re-linked the datasets — defeating the purpose of tokenizing. After: a per-domain namespace is mixed into the hash, so the same name in the tool-telemetry domain and the support-tickets domain produces two different tokens, and the cross-dataset join is broken as intended.](../../assets/blog/pii-token-collision-fix.svg)
 
 This was a real bug that ran in production for six weeks before someone in the privacy team caught it during a routine audit. Embarrassing. The rubric now has a much louder note about it.
 
@@ -63,6 +69,8 @@ We had our first external audit on this pipeline in March. The auditors asked fo
 **A "what was kept, and why" report.** The auditor wanted us to defend the *behavioral* bucket — which columns we'd kept and the reasoning. We had this informally in the rubric file; the audit needed it as a structured artifact. Added a `kept_columns.md` per dataset that gets reviewed in PR.
 
 **A rollback story.** "If we discover next year that a column we classified as behavioral was actually PII, what's the remediation?" Forced us to write a runbook for re-masking historical data with an updated rubric. The runbook is uncomfortable but the audit pushed us to write it down, which I'm grateful for.
+
+![The three audit artifacts the masking job now emits. The version-stamped masking job fans out into a per-row masking decision log (bucket, treatment, and rubric version, append-only), a kept_columns.md report that documents what was kept and why and is reviewed in PR, and a re-mask runbook for remediating a column later found to be PII. All three converge on the auditor, who wanted to point at an exact row and see what was done to it — making the point that masking the data was only half the job and proving the masking is the other half.](../../assets/blog/pii-masking-with-glue-databrew-rubric-we-ended-up-with-fig-1.svg)
 
 ## What I'd change in the rubric, if starting over
 

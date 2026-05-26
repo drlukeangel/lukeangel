@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 430" width="1080" height="430" role="img" aria-label="How a GPS-less BLE tag still produces a last-seen location.">
+  <rect width="1080" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="42" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">NO GPS ON THE TAG — SO WHO KNOWS WHERE IT IS?</text>
+
+  <!-- the tag on the pet -->
+  <g transform="translate(70,150)">
+    <circle cx="40" cy="40" r="30" fill="#c87533" opacity="0.9"/>
+    <g stroke="#fdfaf2" stroke-width="3" fill="none">
+      <path d="M52 28 a16 16 0 0 1 0 24"/>
+      <path d="M60 22 a26 26 0 0 1 0 36"/>
+    </g>
+    <text x="40" y="98" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">BLE tag</text>
+    <text x="40" y="114" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">no GPS · no cellular</text>
+    <text x="40" y="128" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">just "I'm here" pings</text>
+  </g>
+
+  <!-- passing stranger's phone -->
+  <g transform="translate(300,140)">
+    <rect x="0" y="0" width="70" height="120" rx="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="10" y="14" width="50" height="84" rx="4" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+    <text x="35" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">a passing phone</text>
+    <text x="35" y="162" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">hears the ping, adds GPS,</text>
+    <text x="35" y="176" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">uploads encrypted blob</text>
+  </g>
+  <!-- ping arrow tag -> phone -->
+  <g stroke="#c87533" stroke-width="3" fill="#c87533">
+    <path d="M150 188 H292" fill="none" stroke-dasharray="3 6"/><path d="M296 188 l-15 -7 v14 z"/>
+  </g>
+
+  <!-- cloud -->
+  <g transform="translate(470,128)">
+    <path d="M40 96 a30 30 0 0 1 4 -58 a36 36 0 0 1 68 6 a26 26 0 0 1 -2 52 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <g transform="translate(58,42)">
+      <rect x="0" y="12" width="30" height="22" rx="4" fill="#c87533" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.6"/>
+      <path d="M6 12 v-6 a9 9 0 0 1 18 0 v6" fill="none" stroke="#1a1d24" stroke-width="2.6"/>
+    </g>
+    <text x="76" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">Find My cloud</text>
+    <text x="76" y="136" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">end-to-end encrypted</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <path d="M370 180 C420 165, 440 160, 466 168" fill="none" stroke-dasharray="3 6"/><path d="M470 169 l-16 -3 l4 14 z"/>
+  </g>
+
+  <!-- owner's phone -->
+  <g transform="translate(700,140)">
+    <rect x="0" y="0" width="70" height="120" rx="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="10" y="14" width="50" height="84" rx="4" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+    <circle cx="35" cy="50" r="8" fill="#c87533"/>
+    <text x="35" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">my phone</text>
+    <text x="35" y="162" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">only I can decrypt it</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <path d="M624 168 C660 160, 676 160, 696 175" fill="none"/><path d="M700 177 l-9 -13 l-7 12 z"/>
+  </g>
+
+  <!-- the catch: last-seen, not real-time -->
+  <g transform="translate(840,150)">
+    <rect x="0" y="0" width="200" height="120" rx="10" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.4" stroke-dasharray="7 5"/>
+    <text x="100" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#c14a3a">THE CATCH</text>
+    <text x="100" y="62" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">location = the last time</text>
+    <text x="100" y="80" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">a phone happened by.</text>
+    <text x="100" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">no phones near → no fix</text>
+  </g>
+
+  <text x="540" y="408" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">The tag never knows where it is. It borrows a location from whatever phone wandered past.</text>
+</svg>

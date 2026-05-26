@@ -1,46 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
-  <title id="t">Mars divests Whistle to Tractive — cover</title>
-  <desc id="d">2025-era modern cover showing the corporate transfer: Mars Petcare logo on left, an arrow with "divests" label crossing the page, and Tractive on the right. A small "Whistle cloud goes dark Aug 31" callout sits beneath the arrow.</desc>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A large company hands a small pet device to a smaller one">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a1d24"/>
-      <stop offset="100%" stop-color="#2a323d"/>
-    </linearGradient>
-    <linearGradient id="arrow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#dc2626"/>
-      <stop offset="100%" stop-color="#2a52be"/>
-    </linearGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <g fill="#fdfaf2" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
-    <text x="80" y="80" font-size="20" letter-spacing="6" opacity="0.6">CONNECTED COLLAR MARKET · JULY 8 2025</text>
-    <text x="80" y="180" font-size="72" font-weight="500" letter-spacing="-1.5">Mars divests Whistle</text>
-    <text x="80" y="260" font-size="72" font-weight="500" letter-spacing="-1.5">to Tractive</text>
-    <text x="80" y="320" font-size="22" font-style="italic" opacity="0.7">Nine years after acquiring it. The empire is starting to look smaller.</text>
-  </g>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#c87533"/>
 
-  <!-- Corporate transfer visualization -->
-  <g transform="translate(120,410)">
-    <!-- Mars block -->
-    <rect width="260" height="120" rx="8" fill="#dc2626" opacity="0.9"/>
-    <text x="130" y="50" text-anchor="middle" fill="#fdfaf2" font-family="'Inter',Arial" font-size="28" font-weight="600">MARS PETCARE</text>
-    <text x="130" y="80" text-anchor="middle" fill="#fdfaf2" font-family="'Inter',Arial" font-size="14" opacity="0.85">food · clinics · analytics</text>
-    <text x="130" y="100" text-anchor="middle" fill="#fdfaf2" font-family="'Inter',Arial" font-size="12" opacity="0.7" font-style="italic">acquired Whistle 2016</text>
-
-    <!-- Arrow -->
-    <g transform="translate(280,55)">
-      <line x1="0" y1="5" x2="320" y2="5" stroke="url(#arrow)" stroke-width="6"/>
-      <polygon points="320,0 340,5 320,10" fill="#2a52be"/>
-      <text x="160" y="-12" text-anchor="middle" fill="#fdfaf2" font-family="'JetBrains Mono',monospace" font-size="14" letter-spacing="4">DIVESTS · JUL 2025</text>
-      <text x="160" y="30" text-anchor="middle" fill="#9aa3ad" font-family="'Inter',Arial" font-size="13" font-style="italic">Whistle cloud goes dark · Aug 31</text>
+  <!-- ===== the big empire (left): a tall stack of blocks, one leg detaching ===== -->
+  <g transform="translate(150,150)">
+    <!-- stack of holdings -->
+    <rect x="0" y="0" width="230" height="56" rx="8" fill="#1a1d24" fill-opacity="0.07" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="0" y="70" width="230" height="56" rx="8" fill="#1a1d24" fill-opacity="0.07" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="0" y="140" width="230" height="56" rx="8" fill="#1a1d24" fill-opacity="0.07" stroke="#1a1d24" stroke-width="3"/>
+    <!-- the device leg, detaching: drawn askew + faded, sliding away to the right -->
+    <g transform="translate(40,222) rotate(-7)">
+      <rect x="0" y="0" width="230" height="56" rx="8" fill="#c87533" fill-opacity="0.12" stroke="#c87533" stroke-width="3" stroke-dasharray="8 5"/>
+      <!-- little collar-puck glyph inside the detaching leg -->
+      <circle cx="40" cy="28" r="15" fill="#c87533"/>
+      <g stroke="#fdfaf2" stroke-width="2.6" fill="none"><path d="M52 20 a13 13 0 0 1 0 16"/></g>
     </g>
-
-    <!-- Tractive block -->
-    <rect x="620" y="0" width="260" height="120" rx="8" fill="#2a52be" opacity="0.9"/>
-    <text x="750" y="50" text-anchor="middle" fill="#fdfaf2" font-family="'Inter',Arial" font-size="28" font-weight="600">TRACTIVE</text>
-    <text x="750" y="80" text-anchor="middle" fill="#fdfaf2" font-family="'Inter',Arial" font-size="14" opacity="0.85">Austrian · independent</text>
-    <text x="750" y="100" text-anchor="middle" fill="#fdfaf2" font-family="'Inter',Arial" font-size="12" opacity="0.7" font-style="italic">migration path: rebuy a DOG 6</text>
+    <!-- a tiny crack/gap where the leg pulled free -->
+    <path d="M20 210 l190 6" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 6" opacity="0.8"/>
   </g>
 
-  <text x="80" y="600" fill="#fdfaf2" opacity="0.55" font-family="'JetBrains Mono',monospace" font-size="14" letter-spacing="4">LUKEANGEL.CO · THE JOURNAL · PET IOT FIELD GUIDE</text>
+  <!-- ===== handoff arrow ===== -->
+  <g transform="translate(470,400)">
+    <path d="M0 20 H190" fill="none" stroke="#1a1d24" stroke-width="5"/>
+    <path d="M196 20 l-22 -11 v22 z" fill="#1a1d24"/>
+  </g>
+
+  <!-- ===== the smaller recipient (right): one modest block catching the puck ===== -->
+  <g transform="translate(720,330)">
+    <rect x="0" y="0" width="200" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <!-- the puck now landing here, bright -->
+    <circle cx="100" cy="64" r="26" fill="#c87533"/>
+    <g stroke="#fdfaf2" stroke-width="3" fill="none">
+      <path d="M118 50 a22 22 0 0 1 0 28"/>
+      <path d="M128 42 a34 34 0 0 1 0 44"/>
+    </g>
+    <!-- a small pet-paw mark below to signal "pet company" -->
+    <g transform="translate(100,118)" fill="#1a1d24" fill-opacity="0.4">
+      <circle cx="0" cy="6" r="9"/>
+      <circle cx="-13" cy="-7" r="5"/><circle cx="-1" cy="-13" r="5"/><circle cx="12" cy="-7" r="5"/>
+    </g>
+  </g>
+
+  <!-- ===== the Whistle cloud, going dark, top-right ===== -->
+  <g transform="translate(940,120)">
+    <path d="M40 96 a28 28 0 0 1 4 -54 a34 34 0 0 1 64 6 a24 24 0 0 1 -2 48 z" fill="#7a808c" fill-opacity="0.1" stroke="#7a808c" stroke-width="3.5" stroke-dasharray="6 5"/>
+    <!-- power-off glyph inside = going offline -->
+    <g transform="translate(76,52)" stroke="#c14a3a" stroke-width="3.5" fill="none" stroke-linecap="round">
+      <path d="M-12 -4 a16 16 0 1 0 24 0"/>
+      <line x1="0" y1="-14" x2="0" y2="2"/>
+    </g>
+  </g>
 </svg>

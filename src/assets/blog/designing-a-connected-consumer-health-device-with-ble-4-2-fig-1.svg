@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 430" width="1080" height="430" role="img" aria-label="iOS Core Bluetooth versus Android BluetoothGatt, both unreliable in different ways.">
+  <rect width="1080" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">TWO MOBILE STACKS, TWO WAYS THE GATEWAY IS UNRELIABLE</text>
+
+  <!-- iOS column -->
+  <g transform="translate(44,76)">
+    <rect x="0" y="0" width="488" height="252" rx="14" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="24" y="38" font-family="ui-monospace,monospace" font-size="14" fill="#357a8c">iOS · Core Bluetooth</text>
+    <text x="24" y="60" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">cleaner abstractions, stricter cage</text>
+    <line x1="24" y1="78" x2="464" y2="78" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1"/>
+    <g font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">
+      <text x="44" y="112">background scan gated by use case</text>
+      <text x="44" y="146">connection interval — iOS decides</text>
+      <text x="44" y="180">state preservation mostly works</text>
+    </g>
+    <!-- bullet marks -->
+    <g fill="#357a8c"><circle cx="30" cy="108" r="3"/><circle cx="30" cy="142" r="3"/><circle cx="30" cy="176" r="3"/></g>
+    <text x="24" y="222" font-family="Newsreader, Georgia, serif" font-size="12.5" font-style="italic" fill="#357a8c">can't assume the app wakes itself to drain the brush</text>
+  </g>
+
+  <!-- Android column -->
+  <g transform="translate(548,76)">
+    <rect x="0" y="0" width="488" height="252" rx="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.4"/>
+    <text x="24" y="38" font-family="ui-monospace,monospace" font-size="14" fill="#c14a3a">Android · BluetoothGatt</text>
+    <text x="24" y="60" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">messier abstractions, hidden cliffs</text>
+    <line x1="24" y1="78" x2="464" y2="78" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1"/>
+    <g font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">
+      <text x="44" y="112">missed onConnectionStateChange</text>
+      <text x="44" y="146">behavior diverges per OEM</text>
+      <text x="44" y="180">auto-reconnect = best-effort only</text>
+    </g>
+    <g fill="#c14a3a"><circle cx="30" cy="108" r="3"/><circle cx="30" cy="142" r="3"/><circle cx="30" cy="176" r="3"/></g>
+    <text x="24" y="222" font-family="Newsreader, Georgia, serif" font-size="12.5" font-style="italic" fill="#c14a3a">Samsung · Huawei · Xiaomi each behave differently</text>
+  </g>
+
+  <!-- both land on ingestion -->
+  <g stroke="#7a808c" stroke-width="2.4" fill="#7a808c" stroke-linecap="round">
+    <line x1="288" y1="328" x2="500" y2="356"/><path d="M504 357 l-13 0 5 -11 z"/>
+    <line x1="792" y1="328" x2="580" y2="356"/><path d="M576 357 l13 0 -5 -11 z"/>
+  </g>
+  <g transform="translate(400,356)">
+    <rect x="0" y="0" width="280" height="44" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="140" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">both land on ingestion behavior</text>
+  </g>
+  <text x="540" y="356" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="0" fill="#3a3f4a"></text>
+</svg>

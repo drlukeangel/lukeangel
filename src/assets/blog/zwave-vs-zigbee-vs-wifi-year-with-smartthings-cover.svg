@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="three radio protocols">
+  <defs>
+    <pattern id="dotsPR" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsPR)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- three stacked spectrum lanes, the bottom two crowded, the top one clear -->
+  <!-- lane 1: 908 MHz, clear band, one tidy waveform -->
+  <g transform="translate(0,180)">
+    <rect x="120" y="-40" width="960" height="80" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.5"/>
+    <path d="M160 0 q30 -34 60 0 q30 34 60 0 q30 -34 60 0 q30 34 60 0 q30 -34 60 0 q30 34 60 0"
+          fill="none" stroke="#3a7d44" stroke-width="4" stroke-linecap="round"/>
+    <!-- single clean node puck on the right -->
+    <circle cx="980" cy="0" r="20" fill="#3a7d44" fill-opacity="0.18" stroke="#3a7d44" stroke-width="3"/>
+  </g>
+
+  <!-- lane 2: 2.4 GHz, crowded, many overlapping waves -->
+  <g transform="translate(0,320)">
+    <rect x="120" y="-40" width="960" height="80" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.5"/>
+    <path d="M160 6 q18 -30 36 0 q18 30 36 0 q18 -30 36 0 q18 30 36 0 q18 -30 36 0 q18 30 36 0 q18 -30 36 0 q18 30 36 0 q18 -30 36 0 q18 30 36 0 q18 -30 36 0 q18 30 36 0"
+          fill="none" stroke="#6a4c93" stroke-width="3.5" stroke-linecap="round" stroke-opacity="0.85"/>
+    <path d="M160 -4 q26 28 52 0 q26 -28 52 0 q26 28 52 0 q26 -28 52 0 q26 28 52 0 q26 -28 52 0 q26 28 52 0 q26 -28 52 0"
+          fill="none" stroke="#c14a3a" stroke-width="3" stroke-linecap="round" stroke-opacity="0.7"/>
+    <path d="M160 2 q40 -24 80 0 q40 24 80 0 q40 -24 80 0 q40 24 80 0 q40 -24 80 0 q40 24 80 0"
+          fill="none" stroke="#1a1d24" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- lane 3: WiFi, single fat high-throughput pipe with router star -->
+  <g transform="translate(0,460)">
+    <rect x="120" y="-40" width="960" height="80" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.5"/>
+    <!-- router -->
+    <rect x="150" y="-18" width="60" height="36" rx="6" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="168" y1="-18" x2="168" y2="-34" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="192" y1="-18" x2="192" y2="-34" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+    <!-- star spokes to four nodes -->
+    <g stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2.5">
+      <line x1="210" y1="0" x2="520" y2="-22"/>
+      <line x1="210" y1="0" x2="640" y2="22"/>
+      <line x1="210" y1="0" x2="800" y2="-20"/>
+      <line x1="210" y1="0" x2="980" y2="18"/>
+    </g>
+    <g fill="#fff" stroke="#1a1d24" stroke-width="2.5">
+      <circle cx="520" cy="-22" r="12"/>
+      <circle cx="640" cy="22" r="12"/>
+      <circle cx="800" cy="-20" r="12"/>
+      <circle cx="980" cy="18" r="12"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-label="2019 forecast scorecard">
+  <rect width="1000" height="560" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">
+    <g transform="translate(60 70)"><path d="M0 -13 l26 26 M26 -13 l-26 26" fill="none" stroke="#c14a3a" stroke-width="6"/><text x="56" y="9">Wink collapses</text></g>
+    <g transform="translate(60 122)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">glass-break + vibration sensors</text></g>
+    <g transform="translate(60 174)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">BLE presence fixed (Companion App)</text></g>
+    <g transform="translate(60 226)"><circle cx="13" cy="-3" r="15" fill="none" stroke="#c87533" stroke-width="5"/><path d="M13 -18 a15 15 0 0 1 0 30 z" fill="#c87533"/><text x="56" y="9">Frigate (alive, slow on Pi sans Coral)</text></g>
+    <g transform="translate(60 278)"><path d="M0 -13 l26 26 M26 -13 l-26 26" fill="none" stroke="#c14a3a" stroke-width="6"/><text x="56" y="9">smart lock (kept punting)</text></g>
+    <g transform="translate(60 330)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">Matter still vapor (as predicted)</text></g>
+    <g transform="translate(60 382)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">second wall dashboard</text></g>
+    <g transform="translate(60 434)"><circle cx="13" cy="-3" r="15" fill="none" stroke="#c87533" stroke-width="5"/><path d="M13 -18 a15 15 0 0 1 0 30 z" fill="#c87533"/><text x="56" y="9">Aqara outdoor (China only, no US)</text></g>
+  </g>
+
+  <g transform="translate(700 100)" font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="0" y="0" font-size="15" fill="#5b616b">2019 vs 2018 forecast</text>
+    <g transform="translate(0 40)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="50" y="9" font-size="20" fill="#3a7d44">4 hit</text></g>
+    <g transform="translate(0 90)"><circle cx="13" cy="-3" r="13" fill="none" stroke="#c87533" stroke-width="5"/><path d="M13 -16 a13 13 0 0 1 0 26 z" fill="#c87533"/><text x="50" y="9" font-size="20" fill="#c87533">2 partial</text></g>
+    <g transform="translate(0 140)"><path d="M0 -11 l22 22 M22 -11 l-22 22" fill="none" stroke="#c14a3a" stroke-width="6"/><text x="50" y="9" font-size="20" fill="#c14a3a">2 miss</text></g>
+    <line x1="0" y1="180" x2="220" y2="180" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <text x="0" y="220" font-size="28" fill="#1a1d24">5.5 / 8 ≈ 73%</text>
+    <text x="0" y="250" font-size="13" fill="#5b616b">Wink keeps finding nine lives</text>
+  </g>
+</svg>

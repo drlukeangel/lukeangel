@@ -10,25 +10,26 @@ tags:
   - google-home
 notebook: smart-home-iot-journey
 notebookOrder: 37
-excerpt: "Reolink doorbell PoE camera + WebRTC bridge + Google Home Hub display + Frigate-detected person events. When someone rings, every display shows them."
-pullquote: "Three platforms (Reolink, Frigate, Google) participating in one experience: when the doorbell button is pressed, every screen shows the visitor in under 2 seconds. That's the smart-home magic that justifies all the YAML."
-cover: "../../assets/blog/doorbell-camera-on-google-home-hub-display-cover.png"
-coverAlt: "Doorbell camera on the Google Home Hub display"
+excerpt: "A PoE, ONVIF-speaking Dahua doorbell + a WebRTC bridge + Google Home Hub displays + Frigate-detected person events. When someone rings, every screen in the house shows them in under two seconds — no vendor cloud in the loop."
+pullquote: "Seven local systems — camera, person detection, hub, displays, voice, phones, NAS — all triggered by one button press, none of them phoning a vendor cloud. That's the smart-home magic that justifies all the YAML."
+cover: "../../assets/blog/doorbell-camera-on-google-home-hub-display-cover.svg"
+coverAlt: "A single doorbell button press fanning out to a wall of screens and speakers across the house — a hub display, a phone, and a voice speaker all showing or announcing the visitor at once."
 ---
 
-The Reolink doorbell PoE camera arrived in May. Took until August to make the full experience work end-to-end. Notes.
+The PoE doorbell camera arrived in May. Took until August to make the full experience work end-to-end. Notes.
 
 ## Hardware
 
-**Reolink Video Doorbell PoE** (RVD-820A):
-- 5MP camera + microphone + speaker + doorbell button.
-- PoE — single Cat6 from the basement up to the door frame.
-- Onboard person detection (used as backup to Frigate).
-- RTSP streams (main + sub), two-way audio.
+**Dahua VTO2311R-P** PoE video doorbell — one of the very few *true* PoE, ONVIF-speaking doorbells you can actually buy in 2021 (most "smart doorbells" are Wi-Fi-and-cloud; this one is wired and local):
+- 2MP camera + microphone + speaker + doorbell button.
+- PoE — single Cat6 from the basement up to the door frame; no battery, no Wi-Fi.
+- RTSP streams (main + sub), ONVIF events, two-way audio.
 - IP65 weatherproof.
-- $120.
+- ~$150.
 
-**Mounting**: replaced the existing 1980s chime + button with the Reolink unit. Used an external angled mount to point the camera 15° downward (kid-height visitor capture). Cable runs through the existing 18-gauge bell wire conduit; ran a parallel Cat6 alongside it.
+It's an unapologetically commercial/industrial unit — the Dahua firmware is clunky and the app is forgettable — but it does the one thing I need: it speaks open protocols (RTSP + ONVIF) so I can wire it into my own stack instead of theirs.
+
+**Mounting**: replaced the existing 1980s chime + button with the Dahua unit. Used an external angled mount to point the camera 15° downward (kid-height visitor capture). Cable runs through the existing 18-gauge bell wire conduit; ran a parallel Cat6 alongside it.
 
 The plumber-electrician-camera-installer hat I wore for 3 hours was its own experience.
 
@@ -36,8 +37,8 @@ The plumber-electrician-camera-installer hat I wore for 3 hours was its own expe
 
 ```
 Doorbell button pressed
-  → Reolink ONVIF event ("DoorBellRing")
-  → Frigate's ONVIF listener publishes MQTT: frigate/doorbell/event = "ring"
+  → Dahua ONVIF event ("DoorBellRing" / CallNoAnswered)
+  → an HA ONVIF/MQTT bridge publishes: frigate/doorbell/event = "ring"
   → HA automation fires:
      • Cast camera feed to Google Home Hub displays (3 of them)
      • Echo announcement on kitchen Echo
@@ -46,6 +47,8 @@ Doorbell button pressed
 ```
 
 Total end-to-end latency from button press to all-displays-showing: **~2 seconds**.
+
+![How one button press fans out to the whole house. The Dahua doorbell fires an ONVIF event, which a bridge turns into a single MQTT message; Home Assistant catches that message and fans it out in parallel to four destinations at once — it casts the live WebRTC camera feed to the three Google/Nest Hub displays, sends an "announce" to the kitchen Echo, pushes a notification with a thumbnail to both phones, and writes a logbook entry. Seven separate local systems participate, none of them routing through a vendor cloud, and the whole fan-out completes in about two seconds.](../../assets/blog/doorbell-event-fanout.svg)
 
 ## Casting the camera feed to Google Home displays
 
@@ -56,19 +59,21 @@ Google Home / Nest displays cast video via the Google Cast protocol. They accept
 - An HTTP/MJPEG stream (low quality, high CPU).
 - A WebRTC stream (high quality, native).
 
-Reolink's RTSP isn't natively Cast-compatible. The bridge I'm using is **WebRTC Camera** (a custom HA integration that converts RTSP → WebRTC via go2rtc):
+The Dahua's RTSP isn't natively Cast-compatible. The bridge I'm using is the **WebRTC Camera** custom integration (AlexxIT's `webrtc` HACS component) — it stands up a WebRTC endpoint from an RTSP source so a browser or a Cast device can play it with near-zero latency:
 
 ```yaml
-go2rtc:
-  webrtc:
-    candidates:
-      - 192.168.10.10:8555
+# configuration.yaml
+webrtc:
 
-  streams:
-    doorbell: rtsp://reolink:!secret_pw@192.168.30.30:554/h264Preview_01_sub
+camera:
+  - platform: generic
+    name: doorbell
+    stream_source: rtsp://admin:!secret_pw@192.168.30.30:554/cam/realmonitor?channel=1&subtype=1
 ```
 
-go2rtc runs as a Hass.io add-on. HA → go2rtc → Chromecast device receives a WebRTC stream → display shows live feed.
+The integration runs inside HA (no separate add-on needed in this 2021 setup). HA → WebRTC Camera → the Chromecast/Nest Hub negotiates a WebRTC session → display shows the live feed.
+
+![The RTSP-to-WebRTC bridge that took most of August to get right. The Dahua doorbell emits an RTSP h.264 stream that a Google Cast device cannot play directly. The WebRTC Camera component inside Home Assistant re-packages that RTSP source into an SDP offer and runs the ICE/STUN peer negotiation, handing the Nest Hub a native WebRTC session it plays with near-zero latency. Every hop — doorbell, Home Assistant, and the Nest Hub — stays inside the LAN dashed boundary, with no vendor cloud anywhere in the path.](../../assets/blog/doorbell-rtsp-to-webrtc-bridge.svg)
 
 ```yaml
 # automations.yaml
@@ -93,7 +98,7 @@ go2rtc runs as a Hass.io add-on. HA → go2rtc → Chromecast device receives a 
           type: announce
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "🛎️ Doorbell"
+        title: "Doorbell"
         message: "Person at the door at {{ now().strftime('%H:%M') }}"
         data:
           image: "/api/frigate/notifications/{{ states('sensor.frigate_doorbell_person').last_event_id }}/thumbnail.jpg"
@@ -109,7 +114,7 @@ When the doorbell rings, the Echo says: "Someone is at the door." Across the ope
 
 - **Casting reliability**: 95% — the Google Hub displays show the feed within 2 seconds, 9 out of 10 button presses. Occasional WebRTC negotiation timeout when the Hub display has been idle for hours.
 - **Frigate person detection on the doorbell stream**: 99% — every actual person ringing the doorbell gets detected and classified.
-- **Two-way audio**: works (via go2rtc) but my kids are afraid of the doorbell speaker so I rarely use it.
+- **Two-way audio**: works (the WebRTC session is bidirectional) but my kids are afraid of the doorbell speaker so I rarely use it.
 - **Recording**: 30 days of doorbell events with thumbnails saved on the NAS.
 
 ## What doesn't (yet)
@@ -122,7 +127,7 @@ When the doorbell rings, the Echo says: "Someone is at the door." Across the ope
 
 Three years ago, the smart-home stack was multiple parallel systems (SmartThings, Hue, Lutron, Wemo) that each handled their own slice. The doorbell experience touches:
 
-- Reolink (camera + button event)
+- Dahua (camera + button event)
 - Frigate (person detection)
 - HA (orchestration)
 - Google Home (displays + announcement)

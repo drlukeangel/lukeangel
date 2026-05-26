@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" role="img" aria-label="The phone as a flaky courier: sign on the device, verify in the cloud, trust the phone for nothing.">
+  <rect width="1040" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- ===== DEVICE (BLE only) ===== -->
+  <g transform="translate(70,150)">
+    <rect x="0" y="0" width="180" height="140" rx="14" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <text x="90" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#357a8c">device</text>
+    <text x="90" y="54" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">BLE 4.x only</text>
+    <!-- key glyph -->
+    <g transform="translate(90,96)" stroke="#357a8c" stroke-width="2.6" fill="none" stroke-linecap="round">
+      <circle cx="-22" cy="0" r="11" fill="#fdfaf2"/>
+      <line x1="-11" y1="0" x2="28" y2="0"/>
+      <line x1="16" y1="0" x2="16" y2="11"/>
+      <line x1="28" y1="0" x2="28" y2="12"/>
+    </g>
+    <text x="90" y="130" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">per-device signing key</text>
+  </g>
+  <text x="160" y="320" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">signs each event</text>
+
+  <!-- BLE leg -->
+  <g transform="translate(250,210)">
+    <path d="M0 10 H160" stroke="#357a8c" stroke-width="3" fill="none" stroke-dasharray="3 6"/>
+    <path d="M164 10 l-13 -8 v16 z" fill="#357a8c"/>
+    <text x="82" y="-4" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#357a8c">BLE bond</text>
+    <text x="82" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#5b616b">signed payload</text>
+  </g>
+
+  <!-- ===== PHONE (untrusted courier) ===== -->
+  <g transform="translate(430,140)">
+    <rect x="0" y="0" width="180" height="160" rx="14" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="3" stroke-dasharray="7 5"/>
+    <text x="90" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#c14a3a">phone</text>
+    <text x="90" y="54" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">untrusted courier</text>
+    <!-- decompilable hint: an open box -->
+    <g transform="translate(90,96)" stroke="#c14a3a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="-26" y="-14" width="52" height="34" rx="5" fill="#fdfaf2"/>
+      <line x1="-26" y1="-2" x2="26" y2="-2"/>
+    </g>
+    <text x="90" y="138" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#1a1d24">attaches user ID</text>
+    <text x="90" y="153" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#1a1d24">carries, can't forge</text>
+  </g>
+  <text x="520" y="330" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">decompilable, not load-bearing</text>
+
+  <!-- TLS leg -->
+  <g transform="translate(610,210)">
+    <path d="M0 10 H160" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="3" fill="none"/>
+    <path d="M164 10 l-13 -8 v16 z" fill="#1a1d24" fill-opacity="0.45"/>
+    <text x="82" y="-4" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">HTTPS / TLS 1.2</text>
+    <text x="82" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#5b616b">OAuth: human&#8594;cloud</text>
+  </g>
+
+  <!-- ===== CLOUD (verifier) ===== -->
+  <g transform="translate(790,150)">
+    <rect x="0" y="0" width="180" height="140" rx="14" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="3"/>
+    <text x="90" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#3a7d44">cloud</text>
+    <!-- check glyph -->
+    <g transform="translate(90,86)">
+      <circle cx="0" cy="0" r="20" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M-9 0 l6 7 12 -16" fill="none" stroke="#3a7d44" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="90" y="126" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">verifies the signature</text>
+  </g>
+  <text x="880" y="320" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">trusts only what it can verify</text>
+
+  <!-- header -->
+  <text x="520" y="48" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="1" fill="#1a1d24">SIGN ON THE DEVICE &#183; VERIFY IN THE CLOUD &#183; TRUST THE PHONE FOR NOTHING LOAD-BEARING</text>
+  <!-- caption -->
+  <text x="520" y="430" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14.5" fill="#5b616b">the principle isn't about phones &#8212; it's about never trusting a hop you don't control</text>
+</svg>

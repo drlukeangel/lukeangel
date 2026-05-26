@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" role="img" aria-label="GPS fence failure modes">
+  <rect width="920" height="460" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .bad{fill:#c14a3a;}
+  </style>
+
+  <line x1="460" y1="60" x2="460" y2="360" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT: false positive — dog mid-yard, GPS jitter puts it "outside", gets stim -->
+  <text x="40" y="46" class="hd">False positive — punished for nothing</text>
+  <!-- yard boundary (dashed) -->
+  <path d="M 360 80 Q 410 200 360 320" fill="none" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 12"/>
+  <text x="300" y="100" class="sm">boundary</text>
+  <!-- true dog position, safely inside -->
+  <circle cx="160" cy="210" r="12" fill="#3a7d44" fill-opacity="0.2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="160" y="245" text-anchor="middle" class="sm">dog (actual)</text>
+  <!-- jittered GPS estimate, jumped outside the line -->
+  <circle cx="392" cy="170" r="10" fill="#c14a3a" fill-opacity="0.2" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 3"/>
+  <text x="392" y="150" text-anchor="middle" class="sm bad">GPS says here</text>
+  <!-- jitter arrow -->
+  <line x1="172" y1="206" x2="380" y2="172" stroke="#c14a3a" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#hx)"/>
+  <!-- stim glyph on the dog -->
+  <path d="M 154 280 L 146 296 L 156 296 L 150 312 L 166 292 L 156 292 Z" fill="#c14a3a" stroke="none"/>
+  <text x="160" y="332" text-anchor="middle" class="bad sm">stim fires mid-yard</text>
+
+  <!-- RIGHT: lag — dog crosses before detection -->
+  <text x="500" y="46" class="hd">Lag — crosses undetected</text>
+  <path d="M 660 80 Q 710 200 660 320" fill="none" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 12"/>
+  <text x="600" y="100" class="sm">boundary</text>
+  <!-- dog path crossing the line, with a ~4s lag gap before any cue -->
+  <line x1="540" y1="210" x2="800" y2="210" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#hx2)"/>
+  <circle cx="560" cy="210" r="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <circle cx="760" cy="210" r="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="560" y="240" text-anchor="middle" class="sm">inside</text>
+  <text x="770" y="240" text-anchor="middle" class="sm bad">already out</text>
+  <!-- lag bracket past the boundary -->
+  <line x1="690" y1="180" x2="760" y2="180" stroke="#c14a3a" stroke-width="2"/>
+  <text x="725" y="172" text-anchor="middle" class="sm bad">~4s lag</text>
+
+  <defs>
+    <marker id="hx" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 z" fill="#c14a3a"/></marker>
+    <marker id="hx2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 z" fill="#1a1d24"/></marker>
+  </defs>
+
+  <line x1="40" y1="392" x2="880" y2="392" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="422" class="cap">GPS jitter and lag are edge cases. Edge cases plus a shock means the dog</text>
+  <text x="40" y="444" class="cap">occasionally gets punished for nothing it did — or crosses with no cue at all.</text>
+</svg>

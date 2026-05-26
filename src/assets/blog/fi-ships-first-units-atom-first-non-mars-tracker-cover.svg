@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Fi cellular tracker on a collar">
+  <defs>
+    <pattern id="dotsFi" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsFi)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- satellite + signal halo (GPS + cellular) -->
+  <g transform="translate(820,150)">
+    <!-- satellite -->
+    <rect x="-16" y="-16" width="32" height="32" rx="5" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-54" y="-10" width="30" height="20" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="24" y="-10" width="30" height="20" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <line x1="-24" y1="0" x2="-16" y2="0" stroke="#1a1d24" stroke-width="2.5"/>
+    <line x1="16" y1="0" x2="24" y2="0" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- downlink dashes -->
+    <g stroke="#c87533" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8">
+      <line x1="-8" y1="34" x2="-26" y2="92"/>
+      <line x1="8" y1="34" x2="26" y2="92"/>
+      <line x1="0" y1="36" x2="0" y2="96"/>
+    </g>
+  </g>
+
+  <!-- cellular signal arcs (rising from puck) -->
+  <g transform="translate(560,250)" stroke="#c87533" fill="none" stroke-linecap="round">
+    <path d="M40 0 a52 52 0 0 1 40 -34" stroke-width="4" stroke-opacity="0.85"/>
+    <path d="M40 0 a86 86 0 0 1 70 -56" stroke-width="4" stroke-opacity="0.55"/>
+    <path d="M40 0 a120 120 0 0 1 100 -78" stroke-width="4" stroke-opacity="0.3"/>
+  </g>
+
+  <!-- the collar band, curving -->
+  <path d="M150 470 C 380 360, 820 360, 1050 470"
+        fill="none" stroke="#1a1d24" stroke-width="44" stroke-opacity="0.9" stroke-linecap="round"/>
+  <path d="M150 470 C 380 360, 820 360, 1050 470"
+        fill="none" stroke="#fdfaf2" stroke-width="6" stroke-dasharray="2 16" stroke-opacity="0.6"/>
+
+  <!-- metal locking ring (the detail Luke praises) -->
+  <g transform="translate(560,300)">
+    <!-- mount plate -->
+    <rect x="-78" y="-6" width="156" height="58" rx="14" fill="#1a1d24" fill-opacity="0.08"/>
+    <!-- the puck -->
+    <rect x="-66" y="-44" width="132" height="92" rx="22" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <!-- side power button -->
+    <rect x="66" y="-8" width="8" height="22" rx="3" fill="#1a1d24" fill-opacity="0.7"/>
+    <!-- status LED -->
+    <circle cx="0" cy="2" r="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="2" r="5" fill="#3a7d44"/>
+    <!-- metal locking ring -->
+    <circle cx="0" cy="64" r="16" fill="none" stroke="#7a808c" stroke-width="6"/>
+    <circle cx="0" cy="64" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  </g>
+</svg>

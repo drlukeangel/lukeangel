@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" role="img" aria-label="2023 household timeline">
+  <rect width="960" height="460" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c;}
+    .lane{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#5b616b;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .red{fill:#c14a3a;}
+  </style>
+  <g class="mut" text-anchor="middle">
+    <line x1="120" y1="74" x2="900" y2="74" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="120" y="62">Jan</text><text x="191" y="62">Feb</text><text x="262" y="62">Mar</text><text x="333" y="62">Apr</text>
+    <text x="404" y="62">May</text><text x="475" y="62">Jun</text><text x="546" y="62">Jul</text><text x="617" y="62">Aug</text>
+    <text x="688" y="62">Sep</text><text x="759" y="62">Oct</text><text x="830" y="62">Nov</text><text x="900" y="62">Dec</text>
+  </g>
+
+  <!-- DOG lane: Atom + Quark all year; a mid-year behavior dip + a Sep vet flag -->
+  <text x="40" y="130" class="lane">DOGS</text>
+  <rect x="120" y="115" width="780" height="22" rx="11" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="2"/>
+  <text x="128" y="131" class="lab">Atom — Fi + Whistle Health · Quark — Fi</text>
+  <!-- behavior trace dipping mid-year -->
+  <polyline points="120,165 260,160 400,162 520,176 600,188 680,196" fill="none" stroke="#c87533" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="300" y="158" class="mut">Atom's activity trace — down + broken sleep from early summer</text>
+  <!-- vet flag at Sep -->
+  <circle cx="688" cy="196" r="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="4"/>
+  <line x1="688" y1="204" x2="688" y2="226" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 5"/>
+  <text x="688" y="244" text-anchor="middle" class="red mut">vet visit → heart murmur found</text>
+
+  <line x1="40" y1="280" x2="920" y2="280" stroke="#1a1d24" stroke-opacity="0.1" stroke-width="1.5"/>
+
+  <!-- MOVE marker spanning Oct -->
+  <g transform="translate(759,300)">
+    <rect x="-6" y="0" width="141" height="24" rx="11" fill="#c87533" fill-opacity="0.30" stroke="#c87533" stroke-width="2"/>
+    <text x="64" y="16" text-anchor="middle" class="lab">moved (Oct)</text>
+  </g>
+  <text x="753" y="346" text-anchor="end" class="mut">new house — 42 wired drops, litter closet ↑</text>
+
+  <!-- CAT lane: Litter-Robot 4 + 2nd SureFlap after move -->
+  <text x="40" y="392" class="lane">CATS</text>
+  <rect x="759" y="377" width="141" height="22" rx="11" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="2"/>
+  <text x="767" y="393" class="lab">+ LR4, 2nd door</text>
+
+  <text x="40" y="438" class="cap">The year the data first prompted a real-world action — a vet visit, two months early.</text>
+</svg>

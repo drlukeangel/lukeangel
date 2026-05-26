@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 430" width="1080" height="430" role="img" aria-label="The three questions ingestion must answer in cryptography, not trust.">
+  <rect width="1080" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THREE QUESTIONS — ANSWERED IN MATH, NOT IN TRUST</text>
+
+  <!-- three columns -->
+  <!-- Q1 -->
+  <g transform="translate(44,80)">
+    <rect x="0" y="0" width="316" height="284" rx="14" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="22" y="38" font-family="ui-monospace,monospace" font-size="14" fill="#357a8c">Q1</text>
+    <text x="22" y="68" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">Real device from</text>
+    <text x="22" y="88" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">our line recorded it?</text>
+    <text x="22" y="116" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">not synthesized by an app</text>
+    <!-- answered by -->
+    <line x1="22" y1="138" x2="294" y2="138" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="22" y="166" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">ANSWERED BY</text>
+    <!-- signature icon -->
+    <g transform="translate(40,196)">
+      <circle cx="0" cy="0" r="18" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="2.4"/>
+      <path d="M-10 4 q5 -12 10 0 q5 12 10 0" fill="none" stroke="#357a8c" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+    <text x="70" y="194" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">device signature</text>
+    <text x="70" y="214" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">ECDSA P-256, chains</text>
+    <text x="70" y="230" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">to our manufacturing CA</text>
+    <text x="22" y="264" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#357a8c">the hard one</text>
+  </g>
+
+  <!-- Q2 -->
+  <g transform="translate(382,80)">
+    <rect x="0" y="0" width="316" height="284" rx="14" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="22" y="38" font-family="ui-monospace,monospace" font-size="14" fill="#357a8c">Q2</text>
+    <text x="22" y="68" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">Bonded to the</text>
+    <text x="22" y="88" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">uploading account?</text>
+    <text x="22" y="116" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">not sold-on, not re-pointed</text>
+    <line x1="22" y1="138" x2="294" y2="138" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="22" y="166" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">ANSWERED BY</text>
+    <!-- serial-in-set icon -->
+    <g transform="translate(40,196)">
+      <rect x="-16" y="-14" width="32" height="28" rx="4" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="2.2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">SN</text>
+    </g>
+    <text x="70" y="194" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">serial ∈ bond set</text>
+    <text x="70" y="214" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">serial is baked into the</text>
+    <text x="70" y="230" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">signed cert — can't be faked</text>
+    <text x="22" y="264" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#357a8c">the other hard one</text>
+  </g>
+
+  <!-- Q3 -->
+  <g transform="translate(720,80)">
+    <rect x="0" y="0" width="316" height="284" rx="14" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.4" stroke-dasharray="6 5"/>
+    <text x="22" y="38" font-family="ui-monospace,monospace" font-size="14" fill="#5b616b">Q3</text>
+    <text x="22" y="68" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">The human owns</text>
+    <text x="22" y="88" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">the device?</text>
+    <text x="22" y="116" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">not a borrowed handset</text>
+    <line x1="22" y1="138" x2="294" y2="138" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="22" y="166" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">ANSWERED BY</text>
+    <!-- token icon -->
+    <g transform="translate(40,196)">
+      <rect x="-16" y="-12" width="32" height="24" rx="6" fill="#fdfaf2" stroke="#5b616b" stroke-width="2.2"/>
+      <circle cx="-6" cy="0" r="3" fill="#5b616b"/>
+      <line x1="-1" y1="0" x2="12" y2="0" stroke="#5b616b" stroke-width="2.2"/>
+    </g>
+    <text x="70" y="194" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">OAuth token</text>
+    <text x="70" y="214" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">standard mobile auth —</text>
+    <text x="70" y="230" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">Relationship B, already had it</text>
+    <text x="22" y="264" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#5b616b">the easy one</text>
+  </g>
+
+  <text x="540" y="406" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">All three answered against the caller without trusting the caller. Any one fails → reject and log.</text>
+</svg>

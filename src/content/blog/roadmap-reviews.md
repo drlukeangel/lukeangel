@@ -5,6 +5,8 @@ category: teams
 tags: [roadmaps, evals, meetings]
 excerpt: "The four columns I steal from my therapist for running roadmap reviews when half the engineering work is non-deterministic."
 pullquote: "I stole four columns from my therapist; my engineers stopped sighing."
+notebook: building-with-ai-ml
+notebookOrder: 12
 cover: "../../assets/blog/roadmap-reviews-cover.svg"
 coverAlt: "Roadmap reviews — four columns stolen from a therapist, for AI work that won't sit still"
 ---

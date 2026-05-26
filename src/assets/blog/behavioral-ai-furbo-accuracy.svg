@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" role="img" aria-label="Furbo alert accuracy, a month">
+  <rect width="940" height="470" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b;}
+    .ttl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:18px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+  </style>
+  <text x="40" y="44" class="ttl">Furbo alert accuracy — one month, every alert checked</text>
+
+  <!-- each row: label, then a stacked bar true(green) + false(red), scaled by total. Max total 312 -> 560px at x=320..880 -->
+  <!-- helper scale: px per alert = 560/312 = 1.795 -->
+  <!-- Row 1: Dog in frame 295 true / 17 false (total 312) -->
+  <g transform="translate(0,84)">
+    <text x="300" y="20" text-anchor="end" class="lab">Dog in frame</text>
+    <rect x="320" y="4" width="529" height="26" rx="3" fill="#3a7d44" fill-opacity="0.55"/>
+    <rect x="849" y="4" width="31" height="26" rx="3" fill="#c14a3a" fill-opacity="0.55"/>
+    <text x="320" y="48" class="sm">295 right · 17 wrong — works</text>
+  </g>
+  <!-- Row 2: Bark alert 22 true / 67 false (total 89 -> 160px) -->
+  <g transform="translate(0,160)">
+    <text x="300" y="20" text-anchor="end" class="lab">Bark type</text>
+    <rect x="320" y="4" width="40" height="26" rx="3" fill="#3a7d44" fill-opacity="0.55"/>
+    <rect x="360" y="4" width="120" height="26" rx="3" fill="#c14a3a" fill-opacity="0.55"/>
+    <text x="490" y="23" class="sm">22 right · 67 wrong — noisy</text>
+  </g>
+  <!-- Row 3: Anxious 2 true / 12 false (total 14 -> 25px) -->
+  <g transform="translate(0,224)">
+    <text x="300" y="20" text-anchor="end" class="lab">"Anxious"</text>
+    <rect x="320" y="4" width="4" height="26" rx="2" fill="#3a7d44" fill-opacity="0.55"/>
+    <rect x="324" y="4" width="22" height="26" rx="2" fill="#c14a3a" fill-opacity="0.55"/>
+    <text x="356" y="23" class="sm">2 right · 12 wrong — theater</text>
+  </g>
+  <!-- Row 4: Restless 0 true / 7 false -->
+  <g transform="translate(0,288)">
+    <text x="300" y="20" text-anchor="end" class="lab">"Restless / unwell"</text>
+    <rect x="320" y="4" width="13" height="26" rx="2" fill="#c14a3a" fill-opacity="0.55"/>
+    <text x="343" y="23" class="sm">0 right · 7 wrong — all false</text>
+  </g>
+  <!-- Row 5: Aggressive 0 true / 4 false (two were playing) -->
+  <g transform="translate(0,352)">
+    <text x="300" y="20" text-anchor="end" class="lab">"Aggressive"</text>
+    <rect x="320" y="4" width="8" height="26" rx="2" fill="#c14a3a" fill-opacity="0.55"/>
+    <text x="338" y="23" class="sm">0 right · 4 wrong — two were just playing</text>
+  </g>
+
+  <!-- legend (bottom, clear of the bars) -->
+  <g transform="translate(600,392)">
+    <rect x="0" y="0" width="18" height="14" rx="3" fill="#3a7d44" fill-opacity="0.55"/><text x="26" y="12" class="sm">true positive</text>
+    <rect x="150" y="0" width="18" height="14" rx="3" fill="#c14a3a" fill-opacity="0.55"/><text x="176" y="12" class="sm">false positive</text>
+  </g>
+
+  <line x1="40" y1="412" x2="900" y2="412" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="442" class="cap">Detection (dog-in-frame) works. The "how does your dog feel" alerts are mostly false.</text>
+</svg>

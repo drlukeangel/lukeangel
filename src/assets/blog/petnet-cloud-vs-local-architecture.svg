@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-label="Cloud vs device-resident feeder">
+  <rect width="1000" height="560" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <line x1="500" y1="40" x2="500" y2="520" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="4 8"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- LEFT: cloud-dependent -->
+    <text x="250" y="70" text-anchor="middle" font-size="18" fill="#c14a3a">cloud-dependent</text>
+
+    <!-- cloud with schedule -->
+    <g transform="translate(250 150)">
+      <path d="M-85 22 a38 38 0 0 1 20 -70 a50 50 0 0 1 92 8 a36 36 0 0 1 3 62 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <text x="0" y="-6" text-anchor="middle" font-size="13" fill="#1a1d24">cloud</text>
+      <text x="0" y="14" text-anchor="middle" font-size="11" fill="#5b616b">schedule + trigger</text>
+    </g>
+    <!-- broken link -->
+    <path d="M250 210 L250 250" stroke="#c87533" stroke-width="3"/>
+    <path d="M250 300 L250 330" stroke="#c87533" stroke-width="3"/>
+    <g transform="translate(250 275)">
+      <line x1="-18" y1="-18" x2="18" y2="18" stroke="#c14a3a" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="18" y1="-18" x2="-18" y2="18" stroke="#c14a3a" stroke-width="4.5" stroke-linecap="round"/>
+    </g>
+    <!-- dumb feeder -->
+    <g transform="translate(250 370)">
+      <rect x="-55" y="0" width="110" height="76" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <text x="0" y="34" text-anchor="middle" font-size="12" fill="#1a1d24">feeder</text>
+      <text x="0" y="54" text-anchor="middle" font-size="11" fill="#5b616b">dumb actuator</text>
+    </g>
+    <text x="250" y="500" text-anchor="middle" font-size="15" fill="#c14a3a">link down → no feed</text>
+
+    <!-- RIGHT: device-resident -->
+    <text x="750" y="70" text-anchor="middle" font-size="18" fill="#3a7d44">device-resident</text>
+
+    <!-- cloud (edit only) -->
+    <g transform="translate(750 150)">
+      <path d="M-85 22 a38 38 0 0 1 20 -70 a50 50 0 0 1 92 8 a36 36 0 0 1 3 62 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.55"/>
+      <text x="0" y="2" text-anchor="middle" font-size="12" fill="#5b616b">cloud — edits only</text>
+    </g>
+    <!-- link also broken, but harmless -->
+    <path d="M750 210 L750 250" stroke="#7a808c" stroke-width="3" stroke-dasharray="4 6"/>
+    <path d="M750 300 L750 330" stroke="#7a808c" stroke-width="3" stroke-dasharray="4 6"/>
+    <g transform="translate(750 275)">
+      <line x1="-15" y1="-15" x2="15" y2="15" stroke="#7a808c" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="15" y1="-15" x2="-15" y2="15" stroke="#7a808c" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+    <!-- smart feeder with on-board schedule -->
+    <g transform="translate(750 370)">
+      <rect x="-70" y="0" width="140" height="88" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+      <text x="0" y="24" text-anchor="middle" font-size="12" fill="#1a1d24">feeder</text>
+      <text x="0" y="44" text-anchor="middle" font-size="11" fill="#3a7d44">on-board schedule</text>
+      <text x="0" y="64" text-anchor="middle" font-size="11" fill="#3a7d44">+ watchdog alert</text>
+    </g>
+    <text x="750" y="500" text-anchor="middle" font-size="15" fill="#3a7d44">link down → still feeds</text>
+  </g>
+</svg>

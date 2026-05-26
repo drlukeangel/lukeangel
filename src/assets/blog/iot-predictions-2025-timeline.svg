@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" width="1120" height="540" role="img" aria-label="The 2025 prediction calendar, Q1 through Q4.">
+  <rect width="1120" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHEN THE 2025 CALLS LAND — A FORECAST CALENDAR</text>
+
+  <!-- spine -->
+  <line x1="120" y1="110" x2="120" y2="500" stroke="#0066cc" stroke-width="3"/>
+
+  <g font-family="ui-monospace,monospace">
+    <!-- Q1 -->
+    <circle cx="120" cy="135" r="7" fill="#0066cc"/>
+    <text x="150" y="128" font-size="14" fill="#0066cc">Q1</text>
+    <text x="150" y="150" font-size="12" fill="#1a1d24">Humane acquired by HP, ~$200M–$1B — AI Pin product killed, team lands</text>
+
+    <!-- Spring / Unpacked -->
+    <circle cx="120" cy="205" r="7" fill="#0066cc"/>
+    <text x="150" y="198" font-size="14" fill="#0066cc">SPRING / SUMMER</text>
+    <text x="150" y="220" font-size="12" fill="#1a1d24">Galaxy Ring Gen 2 at Unpacked — refinements; Oura answers with Ring Gen 5</text>
+
+    <!-- WWDC June -->
+    <circle cx="120" cy="275" r="7" fill="#0066cc"/>
+    <text x="150" y="268" font-size="14" fill="#0066cc">JUNE · WWDC</text>
+    <text x="150" y="290" font-size="12" fill="#1a1d24">Apple announces consumer AR glasses — ship target 2026, not this year</text>
+
+    <!-- September -->
+    <circle cx="120" cy="345" r="7" fill="#0066cc"/>
+    <text x="150" y="338" font-size="14" fill="#0066cc">SEPTEMBER</text>
+    <text x="150" y="360" font-size="12" fill="#1a1d24">Ray-Ban Gen 3 ships WITH a display · Watch Series 11 adds BP-trend (FDA-cleared)</text>
+
+    <!-- Fall -->
+    <circle cx="120" cy="415" r="7" fill="#0066cc"/>
+    <text x="150" y="408" font-size="14" fill="#0066cc">FALL</text>
+    <text x="150" y="430" font-size="12" fill="#1a1d24">A rival matches Apple's OTC hearing-aid move (Galaxy Buds) — feature becomes a category</text>
+
+    <!-- Q3-Q4 -->
+    <circle cx="120" cy="485" r="7" fill="#c14a3a"/>
+    <text x="150" y="478" font-size="14" fill="#c14a3a">Q3–Q4</text>
+    <text x="150" y="500" font-size="12" fill="#1a1d24">First connected-device class action over an AI-agent action gone wrong</text>
+  </g>
+
+  <!-- side notes: the non-dated structural calls -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="800" y="125" width="290" height="120" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="1.5"/>
+    <text x="816" y="150" font-size="12" fill="#7a808c">ALL YEAR — the slow tides</text>
+    <text x="816" y="176" font-size="11.5" fill="#1a1d24">Vision Pro 2 does NOT ship;</text>
+    <text x="816" y="194" font-size="11.5" fill="#1a1d24">cheaper model rumored Q1 '26</text>
+    <text x="816" y="218" font-size="11.5" fill="#1a1d24">On-device LLM = table stakes,</text>
+    <text x="816" y="236" font-size="11.5" fill="#1a1d24">not a category. Pin/R1 graveyard.</text>
+  </g>
+
+  <text x="560" y="528" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Forecasts, not hindsight — written the second week of January.</text>
+</svg>

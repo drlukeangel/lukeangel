@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" role="img" aria-label="The phased build plan and a six-month phase-one timeline.">
+  <rect width="1000" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THREE PHASES — HARDEST FIRST</text>
+
+  <!-- three phase blocks -->
+  <!-- Phase 1: Location -->
+  <g transform="translate(40,72)">
+    <rect x="0" y="0" width="300" height="96" rx="12" fill="#1f7a6b" opacity="0.1"/>
+    <rect x="0" y="0" width="300" height="96" rx="12" fill="none" stroke="#1f7a6b" stroke-width="3"/>
+    <text x="18" y="32" font-family="ui-monospace, monospace" font-size="18" fill="#1f7a6b">1 · Location</text>
+    <text x="18" y="58" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">BLE presence + LoRa to base</text>
+    <text x="18" y="80" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a3f4a">the hard part, first</text>
+  </g>
+  <!-- arrow -->
+  <g transform="translate(348,120)"><line x1="0" y1="0" x2="28" y2="0" stroke="#1a1d24" stroke-width="3"/><path d="M28 0 l-13 -6 v12 z" fill="#1a1d24"/></g>
+  <!-- Phase 2: Cellular -->
+  <g transform="translate(382,72)">
+    <rect x="0" y="0" width="280" height="96" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="18" y="32" font-family="ui-monospace, monospace" font-size="18" fill="#1a1d24">2 · Cellular</text>
+    <text x="18" y="58" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">nRF9160 "anywhere" path</text>
+    <text x="18" y="80" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a3f4a">lower risk, well-documented</text>
+  </g>
+  <g transform="translate(670,120)"><line x1="0" y1="0" x2="28" y2="0" stroke="#1a1d24" stroke-width="3"/><path d="M28 0 l-13 -6 v12 z" fill="#1a1d24"/></g>
+  <!-- Phase 3: Health -->
+  <g transform="translate(704,72)">
+    <rect x="0" y="0" width="256" height="96" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="18" y="32" font-family="ui-monospace, monospace" font-size="18" fill="#1a1d24">3 · Health</text>
+    <text x="18" y="58" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">HR + resp. off the accel</text>
+    <text x="18" y="80" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a3f4a">only when the dot is boring</text>
+  </g>
+
+  <text x="34" y="226" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">PHASE 1 — SIX MONTHS, NIGHTS &amp; WEEKENDS</text>
+
+  <!-- timeline spine -->
+  <line x1="70" y1="270" x2="930" y2="270" stroke="#1a1d24" stroke-width="3" opacity="0.5"/>
+
+  <!-- month ticks + labels -->
+  <g font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">
+    <!-- M1 -->
+    <circle cx="113" cy="270" r="9" fill="#1f7a6b"/>
+    <text x="113" y="300" text-anchor="middle" fill="#7a808c">M1</text>
+    <text x="113" y="328" text-anchor="middle">PoC + range</text>
+    <text x="113" y="346" text-anchor="middle">tests</text>
+    <!-- M2 -->
+    <circle cx="270" cy="270" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="270" y="300" text-anchor="middle" fill="#7a808c">M2</text>
+    <text x="270" y="328" text-anchor="middle">collar → cloud</text>
+    <text x="270" y="346" text-anchor="middle">GPS + battery</text>
+    <!-- M3 -->
+    <circle cx="427" cy="270" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="427" y="300" text-anchor="middle" fill="#7a808c">M3</text>
+    <text x="427" y="328" text-anchor="middle">presence +</text>
+    <text x="427" y="346" text-anchor="middle">geofence flip</text>
+    <!-- M4 -->
+    <circle cx="584" cy="270" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="584" y="300" text-anchor="middle" fill="#7a808c">M4</text>
+    <text x="584" y="328" text-anchor="middle">base behaviors</text>
+    <text x="584" y="346" text-anchor="middle">RSSI beep</text>
+    <!-- M5 -->
+    <circle cx="741" cy="270" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="741" y="300" text-anchor="middle" fill="#7a808c">M5</text>
+    <text x="741" y="328" text-anchor="middle">enclosure +</text>
+    <text x="741" y="346" text-anchor="middle">survive a wet Lab</text>
+    <!-- M6 -->
+    <circle cx="898" cy="270" r="9" fill="#1f7a6b"/>
+    <text x="898" y="300" text-anchor="middle" fill="#7a808c">M6</text>
+    <text x="898" y="328" text-anchor="middle">field test,</text>
+    <text x="898" y="346" text-anchor="middle">write what broke</text>
+  </g>
+
+  <text x="500" y="430" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="17" font-style="italic" fill="#3a3f4a">Phase 1 is the whole six months. Cellular and health are next year's problem.</text>
+  <text x="500" y="478" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#7a808c">filled dots = the two milestones that earn the rest of the spend: a working PoC, and a field test on Quark</text>
+</svg>

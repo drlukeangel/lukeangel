@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="mains nodes repeat, battery nodes don't">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">WHO ACTUALLY EXTENDS THE MESH</text>
+
+  <!-- hub -->
+  <g transform="translate(90,230)">
+    <rect x="-34" y="-30" width="68" height="60" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="3.5"/>
+    <circle cx="0" cy="0" r="11" fill="#6a4c93"/>
+    <text x="0" y="52" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">hub</text>
+  </g>
+
+  <!-- two mains repeaters in a chain to a far sensor -->
+  <g transform="translate(360,180)">
+    <rect x="-26" y="-26" width="52" height="52" rx="8" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="3"/>
+    <!-- plug prongs -->
+    <line x1="-8" y1="26" x2="-8" y2="38" stroke="#6a4c93" stroke-width="3" stroke-linecap="round"/>
+    <line x1="8" y1="26" x2="8" y2="38" stroke="#6a4c93" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="60" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">mains plug</text>
+    <text x="0" y="74" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#6a4c93">repeats</text>
+  </g>
+  <g transform="translate(630,250)">
+    <rect x="-26" y="-26" width="52" height="52" rx="8" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="3"/>
+    <line x1="-8" y1="26" x2="-8" y2="38" stroke="#6a4c93" stroke-width="3" stroke-linecap="round"/>
+    <line x1="8" y1="26" x2="8" y2="38" stroke="#6a4c93" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="60" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">in-wall switch</text>
+    <text x="0" y="74" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#6a4c93">repeats</text>
+  </g>
+  <!-- far sensor reached via the chain -->
+  <g transform="translate(890,200)">
+    <circle cx="0" cy="0" r="20" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="0" r="6" fill="#3a7d44"/>
+    <text x="0" y="44" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">far sensor</text>
+    <text x="0" y="58" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#3a7d44">reached</text>
+  </g>
+  <!-- the working path: hub -> mains -> mains -> far sensor -->
+  <g stroke="#6a4c93" stroke-width="3">
+    <line x1="124" y1="225" x2="334" y2="185"/>
+    <line x1="386" y1="185" x2="604" y2="245"/>
+    <line x1="656" y1="245" x2="868" y2="205"/>
+  </g>
+  <g fill="#6a4c93">
+    <path d="M334 185 l-14 -3 l4 -10 Z"/>
+    <path d="M604 245 l-14 -3 l3 -10 Z"/>
+    <path d="M868 205 l-14 -3 l4 -10 Z"/>
+  </g>
+
+  <!-- a clump of battery sensors that add NO coverage -->
+  <g transform="translate(330,380)">
+    <rect x="-40" y="-46" width="380" height="76" rx="10" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <g fill="#fff" stroke="#1a1d24" stroke-width="2.5">
+      <circle cx="-10" cy="-8" r="13"/><circle cx="30" cy="-8" r="13"/><circle cx="70" cy="-8" r="13"/><circle cx="110" cy="-8" r="13"/>
+    </g>
+    <text x="180" y="-14" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#1a1d24">battery sensors = end-devices</text>
+    <text x="180" y="4" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#c14a3a">they sleep; they never repeat</text>
+    <text x="180" y="22" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#7a808c">ten more of these add zero range</text>
+  </g>
+
+  <text x="40" y="462" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">Want more coverage? Add a plug-in outlet, not another door sensor.</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-label="Find My vs cellular">
+  <rect width="1000" height="540" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">FIND MY CLIP vs CELLULAR COLLAR</text>
+  <text x="40" y="72" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">not a replacement &#8212; a complement; they fail in opposite places</text>
+
+  <line x1="500" y1="96" x2="500" y2="450" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- LEFT: Find My -->
+  <text x="40" y="124" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#c87533">FIND MY CLIP &#183; BLE, crowdsourced</text>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">
+    <text x="40" y="166">battery: ~12 months (coin cell)</text>
+    <text x="40" y="198">cost: ~$35 one-time, no fee</text>
+    <text x="40" y="230">location: last-seen, never live</text>
+    <text x="40" y="262">needs a passing iPhone to be seen</text>
+    <text x="40" y="294">privacy: end-to-end encrypted</text>
+  </g>
+
+  <rect x="40" y="320" width="420" height="96" rx="10" fill="#c87533" fill-opacity="0.07" stroke="#c87533" stroke-width="1.5"/>
+  <text x="62" y="350" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#1a1d24">WINS: indoor-mostly pet that rarely slips out</text>
+  <text x="62" y="378" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">dense foot traffic = good odds</text>
+  <text x="62" y="402" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#c14a3a">blind in the woods where a cat actually ends up</text>
+
+  <!-- RIGHT: cellular -->
+  <text x="540" y="124" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#2a52be">CELLULAR (Fi) &#183; GPS + LTE-M</text>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">
+    <text x="540" y="166">battery: ~14 days, charge often</text>
+    <text x="540" y="198">cost: $99 + $99/yr subscription</text>
+    <text x="540" y="230">location: real-time, continuous</text>
+    <text x="540" y="262">works wherever there's a tower</text>
+    <text x="540" y="294">privacy: vendor cloud sees location</text>
+  </g>
+
+  <rect x="540" y="320" width="420" height="96" rx="10" fill="#2a52be" fill-opacity="0.06" stroke="#2a52be" stroke-width="1.5"/>
+  <text x="562" y="350" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#1a1d24">WINS: escape-artist dog you can't lose</text>
+  <text x="562" y="378" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">follows a loose dog in real time</text>
+  <text x="562" y="402" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#c14a3a">dead in carrier dead zones; daily charging</text>
+
+  <text x="500" y="498" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">For a dog you can't lose, run both: cellular for live tracking, the clip as a crowdsourced backup.</text>
+</svg>

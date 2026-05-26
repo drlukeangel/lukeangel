@@ -8,10 +8,10 @@ tags:
   - forecast
 notebook: smart-home-iot-journey
 notebookOrder: 7
-excerpt: "Year-end check-in. Hue is solid, Wemo is fine, IFTTT is duct tape. Forecast: 2014 is the year of the hub. Samsung just acquired SmartThings; Amazon is rumored to ship Echo; Apple's HomeKit is real."
+excerpt: "Year-end check-in. Hue is solid, Wemo is fine, IFTTT is duct tape. Forecast: 2014 is the year of the hub — SmartThings looks set to take it to retail, Amazon's rumored to ship a voice device, and Apple's smart-home play is the one to watch."
 pullquote: "Voice control is the inflection point. Whoever wins voice in 2014 owns the smart-home conversation for the next decade."
-cover: "../../assets/blog/2013-in-review-and-2014-forecast-cover.png"
-coverAlt: "2013 review — three vendors, one annoyed homeowner"
+cover: "../../assets/blog/2013-in-review-and-2014-forecast-cover.svg"
+coverAlt: "Three separate vendor islands — lighting, plugs, and a thin web-automation bridge between them — the fragmented state of the smart home at the end of 2013, with a hub-shaped gap waiting to be filled."
 ---
 
 End of year — time to take stock. The kit is in three buckets:
@@ -25,9 +25,11 @@ WiFi + cloud-required for off-LAN + SOAP/UPnP locally. Works most of the time. D
 **IFTTT (cross-vendor):**
 Web-only, 5-15 s latency, cross-vendor unifier of last resort. Cheap. Slow. Acceptable for time-and-location triggers; unacceptable for instant-feedback automations.
 
+![The state of the house at the end of 2013, drawn as three separate vendor islands. Hue (Zigbee lighting, local REST, reliable), Wemo (Wi-Fi plugs and a motion sensor, cloud for off-LAN, flaky), and the router each stand alone with no shared state. A thin, sagging IFTTT bridge stretches between them — the "duct tape" cross-vendor layer, slow and lossy. Below the islands sits an empty, hub-shaped slot that each island reaches a dashed line toward: the missing local multi-protocol hub the 2014 forecast is betting on.](../../assets/blog/smart-home-2013-state-of-the-house.svg)
+
 ## What worked this year
 
-- **Hue + Hue Tap** as a self-contained lighting system. Zero latency between button press and bulb change (both on Zigbee, both at the bridge). Battery-free Tap is engineering art.
+- **Hue + the local REST API** as a self-contained lighting system. App and scripts hit the bridge over the LAN; the bridge drives the bulbs over Zigbee with near-zero latency, no cloud in the loop. The one gap is physical control — there's still no good wall switch or button for Hue, so every change goes through a phone or a script.
 - **Sunset porch automation.** Started as a Python cron, moved to IFTTT. Still works.
 - **Power telemetry from the Wemo Insight.** Useful for "did I leave the iron on" anxiety queries.
 
@@ -40,6 +42,8 @@ Web-only, 5-15 s latency, cross-vendor unifier of last resort. Cheap. Slow. Acce
 ## Forecast for 2014
 
 Predictions in approximate order of confidence:
+
+![The 2014 forecast as a horizontal confidence-bar chart, six calls ranked from most to least confident. At the top, "talk to my house" becoming table-stakes at 95% and SmartThings reaching general retail at 90%; then Amazon shipping a voice speaker at 80% and Apple announcing HomeKit with an MFi auth chip at 70%; at the bottom, Google buying or building its way into the smart home and Zigbee 3.0 merging the ZLL and HA profiles, both at 60%. The chart makes the thesis visible: voice is the high-confidence bet, and the local multi-protocol hub is the enabler underneath it.](../../assets/blog/2013-in-review-and-2014-forecast-fig-2.svg)
 
 **1. The hub becomes the unifier. (Confidence: 90%)**
 
@@ -72,7 +76,7 @@ What I'll buy:
 - SmartThings hub when it ships at retail. Migrate the Wemo automations off IFTTT.
 - A few Z-Wave door/window sensors (the SmartThings starter kit comes with two).
 - Whatever Amazon ships if the device is real (predicting late 2014).
-- A Lutron Smart Bridge for in-wall switches (separate post coming in March).
+- An in-wall switch solution I can actually live with. Wemo's switch needs a neutral wire my older boxes don't have, so I'm hunting for a no-neutral option — more on that once I've wired one in.
 
 What I won't buy:
 
@@ -81,4 +85,4 @@ What I won't buy:
 
 ## What's next
 
-Next post (March 2014): the first wall-switch attempt. Wemo failed. Lutron Caseta won. There's a story about no-neutral wiring in there.
+Next up: the first in-wall smart-switch attempt. Wemo's switch wants a neutral wire half my boxes don't have, so the real question is what works in an older house without rewiring. There's a no-neutral story coming once I've found the answer and put it in the wall.

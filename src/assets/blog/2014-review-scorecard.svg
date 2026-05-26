@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 500" role="img" aria-label="2013 forecast scorecard">
+  <rect width="940" height="500" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:16px;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:16px;fill:#5b616b;}
+    .big{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:22px;fill:#1a1d24;font-weight:700;}
+  </style>
+  <text x="40" y="46" class="big">2013 → 2014 forecast: 5 of 6</text>
+
+  <g transform="translate(40,82)"><text x="0" y="24" class="lab">Hub becomes the unifier (SmartThings)</text><text x="470" y="24" class="mut">— Samsung bought it, Aug</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <line x1="0" y1="42" x2="840" y2="42" stroke="#1a1d24" stroke-opacity="0.08"/></g>
+  <g transform="translate(40,146)"><text x="0" y="24" class="lab">Amazon ships a voice assistant</text><text x="470" y="24" class="mut">— Echo, Nov 6</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <line x1="0" y1="42" x2="840" y2="42" stroke="#1a1d24" stroke-opacity="0.08"/></g>
+  <g transform="translate(40,210)"><text x="0" y="24" class="lab">Apple gets serious about smart home</text><text x="470" y="24" class="mut">— HomeKit announced, no devices yet</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#c87533" fill-opacity="0.14" stroke="#c87533" stroke-width="2.5"/><path d="M 0 -16 A 16 16 0 0 0 0 16 Z" fill="#c87533" fill-opacity="0.5"/></g>
+    <line x1="0" y1="42" x2="840" y2="42" stroke="#1a1d24" stroke-opacity="0.08"/></g>
+  <g transform="translate(40,274)"><text x="0" y="24" class="lab">Google answers Apple in 2014</text><text x="470" y="24" class="mut">— Nest bought, no voice product</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/><path d="M -6 -6 L 6 6 M 6 -6 L -6 6" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/></g>
+    <line x1="0" y1="42" x2="840" y2="42" stroke="#1a1d24" stroke-opacity="0.08"/></g>
+  <g transform="translate(40,338)"><text x="0" y="24" class="lab">Zigbee 3.0 lands</text><text x="470" y="24" class="mut">— spec finalized Q4, devices 2015</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <line x1="0" y1="42" x2="840" y2="42" stroke="#1a1d24" stroke-opacity="0.08"/></g>
+  <g transform="translate(40,402)"><text x="0" y="24" class="lab">Voice becomes table-stakes</text><text x="470" y="24" class="mut">— Alexa shipped with Hue working</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+
+  <line x1="40" y1="452" x2="880" y2="452" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="480" class="cap">The miss: Google's voice product. Suspiciously high — 2014 was a predictable year.</text>
+</svg>

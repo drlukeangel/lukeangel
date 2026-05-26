@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2018 pet IoT household">
+  <defs>
+    <pattern id="dots18" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots18)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- floor line -->
+  <line x1="90" y1="470" x2="1120" y2="470" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- Litter-Robot III Connect: globe on a base -->
+  <g transform="translate(190,250)">
+    <rect x="-58" y="150" width="116" height="64" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-40" y="178" width="80" height="8" rx="4" fill="#1a1d24" fill-opacity="0.12"/>
+    <circle cx="0" cy="78" r="86" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M-86 78 a86 86 0 0 1 172 0" fill="none" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="3"/>
+    <circle cx="0" cy="78" r="48" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="78" r="48" fill="#1a1d24" fill-opacity="0.06"/>
+    <!-- wifi dot -->
+    <circle cx="56" cy="22" r="5" fill="#c87533"/>
+    <path d="M48 22 a11 11 0 0 1 16 0" fill="none" stroke="#c87533" stroke-width="3"/>
+    <path d="M42 18 a18 18 0 0 1 28 0" fill="none" stroke="#c87533" stroke-width="3" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- SureFlap connected cat door -->
+  <g transform="translate(430,300)">
+    <rect x="-66" y="-2" width="132" height="172" rx="6" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-44" y="26" width="88" height="92" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-44" y="26" width="88" height="58" rx="8" fill="#1a1d24" fill-opacity="0.06"/>
+    <line x1="-44" y1="84" x2="44" y2="84" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- chip-read indicator -->
+    <circle cx="0" cy="138" r="6" fill="#3a7d44"/>
+    <circle cx="42" cy="6" r="4" fill="#c87533"/>
+    <path d="M36 6 a9 9 0 0 1 12 0" fill="none" stroke="#c87533" stroke-width="2.5"/>
+  </g>
+
+  <!-- Petnet feeder with mechanical backup beside it -->
+  <g transform="translate(700,250)">
+    <!-- smart feeder: hopper + bowl -->
+    <path d="M-58 6 L-30 -86 L30 -86 L58 6 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-58" y="6" width="116" height="40" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="0" cy="58" rx="40" ry="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="26" r="6" fill="#c87533"/>
+    <path d="M-9 26 a13 13 0 0 1 18 0" fill="none" stroke="#c87533" stroke-width="3"/>
+    <path d="M-16 21 a22 22 0 0 1 32 0" fill="none" stroke="#c87533" stroke-width="3" stroke-opacity="0.55"/>
+  </g>
+  <!-- mechanical backup feeder (dumb, no radio) -->
+  <g transform="translate(862,330)">
+    <rect x="-40" y="-70" width="80" height="76" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="-32" r="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="0" y1="-32" x2="0" y2="-46" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="0" y1="-32" x2="11" y2="-26" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="0" cy="20" rx="34" ry="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  </g>
+
+  <!-- empty dog collar, waiting -->
+  <g transform="translate(1010,360)">
+    <ellipse cx="0" cy="0" rx="62" ry="78" fill="none" stroke="#1a1d24" stroke-width="9" stroke-opacity="0.85"/>
+    <ellipse cx="0" cy="0" rx="62" ry="78" fill="none" stroke="#fdfaf2" stroke-width="3" stroke-dasharray="2 10"/>
+    <!-- empty tag mount, nothing on it -->
+    <rect x="-12" y="66" width="24" height="20" rx="5" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="76" r="4" fill="#1a1d24" fill-opacity="0.18"/>
+  </g>
+</svg>

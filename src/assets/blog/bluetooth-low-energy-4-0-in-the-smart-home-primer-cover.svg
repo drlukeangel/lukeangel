@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="BLE advertising primer">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- coin-cell peripheral, left -->
+  <g transform="translate(160 250)">
+    <!-- coin cell -->
+    <circle r="80" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <circle r="52" fill="none" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.3"/>
+    <!-- plus mark -->
+    <line x1="-22" y1="0" x2="22" y2="0" stroke="#6a4c93" stroke-width="6" stroke-linecap="round"/>
+    <line x1="0" y1="-22" x2="0" y2="22" stroke="#6a4c93" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- advertising bursts: 3 expanding arcs at intervals, with sleep gaps implied -->
+  <g transform="translate(260 250)" stroke="#6a4c93" fill="none" stroke-linecap="round">
+    <g stroke-width="6">
+      <path d="M0 0 a40 40 0 0 1 0 -2" opacity="0"/>
+      <path d="M10 -8 a38 38 0 0 1 32 -26" opacity="0.4"/>
+      <path d="M20 -4 a66 66 0 0 1 60 -46" opacity="0.65"/>
+      <path d="M30 0 a94 94 0 0 1 90 -70" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- phone, right (central) -->
+  <g transform="translate(820 170)">
+    <rect x="0" y="0" width="150" height="290" rx="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <rect x="18" y="34" width="114" height="200" rx="6" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="2"/>
+    <circle cx="75" cy="258" r="11" fill="#1a1d24"/>
+    <!-- small received-packet ticks on screen -->
+    <g stroke="#6a4c93" stroke-width="5" stroke-linecap="round">
+      <line x1="38" y1="70" x2="112" y2="70"/>
+      <line x1="38" y1="96" x2="92" y2="96"/>
+      <line x1="38" y1="122" x2="104" y2="122"/>
+    </g>
+  </g>
+
+  <!-- timeline strip at bottom: short blips + long sleeps -->
+  <g transform="translate(160 540)">
+    <line x1="0" y1="0" x2="820" y2="0" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="3"/>
+    <g fill="#6a4c93">
+      <rect x="0" y="-26" width="8" height="26"/>
+      <rect x="200" y="-26" width="8" height="26"/>
+      <rect x="400" y="-26" width="8" height="26"/>
+      <rect x="600" y="-26" width="8" height="26"/>
+      <rect x="800" y="-26" width="8" height="26"/>
+    </g>
+  </g>
+</svg>

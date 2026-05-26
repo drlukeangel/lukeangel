@@ -11,7 +11,7 @@ tags:
 excerpt: "Ray-Ban Meta Display landed as the product of the year, Humane got vacuumed up by HP, Vision Pro 2 cheaper finally shipped. 2025 scored."
 pullquote: "Smart glasses in 2025 are where smart speakers were in 2017 — the breakout product everyone's heard of but only one in four households owns. The chasm crossing happens in 2026."
 cover: ../../assets/blog/iot-predictions-2026-cover.svg
-coverAlt: "IoT & Connected Devices — 2026 Predictions and Outcomes — AR glasses, Vision Pro 2, and smart ring silhouettes on a purple-cobalt-teal gradient"
+coverAlt: "A forecast trend line rising across a faint grid, then forking from a marked you-are-here point into two dashed cobalt projection paths spread by a shaded fan of uncertainty, above a row of connected devices — a smartwatch, prominent AR smart glasses, a smart ring, and an earbud — on a cream background"
 notebook: iot-predictions
 notebookOrder: 11
 ---
@@ -42,6 +42,8 @@ Year eleven. AR glasses became the category that everyone's been promising for a
 
 Net 2025 scorecard: roughly **88% prediction accuracy.** Best calls: Ray-Ban Meta Display, Humane sale to HP, Apple's WWDC glasses tease. Worst miss: Humane valuation magnitude (10x off).
 
+![Scorecard of 2025 predictions versus what actually shipped, roughly 88% accuracy. Four green hits: Meta Ray-Ban Display launched at $499/$799 and cleared a 3M annual run-rate by Q4 as product of the year; Apple held Vision Pro 2 and teased consumer glasses at WWDC for 2026; Apple Watch 11 shipped FDA-cleared blood-pressure trend tracking with no glucose; on-device AI became table-stakes while standalone AI hardware died, with Rabbit pivoting and Brilliant fading. One amber partial: Humane was bought by HP as predicted, but at $116M rather than $1B. One red miss: Meta's neural EMG wristband, the hands-free input that makes glasses usable, was not called at all. Best calls were the Ray-Ban Display, the HP buyer, and the WWDC tease; worst miss was the Humane valuation, 10x off.](../../assets/blog/iot-predictions-2026-scorecard.svg)
+
 ## What I got wrong
 
 I missed Meta's neural wristband (the EMG band that ships with the Ray-Ban Display higher-tier SKU) — that's the input device that makes AR glasses *actually usable* without your hands obviously gesturing. A bigger story than I called.
@@ -56,9 +58,13 @@ I also underestimated how fast the *non-flagship* phone makers (OnePlus, Xiaomi,
 
 **3. Meta Ray-Ban Display Gen 2 ships at Meta Connect.** Slimmer, better display, longer battery. Annual run-rate clears 5M units. The category creator stays ahead.
 
+![How I expect the 2026 head-worn market to split along a price-and-commitment axis. On the low end at $499 sits the Meta Ray-Ban Display Gen 2, accented as the volume play, with a ~5M annual run-rate and a mainstream, glanceable positioning. In the middle at ~$1,999 sits the Vision Pro 2, drawn as a headset, with an M4 chip and a smaller form factor and an estimated 1 to 2M units in CY2026. At the high end near ~$1,499 sits Apple's new AR glasses shipping in fall, marked as the margin play, expected to sell over 1M units in Q4 with a high-end, locked-in positioning. The takeaway: Apple takes the high end and the margin, Meta keeps the mainstream and the volume.](../../assets/blog/iot-predictions-2026-ar-market-split.svg)
+
 **4. Samsung Galaxy Ring Gen 3 ships with blood-pressure trend tracking.** Catching Apple Watch on the sensor density story.
 
 **5. AR glasses + smart ring + watch + earbud becomes the 4-piece body sensor stack.** By Q4, the median tech-early-adopter owns at least 3 of the 4. Sensor fusion across them becomes the new platform story.
+
+![The four-piece body sensor stack feeding a single sensor-fusion layer. On the left, four worn devices each list the signals they contribute: AR glasses give gaze, scene, and a heads-up display; the watch gives heart rate, ECG, blood-pressure trend, and SpO2; the smart ring gives sleep, temperature, and HRV; the earbud gives in-ear heart rate and hearing. Connecting lines run from all four into a sensor-fusion box that combines cross-device signal into one health timeline. An arrow drops from the fusion box to a label reading the new platform: whoever owns the fusion owns the relationship. The point is that four separate products stop being four products and become one body-sensor mesh.](../../assets/blog/iot-predictions-2026-body-sensor-stack.svg)
 
 **6. Apple Watch Series 12 holds the line on sensors; the big innovation is on-device AI.** September. On-device LLM running locally; latency on Siri queries drops by 4-5x. (Don't bet on blood glucose. It's still 2-3 years out.)
 

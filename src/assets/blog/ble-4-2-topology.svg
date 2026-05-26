@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 380" width="1080" height="380" role="img" aria-label="BLE-only connectivity topology: the device connects over Bluetooth Low Energy to the customer's phone, and only the phone connects on to the cloud over Wi-Fi or cellular. The device has no Wi-Fi or cellular radio of its own, so the phone is the single, intermittent gateway between device and backend. The direct device-to-cloud path does not exist.">
+  <rect width="1080" height="380" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">BLE-ONLY: THE PHONE IS THE ONLY DOOR</text>
+
+  <!-- DEVICE -->
+  <g transform="translate(56,150)">
+    <rect x="0" y="0" width="190" height="110" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(34,34)" stroke="#357a8c" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 -16 L11 -7 L-8 9 M-8 -7 L11 9 L0 16 L0 -16"/>
+    </g>
+    <text x="118" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#1a1d24">DEVICE</text>
+    <text x="118" y="72" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">BLE radio only</text>
+  </g>
+
+  <!-- BLE link device<->phone -->
+  <text x="312" y="184" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#357a8c">BLE</text>
+  <g stroke="#357a8c" stroke-width="3.4" fill="#357a8c" stroke-linecap="round">
+    <line x1="256" y1="205" x2="368" y2="205"/>
+    <path d="M380 205 l-16 -7 v14 z"/>
+    <path d="M244 205 l16 -7 v14 z"/>
+  </g>
+  <text x="312" y="232" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">~4 min/day in range</text>
+
+  <!-- PHONE (gateway) -->
+  <g transform="translate(392,130)">
+    <rect x="0" y="0" width="150" height="150" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="22" y="22" width="106" height="86" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" opacity="0.4"/>
+    <text x="75" y="72" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#1a1d24">PHONE</text>
+    <text x="75" y="135" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">gateway</text>
+  </g>
+
+  <!-- Wi-Fi/cellular link phone->cloud -->
+  <text x="640" y="184" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#357a8c">Wi-Fi / cell</text>
+  <g stroke="#357a8c" stroke-width="3.4" fill="#357a8c" stroke-linecap="round">
+    <line x1="552" y1="205" x2="724" y2="205"/>
+    <path d="M736 205 l-16 -7 v14 z"/>
+  </g>
+
+  <!-- CLOUD -->
+  <g transform="translate(748,138)">
+    <path d="M52 120
+             a42 42 0 0 1 3 -83
+             a47 47 0 0 1 89 -13
+             a37 37 0 0 1 29 96
+             z"
+          fill="#fdfaf2" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+    <text x="104" y="92" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#1a1d24">CLOUD</text>
+  </g>
+
+  <!-- severed direct path -->
+  <path d="M150 286 C 430 348, 700 348, 936 286" fill="none" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 12" stroke-linecap="round" opacity="0.85"/>
+  <g transform="translate(544,330)">
+    <circle r="20" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <path d="M-8 -8 L8 8 M8 -8 L-8 8" stroke="#c14a3a" stroke-width="3.4" stroke-linecap="round"/>
+  </g>
+  <text x="544" y="372" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a3f4a">No direct device-to-cloud path — there's no radio for one.</text>
+</svg>

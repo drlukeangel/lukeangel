@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="What carried over from v1 versus what v2 learned from scratch.">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- column headers -->
+  <text x="40" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#3a7d44">CARRIED OVER FROM v1 &#8212; ported, saved time</text>
+  <text x="600" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#c14a3a">NEW ON v2 &#8212; the domain tax v1 never charged</text>
+
+  <line x1="560" y1="70" x2="560" y2="490" stroke="#1a1d24" stroke-opacity="0.14" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- ====== LEFT column: check rows ====== -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">
+    <!-- row helper: check seal + label -->
+    <g transform="translate(60,104)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+      <path d="M-6 -5 l4 5 9 -11" fill="none" stroke="#3a7d44" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="28" y="0" >Three-tier PII classification</text>
+    </g>
+    <g transform="translate(60,164)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+      <path d="M-6 -5 l4 5 9 -11" fill="none" stroke="#3a7d44" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="28" y="0" >Account / Device / Session / Event spine</text>
+    </g>
+    <g transform="translate(60,224)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+      <path d="M-6 -5 l4 5 9 -11" fill="none" stroke="#3a7d44" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="28" y="0" >Sign on device, verify in cloud</text>
+    </g>
+    <g transform="translate(60,284)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+      <path d="M-6 -5 l4 5 9 -11" fill="none" stroke="#3a7d44" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="28" y="0" >Bond authorization to a physical act</text>
+    </g>
+    <g transform="translate(60,344)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+      <path d="M-6 -5 l4 5 9 -11" fill="none" stroke="#3a7d44" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="28" y="0" >Dual-bank flash + boot-counter failsafe</text>
+    </g>
+    <g transform="translate(60,404)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+      <path d="M-6 -5 l4 5 9 -11" fill="none" stroke="#3a7d44" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="28" y="0" >&#8220;Minimize regulated-data scope&#8221; instinct</text>
+    </g>
+  </g>
+
+  <!-- ====== RIGHT column: x rows ====== -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">
+    <g transform="translate(620,104)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+      <path d="M-6 -11 l12 12 M6 -11 l-12 12" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="28" y="0" >EMC in front of fridge compressors</text>
+    </g>
+    <g transform="translate(620,164)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+      <path d="M-6 -11 l12 12 M6 -11 l-12 12" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="28" y="0" >PCI-DSS scope + EMV tokenization</text>
+    </g>
+    <g transform="translate(620,224)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+      <path d="M-6 -11 l12 12 M6 -11 l-12 12" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="28" y="0" >Multi-tenant retail: stores &#215; thousands</text>
+    </g>
+    <g transform="translate(620,284)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+      <path d="M-6 -11 l12 12 M6 -11 l-12 12" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="28" y="0" >Loss prevention as a product feature</text>
+    </g>
+    <g transform="translate(620,344)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+      <path d="M-6 -11 l12 12 M6 -11 l-12 12" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="28" y="0" >Cellular carrier risk (single MVNO)</text>
+    </g>
+    <g transform="translate(620,404)">
+      <circle cx="0" cy="-5" r="13" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+      <path d="M-6 -11 l12 12 M6 -11 l-12 12" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="28" y="0" >Customer-facing dashboard from day one</text>
+    </g>
+  </g>
+
+  <line x1="40" y1="450" x2="1080" y2="450" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1.5"/>
+  <text x="40" y="488" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#5b616b">The left column ported almost verbatim. The right column is what a new physical</text>
+  <text x="40" y="514" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#5b616b">context &#8212; retail, payments, scale &#8212; charged that the first product never did.</text>
+</svg>

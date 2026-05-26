@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="weight sorts two cats">
+  <defs>
+    <pattern id="dotsLR" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsLR)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- Litter-Robot globe (left) -->
+  <g transform="translate(290,300)">
+    <rect x="-64" y="118" width="128" height="64" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <!-- weight readout bar on the base -->
+    <rect x="-44" y="146" width="88" height="14" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <rect x="-44" y="146" width="52" height="14" rx="4" fill="#c87533" fill-opacity="0.4"/>
+    <circle cx="0" cy="64" r="92" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="0" cy="64" r="52" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="0" cy="64" r="52" fill="#1a1d24" fill-opacity="0.05"/>
+    <circle cx="62" cy="6" r="5" fill="#c87533"/>
+    <path d="M55 6 a10 10 0 0 1 14 0" fill="none" stroke="#c87533" stroke-width="3"/>
+  </g>
+
+  <!-- the sort: two fan arrows from globe to two cats -->
+  <g stroke="#1a1d24" stroke-opacity="0.45" stroke-width="3" fill="none">
+    <path d="M400 250 C 520 200, 620 190, 720 200"/>
+    <path d="M400 360 C 520 410, 620 420, 720 420"/>
+  </g>
+  <path d="M720 200 l-16 -4 l4 -12 Z" fill="#1a1d24" fill-opacity="0.45"/>
+  <path d="M720 420 l-16 4 l4 12 Z" fill="#1a1d24" fill-opacity="0.45"/>
+
+  <!-- BIG cat profile (heavy, top) -->
+  <g transform="translate(870,210)">
+    <ellipse cx="0" cy="40" rx="86" ry="50" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="-62" cy="-12" r="42" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <path d="M-90 -42 l-7 -28 l26 15 Z" fill="#fff" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M-34 -42 l7 -28 l-26 15 Z" fill="#fff" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="-74" cy="-14" r="4" fill="#1a1d24"/>
+    <circle cx="-50" cy="-14" r="4" fill="#1a1d24"/>
+    <path d="M80 50 C 132 38, 140 -16, 112 -34" fill="none" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+    <!-- heavy weight chip -->
+    <rect x="40" y="74" width="56" height="26" rx="8" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="2.5"/>
+  </g>
+
+  <!-- SMALL cat profile (light, bottom) -->
+  <g transform="translate(900,440)">
+    <ellipse cx="0" cy="26" rx="44" ry="28" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="-32" cy="-4" r="24" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <path d="M-48 -20 l-5 -16 l15 9 Z" fill="#fff" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M-16 -20 l5 -16 l-15 9 Z" fill="#fff" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="-38" cy="-5" r="3" fill="#1a1d24"/>
+    <circle cx="-26" cy="-5" r="3" fill="#1a1d24"/>
+    <path d="M42 32 C 68 26, 70 2, 56 -6" fill="none" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+    <!-- light weight chip -->
+    <rect x="14" y="40" width="34" height="20" rx="6" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="2.5"/>
+  </g>
+</svg>

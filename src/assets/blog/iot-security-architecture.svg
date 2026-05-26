@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-label="The connected-product stack end to end. Data flows left to right: device (secure element) over mTLS to the ingest broker, then rules and validation, stream processing, time-series storage, and apps and APIs. Beneath it, the security layers map onto the pipeline: secure boot and identity at the device, mutual TLS on the wire, per-device authorization at ingest, KMS and classification at storage, and detection (Device Defender plus ML) watching every stage.">
+  <rect width="1200" height="640" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE CONNECTED-PRODUCT STACK — DEVICE TO CLOUD</text>
+
+  <text x="40" y="100" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1" fill="#7a808c">DATA FLOW →</text>
+
+  <!-- pipeline -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="40" y="120" width="160" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="120" y="158" text-anchor="middle" font-size="14" fill="#1a1d24">DEVICE</text><text x="120" y="180" text-anchor="middle" font-size="11" fill="#7a808c">secure element</text>
+    <rect x="228" y="120" width="150" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="303" y="158" text-anchor="middle" font-size="14" fill="#1a1d24">INGEST</text><text x="303" y="180" text-anchor="middle" font-size="11" fill="#7a808c">MQTT broker</text>
+    <rect x="406" y="120" width="150" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="481" y="158" text-anchor="middle" font-size="14" fill="#1a1d24">RULES</text><text x="481" y="180" text-anchor="middle" font-size="11" fill="#7a808c">validate · route</text>
+    <rect x="584" y="120" width="152" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="660" y="158" text-anchor="middle" font-size="14" fill="#1a1d24">PROCESS</text><text x="660" y="180" text-anchor="middle" font-size="11" fill="#7a808c">stream</text>
+    <rect x="764" y="120" width="152" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="840" y="158" text-anchor="middle" font-size="14" fill="#1a1d24">STORE</text><text x="840" y="180" text-anchor="middle" font-size="11" fill="#7a808c">time-series</text>
+    <rect x="944" y="120" width="156" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="1022" y="158" text-anchor="middle" font-size="14" fill="#1a1d24">APPS</text><text x="1022" y="180" text-anchor="middle" font-size="11" fill="#7a808c">APIs · UI</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="200" y1="166" x2="224" y2="166"/><path d="M228 166 l-15 -7 v14 z"/>
+    <line x1="378" y1="166" x2="402" y2="166"/><path d="M406 166 l-15 -7 v14 z"/>
+    <line x1="556" y1="166" x2="580" y2="166"/><path d="M584 166 l-15 -7 v14 z"/>
+    <line x1="736" y1="166" x2="760" y2="166"/><path d="M764 166 l-15 -7 v14 z"/>
+    <line x1="916" y1="166" x2="940" y2="166"/><path d="M944 166 l-15 -7 v14 z"/>
+  </g>
+  <!-- mTLS lock on first hop -->
+  <g transform="translate(202,128)" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"><rect x="0" y="9" width="20" height="15" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4" fill="none"/></g>
+
+  <line x1="40" y1="252" x2="1100" y2="252" stroke="#1a1d24" stroke-width="1" opacity="0.15"/>
+  <text x="40" y="284" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#c14a3a">SECURITY ACROSS THE STACK</text>
+
+  <!-- security controls mapped under stages -->
+  <g font-family="ui-monospace,monospace" font-size="11.5">
+    <rect x="40" y="306" width="160" height="58" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="120" y="332" text-anchor="middle" fill="#1a1d24">boot + identity</text><text x="120" y="350" text-anchor="middle" fill="#7a808c">secure element · cert</text>
+    <rect x="228" y="306" width="150" height="58" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="303" y="332" text-anchor="middle" fill="#1a1d24">transport</text><text x="303" y="350" text-anchor="middle" fill="#7a808c">mTLS · pinning</text>
+    <rect x="406" y="306" width="150" height="58" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="481" y="332" text-anchor="middle" fill="#1a1d24">authorization</text><text x="481" y="350" text-anchor="middle" fill="#7a808c">per-device policy</text>
+    <rect x="764" y="306" width="152" height="58" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="840" y="332" text-anchor="middle" fill="#1a1d24">data</text><text x="840" y="350" text-anchor="middle" fill="#7a808c">KMS · classify</text>
+  </g>
+  <!-- faint connectors control->stage -->
+  <g stroke="#1a1d24" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25">
+    <line x1="120" y1="212" x2="120" y2="306"/>
+    <line x1="303" y1="212" x2="303" y2="306"/>
+    <line x1="481" y1="212" x2="481" y2="306"/>
+    <line x1="840" y1="212" x2="840" y2="306"/>
+  </g>
+
+  <!-- detection spans all -->
+  <rect x="40" y="396" width="1060" height="60" rx="10" fill="#c14a3a" opacity="0.07"/>
+  <rect x="40" y="396" width="1060" height="60" rx="10" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="64" y="424" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">detection</text>
+  <text x="64" y="442" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">Device Defender + ML</text>
+  <text x="1076" y="431" text-anchor="end" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">watches every stage</text>
+
+  <text x="570" y="512" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="17" font-style="italic" fill="#3a3f4a">Each control is a layer — and each layer is a post in this series.</text>
+</svg>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A structured-wiring backbone in open framing">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- open stud framing across the canvas -->
+  <g stroke="#1a1d24" stroke-width="3" opacity="0.16">
+    <!-- top + bottom plates -->
+    <line x1="120" y1="120" x2="1120" y2="120"/>
+    <line x1="120" y1="520" x2="1120" y2="520"/>
+    <!-- studs -->
+    <line x1="180" y1="120" x2="180" y2="520"/>
+    <line x1="320" y1="120" x2="320" y2="520"/>
+    <line x1="460" y1="120" x2="460" y2="520"/>
+    <line x1="600" y1="120" x2="600" y2="520"/>
+    <line x1="740" y1="120" x2="740" y2="520"/>
+    <line x1="880" y1="120" x2="880" y2="520"/>
+    <line x1="1020" y1="120" x2="1020" y2="520"/>
+  </g>
+
+  <!-- the structured-wiring panel (left) -->
+  <g transform="translate(150,200)">
+    <rect x="0" y="0" width="120" height="240" rx="8" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="5"/>
+    <!-- rack unit slots -->
+    <g fill="#6a4c93" fill-opacity="0.30">
+      <rect x="16" y="18" width="88" height="22" rx="3"/>
+      <rect x="16" y="50" width="88" height="22" rx="3"/>
+      <rect x="16" y="82" width="88" height="22" rx="3"/>
+    </g>
+    <!-- patch-panel ports -->
+    <g fill="#6a4c93" fill-opacity="0.5">
+      <rect x="16" y="120" width="13" height="10"/><rect x="34" y="120" width="13" height="10"/><rect x="52" y="120" width="13" height="10"/><rect x="70" y="120" width="13" height="10"/><rect x="88" y="120" width="13" height="10"/>
+      <rect x="16" y="138" width="13" height="10"/><rect x="34" y="138" width="13" height="10"/><rect x="52" y="138" width="13" height="10"/><rect x="70" y="138" width="13" height="10"/><rect x="88" y="138" width="13" height="10"/>
+      <rect x="16" y="156" width="13" height="10"/><rect x="34" y="156" width="13" height="10"/><rect x="52" y="156" width="13" height="10"/><rect x="70" y="156" width="13" height="10"/><rect x="88" y="156" width="13" height="10"/>
+    </g>
+    <rect x="16" y="186" width="88" height="40" rx="3" fill="none" stroke="#6a4c93" stroke-width="3" opacity="0.6"/>
+  </g>
+
+  <!-- cable bundle fanning out from the panel across the framing to drop points -->
+  <g stroke="#6a4c93" stroke-width="3" fill="none" opacity="0.85">
+    <path d="M270 260 C 480 200, 700 180, 980 200"/>
+    <path d="M270 290 C 460 280, 720 280, 980 300"/>
+    <path d="M270 320 C 480 360, 720 380, 980 400"/>
+    <path d="M270 350 C 440 420, 700 460, 900 480"/>
+  </g>
+  <!-- drop-point keystones -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="3">
+    <rect x="970" y="188" width="26" height="26" rx="3"/>
+    <rect x="970" y="288" width="26" height="26" rx="3"/>
+    <rect x="970" y="388" width="26" height="26" rx="3"/>
+    <rect x="888" y="468" width="26" height="26" rx="3"/>
+  </g>
+  <!-- conduit stub with pull-string (a coiled loop) lower-center -->
+  <g transform="translate(560,470)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#6a4c93" stroke-width="3" stroke-dasharray="3 4"/>
+    <circle cx="0" cy="0" r="5" fill="#6a4c93" fill-opacity="0.4"/>
+  </g>
+</svg>

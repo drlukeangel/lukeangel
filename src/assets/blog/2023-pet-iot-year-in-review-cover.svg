@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2023 — new house, data turns load-bearing">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- LEFT: new house outline, wired (network drops) + a litter-closet square -->
+  <g transform="translate(300,300)">
+    <!-- house -->
+    <path d="M -130 90 L -130 -10 L 0 -90 L 130 -10 L 130 90 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round"/>
+    <!-- network drops along an interior wall: small ports -->
+    <g fill="#c87533" stroke="#c87533">
+      <rect x="-100" y="20" width="14" height="10" rx="2"/>
+      <rect x="-70" y="20" width="14" height="10" rx="2"/>
+      <rect x="-40" y="20" width="14" height="10" rx="2"/>
+    </g>
+    <!-- wiring line linking the drops -->
+    <path d="M -93 20 L -93 0 L 60 0 L 60 40" fill="none" stroke="#c87533" stroke-width="2.5"/>
+    <!-- litter closet (small room w/ two boxes) -->
+    <rect x="30" y="30" width="80" height="56" rx="4" fill="none" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="42" y="58" width="24" height="20" rx="3" fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="2"/>
+    <rect x="74" y="58" width="24" height="20" rx="3" fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="2"/>
+  </g>
+
+  <!-- vertical divider -->
+  <line x1="600" y1="130" x2="600" y2="500" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="3"/>
+
+  <!-- RIGHT: aging dog + a downward-bending activity sparkline with a flagged dip -->
+  <!-- dog silhouette -->
+  <g transform="translate(820,360)" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="-60" y="0" width="125" height="50" rx="25"/>
+    <rect x="-46" y="46" width="14" height="36" rx="6"/><rect x="-20" y="46" width="14" height="36" rx="6"/>
+    <rect x="34" y="46" width="14" height="36" rx="6"/><rect x="52" y="46" width="14" height="36" rx="6"/>
+    <path d="M 60 5 q 30 -6 41 13 q 6 11 19 13 q 8 1 8 9 q 0 7 -8 8 l -19 0 q -20 0 -30 -15 z"/>
+    <path d="M 80 5 q 15 -8 21 6 q 3 9 -8 14"/>
+    <!-- head slightly lowered (older) — tail down, not up -->
+    <path d="M -60 30 q -26 8 -30 34" fill="none"/>
+  </g>
+
+  <!-- activity sparkline above the dog: healthy then bending down into a flagged dip -->
+  <g transform="translate(720,180)">
+    <polyline points="0,10 30,-8 60,4 90,-12 120,-2 150,18 180,30 210,46" fill="none" stroke="#c87533" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- flagged dip marker -->
+    <circle cx="210" cy="46" r="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="4"/>
+    <line x1="210" y1="55" x2="210" y2="86" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 5"/>
+    <!-- small flag at the dip -->
+    <path d="M 226 36 l 22 6 l -22 8 Z" fill="#c14a3a"/>
+    <line x1="226" y1="30" x2="226" y2="52" stroke="#c14a3a" stroke-width="3"/>
+  </g>
+</svg>

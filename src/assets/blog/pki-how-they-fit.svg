@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 600" width="1140" height="600" role="img" aria-label="How a device and the cloud prove each other: the device presents its public certificate; the cloud checks it chains to a trusted CA; the cloud sends a random challenge; the device signs it inside the secure element and sends only the signature, while the private key never leaves the chip; and the cloud verifies the signature with the public key from the certificate. Both sides prove themselves, not just one.">
+  <rect width="1140" height="600" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">HOW THEY PROVE EACH OTHER</text>
+
+  <rect x="48" y="92" width="340" height="312" rx="14" fill="none" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+  <text x="70" y="122" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2" fill="#1a1d24">DEVICE</text>
+  <g transform="translate(74,146)">
+    <rect x="0" y="0" width="130" height="116" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="65" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">SECURE ELEMENT</text>
+    <g transform="translate(48,40)" fill="none" stroke="#c14a3a" stroke-width="3" stroke-linecap="round">
+      <rect x="0" y="16" width="34" height="26" rx="4" fill="#fdfaf2"/>
+      <path d="M6 16 v-8 a11 11 0 0 1 22 0 v8"/>
+      <circle cx="17" cy="29" r="4" fill="#c14a3a" stroke="none"/>
+    </g>
+    <text x="65" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">private key · never leaves</text>
+  </g>
+  <g transform="translate(224,146)">
+    <rect x="0" y="0" width="142" height="116" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="71" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">CERTIFICATE</text>
+    <line x1="16" y1="36" x2="126" y2="36" stroke="#1a1d24" stroke-width="1" opacity="0.3"/>
+    <text x="71" y="58" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">public key</text>
+    <text x="71" y="76" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">+ serial</text>
+    <text x="71" y="94" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">+ CA signature</text>
+  </g>
+
+  <rect x="752" y="92" width="340" height="312" rx="14" fill="none" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+  <text x="774" y="122" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2" fill="#1a1d24">CLOUD</text>
+  <g transform="translate(800,146)">
+    <rect x="0" y="0" width="150" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="75" y="25" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">trusts ROOT CA</text>
+    <text x="75" y="43" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">(the anchor)</text>
+  </g>
+
+  <g transform="translate(388,168)">
+    <text x="186" y="-11" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">1 — presents certificate (it's public)</text>
+    <line x1="0" y1="0" x2="356" y2="0" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M356 0 l-15 -7 v14 z" fill="#1a1d24"/>
+  </g>
+  <text x="800" y="232" font-family="ui-monospace,monospace" font-size="12.5" fill="#3a7d44">2 — cert chains to a trusted CA</text>
+  <path d="M1040 224 l7 7 13 -16" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(388,272)">
+    <text x="186" y="-11" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">3 — challenge: a random nonce</text>
+    <line x1="356" y1="0" x2="0" y2="0" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M0 0 l15 -7 v14 z" fill="#1a1d24"/>
+  </g>
+  <g transform="translate(388,330)">
+    <text x="186" y="-11" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#c14a3a">4 — the signature (not the key)</text>
+    <line x1="0" y1="0" x2="356" y2="0" stroke="#c14a3a" stroke-width="3"/>
+    <path d="M356 0 l-15 -7 v14 z" fill="#c14a3a"/>
+    <text x="186" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">signed inside the chip — the key stays put</text>
+  </g>
+  <text x="800" y="392" font-family="ui-monospace,monospace" font-size="12.5" fill="#3a7d44">5 — signature matches the public key</text>
+  <path d="M1040 384 l7 7 13 -16" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <line x1="48" y1="476" x2="1092" y2="476" stroke="#1a1d24" stroke-width="1" opacity="0.15"/>
+  <text x="570" y="512" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="17" font-style="italic" fill="#3a3f4a">The certificate is public and crosses freely. The private key never does —</text>
+  <text x="570" y="540" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="17" font-style="italic" fill="#3a3f4a">only the signature it produces. And both sides prove themselves, not just one.</text>
+</svg>

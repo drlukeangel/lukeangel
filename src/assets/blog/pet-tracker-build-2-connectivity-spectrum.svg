@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="Connectivity spectrum">
+  <rect width="1120" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">MATCH THE RADIO TO THE USAGE</text>
+
+  <!-- baseline axis: range increasing left to right -->
+  <line x1="80" y1="360" x2="1060" y2="360" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.5"/>
+  <path d="M1064 360 l-16 -8 v16 z" fill="#1a1d24" fill-opacity="0.5"/>
+  <text x="80" y="392" font-family="ui-monospace, monospace" font-size="12" fill="#7a808c">meters</text>
+  <text x="540" y="392" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#7a808c">kilometers</text>
+  <text x="1024" y="392" text-anchor="end" font-family="ui-monospace, monospace" font-size="12" fill="#7a808c">anywhere · range &#8594;</text>
+
+  <!-- BLE column -->
+  <g font-family="ui-monospace, monospace">
+    <rect x="100" y="120" width="270" height="200" rx="12" fill="#1f7a6b" fill-opacity="0.10" stroke="#1f7a6b" stroke-width="3"/>
+    <text x="235" y="152" text-anchor="middle" font-size="17" fill="#1a1d24">BLE</text>
+    <text x="235" y="178" text-anchor="middle" font-size="12.5" fill="#3a7d44">the 95% case · "is it home?"</text>
+    <text x="235" y="222" text-anchor="middle" font-size="12" fill="#1a1d24">sips power · ~a year on a coin cell</text>
+    <text x="235" y="246" text-anchor="middle" font-size="12" fill="#1a1d24">~free · no carrier</text>
+    <text x="235" y="288" text-anchor="middle" font-size="11.5" fill="#7a808c">presence / heartbeat · ~12-byte fix</text>
+  </g>
+
+  <!-- LoRa column -->
+  <g font-family="ui-monospace, monospace">
+    <rect x="425" y="120" width="270" height="200" rx="12" fill="#1f7a6b" fill-opacity="0.06" stroke="#1f7a6b" stroke-width="3" stroke-dasharray="3 5"/>
+    <text x="560" y="152" text-anchor="middle" font-size="17" fill="#1a1d24">LoRa 915 MHz</text>
+    <text x="560" y="178" text-anchor="middle" font-size="12.5" fill="#5b616b">trail + local recovery</text>
+    <text x="560" y="222" text-anchor="middle" font-size="12" fill="#1a1d24">low power · cheap radio</text>
+    <text x="560" y="246" text-anchor="middle" font-size="12" fill="#1a1d24">no carrier · bring the gateway</text>
+    <text x="560" y="288" text-anchor="middle" font-size="11.5" fill="#7a808c">km line-of-sight to the base station</text>
+  </g>
+
+  <!-- Cellular column -->
+  <g font-family="ui-monospace, monospace">
+    <rect x="750" y="120" width="270" height="200" rx="12" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-width="3"/>
+    <text x="885" y="152" text-anchor="middle" font-size="17" fill="#1a1d24">Cellular LTE-M</text>
+    <text x="885" y="178" text-anchor="middle" font-size="12.5" fill="#c14a3a">the rare "genuinely lost"</text>
+    <text x="885" y="222" text-anchor="middle" font-size="12" fill="#1a1d24">hungry · days to ~2 weeks</text>
+    <text x="885" y="246" text-anchor="middle" font-size="12" fill="#1a1d24">hardware + monthly data plan</text>
+    <text x="885" y="288" text-anchor="middle" font-size="11.5" fill="#7a808c">anywhere with a tower · pays in power</text>
+  </g>
+
+  <!-- tick marks down to axis -->
+  <g stroke="#1a1d24" stroke-width="2" stroke-opacity="0.3">
+    <line x1="235" y1="320" x2="235" y2="360"/>
+    <line x1="560" y1="320" x2="560" y2="360"/>
+    <line x1="885" y1="320" x2="885" y2="360"/>
+  </g>
+
+  <text x="80" y="436" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">Run the cheapest radio 95% of the time; only reach for the expensive one during the rare event that needs it.</text>
+</svg>

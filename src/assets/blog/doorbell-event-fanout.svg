@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="one event fans out to the house">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">ONE PRESS, FANNED OUT IN PARALLEL</text>
+
+  <!-- left chain: button -> ONVIF -> MQTT -> HA -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">
+    <g transform="translate(60,150)">
+      <rect x="0" y="-20" width="96" height="40" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+      <text x="48" y="-2" text-anchor="middle">doorbell</text>
+      <text x="48" y="13" text-anchor="middle" font-size="10" fill="#7a808c">ONVIF event</text>
+    </g>
+    <g transform="translate(196,150)">
+      <rect x="0" y="-20" width="84" height="40" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+      <text x="42" y="-2" text-anchor="middle">MQTT</text>
+      <text x="42" y="13" text-anchor="middle" font-size="10" fill="#7a808c">one message</text>
+    </g>
+    <g transform="translate(320,150)">
+      <rect x="0" y="-22" width="96" height="44" rx="8" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="2.5"/>
+      <text x="48" y="-2" text-anchor="middle" font-weight="700">HA</text>
+      <text x="48" y="14" text-anchor="middle" font-size="10" fill="#7a808c">fans out</text>
+    </g>
+    <g stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2">
+      <line x1="156" y1="150" x2="196" y2="150"/><line x1="280" y1="150" x2="320" y2="150"/>
+    </g>
+  </g>
+
+  <!-- four parallel destinations from HA -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">
+    <g transform="translate(640,70)">
+      <rect x="0" y="-22" width="300" height="44" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+      <text x="16" y="-2">cast WebRTC feed</text>
+      <text x="16" y="14" font-size="10" fill="#7a808c">3 Nest Hub displays</text>
+    </g>
+    <g transform="translate(640,130)">
+      <rect x="0" y="-22" width="300" height="44" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+      <text x="16" y="-2">"someone's at the door"</text>
+      <text x="16" y="14" font-size="10" fill="#7a808c">kitchen Echo announce</text>
+    </g>
+    <g transform="translate(640,190)">
+      <rect x="0" y="-22" width="300" height="44" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+      <text x="16" y="-2">push + thumbnail</text>
+      <text x="16" y="14" font-size="10" fill="#7a808c">both phones</text>
+    </g>
+    <g transform="translate(640,250)">
+      <rect x="0" y="-22" width="300" height="44" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+      <text x="16" y="-2">logbook entry</text>
+      <text x="16" y="14" font-size="10" fill="#7a808c">+ 30-day NAS clip</text>
+    </g>
+  </g>
+  <!-- fan lines HA -> 4 -->
+  <g stroke="#6a4c93" stroke-width="2.5" fill="none">
+    <path d="M416 144 C 520 100, 560 80, 640 80"/>
+    <path d="M416 150 C 520 130, 560 130, 640 130"/>
+    <path d="M416 156 C 520 175, 560 190, 640 190"/>
+    <path d="M416 162 C 520 220, 560 248, 640 250"/>
+  </g>
+
+  <!-- timing band -->
+  <g transform="translate(60,360)">
+    <rect x="0" y="0" width="880" height="44" rx="10" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="1.5"/>
+    <text x="24" y="28" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">button press &#8594; every screen showing the visitor: <tspan font-weight="700" fill="#3a7d44">~2 seconds</tspan></text>
+  </g>
+  <text x="60" y="438" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">Seven local systems, one trigger, no vendor cloud in the loop.</text>
+</svg>

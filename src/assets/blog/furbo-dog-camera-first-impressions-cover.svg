@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Treat-tossing dog camera">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- the Furbo tower, left of center -->
+  <g transform="translate(330 130)">
+    <!-- body: tall narrow, slightly tapered -->
+    <path d="M-58 60 L58 60 L48 360 L-48 360 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- wooden lid -->
+    <path d="M-64 60 L64 60 L56 26 a18 14 0 0 0 -120 0 Z" fill="#c87533" fill-opacity="0.30" stroke="#1a1d24" stroke-width="5"/>
+    <!-- camera lens near top of body -->
+    <circle cx="0" cy="120" r="22" fill="#1a1d24"/>
+    <circle cx="0" cy="120" r="9" fill="#fdfaf2"/>
+    <!-- night-vision IR dots ring -->
+    <g fill="#c14a3a" fill-opacity="0.7">
+      <circle cx="0" cy="92" r="3"/><circle cx="22" cy="120" r="3"/><circle cx="0" cy="148" r="3"/><circle cx="-22" cy="120" r="3"/>
+    </g>
+    <!-- treat exit slot near base -->
+    <rect x="-22" y="300" width="44" height="14" rx="4" fill="#1a1d24"/>
+  </g>
+
+  <!-- treat arc out of the slot toward the dog -->
+  <path d="M330 444 C 520 360, 720 360, 900 470" fill="none" stroke="#c87533" stroke-width="5" stroke-dasharray="2 12" stroke-linecap="round"/>
+  <!-- a treat mid-air -->
+  <circle cx="640" cy="380" r="13" fill="#c87533"/>
+
+  <!-- a simple dog silhouette, right, waiting -->
+  <g transform="translate(900 470)" fill="#1a1d24">
+    <!-- body -->
+    <path d="M0 0 q 30 -60 90 -52 q 18 2 26 -18 q 6 18 -2 30 q 30 14 34 60 l 6 60 l -16 0 l -8 -50 q -20 10 -50 10 l -6 40 l -16 0 l 2 -44 q -40 -8 -56 -46 z"/>
+    <!-- ear -->
+    <path d="M104 -64 q 6 22 -6 36 q -16 -8 -10 -34 z"/>
+    <!-- eye (cut) -->
+    <circle cx="118" cy="-50" r="3.5" fill="#fdfaf2"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" width="1080" height="360" role="img" aria-label="Pet IoT follows the smart-home arc about five years behind.">
+  <rect width="1080" height="360" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="38" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">SAME ARC, FIVE YEARS BEHIND</text>
+
+  <!-- four stage chips repeated on two parallel rails -->
+  <!-- stage x-centers -->
+  <!-- smart-home rail (top) -->
+  <text x="60" y="118" font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">smart home</text>
+  <g transform="translate(0,100)">
+    <g transform="translate(220,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#1a1d24" fill-opacity="0.06" stroke="#1a1d24" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">vendor sprawl</text></g>
+    <g transform="translate(430,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#1a1d24" fill-opacity="0.06" stroke="#1a1d24" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">consolidation</text></g>
+    <g transform="translate(640,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">cloud crash</text></g>
+    <g transform="translate(850,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#3a7d44" fill-opacity="0.1" stroke="#3a7d44" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">DIY local-first</text></g>
+    <!-- connectors -->
+    <g stroke="#1a1d24" stroke-width="2" opacity="0.3"><line x1="150" y1="23" x2="360" y2="23"/><line x1="360" y1="23" x2="570" y2="23"/><line x1="570" y1="23" x2="780" y2="23"/></g>
+  </g>
+
+  <!-- pet-IoT rail (bottom), same shape, shifted right to read "behind" -->
+  <text x="60" y="248" font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">pet IoT</text>
+  <g transform="translate(60,230)">
+    <g transform="translate(220,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#c87533" fill-opacity="0.1" stroke="#c87533" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">vendor sprawl</text></g>
+    <g transform="translate(430,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#c87533" fill-opacity="0.1" stroke="#c87533" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">consolidation</text></g>
+    <g transform="translate(640,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">cloud crash</text></g>
+    <g transform="translate(850,0)"><rect x="-70" y="0" width="140" height="46" rx="8" fill="#3a7d44" fill-opacity="0.1" stroke="#3a7d44" stroke-width="2.4"/><text x="0" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">DIY (just starting)</text></g>
+    <g stroke="#1a1d24" stroke-width="2" opacity="0.3"><line x1="150" y1="23" x2="360" y2="23"/><line x1="360" y1="23" x2="570" y2="23"/><line x1="570" y1="23" x2="780" y2="23"/></g>
+  </g>
+  <!-- the "5 years behind" shift arrow -->
+  <g stroke="#7a808c" stroke-width="2" fill="none" stroke-dasharray="4 5">
+    <line x1="280" y1="150" x2="340" y2="230"/>
+  </g>
+  <text x="345" y="195" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">~5 yrs later</text>
+
+  <text x="540" y="332" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Smaller market, higher stakes — the failure mode is animal welfare, not lights stuck on.</text>
+</svg>

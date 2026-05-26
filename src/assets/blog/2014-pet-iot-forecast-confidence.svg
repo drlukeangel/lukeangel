@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 560" width="1080" height="560" role="img" aria-label="A 2015 forecast chart plotting eight predictions by confidence, marked read or wishful.">
+  <rect width="1080" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="42" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">2015 FORECAST · CONFIDENCE vs WISHFUL</text>
+
+  <!-- legend -->
+  <g transform="translate(660,30)" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">
+    <rect x="0" y="0" width="16" height="12" rx="2" fill="#c87533" opacity="0.9"/>
+    <text x="22" y="10">grounded read</text>
+    <rect x="170" y="0" width="16" height="12" rx="2" fill="#fdfaf2" stroke="#c87533" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="192" y="10">wishful / coin-flip</text>
+  </g>
+
+  <!-- confidence axis 0..100% -->
+  <g font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c" text-anchor="middle">
+    <text x="360" y="84">0%</text>
+    <text x="500" y="84">25%</text>
+    <text x="640" y="84">50%</text>
+    <text x="780" y="84">75%</text>
+    <text x="920" y="84">100%</text>
+  </g>
+  <!-- gridlines -->
+  <g stroke="#1a1d24" stroke-width="1" opacity="0.1">
+    <line x1="360" y1="92" x2="360" y2="486"/>
+    <line x1="500" y1="92" x2="500" y2="486"/>
+    <line x1="640" y1="92" x2="640" y2="486"/>
+    <line x1="780" y1="92" x2="780" y2="486"/>
+    <line x1="920" y1="92" x2="920" y2="486"/>
+  </g>
+  <!-- 50% emphasis line (the coin-flip mark) -->
+  <line x1="640" y1="92" x2="640" y2="486" stroke="#7a808c" stroke-width="1.5" opacity="0.4" stroke-dasharray="4 5"/>
+  <text x="640" y="504" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="12.5" font-style="italic" fill="#7a808c">a coin-flip</text>
+
+  <!-- scale: x = 360 + pct * 5.6  (100% -> 920) ; bar height 30, pitch 48, first baseline y=110 -->
+  <!-- bar 1: Whistle cellular GPS — 70% read -->
+  <g transform="translate(0,110)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Whistle adds cellular GPS</text>
+    <rect x="360" y="4" width="392" height="26" rx="5" fill="#c87533" opacity="0.9"/>
+    <text x="744" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#fdfaf2">70%</text>
+  </g>
+  <!-- bar 2: dog-camera category — 75% read -->
+  <g transform="translate(0,158)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">A real dog-camera category</text>
+    <rect x="360" y="4" width="420" height="26" rx="5" fill="#c87533" opacity="0.9"/>
+    <text x="772" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#fdfaf2">75%</text>
+  </g>
+  <!-- bar 3: dog fitness-band gen2 — 65% read -->
+  <g transform="translate(0,206)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Dog fitness-band gen 2</text>
+    <rect x="360" y="4" width="364" height="26" rx="5" fill="#c87533" opacity="0.9"/>
+    <text x="716" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#fdfaf2">65%</text>
+  </g>
+  <!-- bar 4: install SureFlap for Joule — 85% (on me) -->
+  <g transform="translate(0,254)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">I install a SureFlap door</text>
+    <rect x="360" y="4" width="476" height="26" rx="5" fill="#c87533" opacity="0.9"/>
+    <text x="828" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#fdfaf2">85%</text>
+  </g>
+  <!-- bar 5: Petnet ships — 60% hopeful (wishful style) -->
+  <g transform="translate(0,302)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Petnet ships to backers</text>
+    <rect x="360" y="4" width="336" height="26" rx="5" fill="#fdfaf2" stroke="#c87533" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="688" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#c87533">60%</text>
+  </g>
+  <!-- bar 6: connected cat door — 55% mostly wish -->
+  <g transform="translate(0,350)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">A connected cat door ships</text>
+    <rect x="360" y="4" width="308" height="26" rx="5" fill="#fdfaf2" stroke="#c87533" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="660" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#c87533">55%</text>
+  </g>
+  <!-- bar 7: Tagg divested — 50% coin-flip -->
+  <g transform="translate(0,398)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Tagg divested or shuttered</text>
+    <rect x="360" y="4" width="280" height="26" rx="5" fill="#fdfaf2" stroke="#c87533" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="632" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#c87533">50%</text>
+  </g>
+  <!-- bar 8: vet-data platform fails — 50% coin-flip -->
+  <g transform="translate(0,446)">
+    <text x="344" y="20" text-anchor="end" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Vet-data platform (and flops)</text>
+    <rect x="360" y="4" width="280" height="26" rx="5" fill="#fdfaf2" stroke="#c87533" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="632" y="22" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#c87533">50%</text>
+  </g>
+
+  <text x="540" y="540" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Solid bars I'd actually bet on; dashed bars I mostly just want to be true.</text>
+</svg>

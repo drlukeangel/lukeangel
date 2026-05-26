@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" width="980" height="300" aria-label="AWS unbundling agent infra">
+  <rect width="980" height="300" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- spine -->
+  <line x1="90" y1="150" x2="890" y2="150" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M890,140 L912,150 L890,160 z" fill="#1a1d24"/>
+
+  <!-- node helper: tick + dot -->
+  <g font-family="ui-monospace,'JetBrains Mono',monospace" text-anchor="middle">
+
+    <!-- Bedrock Agents GA -->
+    <circle cx="160" cy="150" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="160" y="105" font-size="12" letter-spacing="1" fill="#7a808c">NOV 2023</text>
+    <text x="160" y="200" font-size="13" fill="#1a1d24">Bedrock Agents</text>
+    <text x="160" y="220" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="12" fill="#5b616b">GA — the bundle</text>
+
+    <!-- Strands open-sourced -->
+    <circle cx="430" cy="150" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="430" y="105" font-size="12" letter-spacing="1" fill="#7a808c">MAY 2025</text>
+    <text x="430" y="200" font-size="13" fill="#1a1d24">Strands SDK</text>
+    <text x="430" y="220" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="12" fill="#5b616b">open-sourced — the loop</text>
+
+    <!-- AgentCore preview -->
+    <circle cx="700" cy="150" r="11" fill="#4f46b8"/>
+    <text x="700" y="105" font-size="12" letter-spacing="1" fill="#4f46b8">JUL 2025</text>
+    <text x="700" y="200" font-size="13" fill="#4f46b8">AgentCore</text>
+    <text x="700" y="220" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="12" fill="#5b616b">preview — the runtime + memory</text>
+
+    <!-- you-are-here marker on AgentCore -->
+    <text x="700" y="138" font-size="11" fill="#4f46b8">▲</text>
+  </g>
+
+  <!-- caption strip: the playbook -->
+  <text x="490" y="268" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="14" fill="#1a1d24">the same Lambda + API Gateway + DynamoDB move: ship the pieces, let customers compose</text>
+</svg>

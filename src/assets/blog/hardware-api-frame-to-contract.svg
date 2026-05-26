@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="A packed 20-byte frame expanding into JSON.">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">DEVICE SPEAKS PACKED BINARY &#8594; THE PLATFORM EXPANDS IT &#8594; THE APP READS JSON</text>
+
+  <!-- ============ LEFT: the 20-byte wire frame ============ -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="44" y="86" font-size="14" fill="#1a1d24">on the wire &#8212; one BLE notify, 20 bytes</text>
+
+    <!-- byte cells: 5 rows of 4 = 20 -->
+    <!-- row of small boxes, each 64 wide; group at x=44,y=104 -->
+    <g>
+      <!-- byte 0: type+ver -->
+      <rect x="44" y="104" width="120" height="46" rx="6" fill="#357a8c" fill-opacity="0.14" stroke="#357a8c" stroke-width="2.5"/>
+      <text x="104" y="126" text-anchor="middle" font-size="11" fill="#357a8c">B0</text>
+      <text x="104" y="142" text-anchor="middle" font-size="10" fill="#5b616b">type+ver</text>
+      <!-- byte 1: flags -->
+      <rect x="172" y="104" width="120" height="46" rx="6" fill="#357a8c" fill-opacity="0.14" stroke="#357a8c" stroke-width="2.5"/>
+      <text x="232" y="126" text-anchor="middle" font-size="11" fill="#357a8c">B1</text>
+      <text x="232" y="142" text-anchor="middle" font-size="10" fill="#5b616b">flags</text>
+      <!-- bytes 2-3: duration -->
+      <rect x="300" y="104" width="120" height="46" rx="6" fill="#357a8c" fill-opacity="0.14" stroke="#357a8c" stroke-width="2.5"/>
+      <text x="360" y="126" text-anchor="middle" font-size="11" fill="#357a8c">B2&#8211;3</text>
+      <text x="360" y="142" text-anchor="middle" font-size="10" fill="#5b616b">duration</text>
+
+      <!-- bytes 4-5: quadrant coverage bitmap -->
+      <rect x="44" y="160" width="120" height="46" rx="6" fill="#357a8c" fill-opacity="0.14" stroke="#357a8c" stroke-width="2.5"/>
+      <text x="104" y="182" text-anchor="middle" font-size="11" fill="#357a8c">B4&#8211;5</text>
+      <text x="104" y="198" text-anchor="middle" font-size="10" fill="#5b616b">coverage bits</text>
+      <!-- byte 6: head id -->
+      <rect x="172" y="160" width="120" height="46" rx="6" fill="#357a8c" fill-opacity="0.14" stroke="#357a8c" stroke-width="2.5"/>
+      <text x="232" y="182" text-anchor="middle" font-size="11" fill="#357a8c">B6</text>
+      <text x="232" y="198" text-anchor="middle" font-size="10" fill="#5b616b">head id</text>
+      <!-- bytes 7-19: decimated pressure samples -->
+      <rect x="300" y="160" width="120" height="46" rx="6" fill="#357a8c" fill-opacity="0.14" stroke="#357a8c" stroke-width="2.5"/>
+      <text x="360" y="182" text-anchor="middle" font-size="11" fill="#357a8c">B7&#8211;19</text>
+      <text x="360" y="198" text-anchor="middle" font-size="10" fill="#5b616b">pressure[ ]</text>
+    </g>
+
+    <text x="44" y="244" font-size="11.5" fill="#5b616b">positional &#183; bit-packed &#183; no field names</text>
+
+    <!-- a small puck/device hint -->
+    <g transform="translate(232,300)">
+      <rect x="-70" y="-6" width="140" height="84" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+      <text x="0" y="30" text-anchor="middle" font-size="12" fill="#1a1d24">device</text>
+      <g transform="translate(0,52)" stroke="#357a8c" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 -14 L9 -7 L-7 7 M-7 -7 L9 7 L0 14 L0 -14"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ CENTER: the platform boundary + expand arrow ============ -->
+  <g>
+    <line x1="492" y1="92" x2="492" y2="452" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.4"/>
+    <text x="492" y="474" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">platform boundary</text>
+
+    <!-- expand gate -->
+    <g transform="translate(560,250)">
+      <rect x="-44" y="-34" width="88" height="68" rx="10" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="3"/>
+      <text x="0" y="-2" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#357a8c">expand</text>
+      <text x="0" y="18" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#5b616b">vN &#8594; vN</text>
+    </g>
+    <g stroke="#357a8c" stroke-width="5" fill="#357a8c" stroke-linecap="round">
+      <line x1="424" y1="250" x2="512" y2="250"/>
+      <path d="M428 250 l20 -9 v18 z" transform="translate(-4,0)"/>
+      <line x1="608" y1="250" x2="700" y2="250"/>
+      <path d="M714 250 l-20 -9 v18 z"/>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: the rich JSON contract the app reads ============ -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="724" y="86" font-size="14" fill="#1a1d24">app-facing contract &#8212; self-describing JSON</text>
+    <rect x="724" y="104" width="356" height="320" rx="10" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <g font-size="13" fill="#1a1d24">
+      <text x="744" y="134">{</text>
+      <text x="764" y="160">"schemaVersion": 1,</text>
+      <text x="764" y="186">"durationSec": 124,</text>
+      <text x="764" y="212">"coverage": {</text>
+      <text x="784" y="238">"upperLeft": 0.91,</text>
+      <text x="784" y="264">"lowerRight": 0.40 },</text>
+      <text x="764" y="290">"pressureTrack": [ ... ],</text>
+      <text x="764" y="316">"headId": "G4-soft",</text>
+      <text x="764" y="342">"complete": true</text>
+      <text x="744" y="368">}</text>
+    </g>
+  </g>
+
+  <!-- caption -->
+  <text x="44" y="520" font-family="Newsreader, Georgia, serif" font-size="13.5" font-style="italic" fill="#3a3f4a">the device never sees a field name; the app never sees a packed byte &#8212; the platform is the seam between them.</text>
+</svg>

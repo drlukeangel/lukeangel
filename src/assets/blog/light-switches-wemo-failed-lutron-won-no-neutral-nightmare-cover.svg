@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="No-neutral switch problem">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- switch box, left -->
+  <g transform="translate(160 200)">
+    <rect x="0" y="0" width="220" height="240" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- two wires present (hot black, load) -->
+    <line x1="40" y1="40" x2="40" y2="200" stroke="#1a1d24" stroke-width="8" stroke-linecap="round"/>
+    <line x1="110" y1="40" x2="110" y2="200" stroke="#1a1d24" stroke-width="8" stroke-linecap="round" stroke-opacity="0.55"/>
+    <!-- missing neutral: a dashed ghost wire with a red X -->
+    <line x1="180" y1="40" x2="180" y2="200" stroke="#c14a3a" stroke-width="5" stroke-dasharray="6 10" opacity="0.7"/>
+    <g transform="translate(180 120)"><line x1="-18" y1="-18" x2="18" y2="18" stroke="#c14a3a" stroke-width="6"/><line x1="18" y1="-18" x2="-18" y2="18" stroke="#c14a3a" stroke-width="6"/></g>
+    <!-- a toggle switch glyph -->
+    <rect x="80" y="96" width="60" height="100" rx="10" fill="#6a4c93" fill-opacity="0.12" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="98" y="112" width="24" height="40" rx="5" fill="#6a4c93"/>
+  </g>
+
+  <!-- three option chips, right -->
+  <g transform="translate(540 170)">
+    <!-- option 1: WiFi switch - needs neutral (X) -->
+    <g transform="translate(0 0)">
+      <rect x="0" y="0" width="520" height="80" rx="16" fill="#fdfaf2" stroke="#c14a3a" stroke-width="4"/>
+      <rect x="22" y="20" width="40" height="40" rx="8" fill="#6a4c93" fill-opacity="0.2" stroke="#1a1d24" stroke-width="3"/>
+      <g transform="translate(470 40)"><line x1="-16" y1="-16" x2="16" y2="16" stroke="#c14a3a" stroke-width="6"/><line x1="16" y1="-16" x2="-16" y2="16" stroke="#c14a3a" stroke-width="6"/></g>
+    </g>
+    <!-- option 2: Z-Wave switch - needs neutral (X) -->
+    <g transform="translate(0 110)">
+      <rect x="0" y="0" width="520" height="80" rx="16" fill="#fdfaf2" stroke="#c14a3a" stroke-width="4"/>
+      <rect x="22" y="20" width="40" height="40" rx="8" fill="#6a4c93" fill-opacity="0.2" stroke="#1a1d24" stroke-width="3"/>
+      <g transform="translate(470 40)"><line x1="-16" y1="-16" x2="16" y2="16" stroke="#c14a3a" stroke-width="6"/><line x1="16" y1="-16" x2="-16" y2="16" stroke="#c14a3a" stroke-width="6"/></g>
+    </g>
+    <!-- option 3: no-neutral RF switch - check, with trickle through bulb -->
+    <g transform="translate(0 220)">
+      <rect x="0" y="0" width="520" height="80" rx="16" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4"/>
+      <rect x="22" y="20" width="40" height="40" rx="8" fill="#6a4c93" fill-opacity="0.2" stroke="#1a1d24" stroke-width="3"/>
+      <!-- trickle dots to a small bulb -->
+      <g fill="#c87533"><circle cx="300" cy="40" r="4"/><circle cx="330" cy="40" r="4"/><circle cx="360" cy="40" r="4"/></g>
+      <circle cx="410" cy="40" r="18" fill="#c87533" fill-opacity="0.25" stroke="#1a1d24" stroke-width="3"/><circle cx="410" cy="40" r="6" fill="#c87533"/>
+      <path d="M460 24 l14 16 l24 -28" fill="none" stroke="#3a7d44" stroke-width="6"/>
+    </g>
+  </g>
+</svg>

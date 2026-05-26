@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Wemo SOAP control flow">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+
+    <!-- phone/script, left -->
+    <g transform="translate(60 180)">
+      <rect x="0" y="0" width="120" height="120" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <text x="60" y="55" text-anchor="middle" font-size="14">phone /</text>
+      <text x="60" y="75" text-anchor="middle" font-size="14">script</text>
+    </g>
+
+    <!-- plug, right -->
+    <g transform="translate(760 170)">
+      <rect x="0" y="0" width="160" height="140" rx="12" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+      <text x="80" y="30" text-anchor="middle" font-size="14" fill="#1a1d24">Wemo plug</text>
+      <text x="80" y="50" text-anchor="middle" font-size="11" fill="#5b616b">:49153</text>
+      <!-- relay -->
+      <circle cx="80" cy="92" r="20" fill="none" stroke="#1a1d24" stroke-width="3"/>
+      <text x="80" y="97" text-anchor="middle" font-size="11" fill="#5b616b">relay</text>
+    </g>
+
+    <!-- step arrows -->
+    <!-- 1 SSDP M-SEARCH -->
+    <path d="M184 200 L756 200" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+    <text x="470" y="190" text-anchor="middle" font-size="13" fill="#6a4c93">1 · SSDP M-SEARCH (multicast)</text>
+    <!-- 2 LOCATION setup.xml -->
+    <path d="M756 232 L184 232" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+    <text x="470" y="252" text-anchor="middle" font-size="13" fill="#5b616b">2 · 200 OK, LOCATION → setup.xml</text>
+    <!-- 3 GET setup.xml -->
+    <path d="M184 270 L756 270" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+    <text x="470" y="288" text-anchor="middle" font-size="13" fill="#6a4c93">3 · GET setup.xml → services + endpoints</text>
+    <!-- 4 SOAP SetBinaryState -->
+    <path d="M184 308 L756 308" stroke="#6a4c93" stroke-width="3" marker-end="url(#b)"/>
+    <text x="470" y="326" text-anchor="middle" font-size="13" fill="#6a4c93">4 · POST SOAP SetBinaryState → flips relay</text>
+
+    <!-- Insight branch -->
+    <g transform="translate(60 370)">
+      <rect x="0" y="0" width="880" height="48" rx="10" fill="#6a4c93" fill-opacity="0.06" stroke="#6a4c93" stroke-opacity="0.4" stroke-width="2"/>
+      <text x="16" y="22" font-size="13" fill="#1a1d24">Insight model also: GetInsightParams → "state | last_change | onfor | … | power_mW | kWh"</text>
+      <text x="16" y="40" font-size="12" fill="#5b616b">all on the LAN — no Belkin cloud unless you're off the home network</text>
+    </g>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#1a1d24"/></marker>
+      <marker id="b" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+    </defs>
+  </g>
+</svg>

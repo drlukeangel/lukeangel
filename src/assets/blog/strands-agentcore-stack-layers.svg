@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" role="img" aria-label="The agent platform in three composable layers.">
+  <rect width="1000" height="600" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LAYER 1: SDK / orchestration -->
+  <text x="48" y="60" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c">SDK / ORCHESTRATION — the agent loop</text>
+  <rect x="48" y="74" width="700" height="96" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" text-anchor="middle">
+    <rect x="70" y="98" width="150" height="48" rx="9" fill="#4f46b8" fill-opacity="0.16" stroke="#4f46b8" stroke-width="3"/>
+    <text x="145" y="128" fill="#1a1d24" font-weight="bold">Strands</text>
+    <rect x="236" y="98" width="150" height="48" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <text x="311" y="128" fill="#5b616b">LangGraph</text>
+    <rect x="402" y="98" width="150" height="48" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <text x="477" y="128" fill="#5b616b">CrewAI</text>
+    <rect x="568" y="98" width="150" height="48" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <text x="643" y="128" fill="#5b616b">DSPy</text>
+  </g>
+
+  <line x1="398" y1="170" x2="398" y2="200" stroke="#1a1d24" stroke-width="3"/>
+
+  <!-- LAYER 2: managed runtime -->
+  <text x="48" y="194" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c">MANAGED RUNTIME — framework-agnostic</text>
+  <rect x="48" y="200" width="700" height="76" rx="12" fill="#4f46b8" fill-opacity="0.10" stroke="#4f46b8" stroke-width="3"/>
+  <text x="398" y="245" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" text-anchor="middle" fill="#1a1d24" font-weight="bold">AgentCore Runtime</text>
+
+  <!-- LAYER 3 label, clear above the fan -->
+  <text x="48" y="294" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="1" fill="#7a808c">PLUGGABLE SERVICES — adopt any one alone</text>
+
+  <!-- runtime fans down to each service block (trunk at x=485, clear of the label) -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <path d="M485 276 v22 h-356 v8"/>
+    <path d="M485 298 h-178 v8"/>
+    <path d="M485 298 v8"/>
+    <path d="M485 298 h182 v8"/>
+  </g>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" text-anchor="middle">
+    <rect x="48" y="306" width="162" height="80" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="129" y="352" fill="#1a1d24">Memory</text>
+    <rect x="226" y="306" width="162" height="80" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="307" y="352" fill="#1a1d24">Gateway</text>
+    <rect x="404" y="306" width="162" height="80" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="485" y="352" fill="#1a1d24">Identity</text>
+    <rect x="586" y="306" width="162" height="80" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="667" y="352" fill="#1a1d24">Observability</text>
+  </g>
+
+  <!-- ORTHOGONAL: the model, reached via Bedrock, off to the right of all three layers -->
+  <line x1="748" y1="160" x2="820" y2="160" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 5" opacity="0.6"/>
+  <line x1="820" y1="160" x2="820" y2="346" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 5" opacity="0.6"/>
+  <line x1="748" y1="346" x2="820" y2="346" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 5" opacity="0.6"/>
+  <rect x="820" y="206" width="132" height="100" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="886" y="184" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" letter-spacing="1" text-anchor="middle" fill="#7a808c">via Bedrock</text>
+  <!-- small neural-net glyph -->
+  <g stroke="#1a1d24" stroke-width="2.2" fill="none" opacity="0.85">
+    <circle cx="848" cy="256" r="7"/><circle cx="886" cy="238" r="6"/><circle cx="886" cy="274" r="6"/><circle cx="924" cy="256" r="7"/>
+    <line x1="855" y1="252" x2="880" y2="241"/><line x1="855" y1="261" x2="880" y2="271"/><line x1="892" y1="238" x2="917" y2="251"/><line x1="892" y1="274" x2="917" y2="261"/>
+  </g>
+  <text x="886" y="296" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" text-anchor="middle" fill="#1a1d24">model</text>
+
+  <!-- caption -->
+  <text x="48" y="436" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#5b616b">AWS unbundled agent infrastructure into independent layers you compose —</text>
+  <text x="48" y="462" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#5b616b">any SDK on top, a framework-agnostic runtime beneath, services adopted piece by piece.</text>
+
+  <!-- legend: highlighted = our default, dashed = interchangeable -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">
+    <rect x="48" y="510" width="26" height="18" rx="5" fill="#4f46b8" fill-opacity="0.16" stroke="#4f46b8" stroke-width="2.5"/>
+    <text x="84" y="524">our default</text>
+    <rect x="220" y="510" width="26" height="18" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <text x="256" y="524">interchangeable</text>
+    <line x1="430" y1="519" x2="466" y2="519" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 5"/>
+    <text x="476" y="524">orthogonal (model layer)</text>
+  </g>
+</svg>

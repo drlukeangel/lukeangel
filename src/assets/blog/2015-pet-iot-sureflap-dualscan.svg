@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" role="img" aria-label="SureFlap DualScan flow">
+  <rect width="960" height="470" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .ttl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:17px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .ok{fill:#3a7d44;}
+    .acc{fill:#c87533;}
+  </style>
+
+  <text x="40" y="48" class="ttl">SureFlap DualScan — the latch gates on the chip, both ways</text>
+
+  <!-- wall + flap in middle -->
+  <rect x="430" y="100" width="100" height="230" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <line x1="480" y1="100" x2="480" y2="200" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <!-- flap -->
+  <rect x="446" y="210" width="68" height="84" rx="4" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+  <text x="480" y="318" text-anchor="middle" class="sm">flap</text>
+  <!-- two antenna coils, in and out -->
+  <ellipse cx="450" cy="150" rx="10" ry="20" fill="none" stroke="#c87533" stroke-width="2"/>
+  <ellipse cx="510" cy="150" rx="10" ry="20" fill="none" stroke="#c87533" stroke-width="2"/>
+  <text x="480" y="155" text-anchor="middle" class="sm">dual coil</text>
+
+  <!-- LEFT: inside -->
+  <text x="120" y="110" class="lab">inside</text>
+  <g transform="translate(160,210)">
+    <ellipse cx="0" cy="0" rx="40" ry="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <circle cx="-38" cy="-6" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M -47 -12 l -4 -12 M -29 -12 l 4 -12" stroke="#1a1d24" stroke-width="2.5" fill="none"/>
+    <rect x="6" y="-4" width="14" height="6" rx="2" fill="#c87533"/>
+    <text x="0" y="44" text-anchor="middle" class="sm">Joule + 134.2 kHz chip</text>
+  </g>
+  <!-- read out arrow -->
+  <line x1="220" y1="200" x2="420" y2="200" stroke="#3a7d44" stroke-width="3" marker-end="url(#aok)"/>
+  <text x="320" y="190" text-anchor="middle" class="sm ok">read on the way OUT</text>
+
+  <!-- RIGHT: outside -->
+  <text x="800" y="110" class="lab" text-anchor="end">outside</text>
+  <!-- read in arrow -->
+  <line x1="740" y1="250" x2="540" y2="250" stroke="#3a7d44" stroke-width="3" marker-end="url(#aok)"/>
+  <text x="640" y="276" text-anchor="middle" class="sm ok">read on the way IN</text>
+  <g transform="translate(790,250)">
+    <ellipse cx="0" cy="0" rx="40" ry="26" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+    <text x="0" y="44" text-anchor="middle" class="sm">other cats: chip ≠ Joule → no latch</text>
+  </g>
+
+  <line x1="40" y1="360" x2="920" y2="360" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="480" y="396" text-anchor="middle" class="cap">~600 reads over 7 months, zero failures — passive RFID gating a battery-and-latch box.</text>
+  <text x="480" y="424" text-anchor="middle" class="sm">DualScan reads both directions, so one cat stays in while another goes out.</text>
+
+  <defs>
+    <marker id="aok" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#3a7d44"/></marker>
+  </defs>
+</svg>

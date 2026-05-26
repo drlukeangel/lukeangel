@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-label="Stable steps in the pipeline, experimental steps in the notebook.">
+  <rect width="960" height="470" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- left column: NOTEBOOK (experimental) -->
+  <g transform="translate(60,70)">
+    <rect x="0" y="0" width="360" height="340" rx="14" fill="#fdfaf2" stroke="#5b616b" stroke-width="2.5" stroke-dasharray="10 8"/>
+    <text x="180" y="-30" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#5b616b">NOTEBOOK</text>
+    <text x="180" y="-11" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#7a808c">still changing week to week</text>
+
+    <!-- experimental steps, loose / movable -->
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+      <rect x="36" y="40" width="288" height="46" rx="9" fill="#fdfaf2" stroke="#5b616b" stroke-width="2"/>
+      <text x="180" y="68" text-anchor="middle">feature experiments</text>
+      <rect x="36" y="104" width="288" height="46" rx="9" fill="#fdfaf2" stroke="#5b616b" stroke-width="2"/>
+      <text x="180" y="132" text-anchor="middle">new model candidates</text>
+      <rect x="36" y="168" width="288" height="46" rx="9" fill="#fdfaf2" stroke="#5b616b" stroke-width="2"/>
+      <text x="180" y="196" text-anchor="middle">ad-hoc data slices</text>
+    </g>
+    <text x="180" y="270" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#7a808c">cheap to change · nothing breaks</text>
+  </g>
+
+  <!-- promote arrow: notebook -> pipeline, gated by "stable for a month" -->
+  <g transform="translate(420,180)">
+    <path d="M14 60 L96 60" stroke="#4f46b8" stroke-width="4" fill="none"/>
+    <path d="M96 60 l-18 -7 v14 z" fill="#4f46b8"/>
+    <text x="60" y="44" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#4f46b8">promote</text>
+    <text x="60" y="92" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">when stable</text>
+    <text x="60" y="110" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">~a month</text>
+  </g>
+
+  <!-- right column: PIPELINE (production-critical) -->
+  <g transform="translate(540,70)">
+    <rect x="0" y="0" width="360" height="340" rx="14" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+    <text x="180" y="-30" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#4f46b8">PIPELINE</text>
+    <text x="180" y="-11" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#7a808c">same for a month · production-critical</text>
+
+    <!-- locked / committed steps in sequence -->
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+      <rect x="36" y="40" width="288" height="46" rx="9" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5"/>
+      <text x="180" y="68" text-anchor="middle">prep → train → eval</text>
+      <rect x="36" y="104" width="288" height="46" rx="9" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5"/>
+      <text x="180" y="132" text-anchor="middle">conditional register</text>
+      <rect x="36" y="168" width="288" height="46" rx="9" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5"/>
+      <text x="180" y="196" text-anchor="middle">deploy + monitor</text>
+    </g>
+    <text x="180" y="270" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#7a808c">you'd be mad if it ran differently</text>
+  </g>
+</svg>

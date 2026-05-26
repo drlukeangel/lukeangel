@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Z-Wave inclusion handshake">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+
+    <!-- two actors -->
+    <text x="200" y="44" text-anchor="middle" font-size="15" fill="#6a4c93">hub</text>
+    <text x="800" y="44" text-anchor="middle" font-size="15" fill="#1a1d24">new sensor</text>
+    <line x1="200" y1="56" x2="200" y2="400" stroke="#6a4c93" stroke-width="2.5"/>
+    <line x1="800" y1="56" x2="800" y2="400" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2.5"/>
+
+    <!-- steps -->
+    <!-- 1 enter inclusion (self, hub) -->
+    <g transform="translate(0 90)">
+      <path d="M200 0 q 40 -18 0 -28" fill="none" stroke="#6a4c93" stroke-width="2.5"/>
+      <text x="214" y="-2" font-size="12" fill="#5b616b">1 · enter inclusion mode (app cmd)</text>
+    </g>
+    <!-- 2 NIF device->hub -->
+    <g transform="translate(0 150)">
+      <path d="M790 0 L210 0" fill="none" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+      <text x="500" y="-8" text-anchor="middle" font-size="12">2 · Node Information Frame</text>
+    </g>
+    <!-- 3 node id + key (hub->device) -->
+    <g transform="translate(0 205)">
+      <path d="M210 0 L790 0" fill="none" stroke="#6a4c93" stroke-width="2.5" marker-end="url(#b)"/>
+      <text x="500" y="-8" text-anchor="middle" font-size="12" fill="#6a4c93">3 · assign node ID + AES-128 key exchange</text>
+    </g>
+    <!-- 4 query command classes -->
+    <g transform="translate(0 260)">
+      <path d="M210 0 L790 0" fill="none" stroke="#6a4c93" stroke-width="2.5" marker-end="url(#b)"/>
+      <text x="500" y="-8" text-anchor="middle" font-size="12" fill="#6a4c93">4 · query command classes (capabilities)</text>
+    </g>
+    <!-- 5 write to local DB (self) -->
+    <g transform="translate(0 315)">
+      <path d="M200 0 q 40 -18 0 -28" fill="none" stroke="#6a4c93" stroke-width="2.5"/>
+      <text x="214" y="-2" font-size="12" fill="#5b616b">5 · write node to local SQLite DB</text>
+    </g>
+
+    <!-- local bracket over steps 1-5 -->
+    <path d="M150 76 L130 76 L130 320 L150 320" fill="none" stroke="#3a7d44" stroke-opacity="0.6" stroke-width="2"/>
+    <text x="120" y="200" text-anchor="middle" font-size="12" fill="#3a7d44" transform="rotate(-90 120 200)">all local, on the LAN</text>
+
+    <!-- 6 report to cloud (the only internet hop) -->
+    <g transform="translate(0 372)">
+      <rect x="120" y="-22" width="760" height="40" rx="10" fill="#c87533" fill-opacity="0.08" stroke="#c87533" stroke-opacity="0.4" stroke-width="2"/>
+      <text x="500" y="4" text-anchor="middle" font-size="13" fill="#c87533">6 · report new device up to the cloud — the only step that leaves the house</text>
+    </g>
+
+    <text x="500" y="445" text-anchor="middle" font-size="13" fill="#5b616b">~30 seconds end to end; from step 3 on, all traffic to the node is encrypted</text>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#1a1d24"/></marker>
+      <marker id="b" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+    </defs>
+  </g>
+</svg>

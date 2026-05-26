@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="What Matter does not solve">
+  <rect width="1000" height="460" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24">
+
+    <text x="500" y="42" text-anchor="middle" font-size="16">Matter 1.0 fixes one thing cleanly — and pointedly leaves four on the floor</text>
+
+    <!-- the WIN -->
+    <g>
+      <rect x="60" y="68" width="880" height="58" rx="10" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="3"/>
+      <circle cx="100" cy="97" r="16" fill="#3a7d44" fill-opacity="0.18" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M91 97 l6 7 12 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="135" y="92" font-size="15" fill="#1a1d24">SOLVED — multi-fabric commissioning</text>
+      <text x="135" y="113" font-size="12" fill="#5b616b">one QR code; a device joins Apple Home + Google Home + Home Assistant at once</text>
+    </g>
+
+    <!-- four NOT-solved quadrants -->
+    <g font-size="13">
+      <!-- 1 -->
+      <rect x="60" y="150" width="430" height="86" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M84 168 l20 20 M104 168 l-20 20" stroke="#c14a3a" stroke-width="3"/>
+      <text x="120" y="178" font-size="14">doesn't replace Zigbee / Z-Wave</text>
+      <text x="120" y="200" font-size="11" fill="#5b616b">additional path, not a migration; bridges</text>
+      <text x="120" y="216" font-size="11" fill="#5b616b">expose old gear, they don't convert it</text>
+
+      <!-- 2 -->
+      <rect x="510" y="150" width="430" height="86" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M534 168 l20 20 M554 168 l-20 20" stroke="#c14a3a" stroke-width="3"/>
+      <text x="570" y="178" font-size="14">no cameras in 1.0</text>
+      <text x="570" y="200" font-size="11" fill="#5b616b">lighting, locks, thermostats, sensors, plugs</text>
+      <text x="570" y="216" font-size="11" fill="#5b616b">cameras are on the 1.x roadmap</text>
+
+      <!-- 3 -->
+      <rect x="60" y="248" width="430" height="86" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M84 266 l20 20 M104 266 l-20 20" stroke="#c14a3a" stroke-width="3"/>
+      <text x="120" y="276" font-size="14">doesn't end vendor differentiation</text>
+      <text x="120" y="298" font-size="11" fill="#5b616b">vendor-extended clusters keep the</text>
+      <text x="120" y="314" font-size="11" fill="#5b616b">interesting features Hue-specific</text>
+
+      <!-- 4 -->
+      <rect x="510" y="248" width="430" height="86" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M534 266 l20 20 M554 266 l-20 20" stroke="#c14a3a" stroke-width="3"/>
+      <text x="570" y="276" font-size="14">doesn't share ecosystem logic</text>
+      <text x="570" y="298" font-size="11" fill="#5b616b">syncs state, not intent — each hub still</text>
+      <text x="570" y="314" font-size="11" fill="#5b616b">runs its own routines independently</text>
+    </g>
+
+    <!-- the +1, personal -->
+    <rect x="60" y="348" width="880" height="50" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="5 5"/>
+    <text x="500" y="372" text-anchor="middle" font-size="13" fill="#5b616b">and a fifth, for me: Z-Wave is structurally outside Matter — a Z-Wave bridge is conceivable but doesn't exist yet</text>
+
+    <text x="500" y="430" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">treat it as a commissioning win, not a re-platform — it's the foundation, not the building</text>
+  </g>
+</svg>

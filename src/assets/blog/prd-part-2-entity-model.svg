@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 640" width="1120" height="640" role="img" aria-label="Entity model">
+  <rect width="1120" height="640" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ENTITY MODEL</text>
+
+  <!-- relationship lines drawn first so boxes sit on top -->
+  <g stroke="#7a808c" stroke-width="2.2" fill="none">
+    <!-- Store -> Cart -->
+    <line x1="240" y1="184" x2="240" y2="252"/>
+    <!-- Cart -> Session -->
+    <line x1="328" y1="296" x2="452" y2="338"/>
+    <!-- Account -> Session -->
+    <line x1="240" y1="492" x2="240" y2="424"/>
+    <line x1="328" y1="408" x2="452" y2="378"/>
+    <!-- Session -> Scan -->
+    <line x1="600" y1="338" x2="700" y2="222"/>
+    <!-- Session -> Payment -->
+    <line x1="600" y1="378" x2="700" y2="492"/>
+    <!-- Scan -> Item -->
+    <line x1="828" y1="200" x2="912" y2="200"/>
+  </g>
+
+  <!-- cardinality marks -->
+  <g font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">
+    <text x="252" y="222">1</text>
+    <text x="252" y="246">N</text>
+    <text x="372" y="304">1</text>
+    <text x="430" y="328">N</text>
+    <text x="252" y="476">N</text>
+    <text x="252" y="448">0..1</text>
+    <text x="372" y="392">0..1</text>
+    <text x="618" y="300">1</text>
+    <text x="676" y="244">N</text>
+    <text x="618" y="430">1</text>
+    <text x="676" y="468">0..1</text>
+    <text x="850" y="192">N</text>
+    <text x="892" y="192">1</text>
+  </g>
+
+  <!-- ===== STORE ===== -->
+  <g transform="translate(160,116)">
+    <rect x="0" y="0" width="160" height="68" rx="10" fill="#2a52be" fill-opacity="0.07" stroke="#2a52be" stroke-width="3"/>
+    <text x="80" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">Store</text>
+    <text x="80" y="50" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">geofence · SSID · fleet</text>
+  </g>
+
+  <!-- ===== CART ===== -->
+  <g transform="translate(160,252)">
+    <rect x="0" y="0" width="168" height="72" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="84" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">Cart</text>
+    <text x="84" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">serial · cert · fw · loc</text>
+    <text x="84" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">battery · maint status</text>
+  </g>
+
+  <!-- ===== ACCOUNT ===== -->
+  <g transform="translate(160,492)">
+    <rect x="0" y="0" width="168" height="76" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <text x="84" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">Account</text>
+    <text x="84" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">the only entity</text>
+    <text x="84" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">that holds PII</text>
+  </g>
+
+  <!-- ===== SESSION (center) ===== -->
+  <g transform="translate(452,326)">
+    <rect x="0" y="0" width="148" height="84" rx="10" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="4"/>
+    <text x="74" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">Session</text>
+    <text x="74" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">one shopping trip</text>
+    <text x="74" y="70" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">start · end · status</text>
+  </g>
+
+  <!-- ===== SCAN ===== -->
+  <g transform="translate(700,164)">
+    <rect x="0" y="0" width="160" height="72" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="80" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">Scan</text>
+    <text x="80" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">sku · qty · wt-delta</text>
+    <text x="80" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">price-at-scan · ts</text>
+  </g>
+
+  <!-- ===== ITEM ===== -->
+  <g transform="translate(912,164)">
+    <rect x="0" y="0" width="168" height="72" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3" stroke-dasharray="6 4"/>
+    <text x="84" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">Item</text>
+    <text x="84" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">synced from POS</text>
+    <text x="84" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">not owned by us</text>
+  </g>
+
+  <!-- ===== PAYMENT ===== -->
+  <g transform="translate(700,492)">
+    <rect x="0" y="0" width="160" height="76" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="80" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">Payment</text>
+    <text x="80" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">token — never raw card</text>
+    <text x="80" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">amount · status · ts</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(906,452)">
+    <rect x="0" y="0" width="176" height="118" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+    <text x="14" y="26" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">LEGEND</text>
+    <line x1="14" y1="44" x2="44" y2="44" stroke="#7a808c" stroke-width="2.2"/>
+    <text x="52" y="48" font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24">relationship</text>
+    <rect x="14" y="60" width="22" height="14" rx="3" fill="none" stroke="#c14a3a" stroke-width="2.4"/>
+    <text x="44" y="72" font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24">holds PII</text>
+    <rect x="14" y="84" width="22" height="14" rx="3" fill="none" stroke="#1a1d24" stroke-width="2.4" stroke-dasharray="5 3"/>
+    <text x="44" y="96" font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24">external / synced</text>
+  </g>
+
+  <text x="560" y="610" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Account is optional on Session, Cart and Account never touch, Item is owned by the store.</text>
+</svg>

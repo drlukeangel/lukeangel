@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Kitchen appliances sync">
+  <defs>
+    <pattern id="dots53" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots53)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- Frame TV on the wall, top right -->
+  <g stroke="#1a1d24" stroke-width="3">
+    <rect x="760" y="90" width="300" height="190" rx="6" fill="#1a1d24" fill-opacity="0.04"/>
+    <rect x="780" y="110" width="260" height="150" rx="3" fill="#6a4c93" fill-opacity="0.10"/>
+    <!-- a little "banner" notification on the frame screen -->
+    <rect x="800" y="160" width="220" height="50" rx="8" fill="#fff" stroke="#6a4c93" stroke-width="2.5"/>
+    <line x1="818" y1="178" x2="970" y2="178" stroke="#7a808c" stroke-width="5" stroke-linecap="round"/>
+    <line x1="818" y1="194" x2="930" y2="194" stroke="#c9c4b8" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Family Hub fridge, left -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#fff">
+    <rect x="150" y="170" width="200" height="320" rx="14"/>
+    <line x1="150" y1="290" x2="350" y2="290"/>
+    <!-- the 21in display panel -->
+    <rect x="270" y="190" width="62" height="90" rx="4" fill="#6a4c93" fill-opacity="0.12"/>
+  </g>
+
+  <!-- Oven with probe, center bottom -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#fff">
+    <rect x="430" y="380" width="180" height="150" rx="12"/>
+    <circle cx="460" cy="408" r="8"/>
+    <circle cx="495" cy="408" r="8"/>
+    <rect x="450" y="430" width="140" height="80" rx="6" fill="#6a4c93" fill-opacity="0.06"/>
+  </g>
+  <!-- probe glyph: a thin needle + thermometer bulb -->
+  <g stroke="#c87533" stroke-width="4" fill="none">
+    <line x1="520" y1="350" x2="520" y2="430"/>
+    <circle cx="520" cy="345" r="10" fill="#c87533" fill-opacity="0.2"/>
+  </g>
+
+  <!-- central HA hub node connecting them all -->
+  <g>
+    <circle cx="630" cy="260" r="46" fill="#6a4c93" fill-opacity="0.12" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M610 260 l12 12 16 -22" stroke="#6a4c93" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- connection lines from hub to each appliance/screen -->
+  <g stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.55" fill="none" stroke-dasharray="6 7">
+    <path d="M588 252 L350 230"/>
+    <path d="M672 240 L770 200"/>
+    <path d="M620 304 L520 380"/>
+  </g>
+
+  <!-- dishwasher + washer small icons bottom -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#fff">
+    <rect x="760" y="400" width="120" height="130" rx="10"/>
+    <circle cx="820" cy="465" r="38" fill="none" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="820" cy="465" r="14" fill="#6a4c93" fill-opacity="0.10"/>
+    <rect x="930" y="400" width="120" height="130" rx="10"/>
+    <circle cx="990" cy="465" r="38" fill="none" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="990" cy="465" r="14" fill="#6a4c93" fill-opacity="0.10"/>
+  </g>
+  <g stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.55" fill="none" stroke-dasharray="6 7">
+    <path d="M664 290 L820 400"/>
+    <path d="M676 280 L990 400"/>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="Cumulative cost over time">
+  <rect width="1120" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">CUMULATIVE COST OVER TIME</text>
+
+  <!-- axes -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <line x1="120" y1="90" x2="120" y2="430"/>
+    <line x1="120" y1="430" x2="1040" y2="430"/>
+  </g>
+  <text x="60" y="100" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c" transform="rotate(-90 60 100)" text-anchor="end">total $ paid</text>
+  <text x="1040" y="458" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c" text-anchor="end">years · 3 pets</text>
+
+  <!-- year gridlines -->
+  <g stroke="#1a1d24" stroke-opacity="0.10" stroke-width="1">
+    <line x1="120" y1="430" x2="120" y2="90"/>
+    <line x1="304" y1="430" x2="304" y2="90"/>
+    <line x1="488" y1="430" x2="488" y2="90"/>
+    <line x1="672" y1="430" x2="672" y2="90"/>
+    <line x1="856" y1="430" x2="856" y2="90"/>
+  </g>
+  <g font-family="ui-monospace,monospace" font-size="11" fill="#7a808c" text-anchor="middle">
+    <text x="120" y="450">yr 0</text><text x="304" y="450">yr 1</text><text x="488" y="450">yr 2</text><text x="672" y="450">yr 3</text><text x="856" y="450">yr 4</text>
+  </g>
+
+  <!-- subscription staircase: ~$300/yr, rising forever -->
+  <polyline points="120,430 120,348 304,348 304,266 488,266 488,184 672,184 672,128 856,128 856,108 920,108"
+            fill="none" stroke="#c14a3a" stroke-width="4" stroke-linejoin="round"/>
+  <!-- recurring tick markers -->
+  <g fill="#c14a3a"><circle cx="304" cy="348" r="5"/><circle cx="488" cy="266" r="5"/><circle cx="672" cy="184" r="5"/><circle cx="856" cy="128" r="5"/></g>
+  <text x="912" y="98" text-anchor="end" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">~$300 / yr, forever</text>
+
+  <!-- one-time DIY build: a single jump, then flat -->
+  <polyline points="120,430 150,372 920,372" fill="none" stroke="#1f7a6b" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="150" cy="372" r="6" fill="#1f7a6b"/>
+  <text x="912" y="362" text-anchor="end" font-family="ui-monospace,monospace" font-size="13" fill="#1f7a6b">build once, ~$0 / yr</text>
+
+  <!-- crossover marker -->
+  <line x1="240" y1="380" x2="240" y2="200" stroke="#7a808c" stroke-width="1.5" stroke-dasharray="5 6"/>
+  <text x="248" y="200" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">parts pay for themselves fast</text>
+</svg>

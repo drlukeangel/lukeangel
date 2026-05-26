@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" width="1080" height="540" role="img" aria-label="Two pet-tech stacks side by side: the dog fully populated, the cat only its identity layer.">
+  <rect width="1080" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="42" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE 2014 INSTRUMENTATION GAP</text>
+
+  <!-- column headers -->
+  <text x="290" y="84" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="14" fill="#1a1d24">DOG · Atom</text>
+  <text x="790" y="84" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="14" fill="#1a1d24">CAT · Joule</text>
+
+  <!-- faint divider -->
+  <line x1="540" y1="100" x2="540" y2="468" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.16"/>
+
+  <!-- layer label column on the far left -->
+  <g font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c" text-anchor="start">
+    <text x="40" y="128">app + a year of trend</text>
+    <text x="40" y="196">cloud</text>
+    <text x="40" y="264">bridge / radio</text>
+    <text x="40" y="332">device on the body</text>
+    <text x="40" y="408">identity</text>
+  </g>
+
+  <!-- ============ DOG STACK (all filled, orange) ============ -->
+  <g>
+    <!-- L5 app + trend -->
+    <g transform="translate(150,108)">
+      <rect width="280" height="48" rx="8" fill="#c87533" opacity="0.9"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#fdfaf2">activity trend in the app</text>
+    </g>
+    <!-- L4 cloud -->
+    <g transform="translate(150,176)">
+      <rect width="280" height="48" rx="8" fill="#c87533" opacity="0.82"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#fdfaf2">Whistle cloud</text>
+    </g>
+    <!-- L3 radio in the puck -->
+    <g transform="translate(150,244)">
+      <rect width="280" height="48" rx="8" fill="#c87533" opacity="0.74"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#fdfaf2">BLE + Wi-Fi, straight to cloud</text>
+    </g>
+    <!-- L2 collar puck -->
+    <g transform="translate(150,312)">
+      <rect width="280" height="48" rx="8" fill="#c87533" opacity="0.66"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#fdfaf2">BLE collar puck</text>
+    </g>
+    <!-- L1 sensor -->
+    <g transform="translate(150,380)">
+      <rect width="280" height="48" rx="8" fill="#c87533" opacity="0.58"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">3-axis motion sensor</text>
+    </g>
+    <!-- connecting flow arrows up the dog stack -->
+    <g stroke="#1a1d24" stroke-width="2" opacity="0.3">
+      <line x1="290" y1="380" x2="290" y2="360"/>
+      <line x1="290" y1="312" x2="290" y2="292"/>
+      <line x1="290" y1="244" x2="290" y2="224"/>
+      <line x1="290" y1="176" x2="290" y2="156"/>
+    </g>
+  </g>
+
+  <!-- ============ CAT STACK (only bottom filled, rest empty dashed) ============ -->
+  <g>
+    <!-- L5 empty -->
+    <g transform="translate(650,108)">
+      <rect width="280" height="48" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="5 5"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">— no history —</text>
+    </g>
+    <!-- L4 empty -->
+    <g transform="translate(650,176)">
+      <rect width="280" height="48" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="5 5"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">— no app —</text>
+    </g>
+    <!-- L3 empty -->
+    <g transform="translate(650,244)">
+      <rect width="280" height="48" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="5 5"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">— no radio —</text>
+    </g>
+    <!-- L2 empty -->
+    <g transform="translate(650,312)">
+      <rect width="280" height="48" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="5 5"/>
+      <text x="140" y="29" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">— no telemetry —</text>
+    </g>
+    <!-- L1 filled: passive microchip -->
+    <g transform="translate(650,380)">
+      <rect width="280" height="48" rx="8" fill="#c87533" opacity="0.85"/>
+      <text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#fdfaf2">passive microchip = an ID</text>
+      <text x="140" y="38" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#fdfaf2">read only under a scanner</text>
+    </g>
+  </g>
+
+  <text x="540" y="512" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">The dog has a whole pipeline; the cat has one passive layer and nothing built on top of it.</text>
+</svg>

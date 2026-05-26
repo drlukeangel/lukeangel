@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-label="Hub-mesh vs WiFi-only bulbs">
+  <rect width="1000" height="540" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <line x1="500" y1="40" x2="500" y2="500" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="4 8"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+
+    <!-- LEFT: hub + Zigbee mesh -->
+    <text x="250" y="66" text-anchor="middle" font-size="17" fill="#6a4c93">hub + Zigbee mesh</text>
+
+    <!-- phone -->
+    <g transform="translate(60 110)">
+      <rect x="0" y="0" width="42" height="74" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <circle cx="21" cy="64" r="3" fill="#1a1d24"/>
+      <text x="21" y="98" text-anchor="middle" font-size="12" fill="#5b616b">phone</text>
+    </g>
+    <!-- wifi to router -->
+    <path d="M104 150 L150 150" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="3 5"/>
+    <text x="127" y="142" text-anchor="middle" font-size="11" fill="#5b616b">Wi-Fi</text>
+    <!-- router -->
+    <g transform="translate(150 128)">
+      <rect x="0" y="0" width="70" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <line x1="14" y1="14" x2="56" y2="14" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+      <text x="35" y="62" text-anchor="middle" font-size="12" fill="#5b616b">router</text>
+    </g>
+    <!-- ethernet to bridge -->
+    <path d="M220 150 L266 150" stroke="#1a1d24" stroke-width="3"/>
+    <text x="243" y="142" text-anchor="middle" font-size="10" fill="#5b616b">eth</text>
+    <!-- bridge -->
+    <g transform="translate(266 126)">
+      <rect x="0" y="0" width="62" height="48" rx="12" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+      <circle cx="31" cy="24" r="7" fill="#6a4c93"/>
+      <text x="31" y="66" text-anchor="middle" font-size="12" fill="#5b616b">bridge</text>
+    </g>
+
+    <!-- Zigbee mesh bulbs -->
+    <!-- bulb A near bridge -->
+    <g transform="translate(360 150)"><circle r="16" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2"/><circle r="5" fill="#6a4c93"/></g>
+    <!-- bulb B further -->
+    <g transform="translate(430 90)"><circle r="16" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2"/><circle r="5" fill="#6a4c93"/></g>
+    <!-- bulb C furthest, routes through B -->
+    <g transform="translate(450 230)"><circle r="16" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2"/><circle r="5" fill="#6a4c93"/></g>
+    <!-- zigbee links -->
+    <g stroke="#6a4c93" stroke-width="2.5">
+      <path d="M328 150 L344 150"/>
+      <path d="M373 138 L418 102"/>
+      <path d="M372 162 L436 222"/>
+      <path d="M442 104 L456 214" stroke-dasharray="3 5"/>
+    </g>
+    <text x="400" y="300" text-anchor="middle" font-size="12" fill="#6a4c93">Zigbee — separate low-power radio</text>
+    <text x="400" y="320" text-anchor="middle" font-size="11" fill="#5b616b">distant bulb relays through a nearer one</text>
+
+    <!-- RIGHT: WiFi-only -->
+    <text x="750" y="66" text-anchor="middle" font-size="17" fill="#6a4c93">Wi-Fi only — no hub</text>
+
+    <!-- router center -->
+    <g transform="translate(715 200)">
+      <rect x="0" y="0" width="70" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <line x1="14" y1="14" x2="56" y2="14" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+      <text x="35" y="62" text-anchor="middle" font-size="12" fill="#5b616b">router</text>
+    </g>
+    <!-- three bulbs each direct to router -->
+    <g transform="translate(600 110)"><circle r="16" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2"/><circle r="5" fill="#6a4c93"/></g>
+    <g transform="translate(900 110)"><circle r="16" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2"/><circle r="5" fill="#6a4c93"/></g>
+    <g transform="translate(880 300)"><circle r="16" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2"/><circle r="5" fill="#6a4c93"/></g>
+    <g transform="translate(610 300)"><circle r="16" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2"/><circle r="5" fill="#6a4c93"/></g>
+    <g stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 5" stroke-opacity="0.6">
+      <path d="M716 210 L612 122"/>
+      <path d="M788 210 L888 122"/>
+      <path d="M788 234 L868 290"/>
+      <path d="M716 234 L622 290"/>
+    </g>
+    <text x="750" y="360" text-anchor="middle" font-size="12" fill="#5b616b">every bulb on Wi-Fi, its own IP</text>
+    <text x="750" y="380" text-anchor="middle" font-size="11" fill="#5b616b">no extra box, but a crowded 2.4 GHz</text>
+
+    <text x="500" y="470" text-anchor="middle" font-size="13" fill="#5b616b">tradeoff: an extra radio + a box, versus every bulb fighting the laptop for Wi-Fi airtime</text>
+  </g>
+</svg>

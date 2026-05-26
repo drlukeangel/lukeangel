@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 760" width="1040" height="760" role="img" aria-label="Compute decision flowchart.">
+  <rect width="1040" height="760" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <defs>
+    <marker id="dt-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3.2" orient="auto">
+      <path d="M0 0 L8 3.2 L0 6.4 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <style>
+    .q { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 15px; fill:#1a1d24; }
+    .yn { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 13px; fill:#5b616b; }
+    .leaf { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 19px; font-weight:600; fill:#1a1d24; }
+    .sub { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 12px; fill:#5b616b; }
+    .edge { stroke:#1a1d24; stroke-width:2.5; fill:none; }
+  </style>
+
+  <!-- START -->
+  <rect x="270" y="28" width="200" height="44" rx="22" fill="#4f46b8" fill-opacity="0.12" stroke="#4f46b8" stroke-width="2.5"/>
+  <text x="370" y="55" text-anchor="middle" class="q">new service</text>
+
+  <!-- Q1 diamond: cold-start sensitive? -->
+  <path d="M370 92 L482 168 L370 244 L258 168 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="370" y="160" text-anchor="middle" class="q">ready &lt; 100 ms</text>
+  <text x="370" y="180" text-anchor="middle" class="q">cold?</text>
+  <line x1="370" y1="72" x2="370" y2="90" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- Q1 NO -> down to Q2 -->
+  <text x="382" y="270" class="yn">no</text>
+  <line x1="370" y1="244" x2="370" y2="300" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- Q1 YES -> right then down into 'not Lambda' merge -->
+  <text x="494" y="158" class="yn">yes</text>
+  <path d="M482 168 H800 V232" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- Q2 diamond: runs > 15 min? -->
+  <path d="M370 302 L482 378 L370 454 L258 378 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="370" y="370" text-anchor="middle" class="q">runs &gt; 15</text>
+  <text x="370" y="390" text-anchor="middle" class="q">min?</text>
+
+  <!-- Q2 NO -> Lambda leaf -->
+  <text x="382" y="480" class="yn">no</text>
+  <line x1="370" y1="454" x2="370" y2="560" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- Q2 YES -> up (before the diamond) then into 'not Lambda' merge left edge -->
+  <text x="494" y="368" class="yn">yes</text>
+  <path d="M482 378 H560 V256 H704" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- LAMBDA leaf -->
+  <rect x="274" y="562" width="192" height="60" rx="10" fill="#4f46b8" fill-opacity="0.14" stroke="#4f46b8" stroke-width="3"/>
+  <text x="370" y="592" text-anchor="middle" class="leaf">Lambda</text>
+  <text x="370" y="612" text-anchor="middle" class="sub">cold-tolerant, short</text>
+
+  <!-- ===== CONTAINER SIDE (right, x ~ 800) ===== -->
+  <!-- merge node: not Lambda -->
+  <rect x="704" y="234" width="192" height="44" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="800" y="261" text-anchor="middle" class="q">not Lambda</text>
+
+  <!-- Q3/Q4 combined diamond: high util OR need instance control? -->
+  <path d="M800 304 L924 386 L800 468 L676 386 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="800" y="372" text-anchor="middle" class="q">high util or</text>
+  <text x="800" y="392" text-anchor="middle" class="q">need instance</text>
+  <text x="800" y="412" text-anchor="middle" class="q">control?</text>
+  <line x1="800" y1="278" x2="800" y2="302" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- Q3/Q4 NO -> Fargate leaf (down the left side of container column) -->
+  <text x="632" y="370" class="yn">no</text>
+  <path d="M676 386 H600 V560" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- Q3/Q4 YES -> ECS leaf -->
+  <text x="812" y="492" class="yn">yes</text>
+  <line x1="800" y1="468" x2="800" y2="560" class="edge" marker-end="url(#dt-arrow)"/>
+
+  <!-- FARGATE leaf -->
+  <rect x="504" y="562" width="192" height="60" rx="10" fill="#4f46b8" fill-opacity="0.14" stroke="#4f46b8" stroke-width="3"/>
+  <text x="600" y="598" text-anchor="middle" class="leaf">Fargate</text>
+
+  <!-- ECS leaf -->
+  <rect x="704" y="562" width="192" height="60" rx="10" fill="#4f46b8" fill-opacity="0.14" stroke="#4f46b8" stroke-width="3"/>
+  <text x="800" y="592" text-anchor="middle" class="leaf">ECS</text>
+  <text x="800" y="612" text-anchor="middle" class="sub">on EC2</text>
+
+  <!-- caption -->
+  <text x="520" y="682" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="20" fill="#5b616b">Cold-start tolerance is the question; everything else is a follow-up.</text>
+  <text x="520" y="716" text-anchor="middle" class="yn">four questions, three leaves, one decision</text>
+</svg>

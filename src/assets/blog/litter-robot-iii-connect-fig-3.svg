@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 440" role="img" aria-label="annual visit vs continuous record">
+  <rect width="940" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+  </style>
+
+  <!-- TOP ROW: the annual vet visit — one dot on a year line -->
+  <text x="40" y="48" class="hd">THE ANNUAL VET VISIT — one sample a year</text>
+  <line x1="60" y1="110" x2="880" y2="110" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <!-- month ticks -->
+  <g stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1.5">
+    <line x1="128" y1="104" x2="128" y2="116"/><line x1="196" y1="104" x2="196" y2="116"/>
+    <line x1="264" y1="104" x2="264" y2="116"/><line x1="332" y1="104" x2="332" y2="116"/>
+    <line x1="400" y1="104" x2="400" y2="116"/><line x1="468" y1="104" x2="468" y2="116"/>
+    <line x1="536" y1="104" x2="536" y2="116"/><line x1="604" y1="104" x2="604" y2="116"/>
+    <line x1="672" y1="104" x2="672" y2="116"/><line x1="740" y1="104" x2="740" y2="116"/>
+    <line x1="808" y1="104" x2="808" y2="116"/>
+  </g>
+  <!-- the single data point -->
+  <circle cx="128" cy="110" r="9" fill="#c87533"/>
+  <text x="128" y="92" text-anchor="middle" class="lab" fill="#c87533">one weigh-in</text>
+  <text x="470" y="142" text-anchor="middle" class="lab">everything between two visits is unseen</text>
+
+  <!-- BOTTOM ROW: the litter box — a dense daily record -->
+  <text x="40" y="232" class="hd">THE CONNECTED LITTER BOX — every visit, every day</text>
+  <line x1="60" y1="300" x2="880" y2="300" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <!-- dense weight track: gentle decline with daily dots -->
+  <polyline points="70,294 110,295 150,293 190,296 230,295 270,297 310,298 350,300 390,301 430,303 470,304 510,306 550,308 590,310 630,313 670,316 710,318 750,321 790,323 830,326 870,328"
+            fill="none" stroke="#c87533" stroke-width="3"/>
+  <g fill="#c87533">
+    <circle cx="70" cy="294" r="3.5"/><circle cx="150" cy="293" r="3.5"/><circle cx="230" cy="295" r="3.5"/>
+    <circle cx="310" cy="298" r="3.5"/><circle cx="390" cy="301" r="3.5"/><circle cx="470" cy="304" r="3.5"/>
+    <circle cx="550" cy="308" r="3.5"/><circle cx="630" cy="313" r="3.5"/><circle cx="710" cy="318" r="3.5"/>
+    <circle cx="790" cy="323" r="3.5"/><circle cx="870" cy="328" r="3.5"/>
+  </g>
+  <text x="70" y="284" class="lab" fill="#c87533">weight, visit count, duration — logged daily</text>
+  <!-- arrow flagging the slow decline a single visit would miss -->
+  <path d="M700 350 C 760 350 800 345 850 335" fill="none" stroke="#5b616b" stroke-width="1.8" marker-end="url(#a)"/>
+  <text x="770" y="372" text-anchor="middle" class="lab">a slow decline the yearly weigh-in can't catch</text>
+
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 z" fill="#5b616b"/></marker></defs>
+
+  <text x="40" y="418" class="cap">Same signals a vet reads — turned from one yearly data point into a continuous record.</text>
+</svg>

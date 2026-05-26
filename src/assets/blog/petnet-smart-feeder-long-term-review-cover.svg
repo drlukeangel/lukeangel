@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Cloud-dependent feeder">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- cloud, top center -->
+  <g transform="translate(600 130)">
+    <path d="M-130 30 a55 55 0 0 1 30 -104 a72 72 0 0 1 135 12 a52 52 0 0 1 5 92 z"
+          fill="#fdfaf2" stroke="#1a1d24" stroke-width="5" stroke-opacity="0.8"/>
+  </g>
+
+  <!-- broken link from cloud down to feeder -->
+  <g stroke-width="7" stroke-linecap="round">
+    <!-- upper segment from cloud -->
+    <path d="M600 200 L600 270" stroke="#c87533"/>
+    <!-- lower segment toward feeder -->
+    <path d="M600 360 L600 385" stroke="#c87533"/>
+  </g>
+  <!-- break marker -->
+  <g transform="translate(600 315)">
+    <line x1="-46" y1="-26" x2="46" y2="26" stroke="#c14a3a" stroke-width="8" stroke-linecap="round"/>
+    <line x1="46" y1="-26" x2="-46" y2="26" stroke="#c14a3a" stroke-width="8" stroke-linecap="round"/>
+    <!-- jagged ends to read as a snapped wire -->
+    <path d="M600 0" fill="none"/>
+  </g>
+
+  <!-- feeder: hopper + auger spout + empty bowl -->
+  <g transform="translate(520 385)">
+    <!-- hopper -->
+    <path d="M0 0 h160 v60 l-30 70 h-100 l-30 -70 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- kibble dots inside hopper -->
+    <g fill="#c87533">
+      <circle cx="45" cy="40" r="7"/><circle cx="80" cy="30" r="7"/><circle cx="115" cy="42" r="7"/>
+      <circle cx="62" cy="62" r="7"/><circle cx="98" cy="60" r="7"/><circle cx="80" cy="84" r="6"/>
+    </g>
+    <!-- spout -->
+    <rect x="62" y="130" width="36" height="34" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+  </g>
+  <!-- empty bowl below -->
+  <g transform="translate(600 560)">
+    <path d="M-95 -28 a95 95 0 0 0 190 0 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <ellipse cx="0" cy="-28" rx="95" ry="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+  </g>
+</svg>

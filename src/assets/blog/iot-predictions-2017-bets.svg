@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img" aria-label="2017 bets by confidence">
+  <rect width="760" height="560" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="50" font-size="20" fill="#1a1d24" letter-spacing="1">THE 2017 BETS</text>
+    <text x="40" y="74" font-size="13" fill="#7a808c">eight calls, ranked by how sure I am writing this</text>
+
+    <!-- confidence axis -->
+    <line x1="250" y1="108" x2="250" y2="520" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="1.5"/>
+    <text x="250" y="100" font-size="11" fill="#3a7d44" text-anchor="middle">HIGH CONVICTION</text>
+    <text x="250" y="540" font-size="11" fill="#c14a3a" text-anchor="middle">A REACH</text>
+
+    <!-- bets as labeled dots on the axis; dot size = conviction -->
+    <!-- 2 AirPods - highest -->
+    <circle cx="250" cy="140" r="13" fill="#0066cc"/>
+    <text x="278" y="138" font-size="14" fill="#1a1d24">AirPods catch up to demand — $1B+ run-rate</text>
+    <text x="278" y="156" font-size="11" fill="#7a808c">already shipping; just supply</text>
+
+    <!-- 3 Smart displays -->
+    <circle cx="250" cy="196" r="12" fill="#0066cc"/>
+    <text x="278" y="194" font-size="14" fill="#1a1d24">Smart displays become a category</text>
+    <text x="278" y="212" font-size="11" fill="#7a808c">voice + screen + ambient = the kitchen</text>
+
+    <!-- 6 Cameras consolidate -->
+    <circle cx="250" cy="252" r="11" fill="#0066cc"/>
+    <text x="278" y="250" font-size="14" fill="#1a1d24">Cameras consolidate to three</text>
+    <text x="278" y="268" font-size="11" fill="#7a808c">Nest, Arlo, Ring; the rest absorbed</text>
+
+    <!-- 4 Watch S3 LTE -->
+    <circle cx="250" cy="308" r="11" fill="#0066cc"/>
+    <text x="278" y="306" font-size="14" fill="#1a1d24">Apple Watch gains LTE</text>
+    <text x="278" y="324" font-size="11" fill="#7a808c">standalone at last — activation will be rough</text>
+
+    <!-- 1 HomePod late -->
+    <circle cx="250" cy="364" r="10" fill="#0066cc" fill-opacity="0.85"/>
+    <text x="278" y="362" font-size="14" fill="#1a1d24">Apple ships a speaker, and it's late</text>
+    <text x="278" y="380" font-size="11" fill="#7a808c">great sound, Siri behind Alexa</text>
+
+    <!-- 5 Ring bought/IPO -->
+    <circle cx="250" cy="420" r="9" fill="#0066cc" fill-opacity="0.7"/>
+    <text x="278" y="418" font-size="14" fill="#1a1d24">Ring gets bought or goes public</text>
+    <text x="278" y="436" font-size="11" fill="#7a808c">1M+ sold; Amazon the obvious buyer</text>
+
+    <!-- 8 first brick / EOL -->
+    <circle cx="250" cy="476" r="8" fill="#c14a3a" fill-opacity="0.8"/>
+    <text x="278" y="474" font-size="14" fill="#1a1d24">First "left at the curb" EOL brick</text>
+    <text x="278" y="492" font-size="11" fill="#7a808c">a 2014-era hub goes dark — trust hit</text>
+
+    <!-- 7 BT Mesh -->
+    <circle cx="250" cy="516" r="8" fill="#c14a3a" fill-opacity="0.8"/>
+    <text x="278" y="514" font-size="14" fill="#1a1d24">Bluetooth Mesh standardizes</text>
+    <text x="278" y="532" font-size="11" fill="#7a808c">spec yes; consumer scale, not this year</text>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Latency tolerance scale">
+  <rect width="1000" height="420" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+
+    <!-- gradient-ish scale bar (green to red via segments) -->
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#3a7d44" stop-opacity="0.5"/>
+        <stop offset="0.5" stop-color="#c87533" stop-opacity="0.5"/>
+        <stop offset="1" stop-color="#c14a3a" stop-opacity="0.55"/>
+      </linearGradient>
+    </defs>
+    <rect x="80" y="170" width="840" height="26" rx="13" fill="url(#g)"/>
+    <text x="80" y="150" font-size="14" fill="#3a7d44">5–15 s is fine</text>
+    <text x="920" y="150" font-size="14" fill="#c14a3a" text-anchor="end">5–15 s is broken</text>
+
+    <!-- markers along the scale -->
+    <!-- fine end -->
+    <g text-anchor="middle">
+      <line x1="180" y1="160" x2="180" y2="206" stroke="#3a7d44" stroke-width="3"/>
+      <text x="180" y="240" font-size="12">sunset /</text>
+      <text x="180" y="256" font-size="12">fixed time</text>
+      <text x="180" y="276" font-size="11" fill="#3a7d44">nobody waiting</text>
+
+      <line x1="320" y1="160" x2="320" y2="206" stroke="#3a7d44" stroke-width="3"/>
+      <text x="320" y="240" font-size="12">arrive-home</text>
+      <text x="320" y="256" font-size="12">geofence</text>
+
+      <!-- middle -->
+      <line x1="520" y1="160" x2="520" y2="206" stroke="#c87533" stroke-width="3"/>
+      <text x="520" y="240" font-size="12">"I'm home"</text>
+      <text x="520" y="256" font-size="12">lights fan-out</text>
+      <text x="520" y="276" font-size="11" fill="#c87533">noticeable</text>
+
+      <!-- intolerable end -->
+      <line x1="720" y1="160" x2="720" y2="206" stroke="#c14a3a" stroke-width="3"/>
+      <text x="720" y="240" font-size="12">wall button</text>
+      <text x="720" y="256" font-size="12">press → act</text>
+      <text x="720" y="276" font-size="11" fill="#c14a3a">reads as broken</text>
+
+      <line x1="860" y1="160" x2="860" y2="206" stroke="#c14a3a" stroke-width="3"/>
+      <text x="860" y="240" font-size="12">motion →</text>
+      <text x="860" y="256" font-size="12">light</text>
+    </g>
+
+    <text x="500" y="350" text-anchor="middle" font-size="14" fill="#5b616b">the cloud round-trip is acceptable only when no human is waiting on the result</text>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 440" width="1120" height="440" role="img" aria-label="Tiered-power geofence flip">
+  <rect width="1120" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE TIERED-POWER FLIP</text>
+
+  <!-- LEFT state: BLE presence mode -->
+  <g font-family="ui-monospace, monospace">
+    <rect x="70" y="110" width="360" height="210" rx="14" fill="#1f7a6b" fill-opacity="0.10" stroke="#1f7a6b" stroke-width="3.5"/>
+    <text x="250" y="150" text-anchor="middle" font-size="17" fill="#1a1d24">BLE PRESENCE MODE</text>
+    <text x="250" y="174" text-anchor="middle" font-size="12.5" fill="#3a7d44">at home · the 95% state</text>
+    <g font-size="12.5" fill="#1a1d24">
+      <text x="250" y="214" text-anchor="middle">GPS off · LoRa quiet</text>
+      <text x="250" y="240" text-anchor="middle">BLE heartbeat only · ~no data</text>
+      <text x="250" y="266" text-anchor="middle">accelerometer logging activity</text>
+    </g>
+    <text x="250" y="300" text-anchor="middle" font-size="13" fill="#3a7d44">battery: months</text>
+  </g>
+
+  <!-- RIGHT state: findable mode -->
+  <g font-family="ui-monospace, monospace">
+    <rect x="690" y="110" width="360" height="210" rx="14" fill="#c87533" fill-opacity="0.08" stroke="#c87533" stroke-width="3.5"/>
+    <text x="870" y="150" text-anchor="middle" font-size="17" fill="#1a1d24">FINDABLE MODE</text>
+    <text x="870" y="174" text-anchor="middle" font-size="12.5" fill="#c14a3a">off-property · the rare event</text>
+    <g font-size="12.5" fill="#1a1d24">
+      <text x="870" y="214" text-anchor="middle">GPS fixes on</text>
+      <text x="870" y="240" text-anchor="middle">LoRa beacons out to the base</text>
+      <text x="870" y="266" text-anchor="middle">RSSI proximity beep on approach</text>
+    </g>
+    <text x="870" y="300" text-anchor="middle" font-size="13" fill="#c14a3a">battery: drains fast — but briefly</text>
+  </g>
+
+  <!-- transition arrows -->
+  <g font-family="ui-monospace, monospace" font-size="12">
+    <line x1="436" y1="190" x2="680" y2="190" stroke="#c14a3a" stroke-width="3.5"/>
+    <path d="M684 190 l-16 -8 v16 z" fill="#c14a3a"/>
+    <text x="560" y="180" text-anchor="middle" fill="#c14a3a">crosses the geofence</text>
+
+    <line x1="680" y1="248" x2="436" y2="248" stroke="#3a7d44" stroke-width="3.5"/>
+    <path d="M432 248 l16 -8 v16 z" fill="#3a7d44"/>
+    <text x="560" y="270" text-anchor="middle" fill="#3a7d44">back inside · flips down</text>
+  </g>
+
+  <text x="70" y="372" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">The expensive radio work only happens during the rare event — so the months-long battery survives,</text>
+  <text x="70" y="396" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">and one decision delivers both complaints at once: low cost and no charging cult.</text>
+</svg>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 450" width="1120" height="450" role="img" aria-label="Interchangeable loop versus durable assets.">
+  <rect width="1120" height="450" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <defs>
+    <marker id="dl-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4f46b8"/>
+    </marker>
+  </defs>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">PORT THE LOOP, KEEP THE ASSETS</text>
+
+  <!-- INTERCHANGEABLE column -->
+  <text x="300" y="90" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#7a808c">INTERCHANGEABLE</text>
+
+  <!-- hand-written box -->
+  <rect x="120" y="110" width="170" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="205" y="135" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">hand-written</text>
+  <g font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">
+    <text x="205" y="168" text-anchor="middle">agent loop</text>
+    <text x="205" y="190" text-anchor="middle">scaffolding</text>
+    <text x="205" y="212" text-anchor="middle">retry logic</text>
+    <text x="205" y="234" text-anchor="middle">trace plumbing</text>
+  </g>
+
+  <!-- managed box -->
+  <rect x="320" y="110" width="170" height="150" rx="12" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+  <text x="405" y="135" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#4f46b8">managed</text>
+  <g font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">
+    <text x="405" y="168" text-anchor="middle">agent loop</text>
+    <text x="405" y="190" text-anchor="middle">scaffolding</text>
+    <text x="405" y="212" text-anchor="middle">retry logic</text>
+    <text x="405" y="234" text-anchor="middle">trace plumbing</text>
+  </g>
+
+  <!-- swap arrow between the two boxes -->
+  <path d="M292 185 H 318" fill="none" stroke="#4f46b8" stroke-width="3" marker-end="url(#dl-arrow)"/>
+  <text x="305" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#4f46b8">swap</text>
+
+  <!-- divider -->
+  <line x1="560" y1="80" x2="560" y2="380" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.18"/>
+
+  <!-- DURABLE column -->
+  <text x="820" y="90" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#3a7d44">DURABLE &#8212; SURVIVES THE SWAP</text>
+  <g font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">
+    <rect x="620" y="110" width="400" height="46" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="820" y="138" text-anchor="middle">eval set + rubric</text>
+    <rect x="620" y="166" width="400" height="46" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="820" y="194" text-anchor="middle">tool / action-group definitions</text>
+    <rect x="620" y="222" width="400" height="46" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="820" y="250" text-anchor="middle">action-group contracts (OpenAPI)</text>
+  </g>
+
+  <!-- durable assets feed both loops -->
+  <path d="M620 245 C 520 290, 300 290, 205 264" fill="none" stroke="#3a7d44" stroke-width="2" stroke-dasharray="7 6" opacity="0.75"/>
+  <path d="M620 245 C 540 295, 470 295, 405 264" fill="none" stroke="#3a7d44" stroke-width="2" stroke-dasharray="7 6" opacity="0.75"/>
+  <text x="430" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#3a7d44">the assets plug into whichever loop runs</text>
+
+  <text x="560" y="416" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Don't fall in love with the loop in the middle. Fall in love with what survives the swap.</text>
+</svg>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="Three-tier data classification by what identity is attached server-side: Tier 1 device telemetry with no identity (no PII, PHI, or GDPR scope); Tier 2 pseudonymous user-linked data (personal under GDPR but not PHI without the separate lookup); Tier 3 identifiable data joined to email, name, or date of birth (the only tier HIPAA can touch). A record only moves up through a logged join, never automatically.">
+  <rect width="1000" height="640" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- column header strip -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">
+    <text x="120" y="40">tier — by attached identity</text>
+    <text x="470" y="40">what it is</text>
+    <text x="744" y="40">regime applies?</text>
+  </g>
+  <!-- legend for the flag glyphs -->
+  <g font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12" fill="#5b616b">
+    <path d="M884 35 l4 5 l8 -10" stroke="#c14a3a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="900" y="40">yes</text>
+    <path d="M884 56 L894 66 M894 56 L884 66" stroke="#7a808c" stroke-width="2.2" stroke-linecap="round"/>
+    <text x="900" y="65">no</text>
+  </g>
+  <line x1="40" y1="76" x2="960" y2="76" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <!-- ============ TIER 1 ============ -->
+  <g transform="translate(40,88)">
+    <rect x="0" y="0" width="888" height="150" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <rect x="0" y="0" width="10" height="150" rx="3" fill="#3a7d44"/>
+    <!-- label -->
+    <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="bold" fill="#3a7d44">Tier 1</text>
+    <text x="34" y="72" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">device telemetry</text>
+    <text x="34" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">— no identity</text>
+    <!-- device-serial-only glyph -->
+    <g transform="translate(70,120)" stroke="#3a7d44" stroke-width="2.6" fill="none" stroke-linecap="round">
+      <rect x="-34" y="-12" width="68" height="24" rx="5"/>
+      <line x1="-24" y1="0" x2="24" y2="0"/>
+    </g>
+    <!-- what it is -->
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">
+      <text x="290" y="44">keyed only to a device serial</text>
+      <text x="290" y="70">duration · pressure events</text>
+      <text x="290" y="92">coverage · brush-head ID</text>
+      <text x="290" y="118" font-style="italic" font-family="Newsreader, Georgia, serif" font-size="13.5" fill="#5b616b">treated as product analytics</text>
+    </g>
+    <!-- flags: nothing applies to Tier 1 (no identity) -->
+    <g transform="translate(704,44)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5">
+      <g transform="translate(0,0)"><path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#7a808c" stroke-width="2.6" stroke-linecap="round"/></g>
+      <text x="22" y="5" fill="#5b616b">PII</text>
+      <g transform="translate(0,34)"><path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#7a808c" stroke-width="2.6" stroke-linecap="round"/></g>
+      <text x="22" y="39" fill="#5b616b">PHI</text>
+      <g transform="translate(0,68)"><path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#7a808c" stroke-width="2.6" stroke-linecap="round"/></g>
+      <text x="22" y="73" fill="#5b616b">GDPR</text>
+    </g>
+  </g>
+
+  <!-- ============ TIER 2 ============ -->
+  <g transform="translate(40,256)">
+    <rect x="0" y="0" width="888" height="150" rx="12" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <rect x="0" y="0" width="10" height="150" rx="3" fill="#357a8c"/>
+    <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="bold" fill="#357a8c">Tier 2</text>
+    <text x="34" y="72" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">pseudonymous</text>
+    <text x="34" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">— user-linked</text>
+    <!-- mask glyph -->
+    <g transform="translate(70,122)" fill="none" stroke="#357a8c" stroke-width="2.6" stroke-linejoin="round">
+      <path d="M-26 -8 C -26 -15, 26 -15, 26 -8 C 26 7, 12 16, 0 16 C -12 16, -26 7, -26 -8 Z" fill="#fdfaf2"/>
+      <circle cx="-10" cy="-1" r="3" fill="#357a8c" stroke="none"/>
+      <circle cx="10"  cy="-1" r="3" fill="#357a8c" stroke="none"/>
+    </g>
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">
+      <text x="290" y="44">joined to a random surrogate ID</text>
+      <text x="290" y="70">mapping held in a separate table</text>
+      <text x="290" y="96" font-style="italic" font-family="Newsreader, Georgia, serif" font-size="13.5" fill="#5b616b">cohort-analyzable, not row-resolvable</text>
+    </g>
+    <!-- flags: only GDPR applies to Tier 2 (personal but not identifiable without the lookup) -->
+    <g transform="translate(704,44)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5">
+      <g transform="translate(0,0)"><path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#7a808c" stroke-width="2.6" stroke-linecap="round"/></g>
+      <text x="22" y="5" fill="#5b616b">PII</text>
+      <g transform="translate(0,34)"><path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#7a808c" stroke-width="2.6" stroke-linecap="round"/></g>
+      <text x="22" y="39" fill="#5b616b">PHI</text>
+      <g transform="translate(0,68)"><path d="M-8 0 l6 7 l11 -14" stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <text x="22" y="73" fill="#5b616b">GDPR</text>
+    </g>
+  </g>
+
+  <!-- ============ TIER 3 ============ -->
+  <g transform="translate(40,424)">
+    <rect x="0" y="0" width="888" height="150" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <rect x="0" y="0" width="10" height="150" rx="3" fill="#c14a3a"/>
+    <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="bold" fill="#c14a3a">Tier 3</text>
+    <text x="34" y="72" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">identifiable</text>
+    <!-- person + chip join glyph -->
+    <g transform="translate(64,118)" fill="none" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round">
+      <circle cx="-14" cy="-8" r="7" fill="#fdfaf2"/>
+      <path d="M-26 12 a12 12 0 0 1 24 0" fill="#fdfaf2"/>
+      <rect x="6" y="-12" width="34" height="22" rx="5" fill="#fdfaf2"/>
+      <line x1="14" y1="-1" x2="32" y2="-1"/>
+    </g>
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">
+      <text x="290" y="44">identity (email · name · DOB)</text>
+      <text x="290" y="70">joined to brushing data</text>
+      <text x="290" y="96" font-style="italic" font-family="Newsreader, Georgia, serif" font-size="13.5" fill="#5b616b">the only tier HIPAA can touch</text>
+    </g>
+    <!-- flags: all apply to Tier 3 (identifiable); PHI when a business-associate flow is active -->
+    <g transform="translate(704,44)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5">
+      <g transform="translate(0,0)"><path d="M-8 0 l6 7 l11 -14" stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <text x="22" y="5" fill="#5b616b">PII</text>
+      <g transform="translate(0,34)"><path d="M-8 0 l6 7 l11 -14" stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <text x="22" y="39" fill="#5b616b">PHI</text>
+      <text x="62" y="39" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12" fill="#5b616b">(BA flow)</text>
+      <g transform="translate(0,68)"><path d="M-8 0 l6 7 l11 -14" stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <text x="22" y="73" fill="#5b616b">GDPR</text>
+    </g>
+  </g>
+
+  <!-- promotion arrow up the left margin -->
+  <g transform="translate(22,0)">
+    <path d="M0 560 V118" fill="none" stroke="#5b616b" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+    <path d="M0 114 l-6 12 h12 z" fill="#5b616b"/>
+  </g>
+</svg>

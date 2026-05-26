@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Team shape routed to a recommended agent stack.">
+  <rect width="1000" height="560" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- column headers -->
+  <text x="60" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">TEAM SHAPE</text>
+  <text x="660" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">RECOMMENDED STACK</text>
+  <line x1="40" y1="64" x2="960" y2="64" stroke="#1a1d24" stroke-width="2" opacity="0.5"/>
+
+  <!-- LEFT column: six team-shape rows -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+    <text x="60" y="106">AWS-native, in production, &gt;5 eng</text>
+    <text x="60" y="172">AWS-native, first agent, small team</text>
+    <text x="60" y="238">Multi-cloud / vendor-agnostic</text>
+    <text x="60" y="304">Heavy role-based multi-agent</text>
+    <text x="60" y="370">Research / fast iteration</text>
+    <text x="60" y="436">Microsoft shop</text>
+  </g>
+
+  <!-- routing lines from each row toward its recommended stack -->
+  <g fill="none" stroke="#1a1d24" stroke-width="2" opacity="0.35">
+    <line x1="430" y1="168" x2="624" y2="168"/>
+    <line x1="430" y1="234" x2="624" y2="234"/>
+    <line x1="430" y1="300" x2="624" y2="300"/>
+    <line x1="430" y1="366" x2="624" y2="366"/>
+    <line x1="430" y1="432" x2="624" y2="432"/>
+  </g>
+  <!-- the highlighted primary path: in-production -> Strands+AgentCore -->
+  <line x1="430" y1="102" x2="624" y2="102" stroke="#4f46b8" stroke-width="3.5"/>
+  <path d="M624 102 l-14 -7 v14 z" fill="#4f46b8"/>
+
+  <!-- RIGHT column: recommended stack pills -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14">
+    <rect x="630" y="84" width="300" height="38" rx="19" fill="#4f46b8" fill-opacity="0.16" stroke="#4f46b8" stroke-width="3"/>
+    <text x="648" y="108" fill="#1a1d24" font-weight="bold">Strands SDK + AgentCore</text>
+
+    <rect x="630" y="150" width="220" height="36" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="648" y="173" fill="#1a1d24">Bedrock Agents</text>
+
+    <rect x="630" y="216" width="270" height="36" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="648" y="239" fill="#1a1d24">LangGraph + own infra</text>
+
+    <rect x="630" y="282" width="160" height="36" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="648" y="305" fill="#1a1d24">CrewAI</text>
+
+    <rect x="630" y="348" width="250" height="36" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="648" y="371" fill="#1a1d24">DSPy / LangGraph</text>
+
+    <rect x="630" y="414" width="300" height="36" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="648" y="437" fill="#1a1d24">AutoGen / Semantic Kernel</text>
+  </g>
+
+  <!-- caption -->
+  <text x="60" y="510" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#5b616b">The choice follows team shape and constraint — not the framework with the loudest blog posts.</text>
+</svg>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" width="1180" height="560" role="img" aria-label="Live output drifts from the frozen golden set.">
+  <rect width="1180" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">GOLDEN SET VS LIVE DRIFT</text>
+
+  <!-- ===== plot frame ===== -->
+  <!-- y axis -->
+  <line x1="150" y1="96" x2="150" y2="430" stroke="#1a1d24" stroke-width="3"/>
+  <!-- x axis -->
+  <line x1="150" y1="430" x2="1090" y2="430" stroke="#1a1d24" stroke-width="3"/>
+  <!-- x axis arrow -->
+  <path d="M1090 430 l-16 -7 v14 z" fill="#1a1d24"/>
+
+  <!-- x ticks: a sequence of prompt changes (versions) -->
+  <g stroke="#1a1d24" stroke-width="2" opacity="0.4">
+    <line x1="270" y1="430" x2="270" y2="438"/>
+    <line x1="420" y1="430" x2="420" y2="438"/>
+    <line x1="570" y1="430" x2="570" y2="438"/>
+    <line x1="720" y1="430" x2="720" y2="438"/>
+    <line x1="870" y1="430" x2="870" y2="438"/>
+    <line x1="1010" y1="430" x2="1010" y2="438"/>
+  </g>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#7a808c" text-anchor="middle">
+    <text x="270" y="460">change 1</text>
+    <text x="420" y="460">change 2</text>
+    <text x="570" y="460">change 3</text>
+    <text x="720" y="460">change 4</text>
+    <text x="870" y="460">change 5</text>
+    <text x="1010" y="460">change 6</text>
+  </g>
+  <text x="620" y="492" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24" opacity="0.6">each prompt change, in order</text>
+
+  <!-- y axis label: how close the output matches what the PMs wrote -->
+  <g transform="translate(60,263)">
+    <text transform="rotate(-90)" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#7a808c">match to expected</text>
+  </g>
+
+  <!-- ===== the golden set: frozen, flat reference line ===== -->
+  <line x1="150" y1="150" x2="1075" y2="150" stroke="#4f46b8" stroke-width="4"/>
+  <!-- a small lock glyph marking the reference as frozen -->
+  <g transform="translate(165,118)" stroke="#4f46b8" stroke-width="2.4" fill="none">
+    <rect x="0" y="9" width="22" height="16" rx="3"/>
+    <path d="M4 9 v-4 a7 7 0 0 1 14 0 v4"/>
+    <circle cx="11" cy="16" r="1.6" fill="#4f46b8" stroke="none"/>
+  </g>
+  <text x="196" y="135" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#4f46b8">golden set — frozen reference</text>
+
+  <!-- ===== the model's live output: tracks close, then jumps away at change 5 ===== -->
+  <polyline points="150,168 270,162 420,170 570,166 720,176 870,300 1010,326"
+            fill="none" stroke="#1a1d24" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#1a1d24">
+    <circle cx="270" cy="162" r="6"/>
+    <circle cx="420" cy="170" r="6"/>
+    <circle cx="570" cy="166" r="6"/>
+    <circle cx="720" cy="176" r="6"/>
+    <circle cx="870" cy="300" r="6"/>
+    <circle cx="1010" cy="326" r="6"/>
+  </g>
+  <text x="300" y="200" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">live output — holds close…</text>
+  <text x="700" y="372" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a">…then breaks away at change 5</text>
+
+  <!-- ===== the drift: the gap that opens between the two tracks ===== -->
+  <!-- vertical span at change 6 between golden (150) and live (326) -->
+  <g stroke="#c14a3a" stroke-width="2.5">
+    <line x1="1010" y1="150" x2="1010" y2="326" stroke-dasharray="6 5"/>
+    <!-- end caps -->
+    <line x1="1002" y1="150" x2="1018" y2="150"/>
+    <line x1="1002" y1="326" x2="1018" y2="326"/>
+  </g>
+  <!-- drift label with leader -->
+  <rect x="1030" y="218" width="120" height="40" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="1090" y="234" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a">the drift</text>
+  <text x="1090" y="250" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#7a808c">what we measure</text>
+
+  <!-- shaded drift region under the break, between the two tracks -->
+  <path d="M720 176 L870 300 L1010 326 L1010 150 L870 150 L720 150 Z" fill="#c14a3a" opacity="0.07"/>
+
+  <!-- ===== caption ===== -->
+  <text x="34" y="522" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#7a808c">Freeze what "good" looks like, and every later prompt change gets measured against it. Without the</text>
+  <text x="34" y="544" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#7a808c">frozen line there's nothing to measure the drift against — the break just looks like the new normal.</text>
+</svg>

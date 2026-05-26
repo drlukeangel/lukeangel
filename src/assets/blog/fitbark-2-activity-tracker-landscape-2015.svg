@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 640" width="1180" height="640" role="img" aria-label="The 2015 dog-tracker landscape mapped by reach against battery life.">
+  <rect width="1180" height="640" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- axes -->
+  <!-- x: battery life (short -> long) ; y: reach (home-only bottom -> anywhere top) -->
+  <line x1="150" y1="560" x2="1080" y2="560" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+  <line x1="150" y1="560" x2="150" y2="80" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+  <!-- arrowheads -->
+  <path d="M1080 560 l-14 -7 l0 14 z" fill="#1a1d24"/>
+  <path d="M150 80 l-7 14 l14 0 z" fill="#1a1d24"/>
+
+  <text x="615" y="600" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#5b616b">battery life  →  longer</text>
+  <text x="92" y="320" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#5b616b" transform="rotate(-90 92 320)">reach  →  anywhere</text>
+
+  <!-- faint quadrant grid -->
+  <line x1="615" y1="80" x2="615" y2="560" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.14"/>
+  <line x1="150" y1="320" x2="1080" y2="320" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.14"/>
+
+  <!-- ===== TAGG: anywhere reach, tiny battery (top-left) ===== -->
+  <g transform="translate(300,170)">
+    <rect x="-30" y="-22" width="60" height="44" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <path d="M0 -22 L0 -38" stroke="#1a1d24" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="0" cy="-42" r="4.5" fill="#1a1d24"/>
+    <!-- cellular arcs -->
+    <g fill="none" stroke="#c87533" stroke-width="4" stroke-linecap="round">
+      <path d="M22 -10 a20 20 0 0 1 0 28"/>
+      <path d="M34 -22 a36 36 0 0 1 0 52"/>
+    </g>
+    <text x="0" y="44" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">Tagg</text>
+    <text x="0" y="64" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">cellular GPS · 2–3 days</text>
+  </g>
+
+  <!-- ===== WHISTLE: home reach, week battery (bottom-right-ish) ===== -->
+  <g transform="translate(760,430)">
+    <circle cx="0" cy="0" r="30" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#c87533" stroke-width="4"/>
+    <circle cx="0" cy="0" r="5" fill="#c87533"/>
+    <text x="0" y="52" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">Whistle</text>
+    <text x="0" y="72" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">BLE+Wi-Fi · ~week</text>
+  </g>
+
+  <!-- ===== FITBARK: home reach, months battery (bottom-far-right) ===== -->
+  <g transform="translate(960,470)">
+    <g fill="#c87533" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round">
+      <circle cx="-26" cy="0" r="15"/>
+      <circle cx="-26" cy="-12" r="11"/>
+      <circle cx="-26" cy="12" r="11"/>
+      <circle cx="26" cy="0" r="15"/>
+      <circle cx="26" cy="-12" r="11"/>
+      <circle cx="26" cy="12" r="11"/>
+      <rect x="-26" y="-12" width="52" height="24" rx="6"/>
+    </g>
+    <text x="0" y="46" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">FitBark</text>
+    <text x="0" y="66" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">BLE · ~6 months</text>
+  </g>
+
+  <!-- ===== the empty corner: convergence, still unbuilt (top-right) ===== -->
+  <g transform="translate(880,180)">
+    <rect x="-120" y="-70" width="240" height="150" rx="16" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4" stroke-dasharray="9 8"/>
+    <!-- a puck that is both: coin outline + cellular arc -->
+    <g transform="translate(0,-12)">
+      <circle cx="0" cy="0" r="26" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4"/>
+      <circle cx="0" cy="0" r="5" fill="#3a7d44"/>
+      <g fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round">
+        <path d="M22 -8 a16 16 0 0 1 0 22"/>
+        <path d="M32 -18 a28 28 0 0 1 0 42"/>
+      </g>
+    </g>
+    <text x="0" y="40" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#3a7d44">the 2013 forecast</text>
+    <text x="0" y="60" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#3a7d44">long battery + anywhere</text>
+  </g>
+  <text x="880" y="290" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#7a808c">still empty in 2015</text>
+</svg>

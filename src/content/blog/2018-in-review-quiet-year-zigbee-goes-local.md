@@ -10,6 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 26
 excerpt: "The sparsest year of the journal — exactly as forecast, because the day job became a connected medical device. But the house still moved local-first: Node-RED gave the automations a brain, an MQTT broker gave them a nervous system, and a $40 ConBee stick freed the Zigbee mesh from the cloud. 2018's forecast scored 80%."
 pullquote: "A quiet year on the blog was a busy year in the closet. Three posts, but the architecture moved further toward local-first in 2018 than in the three years before it combined."
+cover: "../../assets/blog/2018-in-review-quiet-year-zigbee-goes-local-cover.svg"
+coverAlt: "A house with three local-first pieces fitted inside it: a Node-RED flow glyph (the brain), an MQTT publish-subscribe bus bar (the nervous system), and a ConBee USB stick with antenna waves (the local radio), plus a green all-local status light on the door. Off to the side floats a single blog page with just three small marks beside it — the three posts of a quiet year, against a year of deep architectural progress."
 ---
 
 End of 2018. The quietest year here since 2012 — and I called it.
@@ -26,6 +28,8 @@ End of 2018. The quietest year here since 2012 — and I called it.
 
 5/5 ≈ **100%** — but the honest read is that several of these were within my control, so it's less "good forecasting" than "I did the things I planned." The Ring acquisition was the only outside call.
 
+![Grading the 2018 forecast: five green checks. Four of them — Zigbee onto a coordinator I own, complex automations off YAML, MQTT as the message bus, posts slowing to three or fewer — are each tagged "within my control." The fifth, a big acquirer consolidating cameras (Amazon buying Ring), is tagged "the one real outside call." A caption notes five for five, but four were things I planned to do rather than things I foresaw — only Ring was a genuine forecast.](../../assets/blog/2018-review-forecast-scorecard.svg)
+
 ## What changed in 2018
 
 Three moves, each pushing the same direction — local-first:
@@ -35,6 +39,8 @@ Three moves, each pushing the same direction — local-first:
 - **[ConBee + deCONZ](/blog/conbee-deconz-zigbee-off-the-smartthings-hub/)** (Oct) — the Zigbee mesh came off the SmartThings cloud-bridge onto a coordinator I own.
 
 And one move I *didn't* make but thought hard about: **Ring**. [Amazon's acquisition](/blog/amazon-buys-ring-surveillance-doorbell-threat-model/) crystallized why I keep cameras local. Didn't buy one. Won't.
+
+![The three 2018 moves converging on the house. On the left, three cards: Node-RED (the brain, February), an MQTT bus (the nervous system, February), and a ConBee USB stick (the local radio, October). Arrows from all three converge on a house on the right with a green status light, labelled "about 80% server-independent." A caption notes a brain, a nervous system, and a radio it owns — all pulling the house off the cloud.](../../assets/blog/2018-three-local-first-moves.svg)
 
 ## What worked
 

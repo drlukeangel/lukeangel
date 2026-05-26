@@ -12,8 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 33
 excerpt: "Furbo Dog Nanny shipped its AI subscription. Companion AI dog trainer launched. Tested three pitches against ground truth. Real signals vs AI that exists for marketing."
 pullquote: "The behavioral AI that works in 2023 lives in veterinary clinics with $40,000 high-frame-rate cameras and trained-classifier pipelines for lameness detection. The behavioral AI on a $250 consumer camera doing 'is your dog happy' is marketing. The category distinction matters."
-cover: "../../assets/blog/behavioral-ai-on-pet-cameras-bullshit-and-real-cover.png"
-coverAlt: "Behavioral AI on pet cameras — what works, what's marketing"
+cover: "../../assets/blog/behavioral-ai-on-pet-cameras-bullshit-and-real-cover.svg"
+coverAlt: "An illustration in warm orange of a pet camera pointed at a dog, its output splitting into two streams — one solid and checked (dog-in-frame detection, real), one dashed and crossed out (an 'anxiety detected' label, marketing) — drawing the line between the AI on a pet camera that works and the AI that's theater."
 ---
 
 Three "behavioral AI" pitches for pets in 2023:
@@ -37,7 +37,7 @@ The subscription that promised to use AI to detect when your dog was anxious, bo
 **Testing methodology:**
 I left Furbo's behavior alerts enabled for a month. Cross-referenced every fired alert against:
 - What was actually happening in the camera view (I could see the video).
-- Atom's vitals (heart rate from Whistle Health).
+- Atom's behavioral signals from Whistle Health (licking, scratching, sleep, restlessness — not cardiac vitals; nobody ships those on a collar yet).
 - Any actual behavioral incidents (separation anxiety, illness symptoms).
 
 **Results after a month:**
@@ -49,6 +49,8 @@ I left Furbo's behavior alerts enabled for a month. Cross-referenced every fired
 | "Anxious behavior" detected | 14 | 2 | 12 (most are Atom doing normal idle behavior) |
 | "Restless / unwell" | 7 | 0 | 7 (false positives all) |
 | "Aggressive behavior" | 4 | 0 | 4 (none were aggressive — two were playing) |
+
+![A month of Furbo alerts, every one checked against the video, drawn as five stacked bars of true positives (green) versus false positives (red), scaled by how often each alert fired. Dog-in-frame is a long, almost-entirely-green bar — 295 right, 17 wrong. Bark-type is short and mostly red — 22 right, 67 wrong. The three behavior alerts are tiny and almost entirely red: "anxious" 2 right and 12 wrong, "restless/unwell" 0 right and 7 wrong, "aggressive" 0 right and 4 wrong with two of those being the dogs playing. A caption notes that detection works while the how-does-your-dog-feel alerts are mostly false.](../../assets/blog/behavioral-ai-furbo-accuracy.svg)
 
 Dog-in-frame works fine (95% accurate). Bark detection is too noisy (25% accurate). The behavior alerts — anxious, restless, aggressive — are **functionally bullshit** at 15-30% accuracy with high false-positive rates.
 
@@ -72,7 +74,7 @@ Verdict: useful for engaged owners willing to follow the training program. Large
 
 ## Wellness scores
 
-Whistle Health gives Atom a daily "wellness score" (1-100). Petivity gives Joule and Boson "wellness signals." Both use ML on multi-dimensional behavior + vitals data.
+Whistle Health gives Atom a daily "wellness score" (1-100). Petivity gives Joule and Boson "wellness signals." Both run ML over multi-dimensional *behavioral* data — activity, sleep, licking, scratching, litter-box patterns — not cardiac vitals, which no consumer collar measures yet.
 
 I tracked Atom's Whistle wellness score against:
 - His actual vet check-ups (annual + 1 follow-up).
@@ -88,7 +90,9 @@ Were the two off days flagged by the wellness score? Vaguely: scores were 58 and
 
 What about the days the wellness score was lowest (51)? Atom was *fine*. The 51 was, apparently, randomness in the underlying data.
 
-The "wellness score" feels like a compressed-into-one-number version of multi-dimensional data that's worse than the underlying data. A trained eye looking at raw vitals + activity could spot the same patterns better.
+The "wellness score" feels like a compressed-into-one-number version of multi-dimensional data that's worse than the underlying data. A trained eye looking at the raw activity and behavior traces could spot the same patterns better.
+
+![Atom's daily Whistle wellness score over eight months, plotted against ground truth. Grey dots scatter from 51 to 94 around an average band at 73 ± 12, labeled as noisy and not predictive. Three vet visits all returned "healthy senior dog." Two orange dots mark the two days Atom actually seemed off — they scored 58 and 62, only vaguely below average rather than flagged as concerning. A red dot marks the single lowest score, 51, on a day Atom was perfectly fine. A ground-truth panel summarizes the mismatch and lands the verdict: vanity metric. A caption notes the underlying data is real, but the single-number score compresses it into something worse than the data it came from.](../../assets/blog/behavioral-ai-wellness-score-vs-truth.svg)
 
 **Verdict on wellness scores**: marketing-grade "AI." The underlying data is real. The score itself is a vanity metric.
 
@@ -96,11 +100,11 @@ The "wellness score" feels like a compressed-into-one-number version of multi-di
 
 There IS real behavioral AI in veterinary medicine — just not in consumer products.
 
-**Lameness detection** (Sylvester.ai, Trupanion vet integrations): high-frame-rate video analysis at vet clinics, trained on labeled gait data. Detects subtle lameness humans miss. Real signal. Used at the vet office, not in your living room.
+**Lameness / gait detection** (clinical gait-analysis systems): high-frame-rate video analysis at vet clinics, trained on labeled gait data. Detects subtle lameness a human eye misses. Real signal — used at the vet office, not in your living room.
 
-**Pain scoring** (Sylvester.ai, Painless Pets): facial-expression analysis on cats. Correlates with veterinary pain scoring. Used at vet offices for post-surgical monitoring.
+**Feline pain scoring** (Sylvester.ai's Tably): facial-expression analysis on cats, built on a clinically validated feline grimace scale — ear position, eye tightness, muzzle tension. It's a phone app, but it's grounded in a real veterinary instrument, and it's framed as "should you book a vet visit," not "your cat is fine." That grounding is exactly what the consumer behavior-detectors lack.
 
-**Diabetic retinopathy in dogs** (some veterinary research): fundus photography + ML. Research-grade, not commercial.
+**Ophthalmic and other imaging screens** (veterinary research): fundus and similar imaging plus ML. Research-grade, reviewed by specialists, not a living-room product.
 
 **Behavior analysis from real-world video** (academic research, mostly at vet schools): trained on years of labeled veterinary behavior data.
 
@@ -108,13 +112,15 @@ These work because they're trained on labeled, high-quality data, deployed in co
 
 Consumer "behavior detection" is trained on user-shared video (variable quality), deployed in random homes (variable conditions), and used as an emotional reassurance tool. The accuracy isn't there.
 
+![The split between real pet AI and theater, drawn as two columns. The left column, green, is labeled real signal — labeled clinical data, controlled setting, vet-reviewed — and lists clinic gait/lameness analysis, feline grimace-scale pain scoring, dog-vs-human-in-frame at about 95 percent, and treat-toss target detection. The right column, red and dashed, is labeled theater — user video, random homes, reassurance UX — and lists, each struck through, "anxiety detected" on a camera, bark-type classification, collar wellness scores, and generic AI training chat. A caption notes the data is real on both sides; the difference is whether the interpretation was earned.](../../assets/blog/behavioral-ai-real-vs-theater.svg)
+
 ## Where the AI is and isn't
 
 | Domain | AI status |
 |---|---|
 | Veterinary lameness detection (clinic) | Real signal |
 | Veterinary pain scoring (clinic) | Real signal |
-| Dog-vs-human classification on camera | Real (98% accurate) |
+| Dog-vs-human classification on camera | Real (~95% accurate) |
 | Treat-toss target detection | Real |
 | Bark type classification | Marketing-grade |
 | Anxiety detection on a camera | Bullshit |
@@ -138,4 +144,4 @@ The lesson: **AI claims on consumer pet products are mostly marketing**. The dat
 
 ## What's next
 
-Year-end review next month. Atom's vitals are starting to drift slightly (the 8% heart-rate elevation I [mentioned in the Mars post](/blog/mars-petcare-data-ownership-conflict/)). Watching closely. 2024 is going to be the year Atom's health becomes the central pet-IoT story.
+Year-end review next month. Atom's behavioral baseline is starting to shift — the elevated scratching I [mentioned in the Mars post](/blog/mars-petcare-data-ownership-conflict/), and his sleep is getting a little more broken. He's ten now. Watching closely. 2024 is going to be the year Atom's health moves to the center of the pet-IoT story in this house.

@@ -11,8 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 38
 excerpt: "Three months ago I'd have said WiFi cameras are a bad idea. Then the kids needed a temporary camera in the garage where there's no PoE."
 pullquote: "PoE is structurally better for cameras. WiFi cameras are a pragmatic 'good enough' when running Cat6 isn't an option. The bandwidth math is the constraint that decides."
-cover: "../../assets/blog/wireless-cameras-and-bandwidth-tradeoff-cover.png"
-coverAlt: "Wireless cameras and bandwidth — when WiFi cams work"
+cover: "../../assets/blog/wireless-cameras-and-bandwidth-tradeoff-cover.svg"
+coverAlt: "A PoE camera on a fat wired pipe to a switch, beside a battery Wi-Fi camera sharing a crowded 2.4 GHz band with a houseful of other devices — the two transports and the bandwidth each lives in."
 ---
 
 I've been buying PoE cameras exclusively for two years. Tonight I'm writing this from a chair next to a WiFi camera I just installed in the garage, where running Cat6 was going to take a weekend I didn't have.
@@ -49,13 +49,13 @@ I picked the 20-minute solution.
 
 ## The WiFi camera — Reolink Argus 3
 
-**Reolink Argus 3 Pro** (RVA-3-PRO):
-- 1080p (not 4K — bandwidth budget).
-- WiFi 2.4 GHz (no 5 GHz support on this model — annoying).
-- 6500 mAh rechargeable battery + solar-panel option. Optional always-on USB-C power.
+**Reolink Argus 3** (the plain model, not the Pro — I deliberately wanted the cheaper, lighter-weight one here):
+- 1080p (not 4K — bandwidth budget, and frankly enough for a garage).
+- WiFi **2.4 GHz only** (no 5 GHz on this model — mildly annoying, but it's a low-bitrate cam so it doesn't matter much).
+- Rechargeable battery + solar-panel option. Optional always-on USB-C power.
 - PIR motion detection + onboard person/vehicle classification.
 - RTSP support after a firmware update (RTSP isn't on by default).
-- $90.
+- ~$80.
 
 Wired it to USB-C power from a nearby outlet (not running on battery; the garage has constant power). The battery is a backup if the cord gets unplugged.
 
@@ -73,6 +73,8 @@ Wired it to USB-C power from a nearby outlet (not running on battery; the garage
 If I'd tried to put a 4K WiFi camera here, it'd be 6 Mbps continuous on a band already crowded with ~30 IoT devices. That would impact other devices. The 1080p + h.265 + 15 fps choices on the Argus 3 keep the WiFi cam off the impact radar.
 
 **The general rule**: WiFi cameras at 1080p or below are fine on a typical home network if you cap bitrate aggressively. 4K WiFi cameras are mostly a bad idea.
+
+![The camera bandwidth budget, two transports side by side. On the wired side, four 4K PoE cameras at ~6 Mbps each total 24 Mbps, sitting on a Gigabit VLAN with enormous headroom — continuous streaming costs nothing it can't spare. On the wireless side, the shared 2.4 GHz band already carries 30-50 Mbps from a houseful of IoT devices; a 1080p, h.265, PIR-triggered camera adds only ~2 Mbps in brief bursts and disappears into the noise, while a 4K always-on Wi-Fi camera would pour a continuous ~6 Mbps into that already-crowded band and start hurting everything else. The fit isn't about the camera; it's about how much room the transport has left.](../../assets/blog/camera-bandwidth-budget.svg)
 
 ## What the garage camera actually does
 
@@ -98,6 +100,8 @@ The Argus 3 is PIR-triggered — only streams when motion is detected. Steady-st
 
 This is actually *better* for the network than my PoE cams which stream continuously. Counter-intuitive: WiFi cams that wake on motion are easier on bandwidth than always-on PoE cams.
 
+![Two traffic profiles over time. The always-on 4K PoE camera holds a flat ~6 Mbps line every second of the day — continuous, whether anything is happening or not. The PIR-triggered 1080p h.265 WiFi camera sits at near-zero most of the time and only spikes into a brief burst when motion fires, then drops back to idle. Averaged over a day the wake-on-motion camera moves far less data, which is why it is easier on the shared band than a camera that never stops streaming.](../../assets/blog/wireless-cameras-and-bandwidth-tradeoff-fig-2.svg)
+
 ## WiFi camera-specific issues
 
 Some annoyances:
@@ -106,6 +110,10 @@ Some annoyances:
 - **DHCP lease management.** Reservation set on my router so the camera has a stable IP. Without it, IP can change on reboot.
 - **Firmware update over WiFi takes 10+ minutes.** PoE cameras' firmware updates are seconds.
 - **The Reolink "cloud sync" wants to upload events to their servers.** VLAN isolation kills this. The Reolink app shows "cloud features unavailable" — fine.
+
+The whole call collapses to a short decision: is this location critical, 4K, or always-on streaming? If yes, eat the install and run the wire. If no, WiFi is the pragmatic answer.
+
+![A decision tree for picking the transport. Every new camera location starts with one question: is it critical, does it need 4K, or does it stream always-on — a doorbell or driveway being the canonical yes. If yes, run the Cat6 and go PoE for wired reliability, UPS-backed power, and no fight for 2.4 GHz airtime, even though it means a weekend install. If no — a garage, shed, or temporary cam at 1080p or below with bitrate capped and PIR-triggered — WiFi is fine.](../../assets/blog/wireless-cameras-and-bandwidth-tradeoff-fig-1.svg)
 
 ## Where I'd still refuse to use WiFi
 

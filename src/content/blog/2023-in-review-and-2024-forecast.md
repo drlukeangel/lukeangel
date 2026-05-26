@@ -10,8 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 47
 excerpt: "Construction finished. Move-in October. Family Hub fridge running. 42 Cat6 drops paying off already. 2022 forecast scored 85%."
 pullquote: "Looking back: 6.5/8 on 2022's forecasts, ~85%. The new house transformed the smart home from 'a layer on top of a house' to 'the house was designed for this.' Different rules apply now."
-cover: "../../assets/blog/2023-in-review-and-2024-forecast-cover.png"
-coverAlt: "2023 review — built the house, kitchen has an OS"
+cover: "../../assets/blog/2023-in-review-and-2024-forecast-cover.svg"
+coverAlt: "A cutaway of a newly-built house showing its stud framing, with a structured-wiring closet drawn as a small patch panel in the lower left. From that panel, wiring runs fan out through the walls to drop points marked around the house — the year the smart home stopped being a layer added on top and became something the house was framed for."
 ---
 
 ## Scoring the 2022 forecast
@@ -29,6 +29,8 @@ coverAlt: "2023 review — built the house, kitchen has an OS"
 
 6.5/8 = **85%**. Best year since 2013 (also 83%). Construction-driven predictions are easier — you control the budget and timeline.
 
+![Grading the 2022 forecast. Six green checks: new-house construction (moved in October), structured wiring plus a PoE backbone of 42 Cat6 drops, the first Matter devices (three Eve sensors and a Nanoleaf bulb), the Frame TV in the great room, Home Assistant migrating to the new house, and the old-house gear migrating over. Two purple half-marks: the Samsung Bespoke kitchen (fridge in, the rest coming early 2024) and the wall touchscreens (two of three, the office one delayed). A tally panel reads 6.5 of 8, about 85 percent, the best year since 2013. A caption notes construction-driven predictions are easy mode because you control the budget and timeline.](../../assets/blog/2023-forecast-scorecard.svg)
+
 ## What got added in the new house
 
 Beyond the structured wiring + Family Hub fridge already documented:
@@ -43,6 +45,8 @@ Beyond the structured wiring + Family Hub fridge already documented:
 - **3 Eve Matter motion sensors** — first real Matter devices. Joined HA via the Matter beta integration.
 - **1 Nanoleaf Matter bulb** — testing Matter Light cluster compatibility.
 - **DIY ESPHome sensors** — 24 total in the new house (up from 22 in the old).
+
+![The structured-wiring closet as a rack stack, showing what all 42 Cat6 drops run back to. Top to bottom: a UDM Pro router, a UniFi 24-port PoE switch feeding the six cameras and drops, a Lutron Caseta Pro 2 bridge for 40-plus switches, an HA Yellow labelled "the brain — local," and a 42-port patch panel. Lines fan out from the rack to three groups on the right: cameras, access points and drops; two wall dashboards; and Caseta lighting plus ESPHome devices. A caption notes 38 of the 42 drops are already used — the "future-proofing" turned into "barely enough" inside a year.](../../assets/blog/2023-new-house-closet-stack.svg)
 
 ## What works year-end
 
@@ -64,7 +68,7 @@ Beyond the structured wiring + Family Hub fridge already documented:
 
 **3. Matter devices proliferate. (Confidence: 80%)** By end of 2024, 20+ Matter devices in the house probably. Locks (Eve), sensors (Eve, Aqara), thermostats (Ecobee gets Matter), bulbs (more Nanoleaf).
 
-**4. Frame TV ecosystem post. (Confidence: 95%)** June 2024 — the Frame as household display surface + SmartThings hub + media player.
+**4. Frame TV ecosystem post. (Confidence: 95%)** Mid-year — the Frame as household display surface + SmartThings hub + media player.
 
 **5. The third wall-mounted dashboard (office). (Confidence: 80%)** Promised, delayed; doing in Q1.
 

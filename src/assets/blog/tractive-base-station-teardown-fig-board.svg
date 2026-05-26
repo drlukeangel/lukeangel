@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="920" height="520" role="img" aria-label="Base Station board teardown.">
+  <rect x="1" y="1" width="918" height="518" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#5b616b;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="46" class="lbl" font-size="16" letter-spacing="1.5">WHAT'S ON THE BOARD</text>
+  <text x="40" y="68" class="mut" font-size="13">4-layer FR4, ~50 × 50 mm · USB-C power · external whip via U.FL</text>
+
+  <!-- PCB -->
+  <rect x="120" y="100" width="500" height="360" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+  <!-- subtle trace hint -->
+  <g stroke="#c87533" stroke-opacity="0.25" stroke-width="2" fill="none">
+    <path d="M180 130 h120 v40 M520 150 v120 M260 420 h160"/>
+  </g>
+
+  <!-- USB-C input + LDO -->
+  <g transform="translate(150,150)">
+    <rect x="0" y="0" width="100" height="56" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <rect x="-22" y="18" width="22" height="20" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="50" y="24" text-anchor="middle" class="lbl" font-size="12" font-weight="600">USB-C in</text>
+    <text x="50" y="44" text-anchor="middle" class="mut" font-size="11">→ 3.3V LDO</text>
+  </g>
+
+  <!-- primary SoC under RF shield (center) -->
+  <g transform="translate(330,250)">
+    <rect x="0" y="0" width="120" height="120" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- lifted shield corner -->
+    <path d="M0 0 l-18 -14 h120 l18 14 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" opacity="0.6"/>
+    <!-- QFN chip + pins -->
+    <rect x="30" y="34" width="60" height="52" rx="4" fill="#1a1d24"/>
+    <g stroke="#1a1d24" stroke-width="2.5">
+      <path d="M30 44 h-8 M30 60 h-8 M30 76 h-8 M90 44 h8 M90 60 h8 M90 76 h8"/>
+      <path d="M44 34 v-8 M60 34 v-8 M76 34 v-8 M44 86 v8 M60 86 v8 M76 86 v8"/>
+    </g>
+    <circle cx="42" cy="46" r="3" fill="#c87533"/>
+    <text x="60" y="138" text-anchor="middle" class="lbl" font-size="13" font-weight="600" fill="#c87533">nRF52840</text>
+    <text x="60" y="155" text-anchor="middle" class="mut" font-size="11">under RF shield · 7×7 QFN</text>
+  </g>
+
+  <!-- SPI flash -->
+  <g transform="translate(490,250)">
+    <rect x="0" y="0" width="100" height="50" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="50" y="22" text-anchor="middle" class="lbl" font-size="12" font-weight="600">SPI flash</text>
+    <text x="50" y="40" text-anchor="middle" class="mut" font-size="11">4–8 MB, fw staging</text>
+  </g>
+
+  <!-- LED + button -->
+  <g transform="translate(150,425)">
+    <circle cx="14" cy="12" r="9" fill="#3a7d44"/>
+    <rect x="40" y="0" width="40" height="24" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="92" y="16" class="mut" font-size="11">LED + button</text>
+  </g>
+
+  <!-- antenna: PCB trace + U.FL -->
+  <g transform="translate(520,400)">
+    <rect x="0" y="0" width="70" height="30" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="35" y="20" text-anchor="middle" class="mut" font-size="11">U.FL</text>
+  </g>
+
+  <!-- external whip antenna leaving the board -->
+  <g transform="translate(620,415)">
+    <line x1="0" y1="0" x2="70" y2="-60" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="4" fill="#1a1d24"/>
+    <text x="84" y="-58" class="mut" font-size="11.5">~10 cm whip</text>
+  </g>
+
+  <!-- callout: the punchline -->
+  <g transform="translate(660,150)">
+    <rect x="0" y="0" width="220" height="170" rx="12" fill="#fdfaf2" stroke="#c87533" stroke-width="2.5"/>
+    <text x="16" y="32" class="lbl" font-size="13" font-weight="600" fill="#c87533">the punchline</text>
+    <text x="16" y="60" class="mut" font-size="12.5">nRF52840 is Nordic's</text>
+    <text x="16" y="78" class="mut" font-size="12.5">flagship multi-protocol</text>
+    <text x="16" y="96" class="mut" font-size="12.5">IoT SoC — BLE 5, Thread,</text>
+    <text x="16" y="114" class="mut" font-size="12.5">Matter, 802.15.4, NFC.</text>
+    <text x="16" y="142" class="lbl" font-size="12.5" font-weight="600">Good silicon, picked</text>
+    <text x="16" y="160" class="lbl" font-size="12.5" font-weight="600">by a capable team.</text>
+  </g>
+
+  <text x="460" y="496" text-anchor="middle" class="cap" font-size="14.5">Tri-point screws, a push-tab RF shield, and a flagship radio doing the simplest job a radio can do.</text>
+</svg>

@@ -14,6 +14,8 @@ notebook: iot-pet-health-tracker-build
 notebookOrder: 2
 excerpt: "Before I buy a single board, the PM work: three use cases, the wireless rubric, and the product line that falls out of it. The punchline is that the two loudest complaints about pet trackers — price and charging — have the same root cause, and you fix both by refusing to put cellular where it isn't needed."
 pullquote: "Everyone ships always-on cellular because it's the obvious spec. It's also over-engineered for a pet that's home 95% of the time."
+cover: "../../assets/blog/pet-tracker-build-2-the-prd-and-the-rubric-cover.svg"
+coverAlt: "A collar puck with a paw mark radiates three concentric radio rings of increasing range, linked by a direct dashed line straight to its own cloud — no vendor box in between — beside a dollar coin struck through, standing for no recurring subscription."
 featured: true
 ---
 
@@ -49,6 +51,8 @@ Answer those honestly and you do **not** arrive at "always-on cellular for every
 
 The whole insight is one line: **match the radio to the usage.** A pet that's home 95% of the time should be running its cheapest, lowest-power radio 95% of the time — and only reach for the expensive one during the rare event that needs it.
 
+![Three radios laid out along a range axis from meters to anywhere: BLE for the 95% home case (sips power, ~a year on a coin cell, no carrier), LoRa at 915 MHz for trail and local recovery (low power, cheap, bring your own gateway), and cellular LTE-M for the rare genuinely-lost case (hungry, days-to-two-weeks battery, hardware plus a monthly data plan).](../../assets/blog/pet-tracker-build-2-connectivity-spectrum.svg)
+
 ## The product line
 
 That spectrum is the product line. Three SKUs, so the customer picks their own range / cost / battery trade instead of me guessing:
@@ -62,6 +66,8 @@ That spectrum is the product line. Three SKUs, so the customer picks their own r
 ## The tiered-power trick
 
 The LoRa collar does one clever thing: it lives in **BLE presence mode** at home (months of battery, ~no data), and only flips to **findable mode** — GPS fixes + LoRa beacons — when it crosses the geofence. The expensive radio work only happens during the rare event, so the months-long battery survives. That single decision is what delivers *both* of the things people complain about: low cost and no charging.
+
+![The collar's two power states. BLE presence mode at home — GPS off, LoRa quiet, BLE heartbeat only, accelerometer logging activity — gives months of battery. Crossing the geofence flips it to findable mode: GPS fixes on, LoRa beacons out to the base station, an RSSI proximity beep on approach; battery drains fast but only briefly. Coming back inside flips it down to presence mode again.](../../assets/blog/pet-tracker-build-2-tiered-power-flip.svg)
 
 ## The base station is the network
 
@@ -80,6 +86,8 @@ A piezo buzzer costs pennies, so both the collar and the base get one:
 1. **Location — BLE + LoRa.** The novel, can't-buy-it part: presence, the geofence flip, the mesh, the base station. The hardest phase, on purpose.
 2. **Cellular.** The "anywhere" premium SKU. A paved road (Nordic's nRF9160 + reference firmware), so it's a low-risk bolt-on.
 3. **Health.** And here's why it's last: pet vitals are mostly an **IMU + algorithms** problem, not a new sensor. A sensitive accelerometer picks up the body's micro-vibrations at rest — that's how the incumbents derive resting heart rate and respiratory rate, fur and all. So the accelerometer I put on the collar in phase 1 *becomes* the vitals sensor in phase 3, once tracking is rock-solid.
+
+![The connectivity spectrum drawn as three SKUs and the build order. The LoRa collar (BLE plus LoRa plus GPS, months of battery, hardware plus optional cloud history) for home and trail; the cellular collar (BLE plus LTE-M plus GPS, days-to-two-weeks battery, premium hardware plus a data sub) for roamers; and the base/handheld (BLE plus LoRa, always charged on its dock) that is the gateway and the recovery mesh, bundled with the LoRa collar. Below, the phased build runs location first (BLE plus LoRa, geofence, mesh — the hardest), then cellular as an nRF9160 bolt-on, then health, where the phase-1 accelerometer becomes the vitals sensor.](../../assets/blog/pet-tracker-build-2-skus-and-phases.svg)
 
 A phase-4 idea worth writing down now: the base station is stationary, right where the pet sleeps. It could later carry a **mm-wave radar for fully contactless resting vitals** — heart and respiratory rate with no collar contact at all. That's the magic version of "the base station is more than a charger."
 

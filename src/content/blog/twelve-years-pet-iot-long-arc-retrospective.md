@@ -1,6 +1,6 @@
 ---
 title: "Twelve years of pet IoT — the long-arc retrospective"
-date: 2025-07-22T16:00:00-04:00
+date: 2025-08-12T16:00:00-04:00
 category: craft
 tags:
   - pet-iot
@@ -10,11 +10,11 @@ notebook: pet-iot-field-guide
 notebookOrder: 40
 excerpt: "Twelve years since Whistle launched. Four pets — Atom (2013-2024), Joule, Boson, Quark. Lessons on cloud dependency, vendor consolidation, multi-pet detection, vet telemetry, the DIY response."
 pullquote: "Twelve years in. Mars just divested Whistle to Tractive — the empire that bought the device leg in 2016 sold it back nine years later. Cloud-dependency lesson written. DIY response just starting. The pet-IoT category is the smart-home category five years behind — same arc, smaller scale, higher stakes."
-cover: "../../assets/blog/twelve-years-pet-iot-long-arc-retrospective-cover.png"
-coverAlt: "Twelve years of pet IoT — the long-arc retrospective"
+cover: "../../assets/blog/twelve-years-pet-iot-long-arc-retrospective-cover.svg"
+coverAlt: "A long arc rising and settling across twelve years, with small device glyphs marking the milestones along it: a 2013 Bluetooth collar puck, a cellular tower, a pet camera, a Litter-Robot globe, a health collar with a heartbeat mark, and a DIY circuit board at the present-day end. Beneath the arc, four pet-presence lifelines run left to right — one dark line ends partway with a dot, the others continue."
 ---
 
-October 8, 2012 — Whistle shipped the first consumer dog activity tracker. I bought one when [Atom arrived in October 2013](/blog/atom-arrives-whistle-activity-monitor-launches/). Twelve years and change later — Atom's gone, Quark's three, Joule's eleven, Boson's five — time to step back.
+October 8, 2013 — Whistle shipped the first consumer dog activity tracker, and I bought one the week [Atom arrived](/blog/atom-arrives-whistle-activity-monitor-launches/). Twelve years and change later — Atom's gone, Quark's three, Joule's eleven, Boson's five — time to step back.
 
 Timing note: writing this two weeks after [Mars Petcare divested Whistle to Tractive](/blog/mars-divests-whistle-to-tractive-market-state/) and announced Whistle's August 31 shutdown. The category just rearranged itself in a way I didn't see coming when I started drafting the retrospective. Some sections below have been updated to reflect that news; the eras framework holds, the empire-trajectory section needed a revision.
 
@@ -22,20 +22,22 @@ Looking back across the entire arc.
 
 ## The eras
 
-**Era 1 (2012-2015) — fitness trackers for dogs.**
-Whistle, FitBark, Tagg. BLE + base station, or cellular with subscription. Activity counting calibrated against breed baselines. The "Fitbit for dogs" era. Cat IoT was the microchip and nothing else.
+**Era 1 (2013-2015) — fitness trackers for dogs.**
+Whistle, FitBark, Tagg. Either short-range radios that sync near home and the phone (Whistle's BLE-plus-Wi-Fi puck; FitBark's BLE), or Tagg's cellular-with-a-subscription. Activity counting calibrated against breed baselines. The "Fitbit for dogs" era. Cat IoT was the microchip and nothing else.
 
 **Era 2 (2015-2018) — cat IoT joins, Mars consolidates.**
-SureFlap microchip doors. Litter-Robot. PetCube cameras. The first non-dog products arrive. Mars Petcare buys Whistle (2016); the consolidation begins. Whistle 3 ships with cellular.
+SureFlap microchip doors. Litter-Robot. PetCube cameras. The first non-dog products arrive. Whistle ships its first cellular-GPS tracker (the Whistle GPS Pet Tracker, 2016, on AT&T); Mars Petcare buys Whistle the same year and the consolidation begins; the half-size Whistle 3 follows in 2017.
 
 **Era 3 (2018-2020) — cloud-dependency catastrophe + multi-cat.**
 Petnet's [9-day collapse in February 2020](/blog/petnet-collapses-anatomy-of-smart-device-catastrophe/) defines the era. Fi launches with LTE-M for genuine multi-week battery life. Boson arrives; multi-cat detection becomes a real engineering problem.
 
-**Era 4 (2020-2023) — vitals + AI bullshit + AirTag.**
-Whistle Health & GPS Plus ships with temperature + heart rate + scratching + respiratory rate (2021). Petivity smart litter monitor ships (2022). AirTag launches, the [anti-stalking-vs-pet-tracking architectural mismatch](/blog/airtag-on-atoms-collar-anti-stalking-ironies/) becomes apparent. Halo Collar ships with welfare problems. "AI behavior detection" mostly turns out to be marketing.
+**Era 4 (2020-2023) — behavioral health + AI bullshit + AirTag.**
+Whistle Health & GPS Plus ships (2021) — activity plus accelerometer-derived behavioral metrics: scratching, licking, drinking, sleep. (No true vitals; there's no heart-rate or temperature sensor in a Whistle, a distinction that matters more than the marketing lets on.) Petivity smart litter monitor ships (2022). AirTag launches, the [anti-stalking-vs-pet-tracking architectural mismatch](/blog/airtag-on-atoms-collar-anti-stalking-ironies/) becomes apparent. Halo Collar ships with welfare problems. "AI behavior detection" mostly turns out to be marketing.
 
 **Era 5 (2023-2025) — DIY local-first + Mars empire peak + Atom's passing + the contraction.**
-Mars Petcare's vertical integration hits its peak in 2023 — food + clinics + devices + analytics, all under one roof. The DIY ESP32 pet-IoT response begins ([the ESP32 feeder I built this year](/blog/diy-esp32-pet-feeder-vendor-cloud-independence/)). Apple Find My pet trackers offer the first credible third-party tracking ecosystem. [Atom passes in October 2024](/blog/atoms-last-year-data-told-us/) — the data taught me what I missed. Then in July 2025, Mars [divests Whistle to Tractive](/blog/mars-divests-whistle-to-tractive-market-state/). The empire severs its device leg. The story I expected to write — Mars consolidating further — turned out to be the wrong shape of arc.
+Mars Petcare's vertical integration hits its peak in 2023 — food + clinics + devices + analytics, all under one roof. The DIY ESP32 pet-IoT response begins ([the ESP32 feeder I built this year](/blog/diy-esp32-pet-feeder-vendor-cloud-independence/)). Apple Find My pet trackers offer the first credible third-party tracking ecosystem. [Atom passes in October 2024](/blog/atoms-last-year-data-told-us/) — the data taught me what I missed. Then 2025 turns the whole arc: in May, Tractive ships real heart-rate and respiratory-rate vitals to its existing trackers — the first genuine consumer pet vitals, from an independent vendor — and in July, Mars [divests Whistle to that same Tractive](/blog/mars-divests-whistle-to-tractive-market-state/). The empire severs its device leg right as an outsider out-innovates it. The story I expected to write — Mars consolidating further — turned out to be the wrong shape of arc.
+
+![A timeline of five eras of pet IoT from 2013 to 2025. Era one, 2013 to 2015, dog fitness trackers — Whistle, FitBark, Tagg. Era two, 2015 to 2018, cat IoT joins and Mars consolidates — SureFlap, Mars buys Whistle in 2016. Era three, 2018 to 2020, the cloud-dependency catastrophe, marked in red — the Petnet collapse and Fi's launch. Era four, 2020 to 2023, behavioral health plus AirTag — Whistle Health and Petivity. Era five, 2023 to 2025, DIY local-first and the contraction, marked in dark — the ESP32 DIY response and Mars divesting Whistle in 2025. A caption reads: sprawl, then consolidation, then a cloud catastrophe, and at the end the empire letting go.](../../assets/blog/twelve-years-five-eras.svg)
 
 ## Patterns across all five eras
 
@@ -48,8 +50,12 @@ From 2016 through July 2025, the same company sold the food, ran the vet, sold t
 **Multi-pet households break single-pet design assumptions.**
 Two cats sharing one litter box, two dogs sharing one feeder, three pets visible on one camera — every device that worked for "the pet" needs to work for "which pet." Most devices don't, well.
 
-**Vet-grade telemetry is real, and as of mid-2025, no longer trapped behind consolidation.**
-The Whistle Health vitals signal is genuinely useful — caught Atom's mitral valve disease progression earlier than I would have noticed otherwise. For nine years (2016-2025) the only consumer-grade vitals tracker was Mars-owned. Tractive's [post-acquisition DOG 6 lineup](/blog/mars-divests-whistle-to-tractive-market-state/) — shipping vitals as of July 2025 — is the first independent alternative the category has produced. The pattern took twelve years to break.
+**Pet health monitoring finally grew up — and stopped being Mars's to control.**
+I want to be precise about what these collars actually measured, because the marketing always muddied it. For nine years, "pet health tracking" meant *behavioral* inference off an accelerometer — Whistle's scratching, licking, drinking, sleep — not physiology. No heart rate, no respiratory rate. And behavior was enough to matter: Whistle Health's scratching trend is, in hindsight, [the signal that flagged Atom's mitral valve disease](/blog/atoms-last-year-data-told-us/) months before I noticed — I just wasn't looking at it. Then 2025 closed the gap from both ends. In **May**, Tractive shipped real resting-heart-rate and respiratory-rate monitoring as a free update to its existing trackers — the consumer category-first for genuine vitals, from an independent vendor. In **July**, Mars divested Whistle to that same vendor and switched the old behavioral line off. So the [data-ownership conflict I documented two years ago](/blog/mars-petcare-data-ownership-conflict/) resolved in a way I didn't predict: not Mars loosening its grip, but an outsider leapfrogging it on vitals and then absorbing its device. Nine years of health data trapped inside a food conglomerate, and the exit was an independent company doing it *better*.
+
+![The Mars empire's trajectory as a single arc against a year axis. It rises from 2016 — when Mars bought Whistle — to a vertical-integration peak in 2023. From that peak, a dashed grey line continues upward: the consolidate-further arc I expected to write. Instead the solid accent line bends back down through 2025. Two boxes mark the turn: May 2025, Tractive ships real heart-rate and respiratory vitals, and July 2025, Mars divests Whistle to that same Tractive. The caption reads that an outsider out-innovated the empire on vitals, then absorbed its device leg, and the consolidation arc bent back.](../../assets/blog/twelve-years-2025-inflection.svg)
+
+![Four pets' presence across twelve years, drawn as horizontal lifelines on a 2013-to-2025 axis. Atom the dog runs from 2013 and ends in 2024 with a dot, labelled Whistle then Fi then Whistle Health. Joule the cat runs from 2014 onward, labelled microchip then SureFlap then GPS Cat Mini then Pebblebee. Boson the cat runs from 2020 onward, labelled GPS Cat Mini and Pebblebee. Quark the dog runs from 2022 onward, labelled Fi cellular. A caption notes the gear rotates every few years, but the dog the data was about does not come back.](../../assets/blog/twelve-years-four-pets.svg)
 
 **The cat-IoT category is a decade behind the dog-IoT category.**
 Same complaint I had in 2014, still mostly true in 2025. SureFlap and Litter-Robot are the cat-IoT mainstays. Petivity is the third entrant. The category is thin compared to the dog-side market.
@@ -96,11 +102,13 @@ Three pets. ~$1,200 of currently-deployed pet-IoT hardware. About $200/year in s
 
 Pet IoT is the smart-home category, five years behind. Same evolutionary pattern: vendor sprawl → consolidation → cloud-dependency catastrophe → DIY local-first response. Smaller market, smaller engineering investment, higher stakes (the failure mode is animal welfare, not lights-stuck-on).
 
+![The same four-stage arc on two parallel rails. The top rail, smart home, runs vendor sprawl, then consolidation, then a cloud crash in red, then DIY local-first in green. The bottom rail, pet IoT, runs the identical four stages but shifted to the right by a dashed "about five years later" connector, with its final stage labelled DIY just starting. A caption notes the pet market is smaller but the stakes are higher — the failure mode is animal welfare, not lights stuck on.](../../assets/blog/twelve-years-same-arc-five-behind.svg)
+
 If you're shopping pet IoT in 2025:
 
 1. **Buy the SureFlap door** (or equivalent microchip door). Best $200 in the category.
 2. **Buy a Litter-Robot** if you have cats. The cleaning is worth it; the data is bonus.
-3. **Buy a Fi or Tractive collar** for outdoor dogs. Both independent vendors. Real engineering on battery life. Tractive's DOG 6 XL claims 6-week battery; evaluating against Fi for Quark's next collar.
+3. **Buy a Fi or Tractive collar** for outdoor dogs. Both independent vendors, both doing real engineering on battery life. Tractive's DOG 6 (shipped this January) plus its Base Station is what I'm evaluating against Fi for Quark's next collar.
 3b. **Tractive GPS Cat Mini for outdoor cats.** First credible consumer cellular cat tracker the category produced — ships since late 2022. Joule and Boson have worn them since then; covers the off-property outdoor dimension the SureFlap door logs miss.
 4. **DIY your feeder** with ESP32 + ESPHome. Vendor-cloud-independent.
 5. **Add a Pebblebee Clip** to indoor pets' collars for Find My backup.

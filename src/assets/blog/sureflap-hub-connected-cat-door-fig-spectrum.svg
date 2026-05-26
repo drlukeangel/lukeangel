@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="sub-GHz versus 2.4 GHz tradeoff">
+  <rect width="1000" height="470" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" font-weight="700" fill="#1a1d24">WHY SUB-GHz, NOT 2.4 GHz</text>
+
+  <!-- LEFT: sub-GHz, chosen -->
+  <g transform="translate(60,80)">
+    <rect x="0" y="0" width="400" height="320" rx="12" fill="#fdfaf2" stroke="#c87533" stroke-width="2.5"/>
+    <text x="20" y="34" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#c87533">~868 / 908 MHz &#183; CHOSEN</text>
+
+    <!-- long low-frequency wave through a wall -->
+    <path d="M20 90 q22 -34 44 0 t44 0 t44 0 t44 0 t44 0" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- wall -->
+    <rect x="250" y="62" width="14" height="56" fill="#7a808c" fill-opacity="0.35"/>
+    <path d="M264 90 q22 -30 44 0 t44 0" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="20" y="138" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#7a808c">passes through interior walls</text>
+
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">
+      <g transform="translate(20,180)"><circle cx="6" cy="-4" r="6" fill="#3a7d44"/><text x="24" y="0">longer range through walls (~10 m)</text></g>
+      <g transform="translate(20,214)"><circle cx="6" cy="-4" r="6" fill="#3a7d44"/><text x="24" y="0">low data rate &#8212; all a door-event needs</text></g>
+      <g transform="translate(20,248)"><circle cx="6" cy="-4" r="6" fill="#3a7d44"/><text x="24" y="0">quiet band &#8212; little congestion</text></g>
+      <g transform="translate(20,282)"><circle cx="6" cy="-4" r="6" fill="#3a7d44"/><text x="24" y="0">never misses the one event/trip</text></g>
+    </g>
+  </g>
+
+  <!-- RIGHT: 2.4 GHz, rejected -->
+  <g transform="translate(540,80)">
+    <rect x="0" y="0" width="400" height="320" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+    <text x="20" y="34" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#7a808c">2.4 GHz &#183; NOT USED</text>
+
+    <!-- short tight high-frequency wave, blocked by wall -->
+    <path d="M20 90 q9 -30 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0" fill="none" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.6"/>
+    <rect x="190" y="62" width="14" height="56" fill="#7a808c" fill-opacity="0.5"/>
+    <path d="M3 -9 l8 8 M11 -9 l-8 8" transform="translate(212,98)" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="20" y="138" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#7a808c">shorter reach, more wall loss</text>
+
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#7a808c">
+      <g transform="translate(20,180)"><path d="M0 -8 l9 9 M9 -8 l-9 9" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/><text x="24" y="0">shares the band with Wi-Fi, BT,</text></g>
+      <g transform="translate(44,200)"><text x="0" y="0">microwave ovens</text></g>
+      <g transform="translate(20,240)"><path d="M0 -8 l9 9 M9 -8 l-9 9" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/><text x="24" y="0">fast &#8212; but the speed isn't needed</text></g>
+      <g transform="translate(20,280)"><path d="M0 -8 l9 9 M9 -8 l-9 9" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/><text x="24" y="0">crowded = a missed event risk</text></g>
+    </g>
+  </g>
+
+  <text x="60" y="446" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">For a device that sends a few tiny events a day and must never miss one, low-and-slow beats fast-and-crowded.</text>
+</svg>

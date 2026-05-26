@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" role="img" aria-label="2023 scorecard">
+  <rect width="760" height="470" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="46" font-size="20" fill="#1a1d24" font-weight="600">2023 — predicted vs. shipped</text>
+    <text x="40" y="70" font-size="13" fill="#7a808c">~84% accuracy; Matter timing was the worst miss</text>
+
+    <!-- legend -->
+    <g transform="translate(470,36)" font-size="12">
+      <circle cx="8" cy="-4" r="7" fill="#3a7d44"/><text x="22" y="0" fill="#5b616b">hit</text>
+      <circle cx="78" cy="-4" r="7" fill="#e0a92e"/><text x="92" y="0" fill="#5b616b">half</text>
+      <circle cx="160" cy="-4" r="7" fill="#c14a3a"/><text x="174" y="0" fill="#5b616b">miss</text>
+    </g>
+
+    <g font-size="14">
+      <!-- Vision Pro HIT -->
+      <g transform="translate(40,100)">
+        <rect width="680" height="44" rx="6" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-opacity="0.4"/>
+        <circle cx="26" cy="22" r="11" fill="#3a7d44"/>
+        <path d="M21 22 l4 4 l8 -9" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <text x="52" y="20" fill="#1a1d24" font-weight="600">Vision Pro announced at WWDC</text>
+        <text x="52" y="37" fill="#5b616b" font-size="12">$3,499, M2 + R1, ship early 2024 — exactly the call</text>
+      </g>
+      <!-- AI-on-device HIT -->
+      <g transform="translate(40,150)">
+        <rect width="680" height="44" rx="6" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-opacity="0.4"/>
+        <circle cx="26" cy="22" r="11" fill="#3a7d44"/>
+        <path d="M21 22 l4 4 l8 -9" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <text x="52" y="20" fill="#1a1d24" font-weight="600">AI hardware: announcements, not products</text>
+        <text x="52" y="37" fill="#5b616b" font-size="12">Humane demoed, Rabbit R1 teased — nothing shipped</text>
+      </g>
+      <!-- Watch / AirPods / rings / mowers HIT -->
+      <g transform="translate(40,200)">
+        <rect width="680" height="44" rx="6" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-opacity="0.4"/>
+        <circle cx="26" cy="22" r="11" fill="#3a7d44"/>
+        <path d="M21 22 l4 4 l8 -9" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <text x="52" y="20" fill="#1a1d24" font-weight="600">Incrementals landed as called</text>
+        <text x="52" y="37" fill="#5b616b" font-size="12">Watch S9, AirPods Pro 2 USB-C, smart rings, robot mowers</text>
+      </g>
+      <!-- Matter HALF -->
+      <g transform="translate(40,250)">
+        <rect width="680" height="44" rx="6" fill="#e0a92e" fill-opacity="0.10" stroke="#e0a92e" stroke-opacity="0.5"/>
+        <circle cx="26" cy="22" r="11" fill="#e0a92e"/>
+        <rect x="20" y="20.5" width="12" height="3" rx="1.5" fill="#fff"/>
+        <text x="52" y="20" fill="#1a1d24" font-weight="600">Matter v1.2 — right content, 5 months late</text>
+        <text x="52" y="37" fill="#5b616b" font-size="12">Oct not May; big appliances in, cameras + doorbells still out</text>
+      </g>
+      <!-- Matter recalls HALF -->
+      <g transform="translate(40,300)">
+        <rect width="680" height="44" rx="6" fill="#e0a92e" fill-opacity="0.10" stroke="#e0a92e" stroke-opacity="0.5"/>
+        <circle cx="26" cy="22" r="11" fill="#e0a92e"/>
+        <rect x="20" y="20.5" width="12" height="3" rx="1.5" fill="#fff"/>
+        <text x="52" y="20" fill="#1a1d24" font-weight="600">Matter pairing fixes — quiet, not noisy</text>
+        <text x="52" y="37" fill="#5b616b" font-size="12">No public mea culpa; bridge firmware patched all year</text>
+      </g>
+      <!-- Missed entirely -->
+      <g transform="translate(40,350)">
+        <rect width="680" height="44" rx="6" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-opacity="0.45"/>
+        <circle cx="26" cy="22" r="11" fill="#c14a3a"/>
+        <path d="M21 17 l10 10 M31 17 l-10 10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="52" y="20" fill="#1a1d24" font-weight="600">Didn't see Ray-Ban Meta Gen 2 coming</text>
+        <text x="52" y="37" fill="#5b616b" font-size="12">First face-camera that's good-looking and socially OK</text>
+      </g>
+    </g>
+    <text x="40" y="430" font-size="11" fill="#7a808c" font-style="italic" font-family="Newsreader, Georgia, serif">The miss I care about: the breakout wearable wasn't on the board at all.</text>
+  </g>
+</svg>

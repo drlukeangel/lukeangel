@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="Device and cloud negotiate a capability intersection.">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="40" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ON CONNECT, BOTH SIDES ANNOUNCE CAPABILITIES &#8594; THEY USE ONLY THE INTERSECTION</text>
+
+  <!-- ============ LEFT: device capability set ============ -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="44" y="86" font-size="14" fill="#1a1d24">device announces</text>
+    <rect x="44" y="100" width="284" height="200" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g font-size="13" fill="#1a1d24">
+      <rect x="64" y="122" width="244" height="40" rx="7" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="2"/>
+      <text x="80" y="148">session_frame_v1</text>
+      <rect x="64" y="170" width="244" height="40" rx="7" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="2"/>
+      <text x="80" y="196">pressure_track</text>
+      <rect x="64" y="218" width="244" height="40" rx="7" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="2"/>
+      <text x="80" y="244">head_id_v1</text>
+    </g>
+    <!-- device puck -->
+    <g transform="translate(186,330)">
+      <rect x="-66" y="-2" width="132" height="60" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <text x="0" y="22" text-anchor="middle" font-size="12" fill="#1a1d24">v1 firmware</text>
+      <text x="0" y="42" text-anchor="middle" font-size="10.5" fill="#7a808c">frozen in the field</text>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: cloud capability set (superset) ============ -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="792" y="86" font-size="14" fill="#1a1d24" text-anchor="end">cloud announces</text>
+    <rect x="792" y="100" width="284" height="248" rx="10" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <g font-size="13" fill="#1a1d24">
+      <rect x="812" y="122" width="244" height="38" rx="7" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="2"/>
+      <text x="828" y="147">session_frame_v1</text>
+      <rect x="812" y="166" width="244" height="38" rx="7" fill="#357a8c" fill-opacity="0.06" stroke="#357a8c" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="828" y="191">session_frame_v2</text>
+      <rect x="812" y="210" width="244" height="38" rx="7" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="2"/>
+      <text x="828" y="235">pressure_track</text>
+      <rect x="812" y="254" width="244" height="38" rx="7" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="2"/>
+      <text x="828" y="279">head_id_v1</text>
+      <rect x="812" y="298" width="244" height="38" rx="7" fill="#357a8c" fill-opacity="0.06" stroke="#357a8c" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="828" y="323">coverage_v2</text>
+    </g>
+  </g>
+
+  <!-- ============ CENTER: the intersection ============ -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="560" y="118" text-anchor="middle" font-size="13" fill="#357a8c">&#8745; both sides use</text>
+    <rect x="404" y="132" width="312" height="172" rx="12" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="3.5"/>
+    <g font-size="13.5" fill="#1a1d24">
+      <text x="560" y="172" text-anchor="middle">session_frame_v1</text>
+      <text x="560" y="210" text-anchor="middle">pressure_track</text>
+      <text x="560" y="248" text-anchor="middle">head_id_v1</text>
+    </g>
+    <text x="560" y="288" text-anchor="middle" font-size="11" fill="#5b616b">the working contract</text>
+
+    <!-- arrows from each side into the intersection -->
+    <g stroke="#357a8c" stroke-width="4" fill="#357a8c" stroke-linecap="round">
+      <line x1="332" y1="210" x2="398" y2="210"/>
+      <path d="M412 210 l-18 -8 v16 z"/>
+      <line x1="788" y1="218" x2="722" y2="218"/>
+      <path d="M708 218 l18 -8 v16 z"/>
+    </g>
+  </g>
+
+  <!-- ============ bottom: the two annotations ============ -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- API can lead -->
+    <g transform="translate(0,388)">
+      <rect x="404" y="0" width="312" height="62" rx="9" fill="#fdfaf2" stroke="#357a8c" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="560" y="26" text-anchor="middle" font-size="12.5" fill="#357a8c">API can lead</text>
+      <text x="560" y="46" text-anchor="middle" font-size="10.5" fill="#5b616b">ships v2 early; unused until a device announces it</text>
+    </g>
+  </g>
+
+  <!-- captions: firmware can lead too / old fw untouched -->
+  <text x="34" y="476" font-family="Newsreader, Georgia, serif" font-size="13.5" font-style="italic" fill="#3a3f4a">A future device can announce a capability the cloud has never heard of &#8212; the cloud ignores it gracefully,</text>
+  <text x="34" y="500" font-family="Newsreader, Georgia, serif" font-size="13.5" font-style="italic" fill="#3a3f4a">so firmware can lead too. Meanwhile the v1 fleet keeps working, untouched, on exactly the contract it knows.</text>
+
+  <!-- dashed = "announced but not yet on both sides" legend -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="900" y="382" width="30" height="20" rx="5" fill="#357a8c" fill-opacity="0.06" stroke="#357a8c" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="940" y="397" font-size="11" fill="#5b616b">announced, not yet shared</text>
+  </g>
+</svg>

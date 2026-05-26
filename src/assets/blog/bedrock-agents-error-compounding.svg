@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" width="1000" height="440" role="img" aria-label="Per-turn error compounds over the loop budget.">
+  <rect width="1000" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <defs>
+    <marker id="ec-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHY 10-MIN TASKS WORK AND 1-HOUR RUNS DON'T</text>
+  <line x1="34" y1="60" x2="966" y2="60" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- axes -->
+  <line x1="110" y1="90" x2="110" y2="360" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="1.5"/>
+  <line x1="110" y1="360" x2="900" y2="360" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="1.5"/>
+  <text x="64" y="100" font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">P(all</text>
+  <text x="44" y="116" font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">turns ok)</text>
+  <text x="500" y="392" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">turns in the loop &#8594; loop budget exhausted</text>
+
+  <!-- gridline at acceptable threshold -->
+  <line x1="110" y1="150" x2="900" y2="150" stroke="#3a7d44" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="5 5"/>
+  <text x="900" y="146" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">~90% reliable</text>
+
+  <!-- decay curve: 0.97^n -->
+  <path d="M110 96 C 300 120, 480 200, 640 280 S 840 348, 900 354" fill="none" stroke="#c14a3a" stroke-width="3"/>
+
+  <!-- supervised zone -->
+  <rect x="110" y="90" width="200" height="270" fill="#3a7d44" fill-opacity="0.07"/>
+  <line x1="310" y1="90" x2="310" y2="360" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="205" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#3a7d44">~10-min task</text>
+  <text x="205" y="200" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">few turns,</text>
+  <text x="205" y="218" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">human watching</text>
+  <text x="205" y="236" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">the trace</text>
+
+  <!-- unsupervised zone -->
+  <rect x="640" y="90" width="260" height="270" fill="#c14a3a" fill-opacity="0.07"/>
+  <line x1="640" y1="90" x2="640" y2="360" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="770" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#c14a3a">~1-hour unsupervised</text>
+  <text x="770" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">many turns,</text>
+  <text x="770" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">error compounds</text>
+  <text x="770" y="336" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">turn over turn</text>
+
+  <!-- caption -->
+  <text x="500" y="426" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a3f4a">A small per-turn error rate is fine for a handful of turns and fatal across dozens — reliability is the product of every turn.</text>
+</svg>

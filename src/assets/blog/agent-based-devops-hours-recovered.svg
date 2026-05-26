@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img" aria-label="Engineering-hours-recovered metric.">
+  <rect width="960" height="470" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- the formula as three stacked terms with operators -->
+  <!-- term 1: hours saved (plus) -->
+  <g transform="translate(60,70)">
+    <rect x="0" y="0" width="360" height="74" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="20" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#3a7d44">+ hours the agent automated</text>
+    <text x="20" y="58" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">upgrade toil, PR priming, incident assembly</text>
+  </g>
+
+  <!-- minus sign -->
+  <text x="470" y="118" text-anchor="middle" font-family="ui-monospace, monospace" font-size="40" fill="#1a1d24">−</text>
+
+  <!-- term 2: review of wrong output -->
+  <g transform="translate(540,70)">
+    <rect x="0" y="0" width="360" height="74" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <text x="20" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#c14a3a">− reviewing wrong output</text>
+    <text x="20" y="58" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">time spent undoing what the agent got wrong</text>
+  </g>
+
+  <!-- second minus row: maintenance, centered -->
+  <text x="300" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="40" fill="#1a1d24">−</text>
+  <g transform="translate(330,168)">
+    <rect x="0" y="0" width="360" height="74" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <text x="20" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#c14a3a">− maintaining the integration</text>
+    <text x="20" y="58" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">glue, plumbing, and babysitting the agent</text>
+  </g>
+
+  <!-- equals bar -->
+  <line x1="60" y1="278" x2="900" y2="278" stroke="#1a1d24" stroke-width="3"/>
+  <text x="30" y="290" font-family="ui-monospace, monospace" font-size="34" fill="#1a1d24">=</text>
+
+  <!-- two outcome boxes -->
+  <!-- kept: net positive -->
+  <g transform="translate(60,308)">
+    <rect x="0" y="0" width="400" height="120" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4"/>
+    <g transform="translate(46,60)" stroke="#3a7d44" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="22"/><path d="M-10 0 L-2 8 L11 -9"/>
+    </g>
+    <text x="92" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">four kept agents</text>
+    <text x="92" y="80" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18" fill="#3a7d44">≈ +0.7 FTE recovered / quarter</text>
+  </g>
+
+  <!-- tossed: net negative -->
+  <g transform="translate(500,308)">
+    <rect x="0" y="0" width="400" height="120" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="4" stroke-dasharray="10 6"/>
+    <g transform="translate(46,60)" stroke="#c14a3a" stroke-width="6" fill="none" stroke-linecap="round">
+      <line x1="-16" y1="-16" x2="16" y2="16"/><line x1="16" y1="-16" x2="-16" y2="16"/>
+    </g>
+    <text x="92" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">two tossed agents</text>
+    <text x="92" y="80" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18" fill="#c14a3a">net negative — review &gt; savings</text>
+  </g>
+</svg>

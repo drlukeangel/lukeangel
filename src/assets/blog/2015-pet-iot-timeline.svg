@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" role="img" aria-label="2015 household pet-tech timeline">
+  <rect width="960" height="470" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c;}
+    .lane{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#5b616b;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+  </style>
+
+  <!-- month axis: 12 ticks from x=120 to x=900 -->
+  <g class="mut" text-anchor="middle">
+    <line x1="120" y1="80" x2="900" y2="80" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="120" y="68">Jan</text>
+    <text x="191" y="68">Feb</text>
+    <text x="262" y="68">Mar</text>
+    <text x="333" y="68">Apr</text>
+    <text x="404" y="68">May</text>
+    <text x="475" y="68">Jun</text>
+    <text x="546" y="68">Jul</text>
+    <text x="617" y="68">Aug</text>
+    <text x="688" y="68">Sep</text>
+    <text x="759" y="68">Oct</text>
+    <text x="830" y="68">Nov</text>
+    <text x="900" y="68">Dec</text>
+  </g>
+
+  <!-- DOG lane -->
+  <text x="40" y="150" class="lane">DOG</text>
+  <!-- Whistle running all year -->
+  <rect x="120" y="135" width="780" height="22" rx="11" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="2"/>
+  <text x="128" y="151" class="lab">Atom on Whistle — since 2013</text>
+  <!-- FitBark joins in September -->
+  <rect x="688" y="167" width="212" height="22" rx="11" fill="#c87533" fill-opacity="0.30" stroke="#c87533" stroke-width="2"/>
+  <text x="696" y="183" class="lab">+ FitBark</text>
+  <!-- Petcube spring, struck through -->
+  <g transform="translate(333,210)">
+    <rect x="0" y="0" width="120" height="22" rx="11" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="60" y="16" text-anchor="middle" class="lab" fill="#c14a3a">Petcube</text>
+  </g>
+  <text x="333" y="256" class="mut" fill="#c14a3a">bought + returned within the month</text>
+
+  <!-- divider -->
+  <line x1="40" y1="290" x2="920" y2="290" stroke="#1a1d24" stroke-opacity="0.1" stroke-width="1.5"/>
+
+  <!-- CAT lane -->
+  <text x="40" y="345" class="lane">CAT</text>
+  <!-- chip continues (the only prior tech) -->
+  <line x1="120" y1="340" x2="404" y2="340" stroke="#7a808c" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="128" y="334" class="mut">passive chip (since 2014)</text>
+  <!-- SureFlap from May -->
+  <rect x="404" y="330" width="496" height="22" rx="11" fill="#c87533" fill-opacity="0.20" stroke="#c87533" stroke-width="2"/>
+  <text x="412" y="346" class="lab">SureFlap DualScan door — reads Joule's chip</text>
+
+  <!-- Petnet feeder late November, on probation (new category, sits between lanes) -->
+  <g transform="translate(830,388)">
+    <rect x="0" y="0" width="100" height="22" rx="11" fill="#c87533" fill-opacity="0.10" stroke="#c87533" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="8" y="16" class="lab">Petnet</text>
+  </g>
+  <text x="700" y="404" class="mut" text-anchor="end">feeder arrives, on probation →</text>
+
+  <text x="40" y="448" class="cap">Cat lane blank all of last year; now solid from May. Dog lane doubles in the fall.</text>
+</svg>

@@ -13,15 +13,15 @@ notebook: smart-home-iot-journey
 notebookOrder: 9
 excerpt: "Samsung just closed the SmartThings acquisition two weeks ago. The hub they ship today (Kickstarter-era v1 design) is the first credible all-in-one."
 pullquote: "A hub with two radios, a rules engine, and a Groovy SmartApp platform is the first thing that makes a multi-vendor smart home tractable. Eighteen months overdue, finally here."
-cover: "../../assets/blog/smartthings-starter-kit-unboxing-zwave-zigbee-first-hub-cover.png"
-coverAlt: "SmartThings starter kit unboxing — first credible hub"
+cover: "../../assets/blog/smartthings-starter-kit-unboxing-zwave-zigbee-first-hub-cover.svg"
+coverAlt: "A single hub with two native radios — Zigbee and Z-Wave — bridging the previously separate vendor islands into one platform, the long-awaited unifier finally in the house."
 ---
 
 Samsung closed the SmartThings acquisition two weeks ago — announced August 14, $200M. SmartThings is now a Samsung subsidiary. They're still shipping the original Kickstarter-era hub (call it v1; rumors are a successor is in design but won't ship until next year at earliest).
 
 I bought the **Home Monitoring Kit** today ($249): one hub, two Multipurpose Sensors (door/window + motion + temperature), one Arrival Sensor (presence), and one Smart Outlet.
 
-The hub is the centerpiece — first device I've installed that runs **two native radios** (Zigbee + Z-Wave) and a **rules engine**. The home-security arc starts here. First dedicated security automation post coming in March 2015; for now, what's in the box and how it works.
+The hub is the centerpiece — first device I've installed that runs **two native radios** (Zigbee + Z-Wave) and a **rules engine**. The home-security arc starts here; a dedicated security-automation post follows once the door-and-presence rig has earned my trust. For now, what's in the box and how it works.
 
 ## SmartThings Hub (v1) — hardware
 
@@ -32,6 +32,10 @@ The hub is the centerpiece — first device I've installed that runs **two nativ
   - **Z-Wave Plus 500-series** via Sigma Designs ZM5101. 908.4 MHz US, mesh, up to 232 nodes per network.
 - 4× AA batteries for backup if mains drops.
 - Tiny SQLite database for device state cached locally; most state lives in the cloud.
+
+The shape of the thing is one hub straddling two physically separate mesh networks on two different bands, with a wired uplink to the cloud — and the cross-vendor brands sitting outside both meshes as cloud-only islands:
+
+![The SmartThings v1 hub at the center bridging two separate native radio meshes. On the left, a Z-Wave Plus mesh on 908.4 MHz (up to 232 nodes) with the kit's Multipurpose Sensors, Arrival Sensor, and Smart Outlet hopping between each other and back to the hub. On the right, a Zigbee Home Automation 1.2 mesh on 2.4 GHz with the Motion Sensor and Zigbee bulbs, noting that the HA profile does not natively interoperate with Hue's Light Link profile. Straight up from the hub, a wired Ethernet link reaches the cloud, where cross-vendor brands like Hue, Wemo, and Lutron remain separate islands reachable only through their own clouds. The takeaway line: one hub bridges two native meshes, but cross-vendor devices stay islands behind their clouds.](../../assets/blog/smartthings-starter-kit-unboxing-zwave-zigbee-first-hub-fig-3.svg)
 
 ## What's in the kit
 
@@ -56,7 +60,7 @@ The hub is the centerpiece — first device I've installed that runs **two nativ
 - Keyfob-size, CR2450.
 - Beacons every 10 s when in range of the hub.
 - Hub registers "present" / "not present" based on RSSI threshold + missed-beacon timeout.
-- Range ~30 m inside a house, less through walls. Notably less reliable than a phone-based presence detection — which iBeacon and Apple location can give us by 2015.
+- Range ~30 m inside a house, less through walls. Notably less reliable than phone-based presence detection — a dedicated keyfob is one more thing to carry and charge, and phone-GPS geofencing is starting to look like the better long-term answer.
 
 **Smart Outlet (Z-Wave):** model F-OUT-US.
 
@@ -77,6 +81,8 @@ The Multipurpose Sensors come pre-paired with the hub in the box. Adding a third
 7. **Hub reports the new device to SmartThings cloud** (this is the part that goes through internet).
 
 The whole thing takes ~30 seconds and the LED on the sensor blinks fast → slow → solid green when it's done.
+
+![The Z-Wave inclusion handshake as a sequence between the hub and a new sensor. The hub enters inclusion mode on an app command; the device powers up and broadcasts a Node Information Frame advertising itself; the hub assigns a node ID and runs the AES-128 security key exchange so all further traffic to that node is encrypted; the hub then queries the device's command classes to learn its capabilities and writes the result into its local SQLite database; finally it reports the new device up to the cloud. A bracket marks every step before that last one as happening locally on the LAN — only the registration notice leaves the house.](../../assets/blog/zwave-inclusion-handshake.svg)
 
 ## SmartApps — the Groovy platform
 
@@ -123,7 +129,7 @@ def doorOpenedHandler(evt) {
 }
 ```
 
-This is the first security SmartApp I'll write. Full version comes in the March 2015 security post.
+This is the first security SmartApp I'll write. The full version — tuned against real false alarms — gets its own post once I've lived with it for a while.
 
 ## What runs locally vs in the cloud (the load-bearing limitation)
 
@@ -135,6 +141,8 @@ SmartThings's marketing says "runs locally." The reality is much narrower — th
 - **Cross-vendor integrations** (Hue, Wemo, Lutron via Caseta cloud): cloud-only. Each vendor's cloud is involved.
 
 The custom-SmartApp-in-the-cloud constraint is the architectural risk here. If Samsung ever migrates the Groovy platform to a different architecture, my custom code will need to be rewritten. For now it's the only path to non-whitelisted automation, so I'm using it.
+
+![What runs where, drawn as two zones split by the LAN-versus-cloud boundary. On the local side: native Z-Wave and Zigbee devices respond instantly through the hub, and a small whitelisted set of built-ins (basic lighting, the Smart Home Monitor) run mostly on the hub at under two seconds. On the cloud side, each crossing the public internet and back: any custom Groovy SmartApp I write (2-5 seconds round-trip), every cross-vendor integration to Hue, Wemo, and Lutron through their own clouds, and even the mobile app's real-time state, which is cloud-polled even when the phone is on the same Wi-Fi as the hub. A caption marks the custom-app-in-the-cloud dependency as the architectural risk: if the platform changes, that code gets rewritten.](../../assets/blog/smartthings-local-vs-cloud-execution.svg)
 
 ## The first device integrations
 
@@ -160,4 +168,4 @@ That's the smart-home unifier I've been waiting two years for. Not perfect. Most
 
 ## What's next
 
-Coming up next: Echo + Alexa (the first voice integration, December 2014). Then the first dedicated security automation post (March 2015), where the door/window + presence combo becomes my first piece of real home security.
+Coming up next: a voice assistant in the house, and what it does to the way I control all of this. Then the first dedicated security-automation post, where the door/window + presence combo becomes my first piece of real home security.

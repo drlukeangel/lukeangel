@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2024 year in review">
+  <defs>
+    <pattern id="dots51" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots51)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- A scoring/ledger motif: a column of check/cross marks (the forecast scorecard) -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <rect x="150" y="120" width="360" height="400" rx="14" fill="#fff"/>
+    <line x1="150" y1="180" x2="510" y2="180"/>
+  </g>
+  <!-- ledger rows -->
+  <g>
+    <g transform="translate(195,235)">
+      <line x1="0" y1="0" x2="170" y2="0" stroke="#7a808c" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="262" cy="0" r="16" fill="none" stroke="#3a7d44" stroke-width="4"/>
+      <path d="M253 0 l6 7 12 -15" fill="none" stroke="#3a7d44" stroke-width="4"/>
+    </g>
+    <g transform="translate(195,295)">
+      <line x1="0" y1="0" x2="140" y2="0" stroke="#7a808c" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="262" cy="0" r="16" fill="none" stroke="#3a7d44" stroke-width="4"/>
+      <path d="M253 0 l6 7 12 -15" fill="none" stroke="#3a7d44" stroke-width="4"/>
+    </g>
+    <g transform="translate(195,355)">
+      <line x1="0" y1="0" x2="190" y2="0" stroke="#7a808c" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="262" cy="0" r="16" fill="none" stroke="#c14a3a" stroke-width="4"/>
+      <path d="M255 -8 l14 16 M269 -8 l-14 16" stroke="#c14a3a" stroke-width="4"/>
+    </g>
+    <g transform="translate(195,415)">
+      <line x1="0" y1="0" x2="155" y2="0" stroke="#7a808c" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="262" cy="0" r="16" fill="none" stroke="#3a7d44" stroke-width="4"/>
+      <path d="M253 0 l6 7 12 -15" fill="none" stroke="#3a7d44" stroke-width="4"/>
+    </g>
+    <g transform="translate(195,475)">
+      <line x1="0" y1="0" x2="120" y2="0" stroke="#7a808c" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="262" cy="0" r="16" fill="none" stroke="#3a7d44" stroke-width="4"/>
+      <path d="M253 0 l6 7 12 -15" fill="none" stroke="#3a7d44" stroke-width="4"/>
+    </g>
+  </g>
+
+  <!-- right side: the new-build kitchen/house glyph cluster -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <!-- house outline -->
+    <path d="M620 360 L780 240 L940 360 V520 H620 Z" fill="#6a4c93" fill-opacity="0.08"/>
+    <line x1="620" y1="360" x2="940" y2="360"/>
+    <!-- fridge / display surface inside -->
+    <rect x="675" y="395" width="70" height="100" rx="8" fill="#fff"/>
+    <line x1="675" y1="430" x2="745" y2="430"/>
+    <!-- oven -->
+    <rect x="780" y="420" width="90" height="75" rx="8" fill="#fff"/>
+    <circle cx="800" cy="438" r="6"/>
+    <rect x="790" y="450" width="70" height="35" rx="4"/>
+  </g>
+  <!-- a Frame TV on the great-room wall (a thin framed rectangle) -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <rect x="1000" y="180" width="150" height="100" rx="6" fill="#fff"/>
+    <rect x="1014" y="194" width="122" height="72" rx="3" fill="#6a4c93" fill-opacity="0.10"/>
+  </g>
+  <!-- EV charger glyph -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <rect x="1010" y="380" width="60" height="110" rx="10" fill="#fff"/>
+    <path d="M1040 405 l-12 22 h16 l-12 22" stroke="#6a4c93" stroke-width="4" fill="none" stroke-linejoin="round"/>
+  </g>
+</svg>

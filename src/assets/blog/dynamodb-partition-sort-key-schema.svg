@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 500" width="1120" height="500" role="img" aria-label="Partition key and sort key time-series layout">
+  <rect width="1120" height="500" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">PARTITION KEY = WHICH DEVICE · SORT KEY = WHEN</text>
+
+  <!-- three device partitions, each a sorted run of items -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- partition A -->
+    <g transform="translate(40, 78)">
+      <rect x="0" y="0" width="320" height="44" rx="8" fill="#2a52be" opacity="0.10"/>
+      <circle cx="26" cy="22" r="9" fill="none" stroke="#2a52be" stroke-width="3"/><circle cx="26" cy="22" r="3" fill="#2a52be"/>
+      <text x="46" y="20" font-size="13" fill="#1a1d24">device_id = puck-0a1</text>
+      <text x="46" y="36" font-size="10.5" fill="#7a808c">one partition · items sorted by event_ts</text>
+      <!-- items -->
+      <g>
+        <rect x="0" y="54"  width="320" height="30" rx="6" fill="#fdfaf2" stroke="#2a52be" stroke-width="2"/>
+        <rect x="0" y="90"  width="320" height="30" rx="6" fill="#fdfaf2" stroke="#2a52be" stroke-width="2"/>
+        <rect x="0" y="126" width="320" height="30" rx="6" fill="#fdfaf2" stroke="#2a52be" stroke-width="2"/>
+        <rect x="0" y="162" width="320" height="30" rx="6" fill="#fdfaf2" stroke="#2a52be" stroke-width="2"/>
+      </g>
+      <g font-size="11" fill="#5b616b">
+        <text x="14" y="74">2024-03-19T08:00Z</text><text x="220" y="74" fill="#7a808c">+ payload</text>
+        <text x="14" y="110">2024-03-19T08:01Z</text><text x="220" y="110" fill="#7a808c">+ payload</text>
+        <text x="14" y="146">2024-03-19T08:02Z</text><text x="220" y="146" fill="#7a808c">+ payload</text>
+        <text x="14" y="182">2024-03-19T08:03Z</text><text x="220" y="182" fill="#7a808c">+ payload</text>
+      </g>
+      <!-- sort direction -->
+      <g stroke="#7a808c" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M-16 54 V 188"/></g>
+      <path d="M-16 192 l-5 -13 h10 z" fill="#7a808c"/>
+    </g>
+
+    <!-- partition B -->
+    <g transform="translate(400, 78)">
+      <rect x="0" y="0" width="320" height="44" rx="8" fill="#1a1d24" opacity="0.05"/>
+      <circle cx="26" cy="22" r="9" fill="none" stroke="#7a808c" stroke-width="3"/><circle cx="26" cy="22" r="3" fill="#7a808c"/>
+      <text x="46" y="20" font-size="13" fill="#1a1d24">device_id = puck-0b7</text>
+      <text x="46" y="36" font-size="10.5" fill="#7a808c">a different partition</text>
+      <g fill="#7a808c" opacity="0.55">
+        <rect x="0" y="54"  width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+        <rect x="0" y="90"  width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+        <rect x="0" y="126" width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+        <rect x="0" y="162" width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+      </g>
+    </g>
+
+    <!-- partition C (fading, "...the rest of the fleet") -->
+    <g transform="translate(760, 78)">
+      <rect x="0" y="0" width="320" height="44" rx="8" fill="#1a1d24" opacity="0.04"/>
+      <text x="14" y="28" font-size="13" fill="#7a808c">device_id = …100K more partitions</text>
+      <g fill="#7a808c" opacity="0.28">
+        <rect x="0" y="54"  width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+        <rect x="0" y="90"  width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+        <rect x="0" y="126" width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+        <rect x="0" y="162" width="320" height="30" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- the query touches exactly one partition -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="40" y="310" width="430" height="62" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <text x="60" y="338" font-size="13" fill="#2a52be">Query(pk = puck-0a1, sk DESC, limit 100)</text>
+    <text x="60" y="358" font-size="11.5" fill="#5b616b">single-partition range scan — touches one box</text>
+    <g stroke="#2a52be" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M200 310 V 270"/></g>
+    <path d="M200 266 l-5 13 h10 z" fill="#2a52be"/>
+  </g>
+
+  <!-- TTL note -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="500" y="310" width="580" height="62" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+    <!-- small clock glyph -->
+    <circle cx="528" cy="341" r="13" fill="none" stroke="#5b616b" stroke-width="2.5"/>
+    <path d="M528 341 V 332 M528 341 l7 5" stroke="#5b616b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="552" y="336" font-size="13" fill="#1a1d24">expires_at (epoch seconds) — a TTL attribute</text>
+    <text x="552" y="358" font-size="11.5" fill="#7a808c">DynamoDB deletes expired items for you · no cron, no archival script</text>
+  </g>
+
+  <text x="40" y="420" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">The most common read is the cheapest operation Dynamo does — and it never gets slower as the fleet grows.</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="2014 forecast scorecard">
+  <rect width="1000" height="430" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="52" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">SCORING THE 2014 FORECAST</text>
+  <text x="40" y="78" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#7a808c">7 predictions &#183; ~71% &#183; the cost of bolder calls</text>
+
+  <!-- legend -->
+  <g transform="translate(40,116)">
+    <g>
+      <circle cx="16" cy="16" r="16" fill="#3a7d44"/>
+      <path d="M8 16 l5 6 l11 -13" fill="none" stroke="#fdfaf2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="44" y="14" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">HIT</text>
+      <text x="44" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">5</text>
+    </g>
+    <g transform="translate(160,0)">
+      <circle cx="16" cy="16" r="16" fill="#c87533"/>
+      <path d="M16 4 a12 12 0 0 1 0 24 Z" fill="#fdfaf2" fill-opacity="0.55"/>
+      <text x="44" y="14" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">HALF</text>
+      <text x="44" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">1 &#183; timing</text>
+    </g>
+    <g transform="translate(340,0)">
+      <circle cx="16" cy="16" r="16" fill="#c14a3a"/>
+      <path d="M9 9 l14 14 M23 9 l-14 14" stroke="#fdfaf2" stroke-width="3" stroke-linecap="round"/>
+      <text x="44" y="14" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">MISS</text>
+      <text x="44" y="32" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">1</text>
+    </g>
+  </g>
+
+  <!-- rows -->
+  <g transform="translate(40,186)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">
+    <g transform="translate(0,0)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Alexa Skills Kit launches</text><text x="660" y="0" fill="#7a808c" font-size="12.5">June; 1,000+ skills by Q4</text></g>
+    <g transform="translate(0,32)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">HomeKit ships with MFi tax</text><text x="660" y="0" fill="#7a808c" font-size="12.5">iOS 9, Sept</text></g>
+    <g transform="translate(0,64)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Google ships voice, no home device</text><text x="660" y="0" fill="#7a808c" font-size="12.5">Google Now only</text></g>
+    <g transform="translate(0,96)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">Hub-vs-cloud divide cements</text><text x="660" y="0" fill="#7a808c" font-size="12.5">both Wink + ST wobbled</text></g>
+    <g transform="translate(0,128)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">First security-arc posts</text><text x="660" y="0" fill="#7a808c" font-size="12.5">shipped in March</text></g>
+    <g transform="translate(0,160)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">No unifying multi-vendor standard</text><text x="660" y="0" fill="#7a808c" font-size="12.5">the "no" held</text></g>
+    <g transform="translate(0,192)"><circle cx="11" cy="-5" r="11" fill="#c87533"/><text x="34" y="0">Aeotec Multisensor 6 in Q2</text><text x="660" y="0" fill="#7a808c" font-size="12.5">shipped October &#8212; half</text></g>
+  </g>
+</svg>

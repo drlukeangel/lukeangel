@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" role="img" aria-label="Two alert paths">
+  <rect width="860" height="360" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- the detector -->
+  <rect x="360" y="150" width="140" height="60" rx="10" fill="#f3eee0" stroke="#1a1d24" stroke-width="3"/>
+  <circle cx="392" cy="180" r="11" fill="#c14a3a"/>
+  <text x="430" y="185" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">detector</text>
+  <text x="430" y="135" font-family="ui-monospace, monospace" font-size="13" fill="#7a808c" text-anchor="middle">smoke sensed</text>
+
+  <!-- PRIMARY path: local buzzer, no network -->
+  <path d="M360 165 H150" fill="none" stroke="#3a7d44" stroke-width="4" marker-end="url(#ar)"/>
+  <rect x="40" y="135" width="110" height="60" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="95" y="160" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24" text-anchor="middle">local</text>
+  <text x="95" y="178" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24" text-anchor="middle">buzzer</text>
+  <text x="255" y="150" font-family="ui-monospace, monospace" font-size="12" fill="#3a7d44" text-anchor="middle">primary</text>
+  <text x="255" y="190" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#5b616b" text-anchor="middle">no network</text>
+
+  <!-- SECONDARY path: Z-Wave to HA -->
+  <path d="M500 195 H710" fill="none" stroke="#6a4c93" stroke-width="4" stroke-dasharray="6 6" marker-end="url(#arp)"/>
+  <rect x="710" y="165" width="110" height="60" rx="10" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+  <text x="765" y="190" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24" text-anchor="middle">Home</text>
+  <text x="765" y="208" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24" text-anchor="middle">Assistant</text>
+  <text x="605" y="184" font-family="ui-monospace, monospace" font-size="12" fill="#6a4c93" text-anchor="middle">Z-Wave</text>
+  <text x="605" y="232" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#5b616b" text-anchor="middle">secondary, can fail</text>
+
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#3a7d44"/></marker>
+    <marker id="arp" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#6a4c93"/></marker>
+  </defs>
+</svg>

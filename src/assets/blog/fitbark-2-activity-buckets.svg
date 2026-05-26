@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 470" width="1180" height="470" role="img" aria-label="How each tracker buckets a day of motion.">
+  <rect width="1180" height="470" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="60" y="56" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">how each tracker slices the same 24 hours</text>
+
+  <!-- a shared day strip is implied; two stacked rows, one per device -->
+
+  <!-- ===== WHISTLE row: rest | walk | play (rest swallows night sleep) ===== -->
+  <text x="60" y="138" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">Whistle</text>
+
+  <!-- rest (big, grey) -->
+  <rect x="160" y="108" width="520" height="56" rx="6" fill="#fdfaf2" stroke="#5b616b" stroke-width="3"/>
+  <text x="420" y="142" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">rest</text>
+  <!-- a faint inner divider hinting night-sleep is hidden inside "rest" -->
+  <line x1="470" y1="112" x2="470" y2="160" stroke="#5b616b" stroke-width="2" stroke-dasharray="3 6" opacity="0.5"/>
+  <text x="305" y="98" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="12.5" font-style="italic" fill="#7a808c">nap + night sleep, lumped together</text>
+
+  <!-- walk (accent) -->
+  <rect x="688" y="108" width="220" height="56" rx="6" fill="#c87533" stroke="#1a1d24" stroke-width="3"/>
+  <text x="798" y="142" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#fdfaf2">walk</text>
+
+  <!-- play (accent, darker outline) -->
+  <rect x="916" y="108" width="200" height="56" rx="6" fill="#c87533" stroke="#1a1d24" stroke-width="3"/>
+  <circle cx="940" cy="136" r="3" fill="#fdfaf2"/>
+  <text x="1020" y="142" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#fdfaf2">play</text>
+
+  <!-- ===== FITBARK row: sleep | rest | active | play (sleep split out) ===== -->
+  <text x="60" y="298" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">FitBark</text>
+
+  <!-- sleep (the new, distinct bucket) -->
+  <rect x="160" y="268" width="260" height="56" rx="6" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+  <text x="290" y="302" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#357a8c">sleep</text>
+
+  <!-- rest -->
+  <rect x="428" y="268" width="252" height="56" rx="6" fill="#fdfaf2" stroke="#5b616b" stroke-width="3"/>
+  <text x="554" y="302" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">rest</text>
+
+  <!-- active -->
+  <rect x="688" y="268" width="220" height="56" rx="6" fill="#c87533" stroke="#1a1d24" stroke-width="3"/>
+  <text x="798" y="302" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#fdfaf2">active</text>
+
+  <!-- play -->
+  <rect x="916" y="268" width="200" height="56" rx="6" fill="#c87533" stroke="#1a1d24" stroke-width="3"/>
+  <circle cx="940" cy="296" r="3" fill="#fdfaf2"/>
+  <text x="1020" y="302" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#fdfaf2">play</text>
+
+  <!-- arrow/callout: the split -->
+  <path d="M290 332 C 290 366, 360 366, 396 366" fill="none" stroke="#357a8c" stroke-width="3" stroke-linecap="round"/>
+  <path d="M290 332 L284 348 L296 348 Z" fill="#357a8c"/>
+  <text x="406" y="371" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#357a8c">FitBark pulls overnight sleep out of "rest" — the one bucket Whistle doesn't model</text>
+
+  <!-- baseline labels -->
+  <text x="60" y="430" font-family="Newsreader, Georgia, serif" font-size="13.5" font-style="italic" fill="#7a808c">same motion, same day — the difference is how finely each one names the still hours</text>
+</svg>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 380" width="1120" height="380" role="img" aria-label="Is a dropped message safe to lose?">
+  <rect width="1120" height="380" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHICH WORLD ARE YOU IN — IS A DROPPED MESSAGE SAFE TO LOSE?</text>
+
+  <!-- left: consumer -->
+  <rect x="60" y="96" width="460" height="240" rx="14" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="290" y="134" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#3a7d44">CONSUMER CART FLEET</text>
+  <text x="290" y="162" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">a lost scan = a reviewable session</text>
+  <text x="290" y="182" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">nobody gets hurt</text>
+  <line x1="100" y1="206" x2="480" y2="206" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+  <text x="290" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">Pattern 1 OK &#10003;</text>
+  <text x="290" y="268" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">async filter, drop + dead-letter</text>
+  <text x="290" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">loss-prevention catches it later</text>
+  <text x="290" y="316" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">routine telemetry &#8594; cheapest path</text>
+
+  <!-- right: regulated -->
+  <rect x="600" y="96" width="460" height="240" rx="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text x="830" y="134" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#c14a3a">REGULATED / PAYMENT</text>
+  <text x="830" y="162" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">dose confirm, reading, checkout leg</text>
+  <text x="830" y="182" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">the user is standing right there</text>
+  <line x1="640" y1="206" x2="1020" y2="206" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+  <text x="830" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">Pattern 1 NOT acceptable &#10007;</text>
+  <text x="830" y="268" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">Pattern 2 (HTTPS, instant 400), OR</text>
+  <text x="830" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">Pattern 1 + mandatory monitored ack</text>
+  <text x="830" y="316" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">an error path you can prove in an audit</text>
+</svg>

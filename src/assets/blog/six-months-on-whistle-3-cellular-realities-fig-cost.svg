@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="razor and blades cost over year one">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" font-weight="700" fill="#1a1d24">COST TO OWN OVER YEAR ONE</text>
+
+  <!-- axes -->
+  <line x1="90" y1="380" x2="900" y2="380" stroke="#1a1d24" stroke-width="2"/>
+  <line x1="90" y1="90" x2="90" y2="380" stroke="#1a1d24" stroke-width="2"/>
+  <text x="60" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c" text-anchor="end">$160</text>
+  <text x="60" y="235" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c" text-anchor="end">$80</text>
+  <text x="60" y="384" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c" text-anchor="end">$0</text>
+  <text x="495" y="412" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c" text-anchor="middle">months owned (0 to 12)</text>
+
+  <!-- Whistle GPS: $79 step at purchase, then +$6.95/mo rising staircase to ~$163 -->
+  <!-- purchase jump -->
+  <line x1="90" y1="380" x2="90" y2="234" stroke="#c87533" stroke-width="3"/>
+  <!-- monthly accrual: 79 -> 163 over 12 months. y: 234 (=$79) down to ~78 (=$163). 810px wide for 12 months => 67.5/mo. each $6.95 ~ 13px -->
+  <polyline points="90,234 157,221 224,208 291,195 358,182 425,169 492,156 559,143 626,130 693,117 760,104 827,91 894,78"
+            fill="none" stroke="#c87533" stroke-width="3.5"/>
+  <circle cx="894" cy="78" r="5" fill="#c87533"/>
+  <text x="894" y="66" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#c87533" text-anchor="end">~$163</text>
+  <text x="118" y="226" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#c87533">$79 hardware + $6.95/mo</text>
+
+  <!-- FitBark: one-time ~$60, flat line (coin cell, no carrier) -->
+  <line x1="90" y1="380" x2="90" y2="278" stroke="#3a7d44" stroke-width="3"/>
+  <line x1="90" y1="278" x2="894" y2="278" fill="none" stroke="#3a7d44" stroke-width="3.5"/>
+  <circle cx="894" cy="278" r="5" fill="#3a7d44"/>
+  <text x="894" y="296" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#3a7d44" text-anchor="end">~$60, flat</text>
+  <text x="118" y="270" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#3a7d44">FitBark: buy once, coin cell, no carrier</text>
+
+  <text x="90" y="462" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">The subscription is the business; the hardware is the hook. You pay several times over for the one feature it adds &#8212; location.</text>
+</svg>

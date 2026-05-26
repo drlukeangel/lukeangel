@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="cloud vs device schedule">
+  <rect width="1000" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- divider -->
+  <line x1="500" y1="40" x2="500" y2="480" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- LEFT: cloud-authoritative (fragile) -->
+  <text x="40" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#c14a3a">CLOUD HOLDS THE SCHEDULE</text>
+  <text x="40" y="74" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">what Petnet built</text>
+
+  <!-- cloud (dead) -->
+  <g transform="translate(150,150)">
+    <path d="M-66 22 a30 30 0 0 1 54 -26 a36 36 0 0 1 68 12 a28 28 0 0 1 -4 56 l-110 0 a28 28 0 0 1 -8 -42 Z"
+          fill="#fff" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.45"/>
+    <text x="-6" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">SCHEDULE</text>
+    <circle cx="80" cy="6" r="15" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <path d="M73 -1 l14 14 M87 -1 l-14 14" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- device asks up -->
+  <g transform="translate(150,300)">
+    <rect x="-50" y="0" width="100" height="86" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M-30 18 L-16 -8 L16 -8 L30 18 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <ellipse cx="0" cy="60" rx="30" ry="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="38" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c">FEEDER</text>
+  </g>
+  <!-- arrow device->cloud (request), broken -->
+  <line x1="150" y1="296" x2="150" y2="232" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.5" stroke-dasharray="5 5"/>
+  <text x="166" y="270" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c">"when do I feed?"</text>
+  <!-- outcome -->
+  <text x="40" y="470" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#c14a3a">Cloud down &#8594; feeder asks, hears nothing &#8594; missed feed.</text>
+
+  <!-- RIGHT: device-authoritative (resilient) -->
+  <text x="540" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#3a7d44">DEVICE HOLDS THE SCHEDULE</text>
+  <text x="540" y="74" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">what I want to see</text>
+
+  <!-- cloud (only edits) -->
+  <g transform="translate(650,150)">
+    <path d="M-66 22 a30 30 0 0 1 54 -26 a36 36 0 0 1 68 12 a28 28 0 0 1 -4 56 l-110 0 a28 28 0 0 1 -8 -42 Z"
+          fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <text x="-6" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">edit only</text>
+  </g>
+
+  <!-- device holds schedule -->
+  <g transform="translate(650,300)">
+    <rect x="-50" y="0" width="100" height="86" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M-30 18 L-16 -8 L16 -8 L30 18 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <ellipse cx="0" cy="60" rx="30" ry="9" fill="#3a7d44" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="38" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#3a7d44">SCHEDULE</text>
+    <circle cx="62" cy="6" r="7" fill="#3a7d44"/>
+  </g>
+  <!-- arrow cloud->device (push edits, optional) -->
+  <line x1="650" y1="232" x2="650" y2="296" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.5"/>
+  <path d="M650 296 l-6 -12 l12 0 Z" fill="#1a1d24" fill-opacity="0.5"/>
+  <text x="666" y="270" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c">push changes</text>
+  <!-- outcome -->
+  <text x="540" y="470" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a7d44">Cloud down &#8594; device runs last-known schedule &#8594; pet eats.</text>
+</svg>

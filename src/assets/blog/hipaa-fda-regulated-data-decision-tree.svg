@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" role="img" aria-label="Decision tree for whether a datum is regulated medical-device data: a disease-or-condition claim makes it FDA-regulated; a join to an identifiable person under a covered-entity or business-associate flow makes it HIPAA-protected; the same reading can land anywhere depending on the claim and the join.">
+  <rect width="1000" height="700" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- start node: a device-event field -->
+  <g transform="translate(500,40)">
+    <rect x="-150" y="0" width="300" height="50" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(-120,25)" stroke="#357a8c" stroke-width="3" fill="none" stroke-linecap="round">
+      <rect x="-12" y="-10" width="24" height="20" rx="4"/>
+      <line x1="-6" y1="0" x2="6" y2="0"/>
+    </g>
+    <text x="14" y="31" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">a device-event field</text>
+  </g>
+
+  <!-- connector down to Q1 -->
+  <line x1="500" y1="90" x2="500" y2="120" stroke="#5b616b" stroke-width="2.5"/>
+  <path d="M500 122 l-6 -12 h12 z" fill="#5b616b"/>
+
+  <!-- ===== Q1: disease/condition claim? (diamond) ===== -->
+  <g transform="translate(500,200)">
+    <path d="M0 -78 L150 0 L0 78 L-150 0 Z" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <text x="0" y="-8" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">claim about a specific</text>
+    <text x="0" y="16"  text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">disease or condition?</text>
+  </g>
+
+  <!-- Q1 NO -> general wellness (left) -->
+  <path d="M350 200 H170" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+  <path d="M168 200 l12 -6 v12 z" fill="#3a7d44"/>
+  <text x="262" y="190" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#3a7d44">no</text>
+  <g transform="translate(20,158)">
+    <rect x="0" y="0" width="150" height="84" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="75" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">general</text>
+    <text x="75" y="46" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">wellness</text>
+    <text x="75" y="68" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#5b616b">FDA discretion · 2016</text>
+  </g>
+
+  <!-- Q1 YES -> medical claim, in FDA scope (down) -->
+  <line x1="500" y1="278" x2="500" y2="316" stroke="#c14a3a" stroke-width="2.5"/>
+  <path d="M500 318 l-6 -12 h12 z" fill="#c14a3a"/>
+  <text x="520" y="302" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#c14a3a">yes</text>
+  <g transform="translate(372,318)">
+    <rect x="0" y="0" width="256" height="44" rx="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="128" y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">medical claim — in FDA scope</text>
+  </g>
+
+  <!-- connector down to Q2 -->
+  <line x1="500" y1="362" x2="500" y2="392" stroke="#5b616b" stroke-width="2.5"/>
+  <path d="M500 394 l-6 -12 h12 z" fill="#5b616b"/>
+
+  <!-- ===== Q2: joined to an identifiable person? (diamond) ===== -->
+  <g transform="translate(500,462)">
+    <path d="M0 -68 L150 0 L0 68 L-150 0 Z" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <text x="0" y="-6" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">joined to an</text>
+    <text x="0" y="18" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">identifiable person?</text>
+  </g>
+
+  <!-- Q2 NO -> de-identified (left) -->
+  <path d="M350 462 H170" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+  <path d="M168 462 l12 -6 v12 z" fill="#3a7d44"/>
+  <text x="262" y="452" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#3a7d44">no</text>
+  <g transform="translate(20,432)">
+    <rect x="0" y="0" width="150" height="60" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="75" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">de-identified</text>
+    <text x="75" y="45" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">signal</text>
+  </g>
+
+  <!-- Q2 YES -> PHI candidate (down) -->
+  <line x1="500" y1="530" x2="500" y2="560" stroke="#c14a3a" stroke-width="2.5"/>
+  <path d="M500 562 l-6 -12 h12 z" fill="#c14a3a"/>
+  <text x="520" y="548" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#c14a3a">yes</text>
+
+  <!-- ===== Q3: covered entity / BA for this flow? (diamond, smaller, right of bottom) ===== -->
+  <g transform="translate(500,610)">
+    <rect x="-150" y="0" width="300" height="48" rx="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <text x="0" y="30" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">covered entity / BA for this flow?</text>
+  </g>
+
+  <!-- Q3 NO -> identifiable but outside HIPAA (left) -->
+  <path d="M350 634 H184" fill="none" stroke="#5b616b" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <path d="M182 634 l12 -6 v12 z" fill="#5b616b"/>
+  <text x="266" y="624" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">no</text>
+  <text x="100" y="630" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">identifiable,</text>
+  <text x="100" y="648" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">outside HIPAA</text>
+
+  <!-- Q3 YES -> HIPAA applies (right) -->
+  <path d="M650 634 H816" fill="none" stroke="#c14a3a" stroke-width="3"/>
+  <path d="M818 634 l-12 -6 v12 z" fill="#c14a3a"/>
+  <text x="734" y="624" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#c14a3a">yes</text>
+  <g transform="translate(824,604)">
+    <rect x="0" y="0" width="156" height="60" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3.5"/>
+    <!-- closed padlock glyph -->
+    <g transform="translate(28,30)" stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round">
+      <rect x="-13" y="-2" width="26" height="20" rx="4" fill="#fdfaf2"/>
+      <path d="M-8 -2 V-10 a8 8 0 0 1 16 0 V-2"/>
+      <circle cx="0" cy="7" r="2.4" fill="#c14a3a" stroke="none"/>
+    </g>
+    <text x="92" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">HIPAA</text>
+    <text x="92" y="45" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">applies</text>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Three paths from one Zigbee coordinator">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- one coordinator (USB stick with antenna) on the left -->
+  <g transform="translate(150,250)">
+    <!-- stick body -->
+    <rect x="0" y="0" width="150" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- usb connector -->
+    <rect x="-34" y="18" width="34" height="24" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- antenna -->
+    <line x1="150" y1="30" x2="210" y2="30" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="210" cy="30" r="9" fill="#6a4c93" fill-opacity="0.25" stroke="#6a4c93" stroke-width="4"/>
+    <!-- chip dot -->
+    <rect x="55" y="18" width="40" height="24" rx="3" fill="#6a4c93" fill-opacity="0.4"/>
+  </g>
+
+  <!-- three diverging paths to three HA boxes -->
+  <!-- path nodes: ZHA (direct), deCONZ (one relay), Z2M (broker relay) -->
+  <g fill="none" stroke="#6a4c93" stroke-width="4">
+    <!-- top: direct -->
+    <path d="M380 270 C 520 200, 640 160, 820 160"/>
+    <!-- middle: via one relay -->
+    <path d="M380 285 C 520 285, 560 300, 640 300"/>
+    <!-- bottom: via broker -->
+    <path d="M380 300 C 500 360, 540 420, 620 440"/>
+  </g>
+
+  <!-- middle relay node (deCONZ) -->
+  <g transform="translate(640,278)">
+    <rect x="0" y="0" width="56" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <circle cx="28" cy="22" r="9" fill="#6a4c93" fill-opacity="0.25" stroke="#6a4c93" stroke-width="3"/>
+  </g>
+  <path d="M696 300 L 820 300" fill="none" stroke="#6a4c93" stroke-width="4"/>
+
+  <!-- bottom broker node -->
+  <g transform="translate(620,418)">
+    <circle cx="28" cy="28" r="30" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="3.5"/>
+    <circle cx="28" cy="28" r="9" fill="#6a4c93"/>
+  </g>
+  <path d="M678 440 C 740 440, 780 420, 820 410" fill="none" stroke="#6a4c93" stroke-width="4"/>
+
+  <!-- three HA destination boxes on the right -->
+  <g>
+    <rect x="820" y="130" width="160" height="64" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="820" y="268" width="160" height="64" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="820" y="378" width="160" height="64" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- little house glyph inside each (HA) -->
+    <g stroke="#6a4c93" stroke-width="3.5" fill="none">
+      <path d="M880 178 l20 -18 l20 18"/>
+      <path d="M880 316 l20 -18 l20 18"/>
+      <path d="M880 426 l20 -18 l20 18"/>
+    </g>
+  </g>
+</svg>

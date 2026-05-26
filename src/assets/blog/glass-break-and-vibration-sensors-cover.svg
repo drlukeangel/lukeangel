@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Two sensing layers on a house window">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="gb-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#gb-dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- window frame -->
+  <g transform="translate(360,150)">
+    <rect x="-26" y="-26" width="452" height="372" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="9"/>
+    <rect x="0" y="0" width="400" height="320" fill="#6a4c93" opacity="0.07" stroke="#1a1d24" stroke-width="5"/>
+    <line x1="200" y1="0" x2="200" y2="320" stroke="#1a1d24" stroke-width="5"/>
+    <line x1="0" y1="160" x2="400" y2="160" stroke="#1a1d24" stroke-width="5"/>
+
+    <!-- crack radiating across the glass (the breaking) -->
+    <g stroke="#c14a3a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M120 70 l46 60 l-30 50 l54 44 l40 -30 l36 60"/>
+      <path d="M166 130 l60 -20"/>
+      <path d="M136 180 l-44 18"/>
+      <path d="M220 174 l44 70"/>
+    </g>
+
+    <!-- contact sensor on the frame (layer one) -->
+    <g transform="translate(388,-12)">
+      <rect x="0" y="0" width="40" height="26" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+      <rect x="46" y="2" width="14" height="22" rx="4" fill="#7a808c" stroke="#1a1d24" stroke-width="4"/>
+    </g>
+
+    <!-- vibration sensor stuck to the pane (layer two) -->
+    <g transform="translate(300,236)">
+      <rect x="0" y="0" width="34" height="34" rx="7" fill="#fdfaf2" stroke="#6a4c93" stroke-width="5"/>
+      <circle cx="17" cy="17" r="6" fill="#6a4c93"/>
+      <g stroke="#6a4c93" stroke-width="3" fill="none" opacity="0.7">
+        <path d="M-12 17 a18 18 0 0 1 0 0"/>
+        <path d="M-8 6 q-14 11 0 22"/>
+        <path d="M-18 0 q-22 17 0 34"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- glass-break detector listening (acoustic, off to the side) -->
+  <g transform="translate(150,250)">
+    <circle cx="0" cy="0" r="44" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <circle cx="0" cy="0" r="16" fill="#6a4c93"/>
+    <g stroke="#6a4c93" stroke-width="5" fill="none" stroke-linecap="round">
+      <path d="M64 -34 q34 34 0 68"/>
+      <path d="M88 -54 q56 54 0 108"/>
+    </g>
+  </g>
+</svg>

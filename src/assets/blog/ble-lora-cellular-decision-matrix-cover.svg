@@ -1,33 +1,66 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Wireless range tradeoff">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
     <pattern id="bl-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
       <circle cx="14" cy="14" r="1" fill="#1a1d24" opacity="0.05"/>
     </pattern>
+    <clipPath id="bl-clip"><rect x="24" y="0" width="1176" height="630"/></clipPath>
   </defs>
   <rect width="1200" height="630" fill="url(#bl-dots)"/>
-  <rect x="0" y="0" width="16" height="630" fill="#1a1d24"/>
-  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" letter-spacing="4" fill="#7a808c">DECISION MATRIX — MAY 2024</text>
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="1"/>
+  <!-- 24px left accent bar, notebook accent -->
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
 
-  <g transform="translate(760, 170)">
-    <rect x="0" y="0" width="340" height="80" fill="none" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="113" y1="0"  x2="113" y2="80" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="226" y1="0"  x2="226" y2="80" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="0"   y1="38" x2="340" y2="38" stroke="#1a1d24" stroke-width="2"/>
-    <text x="56.5" y="24" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" letter-spacing="2" fill="#7a808c">BLE</text>
-    <text x="169.5" y="24" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" letter-spacing="2" fill="#7a808c">LoRa</text>
-    <text x="283" y="24" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" letter-spacing="2" fill="#7a808c">cellular</text>
-    <text x="56.5"  y="64" text-anchor="middle" font-family="Newsreader, serif" font-size="20" fill="#1a1d24">30m</text>
-    <text x="169.5" y="64" text-anchor="middle" font-family="Newsreader, serif" font-size="20" fill="#1a1d24">10km</text>
-    <text x="283"   y="64" text-anchor="middle" font-family="Newsreader, serif" font-size="20" fill="#2a52be">∞</text>
+  <!-- a single device, three nested reach arcs growing outward: BLE (tight), LoRa (mid), cellular (far/open) -->
+  <g clip-path="url(#bl-clip)">
+    <!-- cellular: widest, open arc, accent blue, dashed = anywhere -->
+    <g fill="none" stroke="#2a52be" stroke-opacity="0.55" stroke-width="4" stroke-dasharray="2 16" stroke-linecap="round">
+      <circle cx="300" cy="430" r="430"/>
+      <circle cx="300" cy="430" r="540"/>
+    </g>
+    <!-- LoRa: mid, solid muted -->
+    <g fill="none" stroke="#5b616b" stroke-width="4">
+      <circle cx="300" cy="430" r="250"/>
+      <circle cx="300" cy="430" r="320" stroke-opacity="0.55"/>
+    </g>
+    <!-- BLE: tight, solid ink -->
+    <g fill="none" stroke="#1a1d24">
+      <circle cx="300" cy="430" r="110" stroke-width="5"/>
+      <circle cx="300" cy="430" r="160" stroke-width="4" stroke-opacity="0.5"/>
+    </g>
   </g>
 
-  <text x="80" y="295" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24">BLE vs LoRa vs cellular</text>
-  <text x="80" y="365" font-family="Newsreader, serif" font-style="italic" font-size="42" fill="#7a808c">the connected-product</text>
-  <text x="80" y="415" font-family="Newsreader, serif" font-style="italic" font-size="42" fill="#7a808c">decision matrix.</text>
+  <!-- the device puck at the center of the reach -->
+  <g transform="translate(300,430)">
+    <rect x="-46" y="-46" width="92" height="92" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <circle cx="0" cy="0" r="20" fill="#2a52be"/>
+    <circle cx="0" cy="0" r="9" fill="#fdfaf2"/>
+    <!-- four antenna pins -->
+    <g stroke="#1a1d24" stroke-width="6" stroke-linecap="round">
+      <line x1="-30" y1="-58" x2="-30" y2="-46"/>
+      <line x1="0"   y1="-62" x2="0"   y2="-46"/>
+      <line x1="30"  y1="-58" x2="30"  y2="-46"/>
+    </g>
+  </g>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT WIRELESS</text>
+  <!-- three destination nodes, one per radius, showing reach grows -->
+  <!-- BLE -> phone, near -->
+  <g transform="translate(395,355)">
+    <rect x="-20" y="-30" width="40" height="60" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <line x1="-20" y1="20" x2="20" y2="20" stroke="#1a1d24" stroke-width="4"/>
+  </g>
+  <!-- LoRa -> gateway, mid -->
+  <g transform="translate(520,235)">
+    <rect x="-24" y="-22" width="48" height="44" rx="6" fill="#fdfaf2" stroke="#5b616b" stroke-width="5"/>
+    <line x1="0" y1="-22" x2="0" y2="-52" stroke="#5b616b" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="0" cy="-56" r="5" fill="#5b616b"/>
+  </g>
+  <!-- cellular -> tower, far -->
+  <g transform="translate(760,150)" stroke="#2a52be" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-26 60 L-10 -28 L10 -28 L26 60"/>
+    <line x1="-18" y1="16" x2="18" y2="16"/>
+    <line x1="-14" y1="-6" x2="14" y2="-6"/>
+    <path d="M-2 -28 a18 18 0 0 1 4 0" />
+    <path d="M-16 -40 a30 30 0 0 1 32 0" stroke-opacity="0.6"/>
+  </g>
 </svg>

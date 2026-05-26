@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 470" width="1080" height="470" role="img" aria-label="Passive RFID read by inductive coupling: scanner powers the chip, chip load-modulates its ID back.">
+  <rect width="1080" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">PASSIVE READ — INDUCTIVE COUPLING</text>
+
+  <!-- SCANNER side -->
+  <g transform="translate(60,90)">
+    <rect x="0" y="0" width="300" height="300" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="150" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">VET'S HANDHELD SCANNER</text>
+    <text x="150" y="54" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">wall / battery powered</text>
+
+    <!-- driver coil -->
+    <g transform="translate(150,150)">
+      <g fill="none" stroke="#c87533" stroke-width="5">
+        <ellipse cx="0" cy="0" rx="58" ry="78"/>
+        <ellipse cx="0" cy="0" rx="40" ry="58"/>
+        <ellipse cx="0" cy="0" rx="22" ry="38"/>
+      </g>
+      <text x="0" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">driver coil</text>
+    </g>
+    <text x="150" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">drives 134.2 kHz field</text>
+  </g>
+
+  <!-- CHIP side -->
+  <g transform="translate(720,90)">
+    <rect x="0" y="0" width="300" height="300" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="150" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">IMPLANTED MICROCHIP</text>
+    <text x="150" y="54" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">NO BATTERY</text>
+
+    <!-- chip coil + die -->
+    <g transform="translate(150,150)">
+      <g fill="none" stroke="#c87533" stroke-width="5">
+        <ellipse cx="0" cy="0" rx="58" ry="78"/>
+        <ellipse cx="0" cy="0" rx="40" ry="58"/>
+        <ellipse cx="0" cy="0" rx="22" ry="38"/>
+      </g>
+      <rect x="-16" y="-14" width="32" height="28" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <text x="0" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">coil + silicon die</text>
+    </g>
+    <text x="150" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">holds one 15-digit ID</text>
+  </g>
+
+  <!-- MIDDLE: the air gap, a few cm -->
+  <text x="540" y="118" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">a few cm of air</text>
+
+  <!-- TOP arrow: power flows scanner -> chip (energizing field) -->
+  <g transform="translate(0,168)">
+    <text x="540" y="-6" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#c87533">1. field induces current — powers the chip</text>
+    <g stroke="#c87533" stroke-width="4" fill="#c87533">
+      <line x1="372" y1="14" x2="700" y2="14"/>
+      <path d="M704 14 l-18 -8 v16 z"/>
+    </g>
+    <!-- little field waves along the arrow -->
+    <g fill="none" stroke="#c87533" stroke-width="3" opacity="0.55">
+      <path d="M420 14 q14 -14 28 0 q14 14 28 0"/>
+      <path d="M540 14 q14 -14 28 0 q14 14 28 0"/>
+    </g>
+  </g>
+
+  <!-- BOTTOM arrow: ID flows chip -> scanner (load modulation) -->
+  <g transform="translate(0,238)">
+    <text x="540" y="40" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">2. chip load-modulates its ID back</text>
+    <g stroke="#1a1d24" stroke-width="4" fill="#1a1d24">
+      <line x1="700" y1="14" x2="376" y2="14"/>
+      <path d="M372 14 l18 -8 v16 z"/>
+    </g>
+    <!-- bit ticks along the return -->
+    <g stroke="#1a1d24" stroke-width="3" stroke-linecap="round" opacity="0.7">
+      <line x1="430" y1="6" x2="430" y2="22"/>
+      <line x1="446" y1="10" x2="446" y2="18"/>
+      <line x1="540" y1="6" x2="540" y2="22"/>
+      <line x1="556" y1="10" x2="556" y2="18"/>
+      <line x1="640" y1="6" x2="640" y2="22"/>
+    </g>
+  </g>
+
+  <text x="540" y="450" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">The scanner is the power station and the only listener; the chip just wakes, recites its number, and sleeps.</text>
+</svg>

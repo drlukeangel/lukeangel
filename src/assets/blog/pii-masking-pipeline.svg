@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 420" width="1060" height="420" role="img" aria-label="The mask pipeline">
+  <rect width="1060" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">RAW FLEET TELEMETRY IN, MASKED DATA OUT, CI HOLDS THE LINE</text>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- stage 1: raw telemetry -->
+    <rect x="40" y="92" width="200" height="120" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="60" y="122" font-size="14" fill="#1a1d24">Raw telemetry</text>
+    <text x="60" y="146" font-size="11.5" fill="#7a808c">connected drills,</text>
+    <text x="60" y="164" font-size="11.5" fill="#7a808c">torque wrenches —</text>
+    <text x="60" y="182" font-size="11.5" fill="#7a808c">PII still in the clear</text>
+    <!-- small device puck glyph -->
+    <rect x="60" y="192" width="34" height="10" rx="3" fill="#2a52be"/>
+
+    <!-- arrow -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="240" y1="152" x2="296" y2="152"/><path d="M300 152 l-15 -7 v14 z"/></g>
+
+    <!-- stage 2: mask job, two paths -->
+    <rect x="312" y="72" width="240" height="160" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="332" y="100" font-size="13" fill="#2a52be">Apply the rubric</text>
+    <rect x="330" y="116" width="204" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="346" y="143" font-size="12.5" fill="#1a1d24">Glue job (PySpark)</text>
+    <text x="518" y="143" font-size="11" fill="#7a808c" text-anchor="end">prod</text>
+    <rect x="330" y="168" width="204" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="346" y="195" font-size="12.5" fill="#1a1d24">DataBrew recipe</text>
+    <text x="518" y="195" font-size="11" fill="#7a808c" text-anchor="end">analyst</text>
+
+    <!-- arrow -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="552" y1="152" x2="608" y2="152"/><path d="M612 152 l-15 -7 v14 z"/></g>
+
+    <!-- stage 3: masked output -->
+    <rect x="624" y="92" width="200" height="120" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="644" y="122" font-size="14" fill="#1a1d24">Masked output</text>
+    <text x="644" y="146" font-size="11.5" fill="#7a808c">hashed · tokenized ·</text>
+    <text x="644" y="164" font-size="11.5" fill="#7a808c">generalized · behavioral</text>
+    <text x="644" y="182" font-size="11.5" fill="#7a808c">kept intact</text>
+    <g fill="#2a52be"><rect x="644" y="192" width="14" height="10"/><rect x="662" y="192" width="22" height="10"/><rect x="688" y="192" width="12" height="10"/></g>
+
+    <!-- arrow up to verify -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="844" y1="152" x2="900" y2="152"/><path d="M904 152 l-15 -7 v14 z"/></g>
+  </g>
+
+  <!-- verify.py gate in CI -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="916" y="92" width="112" height="120" rx="12" fill="#2a52be"/>
+    <text x="972" y="124" font-size="13" fill="#fdfaf2" text-anchor="middle">verify.py</text>
+    <text x="972" y="146" font-size="10.5" fill="#fdfaf2" text-anchor="middle">in CI</text>
+    <circle cx="972" cy="178" r="16" fill="#fdfaf2"/>
+    <path d="M963 178 l6 7 l12 -15" stroke="#3a7d44" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- failure note: drift fails the build, arrow loops back -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <path d="M972 212 v52 h-660 v-32" stroke="#c14a3a" stroke-width="3" fill="none" stroke-dasharray="6,7"/>
+    <path d="M312 236 l-7 15 l14 0 z" fill="#c14a3a"/>
+    <text x="640" y="290" font-size="13" fill="#c14a3a" text-anchor="middle">rubric drift fails the build — fix the masking, not the test</text>
+  </g>
+</svg>

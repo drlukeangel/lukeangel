@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Cloud dispense path">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16">
+
+    <!-- cloud, top center -->
+    <g transform="translate(500 90)">
+      <path d="M-95 24 a42 42 0 0 1 22 -78 a55 55 0 0 1 102 9 a40 40 0 0 1 4 69 z"
+            fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+      <text x="0" y="-4" text-anchor="middle" font-size="15" fill="#1a1d24">Petnet cloud</text>
+      <text x="0" y="16" text-anchor="middle" font-size="12" fill="#5b616b">schedule + trigger</text>
+    </g>
+
+    <!-- feeder, bottom left -->
+    <g transform="translate(190 350)">
+      <rect x="-70" y="-50" width="140" height="100" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+      <path d="M-40 -50 h80 v18 l-14 24 h-52 l-14 -24 z" fill="#c87533" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="34" text-anchor="middle" font-size="14" fill="#1a1d24">feeder</text>
+      <text x="0" y="-2" text-anchor="middle" font-size="11" fill="#5b616b">dumb actuator</text>
+    </g>
+
+    <!-- bowl, bottom right -->
+    <g transform="translate(810 360)">
+      <path d="M-55 -16 a55 55 0 0 0 110 0 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+      <ellipse cx="0" cy="-16" rx="55" ry="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+      <text x="0" y="48" text-anchor="middle" font-size="14" fill="#c14a3a">empty</text>
+    </g>
+
+    <!-- arrow up: trigger -->
+    <path d="M210 300 C 260 200, 360 150, 430 130" fill="none" stroke="#1a1d24" stroke-width="3" marker-end="url(#ah)"/>
+    <text x="270" y="205" font-size="13" fill="#5b616b" transform="rotate(-34 270 205)">trigger</text>
+
+    <!-- arrow down: dispense command (broken) aiming back at the feeder -->
+    <path d="M555 135 C 630 200, 560 290, 320 345" fill="none" stroke="#c87533" stroke-width="3" stroke-dasharray="3 7"/>
+    <!-- break X across the command path -->
+    <g transform="translate(500 250)">
+      <line x1="-22" y1="-22" x2="22" y2="22" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+      <line x1="22" y1="-22" x2="-22" y2="22" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <text x="600" y="180" font-size="13" fill="#c14a3a">command never returns</text>
+
+    <!-- auger arrow feeder->bowl, faded since it never runs -->
+    <path d="M270 360 L745 360" fill="none" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="3" stroke-dasharray="4 6" marker-end="url(#ahf)"/>
+    <text x="430" y="385" font-size="13" fill="#7a808c">auger never runs</text>
+
+    <defs>
+      <marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#1a1d24"/></marker>
+      <marker id="ahf" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#1a1d24" fill-opacity="0.25"/></marker>
+    </defs>
+  </g>
+</svg>

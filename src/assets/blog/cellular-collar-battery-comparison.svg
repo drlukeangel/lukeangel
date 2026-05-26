@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Battery life comparison">
+  <rect width="1000" height="420" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">
+
+    <!-- scale ticks (days) -->
+    <g font-size="12" fill="#7a808c">
+      <line x1="120" y1="70" x2="120" y2="330" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="4 6"/>
+      <line x1="320" y1="70" x2="320" y2="330" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="4 6"/>
+      <line x1="900" y1="70" x2="900" y2="330" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="4 6"/>
+      <text x="120" y="60">day 0</text>
+      <text x="320" y="60">~4 days</text>
+      <text x="900" y="60" text-anchor="end">~3 weeks</text>
+    </g>
+
+    <!-- traditional GSM/3G bar -->
+    <g transform="translate(120 110)">
+      <rect x="0" y="0" width="200" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+      <rect x="200" y="16" width="12" height="24" rx="3" fill="#1a1d24"/>
+      <rect x="8" y="8" width="60" height="40" rx="4" fill="#c14a3a" fill-opacity="0.5"/>
+      <text x="240" y="20" font-size="15" fill="#1a1d24">GSM / 3G collar</text>
+      <text x="240" y="42" font-size="13" fill="#c14a3a">dies in 3–4 days</text>
+    </g>
+
+    <!-- LTE-M bar -->
+    <g transform="translate(120 220)">
+      <rect x="0" y="0" width="780" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+      <rect x="780" y="16" width="12" height="24" rx="3" fill="#1a1d24"/>
+      <rect x="8" y="8" width="740" height="40" rx="4" fill="#3a7d44" fill-opacity="0.45"/>
+      <text x="20" y="20" font-size="15" fill="#1a1d24">LTE-M + PSM, motion-gated GPS</text>
+      <text x="20" y="42" font-size="13" fill="#3a7d44">~2–3 weeks standby</text>
+    </g>
+
+    <!-- caveat marker on the long bar -->
+    <g transform="translate(560 248)">
+      <path d="M0 -22 L18 10 L-18 10 Z" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="-2.5" y="-12" width="5" height="13" rx="2" fill="#c14a3a"/>
+      <circle cx="0" cy="5" r="3" fill="#c14a3a"/>
+    </g>
+    <text x="500" y="320" text-anchor="middle" font-size="13" fill="#5b616b">caveat: an active escape — fixes every few minutes — still drains it to days</text>
+    <text x="500" y="362" text-anchor="middle" font-size="13" fill="#1a1d24">nearly all the gap is the modem's average current, not the battery size</text>
+  </g>
+</svg>

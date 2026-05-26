@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 27
 excerpt: "Google announced it's shutting down the Works with Nest program — the integration API thousands of people built their homes around. Overnight, every cross-vendor automation touching a Nest device is on a countdown. This is the exact failure I've been designing against since 2017, happening to everyone else at once. A field report on platform risk, and why the closet beats the cloud."
 pullquote: "The cloud integration you built your morning routine on is a feature someone else can delete in a blog post. Works with Nest didn't break. It was withdrawn. That's a different kind of failure, and you can't engineer around a business decision — only around the dependency."
+cover: "../../assets/blog/works-with-nest-is-dead-platform-risk-made-real-cover.svg"
+coverAlt: "A round Nest-style thermostat in the centre, the integration spokes that once connected it to three automation boxes all severed with red X cut-marks. A red dashed link runs to the right, where a door is swinging shut with a red bar across its base. The API wasn't broken — it was withdrawn, a door someone else decided to close."
 ---
 
 Google announced it's killing **Works with Nest**. The API that let your Nest thermostat, cameras, and protect talk to everything else — SmartThings, IFTTT, Hue, a thousand hobbyist scripts — is being shut down and folded into the tighter, narrower "Works with Google Assistant."
@@ -25,6 +27,8 @@ Works with Nest was an OAuth-based API: you'd authorize a third party (SmartThin
 Google's replacement, Works with Google Assistant, is **voice-first and command-only**. You can tell Google to set the temperature. You largely *cannot* read Nest state into your own automation logic the way you could before. The programmable integration is gone; a voice command remains.
 
 For a hobbyist with a closet full of local logic, that's not an upgrade. It's an amputation.
+
+![Before and after the Works with Nest shutdown. Before: the Nest thermostat and your automations — SmartThings, IFTTT, hobbyist scripts — exchange both a read-state path and a send-command path over an OAuth API, drawn in green as a two-way link. After, under Works with Google Assistant: the read-state path is severed with a red X and labelled gone, leaving only a one-way voice-command path to a box that can set the temperature but holds no programmable logic. A caption notes the API didn't break, it was withdrawn, and the read-and-react path you built on is just gone.](../../assets/blog/nest-api-before-after.svg)
 
 ## Why this is the local-first thesis, proven
 
@@ -40,6 +44,8 @@ The only defense is to not depend on it in the first place.
 | Vendor breach | Partly — local data isn't exposed |
 | **API withdrawal** | **No — only by not depending on it** |
 | Company shutdown | No — same |
+
+![Four ways a cloud dependency fails, and which you can engineer around. Cloud outage and vendor breach are drawn in green — "partly," because local logic keeps running and local data isn't exposed. API withdrawal and company shutdown are drawn in red — "no," because the only defense is not depending on the thing in the first place. A red arrow points at the API-withdrawal row, labelled "Works with Nest — today." A caption notes outages and breaches you can soften, but a withdrawn API you can only avoid by never leaning on it.](../../assets/blog/nest-failure-types-engineerable.svg)
 
 ## What I'm doing about Nest specifically
 

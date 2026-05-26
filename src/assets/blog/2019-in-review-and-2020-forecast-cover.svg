@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2019 smart home review">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- scorecard column, left -->
+  <g transform="translate(170 120)" stroke-linecap="round">
+    <!-- 8 rows: 4 check, 2 partial, 2 cross -->
+    <!-- check x4 -->
+    <rect x="80" y="0" width="300" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <path d="M20 7 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+    <rect x="80" y="48" width="250" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <path d="M20 55 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+    <rect x="80" y="96" width="280" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <path d="M20 103 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+    <rect x="80" y="144" width="220" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <path d="M20 151 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+    <!-- partial x2 -->
+    <rect x="80" y="192" width="210" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <circle cx="36" cy="199" r="18" fill="none" stroke="#c87533" stroke-width="7"/>
+    <path d="M36 181 a18 18 0 0 1 0 36 z" fill="#c87533"/>
+    <rect x="80" y="240" width="190" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <circle cx="36" cy="247" r="18" fill="none" stroke="#c87533" stroke-width="7"/>
+    <path d="M36 229 a18 18 0 0 1 0 36 z" fill="#c87533"/>
+    <!-- cross x2 -->
+    <rect x="80" y="288" width="170" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <path d="M22 283 l32 30 M54 283 l-32 30" fill="none" stroke="#c14a3a" stroke-width="8"/>
+    <rect x="80" y="336" width="150" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+    <path d="M22 331 l32 30 M54 331 l-32 30" fill="none" stroke="#c14a3a" stroke-width="8"/>
+  </g>
+
+  <!-- house with logic in a local closet, right -->
+  <g transform="translate(760 150)">
+    <!-- house outline -->
+    <path d="M40 120 L200 20 L360 120 L360 360 L40 360 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- the local closet: a glowing server box inside -->
+    <rect x="150" y="200" width="100" height="120" rx="8" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="5"/>
+    <!-- stacked unit lines -->
+    <g stroke="#6a4c93" stroke-width="4" stroke-linecap="round">
+      <line x1="168" y1="226" x2="232" y2="226"/>
+      <line x1="168" y1="250" x2="232" y2="250"/>
+      <line x1="168" y1="274" x2="232" y2="274"/>
+    </g>
+    <circle cx="222" cy="300" r="5" fill="#3a7d44"/>
+    <!-- faint local links radiating to rooms (no cloud) -->
+    <g stroke="#6a4c93" stroke-width="3" stroke-dasharray="3 7" opacity="0.5">
+      <path d="M150 240 L80 200"/>
+      <path d="M250 240 L320 200"/>
+      <path d="M200 320 L200 360"/>
+    </g>
+  </g>
+</svg>

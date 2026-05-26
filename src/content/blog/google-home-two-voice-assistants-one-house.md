@@ -11,8 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 18
 excerpt: "Google Home launched November 4. Mine arrived three days ago. Echo and Google Home in the same house, both listening for wake words."
 pullquote: "Two voice assistants in one house means two wake words, two skill ecosystems, two integration accounts. The 'unified smart home' was supposed to solve this. It made it worse."
-cover: "../../assets/blog/google-home-two-voice-assistants-one-house-cover.png"
-coverAlt: "Google Home — two voice assistants, one house"
+cover: "../../assets/blog/google-home-two-voice-assistants-one-house-cover.svg"
+coverAlt: "Two smart speakers inside one house outline — a tall cylinder and a squat angled one, each with its own listening ring — two voice assistants sharing the same rooms."
 ---
 
 Google Home launched November 4. I ordered one immediately ($129); arrived Saturday. It's been running for three days alongside the Echo in the kitchen and the Echo Dot in the bedroom.
@@ -72,6 +72,8 @@ When you say "Hey Google, turn off the lights," the Home Graph resolves "the lig
 
 Echo doesn't have this. Alexa requires you to define "groups" explicitly in the Alexa app; without a group, "turn off the lights" doesn't work. Google figures it out from the graph automatically.
 
+![Why "turn off the lights" works differently on the two assistants. On Alexa, the phrase only resolves if you've manually built a "Kitchen" group in the app and assigned each bulb to it; with no group, the command fails. On Google, the same phrase hits the Home Graph — a structured model that already knows each device's type and room — and it resolves "the lights" to the light-type devices in the room the request came from, with no manual grouping. Alexa makes you draw the map by hand; Google built the map for you.](../../assets/blog/google-home-graph-vs-alexa-groups.svg)
+
 In daily use, **Google's natural language is better at smart home**. Echo wins at music, lists, and timers.
 
 ## The multi-assistant problem, demonstrated
@@ -87,6 +89,8 @@ Day one of having both in the kitchen:
 In practice: **the wake word disambiguates which assistant responds**. There's no overlap on wake-word matching as long as you don't have an Echo named "Google" or vice versa.
 
 But mental overhead is real. You have to remember which wake word for which task. The five-year-old already has both memorized; the wife has not.
+
+![The multi-assistant tax, drawn as two parallel stacks under one roof. The "Alexa" wake word leads down to the Alexa skill registry and its own set of OAuth-linked integration accounts; the "OK Google" wake word leads down to Actions on Google and a separate set of the same vendors' accounts. The two stacks never cross — a music session started on one can't be stopped by the other, and each vendor has to be linked twice. The wake word cleanly disambiguates which assistant answers, but the household pays for it in two of everything: two registries, two account links, two mental models.](../../assets/blog/google-home-two-assistant-stacks.svg)
 
 ## Smart-home integrations on Google Home, three days in
 
@@ -116,6 +120,6 @@ In the house long-term: probably both. Different surfaces for different jobs. Tw
 
 ## What I'm watching
 
-- **Apple's response.** The HomePod (rumored for WWDC 2017) needs to ship. Apple's three years behind on voice; that's a long time.
+- **Apple's response.** The rumored AppleHome speaker — Apple's answer to Echo, whatever they end up calling it — needs to ship. Apple's three years behind on voice; that's a long time.
 - **Whether Google opens up routines / scripting** on Google Home.
 - **Whether Amazon and Google ever support each other's smart-home APIs.** They won't.

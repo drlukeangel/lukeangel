@@ -14,7 +14,7 @@ notebookOrder: 6
 excerpt: "Five questions, one table, one answer. The wireless choice on a connected product is usually decided by the time you finish question two."
 pullquote: "If your spec says real-time and your power budget says two AA batteries for a year, the spec is wrong."
 cover: "../../assets/blog/ble-lora-cellular-decision-matrix-cover.svg"
-coverAlt: "Cover graphic — BLE vs LoRa vs cellular, the connected-product decision matrix. May 2024."
+coverAlt: "A single connected device at the center of three growing reach rings — a tight ring to a nearby phone (BLE), a wider ring to a field gateway (LoRa), and a far dashed ring to a cellular tower (anywhere) — the radio choice is the reach you need."
 ---
 
 The engineering team I lead has now argued about wireless choice on three different connected-product designs. The argument always goes the same way, and ends the same way: I ask the same five questions, and the choice picks itself by question two.
@@ -22,6 +22,10 @@ The engineering team I lead has now argued about wireless choice on three differ
 I am writing the questions down so I can stop having the argument.
 
 (The rubric started as a one-pager I sketched on my first connected product back in 2018 — the [v1 series](/notebooks/building-medical-iot-connected-products/) — where the answer was always BLE because the device had no WiFi antenna. That constraint forced the choice and we never had to argue about it. Without the constraint, the argument expands to fill the room. Hence the rubric.)
+
+The reason the argument is winnable at all is that the four radios don't actually compete across the whole space — they each own a corner of it. Plot reach against how long the device can run on a battery and you get a frontier: nothing buys you more range without spending more power. BLE lives in the short-range, sips-power corner; cellular lives in the go-anywhere, drinks-power corner; LoRa threads the needle on range *if* you accept a trickle of data; and Wi-Fi is the odd one out — middling range and the worst battery story of the lot, which is why it only shows up where there's a wall socket.
+
+![Reach plotted against battery life. BLE 5.x sits top-left — about 10 m, but a coin cell lasts a year or more. LoRa reaches up to 10 km at a low data rate, still a year-plus on battery. NB-IoT and LTE-M go anywhere with power-save mode. 4G/5G also go anywhere but are power-hungry and high-data. Wi-Fi sits low and to the left — only about 50 m and effectively wall-power only. A dashed frontier curve runs through BLE, LoRa, and the cellular radios: reach is paid for in power, and Wi-Fi sits well below the frontier.](../../assets/blog/ble-lora-cellular-tradeoff-space.svg)
 
 ## The five questions, in order
 
@@ -35,6 +39,8 @@ I am writing the questions down so I can stop having the argument.
 | Truly anywhere | **Cellular** (LTE-M / NB-IoT for low data, 4G/5G for high) |
 
 You don't move to the next question until this one is answered. *Range is the wireless decision*; everything else is a tax on the choice you've already made.
+
+![The five questions as a narrowing funnel. Question 1, highlighted, asks how far the device is from a gateway, phone, or router — range, which almost always decides the radio. Question 2 is cadence times payload, which confirms or kills the radio from question 1. Question 3 is per-device BOM budget, which the radio locks. Question 4 is the power budget — wall, battery-year, or energy-harvest — which can force the choice back. Question 5 is the buyer's security model — consumer, commercial, or regulated — which sets the secure element. The questions stay the same across products; the answers don't.](../../assets/blog/ble-lora-cellular-five-questions.svg)
 
 ### 2. How often does it phone home, and how big is each message?
 
@@ -83,6 +89,8 @@ Consumer, commercial, and industrial deployments have wildly different threat mo
 
 Tier 2 and 3 add $1.50 – $5 of BOM for the secure element. If the buyer is regulated and your BOM doesn't include this, you have a problem before you ship.
 
+![The security model drawn as a three-rung ladder where each tier adds to the one before it. Tier 1, consumer and unmanaged: a cert per device, TLS to the cloud, cloud-side auth, no extra secure-element BOM. Tier 2, commercial and managed-network: everything in Tier 1 plus device attestation, cert rotation, and on-device anti-tamper, adding $1.50 to $5 of BOM. Tier 3, industrial and regulated: everything in Tier 2 plus fleet-behaviour monitoring, a hardware secure element such as the ATECC608A, and the ability to revoke a single device in under sixty seconds — the same BOM add, but now hardware. Arrows show each tier inheriting from the last.](../../assets/blog/ble-lora-cellular-security-tiers.svg)
+
 ## Two worked examples — same rubric, very different answers
 
 ### Example 1: a connected power tool
@@ -111,11 +119,13 @@ Same rubric, a wildly different product. Pretend we're scoping a $30 retail Blue
 | 4. Power? | CR2032 coin cell, 12+ months expected | BLE 5.0 advertising-only, sub-µA average draw |
 | 5. Security? | Consumer privacy + anti-stalking | Rotating identifier per 15 min, AES-128, finder-network E2E encryption (Apple Find My / Samsung SmartThings Find spec) |
 
-End result: BLE 5.0 only. No LoRa. No cellular. Crowdsourced finder network (the vendor's existing installed-base of phones) for the long-range case. Anti-stalking via rotating identifiers per the regulatory pressure on this category (the FCC + several state laws coming into force).
+End result: BLE 5.0 only. No LoRa. No cellular. Crowdsourced finder network (the vendor's existing installed-base of phones) for the long-range case. Anti-stalking via rotating identifiers — the pressure on this category comes from state anti-stalking legislation and the Apple/Google "Detecting Unwanted Location Trackers" spec finalized this month, which standardizes the unwanted-tracker alerts the platforms now expect.
 
 ### Same rubric, opposite answer
 
 The same five questions on two products: one wants BLE + LoRa + secure element + fleet management; the other wants BLE-only + finder network + rotating IDs + a sub-microamp average draw. The rubric isn't a recipe. It's a question-list that surfaces the constraints. The constraints decide.
+
+![Two products run through the same five questions and land on opposite answers. The connected power tool ($300, job-site fleet, 20V battery) lands on BLE plus LoRa dual radio, a secure element with a cert per tool, and AWS IoT fleet management — its range is 200 m, power is wall-equivalent, security is commercial. The consumer BLE tracker ($30 retail, key tag, CR2032 coin cell) lands on BLE only with no LoRa or cellular, a crowdsourced finder network, and a rotating identifier for anti-stalking — its range is 10 m, power is sub-microamp for 12 months-plus, security is consumer privacy.](../../assets/blog/ble-lora-cellular-two-products.svg)
 
 This is the part that makes the matrix portable across product categories: it doesn't tell you what to build, it tells you what to think about. Power tool vs key fob vs medical device vs cattle tracker — the questions stay the same. The answers don't.
 

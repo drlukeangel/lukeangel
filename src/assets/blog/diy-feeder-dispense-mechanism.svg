@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 430" width="1080" height="430" role="img" aria-label="Auger dispense mechanism with low-food and weight sensors.">
+  <rect width="1080" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="42" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">SERVO → AUGER → ONE PORTION</text>
+
+  <!-- hopper of kibble -->
+  <g transform="translate(120,80)">
+    <path d="M0 12 L200 12 L156 150 L44 150 Z" fill="#c87533" fill-opacity="0.14" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <g fill="#c87533">
+      <ellipse cx="60" cy="34" rx="9" ry="7"/><ellipse cx="100" cy="28" rx="9" ry="7"/>
+      <ellipse cx="142" cy="36" rx="9" ry="7"/><ellipse cx="82" cy="52" rx="9" ry="7" opacity="0.85"/>
+      <ellipse cx="124" cy="56" rx="9" ry="7" opacity="0.85"/>
+    </g>
+    <text x="100" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">3D-printed</text>
+    <text x="100" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">PETG hopper</text>
+  </g>
+
+  <!-- low-food microswitch riding the hopper wall -->
+  <g transform="translate(330,150)">
+    <rect x="0" y="0" width="20" height="14" rx="2" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="20" y1="7" x2="40" y2="-2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="58" y="-8" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">GPIO14 — low-food microswitch</text>
+    <text x="58" y="8" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">empty → skip feed + alert</text>
+  </g>
+
+  <!-- servo -->
+  <g transform="translate(120,262)">
+    <rect x="0" y="0" width="92" height="50" rx="8" fill="#c87533" fill-opacity="0.85" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="46" cy="25" r="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <line x1="46" y1="25" x2="46" y2="13" stroke="#1a1d24" stroke-width="4"/>
+    <text x="46" y="76" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">MG996R servo</text>
+    <text x="46" y="91" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">GPIO13 PWM, 50 Hz</text>
+  </g>
+
+  <!-- auger tube, horizontal -->
+  <g transform="translate(212,262)">
+    <rect x="0" y="0" width="320" height="50" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <g stroke="#1a1d24" stroke-width="3.5" fill="none">
+      <path d="M24 25 q18 -20 36 0 q18 20 36 0 q18 -20 36 0 q18 20 36 0 q18 -20 36 0 q18 20 36 0 q18 -20 36 0"/>
+    </g>
+    <text x="160" y="-12" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">4.5 s rotation ≈ 1/3 cup</text>
+  </g>
+  <!-- rotation arrow on the auger -->
+  <g transform="translate(196,287)" stroke="#c87533" stroke-width="3.5" fill="none">
+    <path d="M0 0 a14 14 0 1 0 10 -12"/>
+    <path d="M8 -16 l4 11 l-11 1" fill="#c87533" stroke="none"/>
+  </g>
+
+  <!-- outlet -> falling kibble -> bowl on a load cell -->
+  <g transform="translate(560,250)">
+    <g fill="#c87533">
+      <ellipse cx="6" cy="18" rx="8" ry="6"/>
+      <ellipse cx="20" cy="44" rx="8" ry="6" opacity="0.85"/>
+      <ellipse cx="2" cy="66" rx="8" ry="6" opacity="0.7"/>
+    </g>
+    <!-- bowl -->
+    <path d="M-44 96 Q40 146 124 96 L112 110 Q40 152 -32 110 Z" fill="#c87533" fill-opacity="0.85" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M-44 96 Q40 124 124 96" fill="none" stroke="#1a1d24" stroke-width="4"/>
+  </g>
+
+  <!-- HX711 load cell under the bowl -->
+  <g transform="translate(728,250)">
+    <rect x="0" y="0" width="144" height="44" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <text x="72" y="20" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">HX711 + load cell</text>
+    <text x="72" y="35" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">GPIO16/17 — hopper weight</text>
+    <line x1="-44" y1="22" x2="0" y2="22" stroke="#1a1d24" stroke-width="3" stroke-dasharray="2 5"/>
+  </g>
+
+  <text x="540" y="408" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">One cheap servo turning an auger for a fixed time is the whole machine — sensors just tell it when to stop and when to shout.</text>
+</svg>

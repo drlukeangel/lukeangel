@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="2017 forecast scorecard">
+  <rect width="1000" height="470" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="52" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">SCORING THE 2017 FORECAST</text>
+  <text x="40" y="78" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#7a808c">8 predictions &#183; ~45% &#183; worst year in six</text>
+
+  <!-- legend tallies -->
+  <g transform="translate(40,120)">
+    <!-- HIT -->
+    <g>
+      <circle cx="18" cy="18" r="18" fill="#3a7d44"/>
+      <path d="M9 18 l6 7 l13 -15" fill="none" stroke="#fdfaf2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">HIT</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">3</text>
+    </g>
+    <!-- PARTIAL -->
+    <g transform="translate(180,0)">
+      <circle cx="18" cy="18" r="18" fill="#c87533"/>
+      <path d="M18 6 a12 12 0 0 1 0 24 Z" fill="#fdfaf2" fill-opacity="0.55"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">PARTIAL</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">2 &#183; both timing</text>
+    </g>
+    <!-- MISS -->
+    <g transform="translate(420,0)">
+      <circle cx="18" cy="18" r="18" fill="#c14a3a"/>
+      <path d="M11 11 l14 14 M25 11 l-14 14" stroke="#fdfaf2" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">MISS</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">3</text>
+    </g>
+  </g>
+
+  <!-- per-prediction rows -->
+  <g transform="translate(40,190)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">
+    <!-- row template: dot + label -->
+    <g transform="translate(0,0)"><circle cx="11" cy="-5" r="11" fill="#c87533"/><text x="34" y="0">Fi ships consumer collar</text><text x="700" y="0" fill="#7a808c" font-size="12.5">slipped to 2019 &#8212; timing</text></g>
+    <g transform="translate(0,34)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Litter-Robot III Connect ships</text><text x="700" y="0" fill="#7a808c" font-size="12.5">in the house</text></g>
+    <g transform="translate(0,68)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">Petnet first multi-day outage</text><text x="700" y="0" fill="#7a808c" font-size="12.5">single-day only, still hanging on</text></g>
+    <g transform="translate(0,102)"><circle cx="11" cy="-5" r="11" fill="#c87533"/><text x="34" y="0">Microchip feeder reaches retail</text><text x="700" y="0" fill="#7a808c" font-size="12.5">shipped in 2017 &#8212; mis-dated</text></g>
+    <g transform="translate(0,136)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">Whistle health-sensor successor</text><text x="700" y="0" fill="#7a808c" font-size="12.5">rumored, not announced</text></g>
+    <g transform="translate(0,170)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">HomeKit-certified pet camera</text><text x="700" y="0" fill="#7a808c" font-size="12.5">nothing</text></g>
+    <g transform="translate(0,204)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Mars acquires a pet-tech company</text><text x="700" y="0" fill="#7a808c" font-size="12.5">AniCura &#8212; 200-hospital vet net</text></g>
+    <g transform="translate(0,238)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">Pet-health-to-vet platform traction</text><text x="700" y="0" fill="#7a808c" font-size="12.5">nothing meaningful</text></g>
+  </g>
+</svg>

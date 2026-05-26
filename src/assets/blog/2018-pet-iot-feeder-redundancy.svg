@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-label="Feeder redundancy cloud vs mechanical">
+  <rect width="960" height="440" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .ttl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:17px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .bad{fill:#c14a3a;}
+    .ok{fill:#3a7d44;}
+  </style>
+
+  <text x="40" y="46" class="ttl">Where the intelligence goes when the network doesn't</text>
+
+  <!-- LEFT: Petnet, cloud-dependent -->
+  <text x="240" y="92" text-anchor="middle" class="lab">Petnet — cloud-dependent</text>
+  <!-- cloud with outage -->
+  <g transform="translate(180,150)">
+    <path d="M -12 0 a 22 22 0 0 1 22 -22 a 26 26 0 0 1 48 6 a 18 18 0 0 1 2 36 l -60 0 a 16 16 0 0 1 -12 -20 Z" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="28" y="6" text-anchor="middle" class="sm bad">cloud down</text>
+  </g>
+  <!-- broken arrow down to feeder -->
+  <line x1="240" y1="178" x2="240" y2="228" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <line x1="226" y1="196" x2="254" y2="210" stroke="#c14a3a" stroke-width="2.5"/>
+  <line x1="254" y1="196" x2="226" y2="210" stroke="#c14a3a" stroke-width="2.5"/>
+  <!-- feeder -->
+  <g transform="translate(200,235)">
+    <path d="M 0 0 h 80 l -10 50 h -60 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="20" y="50" width="40" height="14" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+  </g>
+  <text x="240" y="328" text-anchor="middle" class="sm bad">missed 3 feeds this year</text>
+
+  <!-- divider -->
+  <line x1="480" y1="80" x2="480" y2="340" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- RIGHT: mechanical timer backup -->
+  <text x="720" y="92" text-anchor="middle" class="lab">PetSafe Smart Feed — mechanical timer</text>
+  <!-- clock glyph, no cloud -->
+  <g transform="translate(660,150)">
+    <circle cx="0" cy="0" r="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="0" y2="-16" stroke="#1a1d24" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="12" y2="6" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="44" text-anchor="middle" class="sm">timer, no network</text>
+  </g>
+  <!-- solid arrow down -->
+  <line x1="660" y1="206" x2="660" y2="228" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#aok)"/>
+  <!-- feeder -->
+  <g transform="translate(680,235)">
+    <path d="M 0 0 h 80 l -10 50 h -60 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="20" y="50" width="40" height="14" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+  </g>
+  <text x="720" y="328" text-anchor="middle" class="sm ok">caught all 3 — fed anyway</text>
+
+  <line x1="40" y1="362" x2="920" y2="362" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="480" y="398" text-anchor="middle" class="cap">A dumb timer with no cloud beat the smart feeder three times.</text>
+  <text x="480" y="424" text-anchor="middle" class="sm">Put the part that has to work where the network can't reach it.</text>
+
+  <defs>
+    <marker id="aok" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#3a7d44"/></marker>
+  </defs>
+</svg>

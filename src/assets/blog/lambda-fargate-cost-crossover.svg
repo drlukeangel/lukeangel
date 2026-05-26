@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="Cost crossover plot.">
+  <rect width="1000" height="640" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <defs>
+    <marker id="cc-arrow" markerWidth="10" markerHeight="10" refX="6" refY="3.2" orient="auto">
+      <path d="M0 0 L8 3.2 L0 6.4 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <style>
+    .ax { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 15px; fill:#1a1d24; }
+    .tick { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 12px; fill:#5b616b; }
+    .lbl { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 16px; font-weight:600; }
+    .note { font-family: ui-monospace,'JetBrains Mono',monospace; font-size: 13px; fill:#5b616b; }
+    .cap { font-family: Newsreader,Georgia,serif; font-style:italic; font-size: 19px; fill:#5b616b; }
+  </style>
+
+  <!-- plot frame: origin at (140,500), x to 880, y to 90 -->
+  <!-- axes -->
+  <line x1="140" y1="500" x2="900" y2="500" class="ax" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#cc-arrow)"/>
+  <line x1="140" y1="500" x2="140" y2="80" class="ax" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#cc-arrow)"/>
+
+  <!-- axis labels -->
+  <text x="520" y="560" text-anchor="middle" class="ax">utilization — fraction of hours/month busy</text>
+  <text x="40" y="300" text-anchor="middle" class="ax" transform="rotate(-90 40 300)">monthly cost</text>
+
+  <!-- x ticks: idle .. always-on -->
+  <text x="150" y="524" class="tick">idle</text>
+  <text x="864" y="524" text-anchor="end" class="tick">always-on</text>
+
+  <!-- crossover guide line at ~40% utilization (x = 140 + 0.40*740 = 436) -->
+  <line x1="436" y1="500" x2="436" y2="150" stroke="#1a1d24" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.5"/>
+  <text x="436" y="146" text-anchor="middle" class="note">~40% utilization</text>
+
+  <!-- Lambda line: starts near zero at idle, climbs steeply, pay-per-invocation -->
+  <path d="M140 492 C 300 470, 400 360, 540 230 S 760 120, 880 100" fill="none" stroke="#4f46b8" stroke-width="3.5"/>
+  <!-- Fargate line: starts at a floor, climbs gently -->
+  <path d="M140 392 C 360 372, 600 340, 880 300" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-dasharray="9 5"/>
+
+  <!-- crossover dot (intersection near x=436) -->
+  <circle cx="436" cy="358" r="7" fill="#1a1d24"/>
+  <circle cx="436" cy="358" r="7" fill="none" stroke="#fdfaf2" stroke-width="2"/>
+
+  <!-- floor marker for Fargate -->
+  <line x1="132" y1="392" x2="148" y2="392" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="156" y="424" class="note" fill="#c14a3a">running-task floor</text>
+
+  <!-- line labels -->
+  <text x="770" y="92" class="lbl" fill="#4f46b8">Lambda</text>
+  <text x="770" y="292" class="lbl" fill="#c14a3a">Fargate</text>
+
+  <!-- which-is-cheaper bands -->
+  <text x="288" y="478" text-anchor="middle" class="note">Lambda cheaper</text>
+  <text x="660" y="478" text-anchor="middle" class="note">Fargate cheaper</text>
+
+  <!-- caption -->
+  <text x="520" y="610" text-anchor="middle" class="cap">Pay-per-invocation wins until the task is busy enough to keep it lit.</text>
+</svg>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" role="img" aria-label="Dewpoint differential mapped to fan speed">
+  <rect width="760" height="340" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- axes -->
+  <g transform="translate(80,40)">
+    <line x1="0" y1="0" x2="0" y2="220" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.45"/>
+    <line x1="0" y1="220" x2="600" y2="220" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.45"/>
+
+    <!-- band boundaries at 3 and 5 deg -->
+    <line x1="240" y1="0" x2="240" y2="220" stroke="#1a1d24" stroke-width="1.5" stroke-dasharray="5 4" stroke-opacity="0.3"/>
+    <line x1="400" y1="0" x2="400" y2="220" stroke="#1a1d24" stroke-width="1.5" stroke-dasharray="5 4" stroke-opacity="0.3"/>
+
+    <!-- step function: off (low) -> medium -> high -->
+    <path d="M0 200 H240 V120 H400 V40 H600" fill="none" stroke="#6a4c93" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+
+    <!-- step value dots -->
+    <circle cx="120" cy="200" r="6" fill="#3a7d44"/>
+    <circle cx="320" cy="120" r="6" fill="#6a4c93"/>
+    <circle cx="500" cy="40" r="6" fill="#c14a3a"/>
+
+    <!-- speed labels (left) -->
+    <text x="-12" y="46" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">high</text>
+    <text x="-12" y="126" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">med</text>
+    <text x="-12" y="206" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">off</text>
+
+    <!-- x boundary labels -->
+    <text x="240" y="244" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#7a808c">3°C</text>
+    <text x="400" y="244" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#7a808c">5°C</text>
+    <text x="300" y="278" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">bathroom − bedroom dewpoint differential</text>
+  </g>
+</svg>

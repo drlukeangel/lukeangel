@@ -8,13 +8,15 @@ tags:
   - forecast
 notebook: pet-iot-field-guide
 notebookOrder: 37
-excerpt: "Atom passed in October — eleven years of pet-IoT data, end of an era. Find My pet trackers launched. DIY ESP32 feeders matured. 2023 scored 56%. 2025: more DIY local-first, AI behavior mostly hype."
+excerpt: "Atom passed in October — eleven years of pet-IoT data, the end of the dog this whole journal started with. The hard lesson: the data caught his decline, but I was watching the wrong dashboard. Find My collar tags reached the house, DIY ESP32 feeders matured, and 2023's forecast came in at my best-ever 78% — some of it sadly easy to call."
 pullquote: "Looking back: a hard year. The pet-IoT data did its job — caught Atom's decline if I'd been looking at the right metrics. The lesson, expensive: dashboards must adapt to the pet's life stage. I missed the signal because I wasn't watching the right view."
-cover: "../../assets/blog/2024-pet-iot-year-in-review-cover.png"
-coverAlt: "2024 pet IoT — Atom passed, Find My trackers landed"
+cover: "../../assets/blog/2024-pet-iot-year-in-review-cover.svg"
+coverAlt: "An empty dog collar resting at the end of a long line of activity data — eleven years of a behavior trace that quietly tails off, then stops. The collar of the dog this journal began with, set down."
 ---
 
-End of 2024. The year I'd been quietly dreading and that came anyway.
+End of 2024. The year I'd been quietly dreading, and it came anyway.
+
+Atom passed in October. He's the dog this entire journal started with — the [2013 Whistle on his collar](/blog/atom-arrives-whistle-activity-monitor-launches/) is the reason there's a pet-IoT notebook at all. Eleven years of activity logs, sleep curves, and behavior baselines, and the hardest thing I have to write this year is that the data *worked* — it caught his decline — and I still missed it, because I was looking at the wrong view. I wrote that up [on its own](/blog/atoms-last-year-data-told-us/) because it deserved more than a bullet in a year-end list. The short version belongs here too, because it's the year's real lesson.
 
 ## Scoring the 2023 forecast
 
@@ -29,7 +31,9 @@ End of 2024. The year I'd been quietly dreading and that came anyway.
 | Atom's 11th year + difficult conversations | 75% | Yes | ✓ (the hardest one to predict) |
 | DIY ESP32 pet feeder mature project | 65% | Yes — community templates available | ✓ |
 
-6/8 hits + 1 partial = **78%**. Best forecasting year. Some of these were sadly easy to predict.
+Five clean hits, one partial, two misses — about **69%**, one of my better years, and the one I'd most happily have been wrong about. Predicting "Atom needs more monitoring and meds" and "Atom's eleventh year brings hard conversations" isn't forecasting skill; it's just knowing your old dog.
+
+![How 2023's eight predictions scored: five hits, one partial, and two misses — about 69%. The hits include the ones that hurt to get right (Atom needing more monitoring and medication, and his difficult eleventh year), alongside Find My pet-tag adoption, Mars's continued acquisitions, and a mature DIY ESP32 feeder; the Halo restructuring was a partial. The misses were the still-absent non-Mars vitals tracker and consumer multi-pet RFID.](../../assets/blog/2024-forecast-scorecard.svg)
 
 ## What got added this year
 
@@ -49,8 +53,10 @@ End of 2024. The year I'd been quietly dreading and that came anyway.
 
 ## What didn't
 
-- **Me, the metrics-watching part**. [Documented in the Atom retrospective post.](/blog/atoms-last-year-data-told-us/) I watched the wrong dashboard.
-- **The pet-IoT industry's lack of senior-pet-mode features**. None of the major apps adapt their views as pets age.
+- **Me, the metrics-watching part.** This is the one that cost something. Atom's behavioral data showed the decline — activity trending down, sleep getting more broken, the resting numbers drifting — but I was watching the *daily activity goal*, the view built for a young dog, where a senior slowing down just reads as "didn't hit his steps today" and gets dismissed. The signal was in the data the whole time; it was in the wrong dashboard, and the app had no view that would have surfaced it. [The full retrospective is here.](/blog/atoms-last-year-data-told-us/) The expensive lesson: a health baseline is only as good as the view you actually look at, and the view has to change as the animal ages.
+- **The pet-IoT industry's missing senior-pet mode.** Not one of the major apps adapts as a pet gets old. They're all tuned for the young-active-dog story — goals, streaks, leaderboards — which is exactly the wrong frame for the years when the data matters most. The single feature that would have helped me this year doesn't exist in any product I own, and after this year it's the first thing I'll build into anything I set up myself.
+
+![The same data, two views. The default app dashboard is a daily activity goal: a young dog easily clears the bar, and a senior dog slowly declining just keeps reading 'goal missed' day after day — a flat, dismissible red that hides the trend. The baseline view plots the same activity as a rolling line against the dog's own history, where the steady months-long downslope is unmistakable. The decline was always in the data; only one of the two views makes it impossible to miss.](../../assets/blog/2024-wrong-dashboard.svg)
 
 ## Forecast for 2025
 
@@ -68,7 +74,7 @@ End of 2024. The year I'd been quietly dreading and that came anyway.
 ## What I'm doing in 2025
 
 - **Continuing the DIY local-first migration**. The ESP32 feeder was the start. Going to look at DIY pet-camera alternatives to Furbo.
-- **Watching Quark's vitals window**. He'll be 4 next year — not senior, but I'll set up his Whistle Health (when I get it) with a senior-mode-adjacent dashboard config from the start.
+- **Watching Quark's baseline early**. He'll be about three next year — nowhere near senior, but after Atom I'm not waiting. I'll configure whatever behavioral tracker I put on him with the senior-adjacent dashboard from day one, so the baseline is years deep before I ever need it.
 - **The long-arc retrospective**. Twelve years of pet IoT. Coming in mid-2025.
 
 ## What's next

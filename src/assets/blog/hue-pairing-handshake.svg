@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="Hue bridge pairing sequence">
+  <rect width="1000" height="430" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24" text-anchor="middle">
+
+    <text x="500" y="34" font-size="15" fill="#6a4c93">ten-minute setup — three actors, one button press</text>
+
+    <!-- three lanes: phone / bridge / bulbs -->
+    <text x="150" y="74" font-size="13" fill="#6a4c93">iPhone (Wi-Fi)</text>
+    <text x="500" y="74" font-size="13" fill="#6a4c93">Bridge (Ethernet)</text>
+    <text x="850" y="74" font-size="13" fill="#6a4c93">3 bulbs (Zigbee)</text>
+
+    <!-- lane lines -->
+    <line x1="150" y1="86" x2="150" y2="360" stroke="#7a808c" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <line x1="500" y1="86" x2="500" y2="360" stroke="#7a808c" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <line x1="850" y1="86" x2="850" y2="360" stroke="#7a808c" stroke-width="1.5" stroke-dasharray="3 4"/>
+
+    <!-- step 1: app finds bridge (mDNS) -->
+    <path d="M165 120 L485 120" stroke="#6a4c93" stroke-width="2.5" marker-end="url(#h)"/>
+    <text x="325" y="112" font-size="11" fill="#5b616b">1. mDNS / Bonjour — find bridge on LAN</text>
+
+    <!-- step 2: press link button -->
+    <g transform="translate(500 158)">
+      <circle r="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <circle r="5" fill="#1a1d24"/>
+    </g>
+    <text x="500" y="192" font-size="11" fill="#c87533">2. press the physical link button</text>
+
+    <!-- step 3: bridge claims bulbs over Zigbee -->
+    <path d="M515 226 L835 226" stroke="#6a4c93" stroke-width="2.5" marker-end="url(#h)"/>
+    <text x="675" y="218" font-size="11" fill="#5b616b">3. Zigbee Light Link claim</text>
+
+    <!-- step 4: bulbs flash to confirm -->
+    <g transform="translate(850 258)">
+      <path d="M0 -10 L3 -2 L11 -2 L4 3 L7 11 L0 6 L-7 11 L-4 3 L-11 -2 L-3 -2 z" fill="#6a4c93"/>
+    </g>
+    <text x="850" y="290" font-size="11" fill="#3a7d44">4. each bulb flashes once</text>
+
+    <!-- step 5: report back -->
+    <path d="M835 322 L165 322" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#h2)"/>
+    <text x="500" y="314" font-size="11" fill="#3a7d44">5. app reports "3 bulbs found"</text>
+
+    <text x="500" y="408" font-size="12" fill="#5b616b">no account, no cloud step — the link button is the whole authorization</text>
+
+    <defs>
+      <marker id="h" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+      <marker id="h2" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#3a7d44"/></marker>
+    </defs>
+  </g>
+</svg>

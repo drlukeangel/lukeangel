@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" width="1120" height="600" role="img" aria-label="Five questions in order">
+  <rect width="1120" height="600" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="46" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">FIVE QUESTIONS — RANGE DECIDES, THE REST IS A TAX</text>
+
+  <!-- vertical funnel of 5 narrowing bars -->
+  <g font-family="ui-monospace,monospace">
+    <!-- Q1 range -->
+    <rect x="120" y="86" width="880" height="74" rx="10" fill="#2a52be" fill-opacity="0.12" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="158" cy="123" r="17" fill="#2a52be"/>
+    <text x="158" y="129" text-anchor="middle" font-size="16" fill="#fdfaf2">1</text>
+    <text x="196" y="116" font-size="15" fill="#1a1d24">How far from a gateway, phone, or router?</text>
+    <text x="196" y="140" font-size="12" fill="#2a52be">RANGE — this almost always decides it</text>
+    <text x="980" y="129" text-anchor="end" font-size="12" fill="#5b616b">→ picks the radio</text>
+
+    <!-- Q2 cadence -->
+    <rect x="160" y="176" width="800" height="66" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <circle cx="198" cy="209" r="16" fill="#1a1d24"/>
+    <text x="198" y="214" text-anchor="middle" font-size="15" fill="#fdfaf2">2</text>
+    <text x="232" y="204" font-size="14" fill="#1a1d24">How often does it phone home, and how big each message?</text>
+    <text x="232" y="226" font-size="11.5" fill="#7a808c">CADENCE × PAYLOAD — confirms or kills the radio from Q1</text>
+
+    <!-- Q3 bom -->
+    <rect x="200" y="258" width="720" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <circle cx="236" cy="288" r="15" fill="#1a1d24"/>
+    <text x="236" y="293" text-anchor="middle" font-size="14" fill="#fdfaf2">3</text>
+    <text x="268" y="284" font-size="14" fill="#1a1d24">What's the per-device BOM budget?</text>
+    <text x="268" y="305" font-size="11.5" fill="#7a808c">the radio locks the rest of the bill of materials</text>
+
+    <!-- Q4 power -->
+    <rect x="240" y="334" width="640" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <circle cx="276" cy="364" r="15" fill="#1a1d24"/>
+    <text x="276" y="369" text-anchor="middle" font-size="14" fill="#fdfaf2">4</text>
+    <text x="308" y="360" font-size="14" fill="#1a1d24">What's the power budget?</text>
+    <text x="308" y="381" font-size="11.5" fill="#7a808c">wall · battery-year · harvest — can force the choice back</text>
+
+    <!-- Q5 security -->
+    <rect x="280" y="410" width="560" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <circle cx="316" cy="440" r="15" fill="#1a1d24"/>
+    <text x="316" y="445" text-anchor="middle" font-size="14" fill="#fdfaf2">5</text>
+    <text x="348" y="436" font-size="14" fill="#1a1d24">What security model does the buyer demand?</text>
+    <text x="348" y="457" font-size="11.5" fill="#7a808c">consumer · commercial · regulated — sets the secure element</text>
+  </g>
+
+  <!-- the answer at the bottom -->
+  <g transform="translate(560,520)">
+    <path d="M0 -36 l12 0 l0 14 l16 0 l-28 30 l-28 -30 l16 0 l0 -14 z" fill="#2a52be"/>
+  </g>
+  <text x="560" y="568" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#3a3f4a">The questions stay the same across products; the answers don't — the constraints decide.</text>
+</svg>

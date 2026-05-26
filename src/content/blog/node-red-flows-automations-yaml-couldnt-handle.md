@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 23
 excerpt: "The presence-based arming logic in Home Assistant had grown into a 60-line YAML template I was afraid to touch. Node-RED turns stateful automations into flows you can actually see — and an MQTT broker turns the house into an event bus instead of a pile of point-to-point rules. The day the automation brain got a visual debugger."
 pullquote: "YAML describes state well and logic badly. The moment an automation has to remember what happened five minutes ago, you want a flow you can watch execute — not a nested template you read like assembly."
+cover: "../../assets/blog/node-red-flows-automations-yaml-couldnt-handle-cover.svg"
+coverAlt: "On the left, a dense block of deeply-indented config lines with a small red X on it — the automation you're afraid to touch. An arrow transforms it into, on the right, a clean flow of rounded nodes wired together with branching connections and small green message-dots travelling along the wires — a flow you can watch execute."
 ---
 
 The day-job calendar is full (the [connected medical device](/notebooks/building-medical-iot-connected-products/) is eating Q1), so this is a quick one — but it solves the problem I [flagged at year-end](/blog/2017-in-review-smart-home-journal-goes-quiet/): the automations had outgrown YAML.
@@ -28,13 +30,7 @@ Node-RED is a flow-based programming tool — drag nodes, wire them together, wa
 
 The presence-arming logic, rebuilt as a flow:
 
-```
-[HA: presence sensors] → [function: all away?] → [delay 10 min]
-                                                      ↓
-[HA: sun state] → [switch: after sunset?] ────→ [gate: guest mode off?]
-                                                      ↓
-                                              [HA: arm alarm] → [debug]
-```
+![The presence-arming logic drawn as a Node-RED flow. A top row runs presence sensors from Home Assistant into an "all away?" function node and then a 10-minute delay. A bottom row runs the HA sun state into an "after sunset?" check. Both rows merge into a gate node, "guest mode off?", which fans out to two nodes: arm the alarm in HA, and a debug node. A caption notes it's six nodes you can read at a glance, and every node shows the last message that passed through it.](../../assets/blog/node-red-presence-arming-flow.svg)
 
 Every node shows its last message. When the alarm arms (or doesn't), I can see *exactly* which branch fired. The 60-line YAML template became six nodes I can read at a glance.
 
@@ -45,6 +41,8 @@ The bigger shift: I stood up an **MQTT broker** (Mosquitto, also a Hass.io add-o
 Before: SmartThings → HA → automation → device. Point to point. Every integration its own special case.
 
 After: everything publishes to topics. A door sensor publishes `home/frontdoor/contact → open`. Anything that cares subscribes. Home Assistant subscribes. Node-RED subscribes. A future device I haven't bought yet can subscribe without me rewiring anything.
+
+![Two wiring models side by side. On the left, "before": six boxes — door, motion, presence on one side; HA, alarm, lights on the other — connected by a tangle of crossing red point-to-point links, every integration its own special case. On the right, "after": the same publishers (door, motion, presence) all feed a central MQTT broker bar, and the subscribers (HA, Node-RED) read from it on clean green links, with a dashed "future device" box able to subscribe later. A caption notes everything publishes to a topic and anything that cares subscribes, so the next device joins the bus without rewiring a thing.](../../assets/blog/node-red-mqtt-event-bus.svg)
 
 ```
 mosquitto_sub -t 'home/#' -v

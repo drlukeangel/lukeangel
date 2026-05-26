@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A DIY ESP32 pet feeder">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <!-- left accent bar -->
+  <rect x="0" y="0" width="24" height="630" fill="#c87533"/>
+
+  <!-- ===================== THE FEEDER ===================== -->
+  <!-- hopper: a 3D-printed funnel of kibble -->
+  <g transform="translate(360,150)">
+    <!-- kibble level inside, faint -->
+    <path d="M30 22 L290 22 L246 196 L74 196 Z" fill="#c87533" opacity="0.16"/>
+    <!-- hopper walls -->
+    <path d="M16 18 L304 18 L250 210 L70 210 Z" fill="none" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round"/>
+    <!-- print layer lines on the hopper -->
+    <g stroke="#c87533" stroke-width="2" opacity="0.5">
+      <line x1="40" y1="60" x2="280" y2="60"/>
+      <line x1="52" y1="100" x2="268" y2="100"/>
+      <line x1="64" y1="140" x2="256" y2="140"/>
+      <line x1="74" y1="178" x2="246" y2="178"/>
+    </g>
+    <!-- kibble pieces near top -->
+    <g fill="#c87533">
+      <ellipse cx="90" cy="40" rx="11" ry="8"/>
+      <ellipse cx="140" cy="34" rx="11" ry="8"/>
+      <ellipse cx="196" cy="42" rx="11" ry="8"/>
+      <ellipse cx="248" cy="34" rx="11" ry="8"/>
+      <ellipse cx="118" cy="58" rx="11" ry="8" opacity="0.85"/>
+      <ellipse cx="224" cy="60" rx="11" ry="8" opacity="0.85"/>
+    </g>
+  </g>
+
+  <!-- auger throat + servo below the hopper -->
+  <g transform="translate(394,358)">
+    <rect x="0" y="0" width="232" height="74" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- auger spiral -->
+    <g stroke="#1a1d24" stroke-width="4" fill="none">
+      <path d="M28 37 q14 -22 28 0 q14 22 28 0 q14 -22 28 0 q14 22 28 0 q14 -22 28 0"/>
+    </g>
+    <!-- servo box at the left end of the auger -->
+    <rect x="-58" y="12" width="56" height="50" rx="6" fill="#c87533" opacity="0.85" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="-30" cy="37" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  </g>
+
+  <!-- ESP32 board, wired to the servo -->
+  <g transform="translate(150,372)">
+    <rect x="0" y="0" width="150" height="92" rx="8" fill="#1a1d24"/>
+    <!-- the metal-can module -->
+    <rect x="18" y="16" width="62" height="42" rx="4" fill="#fdfaf2" opacity="0.92"/>
+    <!-- antenna meanders -->
+    <path d="M92 20 h34 v8 h-26 v8 h26 v8 h-34" fill="none" stroke="#c87533" stroke-width="3"/>
+    <!-- pin headers -->
+    <g fill="#c87533">
+      <rect x="14" y="74" width="6" height="12"/>
+      <rect x="28" y="74" width="6" height="12"/>
+      <rect x="42" y="74" width="6" height="12"/>
+      <rect x="56" y="74" width="6" height="12"/>
+      <rect x="70" y="74" width="6" height="12"/>
+      <rect x="84" y="74" width="6" height="12"/>
+      <rect x="98" y="74" width="6" height="12"/>
+      <rect x="112" y="74" width="6" height="12"/>
+    </g>
+  </g>
+  <!-- wire from ESP32 to servo -->
+  <path d="M300 410 C330 410, 336 395, 336 395" fill="none" stroke="#1a1d24" stroke-width="4"/>
+
+  <!-- dispensed kibble falling into a bowl -->
+  <g transform="translate(470,452)">
+    <g fill="#c87533">
+      <ellipse cx="30" cy="6" rx="8" ry="6"/>
+      <ellipse cx="44" cy="34" rx="8" ry="6" opacity="0.85"/>
+      <ellipse cx="22" cy="56" rx="8" ry="6" opacity="0.7"/>
+    </g>
+    <!-- bowl -->
+    <path d="M-30 96 Q60 150 150 96 L138 110 Q60 158 -18 110 Z" fill="#c87533" opacity="0.85" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M-30 96 Q60 130 150 96" fill="none" stroke="#1a1d24" stroke-width="5"/>
+  </g>
+
+  <!-- ===================== THE HOUSE-LOCAL HUB (right) ===================== -->
+  <!-- a house outline holding the controller, with NO cloud -->
+  <g transform="translate(800,150)">
+    <path d="M30 120 L170 30 L310 120 L310 320 L30 320 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M30 120 L170 30 L310 120" fill="none" stroke="#c87533" stroke-width="6" stroke-linejoin="round"/>
+    <!-- a small hub box inside the house -->
+    <rect x="120" y="170" width="100" height="80" rx="10" fill="#c87533" opacity="0.16" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="146" cy="210" r="7" fill="#3a7d44"/>
+    <rect x="166" y="196" width="40" height="6" rx="3" fill="#1a1d24" opacity="0.5"/>
+    <rect x="166" y="212" width="40" height="6" rx="3" fill="#1a1d24" opacity="0.5"/>
+    <rect x="166" y="228" width="28" height="6" rx="3" fill="#1a1d24" opacity="0.5"/>
+  </g>
+  <!-- crossed-out cloud above the house: no vendor cloud -->
+  <g transform="translate(880,70)">
+    <path d="M40 56 a26 26 0 0 1 4 -51 a32 32 0 0 1 60 6 a22 22 0 0 1 -2 45 z" fill="#fdfaf2" stroke="#7a808c" stroke-width="4" opacity="0.6"/>
+    <line x1="18" y1="14" x2="120" y2="74" stroke="#c14a3a" stroke-width="5"/>
+  </g>
+
+  <!-- local link from house-hub to the feeder controller (a LAN line, not a cloud arc) -->
+  <path d="M225 418 H760" fill="none" stroke="#1a1d24" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.55"/>
+</svg>

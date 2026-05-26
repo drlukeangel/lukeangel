@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="one node, six readings">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">ONE NODE, SIX READINGS</text>
+
+  <!-- left: six separate devices = six inclusion slots -->
+  <text x="40" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#c14a3a">the old way · six devices</text>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24" text-anchor="middle">
+    <g transform="translate(90,160)"><circle r="26" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/><text y="4">motion</text></g>
+    <g transform="translate(90,250)"><circle r="26" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/><text y="4">temp</text></g>
+    <g transform="translate(90,340)"><circle r="26" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/><text y="4">humid</text></g>
+    <g transform="translate(175,160)"><circle r="26" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/><text y="4">light</text></g>
+    <g transform="translate(175,250)"><circle r="26" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/><text y="4">UV</text></g>
+    <g transform="translate(175,340)"><circle r="26" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/><text y="4">vibr</text></g>
+  </g>
+  <text x="132" y="400" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#c14a3a">6 inclusion slots · 6 batteries · 6 nodes to heal</text>
+
+  <!-- arrow -->
+  <g transform="translate(330,250)">
+    <line x1="0" y1="0" x2="90" y2="0" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.5"/>
+    <path d="M90 0 l-12 -7 l0 14 z" fill="#1a1d24" fill-opacity="0.5"/>
+  </g>
+
+  <!-- right: one device -->
+  <text x="560" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#3a7d44">Multisensor 6 · one device</text>
+  <g transform="translate(640,250)">
+    <circle r="62" fill="#fff" stroke="#3a7d44" stroke-width="3.5"/>
+    <circle r="38" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.4"/>
+    <circle r="9" fill="#6a4c93" fill-opacity="0.4" stroke="#6a4c93" stroke-width="2"/>
+  </g>
+  <text x="640" y="345" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">1 Z-Wave node</text>
+
+  <!-- six labeled outputs as a tidy list -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+    <text x="790" y="175">motion</text>
+    <text x="790" y="205">temperature</text>
+    <text x="790" y="235">humidity</text>
+    <text x="790" y="265">light level</text>
+    <text x="790" y="295">UV index</text>
+    <text x="790" y="325">vibration</text>
+  </g>
+  <g stroke="#3a7d44" stroke-width="2" stroke-opacity="0.5">
+    <line x1="704" y1="250" x2="780" y2="170"/>
+    <line x1="704" y1="250" x2="780" y2="200"/>
+    <line x1="704" y1="250" x2="780" y2="230"/>
+    <line x1="704" y1="250" x2="780" y2="260"/>
+    <line x1="704" y1="250" x2="780" y2="290"/>
+    <line x1="704" y1="250" x2="780" y2="320"/>
+  </g>
+  <text x="790" y="400" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a7d44">cost per reading drops 6×</text>
+</svg>

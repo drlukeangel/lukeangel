@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420" role="img" aria-label="Family Hub features that earned their keep versus the gimmicks">
+  <rect width="1000" height="420" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #7a808c; letter-spacing: 1.2px; }
+    .col { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; }
+    .it { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #1a1d24; }
+    .cap { font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 13.5px; fill: #7a808c; }
+  </style>
+
+  <text x="40" y="34" class="h">ONE WEEK IN — WHAT EARNED ITS KEEP, WHAT DIDN'T</text>
+
+  <!-- divider -->
+  <line x1="500" y1="60" x2="500" y2="360" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- LEFT: not gimmicky -->
+  <text x="60" y="86" class="col" fill="#3a7d44">USED DAILY</text>
+  <g>
+    <g transform="translate(60,110)">
+      <circle cx="12" cy="12" r="12" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.2"/><path d="M6 12 l4 5 l8 -9" fill="none" stroke="#3a7d44" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">SmartThings hub in the fridge</text>
+    </g>
+    <g transform="translate(60,156)">
+      <circle cx="12" cy="12" r="12" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.2"/><path d="M6 12 l4 5 l8 -9" fill="none" stroke="#3a7d44" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">interior cameras ("what do we have?")</text>
+    </g>
+    <g transform="translate(60,202)">
+      <circle cx="12" cy="12" r="12" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.2"/><path d="M6 12 l4 5 l8 -9" fill="none" stroke="#3a7d44" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">recipe mirror to the Frame TV</text>
+    </g>
+    <g transform="translate(60,248)">
+      <circle cx="12" cy="12" r="12" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.2"/><path d="M6 12 l4 5 l8 -9" fill="none" stroke="#3a7d44" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">preheat oven from the fridge screen</text>
+    </g>
+    <g transform="translate(60,294)">
+      <circle cx="12" cy="12" r="12" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.2"/><path d="M6 12 l4 5 l8 -9" fill="none" stroke="#3a7d44" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">shared calendar + memo</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: gimmicky -->
+  <text x="540" y="86" class="col" fill="#c14a3a">SWITCHED OFF</text>
+  <g>
+    <g transform="translate(540,110)">
+      <circle cx="12" cy="12" r="12" fill="#c14a3a" fill-opacity="0.10" stroke="#c14a3a" stroke-width="2.2"/><line x1="6" y1="6" x2="18" y2="18" stroke="#c14a3a" stroke-width="2.6"/><line x1="18" y1="6" x2="6" y2="18" stroke="#c14a3a" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">AI food recognition (~40% right)</text>
+    </g>
+    <g transform="translate(540,156)">
+      <circle cx="12" cy="12" r="12" fill="#c14a3a" fill-opacity="0.10" stroke="#c14a3a" stroke-width="2.2"/><line x1="6" y1="6" x2="18" y2="18" stroke="#c14a3a" stroke-width="2.6"/><line x1="18" y1="6" x2="6" y2="18" stroke="#c14a3a" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">"asparagus = lemongrass"</text>
+    </g>
+    <g transform="translate(540,202)">
+      <circle cx="12" cy="12" r="12" fill="#c14a3a" fill-opacity="0.10" stroke="#c14a3a" stroke-width="2.2"/><line x1="6" y1="6" x2="18" y2="18" stroke="#c14a3a" stroke-width="2.6"/><line x1="18" y1="6" x2="6" y2="18" stroke="#c14a3a" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">Bixby voice on the fridge</text>
+    </g>
+    <g transform="translate(540,248)">
+      <circle cx="12" cy="12" r="12" fill="#c14a3a" fill-opacity="0.10" stroke="#c14a3a" stroke-width="2.2"/><line x1="6" y1="6" x2="18" y2="18" stroke="#c14a3a" stroke-width="2.6"/><line x1="18" y1="6" x2="6" y2="18" stroke="#c14a3a" stroke-width="2.6"/>
+      <text x="36" y="17" class="it">anime sticker family chat</text>
+    </g>
+  </g>
+
+  <text x="500" y="392" text-anchor="middle" class="cap">The hub, the cameras, and the cross-device cooking earned their keep. The "AI" features got switched off in a week.</text>
+</svg>

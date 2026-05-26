@@ -1,32 +1,71 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A connected device with its private key sealed inside an on-board secure element, enrolled into a fleet of devices. One device in the fleet is shown revoked with a red cross.">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="fgd-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+    <pattern id="fgd-dots" width="22" height="22" patternUnits="userSpaceOnUse">
       <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
     </pattern>
   </defs>
   <rect width="1200" height="630" fill="url(#fgd-dots)"/>
-  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
-  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">FIELD GRADE — NOV 2024</text>
-  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">FLEET = 10K+</text>
-  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+  <rect width="24" height="630" fill="#c14a3a"/>
 
-  <g transform="translate(810, 170)" stroke="#1a1d24" stroke-width="2" fill="none">
-    <rect x="0" y="0" width="60" height="60" rx="4"/>
-    <text x="30" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" fill="#1a1d24" stroke="none">🔑</text>
-    <line x1="60" y1="30" x2="100" y2="30" stroke-dasharray="3,3"/>
-    <rect x="100" y="0" width="60" height="60" rx="4" fill="#2a52be" stroke="#2a52be"/>
-    <text x="130" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#fdfaf2" stroke="none">SE</text>
-    <line x1="160" y1="30" x2="200" y2="30" stroke-dasharray="3,3"/>
-    <rect x="200" y="0" width="80" height="60" rx="4"/>
-    <text x="240" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">JITR</text>
+  <!-- faint fleet grid (right) -->
+  <g fill="none" stroke="#1a1d24" stroke-width="2.5" opacity="0.18">
+    <rect x="620" y="196" width="34" height="24" rx="6"/>
+    <rect x="760" y="196" width="34" height="24" rx="6"/>
+    <rect x="900" y="196" width="34" height="24" rx="6"/>
+    <rect x="1040" y="196" width="34" height="24" rx="6"/>
+    <rect x="620" y="300" width="34" height="24" rx="6"/>
+    <rect x="900" y="300" width="34" height="24" rx="6"/>
+    <rect x="1040" y="300" width="34" height="24" rx="6"/>
+    <rect x="620" y="404" width="34" height="24" rx="6"/>
+    <rect x="760" y="404" width="34" height="24" rx="6"/>
+    <rect x="900" y="404" width="34" height="24" rx="6"/>
+    <rect x="1040" y="404" width="34" height="24" rx="6"/>
+    <rect x="620" y="508" width="34" height="24" rx="6"/>
+    <rect x="760" y="508" width="34" height="24" rx="6"/>
+    <rect x="900" y="508" width="34" height="24" rx="6"/>
+    <rect x="1040" y="508" width="34" height="24" rx="6"/>
   </g>
 
-  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="64" fill="#1a1d24">Field-grade device identity</text>
-  <text x="80" y="360" font-family="Newsreader, serif" font-style="italic" font-weight="400" font-size="46" fill="#2a52be">at fleet scale.</text>
-  <text x="80" y="420" font-family="Newsreader, serif" font-style="italic" font-size="28" fill="#7a808c">— certs, secure elements, the rotation problem.</text>
+  <!-- enrollment lines: hero -> near fleet column -->
+  <g stroke="#1a1d24" stroke-width="1.6" opacity="0.2">
+    <line x1="470" y1="320" x2="620" y2="208"/>
+    <line x1="470" y1="320" x2="620" y2="312"/>
+    <line x1="470" y1="320" x2="620" y2="416"/>
+  </g>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT SECURITY</text>
+  <!-- revoked node (accent, crossed out) -->
+  <g transform="translate(760,300)">
+    <rect x="0" y="0" width="34" height="24" rx="6" fill="none" stroke="#c14a3a" stroke-width="3"/>
+    <line x1="-6" y1="-6" x2="40" y2="30" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="40" y1="-6" x2="-6" y2="30" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- trust arcs radiating from the hero device -->
+  <g transform="translate(300,320)" fill="none" stroke="#c14a3a" stroke-linecap="round">
+    <path d="M150 -70 A 165 165 0 0 1 150 70" stroke-width="4" opacity="0.5"/>
+    <path d="M195 -110 A 230 230 0 0 1 195 110" stroke-width="4" opacity="0.3"/>
+    <path d="M240 -150 A 295 295 0 0 1 240 150" stroke-width="4" opacity="0.16"/>
+  </g>
+
+  <!-- hero device -->
+  <rect x="150" y="210" width="300" height="220" rx="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+  <circle cx="186" cy="248" r="7" fill="none" stroke="#1a1d24" stroke-width="3"/>
+  <circle cx="186" cy="248" r="2.5" fill="#c14a3a"/>
+
+  <!-- secure element chip inside the device -->
+  <g transform="translate(235,270)">
+    <g stroke="#1a1d24" stroke-width="4" stroke-linecap="round">
+      <line x1="-12" y1="26" x2="0" y2="26"/><line x1="-12" y1="66" x2="0" y2="66"/><line x1="-12" y1="106" x2="0" y2="106"/>
+      <line x1="130" y1="26" x2="142" y2="26"/><line x1="130" y1="66" x2="142" y2="66"/><line x1="130" y1="106" x2="142" y2="106"/>
+    </g>
+    <rect x="0" y="0" width="130" height="130" rx="16" fill="#fdfaf2" stroke="#c14a3a" stroke-width="4"/>
+    <g transform="translate(40,38)" fill="none" stroke="#c14a3a" stroke-width="5.5" stroke-linecap="round">
+      <circle cx="16" cy="16" r="15"/>
+      <line x1="27" y1="27" x2="58" y2="58"/>
+      <line x1="47" y1="47" x2="57" y2="37"/>
+      <line x1="53" y1="53" x2="63" y2="43"/>
+    </g>
+  </g>
 </svg>

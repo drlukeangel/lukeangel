@@ -11,9 +11,9 @@ tags:
 notebook: smart-home-iot-journey
 notebookOrder: 2
 excerpt: "Two months with Hue. Time to move past the app. Notes on scene storage, group commands, and the cron job that turns on the porch light at sunset."
-pullquote: "The bridge's local REST API has no authentication beyond one bearer token. That's fine on a trusted LAN. It will become a concern in 2016 when Hue bridges go online to the public internet."
-cover: "../../assets/blog/hue-scenes-and-the-local-rest-api-cover.png"
-coverAlt: "Hue scenes and the local REST API — first Python automation"
+pullquote: "The bridge's local REST API has no authentication beyond one button-press token. That's fine on a trusted LAN today. The day Philips puts the bridge on the public internet, that same unhardened endpoint stops being fine."
+cover: "../../assets/blog/hue-scenes-and-the-local-rest-api-cover.svg"
+coverAlt: "A laptop issuing an HTTP request to the Hue bridge, which fans a single Zigbee group broadcast out to several bulbs at once — controlling the lights with code instead of the app."
 ---
 
 Two months into the Hue setup. The official Philips app is fine for ad-hoc lighting changes; it's terrible for schedules. The "schedule" feature is bridge-resident but UI-driven and won't let me express "twenty minutes before sunset" without manual recalculation every couple of weeks.
@@ -72,6 +72,8 @@ curl -X PUT http://192.168.1.42/api/<username>/groups/1/action \
 
 Group commands use Zigbee multicast vs unicast. They're not transactional — one bulb can miss the broadcast and stay off. The bridge re-broadcasts up to three times; you'll still see occasional misses in practice (~1 in 100 in my logs so far).
 
+![Unicast versus group broadcast over Zigbee. On top, the unicast path: one HTTP command per bulb means three separate Zigbee sends, and the bulbs change one after another in a visible ripple. On the bottom, the group path: a single HTTP PUT to the group triggers one Zigbee multicast that every bulb acts on at once, so they change together. A note marks that the broadcast isn't transactional — a bulb can miss it and stay off, roughly one send in a hundred, which the bridge mitigates by re-broadcasting up to three times.](../../assets/blog/hue-unicast-vs-group-broadcast.svg)
+
 ## The first automation — porch light at sunset
 
 Python script, runs from cron every five minutes on the home server:
@@ -111,6 +113,8 @@ Cron entry:
 ```
 
 Five-minute granularity is overkill (sunrise/sunset shift minutes per day), but the script is idempotent — setting `on:true` on an already-on light is a no-op at the Zigbee layer, so re-running has zero physical effect. Cheap and correct beats clever.
+
+![The sunset automation loop. Every five minutes cron wakes the Python script; the script asks the astral library whether the sun is currently down for the configured location; it then PUTs the desired light state to the bridge over the local REST API. Because the call is idempotent — setting on for an already-on bulb does nothing physical — running it every five minutes is safe, and the only state that matters is "is it dark right now," recomputed each run rather than scheduled once. A caption notes there's no cloud anywhere in the loop: cron, the script, and the bridge are all on the LAN.](../../assets/blog/hue-sunset-cron-loop.svg)
 
 ## The state JSON, in detail
 

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="an empty collar at the end of the data">
+  <defs>
+    <pattern id="dots24" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots24)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- baseline -->
+  <line x1="110" y1="380" x2="1090" y2="380" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- eleven years of activity trace: lively early, gradually tailing off, then stopping -->
+  <path d="M110 360
+           L150 300 L168 348 L188 286 L208 340 L230 296 L250 344 L272 300
+           L300 320 L322 290 L344 332 L368 304 L392 338 L416 308 L440 336
+           L470 322 L494 312 L520 338 L546 322 L572 340 L600 330
+           L640 344 L672 338 L704 352 L736 346 L768 358 L800 352
+           L840 362 L872 360 L904 368 L930 366"
+        fill="none" stroke="#c87533" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- the trace fades as it goes (a soft overlay of cream toward the end) -->
+  <!-- end-of-line marker: the trace simply stops -->
+  <circle cx="930" cy="366" r="5" fill="#c87533"/>
+
+  <!-- the empty collar, set down at the end of the line -->
+  <g transform="translate(1000,300)">
+    <ellipse cx="0" cy="0" rx="66" ry="84" fill="none" stroke="#1a1d24" stroke-width="11" stroke-opacity="0.85"/>
+    <ellipse cx="0" cy="0" rx="66" ry="84" fill="none" stroke="#fdfaf2" stroke-width="3.5" stroke-dasharray="2 11"/>
+    <!-- buckle -->
+    <rect x="-13" y="-92" width="26" height="18" rx="4" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <!-- empty tag ring, nothing on it -->
+    <circle cx="0" cy="84" r="9" fill="none" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.7"/>
+  </g>
+</svg>

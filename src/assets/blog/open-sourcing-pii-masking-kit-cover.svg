@@ -1,40 +1,89 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Telemetry masking">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="pii-launch-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    <pattern id="pii-cover-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#pii-launch-dots)"/>
+  <rect width="1200" height="630" fill="url(#pii-cover-dots)"/>
   <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
-  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">LAUNCH — FEB 2026</text>
-  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 03 OPEN SOURCE</text>
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
 
-  <g transform="translate(820, 170)" stroke="#1a1d24" stroke-width="2" fill="none">
-    <rect x="0"   y="0" width="68" height="44" rx="6"/>
-    <rect x="78"  y="0" width="68" height="44" rx="6"/>
-    <rect x="156" y="0" width="68" height="44" rx="6"/>
-    <rect x="234" y="0" width="68" height="44" rx="6" fill="#2a52be" stroke="#2a52be"/>
-    <text x="34"  y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#2a52be" stroke="none">DIRECT</text>
-    <text x="34"  y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#1a1d24" stroke="none">hash</text>
-    <text x="112" y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#2a52be" stroke="none">QUASI</text>
-    <text x="112" y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#1a1d24" stroke="none">token</text>
-    <text x="190" y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#2a52be" stroke="none">SENSE</text>
-    <text x="190" y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#1a1d24" stroke="none">general</text>
-    <text x="268" y="20" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9"  letter-spacing="1.5" fill="#fdfaf2" stroke="none">BEHAV</text>
-    <text x="268" y="34" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="13" fill="#fdfaf2" stroke="none">keep</text>
+  <!-- four incoming telemetry streams (left), each a device puck emitting a row -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <!-- puck 1 -->
+    <rect x="120" y="120" width="80" height="52" rx="10" fill="#fdfaf2"/>
+    <circle cx="150" cy="146" r="9" fill="#2a52be" stroke="none"/>
+    <line x1="174" y1="138" x2="190" y2="138"/>
+    <line x1="174" y1="146" x2="190" y2="146"/>
+    <line x1="174" y1="154" x2="190" y2="154"/>
+    <!-- puck 2 -->
+    <rect x="120" y="232" width="80" height="52" rx="10" fill="#fdfaf2"/>
+    <circle cx="150" cy="258" r="9" fill="#2a52be" stroke="none"/>
+    <line x1="174" y1="250" x2="190" y2="250"/>
+    <line x1="174" y1="258" x2="190" y2="258"/>
+    <line x1="174" y1="266" x2="190" y2="266"/>
+    <!-- puck 3 -->
+    <rect x="120" y="344" width="80" height="52" rx="10" fill="#fdfaf2"/>
+    <circle cx="150" cy="370" r="9" fill="#2a52be" stroke="none"/>
+    <line x1="174" y1="362" x2="190" y2="362"/>
+    <line x1="174" y1="370" x2="190" y2="370"/>
+    <line x1="174" y1="378" x2="190" y2="378"/>
+    <!-- puck 4 -->
+    <rect x="120" y="456" width="80" height="52" rx="10" fill="#fdfaf2"/>
+    <circle cx="150" cy="482" r="9" fill="#3a7d44" stroke="none"/>
+    <line x1="174" y1="474" x2="190" y2="474"/>
+    <line x1="174" y1="482" x2="190" y2="482"/>
+    <line x1="174" y1="490" x2="190" y2="490"/>
   </g>
 
-  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24">Open-sourcing the</text>
-  <text x="80" y="360" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#2a52be">PII Masking</text>
-  <text x="80" y="424" font-family="Newsreader, serif" font-weight="500" font-size="42" fill="#1a1d24">Starter Kit.</text>
+  <!-- streams flow toward the gate -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none" stroke-dasharray="2,9" stroke-linecap="round">
+    <line x1="210" y1="146" x2="500" y2="240"/>
+    <line x1="210" y1="258" x2="500" y2="280"/>
+    <line x1="210" y1="370" x2="500" y2="350"/>
+    <line x1="210" y1="482" x2="500" y2="390"/>
+  </g>
 
-  <line x1="80" y1="468" x2="1120" y2="468" stroke="#1a1d24" stroke-width="1" stroke-dasharray="6,8"/>
-  <text x="80" y="510" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="3" fill="#1a1d24">PYTHON · PYSPARK · AWS GLUE · DATABREW</text>
+  <!-- the masking gate: a tall slotted pillar -->
+  <g>
+    <rect x="500" y="150" width="200" height="330" rx="18" fill="#2a52be"/>
+    <rect x="500" y="150" width="200" height="330" rx="18" fill="none" stroke="#1a1d24" stroke-width="3"/>
+    <!-- four processing slots -->
+    <rect x="536" y="196" width="128" height="44" rx="8" fill="#fdfaf2"/>
+    <rect x="536" y="252" width="128" height="44" rx="8" fill="#fdfaf2"/>
+    <rect x="536" y="308" width="128" height="44" rx="8" fill="#fdfaf2"/>
+    <rect x="536" y="364" width="128" height="44" rx="8" fill="#fdfaf2"/>
+    <!-- a small lock motif on top of the pillar -->
+    <g transform="translate(600,150)" stroke="#fdfaf2" stroke-width="4" fill="none">
+      <rect x="-22" y="-2" width="44" height="34" rx="6" fill="#fdfaf2" stroke="none"/>
+      <path d="M-12 -2 v-12 a12 12 0 0 1 24 0 v12" stroke="#fdfaf2"/>
+    </g>
+    <circle cx="600" cy="171" r="5" fill="#2a52be"/>
+  </g>
 
-  <line x1="80" y1="560" x2="1120" y2="560" stroke="#1a1d24" stroke-width="2"/>
-  <text x="80" y="600" font-family="Newsreader, serif" font-weight="500" font-size="22" fill="#1a1d24">Luke Angel</text>
-  <text x="1120" y="600" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c" text-anchor="end">LUKEANGEL.CO / JOURNAL</text>
+  <!-- transformed outputs (top three: hashed/tokenized/generalized glyphs), behavioral passes through -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <line x1="700" y1="218" x2="900" y2="218" stroke-dasharray="2,9" stroke-linecap="round"/>
+    <line x1="700" y1="274" x2="900" y2="274" stroke-dasharray="2,9" stroke-linecap="round"/>
+    <line x1="700" y1="330" x2="900" y2="330" stroke-dasharray="2,9" stroke-linecap="round"/>
+    <line x1="700" y1="386" x2="900" y2="386" stroke-dasharray="2,9" stroke-linecap="round"/>
+  </g>
+
+  <!-- output tokens: scrambled blocks (masked) for top three, clean row (kept) for fourth -->
+  <g>
+    <!-- hashed: dense block -->
+    <rect x="900" y="200" width="180" height="36" rx="8" fill="#2a52be"/>
+    <g fill="#fdfaf2"><rect x="916" y="212" width="12" height="12"/><rect x="934" y="212" width="20" height="12"/><rect x="960" y="212" width="10" height="12"/><rect x="976" y="212" width="24" height="12"/><rect x="1006" y="212" width="14" height="12"/><rect x="1026" y="212" width="18" height="12"/><rect x="1050" y="212" width="14" height="12"/></g>
+    <!-- tokenized: rounded chips -->
+    <rect x="900" y="256" width="180" height="36" rx="8" fill="#2a52be"/>
+    <g fill="#fdfaf2"><rect x="916" y="266" width="44" height="16" rx="8"/><rect x="970" y="266" width="44" height="16" rx="8"/><rect x="1024" y="266" width="40" height="16" rx="8"/></g>
+    <!-- generalized: coarse bins -->
+    <rect x="900" y="312" width="180" height="36" rx="8" fill="#2a52be"/>
+    <g fill="#fdfaf2"><rect x="916" y="320" width="48" height="20"/><rect x="974" y="320" width="48" height="20"/><rect x="1032" y="320" width="32" height="20"/></g>
+    <!-- kept: clean readable row, green outline -->
+    <rect x="900" y="368" width="180" height="36" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <g stroke="#3a7d44" stroke-width="3"><line x1="918" y1="386" x2="1062" y2="386"/></g>
+    <circle cx="900" cy="386" r="9" fill="#3a7d44"/>
+    <path d="M895 386 l4 4 l7 -9" stroke="#fdfaf2" stroke-width="2.5" fill="none"/>
+  </g>
 </svg>

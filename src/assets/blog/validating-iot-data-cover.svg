@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Incoming payloads passing through a validation gate — valid ones flow on to storage, an invalid one is dropped.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs><pattern id="vd-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/></pattern></defs>
+  <rect width="1200" height="630" fill="url(#vd-dots)"/>
+  <rect width="24" height="630" fill="#2a52be"/>
+
+  <!-- incoming payloads -->
+  <g fill="none" stroke="#1a1d24" stroke-width="3">
+    <rect x="120" y="250" width="92" height="54" rx="8"/>
+    <rect x="120" y="389" width="92" height="54" rx="8"/>
+  </g>
+  <rect x="120" y="319" width="92" height="54" rx="8" fill="none" stroke="#c14a3a" stroke-width="3"/>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="212" y1="346" x2="286" y2="346"/><path d="M290 346 l-15 -7 v14 z"/></g>
+
+  <!-- validation gate -->
+  <rect x="300" y="266" width="118" height="160" rx="18" fill="#fdfaf2" stroke="#2a52be" stroke-width="5"/>
+  <circle cx="359" cy="346" r="30" fill="none" stroke="#2a52be" stroke-width="4"/>
+  <path d="M344 346 l10 10 20 -24" fill="none" stroke="#2a52be" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- valid path up to store -->
+  <g stroke="#3a7d44" stroke-width="3.5" fill="#3a7d44"><path d="M418 318 C 520 318 540 268 632 268" fill="none"/><path d="M636 268 l-16 -8 v16 z"/></g>
+  <rect x="640" y="218" width="230" height="104" rx="14" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4"/>
+  <path d="M676 268 l14 14 26 -32" fill="none" stroke="#3a7d44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#1a1d24" opacity="0.28"><rect x="730" y="258" width="110" height="9" rx="4"/><rect x="730" y="276" width="80" height="9" rx="4"/></g>
+
+  <!-- invalid path dropped -->
+  <g stroke="#c14a3a" stroke-width="3.5" fill="#c14a3a"><path d="M418 380 C 520 380 540 452 632 452" fill="none" stroke-dasharray="9 7"/><path d="M636 452 l-16 -8 v16 z"/></g>
+  <circle cx="690" cy="452" r="30" fill="none" stroke="#c14a3a" stroke-width="4.5"/>
+  <line x1="676" y1="438" x2="704" y2="466" stroke="#c14a3a" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="704" y1="438" x2="676" y2="466" stroke="#c14a3a" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

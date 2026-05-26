@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460" role="img" aria-label="Roadmap items sorted by GA versus preview maturity.">
+  <rect width="960" height="460" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="60" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="1" fill="#7a808c">PLAN IN INK vs PLAN IN PENCIL</text>
+
+  <!-- divider line between the two maturity zones -->
+  <line x1="480" y1="80" x2="480" y2="392" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="6 7"/>
+
+  <!-- LEFT: GA = build on it -->
+  <text x="80" y="110" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#3a7d44">GA · build on it now</text>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+    <rect x="80" y="128" width="340" height="72" rx="11" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="250" y="160" fill="#1a1d24" font-weight="bold">Nova family (Micro/Lite/Pro)</text>
+    <text x="250" y="184" fill="#5b616b">eval-driven model split — Q1</text>
+
+    <rect x="80" y="216" width="340" height="72" rx="11" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="250" y="248" fill="#1a1d24" font-weight="bold">SageMaker AI + lakehouse</text>
+    <text x="250" y="272" fill="#5b616b">Iceberg-compatible · GA today</text>
+  </g>
+
+  <!-- RIGHT: preview = plan in pencil -->
+  <text x="540" y="110" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#c87533">PREVIEW · plan in pencil</text>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+    <rect x="540" y="128" width="340" height="72" rx="11" fill="#c87533" fill-opacity="0.10" stroke="#c87533" stroke-width="2.5" stroke-dasharray="9 6"/>
+    <text x="710" y="160" fill="#1a1d24" font-weight="bold">Bedrock Prompt Caching</text>
+    <text x="710" y="184" fill="#5b616b">us-west-2 / us-east-1 only · TTL may change</text>
+
+    <rect x="540" y="216" width="340" height="72" rx="11" fill="#c87533" fill-opacity="0.10" stroke="#c87533" stroke-width="2.5" stroke-dasharray="9 6"/>
+    <text x="710" y="248" fill="#1a1d24" font-weight="bold">SageMaker Unified Studio</text>
+    <text x="710" y="272" fill="#5b616b">GA slated 2025 · watch it converge</text>
+  </g>
+
+  <!-- the rule -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" text-anchor="middle">
+    <rect x="80" y="316" width="340" height="56" rx="10" fill="#4f46b8" fill-opacity="0.10" stroke="#4f46b8" stroke-width="2.5"/>
+    <text x="250" y="342" fill="#4f46b8" font-weight="bold">commit a launch</text>
+    <text x="250" y="362" fill="#5b616b">price + timeline are fixed</text>
+
+    <rect x="540" y="316" width="340" height="56" rx="10" fill="#4f46b8" fill-opacity="0.06" stroke="#4f46b8" stroke-width="2.5" stroke-dasharray="9 6"/>
+    <text x="710" y="342" fill="#4f46b8" font-weight="bold">un-block planning only</text>
+    <text x="710" y="362" fill="#5b616b">no promise on a preview</text>
+  </g>
+
+  <text x="60" y="430" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">A preview can change its price, API, or TTL before GA — so anything resting on one is planned in pencil.</text>
+</svg>

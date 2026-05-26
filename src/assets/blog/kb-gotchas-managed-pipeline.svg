@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" width="1180" height="560" role="img" aria-label="The managed RAG pipeline with the five gotcha points marked.">
+  <rect width="1180" height="560" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- title band (functional) -->
+  <text x="40" y="52" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" letter-spacing="2" fill="#5b616b">MANAGED RAG — WHAT KNOWLEDGE BASES RUNS FOR YOU</text>
+  <line x1="40" y1="68" x2="1140" y2="68" stroke="#1a1d24" stroke-width="1" opacity="0.25"/>
+
+  <!-- INGEST ROW -->
+  <text x="40" y="118" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18" fill="#7a808c">ingest</text>
+
+  <!-- S3 source -->
+  <rect x="40" y="138" width="150" height="96" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="115" y="180" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">S3 source</text>
+  <text x="115" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#7a808c">your docs</text>
+
+  <!-- arrow + SYNC gotcha -->
+  <line x1="190" y1="186" x2="250" y2="186" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M256 186 l-14 -6 v12 z" fill="#1a1d24"/>
+  <g transform="translate(223,140)">
+    <circle cx="0" cy="0" r="15" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="0" y2="-8" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="7" y2="3" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <text x="223" y="118" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#c14a3a">#5 sync lag</text>
+
+  <!-- CHUNK -->
+  <rect x="262" y="138" width="150" height="96" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="337" y="180" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">chunk</text>
+  <text x="337" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#7a808c">split docs</text>
+  <g transform="translate(337,118)">
+    <path d="M0 -16 L15 13 L-15 13 Z" fill="#c14a3a"/>
+    <rect x="-2" y="-6" width="4" height="11" rx="2" fill="#fdfaf2"/>
+    <circle cx="0" cy="9" r="2.3" fill="#fdfaf2"/>
+  </g>
+  <text x="337" y="100" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#c14a3a">#1 strategy is THE knob</text>
+
+  <!-- arrow -->
+  <line x1="412" y1="186" x2="472" y2="186" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M478 186 l-14 -6 v12 z" fill="#1a1d24"/>
+
+  <!-- EMBED -->
+  <rect x="484" y="138" width="150" height="96" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="559" y="180" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">embed</text>
+  <g fill="#4f46b8"><circle cx="525" cy="204" r="4"/><circle cx="545" cy="204" r="4"/><circle cx="565" cy="204" r="4"/><circle cx="585" cy="204" r="4"/></g>
+
+  <!-- arrow -->
+  <line x1="634" y1="186" x2="694" y2="186" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M700 186 l-14 -6 v12 z" fill="#1a1d24"/>
+
+  <!-- VECTOR STORE -->
+  <rect x="706" y="138" width="170" height="96" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="791" y="180" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">vector store</text>
+  <text x="791" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#7a808c">OpenSearch Srvls</text>
+
+  <!-- RE-INGEST loop arc back to chunk -->
+  <path d="M791 234 C 791 320, 337 320, 337 236" fill="none" stroke="#4f46b8" stroke-width="2.4" stroke-dasharray="7 5" opacity="0.8"/>
+  <path d="M337 240 l-6 -13 12 0 z" fill="#4f46b8" opacity="0.8"/>
+  <rect x="470" y="296" width="186" height="26" rx="6" fill="#fdfaf2"/>
+  <text x="563" y="314" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#c14a3a">#4 re-ingest = ~4h, $$ rebuild</text>
+
+  <!-- QUERY ROW -->
+  <text x="40" y="386" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18" fill="#7a808c">query</text>
+
+  <!-- user query -->
+  <rect x="40" y="406" width="150" height="96" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="115" y="448" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">user query</text>
+  <text x="115" y="472" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#7a808c">+ metadata filter</text>
+
+  <line x1="190" y1="454" x2="250" y2="454" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M256 454 l-14 -6 v12 z" fill="#1a1d24"/>
+
+  <!-- RETRIEVE -->
+  <rect x="262" y="406" width="170" height="96" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="347" y="442" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">retrieve top-K</text>
+  <text x="347" y="466" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#7a808c">dense | hybrid</text>
+  <text x="347" y="486" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#7a808c">then filter</text>
+  <g transform="translate(347,386)">
+    <path d="M0 -16 L15 13 L-15 13 Z" fill="#c14a3a"/>
+    <rect x="-2" y="-6" width="4" height="11" rx="2" fill="#fdfaf2"/>
+    <circle cx="0" cy="9" r="2.3" fill="#fdfaf2"/>
+  </g>
+  <text x="347" y="368" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#c14a3a">#2 hybrid opt-in · #3 filter order</text>
+
+  <line x1="432" y1="454" x2="492" y2="454" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M498 454 l-14 -6 v12 z" fill="#1a1d24"/>
+
+  <!-- GENERATE -->
+  <rect x="504" y="406" width="170" height="96" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="589" y="448" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">generate</text>
+  <text x="589" y="472" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#7a808c">grounded answer</text>
+
+  <line x1="674" y1="454" x2="734" y2="454" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M740 454 l-14 -6 v12 z" fill="#1a1d24"/>
+
+  <!-- ANSWER -->
+  <rect x="746" y="406" width="150" height="96" rx="10" fill="#4f46b8" fill-opacity="0.1" stroke="#4f46b8" stroke-width="2.5"/>
+  <circle cx="791" cy="442" r="11" fill="#4f46b8"/>
+  <text x="821" y="476" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">to customer</text>
+
+  <!-- legend -->
+  <g transform="translate(946,150)">
+    <rect x="0" y="0" width="194" height="100" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.3"/>
+    <path d="M22 24 L34 44 L10 44 Z" fill="#c14a3a"/>
+    <rect x="20" y="29" width="4" height="9" rx="2" fill="#fdfaf2"/>
+    <circle cx="22" cy="42" r="2" fill="#fdfaf2"/>
+    <text x="46" y="42" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">gotcha point</text>
+    <line x1="12" y1="70" x2="36" y2="70" stroke="#4f46b8" stroke-width="2.4" stroke-dasharray="6 4"/>
+    <text x="46" y="75" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">re-ingest loop</text>
+  </g>
+</svg>

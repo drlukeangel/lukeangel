@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 14
 excerpt: "Aeotec shipped Multisensor 6 — motion, temperature, humidity, light, UV, and vibration in one Z-Wave Plus device."
 pullquote: "Six sensors in one device on one Z-Wave node means six new automations are one device install away. Cost per sensor reading drops by a factor of six."
-cover: "../../assets/blog/aeotec-multisensor-6-five-sensors-one-zwave-cover.png"
-coverAlt: "Aeotec Multisensor 6 — six sensors in one Z-Wave device"
+cover: "../../assets/blog/aeotec-multisensor-6-five-sensors-one-zwave-cover.svg"
+coverAlt: "A single round sensor with a faceted motion-detector dome at its center, radiating six distinct readings outward on dashed spokes — a walking figure for motion, a thermometer, a water droplet, a sun, UV rays, and a vibration waveform."
 ---
 
 Aeotec's **Multisensor 6** shipped last month — Z-Wave Plus, 500-series chip, six sensors in a tennis-ball-sized package:
@@ -32,6 +32,8 @@ Two of them ordered and installed last week — one in the master bathroom, one 
 Each Z-Wave node on the network uses an inclusion slot (max 232 per hub), takes up battery management overhead, and adds mesh-routing complexity. A single device that reports six readings is *vastly* cheaper than six separate devices that each report one.
 
 It also means: when I want to add a new automation that depends on a new dimension (e.g., "trigger fan when humidity > 70%"), I don't have to install another device. The data is already arriving.
+
+![Why one device with six sensors beats six single-purpose devices. The old way: six separate sensors — motion, temperature, humidity, light, UV, vibration — each its own Z-Wave node, eating one of the hub's 232 inclusion slots, its own battery to manage, its own node to heal in the mesh. The Multisensor 6 collapses all six into a single Z-Wave node that reports all six readings. One inclusion slot, one device to maintain, and the cost per sensor reading drops by roughly six times.](../../assets/blog/multisensor-one-node-six-readings.svg)
 
 ## Power options — and the trade
 
@@ -95,6 +97,8 @@ def humidityChanged(evt) {
 
 The hysteresis matters — without it (just one threshold), the fan oscillates as humidity wobbles around the trigger value.
 
+![Why the fan automation uses two thresholds instead of one. A humidity curve climbs as a shower runs, crosses the 65% "on" line and the fan switches on, peaks, then falls as the room clears and crosses a separate, lower 55% "off" line where the fan switches off. The ten-point gap between the two lines is the deadband: humidity can wobble up and down inside that band without flipping the fan on and off every minute. A single threshold would put both the on and off decision on the same line, so the fan would chatter every time the reading jittered across it.](../../assets/blog/humidity-fan-hysteresis.svg)
+
 Two weeks running. Works. The fan kicks on within five minutes of someone starting a shower (5-minute reporting interval is the limit on how fast it can react). It turns off ~10 minutes after the shower finishes. House feels less damp; bathroom mirror clears faster.
 
 ## The other automations
@@ -109,4 +113,4 @@ In progress:
 
 - **Faster reporting.** 5 minutes is fine for humidity; for motion-and-light it's too slow. Going to set up parameter 101 = 60s as an experiment.
 - **A motion + presence + temperature triple-trigger for the security automation.** "Front door opens AND no presence detected AND motion fires in the entryway within 30 seconds" — false-alarm rate should drop substantially.
-- **Local-only execution.** Still cloud-mediated. The SmartThings hub firmware doesn't run my custom SmartApp locally. The next-generation hub Samsung is rumored to be working on might fix this.
+- **Local-only execution.** Still cloud-mediated. Samsung shipped the **Hub v2** last month with a faster processor and the promise of more local processing — but in practice it only runs a handful of built-in SmartLighting rules on-device; my custom Groovy SmartApp still executes in the cloud. So a thunderstorm that takes out my internet still takes out my humidity fan. The hardware to run this locally now exists in the house; the software to let me use it doesn't. That gap is the thing I keep circling back to.

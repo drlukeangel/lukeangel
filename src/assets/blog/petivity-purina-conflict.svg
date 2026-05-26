@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" role="img" aria-label="Purina conflict-of-interest loop">
+  <rect width="920" height="540" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .red{fill:#c14a3a;}
+  </style>
+  <defs>
+    <marker id="qi" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#1a1d24"/></marker>
+    <marker id="qr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#c14a3a"/></marker>
+  </defs>
+
+  <!-- litter-box scale (bottom-left) -->
+  <g transform="translate(150,360)">
+    <rect x="-55" y="-8" width="110" height="22" rx="6" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+    <circle cx="-44" cy="3" r="4" fill="#c87533"/><circle cx="44" cy="3" r="4" fill="#c87533"/>
+    <text x="0" y="42" text-anchor="middle" class="sm">litter-box scale</text>
+  </g>
+
+  <!-- Purina analytics (top center) -->
+  <g transform="translate(360,90)">
+    <rect x="0" y="0" width="240" height="116" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="120" y="34" text-anchor="middle" class="hd">Petivity / Purina</text>
+    <line x1="20" y1="48" x2="220" y2="48" stroke="#1a1d24" stroke-opacity="0.12"/>
+    <text x="120" y="72" text-anchor="middle" class="sm">weight + visit data → ML</text>
+    <text x="120" y="94" text-anchor="middle" class="sm">→ wellness signal</text>
+  </g>
+
+  <!-- owner's app (right) -->
+  <g transform="translate(700,250)">
+    <rect x="0" y="0" width="58" height="96" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="0" y1="14" x2="58" y2="14" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="29" y="120" text-anchor="middle" class="sm">owner's app</text>
+  </g>
+
+  <!-- prescription-diet shelf (bottom-right) -->
+  <g transform="translate(640,400)">
+    <rect x="0" y="0" width="170" height="52" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="2">
+      <rect x="16" y="10" width="26" height="34" rx="2"/>
+      <rect x="52" y="10" width="26" height="34" rx="2"/>
+      <rect x="88" y="10" width="26" height="34" rx="2"/>
+      <rect x="124" y="10" width="30" height="34" rx="2"/>
+    </g>
+    <text x="85" y="72" text-anchor="middle" class="sm">Purina prescription diet</text>
+  </g>
+
+  <!-- arrows -->
+  <path d="M 178 350 Q 280 200 372 165" fill="none" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#qi)"/>
+  <text x="232" y="250" class="sm">data ↑ (free hardware)</text>
+  <path d="M 600 160 Q 700 200 728 246" fill="none" stroke="#c14a3a" stroke-width="2.5" marker-end="url(#qr)"/>
+  <text x="650" y="200" class="lab red">"try this diet"</text>
+  <path d="M 729 348 Q 715 384 720 396" fill="none" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#qr)"/>
+
+  <line x1="40" y1="496" x2="880" y2="496" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="460" y="522" text-anchor="middle" class="cap">Free hardware — because the data is the product and the diet is the funnel.</text>
+</svg>

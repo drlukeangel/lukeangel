@@ -1,6 +1,6 @@
 ---
 title: "Field-grade device identity at fleet scale"
-date: 2024-11-12T12:24:00-05:00
+date: 2025-11-18T11:00:00-05:00
 category: tools
 tags:
   - iot
@@ -9,14 +9,14 @@ tags:
   - hardware
   - certificates
 notebook: iot-security
-notebookOrder: 1
+notebookOrder: 8
 excerpt: "Per-device certs are easy when there are ten devices on a desk. At ten thousand, the cert-rotation problem becomes a fleet-operations problem. Notes from designing for it."
 pullquote: "If you can't revoke a single device in under a minute, you don't have device identity. You have hope."
 cover: "../../assets/blog/field-grade-device-identity-cover.svg"
-coverAlt: "Cover graphic — Field-grade device identity at fleet scale. November 2024."
+coverAlt: "A connected device with its private key sealed inside an on-board secure element, enrolled into a fleet — with one device in the fleet shown revoked."
 ---
 
-We crossed five thousand devices in the field last month. Cert-rotation, which had been a quarterly problem, became a Tuesday-morning problem. This is what I'd tell the next team about designing the device-identity layer.
+Every post in this series so far has been about a *single* device — how it [boots](/blog/secure-boot-trusting-your-own-code/), how it [proves who it is](/blog/pki-behind-a-device-cert/) and connects, what it's [allowed to do](/blog/authenticated-isnt-authorized/). This one zooms out to the whole fleet. We crossed five thousand devices in the field last month, and cert-rotation — a quarterly chore at ten devices — became a Tuesday-morning problem. Provisioning thousands without a human in the loop, then keeping their identities current and revocable at scale, is its own discipline. This is what I'd tell the next team.
 
 ## The four problems device identity has to solve
 
@@ -29,6 +29,8 @@ Worth being explicit about what we're actually solving, because the conversation
 
 All four are answered the same way in toy demos: "use AWS IoT Core's per-device certs." All four are different problems at fleet scale.
 
+![Per-device identity across a whole fleet: one issuing CA, trusted by IoT Core, signs a unique X.509 cert for every device, with the private key sealed in each device's secure element. Most of the five-thousand-plus devices in the field carry a valid cert; one has had its IoT policy flipped to deny and is off the network in under a minute.](../../assets/blog/field-grade-device-identity-at-fleet-scale-fig-1.svg)
+
 ## Authentication: mTLS with the cert in a secure element
 
 The starting point is mutual TLS with a per-device X.509 cert. AWS IoT Core supports this out of the box. The interesting question is *where the private key lives on the device.*
@@ -39,6 +41,8 @@ Three options, increasing in cost and trust:
 - **Key in a hardware secure element.** ATECC608A, NXP SE05x, Microchip's CryptoAuthentication family. Adds $1.50 – $4 to BOM. The key never leaves the chip; you can sign things with it but you can't read it out. This is what we picked.
 - **Key in a full TPM.** $5 – $15 of BOM, way more capability, mostly used in industrial / regulated products. Overkill for our use case; right call for medical or critical-infrastructure.
 
+![A secure element on the device board. The private key is generated inside the chip at first boot; the device can ask the chip to sign a challenge and the signature comes out, but a request to read the key out is denied — even to someone holding the board.](../../assets/blog/field-grade-device-identity-secure-element.svg)
+
 The single biggest design decision: **the secure element is a BOM line item that has to be specced in v1**. Adding it in v2 means a new board revision, a new firmware build, and a forked fleet. We added it in v1; teams I've talked to who deferred it regretted the decision before they hit a thousand devices.
 
 ## Provisioning: Just-In-Time Registration
@@ -46,6 +50,8 @@ The single biggest design decision: **the secure element is a BOM line item that
 The dumb version of provisioning: pre-bake a cert into every device at the factory, manually upload that cert into IoT Core ahead of time. This breaks at any kind of scale — you're maintaining a database of "devices we made vs devices we've registered" and they go out of sync.
 
 AWS IoT's better answer is **Just-In-Time Registration (JITR)** or its newer cousin **Just-In-Time Provisioning (JITP)**. The shape: provision a *bootstrap* cert per device at the factory, signed by *your* CA, which IoT Core trusts. The first time the device connects, IoT Core sees the unfamiliar cert, validates the CA, runs a Lambda you wrote, and the Lambda decides whether to register the device. If yes, the device gets its real per-device cert and policy; if no, it's rejected.
+
+![Just-In-Time Registration, end to end: a bootstrap certificate signed by your CA is baked in at the factory; on first connect AWS IoT Core sees the unfamiliar cert and validates the CA chain, then hands off to your registration Lambda — has this been sold, is it on the recall list, does the firmware match — which either issues a per-device cert with a scoped policy, or rejects the device.](../../assets/blog/field-grade-device-identity-jitr-flow.svg)
 
 This is the right pattern. Three things to know:
 
@@ -78,11 +84,13 @@ The right answer is **minutes**, and the mechanism is one of:
 
 We use the second. Our incident-response runbook has a one-button "revoke device" tool that flips the policy in IoT Core; the device-side state machine handles "got disconnected, can't reconnect, light the LED and stop publishing" appropriately.
 
+![Revocation timeline: Device Defender flags an anomaly, the runbook flips the device's IoT policy to deny-all in one action, and the device is refused on its next connection attempt — the whole path inside a minute. A deny-list you update by hand takes days, and that isn't identity.](../../assets/blog/field-grade-device-identity-revocation.svg)
+
 ## Where Device Defender fits
 
 AWS IoT Device Defender is the managed service for *detecting* the situations where you'd want to revoke. It runs behavioral analytics on the fleet — "this device suddenly started publishing to topics it never has before" — and integrates with Security Hub for alerting. We turned it on six months ago; it has caught one real issue (a misconfigured firmware build that was talking to debug topics in production) and a handful of false positives that taught us how to tune it.
 
-It's the cheapest piece of fleet security tooling AWS offers. If you have devices in the field and you haven't turned it on, do that this week.
+It's the cheapest piece of fleet security tooling AWS offers. If you have devices in the field and you haven't turned it on, do that this week. (Detection and response is [its own post](/blog/detection-and-response/) — this is just where it plugs into the fleet-identity loop.)
 
 ## The bigger framing
 

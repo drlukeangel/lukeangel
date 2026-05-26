@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-label="Hardware holds, company fails">
+  <rect width="960" height="440" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .ttl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:17px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .bad{fill:#c14a3a;}
+    .ok{fill:#3a7d44;}
+  </style>
+
+  <text x="40" y="46" class="ttl">The throughline: the hardware holds — the company behind it fails</text>
+
+  <!-- two stacks: hardware layer steady, company layer diverges -->
+  <!-- LEFT: Fi -->
+  <text x="260" y="92" text-anchor="middle" class="lab">Fi Series 1</text>
+  <!-- hardware layer -->
+  <rect x="120" y="110" width="280" height="44" rx="6" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="260" y="138" text-anchor="middle" class="sm ok">hardware: 14-day LTE-M battery — solid</text>
+  <!-- company layer -->
+  <rect x="120" y="170" width="280" height="44" rx="6" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="260" y="198" text-anchor="middle" class="sm ok">company: focused, independent — funded</text>
+  <!-- trend arrow up -->
+  <line x1="260" y1="250" x2="260" y2="300" stroke="#3a7d44" stroke-width="3"/>
+  <line x1="260" y1="250" x2="248" y2="266" stroke="#3a7d44" stroke-width="3"/>
+  <line x1="260" y1="250" x2="272" y2="266" stroke="#3a7d44" stroke-width="3"/>
+  <text x="260" y="324" text-anchor="middle" class="sm ok">trustworthy — for now</text>
+
+  <!-- divider -->
+  <line x1="480" y1="80" x2="480" y2="340" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- RIGHT: Petnet -->
+  <text x="700" y="92" text-anchor="middle" class="lab">Petnet SmartFeeder</text>
+  <!-- hardware layer (still fine) -->
+  <rect x="560" y="110" width="280" height="44" rx="6" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="700" y="138" text-anchor="middle" class="sm ok">hardware: fine mechanism — still feeds</text>
+  <!-- company layer (failing) -->
+  <rect x="560" y="170" width="280" height="44" rx="6" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text x="700" y="192" text-anchor="middle" class="sm bad">backend: longer, more frequent outages</text>
+  <text x="700" y="208" text-anchor="middle" class="sm bad">company silent</text>
+  <!-- trend arrow down -->
+  <line x1="700" y1="250" x2="700" y2="300" stroke="#c14a3a" stroke-width="3"/>
+  <line x1="700" y1="300" x2="688" y2="284" stroke="#c14a3a" stroke-width="3"/>
+  <line x1="700" y1="300" x2="712" y2="284" stroke="#c14a3a" stroke-width="3"/>
+  <text x="700" y="324" text-anchor="middle" class="sm bad">worth less every year</text>
+
+  <line x1="40" y1="360" x2="920" y2="360" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="480" y="396" text-anchor="middle" class="cap">Seven years in: trust the thing in your hand over the account it phones home to.</text>
+  <text x="480" y="422" text-anchor="middle" class="sm">Same hardware story both sides — the difference is the company.</text>
+</svg>

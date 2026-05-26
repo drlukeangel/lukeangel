@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" role="img" aria-label="First collar 2013 vs 2022">
+  <rect width="920" height="520" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:17px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c;}
+  </style>
+
+  <line x1="460" y1="50" x2="460" y2="430" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT: Atom 2013 -->
+  <text x="40" y="46" class="hd">Atom · 2013</text>
+  <g transform="translate(120,130)">
+    <circle cx="0" cy="0" r="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#c87533" stroke-width="3"/>
+    <circle cx="0" cy="0" r="7" fill="#c87533"/>
+  </g>
+  <text x="120" y="195" text-anchor="middle" class="sm">Whistle Activity Monitor</text>
+  <!-- radio glyphs -->
+  <text x="40" y="240" class="lab">Radios:</text><text x="150" y="240" class="lab">BLE + Wi-Fi (no hub)</text>
+  <text x="40" y="270" class="lab">Location:</text><text x="150" y="270" class="lab" fill="#7a808c">— none, activity only</text>
+  <text x="40" y="300" class="lab">Vendor:</text><text x="150" y="300" class="lab">independent</text>
+  <text x="40" y="330" class="lab">Cost:</text><text x="150" y="330" class="lab">~$130, no sub</text>
+  <text x="40" y="360" class="lab">Battery:</text><text x="150" y="360" class="lab">~a week</text>
+
+  <!-- RIGHT: Quark 2022 -->
+  <text x="500" y="46" class="hd">Quark · 2022</text>
+  <g transform="translate(580,130)">
+    <rect x="-38" y="-28" width="76" height="56" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="-24" y="-15" width="48" height="30" rx="6" fill="none" stroke="#c87533" stroke-width="3"/>
+    <circle cx="0" cy="0" r="6" fill="#c87533"/>
+    <!-- sat fix -->
+    <g transform="translate(0,-52)" stroke="#c87533" stroke-width="2.5" fill="none" stroke-linecap="round"><line x1="0" y1="-8" x2="0" y2="8"/><line x1="-8" y1="0" x2="8" y2="0"/><circle r="5"/></g>
+  </g>
+  <text x="580" y="195" text-anchor="middle" class="sm">Fi Series 2</text>
+  <text x="500" y="240" class="lab">Radios:</text><text x="610" y="240" class="lab">LTE-M + Wi-Fi + GPS</text>
+  <text x="500" y="270" class="lab">Location:</text><text x="610" y="270" class="lab" fill="#3a7d44">continuous GPS</text>
+  <text x="500" y="300" class="lab">Vendor:</text><text x="610" y="300" class="lab">independent</text>
+  <text x="500" y="330" class="lab">Cost:</text><text x="610" y="330" class="lab">$149 + ~$99/yr</text>
+  <text x="500" y="360" class="lab">Battery:</text><text x="610" y="360" class="lab">~3 mo on Wi-Fi</text>
+
+  <!-- bracket: four day-one gains -->
+  <line x1="40" y1="430" x2="880" y2="430" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="460" class="cap">Day-one gains in 2022: real-time location · months of battery · cheap-radio-at-home ·</text>
+  <text x="40" y="484" class="cap">an owner that isn't a pet-food company.</text>
+</svg>

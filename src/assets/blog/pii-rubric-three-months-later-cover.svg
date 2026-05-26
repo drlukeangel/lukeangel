@@ -1,34 +1,103 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="PII masking rubric, three months in">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="pii-d-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    <pattern id="pc-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#pii-d-dots)"/>
-  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
-  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">FIELD REPORT — MAY 2026</text>
-  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2a52be" text-anchor="end">3 MO IN</text>
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
+  <rect width="1200" height="630" fill="url(#pc-dots)"/>
+  <rect width="24" height="630" fill="#2a52be"/>
 
-  <g transform="translate(810, 165)">
-    <rect x="0" y="0" width="80" height="80" rx="4" fill="none" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="0" y1="40" x2="80" y2="40" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="40" y1="0" x2="40" y2="80" stroke="#1a1d24" stroke-width="2"/>
-    <text x="20" y="25" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" fill="#2a52be" stroke="none">✓</text>
-    <text x="60" y="25" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" fill="#2a52be" stroke="none">✓</text>
-    <text x="20" y="65" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" fill="#2a52be" stroke="none">✓</text>
-    <text x="60" y="65" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" fill="#7a808c" stroke="none">!</text>
-    <line x1="100" y1="40" x2="190" y2="40" stroke="#2a52be" stroke-width="2" stroke-dasharray="4,4"/>
-    <text x="195" y="44" font-family="Newsreader, serif" font-style="italic" font-size="22" fill="#1a1d24" stroke="none">3/4 buckets</text>
-    <text x="195" y="66" font-family="Newsreader, serif" font-style="italic" font-size="14" fill="#7a808c" stroke="none">held up. one didn't.</text>
+  <!-- four source buckets on the left -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#fdfaf2">
+    <rect x="120" y="120" width="150" height="70" rx="10"/>
+    <rect x="120" y="220" width="150" height="70" rx="10"/>
+    <rect x="120" y="320" width="150" height="70" rx="10"/>
+    <rect x="120" y="420" width="150" height="70" rx="10"/>
+  </g>
+  <!-- bucket glyphs: three solid, one cracked -->
+  <g fill="#2a52be"><circle cx="160" cy="155" r="9"/><rect x="184" y="150" width="64" height="10" rx="5"/></g>
+  <g fill="#2a52be"><circle cx="160" cy="255" r="9"/><rect x="184" y="250" width="48" height="10" rx="5"/></g>
+  <g fill="#2a52be"><circle cx="160" cy="355" r="9"/><rect x="184" y="350" width="58" height="10" rx="5"/></g>
+  <!-- cracked / patched bucket -->
+  <g><circle cx="160" cy="455" r="9" fill="#c14a3a"/>
+     <path d="M184 450 l20 0 l-8 10 l16 0 l-8 10 l24 0" fill="none" stroke="#c14a3a" stroke-width="3" stroke-linejoin="round"/>
+     <line x1="124" y1="424" x2="266" y2="486" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 5"/>
   </g>
 
-  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">PII masking with</text>
-  <text x="80" y="358" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">Glue DataBrew —</text>
-  <text x="80" y="422" font-family="Newsreader, serif" font-style="italic" font-size="30" fill="#2a52be">the rubric we ended up with.</text>
+  <!-- converging feed lines into the masking job -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <path d="M270 155 C 360 155 380 300 470 300"/>
+    <path d="M270 255 C 360 255 390 300 470 300"/>
+    <path d="M270 355 C 360 355 390 300 470 300"/>
+    <path d="M270 455 C 360 455 380 300 470 300"/>
+  </g>
+  <g fill="#1a1d24"><path d="M474 300 l-16 -7 v14 z"/></g>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="2"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — DATA · PII</text>
+  <!-- masking job: a gear-cut block -->
+  <g transform="translate(490,210)">
+    <rect x="0" y="0" width="200" height="180" rx="18" fill="#2a52be"/>
+    <rect x="22" y="22" width="156" height="136" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- gear -->
+    <g transform="translate(100,90)" fill="none" stroke="#2a52be" stroke-width="6">
+      <circle r="30"/>
+      <circle r="11" fill="#2a52be"/>
+      <g stroke="#2a52be" stroke-width="9" stroke-linecap="round">
+        <line x1="0" y1="-42" x2="0" y2="-30"/>
+        <line x1="0" y1="42" x2="0" y2="30"/>
+        <line x1="-42" y1="0" x2="-30" y2="0"/>
+        <line x1="42" y1="0" x2="30" y2="0"/>
+        <line x1="-30" y1="-30" x2="-21" y2="-21"/>
+        <line x1="30" y1="-30" x2="21" y2="-21"/>
+        <line x1="-30" y1="30" x2="-21" y2="21"/>
+        <line x1="30" y1="30" x2="21" y2="21"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- arrow out to two products: masked dataset + audit log -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <path d="M690 260 C 770 260 780 215 860 215"/>
+    <path d="M690 340 C 770 340 780 400 860 400"/>
+  </g>
+  <g fill="#1a1d24"><path d="M864 215 l-16 -7 v14 z"/><path d="M864 400 l-16 -7 v14 z"/></g>
+
+  <!-- masked dataset (shielded rows) -->
+  <g transform="translate(870,150)">
+    <rect x="0" y="0" width="210" height="130" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3.5"/>
+    <g fill="#1a1d24" opacity="0.25">
+      <rect x="24" y="28" width="120" height="11" rx="5"/>
+      <rect x="24" y="52" width="150" height="11" rx="5"/>
+      <rect x="24" y="76" width="96" height="11" rx="5"/>
+      <rect x="24" y="100" width="134" height="11" rx="5"/>
+    </g>
+    <!-- shield -->
+    <path d="M168 30 l22 8 v22 c0 18 -12 28 -22 33 c-10 -5 -22 -15 -22 -33 v-22 z" fill="#3a7d44"/>
+    <path d="M158 60 l8 8 16 -18" fill="none" stroke="#fdfaf2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- audit-evidence log (ledger with checks) -->
+  <g transform="translate(870,330)">
+    <rect x="0" y="0" width="210" height="140" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="3.5"/>
+    <g stroke="#2a52be" stroke-width="3" fill="none">
+      <circle cx="34" cy="34" r="9"/><path d="M30 34 l3 4 6 -8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="34" cy="70" r="9"/><path d="M30 70 l3 4 6 -8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="34" cy="106" r="9"/><path d="M30 106 l3 4 6 -8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g fill="#1a1d24" opacity="0.25">
+      <rect x="58" y="29" width="120" height="10" rx="5"/>
+      <rect x="58" y="65" width="132" height="10" rx="5"/>
+      <rect x="58" y="101" width="104" height="10" rx="5"/>
+    </g>
+  </g>
+
+  <!-- fifth bucket added below, dashed-in -->
+  <g>
+    <rect x="120" y="520" width="150" height="64" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="3" stroke-dasharray="8 6"/>
+    <g fill="#2a52be"><circle cx="160" cy="552" r="9"/></g>
+    <g fill="#1a1d24" opacity="0.35"><rect x="184" y="540" width="64" height="8" rx="4"/><rect x="184" y="556" width="40" height="8" rx="4"/></g>
+    <g stroke="#2a52be" stroke-width="4" stroke-linecap="round"><line x1="232" y1="568" x2="248" y2="568"/><line x1="240" y1="560" x2="240" y2="576"/></g>
+    <path d="M270 552 C 360 552 410 360 490 320" fill="none" stroke="#2a52be" stroke-width="2.5" stroke-dasharray="8 6"/>
+  </g>
 </svg>

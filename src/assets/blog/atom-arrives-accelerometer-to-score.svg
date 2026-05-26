@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 440" width="1080" height="440" role="img" aria-label="One accelerometer becomes a daily score: motion trace, classified into rest, play and walk, summed against a breed-and-age target.">
+  <rect width="1080" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE SENSOR, THREE STEPS</text>
+
+  <!-- STEP 1: motion trace -->
+  <g transform="translate(40,84)">
+    <rect x="0" y="0" width="312" height="300" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="22" y="34" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">1 · MOTION</text>
+    <text x="22" y="54" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">3-axis accelerometer</text>
+    <!-- baseline -->
+    <line x1="22" y1="210" x2="290" y2="210" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+    <!-- jagged trace: flat naps, spiky bursts -->
+    <path d="M22 205 l24 0 l6 -8 l6 8 l40 0
+             l4 -70 l4 64 l5 -78 l5 80 l4 -58 l4 60
+             l34 0 l5 -6 l5 6 l30 0
+             l4 -84 l5 78 l4 -90 l5 88 l4 -64 l5 66
+             l36 0 l6 -10 l6 10 l18 0"
+          fill="none" stroke="#c87533" stroke-width="2.8" stroke-linejoin="round"/>
+    <text x="156" y="276" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">naps flat · play spikes</text>
+  </g>
+
+  <!-- arrow 1->2 -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="356" y1="234" x2="396" y2="234"/><path d="M400 234 l-15 -7 v14 z"/></g>
+
+  <!-- STEP 2: classify into buckets -->
+  <g transform="translate(404,84)">
+    <rect x="0" y="0" width="268" height="300" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="22" y="34" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">2 · CLASSIFY</text>
+    <text x="22" y="54" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">bucket each stretch</text>
+
+    <g transform="translate(22,78)">
+      <rect x="0" y="0" width="224" height="44" rx="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.4"/>
+      <circle cx="26" cy="22" r="9" fill="none" stroke="#7a808c" stroke-width="2.6"/>
+      <line x1="26" y1="16" x2="26" y2="22" stroke="#7a808c" stroke-width="2.6" stroke-linecap="round"/>
+      <line x1="26" y1="22" x2="31" y2="25" stroke="#7a808c" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="56" y="28" font-family="ui-monospace,monospace" font-size="13" fill="#7a808c">REST</text>
+    </g>
+    <g transform="translate(22,134)">
+      <rect x="0" y="0" width="224" height="44" rx="9" fill="#fdfaf2" stroke="#c87533" stroke-width="2.6"/>
+      <path d="M18 30 q8 -22 16 0 M26 30 l0 -22" fill="none" stroke="#c87533" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="56" y="28" font-family="ui-monospace,monospace" font-size="13" fill="#c87533">PLAY</text>
+    </g>
+    <g transform="translate(22,190)">
+      <rect x="0" y="0" width="224" height="44" rx="9" fill="#fdfaf2" stroke="#c87533" stroke-width="2.6"/>
+      <g stroke="#c87533" stroke-width="2.6" fill="none" stroke-linecap="round">
+        <path d="M20 32 l8 -16 l6 10"/>
+        <path d="M28 16 l6 16"/>
+      </g>
+      <text x="56" y="28" font-family="ui-monospace,monospace" font-size="13" fill="#c87533">WALK</text>
+    </g>
+    <text x="134" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">play + walk = active</text>
+  </g>
+
+  <!-- arrow 2->3 -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="676" y1="234" x2="716" y2="234"/><path d="M720 234 l-15 -7 v14 z"/></g>
+
+  <!-- STEP 3: daily total vs target -->
+  <g transform="translate(724,84)">
+    <rect x="0" y="0" width="316" height="300" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="22" y="34" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">3 · SCORE</text>
+    <text x="22" y="54" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">active minutes vs target</text>
+
+    <!-- chart frame -->
+    <line x1="56" y1="84" x2="56" y2="252" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+    <line x1="56" y1="252" x2="294" y2="252" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+
+    <!-- target band line -->
+    <line x1="56" y1="168" x2="294" y2="168" stroke="#3a7d44" stroke-width="2.6" stroke-dasharray="7 5"/>
+    <text x="290" y="160" text-anchor="end" font-family="ui-monospace,monospace" font-size="10.5" fill="#3a7d44">target 60–90</text>
+
+    <!-- Atom's bar, above target -->
+    <rect x="120" y="104" width="64" height="148" rx="5" fill="#c87533"/>
+    <text x="152" y="96" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c87533">120–150</text>
+    <text x="152" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">Atom, today</text>
+  </g>
+
+  <text x="540" y="420" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">No heart rate, no temperature, no GPS — just motion, classified and counted into a number.</text>
+</svg>

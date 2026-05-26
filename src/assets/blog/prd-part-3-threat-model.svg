@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" width="1120" height="600" role="img" aria-label="Threat model: controlled threats versus accepted residual risk">
+  <rect width="1120" height="600" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">STRIDE THREAT MODEL — THE SUMMARY</text>
+
+  <!-- ===== LEFT: threats with controls ===== -->
+  <rect x="34" y="70" width="680" height="510" rx="12" fill="#3a7d44" fill-opacity="0.05" stroke="#3a7d44" stroke-width="2"/>
+  <text x="58" y="100" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#3a7d44">CONSIDERED — AND CONTROLLED</text>
+
+  <g font-family="ui-monospace,monospace">
+    <!-- row 1 -->
+    <text x="58" y="142" font-size="18" fill="#3a7d44">✓</text>
+    <text x="84" y="138" font-size="13" fill="#1a1d24">stolen cart used outside its store</text>
+    <text x="84" y="160" font-size="11.5" fill="#7a808c">cert bound to a store; refuses to run without store-net attestation</text>
+    <!-- row 2 -->
+    <text x="58" y="200" font-size="18" fill="#3a7d44">✓</text>
+    <text x="84" y="196" font-size="13" fill="#1a1d24">scan-and-walk-out without paying</text>
+    <text x="84" y="218" font-size="11.5" fill="#7a808c">EMV-terminal payment required to complete; weight evidence flags it</text>
+    <!-- row 3 -->
+    <text x="58" y="258" font-size="18" fill="#3a7d44">✓</text>
+    <text x="84" y="254" font-size="13" fill="#1a1d24">staff misusing the override tablet</text>
+    <text x="84" y="276" font-size="11.5" fill="#7a808c">every override logged w/ staff-id; BLE proximity required; auditable</text>
+    <!-- row 4 -->
+    <text x="58" y="316" font-size="18" fill="#3a7d44">✓</text>
+    <text x="84" y="312" font-size="13" fill="#1a1d24">rogue firmware pushed to the fleet</text>
+    <text x="84" y="334" font-size="11.5" fill="#7a808c">signed image; secure element checks against factory-burnt CA root; A/B rollback</text>
+    <!-- row 5 -->
+    <text x="58" y="374" font-size="18" fill="#3a7d44">✓</text>
+    <text x="84" y="370" font-size="13" fill="#1a1d24">phished staff → ops dashboard</text>
+    <text x="84" y="392" font-size="11.5" fill="#7a808c">mandatory hardware-key MFA; PII access logged and reviewed weekly</text>
+    <!-- row 6 -->
+    <text x="58" y="432" font-size="18" fill="#3a7d44">✓</text>
+    <text x="84" y="428" font-size="13" fill="#1a1d24">cellular plan exposing roaming patterns</text>
+    <text x="84" y="450" font-size="11.5" fill="#7a808c">IMSI tied to no human; worst case is "a cart was active in this area"</text>
+  </g>
+  <!-- separating note -->
+  <line x1="58" y1="478" x2="690" y2="478" stroke="#3a7d44" stroke-width="1.5" stroke-opacity="0.25"/>
+  <text x="58" y="510" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">Each control answers a specific abuse —</text>
+  <text x="58" y="534" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">not a generic "we take security seriously."</text>
+
+  <!-- ===== RIGHT: accepted residual ===== -->
+  <rect x="730" y="70" width="356" height="510" rx="12" fill="#c87533" fill-opacity="0.06" stroke="#c87533" stroke-width="2"/>
+  <text x="754" y="100" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#c87533">ACCEPTED AS RESIDUAL</text>
+
+  <g font-family="ui-monospace,monospace">
+    <!-- r1 -->
+    <text x="754" y="146" font-size="16" fill="#c87533">~</text>
+    <text x="778" y="142" font-size="12.5" fill="#1a1d24">shoulder-surfing a name</text>
+    <text x="778" y="164" font-size="11" fill="#7a808c">display shows first-name-only,</text>
+    <text x="778" y="182" font-size="11" fill="#7a808c">never the full name</text>
+    <!-- r2 -->
+    <text x="754" y="240" font-size="16" fill="#c87533">~</text>
+    <text x="778" y="236" font-size="12.5" fill="#1a1d24">EMV terminal vendor breach</text>
+    <text x="778" y="258" font-size="11" fill="#7a808c">out of our control; vendor cert</text>
+    <text x="778" y="276" font-size="11" fill="#7a808c">exists; cyber insurance covers</text>
+    <text x="778" y="294" font-size="11" fill="#7a808c">downstream exposure</text>
+    <!-- r3 -->
+    <text x="754" y="352" font-size="16" fill="#c87533">~</text>
+    <text x="778" y="348" font-size="12.5" fill="#1a1d24">long-term break of P-256</text>
+    <text x="778" y="370" font-size="11" fill="#7a808c">a CA-rotation is planned for v2;</text>
+    <text x="778" y="388" font-size="11" fill="#7a808c">post-quantum is not a v1 threat</text>
+  </g>
+
+  <line x1="754" y1="430" x2="1062" y2="430" stroke="#c87533" stroke-width="1.5" stroke-opacity="0.3"/>
+  <text x="754" y="464" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a3f4a">Naming what you</text>
+  <text x="754" y="486" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a3f4a">won't fix is part of</text>
+  <text x="754" y="508" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#3a3f4a">the threat model too.</text>
+</svg>

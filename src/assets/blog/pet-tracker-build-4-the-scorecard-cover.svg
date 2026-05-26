@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Decision scorecard">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="sc-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sc-dots)"/>
+  <!-- 24px left accent bar, notebook accent teal -->
+  <rect x="0" y="0" width="24" height="630" fill="#1f7a6b"/>
+
+  <!-- The scorecard: a clipboard with weighted criteria rows, each scored, feeding a go/no-go gate -->
+
+  <!-- clipboard panel -->
+  <g transform="translate(150,120)">
+    <!-- board -->
+    <rect x="0" y="0" width="500" height="400" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- clip at the top -->
+    <rect x="200" y="-26" width="100" height="42" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="222" y="-40" width="56" height="22" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+
+    <!-- five criterion rows: a weight chip, a filled score bar, and a pass/fail mark -->
+    <!-- row 1: pass -->
+    <g transform="translate(40,70)">
+      <rect x="0" y="-14" width="28" height="28" rx="6" fill="#1f7a6b"/>
+      <rect x="50" y="-11" width="280" height="22" rx="11" fill="#1a1d24" opacity="0.08"/>
+      <rect x="50" y="-11" width="232" height="22" rx="11" fill="#1f7a6b" opacity="0.85"/>
+      <circle cx="400" cy="0" r="20" fill="none" stroke="#3a7d44" stroke-width="5"/>
+      <path d="M390 0 l7 8 l14 -18" fill="none" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- row 2: pass -->
+    <g transform="translate(40,135)">
+      <rect x="0" y="-14" width="28" height="28" rx="6" fill="#1f7a6b"/>
+      <rect x="50" y="-11" width="280" height="22" rx="11" fill="#1a1d24" opacity="0.08"/>
+      <rect x="50" y="-11" width="256" height="22" rx="11" fill="#1f7a6b" opacity="0.85"/>
+      <circle cx="400" cy="0" r="20" fill="none" stroke="#3a7d44" stroke-width="5"/>
+      <path d="M390 0 l7 8 l14 -18" fill="none" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- row 3: fail (short bar, red x) -->
+    <g transform="translate(40,200)">
+      <rect x="0" y="-14" width="28" height="28" rx="6" fill="#1f7a6b"/>
+      <rect x="50" y="-11" width="280" height="22" rx="11" fill="#1a1d24" opacity="0.08"/>
+      <rect x="50" y="-11" width="120" height="22" rx="11" fill="#c14a3a" opacity="0.8"/>
+      <circle cx="400" cy="0" r="20" fill="none" stroke="#c14a3a" stroke-width="5"/>
+      <path d="M392 -8 l16 16 M408 -8 l-16 16" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <!-- row 4: pass -->
+    <g transform="translate(40,265)">
+      <rect x="0" y="-14" width="28" height="28" rx="6" fill="#1f7a6b"/>
+      <rect x="50" y="-11" width="280" height="22" rx="11" fill="#1a1d24" opacity="0.08"/>
+      <rect x="50" y="-11" width="208" height="22" rx="11" fill="#1f7a6b" opacity="0.85"/>
+      <circle cx="400" cy="0" r="20" fill="none" stroke="#3a7d44" stroke-width="5"/>
+      <path d="M390 0 l7 8 l14 -18" fill="none" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- row 5: pass -->
+    <g transform="translate(40,330)">
+      <rect x="0" y="-14" width="28" height="28" rx="6" fill="#1f7a6b"/>
+      <rect x="50" y="-11" width="280" height="22" rx="11" fill="#1a1d24" opacity="0.08"/>
+      <rect x="50" y="-11" width="244" height="22" rx="11" fill="#1f7a6b" opacity="0.85"/>
+      <circle cx="400" cy="0" r="20" fill="none" stroke="#3a7d44" stroke-width="5"/>
+      <path d="M390 0 l7 8 l14 -18" fill="none" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- the decision: scorecard feeds a fork in the path -> go (build) vs hold -->
+  <!-- connector from board to the fork -->
+  <path d="M650 320 C 740 320 760 250 840 230" fill="none" stroke="#1a1d24" stroke-width="5" stroke-linecap="round"/>
+  <path d="M650 360 C 740 360 760 430 840 450" fill="none" stroke="#1a1d24" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 14"/>
+
+  <!-- GO branch: open gate, green check on a circle (build the collar) -->
+  <g transform="translate(950,230)">
+    <!-- open gate post + swung-open arm -->
+    <line x1="-30" y1="-50" x2="-30" y2="50" stroke="#1a1d24" stroke-width="7" stroke-linecap="round"/>
+    <line x1="-30" y1="-40" x2="50" y2="-72" stroke="#1f7a6b" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="-30" cy="-40" r="6" fill="#1a1d24"/>
+    <!-- go marker -->
+    <circle cx="60" cy="20" r="34" fill="#fdfaf2" stroke="#3a7d44" stroke-width="6"/>
+    <path d="M44 20 l11 13 l22 -28" fill="none" stroke="#3a7d44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- HOLD branch: closed gate arm (reconsider) -->
+  <g transform="translate(950,450)">
+    <line x1="-30" y1="-50" x2="-30" y2="50" stroke="#1a1d24" stroke-width="7" stroke-linecap="round"/>
+    <line x1="-30" y1="0" x2="70" y2="0" stroke="#c14a3a" stroke-width="9" stroke-linecap="round" stroke-dasharray="22 14"/>
+    <circle cx="-30" cy="0" r="6" fill="#1a1d24"/>
+  </g>
+</svg>

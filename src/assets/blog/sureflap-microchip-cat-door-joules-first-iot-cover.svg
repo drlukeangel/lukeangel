@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A cat at a microchip cat flap.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="sf-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sf-dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- floor line the door sits on -->
+  <line x1="120" y1="520" x2="1120" y2="520" stroke="#1a1d24" stroke-width="3" opacity="0.18"/>
+
+  <!-- ===================== the door + flap (right) ===================== -->
+  <g transform="translate(720,150)">
+    <!-- the exterior door slab -->
+    <rect x="120" y="-30" width="300" height="400" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- wood-panel seams on the door -->
+    <g stroke="#1a1d24" stroke-width="2.5" opacity="0.14">
+      <line x1="120" y1="80" x2="420" y2="80"/>
+      <line x1="270" y1="-30" x2="270" y2="80"/>
+    </g>
+    <!-- door knob -->
+    <circle cx="392" cy="190" r="9" fill="#1a1d24" opacity="0.5"/>
+
+    <!-- the cut-out frame of the pet flap, set into the slab -->
+    <rect x="150" y="190" width="170" height="180" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- the RFID reader ring built into the top of the frame -->
+    <rect x="150" y="190" width="170" height="34" rx="8" fill="#c87533" stroke="#1a1d24" stroke-width="6"/>
+    <!-- reader coil hint: nested arcs inside the frame header -->
+    <g fill="none" stroke="#fdfaf2" stroke-width="3" opacity="0.85">
+      <path d="M210 214 a25 18 0 0 1 50 0"/>
+      <path d="M222 214 a13 10 0 0 1 26 0"/>
+    </g>
+
+    <!-- the clear flap itself, swung slightly open inward -->
+    <g transform="translate(166,228)">
+      <path d="M0 0 L138 0 L150 128 L12 128 Z"
+            fill="#c87533" fill-opacity="0.10" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round"/>
+      <!-- hinge pins at the top -->
+      <circle cx="6" cy="3" r="4" fill="#1a1d24"/>
+      <circle cx="132" cy="3" r="4" fill="#1a1d24"/>
+    </g>
+
+    <!-- the latch bolt, drawn BACK (unlocked) on the frame edge -->
+    <g transform="translate(320,300)">
+      <!-- bolt housing -->
+      <rect x="0" y="-14" width="40" height="28" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+      <!-- retracted bolt (pulled into housing) -->
+      <rect x="8" y="-7" width="22" height="14" rx="3" fill="#3a7d44" stroke="#1a1d24" stroke-width="3"/>
+      <!-- little retract arrow showing the bolt has drawn back, away from the flap -->
+      <path d="M2 26 l 0 14 M2 40 l -6 -7 M2 40 l 6 -7"
+            fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+    </g>
+  </g>
+
+  <!-- ===================== the cat approaching (left/center) ===================== -->
+  <g transform="translate(250,250)">
+    <!-- tail sweeping behind -->
+    <path d="M40 250 C -36 256 -52 188 -16 162 C 2 150 22 160 22 180"
+          fill="none" stroke="#1a1d24" stroke-width="6" stroke-linecap="round"/>
+    <!-- body, leaning toward the flap -->
+    <path d="M70 256
+             C 40 196 50 120 110 104
+             C 138 96 172 104 186 130
+             C 200 110 236 110 260 134
+             C 296 168 300 224 280 268
+             C 240 282 120 282 70 256 Z"
+          fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+    <!-- tabby stripes on the flank -->
+    <g stroke="#1a1d24" stroke-width="3" opacity="0.22" fill="none" stroke-linecap="round">
+      <path d="M104 158 C 116 166 124 178 126 192"/>
+      <path d="M92 184 C 106 190 116 202 120 216"/>
+      <path d="M92 214 C 106 218 118 226 126 236"/>
+    </g>
+    <!-- front leg reaching forward -->
+    <path d="M250 268 C 268 258 290 258 308 266" fill="none" stroke="#1a1d24" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- head extended toward the reader -->
+    <g transform="translate(248,118)">
+      <!-- ears -->
+      <path d="M8 18 L -2 -22 L 36 6 Z" fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M66 10 L 86 -24 L 88 18 Z" fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <!-- face -->
+      <path d="M4 24 C 0 -2 24 -14 46 -14 C 68 -14 92 -2 88 24 C 86 50 66 64 46 64 C 26 64 8 50 4 24 Z"
+            fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <!-- eyes -->
+      <circle cx="32" cy="22" r="5" fill="#1a1d24"/>
+      <circle cx="60" cy="22" r="5" fill="#1a1d24"/>
+      <!-- nose + mouth -->
+      <path d="M46 34 l -6 6 l 12 0 z" fill="#1a1d24"/>
+      <path d="M46 40 C 46 48 40 50 34 50 M46 40 C 46 48 52 50 58 50" fill="none" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+      <!-- whiskers, reaching toward the door -->
+      <g stroke="#1a1d24" stroke-width="2.5" stroke-linecap="round" opacity="0.55">
+        <path d="M62 38 L 100 32 M62 44 L 98 50"/>
+        <path d="M30 38 L -4 34 M30 44 L -2 48"/>
+      </g>
+    </g>
+
+    <!-- the passive chip glinting under the skin at the shoulder -->
+    <g transform="translate(150,150)">
+      <ellipse cx="0" cy="0" rx="34" ry="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="4 5" opacity="0.5"/>
+      <rect x="-18" y="-6" width="36" height="12" rx="6" fill="#c87533" stroke="#1a1d24" stroke-width="3"/>
+      <line x1="-9" y1="-6" x2="-9" y2="6" stroke="#1a1d24" stroke-width="1.6" opacity="0.5"/>
+      <line x1="1" y1="-6" x2="1" y2="6" stroke="#1a1d24" stroke-width="1.6" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- ===================== inductive coupling: rings between reader and chip ===================== -->
+  <!-- reader sits at ~ (886,374) in page space; chip at ~ (400,400). Draw concentric arcs bridging them -->
+  <g fill="none" stroke="#c87533" stroke-linecap="round">
+    <path d="M520 392 C 600 360 700 360 786 388" stroke-width="4" opacity="0.85"/>
+    <path d="M512 414 C 600 392 706 392 794 414" stroke-width="3.5" opacity="0.55"/>
+    <path d="M508 436 C 600 420 712 420 800 438" stroke-width="3" opacity="0.32"/>
+  </g>
+</svg>

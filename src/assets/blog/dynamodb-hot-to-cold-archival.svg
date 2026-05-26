@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 480" width="1120" height="480" role="img" aria-label="Hot DynamoDB to cold S3 archival split">
+  <rect width="1120" height="480" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE TRANSACTIONAL AND ANALYTICAL PATHS SPLIT CLEANLY</text>
+
+  <!-- devices in -->
+  <g transform="translate(40, 150)">
+    <rect x="-4" y="20" width="86" height="50" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="39" cy="45" r="11" fill="none" stroke="#2a52be" stroke-width="3"/><circle cx="39" cy="45" r="3.5" fill="#2a52be"/>
+    <path d="M37 12 a12 12 0 0 1 24 0" fill="none" stroke="#2a52be" stroke-width="3" opacity="0.5" transform="translate(-10,0)"/>
+    <text x="39" y="96" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c">fleet writes</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="none" stroke-linecap="round"><path d="M130 185 H 196"/></g>
+  <path d="M200 185 l-15 -7 v14 z" fill="#1a1d24"/>
+
+  <!-- HOT store: DynamoDB -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="206" y="118" width="240" height="134" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="3.5"/>
+    <text x="326" y="148" text-anchor="middle" font-size="15" fill="#2a52be">HOT · DynamoDB</text>
+    <text x="326" y="172" text-anchor="middle" font-size="11.5" fill="#5b616b">last N days, single-digit ms</text>
+    <!-- mini partition rows -->
+    <g fill="#2a52be"><rect x="246" y="186" width="160" height="9" rx="4"/><rect x="246" y="202" width="160" height="9" rx="4"/><rect x="246" y="218" width="160" height="9" rx="4" opacity="0.6"/></g>
+    <text x="326" y="244" text-anchor="middle" font-size="11" fill="#7a808c">transactional reads</text>
+  </g>
+
+  <!-- TTL aging arrow down to cold -->
+  <g transform="translate(326, 270)">
+    <circle cx="0" cy="16" r="13" fill="none" stroke="#7a808c" stroke-width="2.5"/>
+    <path d="M0 16 V 7 M0 16 l6 4" stroke="#7a808c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="24" y="20" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#7a808c">TTL expires the row</text>
+  </g>
+  <g stroke="#7a808c" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="3 9"><path d="M326 304 V 372"/></g>
+  <path d="M326 376 l-6 -15 h12 z" fill="#7a808c"/>
+  <text x="326" y="404" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#7a808c">deleted from hot store</text>
+
+  <!-- Streams branch to the right (analytics) -->
+  <g stroke="#2a52be" stroke-width="3" fill="none" stroke-linecap="round"><path d="M446 160 H 506"/></g>
+  <path d="M510 160 l-15 -7 v14 z" fill="#2a52be"/>
+  <text x="478" y="146" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#2a52be">Streams</text>
+
+  <!-- analytics chain: Firehose -> S3 Parquet -> Athena -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- Firehose -->
+    <rect x="514" y="128" width="150" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="589" y="156" text-anchor="middle" font-size="12.5" fill="#1a1d24">Kinesis</text>
+    <text x="589" y="174" text-anchor="middle" font-size="12.5" fill="#1a1d24">Firehose</text>
+    <g stroke="#1a1d24" stroke-width="3" fill="none" stroke-linecap="round"><path d="M664 160 H 712"/></g>
+    <path d="M716 160 l-15 -7 v14 z" fill="#1a1d24"/>
+
+    <!-- COLD: S3 lake (object-store glyph) -->
+    <g transform="translate(720, 122)">
+      <path d="M0 18 q60 -26 120 0 v44 q-60 26 -120 0 z" fill="#fdfaf2" stroke="#7a808c" stroke-width="3"/>
+      <path d="M0 18 q60 26 120 0" fill="none" stroke="#7a808c" stroke-width="3"/>
+      <path d="M0 40 q60 26 120 0" fill="none" stroke="#7a808c" stroke-width="2.5" opacity="0.7"/>
+      <text x="60" y="92" text-anchor="middle" font-size="12.5" fill="#5b616b">COLD · S3</text>
+      <text x="60" y="110" text-anchor="middle" font-size="11" fill="#7a808c">Parquet</text>
+    </g>
+    <g stroke="#1a1d24" stroke-width="3" fill="none" stroke-linecap="round"><path d="M850 160 H 898"/></g>
+    <path d="M902 160 l-15 -7 v14 z" fill="#1a1d24"/>
+
+    <!-- Athena -->
+    <rect x="906" y="128" width="174" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="993" y="152" text-anchor="middle" font-size="12.5" fill="#1a1d24">Athena</text>
+    <text x="993" y="172" text-anchor="middle" font-size="10.5" fill="#7a808c">SQL over the lake</text>
+  </g>
+
+  <!-- analytical reads label under Athena, clear of the S3 cylinder labels -->
+  <text x="993" y="232" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c">analytical reads · seconds–minutes</text>
+
+  <!-- caption -->
+  <text x="40" y="440" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">Hot store stays small and fast; the stream lands every row in a cheap lake you can query later. One write, two lifetimes.</text>
+</svg>

@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 46
 excerpt: "Samsung Bespoke 4-Door Flex with Family Hub installed. 21\" touchscreen on the front door. SmartThings integrated. Talks to the Frame TV."
 pullquote: "The fridge is now a SmartThings hub, a display, a camera, a calendar surface, and a recipe-search tool. It's also a fridge. It does all six things well enough that the kitchen actually got more functional."
-cover: "../../assets/blog/first-samsung-family-hub-fridge-cover.png"
-coverAlt: "First Samsung Family Hub fridge — kitchen has an OS"
+cover: "../../assets/blog/first-samsung-family-hub-fridge-cover.svg"
+coverAlt: "A four-door Bespoke refrigerator with a large touchscreen set into its upper-right door, the screen showing a calendar grid and a few interface bars. Concentric signal arcs radiate from the screen out to the devices the built-in hub talks to — a bulb, a wall-mounted TV, a sensor, and an oven — the fridge acting as the kitchen's smart-home hub, not just a place to keep food cold."
 ---
 
 Samsung Bespoke 4-Door Flex with Family Hub installed in the new kitchen last Thursday. RF29A9675AP/AA — the 29 cu ft model with the 21" touchscreen on the front-right door.
@@ -45,6 +45,8 @@ I'm bridging the fridge's SmartThings to Home Assistant via the HA SmartThings i
 
 Tested: from Home Assistant, I can read the fridge's interior temperature (38°F), receive door-open events, see beverage-center temp (34°F), and (via the SmartThings API) trigger ice-maker on/off.
 
+![How the Family Hub fridge sits in the house as a hub. On the left, three radio islands feed into it: Zigbee sensors, Z-Wave switches, and Matter-over-Thread devices like the Eve sensors and Nanoleaf bulb. They all terminate at the fridge in the center, which is the SmartThings hub — carrying Zigbee 3.0, Z-Wave Plus, and a Thread border router. On the right, Home Assistant connects to the fridge not directly but through the SmartThings cloud, drawn as a dashed link through a cloud glyph labelled 1 to 2 seconds, cloud-mediated. A caption notes the fridge owns the radios while HA reads state and issues commands through SmartThings' cloud — convenient, but not local.](../../assets/blog/family-hub-fridge-topology.svg)
+
 ## The cooking integrations
 
 This is where Samsung's tightly-integrated approach starts to pay off:
@@ -52,6 +54,8 @@ This is where Samsung's tightly-integrated approach starts to pay off:
 - **Recipe display from the fridge screen → mirror to Frame TV**. Open a recipe on the fridge's 21", tap the cast button, the recipe appears on the 65" Frame TV across the room. Read while cooking from the stove, hands free.
 - **Pre-heat the oven from the fridge**. Samsung connects the Bespoke oven to the SmartThings hub on the fridge. Tap "preheat to 425" on the fridge screen → oven starts.
 - **Timers across devices**. Start a timer on the fridge, hear it announce on the Frame TV, see it on phones.
+
+![The cooking integrations, drawn as flows out of the fridge screen. The Family Hub fridge — a 21-inch Tizen panel that is itself a SmartThings hub — is the control surface. Tapping a recipe casts it to the Frame TV across the room; tapping "preheat 425" starts the Bespoke oven; starting a timer fans the announcement out to the Frame TV and to phones. Every one of these routes over the SmartThings hub built into the fridge rather than a separate box.](../../assets/blog/family-hub-cooking-flow.svg)
 
 The first time my wife pre-heated the oven from the fridge screen, she said "huh, that actually works." Coming from someone who doesn't normally engage with smart-home stuff, this is high praise.
 
@@ -94,11 +98,13 @@ The fridge is on the IoT VLAN with limited internet egress — only the Samsung 
 - **The recipe mirror-to-Frame.** Used multiple times per week.
 - **Pre-heat the oven from anywhere in the kitchen.** Used daily.
 
+![A two-column verdict after a week of family use. The left column, "used daily," carries green checks: the SmartThings hub built into the fridge, the interior cameras for a quick "what do we have?", recipe mirroring to the Frame TV, preheating the oven from the fridge screen, and the shared calendar and memo board. The right column, "switched off," carries red crosses: the AI food recognition that's right about 40% of the time, its habit of calling asparagus lemongrass, Bixby voice on the fridge, and the anime-sticker family chat. A caption sums it up: the hub, the cameras, and the cross-device cooking earned their keep; the "AI" features got switched off in a week.](../../assets/blog/family-hub-gimmicky-vs-useful.svg)
+
 ## Where the Frame TV fits
 
 The Frame TV in the great room (mounted opposite the kitchen) is the second screen. From the fridge: cast a recipe to the Frame. From the Frame: SmartThings hub (the Frame is also a hub) controls the kitchen lights via SmartThings. From either device: see camera feeds.
 
-The Frame + Fridge + Frame TV ecosystem is the first time I've had three SmartThings hubs cooperating in one house. Samsung's integration story is genuinely tight. The Frame post is coming in June; the Bespoke oven + dishwasher + washer/dryer post in March.
+The Frame + Fridge + Frame TV ecosystem is the first time I've had three SmartThings hubs cooperating in one house. Samsung's integration story is genuinely tight. The rest of the Bespoke kitchen — oven, dishwasher, washer/dryer — gets its own post once it's installed, and the Frame TV ecosystem deserves a write-up of its own too.
 
 ## What broke during install
 
@@ -110,6 +116,6 @@ Nothing serious. The fridge has been running 7 days. Glad I got the 21" model.
 
 ## What's next
 
-- The full Samsung Bespoke kitchen post in March 2024 (oven, dishwasher, washer/dryer).
-- The Frame TV ecosystem post in June 2024.
-- Eventually: a "Matter at the appliance level" post once Samsung exposes the appliances over Matter (rumored 2024).
+- The full Samsung Bespoke kitchen write-up (oven, dishwasher, washer/dryer) once those are installed.
+- A dedicated Frame TV ecosystem post.
+- Eventually: a "Matter at the appliance level" post if and when Samsung exposes the appliances over Matter — the appliance device types aren't in the spec yet, so this one's a wait-and-see.

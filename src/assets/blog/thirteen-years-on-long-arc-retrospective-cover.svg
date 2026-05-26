@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Smart-home eras as stacked strata">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- HERO: house cross-section sliced into five horizontal strata.
+       House body 520 wide, sitting at x 340..860; ground at y 540; roof apex y 96. -->
+  <g>
+    <!-- ground line -->
+    <line x1="120" y1="540" x2="1080" y2="540" stroke="#1a1d24" stroke-width="2.5" opacity="0.5"/>
+
+    <!-- Era 1 stratum (base, thickest) -->
+    <path d="M340 540 V452 H860 V540 Z" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- buried walled-garden cells: four little fenced boxes, not connected -->
+    <g stroke="#6a4c93" stroke-width="2" fill="none" opacity="0.85">
+      <rect x="372" y="478" width="56" height="42" rx="4"/>
+      <rect x="460" y="478" width="56" height="42" rx="4"/>
+      <rect x="684" y="478" width="56" height="42" rx="4"/>
+      <rect x="772" y="478" width="56" height="42" rx="4"/>
+    </g>
+    <g fill="#6a4c93" opacity="0.85">
+      <circle cx="400" cy="499" r="5"/><circle cx="488" cy="499" r="5"/>
+      <circle cx="712" cy="499" r="5"/><circle cx="800" cy="499" r="5"/>
+    </g>
+
+    <!-- Era 2 stratum: hub of hubs -->
+    <path d="M340 452 V372 H860 V452 Z" fill="#6a4c93" fill-opacity="0.06" stroke="#1a1d24" stroke-width="2.5"/>
+    <g stroke="#6a4c93" stroke-width="1.6" stroke-dasharray="4 4" opacity="0.7">
+      <line x1="600" y1="412" x2="430" y2="392"/><line x1="600" y1="412" x2="500" y2="430"/>
+      <line x1="600" y1="412" x2="700" y2="392"/><line x1="600" y1="412" x2="770" y2="430"/>
+    </g>
+    <g fill="#6a4c93" opacity="0.7"><circle cx="430" cy="392" r="5"/><circle cx="500" cy="430" r="5"/><circle cx="700" cy="392" r="5"/><circle cx="770" cy="430" r="5"/></g>
+    <rect x="576" y="396" width="48" height="32" rx="5" fill="#6a4c93" stroke="#1a1d24" stroke-width="2"/>
+
+    <!-- Era 3 stratum: local-first, solid links -->
+    <path d="M340 372 V300 H860 V372 Z" fill="#6a4c93" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+    <g stroke="#6a4c93" stroke-width="2.2" opacity="0.9">
+      <line x1="600" y1="336" x2="440" y2="320"/><line x1="600" y1="336" x2="520" y2="356"/>
+      <line x1="600" y1="336" x2="690" y2="320"/><line x1="600" y1="336" x2="760" y2="356"/>
+    </g>
+    <g fill="#6a4c93"><circle cx="440" cy="320" r="5"/><circle cx="520" cy="356" r="5"/><circle cx="690" cy="320" r="5"/><circle cx="760" cy="356" r="5"/></g>
+    <rect x="578" y="322" width="44" height="28" rx="5" fill="#6a4c93" stroke="#1a1d24" stroke-width="2"/>
+
+    <!-- Era 4 stratum: operations — camera + alarm glyphs -->
+    <path d="M340 300 V236 H860 V300 Z" fill="#6a4c93" fill-opacity="0.06" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- camera -->
+    <g transform="translate(440,268)" stroke="#1a1d24" stroke-width="2" fill="#fdfaf2">
+      <rect x="-16" y="-9" width="32" height="18" rx="3"/><circle cx="0" cy="0" r="5" fill="#6a4c93" stroke="none"/>
+    </g>
+    <!-- shield (alarm) -->
+    <path d="M600 250 l22 8 v14 q0 16 -22 26 q-22 -10 -22 -26 v-14 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <path d="M591 270 l6 6 12 -13" fill="none" stroke="#3a7d44" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- camera 2 -->
+    <g transform="translate(760,268)" stroke="#1a1d24" stroke-width="2" fill="#fdfaf2">
+      <rect x="-16" y="-9" width="32" height="18" rx="3"/><circle cx="0" cy="0" r="5" fill="#6a4c93" stroke="none"/>
+    </g>
+
+    <!-- Era 5: roof (newest, top) — triangle with multi-hub bridges -->
+    <path d="M340 236 L600 96 L860 236 Z" fill="#6a4c93" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- three bridge nodes linked across roof -->
+    <g stroke="#6a4c93" stroke-width="2.2"><line x1="500" y1="196" x2="600" y2="170"/><line x1="600" y1="170" x2="700" y2="196"/></g>
+    <g fill="#6a4c93" stroke="#1a1d24" stroke-width="1.8">
+      <rect x="486" y="184" width="28" height="22" rx="4"/>
+      <rect x="586" y="158" width="28" height="22" rx="4"/>
+      <rect x="686" y="184" width="28" height="22" rx="4"/>
+    </g>
+  </g>
+</svg>

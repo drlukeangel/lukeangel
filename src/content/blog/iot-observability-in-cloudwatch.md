@@ -9,11 +9,11 @@ tags:
   - observability
   - ops
 notebook: connected-products
-notebookOrder: 7
+notebookOrder: 8
 excerpt: "Six months into running a connected-product fleet in production, here's the CloudWatch setup we wish we'd had on day one. Three dashboards, four alarms, one log query."
 pullquote: "An IoT product without per-device-percentile latency dashboards is a product that doesn't know it's broken."
 cover: "../../assets/blog/iot-observability-cloudwatch-cover.svg"
-coverAlt: "Cover graphic — What good IoT observability looks like in CloudWatch. September 2024."
+coverAlt: "A fleet of connected-device pucks streaming telemetry into a monitoring dashboard — a sparkline, a bar-chart tile, a gauge ring, and an alarm bell firing on the one device that's gone red."
 ---
 
 We've been running our connected-product fleet in production for about six months. The first incident, predictably, was an observability incident — we couldn't tell whether 200 devices had stopped talking because the devices were broken, the network was broken, the cloud was broken, or our parsing of the data was broken. It took us a full day to figure out which.
@@ -21,6 +21,10 @@ We've been running our connected-product fleet in production for about six month
 This is the CloudWatch setup we'd have built on day one if we'd known better.
 
 (Previously, on [v1](/notebooks/building-medical-iot-connected-products/), we built our own dashboards from scratch in 2018. The IoT-native cloud metrics weren't mature yet, and we ended up running everything off custom metrics emitted from serverless functions. On v2 the native side is much better. The setup below would have saved us about two engineer-months on the v1 build. It's now ~one engineer-week.)
+
+The whole thing hangs off one decision made at the ingest Lambda: every metric and every log line carries the device's `thing_name` as a dimension. Get that wiring right and the dashboards, the alarms, and the Logs Insights queries all fall out of it.
+
+![Telemetry-to-CloudWatch pipeline for a connected-product fleet: device pucks publish over MQTT to AWS IoT Core; an IoT Rule routes every message to an ingest Lambda that stamps a server timestamp and tags the device's thing_name; the Lambda emits per-device p50/p95/p99 latency to CloudWatch Metrics and structured records to CloudWatch Logs; metrics feed the dashboards and alarms, logs feed scheduled Insights queries that post hourly to a #fleet-errors Slack channel. A side loop shows a fleet-diff Lambda running every five minutes and a last_seen_at attribute written back onto each IoT Thing.](../../assets/blog/iot-observability-telemetry-pipeline.svg)
 
 ## The three dashboards
 
@@ -53,6 +57,8 @@ This one is for the engineers, not the on-call. It tracks:
 
 If dashboard three is red, the *infrastructure* is unhealthy. If only dashboard one or two is red, the *fleet* is.
 
+![Incident-triage decision tree starting from something looks wrong, which dashboard went red. One branch: dashboard 1 or 2 red means the fleet is sick — device-count drops, auth failures, per-device p99 climbing — so you drill down by thing_name. The other branch: dashboard 3 red means the infrastructure is sick — IoT Rule SQL failures, Lambda throttles, DynamoDB write throttles, Firehose lag — so you fix the pipeline, not the devices. The footer reminds you to instrument errors-per-device, not errors-per-request, because you ask questions along the device dimension.](../../assets/blog/iot-observability-triage.svg)
+
 ## The four alarms
 
 We have four production alarms. Anything beyond four is noise.
@@ -63,6 +69,8 @@ We have four production alarms. Anything beyond four is noise.
 4. **MQTT auth failures > 100 in 5 minutes.** Paged. Either fleet-wide cert issue or someone's poking at our endpoint with stolen keys.
 
 Notice what's not on this list: total message volume drops, individual device offline, individual Lambda invocation errors. Those are too noisy to alarm on directly. They all show up on the dashboards; they don't fire pages.
+
+![The three dashboards and four alarms laid out together. Dashboard 1, fleet health, is what on-call watches by default: device count, messages per minute, per-device latency percentiles, MQTT auth failures, ingest error rate. Dashboard 2, per-device drill-down, uses Contributor Insights to rank thing_name by errors and jump to a device's logs. Dashboard 3, pipeline health, is for engineers: IoT Rule SQL failures, Lambda throttles, DynamoDB write throttles. If dashboard 1 or 2 is red the fleet is sick; if 3 is red the infrastructure is. The four alarms: three page (device count drops over 20% in 5 minutes, ingest 5xx over 1% for 10 minutes, MQTT auth failures over 100 in 5 minutes), one is Slack-only (p99 latency over 2x baseline for 15 minutes). Total-volume drops, a single device offline, and one Lambda error are deliberately not alarmed — too noisy to page on.](../../assets/blog/iot-observability-dashboards-alarms.svg)
 
 ## The one CloudWatch Logs Insights query
 

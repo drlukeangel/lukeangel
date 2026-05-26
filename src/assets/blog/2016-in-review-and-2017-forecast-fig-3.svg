@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Two voice ecosystems, 2016">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24" text-anchor="middle">
+
+    <!-- Echo / Alexa column -->
+    <g transform="translate(250 60)">
+      <!-- tall cylinder -->
+      <rect x="-26" y="0" width="52" height="96" rx="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <ellipse cx="0" cy="6" rx="26" ry="7" fill="none" stroke="#6a4c93" stroke-width="3"/>
+      <text x="0" y="124" font-size="14" fill="#6a4c93">Echo · Alexa</text>
+      <text x="0" y="142" font-size="10.5" fill="#5b616b">bedroom — 2014</text>
+    </g>
+
+    <!-- Google Home column -->
+    <g transform="translate(750 60)">
+      <!-- angled speaker -->
+      <path d="M-24 96 L24 96 L20 30 Q0 12 -20 30 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <g fill="#6a4c93"><circle cx="-9" cy="22" r="2.6"/><circle cx="-3" cy="20" r="2.6"/><circle cx="3" cy="20" r="2.6"/><circle cx="9" cy="22" r="2.6"/></g>
+      <text x="0" y="124" font-size="14" fill="#6a4c93">Google Home</text>
+      <text x="0" y="142" font-size="10.5" fill="#5b616b">kitchen — new Nov 2016</text>
+    </g>
+
+    <!-- the house slice each one drives -->
+    <g transform="translate(0 250)" font-size="11">
+      <!-- Alexa slice -->
+      <rect x="120" y="0" width="260" height="120" rx="10" fill="#6a4c93" fill-opacity="0.06" stroke="#6a4c93" stroke-opacity="0.4" stroke-width="2"/>
+      <text x="250" y="24" fill="#1a1d24" font-size="12">Alexa Skills reach</text>
+      <text x="250" y="48" fill="#5b616b">music · timers</text>
+      <text x="250" y="68" fill="#5b616b">Hue (skill)</text>
+      <text x="250" y="88" fill="#5b616b">SmartThings (skill)</text>
+
+      <!-- Google slice -->
+      <rect x="620" y="0" width="260" height="120" rx="10" fill="#6a4c93" fill-opacity="0.06" stroke="#6a4c93" stroke-opacity="0.4" stroke-width="2"/>
+      <text x="750" y="24" fill="#1a1d24" font-size="12">Google Home reach</text>
+      <text x="750" y="48" fill="#5b616b">"dim the kitchen"</text>
+      <text x="750" y="68" fill="#5b616b">Hue · Chromecast</text>
+      <text x="750" y="88" fill="#5b616b">no routines yet</text>
+    </g>
+
+    <!-- voice arcs from each speaker down to its slice -->
+    <g stroke="#6a4c93" stroke-width="2" fill="none" opacity="0.55">
+      <path d="M250 216 L250 248"/>
+      <path d="M750 216 L750 248"/>
+    </g>
+
+    <!-- the gap between them -->
+    <g transform="translate(500 200)">
+      <path d="M-110 0 L-30 0" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="4 7" fill="none"/>
+      <path d="M30 0 L110 0" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="4 7" fill="none"/>
+      <text x="0" y="-6" font-size="12" fill="#c14a3a">don't share state</text>
+      <text x="0" y="14" font-size="10.5" fill="#5b616b">no Siri speaker bridges them</text>
+    </g>
+
+    <text x="500" y="460" font-size="13" fill="#5b616b">two voice surfaces in one house — each owns its own slice</text>
+  </g>
+</svg>

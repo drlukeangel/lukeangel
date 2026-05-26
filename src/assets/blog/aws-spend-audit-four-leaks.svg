@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="920" height="480" role="img" aria-label="Four recurring AWS spend leaks.">
+  <rect width="920" height="480" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- header -->
+  <text x="40" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" letter-spacing="2" fill="#1a1d24">THE FOUR LEAKS — same four, every quarter</text>
+  <line x1="40" y1="66" x2="880" y2="66" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- four leak cards -->
+  <!-- card 1: idle compute -->
+  <g transform="translate(40,92)">
+    <rect width="400" height="160" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18"/>
+    <rect x="0" y="0" width="6" height="160" rx="3" fill="#4f46b8"/>
+    <text x="26" y="38" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">1 — IDLE DEV / STAGING COMPUTE</text>
+    <text x="26" y="68" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">RDS + EC2 running 24/7, owners rotated off</text>
+    <text x="26" y="92" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">lever: schedule / stop / delete / reserve</text>
+    <text x="26" y="132" font-family="ui-monospace, monospace" font-size="22" fill="#c14a3a">~$14K / mo</text>
+  </g>
+
+  <!-- card 2: storage class -->
+  <g transform="translate(480,92)">
+    <rect width="400" height="160" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18"/>
+    <rect x="0" y="0" width="6" height="160" rx="3" fill="#4f46b8"/>
+    <text x="26" y="38" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">2 — STORAGE ON THE WRONG TIER</text>
+    <text x="26" y="68" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">S3 Standard cold data, gp2 EBS, forever snaps</text>
+    <text x="26" y="92" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">lever: Intelligent-Tiering / gp3 / retention</text>
+    <text x="26" y="132" font-family="ui-monospace, monospace" font-size="22" fill="#c14a3a">$4K&#8211;$8K / mo</text>
+  </g>
+
+  <!-- card 3: egress -->
+  <g transform="translate(40,272)">
+    <rect width="400" height="160" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18"/>
+    <rect x="0" y="0" width="6" height="160" rx="3" fill="#4f46b8"/>
+    <text x="26" y="38" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">3 — EGRESS &amp; CROSS-AZ CHATTER</text>
+    <text x="26" y="68" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">NAT-to-S3, cross-AZ hops, idle replication</text>
+    <text x="26" y="92" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">lever: VPC endpoints / co-locate / drop repl</text>
+    <text x="26" y="132" font-family="ui-monospace, monospace" font-size="22" fill="#c14a3a">$2K&#8211;$5K / mo</text>
+  </g>
+
+  <!-- card 4: oversized -->
+  <g transform="translate(480,272)">
+    <rect width="400" height="160" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18"/>
+    <rect x="0" y="0" width="6" height="160" rx="3" fill="#4f46b8"/>
+    <text x="26" y="38" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24">4 — OVERSIZED EVERYTHING</text>
+    <text x="26" y="68" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">EC2 / RDS / Lambda picked on day one, never revisited</text>
+    <text x="26" y="92" font-family="Newsreader, Georgia, serif" font-size="15" fill="#5b616b">lever: Compute Optimizer / right-size / autoscale</text>
+    <text x="26" y="132" font-family="ui-monospace, monospace" font-size="22" fill="#c14a3a">$5K&#8211;$15K / mo</text>
+  </g>
+</svg>

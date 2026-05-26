@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 500" width="1120" height="500" role="img" aria-label="2022 prediction calendar">
+  <rect width="1120" height="500" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHERE THE 2022 BETS LAND ACROSS THE YEAR</text>
+
+  <!-- key -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12">
+    <circle cx="48" cy="68" r="7" fill="#0066cc"/><text x="62" y="72" fill="#5b616b">forecast launch / event</text>
+    <circle cx="290" cy="68" r="7" fill="#3a7d44"/><text x="304" y="72" fill="#5b616b">the headline call: Matter finally ships</text>
+  </g>
+
+  <!-- axis -->
+  <line x1="70" y1="360" x2="1060" y2="360" stroke="#1a1d24" stroke-width="2.5"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">
+    <line x1="70" y1="354" x2="70" y2="366" stroke="#1a1d24" stroke-width="2"/>
+    <text x="70" y="388" text-anchor="middle">Q1</text>
+    <line x1="318" y1="354" x2="318" y2="366" stroke="#1a1d24" stroke-width="2"/>
+    <text x="318" y="388" text-anchor="middle">Q2</text>
+    <line x1="566" y1="354" x2="566" y2="366" stroke="#1a1d24" stroke-width="2"/>
+    <text x="566" y="388" text-anchor="middle">Q3</text>
+    <line x1="814" y1="354" x2="814" y2="366" stroke="#1a1d24" stroke-width="2"/>
+    <text x="814" y="388" text-anchor="middle">Q4</text>
+    <line x1="1060" y1="354" x2="1060" y2="366" stroke="#1a1d24" stroke-width="2"/>
+  </g>
+
+  <!-- September launch cluster band -->
+  <rect x="690" y="70" width="180" height="290" rx="10" fill="#0066cc" fill-opacity="0.07" stroke="#0066cc" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="780" y="92" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#0066cc">SEP–OCT CLUSTER</text>
+
+  <!-- markers helper: dot + connector + label box -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- iRobot Q3 -->
+    <circle cx="600" cy="360" r="7" fill="#0066cc"/>
+    <line x1="600" y1="353" x2="600" y2="320" stroke="#7a808c" stroke-width="1.5"/>
+    <rect x="520" y="288" width="160" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="600" y="310" text-anchor="middle" font-size="12.5" fill="#1a1d24">Amazon · iRobot closes</text>
+
+    <!-- AirPods Pro 2 -->
+    <circle cx="730" cy="360" r="7" fill="#0066cc"/>
+    <line x1="730" y1="353" x2="730" y2="262" stroke="#7a808c" stroke-width="1.5"/>
+    <rect x="700" y="230" width="156" height="34" rx="7" fill="#fdfaf2" stroke="#0066cc" stroke-width="2"/>
+    <text x="778" y="252" text-anchor="middle" font-size="12.5" fill="#1a1d24">AirPods Pro 2 · H2</text>
+
+    <!-- Watch Ultra -->
+    <circle cx="760" cy="360" r="7" fill="#0066cc"/>
+    <line x1="760" y1="353" x2="760" y2="206" stroke="#7a808c" stroke-width="1.5"/>
+    <rect x="700" y="174" width="156" height="34" rx="7" fill="#fdfaf2" stroke="#0066cc" stroke-width="2"/>
+    <text x="778" y="196" text-anchor="middle" font-size="12.5" fill="#1a1d24">Watch Ultra · $799</text>
+
+    <!-- Pixel Watch Oct -->
+    <circle cx="830" cy="360" r="7" fill="#0066cc"/>
+    <line x1="830" y1="353" x2="830" y2="150" stroke="#7a808c" stroke-width="1.5"/>
+    <rect x="700" y="118" width="156" height="34" rx="7" fill="#fdfaf2" stroke="#0066cc" stroke-width="2"/>
+    <text x="778" y="140" text-anchor="middle" font-size="12.5" fill="#1a1d24">Pixel Watch · ~$349</text>
+
+    <!-- Matter 1.0 Oct -->
+    <circle cx="850" cy="360" r="8" fill="#3a7d44"/>
+    <line x1="850" y1="352" x2="940" y2="300" stroke="#7a808c" stroke-width="1.5"/>
+    <rect x="912" y="270" width="148" height="48" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="986" y="290" text-anchor="middle" font-size="12.5" fill="#3a7d44">Matter 1.0 ships</text>
+    <text x="986" y="308" text-anchor="middle" font-size="11" fill="#7a808c">lights·plugs·locks</text>
+
+    <!-- OTC hearing-aid rule Oct -->
+    <circle cx="870" cy="360" r="7" fill="#0066cc"/>
+    <line x1="870" y1="353" x2="940" y2="220" stroke="#7a808c" stroke-width="1.5"/>
+    <rect x="912" y="190" width="148" height="34" rx="7" fill="#fdfaf2" stroke="#0066cc" stroke-width="2"/>
+    <text x="986" y="212" text-anchor="middle" font-size="12.5" fill="#1a1d24">OTC hearing-aid rule</text>
+
+    <!-- robot mowers, mid-year -->
+    <circle cx="420" cy="360" r="7" fill="#0066cc"/>
+    <line x1="420" y1="353" x2="420" y2="262" stroke="#7a808c" stroke-width="1.5"/>
+    <rect x="330" y="230" width="180" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="420" y="252" text-anchor="middle" font-size="12.5" fill="#1a1d24">RTK robot mowers go real</text>
+
+    <!-- supply chain easing arrow, Q4 -->
+    <line x1="828" y1="408" x2="1055" y2="408" stroke="#3a7d44" stroke-width="3"/>
+    <path d="M1055 408 l-13 -6 v12 z" fill="#3a7d44"/>
+    <text x="828" y="430" font-size="12.5" fill="#3a7d44">crunch eases → buy a PS5 at retail</text>
+    <text x="74" y="430" font-size="12.5" fill="#7a808c">H1 shipments still rough →</text>
+  </g>
+</svg>

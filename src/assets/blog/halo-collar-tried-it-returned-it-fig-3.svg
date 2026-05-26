@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="virtual vs physical fence">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">WHAT THE FENCE ACTUALLY IS, TO THE DOG</text>
+
+  <line x1="500" y1="78" x2="500" y2="430" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- LEFT: virtual fence -->
+  <text x="40" y="108" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#c14a3a">VIRTUAL FENCE &#183; an idea enforced by stimulus</text>
+
+  <!-- dog facing invisible dashed line -->
+  <g transform="translate(70,150)">
+    <!-- dog silhouette, simple -->
+    <path d="M0 70 q6 -34 30 -34 l8 -14 q4 -8 10 -2 l2 12 q18 2 26 18 l26 0 l0 20 l-122 0 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="78" cy="44" r="2.5" fill="#1a1d24"/>
+    <!-- invisible boundary -->
+    <line x1="180" y1="0" x2="180" y2="110" stroke="#c14a3a" stroke-width="3" stroke-dasharray="6 8"/>
+    <path d="M180 12 l10 8 l-10 8" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+    <path d="M180 44 l10 8 l-10 8" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+    <path d="M180 76 l10 8 l-10 8" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="232" y="58" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#c14a3a">can't see,</text>
+    <text x="232" y="76" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#c14a3a">smell, or hear it</text>
+  </g>
+
+  <rect x="40" y="300" width="420" height="108" rx="10" fill="#c14a3a" fill-opacity="0.07" stroke="#c14a3a" stroke-width="1.5"/>
+  <text x="62" y="332" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#1a1d24">$999 + $9.95/mo &#183; 12-hr battery</text>
+  <text x="62" y="360" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">beep &#8594; vibration &#8594; static correction</text>
+  <text x="62" y="388" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#c14a3a">GPS jitter can punish a dog for nothing it did</text>
+
+  <!-- RIGHT: physical fence -->
+  <text x="540" y="108" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#3a7d44">PHYSICAL FENCE &#183; an object the dog meets</text>
+
+  <g transform="translate(560,150)">
+    <path d="M0 70 q6 -34 30 -34 l8 -14 q4 -8 10 -2 l2 12 q18 2 26 18 l26 0 l0 20 l-122 0 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="78" cy="44" r="2.5" fill="#1a1d24"/>
+    <!-- solid fence posts + rails -->
+    <g stroke="#3a7d44" stroke-width="3">
+      <line x1="180" y1="0" x2="180" y2="110"/>
+      <line x1="210" y1="0" x2="210" y2="110"/>
+      <line x1="240" y1="0" x2="240" y2="110"/>
+      <line x1="170" y1="28" x2="250" y2="28"/>
+      <line x1="170" y1="70" x2="250" y2="70"/>
+    </g>
+    <text x="262" y="62" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#3a7d44">a wall it learns</text>
+  </g>
+
+  <rect x="540" y="300" width="420" height="108" rx="10" fill="#3a7d44" fill-opacity="0.07" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="562" y="332" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#1a1d24">~$3,500&#8211;5,000 once &#183; permanent</text>
+  <text x="562" y="360" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">no stimulus, no subscription, no edge cases</text>
+  <text x="562" y="388" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#3a7d44">solves the actual problem with no welfare cost</text>
+
+  <text x="500" y="466" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">Halo isn't the alternative to no boundary &#8212; it's the alternative to a real fence. That's the comparison that matters.</text>
+</svg>

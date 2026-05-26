@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="The three cells of one test-set row.">
+  <rect width="1120" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE ROW OF THE TEST SET</text>
+
+  <!-- column headers -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">
+    <text x="60" y="92">input</text>
+    <text x="440" y="92">expected output</text>
+    <text x="820" y="92">note — why</text>
+  </g>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11">
+    <text x="60" y="110" fill="#4f46b8">load-bearing</text>
+    <text x="440" y="110" fill="#4f46b8">load-bearing</text>
+    <text x="820" y="110" fill="#7a808c">justification</text>
+  </g>
+
+  <!-- ROW 1 -->
+  <g>
+    <rect x="56" y="124" width="320" height="86" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <g fill="#1a1d24" opacity="0.5"><rect x="74" y="146" width="240" height="9" rx="4"/><rect x="74" y="166" width="180" height="9" rx="4"/></g>
+    <text x="74" y="198" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">real user query, from logs</text>
+
+    <rect x="436" y="124" width="320" height="86" rx="10" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5"/>
+    <g fill="#4f46b8" opacity="0.85"><rect x="454" y="146" width="270" height="9" rx="4"/><rect x="454" y="166" width="210" height="9" rx="4"/></g>
+    <text x="454" y="198" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">a paragraph</text>
+
+    <rect x="816" y="124" width="248" height="86" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 4"/>
+    <g fill="#1a1d24" opacity="0.28"><rect x="834" y="146" width="200" height="8" rx="4"/><rect x="834" y="164" width="160" height="8" rx="4"/></g>
+    <text x="834" y="196" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">what we'd lose otherwise</text>
+  </g>
+
+  <!-- ROW 2 -->
+  <g>
+    <rect x="56" y="226" width="320" height="86" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <g fill="#1a1d24" opacity="0.5"><rect x="74" y="248" width="210" height="9" rx="4"/><rect x="74" y="268" width="250" height="9" rx="4"/></g>
+    <text x="74" y="300" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">real user query, from logs</text>
+
+    <rect x="436" y="226" width="320" height="86" rx="10" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5"/>
+    <g fill="#4f46b8" opacity="0.85"><rect x="454" y="258" width="150" height="9" rx="4"/></g>
+    <text x="454" y="300" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">one sentence</text>
+
+    <rect x="816" y="226" width="248" height="86" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 4"/>
+    <g fill="#1a1d24" opacity="0.28"><rect x="834" y="248" width="180" height="8" rx="4"/><rect x="834" y="266" width="140" height="8" rx="4"/></g>
+    <text x="834" y="298" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">what we'd lose otherwise</text>
+  </g>
+
+  <!-- ROW 3 — the refusal case -->
+  <g>
+    <rect x="56" y="328" width="320" height="86" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <g fill="#1a1d24" opacity="0.5"><rect x="74" y="350" width="248" height="9" rx="4"/><rect x="74" y="370" width="190" height="9" rx="4"/></g>
+    <text x="74" y="402" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">real user query, from logs</text>
+
+    <rect x="436" y="328" width="320" height="86" rx="10" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5"/>
+    <!-- a small shield/hand glyph for "refuse politely" -->
+    <g transform="translate(454,346)">
+      <path d="M16 0 l16 6 v14 q0 16 -16 22 q-16 -6 -16 -22 v-14 z" fill="none" stroke="#4f46b8" stroke-width="2.5"/>
+      <path d="M9 21 l5 5 9 -11" fill="none" stroke="#4f46b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="498" y="378" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">refuse politely</text>
+    <text x="454" y="402" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">a non-answer is the right answer</text>
+
+    <rect x="816" y="328" width="248" height="86" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 4"/>
+    <g fill="#1a1d24" opacity="0.28"><rect x="834" y="350" width="170" height="8" rx="4"/><rect x="834" y="368" width="200" height="8" rx="4"/></g>
+    <text x="834" y="400" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">what we'd lose otherwise</text>
+  </g>
+</svg>

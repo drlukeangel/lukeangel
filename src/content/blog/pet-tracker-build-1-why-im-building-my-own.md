@@ -12,6 +12,8 @@ notebook: iot-pet-health-tracker-build
 notebookOrder: 1
 excerpt: "Three pets, three subscriptions, and the bulk of what I get for the money is a green dot that says 'home.' After a decade of paying other people to tell me my pets are where I left them, I'm building the tracker I actually want."
 pullquote: "I'm paying a cellular subscription to confirm a cat is asleep on the couch."
+cover: "../../assets/blog/pet-tracker-build-1-why-im-building-my-own-cover.svg"
+coverAlt: "A growing stack of recurring subscription bills on one side, a single hand-built location tracker puck on a workbench on the other — years of renewal fees versus a one-time build."
 featured: false
 ---
 
@@ -24,6 +26,10 @@ I've been in connected products my whole career, and buying connected-pet gear s
 Strip it down and the answer is uncomfortable: presence. Ninety-five percent of what these trackers tell me is "your pet is home," which I could get from a two-dollar radio that never leaves the house. The cellular link — the expensive part, the part the subscription exists to fund — earns its keep maybe a handful of times a year, when a pet is actually somewhere it shouldn't be.
 
 And the cellular link is also why I'm on the charging treadmill. Always-on LTE is the reason these collars die every few days. So I'm paying a monthly fee *and* a recurring chore, both in service of a capability my indoor cats use approximately never.
+
+The math only gets worse the longer you run it. A subscription is a line that never stops climbing — three pets at ~$100/year each, compounding for as long as you own the gear. A one-time build is a single step up for parts and then flat. The two lines cross sooner than the renewal email wants you to notice.
+
+![Cumulative cost over time: a red staircase for subscriptions, climbing roughly $300 a year across three pets and never leveling off, versus a teal line for a one-time DIY build that jumps once for parts and then stays flat near zero per year. The lines cross early, where the parts pay for themselves.](../../assets/blog/pet-tracker-build-1-cost-curve.svg)
 
 ## Tractive just proved my point
 
@@ -47,5 +53,7 @@ So I'm building the one I actually want. The bet is simple and it's the inverse 
 - **Months of battery, not days** — because nobody wants to charge the thing.
 - **Location first, health later** — get the dot reliable before it takes a heart rate.
 - **Matched to how pets actually live** — home most of the time, occasionally on a trail, rarely truly lost.
+
+![The inverted bet, four requirements side by side. What everyone ships, in red: a monthly cellular plan per pet; a battery that dies every few days; health-first features on a coin-cell radio; hardware that pays for range it never uses. What I actually want, in teal: cheap with little or no subscription; months of battery, not days; location first and health later; matched to how pets actually live — home most of the time, occasionally on a trail, rarely truly lost.](../../assets/blog/pet-tracker-build-1-the-inverted-bet.svg)
 
 Next post is the part where I resist the urge to start soldering and do the PM work first: the use cases, the rubric, and an honest read on whether this is a product or just a grudge. Then we buy parts.

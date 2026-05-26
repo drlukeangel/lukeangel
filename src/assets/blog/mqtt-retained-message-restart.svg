@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="MQTT retained message on restart">
+  <rect width="1000" height="440" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+
+    <!-- timeline -->
+    <line x1="80" y1="120" x2="920" y2="120" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2.5"/>
+    <text x="80" y="58" font-size="14" fill="#6a4c93">broker</text>
+
+    <!-- t1: device publishes retained -->
+    <g transform="translate(180 120)">
+      <line x1="0" y1="-44" x2="0" y2="0" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+      <circle r="6" fill="#6a4c93"/>
+      <text x="0" y="-54" text-anchor="middle" font-size="12">door → "closed"</text>
+      <text x="0" y="22" text-anchor="middle" font-size="11" fill="#6a4c93">retain = true</text>
+    </g>
+    <!-- broker holds it (a held box) -->
+    <g transform="translate(430 60)">
+      <rect x="0" y="0" width="160" height="40" rx="8" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2"/>
+      <text x="80" y="25" text-anchor="middle" font-size="12" fill="#6a4c93">broker holds last value</text>
+    </g>
+
+    <!-- t2: HA restarts (blank) -->
+    <g transform="translate(560 120)">
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+      <circle r="6" fill="#c14a3a"/>
+      <text x="0" y="84" text-anchor="middle" font-size="12" fill="#c14a3a">HA restarts — blank</text>
+    </g>
+
+    <!-- t3: re-subscribe -> instant replay -->
+    <g transform="translate(760 120)">
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+      <circle r="6" fill="#3a7d44"/>
+      <text x="0" y="84" text-anchor="middle" font-size="12" fill="#3a7d44">re-subscribe</text>
+    </g>
+    <!-- replay arrow broker held -> HA -->
+    <path d="M590 80 C 700 100, 740 150, 760 180" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-dasharray="3 5" marker-end="url(#a)"/>
+
+    <!-- the replayed state list -->
+    <g transform="translate(700 250)">
+      <rect x="0" y="0" width="220" height="110" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+      <text x="14" y="26" font-size="12" fill="#3a7d44">instantly caught up:</text>
+      <text x="14" y="50" font-size="12">door · closed</text>
+      <text x="14" y="72" font-size="12">light · on</text>
+      <text x="14" y="94" font-size="12">motion · clear</text>
+    </g>
+
+    <text x="500" y="408" text-anchor="middle" font-size="13" fill="#5b616b">the house's current state lives in the broker — a restarting app catches up at once, not blind</text>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#3a7d44"/></marker>
+    </defs>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" width="1120" height="430" role="img" aria-label="the gate moved">
+  <rect width="1120" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE GATE MOVED · INVENTION → MANUFACTURING</text>
+
+  <!-- pipeline -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- idea -->
+    <rect x="40" y="150" width="150" height="90" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="115" y="190" text-anchor="middle" font-size="14" fill="#1a1d24">design</text>
+    <text x="115" y="212" text-anchor="middle" font-size="11.5" fill="#7a808c">silicon, radio,</text>
+    <text x="115" y="228" text-anchor="middle" font-size="11.5" fill="#7a808c">software</text>
+
+    <!-- gate 1: invention (open) -->
+    <line x1="190" y1="195" x2="300" y2="195" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M300 195 l-13 -6 v12 z" fill="#1a1d24"/>
+    <g transform="translate(300,120)">
+      <rect x="0" y="0" width="190" height="150" rx="12" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="95" y="34" text-anchor="middle" font-size="13.5" fill="#3a7d44">GATE 1 · invention</text>
+      <text x="95" y="62" text-anchor="middle" font-size="12" fill="#1a1d24">can we build it?</text>
+      <!-- open gate glyph: rotated bar -->
+      <line x1="40" y1="125" x2="150" y2="125" stroke="#3a7d44" stroke-width="3"/>
+      <line x1="40" y1="125" x2="62" y2="92" stroke="#3a7d44" stroke-width="3"/>
+      <text x="95" y="112" text-anchor="middle" font-size="11.5" fill="#3a7d44">solved — open</text>
+    </g>
+
+    <!-- gate 2: manufacturing (choked) -->
+    <line x1="490" y1="195" x2="600" y2="195" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M600 195 l-13 -6 v12 z" fill="#1a1d24"/>
+    <g transform="translate(600,120)">
+      <rect x="0" y="0" width="190" height="150" rx="12" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="95" y="34" text-anchor="middle" font-size="13.5" fill="#c14a3a">GATE 2 · manufacturing</text>
+      <text x="95" y="62" text-anchor="middle" font-size="12" fill="#1a1d24">can we ship it?</text>
+      <!-- closed gate glyph: vertical bars -->
+      <line x1="55" y1="92" x2="55" y2="135" stroke="#c14a3a" stroke-width="3"/>
+      <line x1="80" y1="92" x2="80" y2="135" stroke="#c14a3a" stroke-width="3"/>
+      <line x1="105" y1="92" x2="105" y2="135" stroke="#c14a3a" stroke-width="3"/>
+      <line x1="130" y1="92" x2="130" y2="135" stroke="#c14a3a" stroke-width="3"/>
+      <text x="95" y="112" text-anchor="middle" font-size="11.5" fill="#c14a3a" opacity="0"> </text>
+    </g>
+
+    <!-- ship -->
+    <line x1="790" y1="195" x2="900" y2="195" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M900 195 l-13 -6 v12 z" fill="#1a1d24"/>
+    <rect x="900" y="150" width="180" height="90" rx="12" fill="#0066cc" fill-opacity="0.08" stroke="#0066cc" stroke-width="2.5"/>
+    <text x="990" y="190" text-anchor="middle" font-size="14" fill="#0066cc">on a shelf</text>
+    <text x="990" y="212" text-anchor="middle" font-size="11.5" fill="#7a808c">six weeks late,</text>
+    <text x="990" y="228" text-anchor="middle" font-size="11.5" fill="#7a808c">if at all</text>
+  </g>
+
+  <!-- choke callout -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <line x1="695" y1="270" x2="695" y2="320" stroke="#c14a3a" stroke-width="1.5"/>
+    <rect x="500" y="320" width="390" height="58" rx="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2"/>
+    <text x="520" y="345" font-size="12.5" fill="#1a1d24">2021's real story: chips, containers, ports —</text>
+    <text x="520" y="365" font-size="12.5" fill="#1a1d24">the calls were right; the dates all slipped right.</text>
+  </g>
+
+  <text x="40" y="404" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">The category keeps compounding; the bottleneck is no longer the lab.</text>
+</svg>

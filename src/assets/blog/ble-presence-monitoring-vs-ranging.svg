@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" role="img" aria-label="Region monitoring versus ranging">
+  <rect width="860" height="340" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- region monitoring (the one used) -->
+  <rect x="40" y="40" width="360" height="260" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="220" y="74" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24" text-anchor="middle">region monitoring</text>
+  <text x="220" y="98" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#3a7d44" text-anchor="middle">what the app uses</text>
+  <g font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">
+    <text x="70" y="140">enter / exit events</text>
+    <text x="70" y="172">works in background</text>
+    <text x="70" y="204">~1% battery / day</text>
+    <text x="70" y="236">10–30 s latency</text>
+    <text x="70" y="268">OS relaunches app</text>
+  </g>
+
+  <!-- ranging (avoided) -->
+  <rect x="460" y="40" width="360" height="260" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text x="640" y="74" font-family="ui-monospace, monospace" font-size="15" fill="#1a1d24" text-anchor="middle">ranging</text>
+  <text x="640" y="98" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#c14a3a" text-anchor="middle">avoided — too costly</text>
+  <g font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">
+    <text x="490" y="140">RSSI distance band</text>
+    <text x="490" y="172">foreground only</text>
+    <text x="490" y="204">~10% battery / hr</text>
+    <text x="490" y="236">1–2 s latency</text>
+    <text x="490" y="268">drains the phone</text>
+  </g>
+</svg>

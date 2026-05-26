@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 450" role="img" aria-label="cloud feeder plus mechanical backup">
+  <rect width="940" height="450" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="46" class="hd">BELT AND SUSPENDERS — AND THE SUSPENDERS DON'T PHONE HOME</text>
+
+  <!-- LEFT: Petnet (cloud) — missed -->
+  <g transform="translate(80,82)">
+    <text x="110" y="14" text-anchor="middle" class="lab">Petnet — cloud schedule</text>
+    <!-- cloud -->
+    <path d="M58 70 a24 24 0 0 1 44 -20 a28 28 0 0 1 54 9 a22 22 0 0 1 -4 44 l-90 0 a22 22 0 0 1 -4 -33 Z" fill="#fff" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.5"/>
+    <!-- broken link down -->
+    <line x1="110" y1="112" x2="110" y2="150" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 6"/>
+    <path d="M102 126 l16 11 M118 126 l-16 11" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+    <!-- feeder -->
+    <path d="M76 192 L92 152 L128 152 L144 192 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="76" y="192" width="68" height="22" rx="5" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="110" cy="226" rx="22" ry="7" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="110" y="252" text-anchor="middle" class="lab" fill="#c14a3a">6 AM feed missed</text>
+  </g>
+
+  <!-- RIGHT: mechanical backup — fired -->
+  <g transform="translate(640,82)">
+    <text x="110" y="14" text-anchor="middle" class="lab">PetSafe — mechanical timer</text>
+    <!-- clock dial -->
+    <circle cx="110" cy="64" r="26" fill="#fff" stroke="#3a7d44" stroke-width="2.5"/>
+    <line x1="110" y1="64" x2="110" y2="46" stroke="#3a7d44" stroke-width="2.5"/>
+    <line x1="110" y1="64" x2="124" y2="72" stroke="#3a7d44" stroke-width="2.5"/>
+    <!-- solid link down -->
+    <line x1="110" y1="92" x2="110" y2="150" stroke="#3a7d44" stroke-width="2.5"/>
+    <path d="M104 138 l6 9 l6 -9" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- feeder -->
+    <path d="M76 192 L92 152 L128 152 L144 192 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="76" y="192" width="68" height="22" rx="5" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="110" cy="226" rx="22" ry="7" fill="#3a7d44" fill-opacity="0.2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="110" y="252" text-anchor="middle" class="lab" fill="#3a7d44">portion drops on time</text>
+    <text x="110" y="115" text-anchor="middle" class="lab" fill="#3a7d44">on-device · no Wi-Fi</text>
+  </g>
+
+  <!-- center: the cat, fed regardless -->
+  <g transform="translate(470,360)">
+    <!-- dashed (missed) from left feeder bowl, solid (fed) from right -->
+    <line x1="-280" y1="-58" x2="-44" y2="-6" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="5 5"/>
+    <line x1="280" y1="-58" x2="44" y2="-6" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#g)"/>
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"><path d="M -22 0 L -13 -22 L -4 -10 L 4 -10 L 13 -22 L 22 0 Q 22 22 0 24 Q -22 22 -22 0 Z"/></g>
+    <text x="0" y="50" text-anchor="middle" class="lab" fill="#1a1d24">Joule — fed, with no idea anything was wrong</text>
+  </g>
+
+  <defs><marker id="g" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 z" fill="#3a7d44"/></marker></defs>
+
+  <text x="40" y="436" class="cap">The dumb feeder caught every feed the smart one dropped — because the one that fed her never needed a server.</text>
+</svg>

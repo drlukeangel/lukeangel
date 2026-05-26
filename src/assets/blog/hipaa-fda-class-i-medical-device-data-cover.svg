@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A single stream of identical device-event field chips enters from the left and passes through a sorting gate that fans them into three lanes. The top lane is open product telemetry with no lock. The middle lane is pseudonymous, each chip wearing a small mask. The bottom lane is identifiable and ends behind a padlock keyed by a separate key, set off in its own boundary. The art shows that what regulates a datum is the lane it is sorted into — what it is joined to — not the chip itself.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="hipaa-cover-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#hipaa-cover-dots)"/>
+  <rect width="24" height="630" fill="#357a8c"/>
+
+  <!-- ============ incoming single stream of identical field chips (left) ============ -->
+  <g>
+    <!-- stack of identical chips, all the same, feeding the gate -->
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="4">
+      <rect x="92"  y="250" width="120" height="46" rx="10"/>
+      <rect x="92"  y="306" width="120" height="46" rx="10"/>
+      <rect x="92"  y="362" width="120" height="46" rx="10"/>
+      <rect x="74"  y="194" width="120" height="46" rx="10" opacity="0.55"/>
+      <rect x="74"  y="418" width="120" height="46" rx="10" opacity="0.55"/>
+    </g>
+    <!-- a small teal data-row mark on each chip, identical -->
+    <g stroke="#357a8c" stroke-width="4" stroke-linecap="round">
+      <line x1="108" y1="273" x2="178" y2="273"/>
+      <line x1="108" y1="329" x2="178" y2="329"/>
+      <line x1="108" y1="385" x2="178" y2="385"/>
+    </g>
+    <g stroke="#357a8c" stroke-width="4" stroke-linecap="round" opacity="0.55">
+      <line x1="90" y1="217" x2="160" y2="217"/>
+      <line x1="90" y1="441" x2="160" y2="441"/>
+    </g>
+  </g>
+
+  <!-- feed lines from the stream into the gate -->
+  <g stroke="#7a808c" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8">
+    <path d="M212 273 L322 311"/>
+    <path d="M212 329 L322 315"/>
+    <path d="M212 385 L322 319"/>
+  </g>
+
+  <!-- ============ the sorting gate (center): a chevron splitter ============ -->
+  <g>
+    <circle cx="360" cy="315" r="58" fill="#fdfaf2" stroke="#357a8c" stroke-width="6"/>
+    <!-- three-way splitter glyph inside the gate -->
+    <g stroke="#357a8c" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M334 315 L386 315"/>
+      <path d="M386 315 L356 287"/>
+      <path d="M386 315 L356 343"/>
+      <circle cx="334" cy="315" r="5" fill="#357a8c"/>
+    </g>
+  </g>
+
+  <!-- three fan-out paths from the gate to the lanes -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M418 300 C 520 250, 600 165, 760 158" stroke="#3a7d44" stroke-width="6"/>
+    <path d="M420 315 C 560 315, 620 315, 760 315" stroke="#357a8c" stroke-width="6"/>
+    <path d="M418 330 C 520 380, 600 470, 760 478" stroke="#c14a3a" stroke-width="6"/>
+  </g>
+  <!-- arrowheads into each lane -->
+  <g>
+    <path d="M772 158 l-22 -8 v16 z" fill="#3a7d44"/>
+    <path d="M774 315 l-22 -9 v18 z" fill="#357a8c"/>
+    <path d="M772 478 l-22 -8 v16 z" fill="#c14a3a"/>
+  </g>
+
+  <!-- ============ LANE 1 (top): open product telemetry, no lock ============ -->
+  <g transform="translate(792,128)">
+    <rect x="0" y="0" width="320" height="62" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4"/>
+    <!-- chip -->
+    <rect x="20" y="14" width="96" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <g stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round">
+      <line x1="34" y1="31" x2="102" y2="31"/>
+    </g>
+    <!-- open / unlocked mark: an open padlock shackle -->
+    <g transform="translate(250,31)" stroke="#3a7d44" stroke-width="4.5" fill="none" stroke-linecap="round">
+      <rect x="-16" y="-2" width="34" height="26" rx="5" fill="#fdfaf2"/>
+      <path d="M-9 -2 V-12 a13 13 0 0 1 26 0"/>
+      <circle cx="1" cy="11" r="3" fill="#3a7d44" stroke="none"/>
+    </g>
+    <!-- a check, "flows freely" -->
+    <g transform="translate(196,31)" stroke="#3a7d44" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-9 0 L-2 8 L11 -9"/>
+    </g>
+  </g>
+
+  <!-- ============ LANE 2 (middle): pseudonymous, masked chip + separate mapping ============ -->
+  <g transform="translate(792,284)">
+    <rect x="0" y="0" width="320" height="62" rx="12" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+    <rect x="20" y="14" width="96" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <g stroke="#357a8c" stroke-width="3.5" stroke-linecap="round">
+      <line x1="34" y1="31" x2="102" y2="31"/>
+    </g>
+    <!-- mask glyph = pseudonymous -->
+    <g transform="translate(196,31)" fill="none" stroke="#357a8c" stroke-width="4" stroke-linejoin="round">
+      <path d="M-22 -8 C -22 -14, 22 -14, 22 -8 C 22 6, 10 14, 0 14 C -10 14, -22 6, -22 -8 Z" fill="#fdfaf2"/>
+      <circle cx="-9" cy="-2" r="3.2" fill="#357a8c" stroke="none"/>
+      <circle cx="9"  cy="-2" r="3.2" fill="#357a8c" stroke="none"/>
+    </g>
+    <!-- separate mapping table glyph (small, set apart) -->
+    <g transform="translate(258,31)" stroke="#357a8c" stroke-width="3.2" fill="none" stroke-linecap="round">
+      <rect x="-4" y="-15" width="42" height="30" rx="4" fill="#fdfaf2" stroke-dasharray="5 4"/>
+      <line x1="-4" y1="-5" x2="38" y2="-5"/>
+      <line x1="17" y1="-15" x2="17" y2="15"/>
+    </g>
+  </g>
+
+  <!-- ============ LANE 3 (bottom): identifiable, locked behind a separate key, own boundary ============ -->
+  <!-- dashed isolation boundary (the separate AWS account / strict zone) -->
+  <rect x="772" y="438" width="362" height="118" rx="16" fill="none" stroke="#c14a3a" stroke-width="3" stroke-dasharray="9 7" opacity="0.85"/>
+  <g transform="translate(792,448)">
+    <rect x="0" y="0" width="320" height="62" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="4"/>
+    <!-- chip joined to an identity figure -->
+    <rect x="20" y="14" width="70" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <g stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round">
+      <line x1="32" y1="31" x2="78" y2="31"/>
+    </g>
+    <!-- the join: a little person icon attached to the chip -->
+    <g transform="translate(112,31)" fill="none" stroke="#1a1d24" stroke-width="3.4" stroke-linecap="round">
+      <circle cx="0" cy="-9" r="7" fill="#fdfaf2"/>
+      <path d="M-12 14 a12 12 0 0 1 24 0" fill="#fdfaf2"/>
+    </g>
+    <!-- closed padlock -->
+    <g transform="translate(196,31)" stroke="#c14a3a" stroke-width="4.5" fill="none" stroke-linecap="round">
+      <rect x="-17" y="-2" width="34" height="26" rx="5" fill="#fdfaf2"/>
+      <path d="M-10 -2 V-12 a10 10 0 0 1 20 0 V-2"/>
+      <circle cx="0" cy="9" r="3" fill="#c14a3a" stroke="none"/>
+      <line x1="0" y1="12" x2="0" y2="17"/>
+    </g>
+    <!-- the separate KEY for that lock -->
+    <g transform="translate(262,31)" stroke="#c14a3a" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="-8" cy="0" r="9" fill="#fdfaf2"/>
+      <circle cx="-8" cy="0" r="3" fill="#c14a3a" stroke="none"/>
+      <line x1="1" y1="0" x2="26" y2="0"/>
+      <line x1="20" y1="0" x2="20" y2="9"/>
+      <line x1="26" y1="0" x2="26" y2="11"/>
+    </g>
+  </g>
+</svg>

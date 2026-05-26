@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" width="1120" height="600" role="img" aria-label="The rubric's evolution, three months in">
+  <rect width="1120" height="600" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE RUBRIC, THREE MONTHS IN</text>
+
+  <!-- original four buckets -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="40" y="80" width="300" height="64" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="60" y="110" font-size="14" fill="#1a1d24">direct identifiers</text>
+    <text x="60" y="130" font-size="12" fill="#7a808c">hash · rotating salt</text>
+    <text x="320" y="118" text-anchor="end" font-size="18" fill="#3a7d44">✓</text>
+
+    <rect x="40" y="158" width="300" height="64" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="60" y="188" font-size="14" fill="#1a1d24">sensitive attributes</text>
+    <text x="60" y="208" font-size="12" fill="#7a808c">generalize · 0.01° grid</text>
+    <text x="320" y="196" text-anchor="end" font-size="18" fill="#3a7d44">✓</text>
+
+    <rect x="40" y="236" width="300" height="64" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="60" y="266" font-size="14" fill="#1a1d24">behavioral data</text>
+    <text x="60" y="286" font-size="12" fill="#7a808c">keep · whitelist</text>
+    <text x="320" y="274" text-anchor="end" font-size="18" fill="#3a7d44">✓</text>
+
+    <!-- quasi-identifier bucket: cracked then patched -->
+    <rect x="40" y="314" width="300" height="64" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <text x="60" y="344" font-size="14" fill="#1a1d24">quasi-identifiers</text>
+    <text x="60" y="364" font-size="12" fill="#7a808c">tokenize · per-domain namespace</text>
+    <text x="320" y="352" text-anchor="end" font-size="18" fill="#c14a3a">!</text>
+    <!-- crack glyph -->
+    <path d="M150 314 l8 14 -10 12 8 14" fill="none" stroke="#c14a3a" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- fifth bucket, dashed-in -->
+    <rect x="40" y="408" width="300" height="64" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="60" y="438" font-size="14" fill="#2a52be">free-text fields  (added)</text>
+    <text x="60" y="458" font-size="12" fill="#7a808c">redact via NER (Presidio)</text>
+    <g stroke="#2a52be" stroke-width="3" stroke-linecap="round"><line x1="308" y1="440" x2="324" y2="440"/><line x1="316" y1="432" x2="316" y2="448"/></g>
+  </g>
+
+  <!-- converging feeds -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <path d="M340 112 C 430 112 470 276 560 276"/>
+    <path d="M340 190 C 440 190 480 276 560 276"/>
+    <path d="M340 268 C 460 268 480 276 560 276"/>
+    <path d="M340 346 C 440 346 480 276 560 276"/>
+    <path d="M340 440 C 440 440 470 276 560 276" stroke="#2a52be" stroke-dasharray="8 6"/>
+  </g>
+  <g fill="#1a1d24"><path d="M564 276 l-16 -7 v14 z"/></g>
+
+  <!-- masking job -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="580" y="226" width="200" height="100" rx="14" fill="#2a52be"/>
+    <rect x="598" y="244" width="164" height="64" rx="8" fill="#fdfaf2"/>
+    <text x="680" y="280" text-anchor="middle" font-size="14" fill="#2a52be">Glue masking job</text>
+    <text x="680" y="300" text-anchor="middle" font-size="11" fill="#7a808c">--domain &lt;name&gt;</text>
+  </g>
+
+  <!-- outputs -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <path d="M780 256 C 850 256 860 156 930 156"/>
+    <path d="M780 296 C 850 296 860 400 930 400"/>
+  </g>
+  <g fill="#1a1d24"><path d="M934 156 l-16 -7 v14 z"/><path d="M934 400 l-16 -7 v14 z"/></g>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="940" y="118" width="150" height="76" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="1015" y="150" text-anchor="middle" font-size="13" fill="#1a1d24">masked data</text>
+    <text x="1015" y="172" text-anchor="middle" font-size="11" fill="#7a808c">downstream</text>
+
+    <rect x="940" y="362" width="150" height="76" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <text x="1015" y="394" text-anchor="middle" font-size="13" fill="#1a1d24">decision log</text>
+    <text x="1015" y="416" text-anchor="middle" font-size="11" fill="#7a808c">audit evidence</text>
+  </g>
+
+  <text x="40" y="520" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#5b616b">Three buckets held. One cracked under cross-dataset collision and got patched.</text>
+  <text x="40" y="546" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#5b616b">A fifth was added for free-text. The audit made the decision log non-optional.</text>
+</svg>

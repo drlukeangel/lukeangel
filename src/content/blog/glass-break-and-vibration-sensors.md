@@ -8,28 +8,28 @@ tags:
   - zwave
   - zigbee
   - sensors
-series: smart-home-iot-journey
-seriesOrder: 29
+notebook: smart-home-iot-journey
+notebookOrder: 27
 excerpt: "Two Ecolink Z-Wave glass-break detectors plus six Aqara vibration sensors. The first sensor class that catches what contact sensors miss."
 pullquote: "Door sensors catch the opening. Glass-break sensors catch the breaking. The second one matters because the first one assumes the intruder walks in like a guest."
-cover: "../../assets/blog/glass-break-and-vibration-sensors-cover.png"
-coverAlt: "Glass-break and vibration sensors — the second-layer security"
+cover: "../../assets/blog/glass-break-and-vibration-sensors-cover.svg"
+coverAlt: "A house cross-section showing two sensing layers — a contact sensor on a door frame catching the opening, and a glass-break detector plus window-mounted vibration sensors catching the breaking the contact sensor misses."
 ---
 
-Two **Ecolink Z-Wave glass-break detectors** (GBHA1-ECO) and six **Aqara DJT11LM vibration sensors**. The first sensors I've added that catch the failure mode my door/window contact sensors miss.
+Every contact sensor in my house answers exactly one question: *is this door or window open right now?* That's a reed switch and a magnet — a circuit that breaks when the gap exceeds a centimeter or so. It's a good, cheap question to answer, and for two years it was the whole of my perimeter. But it has a blind spot, and the blind spot is the one that matters: a reed switch assumes the intruder walks in like a guest, through an opening, the polite way.
 
-## The threat model
+A real residential break-in often doesn't bother with the opening:
 
-A door sensor fires when the door opens. Useful for tracking entries and detecting the casual intrusion. But a real burglary scenario in residential is more like:
+- Break the kitchen sliding glass door — the contact sensor on the frame doesn't fire, because the door is still "closed" structurally, just shattered.
+- Cut the screen on a window the contact sensor isn't even on.
+- Pry a basement window open from outside, slow and quiet.
 
-- Break the kitchen sliding glass door (contact sensor on the frame doesn't fire — door is still "closed" structurally, just shattered).
-- Cut the screen on a window the contact sensor isn't on.
-- Pry a basement window open from outside.
+So I added the first sensor class that catches what the reed switch can't: two **Ecolink Z-Wave glass-break detectors** (GBHA1-ECO) and six **Aqara DJT11LM vibration sensors**. Two different physical signals, two different jobs.
 
-None of these trigger a typical reed-switch contact sensor. They need a different sensor class:
+- **Glass-break detectors** — acoustic sensors tuned to the frequency signature of breaking glass.
+- **Vibration sensors** — accelerometers stuck to windows and doors that feel the impact before the glass gives.
 
-- **Glass-break detectors**: acoustic sensors tuned to the frequency signature of breaking glass.
-- **Vibration sensors**: accelerometers on windows and doors that detect tampering.
+![Cross-section diagram of a window. A reed-switch contact sensor sits on the frame and only registers the sash being slid open; a glass-break detector mounted nearby listens for the acoustic signature of shattering, and a vibration sensor stuck to the pane senses the impact directly — covering the two failure modes the contact sensor cannot detect.](../../assets/blog/glass-break-sensing-layers.svg)
 
 ## Ecolink GBHA1-ECO — glass-break detection
 
@@ -44,6 +44,10 @@ I placed two:
 2. **Master bedroom** — covers the bedroom and master bathroom windows.
 
 The 25-foot radius is generous in theory. In practice, glass that's behind walls (like the basement bulkhead) doesn't reach the upstairs sensors. The 25-foot spec is line-of-sight in the same room.
+
+The dual-signature requirement is worth picturing, because it's the whole reason the thing isn't useless. The sensor only alarms when it hears *both* the sharp impact thump and the higher-frequency shatter-and-fall, in that order, inside a short window — an AND gate, not an OR. A dropped pot gives you the thump but not the shatter; a TV at volume gives you neither signature. Demand both and most of household life stops looking like breaking glass.
+
+![How the Ecolink dual-signature gate works: a microphone feeds two detectors, one tuned to the low-frequency impact thump and one to the high-frequency shatter of falling glass; only when both fire within a short window does the AND gate raise an alarm, so a single-signature noise like a dropped pot is rejected.](../../assets/blog/glass-break-dual-signature.svg)
 
 ## Aqara DJT11LM — vibration sensors
 
@@ -119,6 +123,10 @@ The glass-break + vibration sensors layer on top of the existing door-sensor + p
 
 **Tier 2** (glass break or violent vibration) → notification + scare-light + siren. *Always* escalates. This is the "someone is actively breaking into my house" signal — escalation is correct even if I'm home.
 
+The split matters because the two tiers are wired to different *certainties*. A contact open is ambiguous — it could be a kid, a delivery, me forgetting I armed the system. A glass-break or a violent vibration event is not ambiguous: nothing in normal household life shatters a window or hammers a door frame. So the louder response is gated behind the less-ambiguous signal.
+
+![Two-tier security escalation flow. A door or window contact opening while away routes to Tier 1, firing a notification and the scare-light. A glass-break or violent vibration event routes to Tier 2, firing the notification, the scare-light, and the siren together, and always escalating regardless of whether anyone is home.](../../assets/blog/glass-break-tier-escalation.svg)
+
 ## False positives, observed and tuned
 
 **Glass-break false positives:**
@@ -149,7 +157,7 @@ In a real intrusion scenario, the siren plus all-house lights-red would (a) wake
 
 ## What's still on my list
 
-- **Outdoor motion sensors on the exterior corners.** A motion event in the yard + after midnight + nobody home → notification + camera-record. The Reolink cameras have built-in motion detection but it's primitive; Frigate-based detection would be much better.
+- **Outdoor motion sensors on the exterior corners.** A motion event in the yard + after midnight + nobody home → notification + camera-record. The Reolink cameras have built-in motion detection but it's primitive — it fires on every passing cat, headlight, and swaying branch. What I really want is on-frame object detection that can tell a person from a raccoon, but the open-source options for that aren't there yet; for now it's PIR sensors and crude camera motion zones.
 - **A door / window pre-arm state.** When everyone leaves, the system should escalate door/window opens automatically. Coming when I have time to write the state machine.
 - **Smart lock integration.** Forecast #5 from last year — still haven't installed one. Yale Assure Z-Wave is on the list.
 - **Geofence-aware arming.** When the last family member leaves the geofence by 100m, automatically arm the system. When they return, disarm.

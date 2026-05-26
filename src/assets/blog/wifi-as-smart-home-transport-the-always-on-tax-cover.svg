@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="WiFi always-on tax">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- a wall / outlet strip across the top -->
+  <rect x="120" y="150" width="960" height="20" rx="4" fill="#1a1d24" fill-opacity="0.18"/>
+
+  <!-- four WiFi plugs hanging from the wall, each leaking a downward power trickle -->
+  <g>
+    <!-- plug template repeated -->
+    <g transform="translate(220 170)">
+      <rect x="-44" y="0" width="88" height="110" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+      <circle cx="0" cy="40" r="16" fill="none" stroke="#1a1d24" stroke-width="4"/>
+      <!-- wifi waves on the plug -->
+      <g stroke="#6a4c93" fill="none" stroke-width="3"><path d="M-10 22 a14 14 0 0 1 20 0" opacity="0.5"/><path d="M-5 28 a7 7 0 0 1 10 0" opacity="0.8"/></g>
+      <!-- constant trickle downward -->
+      <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round" opacity="0.7">
+        <line x1="0" y1="118" x2="0" y2="150"/><line x1="-16" y1="120" x2="-16" y2="146"/><line x1="16" y1="120" x2="16" y2="146"/>
+      </g>
+    </g>
+    <g transform="translate(400 170)"><rect x="-44" y="0" width="88" height="110" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/><circle cx="0" cy="40" r="16" fill="none" stroke="#1a1d24" stroke-width="4"/><g stroke="#6a4c93" fill="none" stroke-width="3"><path d="M-10 22 a14 14 0 0 1 20 0" opacity="0.5"/><path d="M-5 28 a7 7 0 0 1 10 0" opacity="0.8"/></g><g stroke="#c14a3a" stroke-width="4" stroke-linecap="round" opacity="0.7"><line x1="0" y1="118" x2="0" y2="150"/><line x1="-16" y1="120" x2="-16" y2="146"/><line x1="16" y1="120" x2="16" y2="146"/></g></g>
+    <g transform="translate(580 170)"><rect x="-44" y="0" width="88" height="110" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/><circle cx="0" cy="40" r="16" fill="none" stroke="#1a1d24" stroke-width="4"/><g stroke="#6a4c93" fill="none" stroke-width="3"><path d="M-10 22 a14 14 0 0 1 20 0" opacity="0.5"/><path d="M-5 28 a7 7 0 0 1 10 0" opacity="0.8"/></g><g stroke="#c14a3a" stroke-width="4" stroke-linecap="round" opacity="0.7"><line x1="0" y1="118" x2="0" y2="150"/><line x1="-16" y1="120" x2="-16" y2="146"/><line x1="16" y1="120" x2="16" y2="146"/></g></g>
+    <g transform="translate(760 170)"><rect x="-44" y="0" width="88" height="110" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/><circle cx="0" cy="40" r="16" fill="none" stroke="#1a1d24" stroke-width="4"/><g stroke="#6a4c93" fill="none" stroke-width="3"><path d="M-10 22 a14 14 0 0 1 20 0" opacity="0.5"/><path d="M-5 28 a7 7 0 0 1 10 0" opacity="0.8"/></g><g stroke="#c14a3a" stroke-width="4" stroke-linecap="round" opacity="0.7"><line x1="0" y1="118" x2="0" y2="150"/><line x1="-16" y1="120" x2="-16" y2="146"/><line x1="16" y1="120" x2="16" y2="146"/></g></g>
+  </g>
+
+  <!-- pooled "wasted watts" puddle under the WiFi plugs -->
+  <ellipse cx="490" cy="430" rx="320" ry="34" fill="#c14a3a" fill-opacity="0.12"/>
+  <ellipse cx="490" cy="430" rx="320" ry="34" fill="none" stroke="#c14a3a" stroke-opacity="0.4" stroke-width="2.5"/>
+
+  <!-- contrast: a single Zigbee/BLE peripheral with a microscopic trickle, right -->
+  <g transform="translate(980 240)">
+    <rect x="-40" y="0" width="80" height="90" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <circle cx="0" cy="36" r="10" fill="#6a4c93"/>
+    <!-- a single faint trickle dot -->
+    <circle cx="0" cy="118" r="3" fill="#3a7d44"/>
+  </g>
+  <ellipse cx="980" cy="430" rx="46" ry="10" fill="#3a7d44" fill-opacity="0.14"/>
+</svg>

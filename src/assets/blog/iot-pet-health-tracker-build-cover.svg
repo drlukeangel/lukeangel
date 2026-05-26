@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A builder's log for a DIY pet collar tracker.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="pt-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#pt-dots)"/>
+  <rect width="24" height="630" fill="#1f7a6b"/>
+
+  <!-- ===== workbench surface line ===== -->
+  <line x1="60" y1="520" x2="1140" y2="520" stroke="#1a1d24" stroke-width="3" opacity="0.16"/>
+  <line x1="60" y1="532" x2="1140" y2="532" stroke="#7a808c" stroke-width="2" stroke-dasharray="3 14" opacity="0.4"/>
+
+  <!-- ===== loose component glyphs scattered on the bench (maker feel) ===== -->
+  <!-- coin-cell battery (left, on bench) -->
+  <g transform="translate(150,452)">
+    <ellipse cx="40" cy="60" rx="48" ry="12" fill="#5b616b" opacity="0.20"/>
+    <ellipse cx="40" cy="44" rx="48" ry="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <path d="M-8 44 a48 16 0 0 0 96 0 l0 -16 a48 16 0 0 1 -96 0 z" fill="#1f7a6b" fill-opacity="0.14" stroke="#1a1d24" stroke-width="4"/>
+    <ellipse cx="40" cy="28" rx="28" ry="9" fill="none" stroke="#1f7a6b" stroke-width="3"/>
+    <!-- plus terminal mark -->
+    <path d="M40 22 l0 12 M34 28 l12 0" stroke="#1f7a6b" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- microcontroller chip (right, on bench) -->
+  <g transform="translate(905,438)">
+    <ellipse cx="60" cy="78" rx="74" ry="14" fill="#5b616b" opacity="0.18"/>
+    <rect x="6" y="14" width="108" height="64" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- pins -->
+    <g stroke="#1a1d24" stroke-width="4" stroke-linecap="round">
+      <line x1="6" y1="28" x2="-10" y2="28"/>
+      <line x1="6" y1="46" x2="-10" y2="46"/>
+      <line x1="6" y1="64" x2="-10" y2="64"/>
+      <line x1="114" y1="28" x2="130" y2="28"/>
+      <line x1="114" y1="46" x2="130" y2="46"/>
+      <line x1="114" y1="64" x2="130" y2="64"/>
+    </g>
+    <!-- pin-1 dimple + die outline -->
+    <circle cx="22" cy="30" r="5" fill="#1a1d24" opacity="0.45"/>
+    <rect x="34" y="30" width="52" height="32" rx="4" fill="none" stroke="#1f7a6b" stroke-width="3"/>
+  </g>
+
+  <!-- solder point: pad with a fresh shiny joint + iron tip approaching -->
+  <g transform="translate(1010,300)">
+    <!-- pad -->
+    <circle cx="0" cy="60" r="14" fill="#1f7a6b" fill-opacity="0.18" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="60" r="5" fill="#1a1d24" opacity="0.5"/>
+    <!-- iron tip -->
+    <path d="M70 -10 L18 42 L34 58 L86 6 Z" fill="#5b616b" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M18 42 L6 54 L22 70 L34 58 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+    <!-- heat shimmer -->
+    <g fill="none" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round" opacity="0.55">
+      <path d="M-2 36 q6 -8 0 -16 q-6 -8 0 -16"/>
+      <path d="M12 38 q6 -8 0 -16"/>
+    </g>
+  </g>
+
+  <!-- ===== HERO: the tracker puck (PCB) clipped onto a collar strap, emitting signal ===== -->
+  <!-- collar strap arc carrying the device -->
+  <path d="M250 250 C 470 170, 760 170, 980 250"
+        fill="none" stroke="#1a1d24" stroke-width="24" stroke-linecap="round" opacity="0.92"/>
+  <path d="M250 250 C 470 170, 760 170, 980 250"
+        fill="none" stroke="#fdfaf2" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 28" opacity="0.5"/>
+  <!-- buckle hardware -->
+  <rect x="228" y="232" width="40" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+
+  <!-- radio waves rising from the puck antenna toward upper-right -->
+  <g fill="none" stroke="#1f7a6b" stroke-width="4" stroke-linecap="round" opacity="0.85">
+    <path d="M690 150 a52 52 0 0 1 52 -16"/>
+    <path d="M706 120 a88 88 0 0 1 92 -22"/>
+    <path d="M722 92 a126 126 0 0 1 132 -26"/>
+  </g>
+
+  <!-- the puck: rounded PCB enclosure clipped over the strap -->
+  <g transform="translate(560,196)">
+    <!-- mounting clip around the strap -->
+    <path d="M14 -30 a18 18 0 0 1 36 0" fill="none" stroke="#1a1d24" stroke-width="7"/>
+    <!-- enclosure body (accent hero fill) -->
+    <ellipse cx="32" cy="118" rx="78" ry="16" fill="#5b616b" opacity="0.22"/>
+    <rect x="-46" y="0" width="156" height="118" rx="26" fill="#1f7a6b" stroke="#1a1d24" stroke-width="6"/>
+    <!-- inner PCB plate -->
+    <rect x="-30" y="16" width="124" height="86" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4" opacity="0.95"/>
+    <!-- traces on the board -->
+    <g fill="none" stroke="#1f7a6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <path d="M-12 36 L20 36 L20 58 L52 58"/>
+      <path d="M-12 60 L4 60 L4 84 L48 84"/>
+      <path d="M76 30 L76 72 L40 72"/>
+    </g>
+    <!-- small die / sensor on board -->
+    <rect x="14" y="44" width="26" height="26" rx="4" fill="#1f7a6b" fill-opacity="0.20" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="-2" cy="34" r="4" fill="#1f7a6b"/>
+    <circle cx="58" cy="86" r="4" fill="#1f7a6b"/>
+    <!-- antenna stub on top-right, source of the waves -->
+    <line x1="84" y1="0" x2="100" y2="-34" stroke="#1a1d24" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="102" cy="-40" r="7" fill="#1f7a6b" stroke="#1a1d24" stroke-width="3"/>
+    <!-- status LED -->
+    <circle cx="32" cy="100" r="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="32" cy="100" r="3" fill="#1f7a6b"/>
+  </g>
+
+  <!-- ===== sitting-dog silhouette wearing the collar, lower-left ===== -->
+  <g transform="translate(286,322)" fill="#1a1d24" opacity="0.82">
+    <!-- sitting dog: haunch + back + chest + head + muzzle, drawn as one outline -->
+    <path d="M150 196
+             C 168 196, 178 170, 174 142
+             C 170 108, 148 86, 122 80
+             C 120 64, 116 44, 108 36
+             C 116 30, 130 30, 138 36
+             C 146 28, 146 18, 140 12
+             C 130 4, 116 8, 110 20
+             C 100 18, 86 22, 78 34
+             C 70 48, 70 66, 76 80
+             C 56 92, 44 116, 42 146
+             C 40 168, 44 188, 52 196
+             C 58 200, 70 200, 76 196
+             C 70 174, 70 152, 80 138
+             C 96 150, 120 150, 134 138
+             C 142 154, 142 178, 138 196
+             Z"/>
+    <!-- perked ear -->
+    <path d="M104 24 C 96 10, 96 -6, 108 -10 C 116 4, 116 20, 110 30 Z"/>
+    <!-- tail curling up behind the haunch -->
+    <path d="M168 150 C 192 142, 200 116, 188 100 C 200 116, 196 146, 174 158 Z"/>
+  </g>
+  <!-- collar band seated on the dog's neck, accent (matches the strap on the bench) -->
+  <path d="M364 388 q26 22 56 8" fill="none" stroke="#1f7a6b" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="394" cy="404" r="6" fill="#1f7a6b" stroke="#1a1d24" stroke-width="2.5"/>
+
+  <!-- ===== map pin (location-first) dropped on the bench, lower-right ===== -->
+  <g transform="translate(720,430)">
+    <ellipse cx="0" cy="78" rx="26" ry="7" fill="#5b616b" opacity="0.22"/>
+    <path d="M0 78 C -26 40, -26 14, 0 14 C 26 14, 26 40, 0 78 Z"
+          fill="#1f7a6b" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="0" cy="36" r="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  </g>
+</svg>

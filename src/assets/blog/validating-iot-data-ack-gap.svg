@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 420" width="1120" height="420" role="img" aria-label="The ack-versus-validation gap">
+  <rect width="1120" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE GAP — ACK ARRIVES BEFORE VALIDATION RUNS</text>
+
+  <!-- timeline baseline -->
+  <line x1="80" y1="150" x2="1040" y2="150" stroke="#1a1d24" stroke-width="2.5"/>
+  <path d="M1040 150 l-16 -6 v12 z" fill="#1a1d24"/>
+  <text x="1046" y="142" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">t</text>
+
+  <!-- t0 publish -->
+  <line x1="150" y1="138" x2="150" y2="162" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="150" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">cart publishes scan</text>
+
+  <!-- t1 broker ack -->
+  <line x1="370" y1="132" x2="370" y2="168" stroke="#2a52be" stroke-width="3"/>
+  <text x="370" y="118" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#2a52be">broker ACK</text>
+  <text x="370" y="190" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">cart moves on, assumes success</text>
+
+  <!-- t2 validation runs -->
+  <line x1="720" y1="138" x2="720" y2="162" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="720" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">Lambda validates</text>
+
+  <!-- the gap bracket -->
+  <path d="M370 230 V 250 H 720 V 230" fill="none" stroke="#c14a3a" stroke-width="2"/>
+  <text x="545" y="278" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">the device already believes it succeeded</text>
+
+  <!-- valid path -->
+  <g stroke="#3a7d44" stroke-width="2.5" fill="none"><path d="M720 162 V 320 H 840"/></g>
+  <path d="M844 320 l-14 -6 v12 z" fill="#3a7d44"/>
+  <rect x="848" y="298" width="190" height="46" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="943" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">valid &#8594; telemetry store</text>
+  <text x="943" y="338" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">DynamoDB / Postgres</text>
+
+  <!-- invalid path -->
+  <g stroke="#c14a3a" stroke-width="2.5" fill="none"><path d="M700 162 V 372 H 840"/></g>
+  <path d="M844 372 l-14 -6 v12 z" fill="#c14a3a"/>
+  <rect x="848" y="350" width="190" height="46" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="943" y="372" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">invalid &#8594; dropped</text>
+  <text x="943" y="390" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">device never finds out</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-label="2020 forecast scorecard">
+  <rect width="1000" height="560" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">
+    <g transform="translate(60 70)"><circle cx="13" cy="-3" r="15" fill="none" stroke="#c87533" stroke-width="5"/><path d="M13 -18 a15 15 0 0 1 0 30 z" fill="#c87533"/><text x="56" y="9">Matter/CHIP progress (no products)</text></g>
+    <g transform="translate(60 122)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">Apple Watch control surface</text></g>
+    <g transform="translate(60 174)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">smart lock (Yale Assure)</text></g>
+    <g transform="translate(60 226)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">Frigate matured with a Coral</text></g>
+    <g transform="translate(60 278)"><circle cx="13" cy="-3" r="15" fill="none" stroke="#c87533" stroke-width="5"/><path d="M13 -18 a15 15 0 0 1 0 30 z" fill="#c87533"/><text x="56" y="9">HA Z-Wave rewrite (imminent, not shipped)</text></g>
+    <g transform="translate(60 330)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">first Z-Wave 700-series (Aeotec)</text></g>
+    <g transform="translate(60 382)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">Wink subscribes (the ransom note)</text></g>
+    <g transform="translate(60 434)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="56" y="9">work-from-home automations</text></g>
+  </g>
+
+  <g transform="translate(700 110)" font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="0" y="0" font-size="15" fill="#5b616b">2020 vs 2019 forecast</text>
+    <g transform="translate(0 40)"><path d="M0 0 l11 13 l21 -27" fill="none" stroke="#3a7d44" stroke-width="6"/><text x="50" y="9" font-size="20" fill="#3a7d44">6 hit</text></g>
+    <g transform="translate(0 90)"><circle cx="13" cy="-3" r="13" fill="none" stroke="#c87533" stroke-width="5"/><path d="M13 -16 a13 13 0 0 1 0 26 z" fill="#c87533"/><text x="50" y="9" font-size="20" fill="#c87533">2 partial</text></g>
+    <line x1="0" y1="130" x2="220" y2="130" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <text x="0" y="172" font-size="28" fill="#1a1d24">~7 / 8 ≈ 88%</text>
+    <text x="0" y="200" font-size="13" fill="#5b616b">best score yet</text>
+    <text x="0" y="222" font-size="13" fill="#5b616b">the pandemic made the case</text>
+  </g>
+</svg>

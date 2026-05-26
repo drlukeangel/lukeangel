@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A large slow gear and a small fast gear meshing at a contract seam.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="hw-cover-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+    <!-- one tooth, pointing up; reused via <use> rotated around each gear center -->
+    <g id="hw-tooth-lg">
+      <path d="M-17 0 L-13 -34 L13 -34 L17 0 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+    </g>
+    <g id="hw-tooth-sm">
+      <path d="M-13 0 L-10 -24 L10 -24 L13 0 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+    </g>
+  </defs>
+  <rect width="1200" height="630" fill="url(#hw-cover-dots)"/>
+  <rect width="24" height="630" fill="#357a8c"/>
+
+  <!-- ============ LEFT: large, slow hardware gear (a chip at its hub) ============ -->
+  <g transform="translate(430,315)">
+    <!-- teeth ring (drawn first so the rim overlaps their roots cleanly) -->
+    <g>
+      <use href="#hw-tooth-lg" transform="rotate(0) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(30) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(60) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(90) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(120) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(150) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(180) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(210) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(240) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(270) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(300) translate(0,-188)"/>
+      <use href="#hw-tooth-lg" transform="rotate(330) translate(0,-188)"/>
+    </g>
+    <!-- gear body disc -->
+    <circle r="188" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- inner rim -->
+    <circle r="150" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5" opacity="0.55"/>
+    <!-- chip at the hub: hardware -->
+    <g>
+      <rect x="-60" y="-60" width="120" height="120" rx="12" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="6"/>
+      <rect x="-32" y="-32" width="64" height="64" rx="6" fill="none" stroke="#357a8c" stroke-width="4" opacity="0.6"/>
+      <g stroke="#357a8c" stroke-width="6" stroke-linecap="round">
+        <line x1="-82" y1="-30" x2="-60" y2="-30"/><line x1="-82" y1="0" x2="-60" y2="0"/><line x1="-82" y1="30" x2="-60" y2="30"/>
+        <line x1="60" y1="-30" x2="82" y2="-30"/><line x1="60" y1="0" x2="82" y2="0"/><line x1="60" y1="30" x2="82" y2="30"/>
+        <line x1="-30" y1="-82" x2="-30" y2="-60"/><line x1="0" y1="-82" x2="0" y2="-60"/><line x1="30" y1="-82" x2="30" y2="-60"/>
+        <line x1="-30" y1="60" x2="-30" y2="82"/><line x1="0" y1="60" x2="0" y2="82"/><line x1="30" y1="60" x2="30" y2="82"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- slow: a single curved arrow over the big gear (few turns) -->
+  <g transform="translate(430,315)" stroke="#7a808c" stroke-width="4" fill="#7a808c" stroke-linecap="round" opacity="0.7">
+    <path d="M-150 -188 A240 240 0 0 1 56 -232" fill="none"/>
+    <path d="M56 -232 l-23 -5 l11 20 z"/>
+  </g>
+
+  <!-- ============ RIGHT: small, fast API gear (braces glyph at hub = the contract) ============ -->
+  <g transform="translate(818,315)">
+    <g>
+      <use href="#hw-tooth-sm" transform="rotate(0) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(36) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(72) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(108) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(144) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(180) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(216) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(252) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(288) translate(0,-118)"/>
+      <use href="#hw-tooth-sm" transform="rotate(324) translate(0,-118)"/>
+    </g>
+    <circle r="118" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <circle r="86" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5" opacity="0.55"/>
+    <!-- contract glyph: braces { } at hub -->
+    <g stroke="#357a8c" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-20 -38 q-16 0 -16 16 q0 13 -13 22 q13 9 13 22 q0 16 16 16"/>
+      <path d="M20 -38 q16 0 16 16 q0 13 13 22 q-13 9 -13 22 q0 16 -16 16"/>
+    </g>
+  </g>
+
+  <!-- fast: two curved arrows over the small gear (more turns) -->
+  <g transform="translate(818,315)" stroke="#357a8c" stroke-width="4" fill="#357a8c" stroke-linecap="round" opacity="0.85">
+    <path d="M146 -36 A150 150 0 0 1 146 36" fill="none"/>
+    <path d="M146 36 l10 -20 l-21 6 z"/>
+    <path d="M-146 36 A150 150 0 0 1 -146 -36" fill="none"/>
+    <path d="M-146 -36 l-10 20 l21 -6 z"/>
+  </g>
+
+  <!-- ============ THE SEAM where the two gears mesh = the shared contract ============ -->
+  <g transform="translate(630,315)">
+    <line x1="0" y1="-150" x2="0" y2="150" stroke="#357a8c" stroke-width="3" stroke-dasharray="2 13" opacity="0.45" stroke-linecap="round"/>
+    <circle r="36" fill="#fdfaf2" stroke="#357a8c" stroke-width="6"/>
+    <!-- two interlocking links: the handshake/agreement -->
+    <g stroke="#357a8c" stroke-width="5" fill="none">
+      <rect x="-22" y="-12" width="28" height="24" rx="12" fill="#fdfaf2"/>
+      <rect x="-6" y="-12" width="28" height="24" rx="12" fill="none"/>
+    </g>
+  </g>
+
+</svg>

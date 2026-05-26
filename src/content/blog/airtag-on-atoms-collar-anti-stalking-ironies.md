@@ -13,8 +13,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 25
 excerpt: "AirTag shipped April 30. Strapped one to Atom's collar — Apple tells you not to. Notes on why anti-stalking design is structurally incompatible with intentional pet tracking, and Find My's limits."
 pullquote: "AirTag's anti-stalking features are designed to alert an unsuspecting person that an AirTag is following them. When the AirTag is on your dog who's exited the geofence, your dog gets the 'someone is tracking you' chirp. Apple's design assumes the tagged entity is a person, and pet tracking breaks that assumption in interesting ways."
-cover: "../../assets/blog/airtag-on-atoms-collar-anti-stalking-ironies-cover.png"
-coverAlt: "AirTag on Atom's collar — anti-stalking vs pet tracking"
+cover: "../../assets/blog/airtag-on-atoms-collar-anti-stalking-ironies-cover.svg"
+coverAlt: "A small disc tag clipped to a dog collar, surrounded by a halo of relayed signals from passing phones, with a sound-wave chirp coming off it — a crowd-found tag whose anti-stalking chirp goes off on the dog wearing it."
 ---
 
 Apple shipped AirTag April 30. Bought a four-pack ($99) immediately. Strapped one to Atom's collar in a silicone case.
@@ -33,6 +33,8 @@ Did it anyway. Notes on what works, what doesn't, and why Apple's design philoso
 
 The CR2032 + crowdsourced model is what differentiates AirTag from Whistle/Fi. No subscription. No cellular dongle. No GPS chip. Year-long battery.
 
+![How AirTag finds its location compared with a cellular collar. A Fi or Whistle collar fixes its own position with an on-board GPS chip and reports it over its own cellular radio, so it works anywhere there is cell coverage — at the cost of a subscription and a battery that lasts days. An AirTag has neither GPS nor cellular: it just shouts its encrypted ID over Bluetooth, and any passing iPhone that hears it relays the position to iCloud on the tag's behalf. That gives a year-long coin-cell battery and no subscription, but the tag is blind wherever no iPhone happens to walk by.](../../assets/blog/airtag-findmy-vs-cellular.svg)
+
 ## What it does for pet tracking
 
 **Best case** (Atom escapes, walks past someone with an iPhone):
@@ -45,9 +47,11 @@ The CR2032 + crowdsourced model is what differentiates AirTag from Whistle/Fi. N
 - AirTag silently broadcasts to no one.
 - Last-known location is wherever I last saw him. Stale data.
 
-For dense suburban areas: works well. Find My network has ~1 billion iPhones globally. In my neighborhood, an AirTag goes ~30-60 seconds without being seen by some passing iPhone.
+For dense suburban areas: works well. The Find My network piggybacks on the entire active iPhone base — hundreds of millions of devices, the largest crowdsourced finding network anyone has ever fielded. In my neighborhood, an AirTag rarely goes more than a minute or two without some passing iPhone quietly relaying its position.
 
 For rural areas / hiking trails / national parks: useless. No iPhones nearby.
+
+![Why AirTag's find rate swings entirely on who's nearby. In a dense suburb, Atom's tag is surrounded by passing iPhones, each relaying its encrypted location — rarely a minute without a fresh fix. In deep woods with no iPhones near, the same tag shouts into nothing: no relay, and the last-seen position goes stale. A crowd-found tag is only ever as good as the crowd around it.](../../assets/blog/airtag-find-density.svg)
 
 ## Where Apple's anti-stalking design breaks pet tracking
 
@@ -86,6 +90,8 @@ For a pet, the "tagged person" is the pet — and pets don't have iPhones. They 
 
 This isn't Apple being careless. It's a deliberate design tradeoff: AirTag is anti-stalker-first, pet-tracker-by-misuse-second. The category Apple wants to address is "keys, wallet, luggage" — objects. Pets are not in the design target.
 
+![Why each anti-stalking feature misfires on a pet. The audio chirp is meant to warn a person they're being secretly tracked; on a lost dog it just spooks the animal and invites him to chew the collar off. The "unknown AirTag near you" bystander alert is meant to expose a stalker; at the dog park it pings every passing iPhone with a false alarm. The NFC tap-to-see-owner handoff is the one feature that assumes nothing about the tagged thing being a person — and it's the only one that actually helps return a found pet. Two of the three protections fight pet use; only the owner-contact path survives.](../../assets/blog/airtag-anti-stalking-misfire.svg)
+
 ## What I'd use AirTag for
 
 After three weeks of testing on Atom:
@@ -106,10 +112,10 @@ The right product would be:
 - With explicit "this is a pet, please contact owner" NFC handoff.
 - Owner-controlled bystander alert behavior.
 
-Apple won't ship this because it would undermine the anti-stalking guarantees that make AirTag socially acceptable. The category would need a third-party device using a separate crowdsourced network — Tile-for-pets has tried but the network is much smaller than Apple's.
+Apple won't ship this because it would undermine the anti-stalking guarantees that make AirTag socially acceptable. The category would need a third-party device riding a separate crowdsourced network — Tile has tried, but its network is a rounding error next to Apple's install base, so its find rate can't compete.
 
-Per anti-stalking regulation efforts coming in 2022-2023, the trade-off only gets stricter. AirTag's design will become *more* aggressive about unsolicited tagging, not less. Pet-tracking via AirTag will get harder, not easier.
+And the pressure runs the wrong way for pet use. AirTag launched two weeks ago and the stalking-misuse stories are *already* in the press; advocates and regulators are already asking Apple to make the protections stronger. If Apple responds — and it will have to — the chirp gets louder and the bystander alerts get faster, not gentler. Every step that makes AirTag safer for people makes it worse as a pet tag. The incompatibility isn't a bug they'll patch; it's the design working as intended, and intent is only going to harden.
 
 ## What's next
 
-Whistle Health & GPS Plus shipped this month with vitals (temperature, heart rate, scratching). Going to evaluate against Fi — the vitals are interesting even if the Mars-ownership is still a problem.
+Mars is teasing a new "health" Whistle, and the marketing is leaning hard on the word *health* — which, after every prior collar that meant "we count scratches and call it wellness," makes me suspicious about whether there's an actual vital sign anywhere in it. When it lands I'll put it on Atom next to the Fi and find out what "health" really means this time. That's the next post.

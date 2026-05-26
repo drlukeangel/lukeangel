@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="2021 scorecard">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">2021 CALLS · SCORED</text>
+
+  <!-- legend -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5">
+    <circle cx="760" cy="40" r="9" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+    <path d="M755 40 l4 4 7 -9" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="778" y="44" fill="#5b616b">hit</text>
+    <circle cx="850" cy="40" r="9" fill="none" stroke="#0066cc" stroke-width="2.5"/>
+    <path d="M850 33 v14" stroke="#0066cc" stroke-width="2.5"/>
+    <text x="868" y="44" fill="#5b616b">half-hit</text>
+  </g>
+
+  <!-- rows -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <g transform="translate(0,74)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M48 20 l6 7 11 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">AirTag ships spring · $29 / $99</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">shipped April · exact prices · UWB finding works</text>
+    </g>
+    <g transform="translate(0,124)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M48 20 l6 7 11 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">Matter slips again</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">Q4 2021 to fall 2022 · same delay shape</text>
+    </g>
+    <g transform="translate(0,174)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M48 20 l6 7 11 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">Wi-Fi 6E in enthusiast routers</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">Eero Pro 6E, ASUS, Netgear · mass market on Wi-Fi 6</text>
+    </g>
+    <g transform="translate(0,224)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M48 20 l6 7 11 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">Watch S7 redesign, no glucose</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">Oct launch · larger display · no blood-glucose</text>
+    </g>
+    <g transform="translate(0,274)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M48 20 l6 7 11 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">Supply-chain crunch hits H2</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">PS5, GPUs, thin smart-home Black Friday stock</text>
+    </g>
+    <g transform="translate(0,324)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M48 20 l6 7 11 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">Connected-health tailwind lands</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">Oura Gen 3 · 6 FDA clearances on wearables</text>
+    </g>
+    <g transform="translate(0,374)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M48 20 l6 7 11 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">Doorbell race stays a draw</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">Ring + Nest hold · Eufy, Reolink nibble budget tier</text>
+    </g>
+    <g transform="translate(0,424)">
+      <circle cx="56" cy="20" r="13" fill="none" stroke="#0066cc" stroke-width="3"/>
+      <path d="M56 9 v22" stroke="#0066cc" stroke-width="3"/>
+      <text x="86" y="18" font-size="15" fill="#1a1d24">Big IoT class-action wave</text>
+      <text x="86" y="38" font-size="12" fill="#7a808c">Ring + ADT settled · biggest (AirTag) slipped past 2021</text>
+    </g>
+  </g>
+
+  <!-- tally -->
+  <rect x="34" y="486" width="1052" height="50" rx="10" fill="#fdfaf2" stroke="#0066cc" stroke-width="2.5"/>
+  <text x="54" y="517" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#0066cc">~88% accuracy — the crunch broke the dates, not the calls</text>
+</svg>

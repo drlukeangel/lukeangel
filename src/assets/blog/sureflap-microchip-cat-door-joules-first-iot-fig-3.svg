@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" width="920" height="460" role="img" aria-label="The data the door throws away.">
+  <rect x="1" y="1" width="918" height="458" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#5b616b;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="48" class="lbl" font-size="16" letter-spacing="1.5">EVERY READ — AND WHAT BECOMES OF IT</text>
+
+  <!-- the door produces a read event -->
+  <g transform="translate(150,230)">
+    <rect x="-90" y="-46" width="180" height="92" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="-12" text-anchor="middle" class="lbl" font-size="15" font-weight="600">a read happens</text>
+    <text x="0" y="12" text-anchor="middle" class="mut" font-size="13">dozens of times a day</text>
+    <text x="0" y="30" text-anchor="middle" class="mut" font-size="13">in/out, allowed/denied</text>
+  </g>
+
+  <!-- four things it COULD keep -->
+  <g class="mut" font-size="13.5">
+    <g transform="translate(360,72)">
+      <rect x="0" y="0" width="290" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="16" y="28" class="lbl" font-size="13.5">trips per day — a behavioral baseline</text>
+    </g>
+    <g transform="translate(360,128)">
+      <rect x="0" y="0" width="290" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="16" y="28" class="lbl" font-size="13.5">time outside — the routine signal</text>
+    </g>
+    <g transform="translate(360,184)">
+      <rect x="0" y="0" width="290" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="16" y="28" class="lbl" font-size="13.5">refused reads — the deck cold war</text>
+    </g>
+    <g transform="translate(360,240)">
+      <rect x="0" y="0" width="290" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="16" y="28" class="lbl" font-size="13.5">battery as a number, not an LED</text>
+    </g>
+  </g>
+
+  <!-- arrows from read to each, all ending in a discard -->
+  <g fill="none" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.5">
+    <path d="M240 200 q60 -90 118 -106" marker-end="url(#ah)"/>
+    <path d="M240 218 q60 -50 118 -68" marker-end="url(#ah)"/>
+    <path d="M240 242 q60 -10 118 -32" marker-end="url(#ah)"/>
+    <path d="M240 260 q60 30 118 4" marker-end="url(#ah)"/>
+  </g>
+
+  <!-- the discard: trash / forgets -->
+  <g transform="translate(770,230)">
+    <rect x="-78" y="-70" width="156" height="140" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <!-- a small "no storage" glyph: an empty box with a slash -->
+    <g transform="translate(0,-18)">
+      <rect x="-30" y="-22" width="60" height="44" rx="6" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+      <line x1="-34" y1="26" x2="34" y2="-26" stroke="#c14a3a" stroke-width="3"/>
+    </g>
+    <text x="0" y="34" text-anchor="middle" class="lbl" font-size="15" font-weight="600" fill="#c14a3a">forgotten</text>
+    <text x="0" y="54" text-anchor="middle" class="mut" font-size="12.5">no clock, no storage,</text>
+    <text x="0" y="71" text-anchor="middle" class="mut" font-size="12.5">no radio to report to</text>
+  </g>
+
+  <!-- arrows from the four boxes into the discard -->
+  <g fill="none" stroke="#c14a3a" stroke-width="2" stroke-opacity="0.7">
+    <path d="M650 94 q60 50 56 96" marker-end="url(#ahr)"/>
+    <path d="M650 150 q40 30 50 56" marker-end="url(#ahr)"/>
+    <path d="M650 206 q30 8 42 14" marker-end="url(#ahr)"/>
+    <path d="M650 262 q40 -10 50 -24" marker-end="url(#ahr)"/>
+  </g>
+
+  <text x="460" y="436" text-anchor="middle" class="cap" font-size="14.5">It senses, decides, acts — then throws it all away, because there is nothing to record it to.</text>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24" fill-opacity="0.5"/>
+    </marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c14a3a"/>
+    </marker>
+  </defs>
+</svg>

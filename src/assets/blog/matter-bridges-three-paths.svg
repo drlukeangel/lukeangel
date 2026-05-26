@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" role="img" aria-label="Three Matter bridges">
+  <rect x="0.5" y="0.5" width="1039" height="559" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12.5px;fill:#5b616b}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:16px;fill:#1a1d24;font-weight:700}
+  </style>
+
+  <!-- Matter fabric bar -->
+  <rect x="300" y="34" width="440" height="56" rx="10" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="2.5"/>
+  <text x="520" y="60" text-anchor="middle" class="hd">MATTER FABRIC</text>
+  <text x="520" y="80" text-anchor="middle" class="sm">Apple Home · Google Home · Alexa · SmartThings</text>
+
+  <!-- three trunks -->
+  <g stroke="#1a1d24" stroke-width="2" fill="none">
+    <path d="M520 90 V120 H180 V160"/>
+    <path d="M520 120 V160"/>
+    <path d="M520 90 V120 H860 V160"/>
+  </g>
+
+  <!-- three bridge boxes -->
+  <g>
+    <rect x="60" y="160" width="240" height="74" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="180" y="190" text-anchor="middle" class="hd">Aqara M2 hub</text>
+    <text x="180" y="214" text-anchor="middle" class="sm">Zigbee → Matter Bridge</text>
+
+    <rect x="400" y="160" width="240" height="74" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="520" y="190" text-anchor="middle" class="hd">Hue Bridge v2</text>
+    <text x="520" y="214" text-anchor="middle" class="sm">Zigbee LL → Matter Bridge</text>
+
+    <rect x="740" y="160" width="240" height="74" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="860" y="190" text-anchor="middle" class="hd">Home Assistant</text>
+    <text x="860" y="214" text-anchor="middle" class="sm">add-on → Matter Bridge</text>
+  </g>
+
+  <!-- arrows down to device clusters -->
+  <g stroke="#1a1d24" stroke-width="2" fill="none">
+    <path d="M180 234 V270"/>
+    <path d="M520 234 V270"/>
+    <path d="M860 234 V270"/>
+  </g>
+
+  <!-- device cluster cards -->
+  <g>
+    <rect x="48" y="270" width="264" height="120" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18"/>
+    <text x="180" y="298" text-anchor="middle" class="lbl">23 Aqara Zigbee</text>
+    <text x="180" y="322" text-anchor="middle" class="sm">door/window · vibration</text>
+    <text x="180" y="342" text-anchor="middle" class="sm">motion sensors</text>
+    <text x="180" y="372" text-anchor="middle" class="sm">+ Thread Border Router</text>
+
+    <rect x="388" y="270" width="264" height="120" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18"/>
+    <text x="520" y="298" text-anchor="middle" class="lbl">14 Hue bulbs</text>
+    <text x="520" y="322" text-anchor="middle" class="sm">+ 4 Hue Motion</text>
+    <text x="520" y="356" text-anchor="middle" class="sm">~200 ms via the</text>
+    <text x="520" y="374" text-anchor="middle" class="sm">bridge round trip</text>
+
+    <rect x="728" y="270" width="264" height="120" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18"/>
+    <text x="860" y="298" text-anchor="middle" class="lbl">40 HA entities</text>
+    <text x="860" y="322" text-anchor="middle" class="sm">Z-Wave locks · ESPHome</text>
+    <text x="860" y="342" text-anchor="middle" class="sm">LoRa garden sensors</text>
+    <text x="860" y="372" text-anchor="middle" class="sm">anything HA already owns</text>
+  </g>
+
+  <!-- bottom note -->
+  <text x="520" y="436" text-anchor="middle" class="lbl">Each device exists once on the network.</text>
+  <text x="520" y="460" text-anchor="middle" class="sm">Every ecosystem sees its own copy; each runs its own automations on the shared state.</text>
+
+  <!-- caption -->
+  <text x="520" y="512" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="15" fill="#5b616b">Keep what works; add Matter as the cross-ecosystem layer, not the replacement layer.</text>
+</svg>

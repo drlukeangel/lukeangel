@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" width="1080" height="360" role="img" aria-label="Inside a pet microchip: a silicon die, a copper antenna coil, and a biocompatible glass shell.">
+  <rect width="1080" height="360" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">INSIDE THE CAPSULE — ~12 mm × 2 mm</text>
+
+  <!-- the glass capsule (rounded cylinder), enlarged cutaway -->
+  <g transform="translate(120,170)">
+    <!-- shell -->
+    <path d="M0 0 m60 -60 l560 0 a60 60 0 0 1 0 120 l-560 0 a60 60 0 0 1 0 -120 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <!-- subtle glass sheen -->
+    <path d="M70 -44 l520 0" stroke="#1a1d24" stroke-opacity="0.1" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- copper antenna coil wound along the body (right portion) -->
+    <g stroke="#c87533" stroke-width="4" fill="none">
+      <path d="M250 -42 q14 -8 28 0 q14 8 28 0 q14 -8 28 0 q14 8 28 0 q14 -8 28 0 q14 8 28 0 q14 -8 28 0 q14 8 28 0"/>
+      <path d="M250 42 q14 8 28 0 q14 -8 28 0 q14 8 28 0 q14 -8 28 0 q14 8 28 0 q14 -8 28 0 q14 8 28 0 q14 -8 28 0"/>
+      <!-- vertical strokes joining top/bottom to suggest a wound coil -->
+      <line x1="250" y1="-42" x2="250" y2="42" opacity="0.6"/>
+      <line x1="306" y1="-42" x2="306" y2="42" opacity="0.6"/>
+      <line x1="362" y1="-42" x2="362" y2="42" opacity="0.6"/>
+      <line x1="418" y1="-42" x2="418" y2="42" opacity="0.6"/>
+      <line x1="474" y1="-42" x2="474" y2="42" opacity="0.6"/>
+    </g>
+    <!-- ferrite core rod inside the coil -->
+    <rect x="248" y="-9" width="290" height="18" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+
+    <!-- silicon die at the left end -->
+    <rect x="96" y="-30" width="60" height="60" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g stroke="#1a1d24" stroke-width="2" opacity="0.5">
+      <line x1="96" y1="-14" x2="86" y2="-14"/>
+      <line x1="96" y1="0" x2="86" y2="0"/>
+      <line x1="96" y1="14" x2="86" y2="14"/>
+    </g>
+  </g>
+
+  <!-- labels with leader lines -->
+  <!-- silicon die -->
+  <g>
+    <line x1="246" y1="138" x2="246" y2="112" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+    <text x="246" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">SILICON DIE</text>
+    <text x="246" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">one 15-digit ID, burned once</text>
+  </g>
+  <!-- ferrite core -->
+  <g>
+    <line x1="540" y1="180" x2="540" y2="252" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+    <text x="540" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">FERRITE CORE</text>
+  </g>
+  <!-- antenna coil -->
+  <g>
+    <line x1="430" y1="124" x2="430" y2="84" stroke="#c87533" stroke-opacity="0.6" stroke-width="2"/>
+    <text x="430" y="56" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#c87533">COPPER ANTENNA COIL</text>
+    <text x="430" y="76" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">picks up power · sends ID back</text>
+  </g>
+  <!-- glass shell -->
+  <g>
+    <line x1="160" y1="232" x2="160" y2="252" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+    <text x="160" y="274" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">BIOCOMPATIBLE GLASS</text>
+  </g>
+
+  <text x="540" y="332" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">Three parts, no battery: a number, a coil to power it and speak it, and glass the body won't reject.</text>
+</svg>

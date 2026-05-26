@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Regulated data boxed; the rest of the system outside it">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="pc3-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#pc3-dots)"/>
+  <rect width="24" height="630" fill="#2a52be"/>
+
+  <!-- ===== the two regulated boxes, dead center ===== -->
+  <!-- outer (payment) box -->
+  <rect x="430" y="172" width="340" height="334" rx="18" fill="#2a52be" fill-opacity="0.06" stroke="#2a52be" stroke-width="5"/>
+  <!-- a heavy padlock hasp on the outer box, top edge -->
+  <g transform="translate(600,150)">
+    <rect x="-30" y="0" width="60" height="48" rx="9" fill="#2a52be"/>
+    <path d="M-19 0 v-13 a19 19 0 0 1 38 0 v13" fill="none" stroke="#2a52be" stroke-width="7"/>
+    <circle cx="0" cy="22" r="5.5" fill="#fdfaf2"/>
+    <rect x="-2.6" y="22" width="5.2" height="14" rx="2.6" fill="#fdfaf2"/>
+  </g>
+
+  <!-- a payment card inside the outer box (PAN as abstract digit blocks, no real text) -->
+  <g transform="translate(470,224)">
+    <rect x="0" y="0" width="200" height="120" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- chip -->
+    <rect x="22" y="26" width="34" height="26" rx="4" fill="#2a52be" fill-opacity="0.30" stroke="#2a52be" stroke-width="2.5"/>
+    <line x1="22" y1="39" x2="56" y2="39" stroke="#2a52be" stroke-width="2"/>
+    <line x1="39" y1="26" x2="39" y2="52" stroke="#2a52be" stroke-width="2"/>
+    <!-- PAN groups, drawn as rounded dashes (no readable digits) -->
+    <g fill="#1a1d24" opacity="0.55">
+      <rect x="22" y="72" width="34" height="9" rx="4"/>
+      <rect x="66" y="72" width="34" height="9" rx="4"/>
+      <rect x="110" y="72" width="34" height="9" rx="4"/>
+      <rect x="154" y="72" width="34" height="9" rx="4"/>
+    </g>
+    <rect x="22" y="94" width="70" height="8" rx="4" fill="#1a1d24" opacity="0.3"/>
+  </g>
+
+  <!-- inner (identity) box, smaller, nested below the card -->
+  <rect x="486" y="360" width="228" height="118" rx="13" fill="#2a52be" fill-opacity="0.12" stroke="#2a52be" stroke-width="5"/>
+  <!-- small padlock on the inner box -->
+  <g transform="translate(600,366)">
+    <rect x="-17" y="0" width="34" height="26" rx="6" fill="#2a52be"/>
+    <path d="M-10 0 v-8 a10 10 0 0 1 20 0 v8" fill="none" stroke="#2a52be" stroke-width="4.5"/>
+  </g>
+  <!-- a person glyph inside the inner box (customer identity) -->
+  <g transform="translate(600,438)" fill="#1a1d24" opacity="0.62">
+    <circle cx="0" cy="-18" r="15"/>
+    <path d="M-30 22 a30 26 0 0 1 60 0 z"/>
+  </g>
+
+  <!-- ===== the rest of the system, OUTSIDE both boxes ===== -->
+
+  <!-- cart puck, lower-left (the device) -->
+  <g transform="translate(150,430)">
+    <rect x="0" y="0" width="150" height="104" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="20" y="20" width="110" height="44" rx="7" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="2.6"/>
+    <g fill="#2a52be" opacity="0.5"><rect x="32" y="32" width="58" height="6" rx="3"/><rect x="32" y="46" width="40" height="6" rx="3"/></g>
+    <circle cx="40" cy="528" r="0"/>
+    <!-- wheels -->
+    <circle cx="34" cy="104" r="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="116" cy="104" r="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- a tiny NFC arc on the puck -->
+    <path d="M104 78 a14 14 0 0 1 0 18 M112 74 a22 22 0 0 1 0 26" fill="none" stroke="#1a1d24" stroke-width="2.6" stroke-linecap="round" stroke-opacity="0.55"/>
+  </g>
+
+  <!-- cloud, top-left -->
+  <g transform="translate(150,150)">
+    <path d="M34 70 a34 34 0 0 1 4 -67 a40 40 0 0 1 74 12 a30 30 0 0 1 -8 59 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  </g>
+
+  <!-- mobile app, top-right -->
+  <g transform="translate(978,120)">
+    <rect x="0" y="0" width="76" height="138" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="12" y="16" width="52" height="94" rx="5" fill="#2a52be" fill-opacity="0.08" stroke="#2a52be" stroke-width="2"/>
+    <circle cx="38" cy="124" r="5" fill="#1a1d24" opacity="0.5"/>
+  </g>
+
+  <!-- staff tablet, right-mid -->
+  <g transform="translate(958,300)">
+    <rect x="0" y="0" width="132" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="14" y="14" width="104" height="64" rx="6" fill="#2a52be" fill-opacity="0.08" stroke="#2a52be" stroke-width="2"/>
+  </g>
+
+  <!-- ops dashboard, lower-right -->
+  <g transform="translate(940,442)">
+    <rect x="0" y="0" width="150" height="100" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <g fill="#2a52be" opacity="0.45">
+      <rect x="18" y="22" width="36" height="58" rx="4"/>
+      <rect x="62" y="40" width="36" height="40" rx="4"/>
+      <rect x="106" y="30" width="28" height="50" rx="4"/>
+    </g>
+  </g>
+
+  <!-- faint connectors from the outside components toward the boxes -->
+  <g stroke="#7a808c" stroke-width="2.5" stroke-opacity="0.35" stroke-dasharray="3 7" fill="none">
+    <path d="M300 470 H 460"/>
+    <path d="M250 220 C 360 230 400 250 430 270"/>
+    <path d="M978 178 C 870 200 800 230 770 252"/>
+    <path d="M958 346 H 778"/>
+    <path d="M940 482 C 850 470 810 460 772 442"/>
+  </g>
+</svg>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 500" width="1120" height="500" role="img" aria-label="Repo component map and who reads what">
+  <rect width="1120" height="500" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHO READS WHICH FILE</text>
+
+  <!-- left column: the repo tree -->
+  <text x="34" y="86" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#2a52be">REPO</text>
+  <g font-family="ui-monospace, monospace" font-size="13.5" fill="#1a1d24">
+    <rect x="34" y="100" width="430" height="360" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="58" y="138">docs/rubric.md</text>
+    <text x="58" y="174">docs/ARCHITECTURE.md</text>
+    <text x="58" y="210">device/python/</text>
+    <text x="58" y="246">device/rust/</text>
+    <text x="58" y="282">cloud/cdk/</text>
+    <text x="58" y="318">cloud/lambda/</text>
+    <text x="58" y="354">dashboard/</text>
+    <!-- small folder tick marks -->
+    <g stroke="#2a52be" stroke-width="2.5">
+      <line x1="44" y1="134" x2="50" y2="134"/>
+      <line x1="44" y1="170" x2="50" y2="170"/>
+      <line x1="44" y1="206" x2="50" y2="206"/>
+      <line x1="44" y1="242" x2="50" y2="242"/>
+      <line x1="44" y1="278" x2="50" y2="278"/>
+      <line x1="44" y1="314" x2="50" y2="314"/>
+      <line x1="44" y1="350" x2="50" y2="350"/>
+    </g>
+    <text x="58" y="408" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">Two languages of glue (TS),</text>
+    <text x="58" y="430" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">one for the device (Rust / Python).</text>
+  </g>
+
+  <!-- right column: roles -->
+  <text x="700" y="86" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#2a52be">READER</text>
+  <g font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">
+    <rect x="700" y="116" width="386" height="44" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="720" y="143">product manager</text>
+
+    <rect x="700" y="178" width="386" height="44" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="720" y="205">architect</text>
+
+    <rect x="700" y="240" width="386" height="44" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="720" y="267">firmware engineer</text>
+
+    <rect x="700" y="302" width="386" height="44" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="720" y="329">cloud engineer</text>
+
+    <rect x="700" y="364" width="386" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="720" y="391">eng manager — forks the whole thing</text>
+  </g>
+
+  <!-- connecting lines: file -> reader -->
+  <g stroke-width="2.5" fill="none">
+    <!-- rubric -> PM -->
+    <path d="M464 133 C 560 133 600 138 700 138" stroke="#2a52be"/>
+    <!-- architecture -> architect -->
+    <path d="M464 169 C 560 180 600 200 700 200" stroke="#2a52be"/>
+    <!-- device/rust -> firmware -->
+    <path d="M464 241 C 560 250 600 262 700 262" stroke="#2a52be"/>
+    <!-- cloud/cdk -> cloud eng -->
+    <path d="M464 277 C 560 300 600 324 700 324" stroke="#2a52be"/>
+    <!-- cloud/lambda -> cloud eng -->
+    <path d="M464 313 C 560 320 600 324 700 324" stroke="#2a52be" stroke-opacity="0.5"/>
+  </g>
+  <!-- eng manager bracket: spans all files -->
+  <path d="M484 110 C 520 110 520 450 484 450" fill="none" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 6"/>
+  <path d="M520 280 C 600 280 620 386 700 386" fill="none" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 6"/>
+</svg>

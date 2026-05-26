@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620" width="1120" height="620" role="img" aria-label="Hardware block diagram">
+  <rect width="1120" height="620" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">HARDWARE BLOCK DIAGRAM</text>
+
+  <!-- ===== central MCU ===== -->
+  <rect x="446" y="262" width="228" height="118" rx="14" fill="#2a52be" fill-opacity="0.08" stroke="#2a52be" stroke-width="4"/>
+  <text x="560" y="304" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" fill="#1a1d24">ESP32-C3 MCU</text>
+  <text x="560" y="328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">RISC-V · 160 MHz</text>
+  <text x="560" y="350" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">WiFi + BLE 5.0 on-die</text>
+  <text x="560" y="370" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">4 MB SPI flash</text>
+
+  <!-- ===== RADIOS (top) ===== -->
+  <rect x="446" y="70" width="228" height="120" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="560" y="98" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">RADIOS</text>
+  <text x="560" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">WiFi 2.4 GHz · primary</text>
+  <text x="560" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">LTE-M (Cat-M1) · backup</text>
+  <text x="560" y="168" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">BLE 5.0 · proximity only</text>
+  <g stroke="#2a52be" stroke-width="3" fill="#2a52be"><line x1="560" y1="190" x2="560" y2="258"/><path d="M560 262 l-7 -15 h14 z"/><path d="M560 190 l-7 14 h14 z" transform="rotate(180 560 197)"/></g>
+
+  <!-- ===== SECURE ELEMENT (left) ===== -->
+  <rect x="120" y="262" width="244" height="118" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="242" y="296" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">SECURE ELEMENT</text>
+  <text x="242" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">ATECC608A</text>
+  <text x="242" y="342" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">device cert · P-256 sign</text>
+  <text x="242" y="362" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">payment-token wrap</text>
+  <!-- small lock glyph -->
+  <g transform="translate(150,278)" stroke="#2a52be" stroke-width="2.4" fill="none">
+    <rect x="0" y="9" width="18" height="14" rx="2.5"/>
+    <path d="M3 9 v-4 a6 6 0 0 1 12 0 v4"/>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="364" y1="321" x2="442" y2="321"/><path d="M446 321 l-15 -7 v14 z"/><path d="M364 321 l15 -7 v14 z"/></g>
+
+  <!-- ===== POWER (bottom) ===== -->
+  <rect x="446" y="452" width="228" height="120" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="560" y="480" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">POWER</text>
+  <text x="560" y="506" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">7.4 V 7.8 Ah Li-ion</text>
+  <text x="560" y="528" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">swappable at dock</text>
+  <text x="560" y="550" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">BMIC · cutoff 6.4 V</text>
+  <g stroke="#3a7d44" stroke-width="3.5" fill="#3a7d44"><line x1="560" y1="384" x2="560" y2="448"/><path d="M560 384 l-7 14 h14 z"/></g>
+  <text x="588" y="420" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">rails</text>
+
+  <!-- ===== SENSORS & I/O (right) ===== -->
+  <rect x="756" y="200" width="300" height="242" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="906" y="230" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">SENSORS &amp; I/O</text>
+  <g font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">
+    <text x="784" y="262">• 2D imager — 1D+2D, ~500 ms</text>
+    <text x="784" y="290">• weight platform 0–30 kg ±20 g</text>
+    <text x="784" y="318">• 7" cap touch · 1024×600</text>
+    <text x="784" y="346">• NFC reader · ISO 14443 · EMV</text>
+    <text x="784" y="374">• speaker · scan-success + a11y</text>
+    <text x="784" y="402">• buttons — power · scan · help</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="674" y1="321" x2="752" y2="321"/><path d="M756 321 l-15 -7 v14 z"/><path d="M674 321 l15 -7 v14 z"/></g>
+
+  <text x="560" y="606" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">One MCU at the center; every other block is a choice that commits the rest of the platform.</text>
+</svg>

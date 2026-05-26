@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" role="img" aria-label="Eval as a CI regression gate">
+  <rect width="760" height="380" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <defs>
+    <marker id="eg-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24" fill-opacity="0.55"/>
+    </marker>
+  </defs>
+
+  <!-- PR / change -->
+  <g transform="translate(36,150)">
+    <rect x="0" y="0" width="120" height="68" rx="10" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+    <!-- branch/merge glyph -->
+    <g stroke="#4f46b8" stroke-width="4" fill="none">
+      <circle cx="40" cy="24" r="7"/><circle cx="40" cy="48" r="7" fill="#4f46b8"/><circle cx="80" cy="24" r="7"/>
+      <path d="M40 31 v10"/><path d="M40 24 h26 a14 14 0 0 1 14 14 v3" stroke-dasharray="0"/>
+    </g>
+    <text x="60" y="64" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">pull request</text>
+  </g>
+
+  <!-- runner: replay golden dataset -->
+  <g transform="translate(206,150)">
+    <rect x="0" y="0" width="130" height="68" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- stacked rows = dataset -->
+    <g stroke="#1a1d24" stroke-width="3" stroke-opacity="0.6">
+      <line x1="22" y1="22" x2="92" y2="22"/><line x1="22" y1="34" x2="92" y2="34"/><line x1="22" y1="46" x2="78" y2="46"/>
+    </g>
+    <text x="65" y="64" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">replay dataset</text>
+  </g>
+
+  <!-- judge scores -->
+  <g transform="translate(386,150)">
+    <rect x="0" y="0" width="110" height="68" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- gavel-ish / star score -->
+    <path d="M55 16 l6 13 14 1 -11 9 4 14 -13 -8 -13 8 4 -14 -11 -9 14 -1 z" fill="#4f46b8" stroke="none"/>
+    <text x="55" y="64" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">judge scores</text>
+  </g>
+
+  <!-- threshold diamond -->
+  <g transform="translate(560,184)">
+    <path d="M0 -44 L52 0 L0 44 L-52 0 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- gauge needle vs bar -->
+    <line x1="-22" y1="8" x2="22" y2="8" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.4"/>
+    <line x1="0" y1="8" x2="14" y2="-14" stroke="#4f46b8" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="8" r="4" fill="#4f46b8"/>
+  </g>
+
+  <!-- connectors -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none" stroke-opacity="0.55">
+    <path d="M156 184 H204" marker-end="url(#eg-arr)"/>
+    <path d="M336 184 H384" marker-end="url(#eg-arr)"/>
+    <path d="M496 184 H506" marker-end="url(#eg-arr)"/>
+    <!-- up: pass -->
+    <path d="M598 152 C636 130 648 110 668 92" marker-end="url(#eg-arr)"/>
+    <!-- down: fail -->
+    <path d="M598 216 C636 238 648 258 668 276" marker-end="url(#eg-arr)"/>
+  </g>
+
+  <!-- pass node (merge) -->
+  <g transform="translate(660,58)">
+    <rect x="0" y="0" width="72" height="56" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <path d="M22 28 l11 11 22 -26" fill="none" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="696" y="130" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#3a7d44">merge</text>
+
+  <!-- fail node (blocked) -->
+  <g transform="translate(660,266)">
+    <rect x="0" y="0" width="72" height="56" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <path d="M26 12 l20 32 M46 12 l-20 32" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="696" y="340" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#c14a3a">blocked</text>
+</svg>

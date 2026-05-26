@@ -12,13 +12,13 @@ notebook: pet-iot-field-guide
 notebookOrder: 29
 excerpt: "Bought a Halo Collar 2 for the new house's backyard — no physical fence. Used on Atom and Quark two weeks. Returned. Engineering is sound; the application is a welfare problem."
 pullquote: "Halo's GPS-fence engineering is impressive — sub-meter accuracy, low-latency boundary detection, multi-mode correction options. The application — delivering uncomfortable stimuli to a dog who doesn't understand the boundary as an abstraction — is where the engineering excellence stops mattering."
-cover: "../../assets/blog/halo-collar-tried-it-returned-it-cover.png"
-coverAlt: "Halo Collar — I tried it, returned it within the trial window"
+cover: "../../assets/blog/halo-collar-tried-it-returned-it-cover.svg"
+coverAlt: "An illustration in warm orange and red: a side-profile dog stands inside a yard facing a tall dashed red boundary line it cannot see, marked with warning chevrons, while a GPS satellite overhead projects that invisible line and the dog's collar emits a warning beep — a virtual fence enforced on an animal that has no natural way to perceive the edge."
 ---
 
-Bought a Halo Collar 2 for the new house. The backyard doesn't have a physical fence on the back property line; we're considering options. Virtual-fence systems are pitched as the modern alternative.
+Bought a Halo Collar 2 for the new house. The backyard doesn't have a physical fence on the back property line, and a virtual fence is pitched as the modern alternative — which is exactly the option I said I'd test [when Quark came home in the spring](/blog/quark-arrives-puppy-second-dog-pet-iot-baseline/).
 
-Two weeks with the Halo on Atom and Quark. Returned within the trial window. Won't buy another.
+Two weeks with the Halo on Atom and Quark. Returned within the trial window. Won't buy another. This is the welfare post I've been promising the notebook [since last year](/blog/2021-pet-iot-year-in-review/), and the verdict is harder than I expected to write, because the engineering is genuinely good.
 
 ## What Halo is
 
@@ -29,7 +29,7 @@ Two weeks with the Halo on Atom and Quark. Returned within the trial window. Won
   - Audio (a beep).
   - Vibration.
   - **Static "correction"** — adjustable intensity. A short, brief electrical stimulus.
-- 12-hour battery life when actively GPS-monitoring (much shorter than Fi's 14 days).
+- 12-hour battery life when actively GPS-monitoring (a different universe from Fi, which runs weeks on the home Wi-Fi and only burns down in lost-dog mode).
 
 **Software / Service:**
 - $999 hardware + $9.95/month subscription.
@@ -37,6 +37,8 @@ Two weeks with the Halo on Atom and Quark. Returned within the trial window. Won
 - "Halo Trainer" app component to train the dog to recognize the boundary.
 
 The pitch is: train your dog to associate the boundary with audio + vibration → eventually you don't need static correction. The dog learns the invisible line.
+
+![The Halo correction ladder, drawn as three escalating stages along an arrow as the dog nears the invisible boundary. Stage one, in green: a beep — just a sound, neutral. Stage two, in amber: a vibration — mildly unpleasant. Stage three, in red: a static "correction" — a shock, adjustable across sixteen intensity levels, drawn as a lightning bolt. A caption notes that a trained adult dog may stop at the beep, but a puppy with no priors escalates to the shock and generalizes anxiety from a line it never saw, smelled, or heard.](../../assets/blog/halo-correction-escalation.svg)
 
 ## What worked, engineering-wise
 
@@ -79,6 +81,8 @@ In two weeks, the GPS lost lock twice in our yard (under a partial tree canopy):
 
 Halo's marketing emphasizes the *system reliability*. Reality is GPS-based boundary detection has edge cases. Edge cases plus correction stimuli equals the dog occasionally getting punished for nothing they did.
 
+![Two GPS-fence failure modes drawn side by side over a dashed boundary. Left, the false positive: the dog stands safely inside, but a jittered GPS estimate jumps its position across the line, so the stim fires while the dog is mid-yard — punished for nothing. Right, the lag: the dog walks across the boundary along a path, but a roughly four-second detection delay means it is already outside before any cue fires — crossed undetected. A caption notes that GPS jitter and lag are ordinary edge cases, and edge cases plus a shock means the dog is occasionally punished for nothing, or escapes with no cue at all.](../../assets/blog/halo-gps-failure-modes.svg)
+
 ## What I think about the category
 
 GPS-fence collars are a **legitimate engineering category** in the sense that the technology works. They're **not a legitimate ethics category** in the sense that they substitute a software system for a relationship.
@@ -103,8 +107,10 @@ Counter-counters:
 
 For the new house's back property line: physical wood-and-wire fence. Estimated $3,500-5,000. Permanent. No welfare cost. Solves the actual problem.
 
-For tracking, in case a dog gets out (gate left open, fence damaged): Fi collar (already have). LTE-M tracking + Find My-style crowdsourced backup. Not a fence; a recovery tool.
+For tracking, in case a dog gets out (gate left open, fence damaged): the Fi collar I already have. LTE-M cellular tracking, with the home Wi-Fi handling the everyday case so the battery lasts. Not a fence — a recovery tool, and an honest one: it tells me where the dog *is*, it doesn't punish him for where he isn't supposed to be.
+
+![A side-by-side comparison of what a virtual fence and a physical fence actually are to the dog. On the left, the virtual fence: a dog faces an invisible dashed red boundary line marked with warning chevrons that it cannot see, smell, or hear; it costs nine hundred ninety-nine dollars plus a monthly subscription, runs twelve hours on a charge, and escalates beep to vibration to static correction — and GPS jitter can punish a dog for nothing it did. On the right, the physical fence: a dog stands at a solid green fence it can actually meet and learn as a wall; it costs roughly three and a half to five thousand dollars once, is permanent, and has no stimulus, no subscription, and no edge cases — it solves the actual problem with no welfare cost. The caption drives the point home: Halo isn't the alternative to no boundary, it's the alternative to a real fence, and that's the comparison that matters.](../../assets/blog/halo-collar-tried-it-returned-it-fig-3.svg)
 
 ## What's next
 
-Petivity smart-litter monitor (Purina) shipped in March. Going to add one and write about multi-cat litter analytics — Petivity vs Litter-Robot, what each catches.
+Purina's been signaling a smart-litter monitor — Petivity — for the multi-cat litter problem I keep complaining about. If it actually reaches retail this year, I'll put one on the floor and write up the multi-cat analytics: Petivity against the Litter-Robot, and whether either finally solves *which cat* without my spreadsheet.

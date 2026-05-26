@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Switch vendor decision matrix">
+  <rect width="1000" height="420" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24">
+
+    <text x="500" y="42" text-anchor="middle" font-size="16">three switches against an old-house switch box — only one survives all the constraints</text>
+
+    <!-- column headers -->
+    <g font-size="13" fill="#5b616b">
+      <text x="430" y="92" text-anchor="middle">works w/o neutral</text>
+      <text x="620" y="92" text-anchor="middle">radio</text>
+      <text x="800" y="92" text-anchor="middle">needs a controller</text>
+    </g>
+    <line x1="60" y1="104" x2="940" y2="104" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+
+    <!-- Row 1: Wemo -->
+    <g transform="translate(0 150)">
+      <text x="80" y="6" font-size="15">Belkin Wemo</text>
+      <text x="80" y="28" font-size="11" fill="#5b616b">WiFi, flaky pairing</text>
+      <!-- no-neutral: NO -->
+      <circle cx="430" cy="0" r="16" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M422 -8 l16 16 M438 -8 l-16 16" stroke="#c14a3a" stroke-width="3"/>
+      <text x="620" y="6" text-anchor="middle" font-size="13">2.4 GHz WiFi</text>
+      <!-- controller: built-in (ok) -->
+      <circle cx="800" cy="0" r="16" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M791 0 l6 7 12 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="800" y="40" text-anchor="middle" font-size="10" fill="#5b616b">app-direct</text>
+    </g>
+    <line x1="60" y1="196" x2="940" y2="196" stroke="#1a1d24" stroke-opacity="0.1" stroke-width="1.5"/>
+
+    <!-- Row 2: GE Z-Wave -->
+    <g transform="translate(0 242)">
+      <text x="80" y="6" font-size="15">GE Z-Wave 12722</text>
+      <text x="80" y="28" font-size="11" fill="#5b616b">reliable radio, no dimming</text>
+      <circle cx="430" cy="0" r="16" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M422 -8 l16 16 M438 -8 l-16 16" stroke="#c14a3a" stroke-width="3"/>
+      <text x="620" y="6" text-anchor="middle" font-size="13">908 MHz Z-Wave</text>
+      <!-- controller: NEEDS one (I don't own) -->
+      <circle cx="800" cy="0" r="16" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M792 -8 l16 16 M808 -8 l-16 16" stroke="#c14a3a" stroke-width="3"/>
+      <text x="800" y="40" text-anchor="middle" font-size="10" fill="#c14a3a">no hub yet</text>
+    </g>
+    <line x1="60" y1="288" x2="940" y2="288" stroke="#1a1d24" stroke-opacity="0.1" stroke-width="1.5"/>
+
+    <!-- Row 3: Lutron Caseta -->
+    <g transform="translate(0 334)">
+      <rect x="60" y="-30" width="880" height="58" rx="8" fill="#6a4c93" fill-opacity="0.07" stroke="#6a4c93" stroke-width="2"/>
+      <text x="80" y="0" font-size="15" fill="#6a4c93">Lutron Caséta</text>
+      <text x="80" y="22" font-size="11" fill="#5b616b">no-neutral dimmer + Smart Bridge</text>
+      <!-- no-neutral: YES -->
+      <circle cx="430" cy="-6" r="16" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M421 -6 l6 7 12 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="620" y="0" text-anchor="middle" font-size="13" fill="#6a4c93">434 MHz ClearConnect</text>
+      <!-- controller: bridge (own it w/ kit) -->
+      <circle cx="800" cy="-6" r="16" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M791 -6 l6 7 12 -14" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <text x="800" y="24" text-anchor="middle" font-size="10" fill="#5b616b">Smart Bridge in the kit</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" width="1120" height="430" role="img" aria-label="Which gating risk does your team have.">
+  <rect width="1120" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHAT GATES YOUR SHIP?</text>
+
+  <!-- the question -->
+  <rect x="370" y="80" width="380" height="68" rx="14" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+  <text x="560" y="112" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">what's the gating risk on</text>
+  <text x="560" y="134" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">shipping an LLM feature?</text>
+
+  <!-- branches -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <path d="M560 148 V 184 H 280 V 224"/>
+    <path d="M560 148 V 184 H 840 V 224"/>
+  </g>
+  <g fill="#1a1d24"><path d="M280 228 l-6 -14 h12 z"/><path d="M840 228 l-6 -14 h12 z"/></g>
+  <text x="280" y="176" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#4f46b8">security &amp; legal</text>
+  <text x="840" y="176" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">which model is best this week</text>
+
+  <!-- LEFT outcome: Bedrock -->
+  <rect x="100" y="228" width="360" height="150" rx="12" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+  <text x="280" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#4f46b8">Bedrock</text>
+  <text x="280" y="294" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">vendor risk collapses to the AWS</text>
+  <text x="280" y="314" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">contract you already have</text>
+  <text x="280" y="346" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">"good enough" model + a clean</text>
+  <text x="280" y="364" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">procurement story wins</text>
+
+  <!-- RIGHT outcome: direct -->
+  <rect x="660" y="228" width="360" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="840" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#1a1d24">go direct to the provider</text>
+  <text x="840" y="294" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">you'll pay the onboarding cost to</text>
+  <text x="840" y="314" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">be first to a new capability</text>
+  <text x="840" y="346" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">latest feature beats the</text>
+  <text x="840" y="364" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">procurement convenience</text>
+
+  <text x="560" y="408" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">GA didn't pick a model for you — it changed which risk you optimize against.</text>
+</svg>

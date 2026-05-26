@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Alarm panel state machine">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- scattered sensors on the left, funneling into the panel -->
+  <g>
+    <g transform="translate(120 110)"><rect x="-20" y="-16" width="40" height="32" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/><line x1="0" y1="-16" x2="0" y2="16" stroke="#1a1d24" stroke-width="2.5"/></g>
+    <g transform="translate(120 200)"><rect x="-20" y="-18" width="40" height="36" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/><circle r="6" fill="#6a4c93"/></g>
+    <g transform="translate(120 290)"><rect x="-20" y="-16" width="40" height="32" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/><line x1="0" y1="-16" x2="0" y2="16" stroke="#1a1d24" stroke-width="2.5"/></g>
+    <g transform="translate(120 380)"><rect x="-20" y="-18" width="40" height="36" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/><path d="M-12 6 a14 14 0 0 1 24 0" fill="none" stroke="#6a4c93" stroke-width="3.5"/></g>
+    <g transform="translate(120 470)"><rect x="-20" y="-16" width="40" height="32" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/><circle r="6" fill="#6a4c93"/></g>
+  </g>
+  <!-- funnel lines into the central panel -->
+  <g stroke="#6a4c93" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M140 110 C 300 160, 360 250, 430 280"/>
+    <path d="M140 200 C 280 230, 360 270, 430 295"/>
+    <path d="M140 290 L430 305"/>
+    <path d="M140 380 C 280 360, 360 330, 430 315"/>
+    <path d="M140 470 C 300 420, 360 350, 430 330"/>
+  </g>
+
+  <!-- the central state machine: 4 states -->
+  <g transform="translate(640 305)">
+    <!-- disarmed (center-left) -->
+    <g transform="translate(0 0)"><circle r="46" fill="#fdfaf2" stroke="#3a7d44" stroke-width="5"/></g>
+    <!-- armed stay (top) -->
+    <g transform="translate(200 -120)"><circle r="46" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="5"/></g>
+    <!-- armed away (right) -->
+    <g transform="translate(320 0)"><circle r="46" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="5"/></g>
+    <!-- triggered (bottom) -->
+    <g transform="translate(200 130)"><circle r="50" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="6"/>
+      <!-- bell glyph -->
+      <path d="M-14 8 a14 18 0 0 1 28 0 l4 6 l-36 0 z" fill="none" stroke="#c14a3a" stroke-width="4"/>
+      <circle cx="0" cy="20" r="4" fill="#c14a3a"/>
+    </g>
+    <!-- transitions -->
+    <g stroke="#1a1d24" stroke-width="3" fill="none" opacity="0.55">
+      <path d="M40 -22 L160 -104" marker-end="url(#a)"/>
+      <path d="M44 -8 L276 -8" marker-end="url(#a)"/>
+      <path d="M236 -94 L236 86" marker-end="url(#a)"/>
+      <path d="M310 40 L244 96" marker-end="url(#a)"/>
+      <path d="M158 130 L44 28" marker-end="url(#a)" stroke="#3a7d44"/>
+    </g>
+  </g>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#1a1d24" fill-opacity="0.55"/></marker>
+  </defs>
+</svg>

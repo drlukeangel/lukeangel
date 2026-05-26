@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" width="1120" height="540" role="img" aria-label="Eight separate device APIs converging into one shared domain model. On the left, eight labelled service boxes: adult brush, kids' brush, interdental, three body-care lines, and two deprecated legacy services drawn dashed. Each box lists its own clashing User, Session, and auth definitions. Arrows funnel all eight through a consolidation gate into a single shared entity domain model on the right, listing Account, Device, Consumable, Session, and Event.">
+  <rect width="1120" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">EIGHT SERVICES, EIGHT DEFINITIONS &#8594; ONE MODEL</text>
+
+  <!-- ============ LEFT: eight fragmented service boxes ============ -->
+  <g font-family="ui-monospace,monospace">
+    <!-- helper: each box shows its own clashing User / Session / auth -->
+    <!-- box 1 -->
+    <g transform="translate(40,74)">
+      <rect width="150" height="70" rx="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+      <text x="12" y="22" font-size="11.5" fill="#1a1d24">adult brush</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">User: email</text>
+      <text x="12" y="56" font-size="9.5" fill="#7a808c">auth: OAuth 2.0</text>
+    </g>
+    <!-- box 2 -->
+    <g transform="translate(210,74)">
+      <rect width="150" height="70" rx="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+      <text x="12" y="22" font-size="11.5" fill="#1a1d24">kids' brush</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">User: email+phone</text>
+      <text x="12" y="56" font-size="9.5" fill="#7a808c">auth: per-device tok</text>
+    </g>
+    <!-- box 3 -->
+    <g transform="translate(40,160)">
+      <rect width="150" height="70" rx="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+      <text x="12" y="22" font-size="11.5" fill="#1a1d24">interdental</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">Session: floss</text>
+      <text x="12" y="56" font-size="9.5" fill="#7a808c">auth: HMAC hdr</text>
+    </g>
+    <!-- box 4 -->
+    <g transform="translate(210,160)">
+      <rect width="150" height="70" rx="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+      <text x="12" y="22" font-size="11.5" fill="#1a1d24">body-care A</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">Session: usage</text>
+      <text x="12" y="56" font-size="9.5" fill="#7a808c">auth: OAuth fed</text>
+    </g>
+    <!-- box 5 -->
+    <g transform="translate(40,246)">
+      <rect width="150" height="70" rx="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+      <text x="12" y="22" font-size="11.5" fill="#1a1d24">body-care B</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">User: email+DOB</text>
+      <text x="12" y="56" font-size="9.5" fill="#7a808c">store: Redshift</text>
+    </g>
+    <!-- box 6 -->
+    <g transform="translate(210,246)">
+      <rect width="150" height="70" rx="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5"/>
+      <text x="12" y="22" font-size="11.5" fill="#1a1d24">body-care C</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">User: OAuth fed</text>
+      <text x="12" y="56" font-size="9.5" fill="#7a808c">store: 3rd-party</text>
+    </g>
+    <!-- box 7 (legacy, dashed) -->
+    <g transform="translate(40,332)">
+      <rect width="150" height="62" rx="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 5" stroke-opacity="0.8"/>
+      <text x="12" y="22" font-size="11.5" fill="#c14a3a">legacy 1</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">store: flat S3</text>
+      <text x="12" y="54" font-size="9" fill="#c14a3a">deprecated</text>
+    </g>
+    <!-- box 8 (legacy, dashed) -->
+    <g transform="translate(210,332)">
+      <rect width="150" height="62" rx="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 5" stroke-opacity="0.8"/>
+      <text x="12" y="22" font-size="11.5" fill="#c14a3a">legacy 2</text>
+      <text x="12" y="40" font-size="9.5" fill="#7a808c">store: flat S3</text>
+      <text x="12" y="54" font-size="9" fill="#c14a3a">deprecated</text>
+    </g>
+  </g>
+  <text x="200" y="424" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#3a3f4a">eight stacks, no shared definition of anything</text>
+
+  <!-- ============ CENTER: converging arrows + consolidation gate ============ -->
+  <g stroke="#357a8c" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round">
+    <path d="M362 109 C 440 140, 470 220, 556 250"/>
+    <path d="M362 195 C 440 215, 480 245, 556 258"/>
+    <path d="M362 281 C 440 275, 480 268, 556 268"/>
+    <path d="M362 363 C 440 330, 480 290, 556 278"/>
+  </g>
+
+  <!-- consolidation gate -->
+  <g>
+    <rect x="556" y="226" width="44" height="80" rx="8" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="3"/>
+    <text x="578" y="200" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">consolidate</text>
+  </g>
+  <g stroke="#357a8c" stroke-width="4" fill="#357a8c" stroke-linecap="round">
+    <line x1="600" y1="266" x2="676" y2="266"/>
+    <path d="M690 266 l-18 -9 v18 z"/>
+  </g>
+
+  <!-- ============ RIGHT: one shared domain model ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="700" y="96" width="386" height="356" rx="14" fill="#fdfaf2" stroke="#357a8c" stroke-width="3.5"/>
+    <text x="893" y="128" text-anchor="middle" font-size="14" fill="#357a8c">ONE SHARED DOMAIN MODEL</text>
+
+    <!-- five entity rows -->
+    <g>
+      <rect x="730" y="148" width="326" height="50" rx="9" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="752" y="178" font-size="14" fill="#1a1d24">Account</text>
+      <text x="1036" y="178" text-anchor="end" font-size="10" fill="#7a808c">one identity · tier</text>
+
+      <rect x="730" y="208" width="326" height="50" rx="9" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="752" y="238" font-size="14" fill="#1a1d24">Device</text>
+      <text x="1036" y="238" text-anchor="end" font-size="10" fill="#7a808c">serial · fw · type</text>
+
+      <rect x="730" y="268" width="326" height="50" rx="9" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="752" y="298" font-size="14" fill="#1a1d24">Consumable</text>
+      <text x="1036" y="298" text-anchor="end" font-size="10" fill="#7a808c">brush head · life</text>
+
+      <rect x="730" y="328" width="326" height="50" rx="9" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="752" y="358" font-size="14" fill="#1a1d24">Session</text>
+      <text x="1036" y="358" text-anchor="end" font-size="10" fill="#7a808c">start · payload</text>
+
+      <rect x="730" y="388" width="326" height="50" rx="9" fill="#357a8c" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="752" y="418" font-size="14" fill="#1a1d24">Event</text>
+      <text x="1036" y="418" text-anchor="end" font-size="10" fill="#7a808c">append-only</text>
+    </g>
+  </g>
+</svg>

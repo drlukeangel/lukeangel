@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Cart publishing to a cloud that branches into data stores">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="p2-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#p2-dots)"/>
+  <rect width="24" height="630" fill="#2a52be"/>
+
+  <!-- ===== the cart (left), abstracted to a publishing device ===== -->
+  <g transform="translate(120,300)">
+    <!-- body -->
+    <rect x="0" y="0" width="150" height="118" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- screen with abstract running-total bars -->
+    <rect x="20" y="20" width="110" height="64" rx="8" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="2.5"/>
+    <g fill="#2a52be" opacity="0.55">
+      <rect x="32" y="32" width="58" height="7" rx="3.5"/>
+      <rect x="32" y="46" width="40" height="7" rx="3.5"/>
+      <rect x="32" y="60" width="66" height="7" rx="3.5"/>
+    </g>
+    <!-- a small tap pad -->
+    <circle cx="75" cy="100" r="10" fill="none" stroke="#2a52be" stroke-width="2.4"/>
+    <!-- antenna + radiating publish waves up-right -->
+    <line x1="130" y1="0" x2="130" y2="-24" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="130" cy="-28" r="5" fill="#2a52be"/>
+    <g fill="none" stroke="#2a52be" stroke-width="3.5" stroke-linecap="round" opacity="0.9">
+      <path d="M148 -22 a40 40 0 0 1 38 -8"/>
+      <path d="M160 -42 a66 66 0 0 1 64 -12"/>
+      <path d="M172 -62 a92 92 0 0 1 90 -16"/>
+    </g>
+    <!-- wheels -->
+    <circle cx="34" cy="134" r="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <circle cx="116" cy="134" r="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+  </g>
+
+  <!-- ===== flow arrow cart -> cloud ===== -->
+  <g stroke="#1a1d24" stroke-width="4" fill="#1a1d24" opacity="0.8">
+    <line x1="380" y1="270" x2="470" y2="240"/>
+    <path d="M476 238 l-20 0 6 16 z"/>
+  </g>
+
+  <!-- ===== the cloud (center) ===== -->
+  <g transform="translate(470,150)">
+    <path d="M60 150 a64 64 0 0 1 8 -126 a76 76 0 0 1 140 -12 a58 58 0 0 1 84 44 a56 56 0 0 1 -14 94 z"
+          fill="#fdfaf2" stroke="#2a52be" stroke-width="4.5"/>
+    <!-- inner routing node: a small hub with three out-taps -->
+    <circle cx="175" cy="78" r="20" fill="#2a52be" fill-opacity="0.14" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="175" cy="78" r="6" fill="#2a52be"/>
+  </g>
+
+  <!-- ===== three branches from cloud to three stores (right) ===== -->
+  <g stroke="#2a52be" stroke-width="3.5" fill="none" opacity="0.85">
+    <path d="M770 200 C 850 200 880 150 952 150"/>
+    <path d="M778 232 C 860 232 880 300 952 300"/>
+    <path d="M770 264 C 850 264 880 446 952 446"/>
+  </g>
+  <g fill="#2a52be">
+    <path d="M956 150 l-16 -6 v12 z"/>
+    <path d="M956 300 l-16 -6 v12 z"/>
+    <path d="M956 446 l-16 -6 v12 z"/>
+  </g>
+
+  <!-- store 1: relational cylinder (entity store) -->
+  <g transform="translate(958,108)" stroke="#1a1d24" stroke-width="4" fill="#fdfaf2">
+    <ellipse cx="50" cy="14" rx="50" ry="14"/>
+    <path d="M0 14 v52 a50 14 0 0 0 100 0 v-52"/>
+    <path d="M0 40 a50 14 0 0 0 100 0" fill="none"/>
+  </g>
+  <!-- a small lock on the entity store (PII) -->
+  <g transform="translate(996,150)" stroke="#2a52be" stroke-width="3" fill="#fdfaf2">
+    <rect x="0" y="8" width="24" height="18" rx="3"/>
+    <path d="M4 8 v-4 a8 8 0 0 1 16 0 v4" fill="none"/>
+  </g>
+
+  <!-- store 2: stacked telemetry rows -->
+  <g transform="translate(958,262)">
+    <rect x="0" y="0" width="100" height="16" rx="4" fill="#2a52be" fill-opacity="0.55"/>
+    <rect x="0" y="24" width="100" height="16" rx="4" fill="#2a52be" fill-opacity="0.40"/>
+    <rect x="0" y="48" width="100" height="16" rx="4" fill="#2a52be" fill-opacity="0.28"/>
+    <rect x="0" y="72" width="100" height="16" rx="4" fill="#2a52be" fill-opacity="0.18"/>
+  </g>
+
+  <!-- store 3: bucket (artifacts/archive) -->
+  <g transform="translate(958,408)" stroke="#1a1d24" stroke-width="4" fill="#fdfaf2">
+    <path d="M0 0 h100 l-10 84 h-80 z"/>
+    <ellipse cx="50" cy="0" rx="50" ry="12" fill="#fdfaf2"/>
+  </g>
+
+  <!-- a faint certificate seal near the cart->cloud path to suggest signed messages -->
+  <g transform="translate(404,330)" opacity="0.92">
+    <circle cx="22" cy="22" r="20" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <path d="M14 22 l6 6 12 -14" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 40 l4 18 6 -8 6 8 4 -18" fill="#fdfaf2" stroke="#2a52be" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+</svg>

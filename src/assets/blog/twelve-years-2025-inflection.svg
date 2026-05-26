@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-label="2025: the arc bends the other way">
+  <rect width="1000" height="400" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24">
+
+    <text x="40" y="44" font-size="18" font-weight="700">2025 &#183; THE ARC I EXPECTED VS THE ONE THAT HAPPENED</text>
+
+    <!-- baseline year axis -->
+    <line x1="90" y1="210" x2="910" y2="210" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <text x="90" y="234" font-size="12" fill="#7a808c">2016</text>
+    <text x="470" y="234" font-size="12" fill="#7a808c" text-anchor="middle">2023 peak</text>
+    <text x="910" y="234" font-size="12" fill="#7a808c" text-anchor="end">2025</text>
+
+    <!-- the empire arc: rises 2016 (Mars buys Whistle) to 2023 peak -->
+    <path d="M90 200 Q300 120 500 100" fill="none" stroke="#1a1d24" stroke-width="3.5"/>
+    <circle cx="90" cy="200" r="5" fill="#1a1d24"/>
+    <text x="104" y="262" font-size="11" fill="#5b616b">Mars buys Whistle '16</text>
+    <circle cx="500" cy="100" r="5" fill="#1a1d24"/>
+    <text x="500" y="86" font-size="11" fill="#5b616b" text-anchor="middle">vertical integration peak</text>
+
+    <!-- expected: keeps rising (greyed, dashed) -->
+    <path d="M500 100 Q700 84 900 70" fill="none" stroke="#7a808c" stroke-width="3" stroke-dasharray="3 6"/>
+    <text x="905" y="64" font-size="11" fill="#7a808c" text-anchor="end">expected: consolidate further</text>
+
+    <!-- actual: bends down (accent) -->
+    <path d="M500 100 Q700 150 900 200" fill="none" stroke="#c87533" stroke-width="3.5"/>
+    <circle cx="900" cy="200" r="5" fill="#c87533"/>
+
+    <!-- two 2025 events markers -->
+    <g transform="translate(700,290)">
+      <rect x="-200" y="0" width="190" height="78" rx="8" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="1.5"/>
+      <text x="-105" y="26" text-anchor="middle" font-size="12.5" font-weight="700">MAY 2025</text>
+      <text x="-105" y="48" text-anchor="middle" font-size="11" fill="#5b616b">Tractive ships real</text>
+      <text x="-105" y="64" text-anchor="middle" font-size="11" fill="#5b616b">HR + resp vitals</text>
+
+      <rect x="10" y="0" width="190" height="78" rx="8" fill="#c87533" fill-opacity="0.1" stroke="#c87533" stroke-width="1.5"/>
+      <text x="105" y="26" text-anchor="middle" font-size="12.5" font-weight="700">JULY 2025</text>
+      <text x="105" y="48" text-anchor="middle" font-size="11" fill="#5b616b">Mars divests Whistle</text>
+      <text x="105" y="64" text-anchor="middle" font-size="11" fill="#5b616b">to that same Tractive</text>
+    </g>
+    <line x1="595" y1="200" x2="595" y2="288" stroke="#c87533" stroke-width="1.5" stroke-opacity="0.4"/>
+
+    <text x="40" y="386" font-size="12.5" fill="#5b616b">An outsider out-innovated the empire on vitals, then absorbed its device leg &#8212; the consolidation arc bent back.</text>
+  </g>
+</svg>

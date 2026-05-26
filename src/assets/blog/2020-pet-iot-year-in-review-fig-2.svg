@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" role="img" aria-label="Category surges, intelligence lags">
+  <rect width="1000" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700;}
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11.5px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:10.5px;fill:#5b616b;}
+    .kick{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;letter-spacing:2px;fill:#7a808c;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+    .axis{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:10px;fill:#7a808c;}
+  </style>
+
+  <text x="40" y="42" class="kick">THE CATEGORY SURGES — THE INTELLIGENCE LAGS</text>
+  <text x="40" y="64" class="sm">the 2020 pandemic pet boom drove demand vertical; the products that add real smarts still didn't ship</text>
+
+  <!-- chart frame -->
+  <line x1="90" y1="100" x2="90" y2="340" stroke="#1a1d24" stroke-width="2"/>
+  <line x1="90" y1="340" x2="700" y2="340" stroke="#1a1d24" stroke-width="2"/>
+  <text x="120" y="358" class="axis">2017</text>
+  <text x="300" y="358" class="axis">2019</text>
+  <text x="500" y="358" class="axis">2020 (pandemic)</text>
+
+  <!-- surging demand curve (accent, steep) -->
+  <polyline points="100,320 220,300 340,270 460,210 580,120 680,95" fill="none" stroke="#c87533" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="680" cy="95" r="5" fill="#c87533"/>
+  <text x="600" y="86" class="lab" fill="#c87533">demand</text>
+  <text x="360" y="180" class="sm" fill="#c87533">shelters emptied · everyone got a pet</text>
+
+  <!-- flat intelligence line (muted, near-flat) -->
+  <polyline points="100,300 220,298 340,296 460,295 580,294 680,293" fill="none" stroke="#5b616b" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+  <circle cx="680" cy="293" r="5" fill="#5b616b"/>
+  <text x="600" y="285" class="lab" fill="#5b616b">on-device smarts</text>
+
+  <!-- still-missing callouts -->
+  <g transform="translate(730,110)">
+    <rect x="0" y="0" width="230" height="100" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="16" y="26" class="lab" fill="#c14a3a">still doesn't exist</text>
+    <text x="16" y="50" class="sm">✗ a collar that reads true</text>
+    <text x="16" y="66" class="sm">  vitals (temp / HR)</text>
+    <text x="16" y="88" class="sm">  — all "health" = behavior</text>
+  </g>
+  <g transform="translate(730,228)">
+    <rect x="0" y="0" width="230" height="100" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="16" y="26" class="lab" fill="#c14a3a">still doesn't exist</text>
+    <text x="16" y="50" class="sm">✗ a litter box that knows</text>
+    <text x="16" y="66" class="sm">  which cat used it</text>
+    <text x="16" y="88" class="sm">  — I do it with a script</text>
+  </g>
+
+  <line x1="40" y1="396" x2="960" y2="396" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="500" y="428" text-anchor="middle" class="cap">I keep forecasting the category will get smarter on its own; it keeps making me build the smart part myself.</text>
+</svg>

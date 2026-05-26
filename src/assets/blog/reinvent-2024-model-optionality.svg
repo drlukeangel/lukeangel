@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" width="1120" height="460" role="img" aria-label="The model layer shifts from one model to an eval-driven split.">
+  <rect width="1120" height="460" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- divider -->
+  <line x1="540" y1="40" x2="540" y2="420" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- ===== LEFT: before — single-model monopoly ===== -->
+  <text x="40" y="58" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="14" fill="#1a1d24">Before — one model, no choice to make</text>
+  <text x="40" y="80" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">vendor-driven: every request to one model</text>
+
+  <!-- app node -->
+  <rect x="80" y="150" width="150" height="58" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="155" y="185" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">our app</text>
+
+  <!-- single arrow to single model -->
+  <g stroke="#1a1d24" stroke-width="2.8" fill="none"><path d="M230 179 H 320"/></g>
+  <g fill="#1a1d24"><path d="M320 179 l-15 -6 v12 z"/></g>
+
+  <rect x="324" y="150" width="160" height="58" rx="12" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+  <text x="404" y="178" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#4f46b8">reasoning model</text>
+  <text x="404" y="196" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">(all traffic)</text>
+
+  <text x="282" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">one model carries the cheap</text>
+  <text x="282" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">and the hard work alike</text>
+
+  <!-- ===== RIGHT: after — eval-driven split ===== -->
+  <text x="580" y="58" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">After — an eval picks the path per request</text>
+  <text x="580" y="80" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">eval-driven: route by task, not by vendor</text>
+
+  <!-- app node -->
+  <rect x="588" y="180" width="140" height="58" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="658" y="215" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">our app</text>
+
+  <!-- router diamond -->
+  <g transform="translate(800,209)">
+    <path d="M0 -34 L34 0 L0 34 L-34 0 Z" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+    <text x="0" y="-2" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#4f46b8">eval</text>
+    <text x="0" y="13" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#4f46b8">route</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="2.6" fill="none"><path d="M728 209 H 762"/></g>
+  <g fill="#1a1d24"><path d="M762 209 l-14 -6 v12 z"/></g>
+
+  <!-- two branches -->
+  <g stroke="#1a1d24" stroke-width="2.4" fill="none" opacity="0.85">
+    <path d="M834 192 C 880 150, 910 140, 952 140"/>
+    <path d="M834 226 C 880 268, 910 280, 952 280"/>
+  </g>
+  <g fill="#1a1d24">
+    <path d="M952 140 l-16 -5 v11 z"/>
+    <path d="M952 280 l-16 -5 v11 z"/>
+  </g>
+
+  <!-- cheap path -->
+  <rect x="956" y="116" width="138" height="48" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.8"/>
+  <text x="1025" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#3a7d44">cheap model</text>
+  <text x="1025" y="155" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">high-volume class.</text>
+
+  <!-- reasoning path -->
+  <rect x="956" y="256" width="138" height="48" rx="10" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.8"/>
+  <text x="1025" y="278" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#4f46b8">reasoning model</text>
+  <text x="1025" y="295" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">harder path</text>
+
+  <text x="560" y="416" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Not a capability change — an optionality change. The choice is now an eval, not a contract.</text>
+</svg>

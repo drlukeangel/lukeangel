@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="Which appliance routines survive">
+  <rect width="800" height="400" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;font-weight:bold}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:13px;fill:#5b616b}
+  </style>
+
+  <!-- left: survives -->
+  <rect x="24" y="48" width="356" height="296" rx="8" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="hd" x="44" y="74" fill="#3a7d44">reacts to a sensor that can't be wrong</text>
+  <text class="sm" x="44" y="92">— these survive</text>
+
+  <g>
+    <!-- check rows -->
+    <g transform="translate(44,116)"><path d="M0,4 l5,6 l11,-13" fill="none" stroke="#3a7d44" stroke-width="2.5"/></g>
+    <text class="lbl" x="70" y="123">oven preheating -&gt; lights + hood</text>
+    <g transform="translate(44,150)"><path d="M0,4 l5,6 l11,-13" fill="none" stroke="#3a7d44" stroke-width="2.5"/></g>
+    <text class="lbl" x="70" y="157">probe at target -&gt; 3 screens</text>
+    <g transform="translate(44,184)"><path d="M0,4 l5,6 l11,-13" fill="none" stroke="#3a7d44" stroke-width="2.5"/></g>
+    <text class="lbl" x="70" y="191">wash finished -&gt; nudge + remind</text>
+    <g transform="translate(44,218)"><path d="M0,4 l5,6 l11,-13" fill="none" stroke="#3a7d44" stroke-width="2.5"/></g>
+    <text class="lbl" x="70" y="225">running + RH&gt;55 -&gt; dehumidifier</text>
+  </g>
+  <text class="sm" x="44" y="268">the trigger is a fact the appliance</text>
+  <text class="sm" x="44" y="284">measured: a temperature, a cycle</text>
+  <text class="sm" x="44" y="300">state, an ambient reading.</text>
+  <text class="sm" x="44" y="324">nothing assumed about the room.</text>
+
+  <!-- right: removed -->
+  <rect x="420" y="48" width="356" height="296" rx="8" fill="#fff" stroke="#c14a3a" stroke-width="1.5"/>
+  <text class="hd" x="440" y="74" fill="#c14a3a">assumes the physical world's state</text>
+  <text class="sm" x="440" y="92">— these got removed</text>
+
+  <g>
+    <g transform="translate(440,114)"><path d="M0,0 l14,14 M14,0 l-14,14" stroke="#c14a3a" stroke-width="2.5"/></g>
+    <text class="lbl" x="466" y="125">auto-start washer (assumes loaded)</text>
+    <g transform="translate(440,148)"><path d="M0,0 l14,14 M14,0 l-14,14" stroke="#c14a3a" stroke-width="2.5"/></g>
+    <text class="lbl" x="466" y="159">AI food-expiry (assumes cam right)</text>
+    <g transform="translate(440,182)"><path d="M0,0 l14,14 M14,0 l-14,14" stroke="#c14a3a" stroke-width="2.5"/></g>
+    <text class="lbl" x="466" y="193">voice-start dishwasher (latched?)</text>
+  </g>
+  <text class="sm" x="440" y="244">each one trusts an unobserved</text>
+  <text class="sm" x="440" y="260">condition — a loaded drum, an</text>
+  <text class="sm" x="440" y="276">accurate camera, a closed door.</text>
+  <text class="sm" x="440" y="300">reality disagrees -&gt; small flood,</text>
+  <text class="sm" x="440" y="316">false flag, resentful family.</text>
+
+  <text class="cap" x="24" y="378">The dividing line after 18 months: routines that fire on a measured fact survive; routines that assume the room's state get pulled.</text>
+
+  <defs></defs>
+</svg>

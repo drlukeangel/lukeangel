@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 48
 excerpt: "Three more Bespoke appliances installed. Slide-in induction oven, dishwasher, washer/dryer combo. All on SmartThings, all on the Family Hub fridge."
 pullquote: "An induction oven that texts you when the roast hits 145°F is useful. A washer that texts you when the cycle ends is useful. The collective 'kitchen + laundry as one system' is what changes how you use the appliances."
-cover: "../../assets/blog/samsung-oven-dishwasher-washer-dryer-cover.png"
-coverAlt: "Samsung Bespoke oven + dishwasher + washer/dryer"
+cover: "../../assets/blog/samsung-oven-dishwasher-washer-dryer-cover.svg"
+coverAlt: "Four Bespoke appliances — an oven, a dishwasher, a washer, and a dryer — arranged around a central hub node, each wired to it. The kitchen and laundry appliances aren't four separate gadgets; they're one connected system reporting to and taking commands from a single SmartThings hub."
 ---
 
 Three more Samsung Bespoke appliances installed today. The kitchen + laundry suite is complete.
@@ -37,6 +37,8 @@ The induction oven exposes several connected features through SmartThings:
 
 The induction cooktop is *not* networked controllable for individual burners (safety concerns I'd agree with — you don't want random web hits turning on a burner). The temperature control is local-only. SmartThings sees cooktop state (on/off, current power level) read-only.
 
+![Where the oven draws its control boundary, in two columns. Controllable over the network: preheat to a target temp, select bake/roast/air-fry mode, the Wi-Fi probe target and notify, and the cycle-complete push — all things that fail safe, where the worst case is heating an empty cavity. Local-only by design, marked with red crosses: turning a cooktop burner on, and setting a burner power level; SmartThings can read cooktop state but only read-only. A caption notes the line isn't arbitrary — anything that could start a fire stays off the network, and I'd agree with that boundary.](../../assets/blog/bespoke-oven-control-boundary.svg)
+
 ## The HA automations on the oven
 
 ```yaml
@@ -59,7 +61,7 @@ The induction cooktop is *not* networked controllable for individual burners (sa
   action:
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "🍖 Oven probe target reached"
+        title: "Oven probe target reached"
         message: "Probe at {{ states('sensor.oven_probe_temperature') }}°F"
     - service: notify.alexa_media_kitchen
       data:
@@ -83,6 +85,8 @@ The wash-cycle complete notification is genuinely valuable. Used to mean "rememb
 The dryer's smart-cycle-selection (it weighs the wet load to estimate run time) shaved ~25 minutes off the average dryer cycle vs the old time-based one.
 
 ## The "kitchen + laundry as one system" win
+
+![What "one system" actually buys, drawn as a left-to-right flow. On the left, the appliances emit state: the oven goes to "preheating" as its surface temperature climbs; the probe reports target reached; the dishwasher and oven both finish within ten minutes with humidity above 60; the wash cycle finishes. All of those feed into Home Assistant in the center, running the rules locally. On the right, the house responds: an Echo announces the preheat, phones get a push, the dehumidifier runs for thirty minutes, and the counter LED turns red while the oven is hot. A caption notes none of these were possible with a non-connected oven, and the kid-warning LED in particular just works now.](../../assets/blog/bespoke-kitchen-laundry-event-flow.svg)
 
 What's emergent from having all of these on one ecosystem:
 
@@ -155,6 +159,6 @@ Same as the fridge: dedicated Samsung account, IoT VLAN with restricted egress, 
 
 ## What's next
 
-- Frame TV ecosystem post (June).
+- The Frame TV ecosystem post, once I've lived with it long enough to have something to say.
 - A "smart laundry chute" project — DIY ESP-based sensor to detect when the upstairs hamper hits a fullness threshold, push notify when full.
-- Solar + battery system planning for 2025.
+- Solar + battery system planning.

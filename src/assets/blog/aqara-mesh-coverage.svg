@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" role="img" aria-label="Sensor mesh coverage">
+  <rect width="880" height="480" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#7a808c}
+  </style>
+
+  <!-- house outline -->
+  <path d="M120 200 L440 90 L760 200 L760 410 L120 410 Z" fill="none" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.5"/>
+  <line x1="440" y1="410" x2="440" y2="250" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.2"/>
+  <line x1="120" y1="300" x2="760" y2="300" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.2"/>
+
+  <!-- coordinator (Pi + stick) bottom-centre -->
+  <g transform="translate(440 360)">
+    <rect x="-34" y="-22" width="68" height="44" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="-20" cy="-9" r="4" fill="#3a7d44"/>
+    <rect x="34" y="-7" width="26" height="14" rx="4" fill="#6a4c93"/>
+  </g>
+  <text class="mut" x="406" y="402">coordinator</text>
+
+  <!-- two routers (plugs) -->
+  <g transform="translate(270 250)">
+    <rect x="-18" y="-18" width="36" height="36" rx="7" fill="#6a4c93" fill-opacity="0.18" stroke="#6a4c93" stroke-width="3"/>
+    <circle cx="-6" cy="0" r="3" fill="#1a1d24"/><circle cx="6" cy="0" r="3" fill="#1a1d24"/>
+  </g>
+  <g transform="translate(610 250)">
+    <rect x="-18" y="-18" width="36" height="36" rx="7" fill="#6a4c93" fill-opacity="0.18" stroke="#6a4c93" stroke-width="3"/>
+    <circle cx="-6" cy="0" r="3" fill="#1a1d24"/><circle cx="6" cy="0" r="3" fill="#1a1d24"/>
+  </g>
+  <text class="mut" x="246" y="296">router</text>
+  <text class="mut" x="586" y="296">router</text>
+
+  <!-- links coordinator->routers -->
+  <g stroke="#6a4c93" stroke-width="3" stroke-opacity="0.7">
+    <line x1="412" y1="350" x2="286" y2="266"/>
+    <line x1="468" y1="350" x2="594" y2="266"/>
+  </g>
+
+  <!-- six contact sensors at openings, healthy -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="3">
+    <g transform="translate(150 250)"><rect x="-14" y="-9" width="20" height="18" rx="3"/><rect x="8" y="-6" width="9" height="12" rx="2"/></g>
+    <g transform="translate(270 165)"><rect x="-14" y="-9" width="20" height="18" rx="3"/><rect x="8" y="-6" width="9" height="12" rx="2"/></g>
+    <g transform="translate(160 380)"><rect x="-14" y="-9" width="20" height="18" rx="3"/><rect x="8" y="-6" width="9" height="12" rx="2"/></g>
+    <g transform="translate(610 165)"><rect x="-14" y="-9" width="20" height="18" rx="3"/><rect x="8" y="-6" width="9" height="12" rx="2"/></g>
+    <g transform="translate(720 270)"><rect x="-14" y="-9" width="20" height="18" rx="3"/><rect x="8" y="-6" width="9" height="12" rx="2"/></g>
+  </g>
+  <!-- healthy links sensor->nearest router -->
+  <g stroke="#6a4c93" stroke-width="2.5" stroke-opacity="0.6">
+    <line x1="164" y1="250" x2="252" y2="250"/>
+    <line x1="272" y1="182" x2="270" y2="232"/>
+    <line x1="172" y1="372" x2="254" y2="262"/>
+    <line x1="610" y1="182" x2="610" y2="232"/>
+    <line x1="708" y1="266" x2="628" y2="254"/>
+  </g>
+
+  <!-- one dropped sensor far from any router -->
+  <g transform="translate(720 380)">
+    <line x1="-90" y1="-118" x2="-6" y2="-2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 7" stroke-opacity="0.8"/>
+    <g fill="#fdfaf2" stroke="#7a808c" stroke-width="3" stroke-dasharray="4 4">
+      <rect x="-14" y="-9" width="20" height="18" rx="3"/><rect x="8" y="-6" width="9" height="12" rx="2"/>
+    </g>
+  </g>
+  <text class="mut" x="676" y="420">no router in range</text>
+</svg>

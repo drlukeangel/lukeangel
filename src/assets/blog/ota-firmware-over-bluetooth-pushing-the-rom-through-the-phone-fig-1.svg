@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" width="1080" height="540" role="img" aria-label="The seven stages of an OTA update.">
+  <rect width="1080" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE UPDATE, SEVEN STAGES — ACROSS THREE TIERS</text>
+
+  <!-- tier lanes -->
+  <g font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">
+    <text x="44" y="96">CLOUD</text>
+    <text x="44" y="246">PHONE</text>
+    <text x="44" y="396">DEVICE</text>
+  </g>
+  <g stroke="#1a1d24" stroke-opacity="0.1" stroke-width="1">
+    <line x1="34" y1="178" x2="1046" y2="178"/>
+    <line x1="34" y1="328" x2="1046" y2="328"/>
+  </g>
+
+  <!-- stage box helper styling repeated inline -->
+  <!-- 1 build+sign (cloud) -->
+  <g transform="translate(120,108)">
+    <rect x="0" y="0" width="160" height="58" rx="10" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="2.6"/>
+    <text x="16" y="24" font-family="ui-monospace,monospace" font-size="13" fill="#357a8c">1 · BUILD &amp; SIGN</text>
+    <text x="16" y="44" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">HSM key · versioned</text>
+  </g>
+  <!-- 2 cohort (cloud) -->
+  <g transform="translate(320,108)">
+    <rect x="0" y="0" width="160" height="58" rx="10" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="2.6"/>
+    <text x="16" y="24" font-family="ui-monospace,monospace" font-size="13" fill="#357a8c">2 · COHORT</text>
+    <text x="16" y="44" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">rev · ver · canary</text>
+  </g>
+  <!-- 3 phone fetch (phone) -->
+  <g transform="translate(320,258)">
+    <rect x="0" y="0" width="160" height="58" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <text x="16" y="24" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">3 · FETCH</text>
+    <text x="16" y="44" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">HTTPS · cache image</text>
+  </g>
+  <!-- 4 transfer (phone) -->
+  <g transform="translate(520,258)">
+    <rect x="0" y="0" width="160" height="58" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <text x="16" y="24" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">4 · TRANSFER</text>
+    <text x="16" y="44" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">stream → Bank 1</text>
+  </g>
+  <!-- 5 verify+commit (device) -->
+  <g transform="translate(520,408)">
+    <rect x="0" y="0" width="160" height="58" rx="10" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.6"/>
+    <text x="16" y="24" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">5 · VERIFY+COMMIT</text>
+    <text x="16" y="44" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">SHA-256 · sig · swap</text>
+  </g>
+  <!-- 6 boot+attest (device) -->
+  <g transform="translate(720,408)">
+    <rect x="0" y="0" width="160" height="58" rx="10" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.6"/>
+    <text x="16" y="24" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">6 · BOOT+ATTEST</text>
+    <text x="16" y="44" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">"booted clean X.Y.Z"</text>
+  </g>
+  <!-- 7 rollback (device) -->
+  <g transform="translate(720,258)">
+    <rect x="0" y="0" width="160" height="58" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+    <text x="16" y="24" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">7 · ROLL BACK</text>
+    <text x="16" y="44" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">no check-in → revert</text>
+  </g>
+
+  <!-- arrows along the path -->
+  <g stroke="#7a808c" stroke-width="2.6" fill="#7a808c" stroke-linecap="round">
+    <!-- 1->2 -->
+    <line x1="280" y1="137" x2="316" y2="137"/><path d="M320 137 l-12 -6 v12 z"/>
+    <!-- 2->3 (down a tier) -->
+    <line x1="400" y1="166" x2="400" y2="254"/><path d="M400 258 l-6 -12 12 0 z"/>
+    <!-- 3->4 -->
+    <line x1="480" y1="287" x2="516" y2="287"/><path d="M520 287 l-12 -6 v12 z"/>
+    <!-- 4->5 (down a tier) -->
+    <line x1="600" y1="316" x2="600" y2="404"/><path d="M600 408 l-6 -12 12 0 z"/>
+    <!-- 5->6 -->
+    <line x1="680" y1="437" x2="716" y2="437"/><path d="M720 437 l-12 -6 v12 z"/>
+    <!-- 6->attest up to cloud -->
+    <line x1="800" y1="408" x2="800" y2="170"/><path d="M800 166 l-6 12 12 0 z"/>
+  </g>
+  <text x="824" y="290" font-family="ui-monospace,monospace" font-size="10" fill="#5b616b">attest ↑</text>
+  <!-- 6->7 fallback (dashed red) -->
+  <g stroke="#c14a3a" stroke-width="2.4" fill="#c14a3a" stroke-linecap="round" stroke-dasharray="6 5">
+    <line x1="800" y1="408" x2="800" y2="320"/>
+  </g>
+  <path d="M800 316 l-6 12 12 0 z" fill="#c14a3a"/>
+  <text x="812" y="372" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">no check-in</text>
+
+  <!-- caption -->
+  <text x="44" y="520" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">Stages 5–7 are the safety system; the rest is plumbing. The fetch is decoupled from the slow Bluetooth push.</text>
+</svg>

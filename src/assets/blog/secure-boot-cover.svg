@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A microchip with a fused lock as the immutable root of trust, and a chain of verified boot stages rising from it — each stage checked before the next runs.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="sb-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sb-dots)"/>
+  <rect width="24" height="630" fill="#c14a3a"/>
+
+  <!-- chip: the immutable root of trust -->
+  <g transform="translate(180,350)">
+    <g stroke="#1a1d24" stroke-width="6" stroke-linecap="round">
+      <line x1="-18" y1="50" x2="0" y2="50"/><line x1="-18" y1="105" x2="0" y2="105"/><line x1="-18" y1="160" x2="0" y2="160"/>
+      <line x1="210" y1="50" x2="228" y2="50"/><line x1="210" y1="105" x2="228" y2="105"/><line x1="210" y1="160" x2="228" y2="160"/>
+      <line x1="55" y1="-18" x2="55" y2="0"/><line x1="105" y1="-18" x2="105" y2="0"/><line x1="155" y1="-18" x2="155" y2="0"/>
+    </g>
+    <rect x="0" y="0" width="210" height="210" rx="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <g transform="translate(76,72)" fill="none" stroke="#c14a3a" stroke-width="6" stroke-linecap="round">
+      <rect x="0" y="26" width="58" height="46" rx="8" fill="#fdfaf2"/>
+      <path d="M10 26 v-13 a19 19 0 0 1 38 0 v13"/>
+      <circle cx="29" cy="49" r="6" fill="#c14a3a" stroke="none"/>
+    </g>
+  </g>
+
+  <!-- chain of trust rising from the chip -->
+  <g stroke="#1a1d24" stroke-width="4" opacity="0.55">
+    <line x1="408" y1="445" x2="486" y2="445"/>
+    <line x1="610" y1="420" x2="676" y2="360"/>
+    <line x1="800" y1="320" x2="866" y2="260"/>
+  </g>
+  <g>
+    <rect x="486" y="406" width="126" height="80" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <path d="M522 446 l15 15 30 -36" fill="none" stroke="#3a7d44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="676" y="306" width="126" height="80" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <path d="M712 346 l15 15 30 -36" fill="none" stroke="#3a7d44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="866" y="206" width="126" height="80" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <path d="M902 246 l15 15 30 -36" fill="none" stroke="#3a7d44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

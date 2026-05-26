@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A twelve-year arc of pet devices">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#c87533"/>
+
+  <!-- the long arc: a gentle curve rising then settling across the canvas -->
+  <path d="M120 470 C320 360, 520 300, 720 300 C900 300, 1010 350, 1080 430"
+        fill="none" stroke="#1a1d24" stroke-width="3" opacity="0.25"/>
+
+  <!-- milestone nodes along the arc, each a small device glyph -->
+
+  <!-- 1) 2013 BLE puck -->
+  <g transform="translate(150,452)">
+    <circle cx="0" cy="0" r="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="0" r="7" fill="#c87533"/>
+    <g stroke="#c87533" stroke-width="2.4" fill="none"><path d="M12 -8 a13 13 0 0 1 0 16"/></g>
+  </g>
+
+  <!-- 2) cellular tower (2016) -->
+  <g transform="translate(330,372)">
+    <path d="M-12 22 L0 -16 L12 22" fill="none" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="-7" y1="6" x2="7" y2="6" stroke="#1a1d24" stroke-width="3"/>
+    <g stroke="#c87533" stroke-width="2.4" fill="none"><path d="M2 -20 a16 16 0 0 1 14 4"/><path d="M-2 -20 a16 16 0 0 0 -14 4"/></g>
+  </g>
+
+  <!-- 3) camera (2016-2020) -->
+  <g transform="translate(510,316)">
+    <rect x="-22" y="-15" width="44" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="0" r="9" fill="none" stroke="#c87533" stroke-width="3"/>
+    <circle cx="0" cy="0" r="3" fill="#c87533"/>
+  </g>
+
+  <!-- 4) litter-robot globe (2017-2022) -->
+  <g transform="translate(700,300)">
+    <circle cx="0" cy="-2" r="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M-14 6 A20 20 0 0 0 14 6" fill="none" stroke="#c87533" stroke-width="3"/>
+    <rect x="-12" y="14" width="24" height="8" rx="2" fill="#1a1d24" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2"/>
+  </g>
+
+  <!-- 5) health collar (2021) -->
+  <g transform="translate(890,316)">
+    <path d="M-20 -10 q20 16 40 0" fill="none" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="2" r="11" fill="#c87533"/>
+    <path d="M-5 2 l3 0 l2 -5 l3 10 l2 -5 l3 0" fill="none" stroke="#fdfaf2" stroke-width="2.2"/>
+  </g>
+
+  <!-- 6) DIY board (2025) - the present end -->
+  <g transform="translate(1070,430)">
+    <rect x="-22" y="-16" width="44" height="32" rx="5" fill="#1a1d24"/>
+    <rect x="-12" y="-9" width="18" height="13" rx="2" fill="#fdfaf2" opacity="0.9"/>
+    <path d="M10 -10 h8 v5 h-6 v5 h6" fill="none" stroke="#c87533" stroke-width="2.4"/>
+    <g fill="#c87533"><rect x="-16" y="12" width="3" height="7"/><rect x="-9" y="12" width="3" height="7"/><rect x="-2" y="12" width="3" height="7"/><rect x="5" y="12" width="3" height="7"/></g>
+  </g>
+
+  <!-- four faint pet-presence ticks beneath the arc (Atom, Joule, Boson, Quark) — Atom's ends partway -->
+  <g stroke-linecap="round">
+    <line x1="150" y1="540" x2="940" y2="540" stroke="#1a1d24" stroke-width="5" opacity="0.5"/>
+    <circle cx="940" cy="540" r="5" fill="#1a1d24" opacity="0.5"/>
+    <line x1="230" y1="558" x2="1080" y2="558" stroke="#c87533" stroke-width="5" opacity="0.6"/>
+    <line x1="640" y1="576" x2="1080" y2="576" stroke="#c87533" stroke-width="5" opacity="0.4"/>
+    <line x1="760" y1="594" x2="1080" y2="594" stroke="#1a1d24" stroke-width="5" opacity="0.35"/>
+  </g>
+</svg>

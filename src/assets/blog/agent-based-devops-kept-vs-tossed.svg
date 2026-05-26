@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="Kept versus tossed agentic workflows.">
+  <rect width="960" height="560" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- column headers -->
+  <text x="250" y="52" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="3" fill="#3a7d44">KEPT</text>
+  <text x="710" y="52" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="3" fill="#c14a3a">TOSSED</text>
+
+  <text x="250" y="78" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#7a808c">boring, judgment-shaped, advisory</text>
+  <text x="710" y="78" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#7a808c">impressive, but quietly wrong</text>
+
+  <!-- dividing line -->
+  <line x1="480" y1="100" x2="480" y2="520" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 6" stroke-opacity="0.35"/>
+
+  <!-- KEPT cards -->
+  <!-- helper: green check, four cards -->
+  <g>
+    <!-- card 1 -->
+    <rect x="40" y="110" width="420" height="84" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <g transform="translate(74,152)" stroke="#3a7d44" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="14"/><path d="M-6 0 L-1 5 L7 -6"/>
+    </g>
+    <text x="108" y="146" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">Dependency upgrades</text>
+    <text x="108" y="172" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">~950 of 1,200 PRs auto-merged</text>
+
+    <!-- card 2 -->
+    <rect x="40" y="208" width="420" height="84" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <g transform="translate(74,250)" stroke="#3a7d44" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="14"/><path d="M-6 0 L-1 5 L7 -6"/>
+    </g>
+    <text x="108" y="244" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">PR review (advisory)</text>
+    <text x="108" y="270" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">+30% substantive human comments</text>
+
+    <!-- card 3 -->
+    <rect x="40" y="306" width="420" height="84" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <g transform="translate(74,348)" stroke="#3a7d44" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="14"/><path d="M-6 0 L-1 5 L7 -6"/>
+    </g>
+    <text x="108" y="342" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">Documentation drift</text>
+    <text x="108" y="368" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">catches ~70% of undocumented changes</text>
+
+    <!-- card 4 -->
+    <rect x="40" y="404" width="420" height="84" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <g transform="translate(74,446)" stroke="#3a7d44" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="14"/><path d="M-6 0 L-1 5 L7 -6"/>
+    </g>
+    <text x="108" y="440" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">Incident brief assembly</text>
+    <text x="108" y="466" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">assembles, never mutates state</text>
+  </g>
+
+  <!-- TOSSED cards -->
+  <g>
+    <!-- card 1 -->
+    <rect x="500" y="158" width="420" height="100" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3" stroke-dasharray="9 6"/>
+    <g transform="translate(534,208)" stroke="#c14a3a" stroke-width="4.5" fill="none" stroke-linecap="round">
+      <line x1="-10" y1="-10" x2="10" y2="10"/><line x1="10" y1="-10" x2="-10" y2="10"/>
+    </g>
+    <text x="568" y="200" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">Test generation</text>
+    <text x="568" y="226" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">tested the code, not the contract —</text>
+    <text x="568" y="246" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">false confidence, worse than none</text>
+
+    <!-- card 2 -->
+    <rect x="500" y="306" width="420" height="100" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3" stroke-dasharray="9 6"/>
+    <g transform="translate(534,356)" stroke="#c14a3a" stroke-width="4.5" fill="none" stroke-linecap="round">
+      <line x1="-10" y1="-10" x2="10" y2="10"/><line x1="10" y1="-10" x2="-10" y2="10"/>
+    </g>
+    <text x="568" y="348" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">Auto-fix the lint</text>
+    <text x="568" y="374" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">"fixed" load-bearing disables —</text>
+    <text x="568" y="394" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">wrong-fix cost beat the savings</text>
+  </g>
+</svg>

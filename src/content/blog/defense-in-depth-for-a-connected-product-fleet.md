@@ -1,6 +1,6 @@
 ---
 title: "Defense in depth for a connected-product fleet"
-date: 2025-03-11T10:24:00-04:00
+date: 2025-12-02T11:00:00-05:00
 category: tools
 tags:
   - iot
@@ -10,22 +10,34 @@ tags:
   - hardware
   - gdpr
 notebook: iot-security
-notebookOrder: 2
-excerpt: "The November cert post got a stack of reader questions about the rest of the security model. Here's the full seven-layer defense-in-depth shape we ended up with."
+notebookOrder: 1
+excerpt: "The whole connected-product security stack, end to end: seven layers from the silicon up, how they sit on the data path device-to-cloud, and where each one gets its own deep-dive. Start here."
 pullquote: "A single layer of security is hope. Seven layers, each cheap and known to its owner, is a posture."
-cover: "../../assets/blog/defense-in-depth-iot-cover.svg"
-coverAlt: "Cover graphic — Defense in depth for a connected-product fleet. March 2025."
+cover: "../../assets/blog/defense-in-depth-cover.svg"
+coverAlt: "Defense in depth: seven nested layers wrapped around a single locked core."
 ---
 
-The [device identity post](/blog/field-grade-device-identity-at-fleet-scale/) I wrote in November pulled in more reader email than anything else I'd published last year. Variants of the same question, asked by a half dozen different engineering leaders running connected products:
+This is the map for the whole series. Every other post takes one layer of connected-product security down to the studs; this one is the shape of the whole thing — how the layers sit on the real data path, device to cloud:
 
-> *Per-device certs are great. What about everything else? Network? Cloud? Data? What does the whole stack look like?*
+![The connected-product stack end to end: data flows from the device (secure element) over mTLS to the ingest broker, then rules and validation, stream processing, time-series storage, and apps; beneath it the security layers map onto the pipeline — boot and identity at the device, mutual TLS on the wire, per-device authorization at ingest, KMS and classification at storage, and detection watching every stage.](../../assets/blog/iot-security-architecture.svg)
 
-I've been meaning to write this up for months. Here it is — the seven-layer defense-in-depth shape the team I lead converged on, with what's mine, what's the cloud provider's, and what I'd rebuild differently next time.
+The series walks that stack one layer at a time:
+
+1. **Hardware** — [Secure Boot](/blog/secure-boot-trusting-your-own-code/): a device learns to trust its own code.
+2. **Identity** — [the device-and-cloud handshake](/blog/pki-behind-a-device-cert/): proving who's who, both ways.
+3. **Authorization** — [authenticated isn't authorized](/blog/authenticated-isnt-authorized/): least privilege.
+4. **Data** — [at rest and in motion](/blog/protecting-device-data/): encryption and classification.
+5. **Updates** — [securing what you flash](/blog/securing-ota-updates/): blast radius, signing, key rotation.
+6. **Detection** — [the smoke alarm, not the lock](/blog/detection-and-response/): anomaly detection and response.
+7. **The fleet** — [identity at scale](/blog/field-grade-device-identity-at-fleet-scale/): provisioning, rotation, revocation.
+
+The rest of this post is the layer model itself — seven owners, seven failure modes, seven remediation costs, and what I'd rebuild differently next time.
 
 ## The framing
 
 A connected-product fleet has roughly **seven layers** where security decisions get made. Each layer has a different owner, a different failure mode, and a different remediation cost. Defense in depth means treating each layer as independent and assuming the layer above and below will, eventually, be compromised.
+
+![Seven nested security layers wrapped around a single device core: hardware (key in the secure element) innermost, then firmware, identity, transport, cloud, data, and detection outermost, each ring assuming the one inside it can be compromised.](../../assets/blog/defense-in-depth-for-a-connected-product-fleet-fig-1.svg)
 
 | # | Layer | Owns it | Worst failure mode |
 | --- | --- | --- | --- |
@@ -38,6 +50,12 @@ A connected-product fleet has roughly **seven layers** where security decisions 
 | 7 | Detection + Response | Ops / security engineer | Compromised device runs undetected for weeks |
 
 The order isn't strict — many of these run in parallel — but it's the order in which compromise *cascades*. A broken Layer 1 invalidates 3 and 4. A broken Layer 5 invalidates 6 and 7.
+
+![How compromise cascades upward: a broken hardware layer makes the identity and transport layers above it moot; a broken cloud layer leaves the data and detection layers exposed and blind. The discipline is keeping each layer independent, so when one breaks the others compensate while you fix it.](../../assets/blog/defense-in-depth-for-a-connected-product-fleet-fig-2.svg)
+
+Below is the same seven-layer model laid out by owner and by what a break actually costs to remediate — the silicon at the bottom is the one you can't patch:
+
+![The seven layers by owner and remediation cost: hardware (hardware engineer plus manufacturing) costs a board respin to fix, the most expensive; firmware costs an emergency OTA; identity a cert re-issue; transport a policy and reconnect; cloud an IAM redeploy; data a disclosure and GDPR exposure; detection only a tuning pass. Hardware and data carry the heaviest remediation cost.](../../assets/blog/defense-in-depth-for-a-connected-product-fleet-fig-3.svg)
 
 ## Layer 1 — Hardware
 

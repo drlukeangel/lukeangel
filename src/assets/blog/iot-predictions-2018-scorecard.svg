@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="920" height="560" role="img" aria-label="2017 prediction scorecard.">
+  <rect width="920" height="560" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <rect x="0" y="0" width="8" height="560" rx="4" fill="#0066cc"/>
+
+  <text x="44" y="56" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="22" fill="#1a1d24" font-weight="600">2017 CALLS</text>
+  <text x="640" y="56" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="18" fill="#7a808c">RESULT</text>
+
+  <!-- legend -->
+  <g font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#5b616b">
+    <circle cx="48" cy="80" r="7" fill="#3a7d44"/><path d="M44.5 80 l2.5 3 l4.5 -6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="62" y="85">hit</text>
+    <circle cx="140" cy="80" r="7" fill="#7a808c"/><path d="M140 73.5 a6.5 6.5 0 0 1 0 13 z" fill="#3a7d44"/>
+    <text x="154" y="85">half-hit</text>
+  </g>
+
+  <!-- rows -->
+  <g font-family="ui-monospace,'JetBrains Mono',monospace" font-size="17" fill="#1a1d24">
+    <!-- row helper: line + label + marker -->
+    <g transform="translate(0,118)">
+      <line x1="44" y1="0" x2="876" y2="0" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+    </g>
+
+    <!-- 1 -->
+    <text x="44" y="150">HomePod slips past Christmas</text>
+    <g transform="translate(700,144)"><circle r="11" fill="#3a7d44"/><path d="M-5 0 l4 5 l7 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="730" y="150" fill="#3a7d44" font-size="15">hit</text>
+
+    <line x1="44" y1="170" x2="876" y2="170" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+    <!-- 2 -->
+    <text x="44" y="202">AirPods become the quiet hit</text>
+    <g transform="translate(700,196)"><circle r="11" fill="#3a7d44"/><path d="M-5 0 l4 5 l7 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="730" y="202" fill="#3a7d44" font-size="15">hit</text>
+
+    <line x1="44" y1="222" x2="876" y2="222" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+    <!-- 3 -->
+    <text x="44" y="254">Smart displays become a category</text>
+    <g transform="translate(700,248)"><circle r="11" fill="#3a7d44"/><path d="M-5 0 l4 5 l7 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="730" y="254" fill="#7a808c" font-size="15">+1Q slip</text>
+
+    <line x1="44" y1="274" x2="876" y2="274" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+    <!-- 4 -->
+    <text x="44" y="306">Watch LTE ships, carriers fumble</text>
+    <g transform="translate(700,300)"><circle r="11" fill="#3a7d44"/><path d="M-5 0 l4 5 l7 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="730" y="306" fill="#3a7d44" font-size="15">hit</text>
+
+    <line x1="44" y1="326" x2="876" y2="326" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+    <!-- 5 -->
+    <text x="44" y="358">Camera market consolidates</text>
+    <g transform="translate(700,352)"><circle r="11" fill="#3a7d44"/><path d="M-5 0 l4 5 l7 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="730" y="358" fill="#3a7d44" font-size="15">hit</text>
+
+    <line x1="44" y1="378" x2="876" y2="378" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+    <!-- 6 -->
+    <text x="44" y="410">Bluetooth Mesh spec, no products</text>
+    <g transform="translate(700,404)"><circle r="11" fill="#3a7d44"/><path d="M-5 0 l4 5 l7 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="730" y="410" fill="#3a7d44" font-size="15">hit</text>
+
+    <line x1="44" y1="430" x2="876" y2="430" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+    <!-- 7 -->
+    <text x="44" y="462">First device end-of-life moment</text>
+    <g transform="translate(700,456)"><circle r="11" fill="#7a808c"/><path d="M0 -11 a11 11 0 0 1 0 22 z" fill="#3a7d44"/></g>
+    <text x="730" y="462" fill="#7a808c" font-size="15">half-hit</text>
+  </g>
+
+  <!-- the headline tally -->
+  <rect x="44" y="492" width="832" height="46" rx="8" fill="#0066cc" opacity="0.10"/>
+  <text x="60" y="521" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="19" fill="#1a1d24">Roughly 88% accuracy — consolidation makes the calls easier each year.</text>
+</svg>

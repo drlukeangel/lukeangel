@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="Camera VLAN isolation">
+  <rect width="1000" height="460" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+
+    <!-- VLAN 30 box (cameras) -->
+    <rect x="50" y="80" width="320" height="300" rx="12" fill="#6a4c93" fill-opacity="0.05" stroke="#6a4c93" stroke-opacity="0.5" stroke-width="2.5" stroke-dasharray="6 5"/>
+    <text x="210" y="68" text-anchor="middle" font-size="14" fill="#6a4c93">VLAN 30 — cameras only</text>
+    <!-- four cameras -->
+    <g>
+      <g transform="translate(120 150)"><rect x="-34" y="-20" width="68" height="40" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><circle cx="12" cy="0" r="11" fill="#1a1d24"/></g>
+      <g transform="translate(120 240)"><rect x="-34" y="-20" width="68" height="40" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><circle cx="12" cy="0" r="11" fill="#1a1d24"/></g>
+      <g transform="translate(120 320)"><rect x="-34" y="-20" width="68" height="40" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><circle cx="12" cy="0" r="11" fill="#1a1d24"/></g>
+    </g>
+    <!-- cameras reach only Frigate -->
+    <g stroke="#6a4c93" stroke-width="3" fill="none">
+      <path d="M154 150 C 240 170, 280 220, 300 235" marker-end="url(#a)"/>
+      <path d="M154 240 L300 245" marker-end="url(#a)"/>
+      <path d="M154 320 C 240 300, 280 265, 300 255" marker-end="url(#a)"/>
+    </g>
+    <!-- Frigate inside the camera reach but on main LAN edge -->
+    <g transform="translate(300 220)"><rect x="0" y="0" width="64" height="56" rx="10" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="3"/><text x="32" y="34" text-anchor="middle" font-size="11" fill="#6a4c93">Frigate</text></g>
+
+    <!-- internet, top right, with the camera VLAN's route to it CUT -->
+    <g transform="translate(820 130)">
+      <path d="M-56 16 a26 26 0 0 1 14 -48 a36 36 0 0 1 68 6 a24 24 0 0 1 3 42 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <text x="0" y="6" text-anchor="middle" font-size="12" fill="#5b616b">internet</text>
+    </g>
+    <!-- cut route from VLAN30 to internet -->
+    <path d="M210 100 C 400 60, 600 70, 760 110" fill="none" stroke="#c14a3a" stroke-width="3" stroke-dasharray="4 8" opacity="0.6"/>
+    <g transform="translate(500 78)"><line x1="-15" y1="-15" x2="15" y2="15" stroke="#c14a3a" stroke-width="5"/><line x1="15" y1="-15" x2="-15" y2="15" stroke="#c14a3a" stroke-width="5"/></g>
+    <text x="500" y="58" text-anchor="middle" font-size="12" fill="#c14a3a">VLAN 30 → internet BLOCKED</text>
+
+    <!-- Frigate -> HA -> notification out (allowed) -->
+    <g transform="translate(560 300)"><rect x="0" y="0" width="64" height="50" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><text x="32" y="30" text-anchor="middle" font-size="12">HA</text></g>
+    <path d="M364 248 C 460 290, 500 310, 556 320" fill="none" stroke="#3a7d44" stroke-width="3" marker-end="url(#b)"/>
+    <path d="M624 318 C 720 300, 760 220, 800 178" fill="none" stroke="#3a7d44" stroke-width="3" marker-end="url(#b)"/>
+    <text x="720" y="300" text-anchor="middle" font-size="11" fill="#3a7d44">only a person-alert leaves</text>
+
+    <text x="500" y="430" text-anchor="middle" font-size="13" fill="#5b616b">the cameras record everything and phone home to nobody — only the server I control reaches the internet</text>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+      <marker id="b" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#3a7d44"/></marker>
+    </defs>
+  </g>
+</svg>

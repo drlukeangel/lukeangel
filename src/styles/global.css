@@ -114,22 +114,48 @@ header.site nav a.active {
 
 /* article body */
 article.post p { font-size: 19px; line-height: 1.75; color: var(--ink); }
-article.post blockquote {
+/* in-body section headers — a consistent, subordinate size (NOT the page-title scale),
+   shared by the standalone article and the notebook panels */
+article.post h2,
+.nb-part-body h2,
+.nb-intro h2 {
+  font-size: clamp(26px, 2.6vw, 33px);
+  line-height: 1.18;
+  margin: 48px 0 6px;
+}
+article.post h3,
+.nb-part-body h3,
+.nb-intro h3 {
+  font-size: clamp(20px, 1.9vw, 23px);
+  line-height: 1.25;
+  margin: 34px 0 4px;
+}
+article.post blockquote,
+.nb-part-body blockquote,
+.nb-intro blockquote {
   margin: 32px 0; padding: 0 0 0 24px;
   border-left: 3px solid var(--accent);
   font-family: 'Instrument Serif', serif;
   font-style: italic; font-size: 32px; line-height: 1.25;
 }
-article.post a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-article.post img {
+article.post a,
+.nb-part-body a,
+.nb-intro a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+article.post img,
+.nb-part-body img,
+.nb-intro img {
   display: block;
   max-width: 100%;
   height: auto;
   margin: 36px auto;
   border: 1px solid var(--rule);
 }
-article.post figure { margin: 36px 0; text-align: center; }
-article.post figure img { margin: 0 auto 12px; }
+article.post figure,
+.nb-part-body figure,
+.nb-intro figure { margin: 36px 0; text-align: center; }
+article.post figure img,
+.nb-part-body figure img,
+.nb-intro figure img { margin: 0 auto 12px; }
 article.post figure figcaption {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
@@ -137,8 +163,10 @@ article.post figure figcaption {
   color: var(--muted);
 }
 
-/* tables inside post bodies */
-article.post table {
+/* tables inside post bodies + notebook panels (.nb-part-body / .nb-intro) */
+article.post table,
+.nb-part-body table,
+.nb-intro table {
   width: 100%;
   margin: 36px 0;
   border-collapse: collapse;
@@ -148,8 +176,12 @@ article.post table {
   line-height: 1.55;
   overflow: hidden;
 }
-article.post table thead { background: var(--ink); }
-article.post table thead th {
+article.post table thead,
+.nb-part-body table thead,
+.nb-intro table thead { background: var(--ink); }
+article.post table thead th,
+.nb-part-body table thead th,
+.nb-intro table thead th {
   color: var(--paper);
   text-align: left;
   padding: 14px 18px;
@@ -161,29 +193,47 @@ article.post table thead th {
   border-right: 1px solid rgba(244,241,232,0.18);
   vertical-align: middle;
 }
-article.post table thead th:last-child { border-right: 0; }
-article.post table tbody td {
+article.post table thead th:last-child,
+.nb-part-body table thead th:last-child,
+.nb-intro table thead th:last-child { border-right: 0; }
+article.post table tbody td,
+.nb-part-body table tbody td,
+.nb-intro table tbody td {
   padding: 14px 18px;
   border-top: 1px solid var(--rule);
   border-right: 1px solid var(--rule);
   vertical-align: top;
   color: var(--ink);
 }
-article.post table tbody td:last-child { border-right: 0; }
-article.post table tbody tr:nth-child(odd) td { background: var(--bg); }
-article.post table tbody tr:hover td { background: rgba(42,82,190,0.06); }
-article.post table tbody td:first-child {
+article.post table tbody td:last-child,
+.nb-part-body table tbody td:last-child,
+.nb-intro table tbody td:last-child { border-right: 0; }
+article.post table tbody tr:nth-child(odd) td,
+.nb-part-body table tbody tr:nth-child(odd) td,
+.nb-intro table tbody tr:nth-child(odd) td { background: var(--bg); }
+article.post table tbody tr:hover td,
+.nb-part-body table tbody tr:hover td,
+.nb-intro table tbody tr:hover td { background: rgba(42,82,190,0.06); }
+article.post table tbody td:first-child,
+.nb-part-body table tbody td:first-child,
+.nb-intro table tbody td:first-child {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
   font-size: 18px;
   color: var(--accent);
   white-space: nowrap;
 }
-article.post table tbody td:first-child + td { font-weight: 500; }
-article.post table a { color: var(--accent); }
+article.post table tbody td:first-child + td,
+.nb-part-body table tbody td:first-child + td,
+.nb-intro table tbody td:first-child + td { font-weight: 500; }
+article.post table a,
+.nb-part-body table a,
+.nb-intro table a { color: var(--accent); }
 
 /* allow wide tables to scroll horizontally instead of breaking the column */
-article.post .table-wrap, article.post p:has(> table) { overflow-x: auto; }
+article.post .table-wrap, article.post p:has(> table),
+.nb-part-body .table-wrap, .nb-part-body p:has(> table),
+.nb-intro .table-wrap, .nb-intro p:has(> table) { overflow-x: auto; }
 
 @media (max-width: 720px) {
   article.post table { font-size: 14px; }

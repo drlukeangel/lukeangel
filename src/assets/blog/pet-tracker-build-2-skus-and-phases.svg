@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 480" width="1120" height="480" role="img" aria-label="Three SKUs and the build phases">
+  <rect width="1120" height="480" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE SPECTRUM IS THE PRODUCT LINE</text>
+
+  <!-- three SKU cards -->
+  <g font-family="ui-monospace, monospace">
+    <!-- LoRa collar -->
+    <rect x="60" y="86" width="320" height="180" rx="12" fill="#1f7a6b" fill-opacity="0.10" stroke="#1f7a6b" stroke-width="3.5"/>
+    <text x="220" y="118" text-anchor="middle" font-size="16" fill="#1a1d24">LoRa collar</text>
+    <g font-size="12" fill="#1a1d24">
+      <text x="220" y="148" text-anchor="middle">BLE + LoRa + GPS</text>
+      <text x="220" y="172" text-anchor="middle" fill="#3a7d44">battery: months</text>
+      <text x="220" y="200" text-anchor="middle" fill="#7a808c">home / indoor + trail dogs</text>
+      <text x="220" y="224" text-anchor="middle" fill="#7a808c">hardware + optional cloud history</text>
+    </g>
+
+    <!-- Cellular collar -->
+    <rect x="400" y="86" width="320" height="180" rx="12" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-width="3.5"/>
+    <text x="560" y="118" text-anchor="middle" font-size="16" fill="#1a1d24">Cellular collar</text>
+    <g font-size="12" fill="#1a1d24">
+      <text x="560" y="148" text-anchor="middle">BLE + LTE-M + GPS</text>
+      <text x="560" y="172" text-anchor="middle" fill="#c14a3a">battery: days to ~2 wks</text>
+      <text x="560" y="200" text-anchor="middle" fill="#7a808c">roamers / escape artists</text>
+      <text x="560" y="224" text-anchor="middle" fill="#7a808c">premium hw + data sub</text>
+    </g>
+
+    <!-- Base station -->
+    <rect x="740" y="86" width="320" height="180" rx="12" fill="#1f7a6b" fill-opacity="0.06" stroke="#1f7a6b" stroke-width="3.5" stroke-dasharray="3 5"/>
+    <text x="900" y="118" text-anchor="middle" font-size="16" fill="#1a1d24">Base / handheld</text>
+    <g font-size="12" fill="#1a1d24">
+      <text x="900" y="148" text-anchor="middle">BLE + LoRa</text>
+      <text x="900" y="172" text-anchor="middle" fill="#3a7d44">docked = always charged</text>
+      <text x="900" y="200" text-anchor="middle" fill="#7a808c">the gateway + the recovery mesh</text>
+      <text x="900" y="224" text-anchor="middle" fill="#7a808c">bundled with the LoRa collar</text>
+    </g>
+  </g>
+
+  <!-- build phases timeline -->
+  <text x="34" y="320" font-family="ui-monospace, monospace" font-size="13" letter-spacing="1" fill="#7a808c">BUILD ORDER — HARDEST FIRST</text>
+  <line x1="120" y1="368" x2="1000" y2="368" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.4"/>
+  <path d="M1004 368 l-16 -8 v16 z" fill="#1a1d24" fill-opacity="0.4"/>
+  <g font-family="ui-monospace, monospace">
+    <circle cx="200" cy="368" r="11" fill="#1f7a6b"/>
+    <text x="200" y="404" text-anchor="middle" font-size="13" fill="#1a1d24">1 · Location</text>
+    <text x="200" y="424" text-anchor="middle" font-size="11" fill="#7a808c">BLE + LoRa · geofence · mesh</text>
+
+    <circle cx="540" cy="368" r="11" fill="#c14a3a"/>
+    <text x="540" y="404" text-anchor="middle" font-size="13" fill="#1a1d24">2 · Cellular</text>
+    <text x="540" y="424" text-anchor="middle" font-size="11" fill="#7a808c">nRF9160 bolt-on · paved road</text>
+
+    <circle cx="880" cy="368" r="11" fill="#357a8c"/>
+    <text x="880" y="404" text-anchor="middle" font-size="13" fill="#1a1d24">3 · Health</text>
+    <text x="880" y="424" text-anchor="middle" font-size="11" fill="#7a808c">same IMU + algorithms · vitals</text>
+  </g>
+
+  <text x="34" y="462" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14.5" fill="#5b616b">The accelerometer placed in phase 1 becomes the vitals sensor in phase 3 — once tracking is rock-solid.</text>
+</svg>

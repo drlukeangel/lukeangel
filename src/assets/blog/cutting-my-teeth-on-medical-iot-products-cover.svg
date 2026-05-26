@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Eight scattered dots converging into solid growth rings.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="ct-cover-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ct-cover-dots)"/>
+  <rect width="24" height="630" fill="#357a8c"/>
+
+  <!-- ===== LEFT: eight scattered, mismatched device-API dots (the inherited mess) ===== -->
+  <g>
+    <!-- each a different small shape/size, jittered, faint — eight of them -->
+    <circle cx="150" cy="150" r="15" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <rect x="118" y="232" width="30" height="30" rx="5" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <circle cx="205" cy="300" r="11" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <rect x="130" y="372" width="26" height="20" rx="4" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <circle cx="225" cy="430" r="17" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <rect x="120" y="488" width="22" height="22" rx="4" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <circle cx="195" cy="200" r="9" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <rect x="170" y="510" width="28" height="18" rx="4" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+  </g>
+
+  <!-- converging strands from the scattered dots toward the trunk core -->
+  <g fill="none" stroke="#7a808c" stroke-width="3" stroke-linecap="round" opacity="0.5">
+    <path d="M165 150 Q330 200 470 300"/>
+    <path d="M148 247 Q330 270 478 308"/>
+    <path d="M216 300 Q360 305 480 315"/>
+    <path d="M156 382 Q340 350 478 322"/>
+    <path d="M242 430 Q360 380 480 330"/>
+    <path d="M142 499 Q340 420 476 332"/>
+    <path d="M204 200 Q360 250 478 312"/>
+    <path d="M198 519 Q360 430 476 336"/>
+  </g>
+
+  <!-- ===== RIGHT: the trunk cross-section — concentric growth rings, one solid platform ===== -->
+  <!-- center near x=760, rings widen outward; each ring ~ a quarter of the arc -->
+  <g transform="translate(760,315)">
+    <!-- outermost first so inner rings sit on top -->
+    <circle r="270" fill="none" stroke="#357a8c" stroke-width="5" opacity="0.30"/>
+    <circle r="236" fill="none" stroke="#357a8c" stroke-width="5" opacity="0.40"/>
+    <circle r="202" fill="none" stroke="#357a8c" stroke-width="5.5" opacity="0.52"/>
+    <circle r="168" fill="none" stroke="#357a8c" stroke-width="5.5" opacity="0.64"/>
+    <circle r="134" fill="none" stroke="#357a8c" stroke-width="6" opacity="0.76"/>
+    <circle r="100" fill="none" stroke="#357a8c" stroke-width="6" opacity="0.86"/>
+    <circle r="66" fill="none" stroke="#357a8c" stroke-width="6.5" opacity="0.95"/>
+    <!-- dense heartwood center: where the eight strands resolve into one core -->
+    <circle r="34" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="6.5"/>
+    <circle r="13" fill="#357a8c"/>
+    <!-- faint radial grain lines, like real rings -->
+    <g stroke="#357a8c" stroke-width="2" opacity="0.18">
+      <line x1="0" y1="-270" x2="0" y2="-34"/>
+      <line x1="0" y1="270" x2="0" y2="34"/>
+      <line x1="-270" y1="0" x2="-34" y2="0"/>
+      <line x1="270" y1="0" x2="34" y2="0"/>
+      <line x1="-191" y1="-191" x2="-24" y2="-24"/>
+      <line x1="191" y1="191" x2="24" y2="24"/>
+      <line x1="-191" y1="191" x2="-24" y2="24"/>
+      <line x1="191" y1="-191" x2="24" y2="-24"/>
+    </g>
+  </g>
+</svg>

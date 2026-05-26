@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="Preview to GA cutover, and what stayed our problem.">
+  <rect width="960" height="440" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="60" y="52" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="1" fill="#7a808c">THE GA CUTOVER — Oct 13</text>
+
+  <!-- preview node -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+    <rect x="60" y="86" width="200" height="84" rx="11" fill="#fdfaf2" stroke="#5b616b" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="160" y="122" fill="#1a1d24">preview APIs</text>
+    <text x="160" y="146" fill="#5b616b">in prod since Aug</text>
+  </g>
+
+  <!-- arrow with the 3 cutover tasks -->
+  <line x1="260" y1="128" x2="694" y2="128" stroke="#4f46b8" stroke-width="3.5"/>
+  <path d="M700 128 l-18 -8 v16 z" fill="#4f46b8"/>
+  <text x="480" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" text-anchor="middle" fill="#4f46b8">two weeks of work</text>
+
+  <!-- GA node -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+    <rect x="700" y="86" width="200" height="84" rx="11" fill="#4f46b8" fill-opacity="0.12" stroke="#4f46b8" stroke-width="3"/>
+    <text x="800" y="122" fill="#1a1d24" font-weight="bold">GA APIs</text>
+    <text x="800" y="146" fill="#5b616b">in prod since Oct</text>
+  </g>
+
+  <!-- three cutover tasks (the easy part) -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+    <text x="200" y="210" font-size="13" fill="#3a7d44" text-anchor="start">what the cutover took — small:</text>
+    <rect x="200" y="226" width="220" height="50" rx="9" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="310" y="256" fill="#1a1d24">re-pin the SDK</text>
+    <rect x="440" y="226" width="220" height="50" rx="9" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="550" y="256" fill="#1a1d24">runtime into a VPC</text>
+    <rect x="680" y="226" width="220" height="50" rx="9" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="790" y="256" fill="#1a1d24">put under CloudFormation</text>
+  </g>
+
+  <!-- what stayed our problem (still on you) -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+    <text x="200" y="318" font-size="13" fill="#c14a3a" text-anchor="start">what GA did NOT hand us — still on us:</text>
+    <rect x="200" y="334" width="340" height="50" rx="9" fill="#c14a3a" fill-opacity="0.10" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="370" y="364" fill="#1a1d24">cross-region active-active state</text>
+    <rect x="560" y="334" width="340" height="50" rx="9" fill="#c14a3a" fill-opacity="0.10" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="730" y="364" fill="#1a1d24">cost modeling under bursts</text>
+  </g>
+
+  <text x="60" y="418" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">GA closed the gaps that made the preview a gamble — but a few hard parts are still yours to build.</text>
+</svg>

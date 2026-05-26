@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 400" width="1080" height="400" role="img" aria-label="Staged rollout. An update reaches a 10-device canary, then 1% of the fleet, then 10%, 25%, and 100% — and at any stage, if the new version's error rate exceeds 1.5 times the old one's over a 30-minute window, the next stage holds automatically for a human.">
+  <rect width="1080" height="400" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">STAGED ROLLOUT — HALT IF IT GOES WRONG</text>
+
+  <text x="540" y="92" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#2a52be">any stage: error rate &gt; 1.5× the old version → the next stage holds for a human</text>
+
+  <g font-family="ui-monospace,monospace" text-anchor="middle">
+    <rect x="56" y="252" width="148" height="68" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="130" y="284" font-size="13" fill="#1a1d24">CANARY</text><text x="130" y="304" font-size="11" fill="#7a808c">10 devices</text>
+    <rect x="244" y="230" width="148" height="90" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="318" y="270" font-size="13" fill="#1a1d24">EARLY</text><text x="318" y="290" font-size="11" fill="#7a808c">1%</text>
+    <rect x="432" y="208" width="148" height="112" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="506" y="268" font-size="14" fill="#1a1d24">10%</text>
+    <rect x="620" y="186" width="148" height="134" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="694" y="258" font-size="14" fill="#1a1d24">25%</text>
+    <rect x="808" y="164" width="148" height="156" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <text x="882" y="248" font-size="14" fill="#3a7d44">100%</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="204" y1="286" x2="240" y2="286"/><path d="M244 286 l-15 -7 v14 z"/>
+    <line x1="392" y1="286" x2="428" y2="286"/><path d="M432 286 l-15 -7 v14 z"/>
+    <line x1="580" y1="286" x2="616" y2="286"/><path d="M620 286 l-15 -7 v14 z"/>
+    <line x1="768" y1="286" x2="804" y2="286"/><path d="M808 286 l-15 -7 v14 z"/>
+  </g>
+</svg>

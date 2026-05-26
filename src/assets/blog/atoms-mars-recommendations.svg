@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="Mars recommendation engine steered toward portfolio products">
+  <rect width="1000" height="470" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">THE SAME SIGNAL, TWO DIFFERENT PRESCRIPTIONS</text>
+
+  <!-- the data source in the middle-top -->
+  <g transform="translate(500,118)">
+    <rect x="-110" y="-30" width="220" height="60" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <text x="0" y="-2" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">Atom declining: activity down,</text>
+    <text x="0" y="18" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">cardiac disease confirmed</text>
+  </g>
+
+  <!-- two branches -->
+  <line x1="440" y1="178" x2="270" y2="250" stroke="#1a1d24" stroke-width="2.5"/>
+  <polygon points="270,250 282,244 280,257" fill="#1a1d24"/>
+  <line x1="560" y1="178" x2="730" y2="250" stroke="#1a1d24" stroke-width="2.5"/>
+  <polygon points="730,250 720,244 722,257" fill="#1a1d24"/>
+
+  <!-- LEFT branch: Mars app -->
+  <g transform="translate(160,290)">
+    <text x="0" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#c14a3a">WHAT THE APP SURFACED</text>
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">
+      <text x="0" y="30">Jul &#8594; Royal Canin Cardiac Care</text>
+      <text x="0" y="56">Sep &#8594; Royal Canin Renal Support</text>
+      <text x="0" y="82">Oct &#8594; silence</text>
+    </g>
+    <text x="0" y="116" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#c14a3a">all Mars-portfolio brands</text>
+  </g>
+
+  <!-- RIGHT branch: vet -->
+  <g transform="translate(580,290)">
+    <text x="0" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#3a7d44">WHAT THE VET PRESCRIBED</text>
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">
+      <text x="0" y="30">prescription cardiac diet</text>
+      <text x="0" y="56">Hill&#8217;s &#8212; a competitor</text>
+      <text x="0" y="82">matched to the actual diagnosis</text>
+    </g>
+    <text x="0" y="116" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#3a7d44">care, not portfolio</text>
+  </g>
+
+  <line x1="60" y1="430" x2="940" y2="430" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="500" y="458" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#1a1d24">the recommendation engine optimized for what Mars sells, not what Atom needed</text>
+</svg>

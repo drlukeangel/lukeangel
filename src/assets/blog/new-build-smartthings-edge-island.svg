@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="SmartThings island">
+  <rect width="1000" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- SmartThings island (left, dashed boundary) -->
+  <rect x="40" y="50" width="420" height="320" rx="14" fill="#6a4c93" fill-opacity="0.05" stroke="#6a4c93" stroke-width="2.5" stroke-dasharray="9 6"/>
+  <text x="250" y="84" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#6a4c93">SMARTTHINGS ISLAND</text>
+  <text x="250" y="106" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">Edge drivers · Lua · local on hub</text>
+
+  <!-- fridge -->
+  <g transform="translate(90,140)">
+    <rect x="0" y="0" width="120" height="170" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <line x1="0" y1="64" x2="120" y2="64" stroke="#1a1d24" stroke-width="2"/>
+    <rect x="74" y="14" width="34" height="40" rx="3" fill="#6a4c93" fill-opacity="0.25"/>
+    <text x="60" y="120" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#1a1d24">FAMILY HUB</text>
+    <text x="60" y="138" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#1a1d24">FRIDGE</text>
+  </g>
+
+  <!-- frame TV -->
+  <g transform="translate(280,150)">
+    <rect x="0" y="0" width="150" height="100" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="10" y="10" width="130" height="80" rx="3" fill="#6a4c93" fill-opacity="0.08"/>
+    <text x="75" y="56" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">FRAME TV</text>
+    <text x="75" y="130" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">(hub-capable)</text>
+  </g>
+
+  <!-- Cat6 note inside island -->
+  <text x="250" y="350" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">each on its own Cat6 drop</text>
+
+  <!-- bridge arrow: only a few states cross to HA -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#1a1d24">
+    <line x1="460" y1="210" x2="690" y2="210"/>
+    <path d="M690 210 l-12 -6 l0 12 z"/>
+  </g>
+  <text x="575" y="196" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#3a7d44">a few chosen states</text>
+  <text x="575" y="232" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">never load-bearing</text>
+
+  <!-- HA brain (right) -->
+  <g transform="translate(710,130)">
+    <rect x="0" y="0" width="240" height="160" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="120" y="64" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">HOME ASSISTANT</text>
+    <text x="120" y="92" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">the local brain</text>
+    <text x="120" y="120" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#6a4c93">automation lives here</text>
+  </g>
+</svg>

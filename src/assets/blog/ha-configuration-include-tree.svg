@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="HA config include tree">
+  <rect width="760" height="400" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#7a808c}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:13px;fill:#5b616b}
+    .box{fill:#fdfaf2;stroke:#1a1d24;stroke-width:1.5}
+    .acc{stroke:#6a4c93;stroke-width:1.5}
+  </style>
+
+  <!-- root config -->
+  <rect x="40" y="40" width="220" height="120" rx="6" class="box"/>
+  <text class="lbl" x="150" y="64" text-anchor="middle">configuration.yaml</text>
+  <line x1="56" y1="74" x2="244" y2="74" stroke="#1a1d24" stroke-opacity="0.15"/>
+  <text class="sm" x="56" y="92">homeassistant:</text>
+  <text class="sm" x="56" y="108">http: / frontend:</text>
+  <text class="sm" x="56" y="124">hue: smartthings:</text>
+  <text class="sm" x="56" y="140">mqtt: (Mosquitto)</text>
+  <text class="sm" x="56" y="156" fill="#6a4c93">!include ...</text>
+
+  <!-- included siblings -->
+  <g>
+    <rect x="430" y="28" width="200" height="34" rx="5" class="box"/>
+    <text class="lbl" x="445" y="50">automations.yaml</text>
+    <rect x="430" y="74" width="200" height="34" rx="5" class="box"/>
+    <text class="lbl" x="445" y="96">scripts.yaml</text>
+    <rect x="430" y="120" width="200" height="34" rx="5" class="box"/>
+    <text class="lbl" x="445" y="142">scenes.yaml</text>
+    <rect x="430" y="166" width="200" height="34" rx="5" class="box"/>
+    <text class="lbl" x="445" y="188">groups.yaml</text>
+  </g>
+
+  <!-- include arrows -->
+  <path d="M260,150 C340,150 350,45 430,45" fill="none" class="acc" marker-end="url(#a)"/>
+  <path d="M260,152 C340,152 350,91 430,91" fill="none" class="acc" marker-end="url(#a)"/>
+  <path d="M260,154 C340,154 350,137 430,137" fill="none" class="acc" marker-end="url(#a)"/>
+  <path d="M260,156 C340,156 350,183 430,183" fill="none" class="acc" marker-end="url(#a)"/>
+
+  <!-- secrets, git-ignored -->
+  <rect x="430" y="222" width="200" height="40" rx="5" fill="#fff" stroke="#c14a3a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="lbl" x="445" y="240" fill="#c14a3a">secrets.yaml</text>
+  <text class="sm" x="445" y="255" fill="#c14a3a">git-ignored — !secret</text>
+  <path d="M150,160 C150,222 320,242 430,242" fill="none" stroke="#c14a3a" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#ar)"/>
+
+  <!-- git workflow strip -->
+  <rect x="40" y="300" width="680" height="56" rx="6" fill="#fff" stroke="#1a1d24" stroke-opacity="0.25"/>
+  <text class="sm" x="60" y="324">git add .   git commit   git diff   git checkout HEAD~1</text>
+  <text class="lbl" x="60" y="344" fill="#3a7d44">→ revert to the last working state</text>
+  <path d="M150,262 C150,280 200,290 260,300" fill="none" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="1.3"/>
+
+  <text class="cap" x="40" y="384">One root file pulls in sibling YAML by !include; secrets stay out of git — the whole tree is text you can diff and revert.</text>
+
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#6a4c93"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c14a3a"/></marker>
+  </defs>
+</svg>

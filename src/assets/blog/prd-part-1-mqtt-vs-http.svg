@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 500" width="1120" height="500" role="img" aria-label="Per-message radio cost: HTTP versus MQTT">
+  <rect width="1120" height="500" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHAT ONE SCAN COSTS THE RADIO</text>
+
+  <!-- divider -->
+  <line x1="560" y1="80" x2="560" y2="430" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.12"/>
+
+  <!-- ===== HTTP side ===== -->
+  <text x="285" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#c14a3a">HTTP REST · per request</text>
+  <!-- stacked cost segments forming a long radio-on bar -->
+  <g font-family="ui-monospace,monospace" font-size="11">
+    <rect x="70" y="132" width="430" height="34" rx="6" fill="#c14a3a" fill-opacity="0.16" stroke="#c14a3a" stroke-width="2"/>
+    <text x="285" y="154" text-anchor="middle" fill="#1a1d24">TCP handshake — 3 round trips</text>
+    <rect x="70" y="176" width="430" height="34" rx="6" fill="#c14a3a" fill-opacity="0.16" stroke="#c14a3a" stroke-width="2"/>
+    <text x="285" y="198" text-anchor="middle" fill="#1a1d24">TLS handshake — 4–6 round trips</text>
+    <rect x="70" y="220" width="430" height="34" rx="6" fill="#c14a3a" fill-opacity="0.16" stroke="#c14a3a" stroke-width="2"/>
+    <text x="285" y="242" text-anchor="middle" fill="#1a1d24">headers — 600+ bytes plumbing</text>
+    <rect x="70" y="264" width="430" height="34" rx="6" fill="#c14a3a" fill-opacity="0.16" stroke="#c14a3a" stroke-width="2"/>
+    <text x="285" y="286" text-anchor="middle" fill="#1a1d24">payload + connection teardown</text>
+  </g>
+  <!-- radio-on indicator -->
+  <rect x="70" y="318" width="430" height="26" rx="13" fill="#c14a3a"/>
+  <text x="285" y="336" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#fdfaf2">radio hard-on ~200–300 ms · ~2 KB</text>
+  <text x="285" y="382" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#c14a3a">every message pays the whole stack again</text>
+
+  <!-- ===== MQTT side ===== -->
+  <text x="835" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#3a7d44">MQTT · one persistent TLS link</text>
+  <!-- one-time handshake, faded -->
+  <rect x="620" y="132" width="430" height="34" rx="6" fill="#7a808c" fill-opacity="0.12" stroke="#7a808c" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="835" y="154" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">handshake — once per power-up / re-assoc</text>
+  <!-- then tiny per-message frames -->
+  <g font-family="ui-monospace,monospace" font-size="11">
+    <rect x="620" y="220" width="150" height="34" rx="6" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2"/>
+    <text x="695" y="242" text-anchor="middle" fill="#1a1d24">~50 B MQTT</text>
+    <rect x="780" y="220" width="150" height="34" rx="6" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2"/>
+    <text x="855" y="242" text-anchor="middle" fill="#1a1d24">~50 B TLS</text>
+  </g>
+  <!-- radio mostly asleep -->
+  <rect x="620" y="318" width="150" height="26" rx="13" fill="#3a7d44"/>
+  <text x="695" y="336" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#fdfaf2">TX a few ms</text>
+  <rect x="780" y="318" width="270" height="26" rx="13" fill="#3a7d44" fill-opacity="0.22" stroke="#3a7d44" stroke-width="2"/>
+  <text x="915" y="336" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">low-power listen between messages</text>
+  <text x="835" y="382" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#3a7d44">3–5× less radio energy per event</text>
+
+  <text x="560" y="466" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">~55,000 wake-cycles a year. On a 12-hour battery, the transport is the budget.</text>
+</svg>

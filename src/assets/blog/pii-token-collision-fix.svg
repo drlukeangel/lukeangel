@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="Cross-dataset token collision, and the per-domain fix">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- divider -->
+  <line x1="560" y1="40" x2="560" y2="520" stroke="#1a1d24" stroke-opacity="0.14" stroke-width="2"/>
+
+  <!-- ===== BEFORE ===== -->
+  <text x="40" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#c14a3a">BEFORE · ONE ORG-WIDE NAMESPACE</text>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- two pipelines, same input name -->
+    <rect x="40" y="80" width="220" height="58" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="56" y="106" font-size="12.5" fill="#7a808c">tool-telemetry pipeline</text>
+    <text x="56" y="126" font-size="13" fill="#1a1d24">"jane okoro"</text>
+
+    <rect x="40" y="200" width="220" height="58" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="56" y="226" font-size="12.5" fill="#7a808c">support-tickets pipeline</text>
+    <text x="56" y="246" font-size="13" fill="#1a1d24">"jane okoro"</text>
+
+    <!-- arrows to tokens -->
+    <g stroke="#1a1d24" stroke-width="2.5" fill="none"><path d="M260 109 H 320"/><path d="M260 229 H 320"/></g>
+    <g fill="#1a1d24"><path d="M324 109 l-14 -6 v12 z"/><path d="M324 229 l-14 -6 v12 z"/></g>
+
+    <!-- identical tokens -->
+    <rect x="328" y="82" width="180" height="54" rx="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="418" y="114" text-anchor="middle" font-size="13" fill="#c14a3a">TKN_9f3a1c</text>
+    <rect x="328" y="202" width="180" height="54" rx="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="418" y="234" text-anchor="middle" font-size="13" fill="#c14a3a">TKN_9f3a1c</text>
+
+    <!-- collision bracket = accidental join key -->
+    <path d="M508 109 C 540 109 540 229 508 229" fill="none" stroke="#c14a3a" stroke-width="3" stroke-dasharray="7 5"/>
+  </g>
+  <text x="40" y="320" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#c14a3a">Identical tokens = an accidental join key.</text>
+  <text x="40" y="344" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">The datasets re-link — the opposite of the point.</text>
+
+  <!-- ===== AFTER ===== -->
+  <text x="600" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#3a7d44">AFTER · PER-DOMAIN NAMESPACE</text>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="600" y="80" width="232" height="58" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="616" y="106" font-size="12.5" fill="#7a808c">domain = tool-telemetry</text>
+    <text x="616" y="126" font-size="13" fill="#1a1d24">"jane okoro"</text>
+
+    <rect x="600" y="200" width="232" height="58" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="616" y="226" font-size="12.5" fill="#7a808c">domain = support-tickets</text>
+    <text x="616" y="246" font-size="13" fill="#1a1d24">"jane okoro"</text>
+
+    <g stroke="#1a1d24" stroke-width="2.5" fill="none"><path d="M832 109 H 892"/><path d="M832 229 H 892"/></g>
+    <g fill="#1a1d24"><path d="M896 109 l-14 -6 v12 z"/><path d="M896 229 l-14 -6 v12 z"/></g>
+
+    <rect x="900" y="82" width="180" height="54" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="990" y="114" text-anchor="middle" font-size="13" fill="#3a7d44">TKN_2b71e0</text>
+    <rect x="900" y="202" width="180" height="54" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="990" y="234" text-anchor="middle" font-size="13" fill="#3a7d44">TKN_c40d8a</text>
+
+    <!-- broken-join glyph between them: a severed bracket -->
+    <g stroke="#3a7d44" stroke-width="3" fill="none">
+      <path d="M1062 109 C 1082 128 1082 142 1070 158"/>
+      <path d="M1070 204 C 1082 220 1082 234 1062 253"/>
+      <line x1="1056" y1="181" x2="1088" y2="181"/>
+      <line x1="1072" y1="167" x2="1072" y2="195"/>
+    </g>
+  </g>
+  <text x="600" y="320" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#3a7d44">Domain mixed into the hash → distinct tokens.</text>
+  <text x="600" y="344" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">The cross-dataset join is broken, as intended.</text>
+
+  <!-- the fix annotation -->
+  <rect x="40" y="400" width="1040" height="100" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+  <text x="64" y="436" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">token = HMAC( salt, domain || name )</text>
+  <text x="64" y="468" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">Two extra lines of rubric copy. Six weeks in production before the privacy team caught the leak.</text>
+</svg>

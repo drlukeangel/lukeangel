@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460" role="img" aria-label="The agent suggests, the human acts.">
+  <rect width="1000" height="460" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <defs>
+    <marker id="ab-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHERE THE LINE SITS — AGENT ASSEMBLES, HUMAN ACTS</text>
+  <line x1="34" y1="60" x2="966" y2="60" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- LEFT: agent side (assemble / suggest) -->
+  <rect x="50" y="92" width="380" height="320" rx="12" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+  <text x="240" y="122" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#4f46b8">THE AGENT — read-only</text>
+  <g font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">
+    <rect x="80" y="142" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="240" y="169" text-anchor="middle">opens the upgrade PR</text>
+    <rect x="80" y="198" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="240" y="225" text-anchor="middle">comments on the review</text>
+    <rect x="80" y="254" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="240" y="281" text-anchor="middle">drafts the doc follow-up</text>
+    <rect x="80" y="310" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="240" y="337" text-anchor="middle">assembles the incident brief</text>
+  </g>
+  <text x="240" y="386" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">surfaces work — never mutates state</text>
+
+  <!-- the boundary -->
+  <line x1="500" y1="92" x2="500" y2="412" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 6"/>
+  <text x="500" y="86" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1" fill="#c14a3a">the trigger</text>
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <line x1="430" y1="252" x2="568" y2="252" marker-end="url(#ab-arrow)"/>
+  </g>
+
+  <!-- RIGHT: human side (decide / act) -->
+  <rect x="570" y="92" width="380" height="320" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="760" y="122" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#3a7d44">THE HUMAN — holds the action</text>
+  <g font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">
+    <rect x="600" y="142" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+    <text x="760" y="169" text-anchor="middle">approves the merge</text>
+    <rect x="600" y="198" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+    <text x="760" y="225" text-anchor="middle">takes or ignores the comment</text>
+    <rect x="600" y="254" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+    <text x="760" y="281" text-anchor="middle">edits or closes the draft</text>
+    <rect x="600" y="310" width="320" height="44" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+    <text x="760" y="337" text-anchor="middle">flips the flag, runs the deploy</text>
+  </g>
+  <text x="760" y="386" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a7d44">every state change is a human decision</text>
+
+  <!-- auto-merge exception note -->
+  <text x="500" y="438" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a3f4a">The one exception is auto-merge — and only after CI passes on patch / dev-dep / security-only upgrades.</text>
+</svg>

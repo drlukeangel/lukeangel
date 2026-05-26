@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="humidity fan hysteresis">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">TWO THRESHOLDS BEAT ONE</text>
+
+  <!-- axes -->
+  <g stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2">
+    <line x1="90" y1="80" x2="90" y2="360"/>
+    <line x1="90" y1="360" x2="940" y2="360"/>
+  </g>
+  <text x="44" y="220" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c" transform="rotate(-90 44 220)">humidity %</text>
+  <text x="515" y="392" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">time &#8594; shower, then drying out</text>
+
+  <!-- dead band (55-65%) shaded -->
+  <rect x="90" y="150" width="850" height="70" fill="#6a4c93" fill-opacity="0.08"/>
+  <!-- ON threshold 65% -->
+  <line x1="90" y1="150" x2="940" y2="150" stroke="#3a7d44" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="946" y="154" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#3a7d44">on &#8805; 65%</text>
+  <!-- OFF threshold 55% -->
+  <line x1="90" y1="220" x2="940" y2="220" stroke="#c14a3a" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="946" y="224" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#c14a3a">off &lt; 55%</text>
+  <text x="690" y="192" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#6a4c93">dead-band (no switching)</text>
+
+  <!-- humidity curve: rises through both, wobbles, falls through both -->
+  <path d="M90 320 L160 316 L210 250 C 250 150, 290 90, 340 100 C 380 108, 400 150, 430 175 C 450 192, 470 168, 500 182 C 530 196, 560 210, 600 240 C 650 280, 720 320, 800 336 L940 342"
+        fill="none" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- fan state markers -->
+  <!-- crosses ON threshold upward -> fan ON -->
+  <circle cx="278" cy="150" r="7" fill="#3a7d44"/>
+  <text x="262" y="128" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#3a7d44">FAN ON</text>
+  <!-- stays on through the wobble in the dead band (no toggle) -->
+  <text x="470" y="150" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="11.5" fill="#5b616b">wobbles here — fan stays on</text>
+  <!-- crosses OFF threshold downward -> fan OFF -->
+  <circle cx="700" cy="220" r="7" fill="#c14a3a"/>
+  <text x="716" y="244" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#c14a3a">FAN OFF</text>
+
+  <text x="40" y="440" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">One threshold would flap on and off in the wobble; the 10-point gap switches once each way.</text>
+</svg>

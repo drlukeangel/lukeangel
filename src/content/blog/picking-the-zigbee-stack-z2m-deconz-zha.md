@@ -11,9 +11,9 @@ tags:
 notebook: smart-home-iot-journey
 notebookOrder: 33
 excerpt: "Three options for talking Zigbee to Home Assistant: ZHA (built in), deCONZ (Phoscon-based), Zigbee2MQTT (MQTT-bridged). Trade-offs differ."
-pullquote: "If you're starting fresh in 2020: Sonoff ZBDongle + Zigbee2MQTT. If you want a UI included: ConBee II + deCONZ. If you want zero add-ons: Sonoff dongle + ZHA. The three are within 10% of each other on reliability; they differ on ergonomics."
-cover: "../../assets/blog/picking-the-zigbee-stack-z2m-deconz-zha-cover.png"
-coverAlt: "Picking the Zigbee stack — Zigbee2MQTT vs deCONZ vs ZHA"
+pullquote: "If you're starting fresh in 2020: a CC2652 stick + Zigbee2MQTT. If you want a UI included: ConBee II + deCONZ. If you want zero add-ons: any supported stick + ZHA. The three are within 10% of each other on reliability; they differ on ergonomics."
+cover: "../../assets/blog/picking-the-zigbee-stack-z2m-deconz-zha-cover.svg"
+coverAlt: "Three ways to wire a Zigbee coordinator into Home Assistant — built-in ZHA, deCONZ over WebSocket, and Zigbee2MQTT over an MQTT broker — drawn as three paths from the same USB stick to the same hub."
 ---
 
 Three options for running Zigbee on Home Assistant. I've used two; reading enough about the third to compare. This is what I'd tell anyone starting fresh in 2020.
@@ -22,7 +22,7 @@ Three options for running Zigbee on Home Assistant. I've used two; reading enoug
 
 | Stack | Coordinator | UI | Maintained by | Strength |
 |---|---|---|---|---|
-| **Zigbee2MQTT (Z2M)** | Sonoff ZBDongle / Texas Instruments CC2652 / others | Web UI + MQTT | Koen Kanters + large community | Widest device support |
+| **Zigbee2MQTT (Z2M)** | slaesh CC2652RB / Electrolama zzh! / other CC2652 | Web UI + MQTT | Koen Kanters + large community | Widest device support |
 | **deCONZ + Phoscon** | ConBee II / RaspBee II | Phoscon web app + WebSocket / REST | Dresden Elektronik | Polished UI, vendor-backed |
 | **ZHA (Zigbee Home Automation)** | Most USB sticks | HA built-in | HA core team | Zero add-on overhead |
 
@@ -31,17 +31,17 @@ Three options for running Zigbee on Home Assistant. I've used two; reading enoug
 Three I've used or evaluated:
 
 **ConBee II** (Dresden Elektronik, ~$40):
-- ARM Cortex-M4-based Silicon Labs EFR32MG21 — Zigbee 3.0.
-- Plugs directly into the Pi's USB.
+- Microchip ATSAMR21 (ARM Cortex-M0+ with an integrated radio) — Zigbee 3.0.
+- Plugs directly into the Pi's USB; the bundled USB extension cable matters (plugged straight into a Pi 4, USB3 RF noise wrecks the 2.4 GHz signal).
 - Tested range: ~15m through walls.
-- Limitation: 32 direct end-device children (router-extensible beyond that).
+- Limitation: ~24 direct end-device children (router-extensible beyond that, and the ATSAMR21's RAM is the real ceiling on a big mesh).
 
-**Sonoff ZBDongle-P** (Sonoff, ~$25):
-- TI CC2652 chip — Zigbee 3.0.
-- USB. Optional external antenna kit ($10 more) doubles the range.
-- Tested range with external antenna: ~25m through walls.
-- Capacity: 200+ direct children with the latest firmware.
-- Cheap, well-supported, growing community.
+**slaesh's CC2652RB stick** (~$25–30):
+- TI CC2652RB chip — Zigbee 3.0. The coordinator a lot of the Z2M community standardized on this year, alongside Electrolama's zzh! (CC2652R).
+- USB, external antenna in the box.
+- Tested range with the external antenna: ~25m through walls.
+- Capacity: 100+ direct children, far more headroom than the old CC2531 it replaces.
+- Cheap, well-supported, and — unlike the ConBee — not tied to one vendor's firmware.
 
 **Aeotec Z-Stick** (Aeotec, ~$60): Z-Wave only — out of scope for Zigbee comparison but worth noting they don't make a Zigbee equivalent.
 
@@ -52,6 +52,8 @@ Three I've used or evaluated:
 **deCONZ**: a separate service (vendor's Phoscon) running as a Hass.io add-on. HA talks to it over WebSocket. Pros: polished UI; supports the ConBee/RaspBee specifically very well. Cons: vendor lock-in to Dresden Elektronik hardware; community fixes don't land as fast.
 
 **Zigbee2MQTT**: a separate Node.js service running as a Hass.io add-on. HA talks to it over MQTT (via the Mosquitto broker). Pros: widest device support, community-driven, frequent updates, excellent web UI. Cons: an extra MQTT broker in the chain; debugging MQTT is its own skill.
+
+![The three Zigbee stacks drawn as three paths from the same USB coordinator stick up to the same Home Assistant. ZHA is the shortest path — HA drives the stick directly, no extra process. deCONZ inserts the Phoscon service between them, with HA talking to it over a WebSocket. Zigbee2MQTT inserts a Node.js service that talks to HA through an MQTT broker. A note marks the trade: each added hop buys broader device support and a nicer UI at the cost of one more thing to run and debug, and all three reach the same physical Zigbee mesh below the stick.](../../assets/blog/zigbee-three-stacks-architecture.svg)
 
 ## Z2M's device-support advantage
 
@@ -67,8 +69,8 @@ Migrated from deCONZ → Z2M in April (during the [local-first migration](/blog/
 
 ```
 USB stack:
-- Sonoff ZBDongle-P with external antenna at the top of the basement closet (signal central)
-- 200+ devices supported potential; running 22
+- slaesh CC2652RB with external antenna at the top of the basement closet (signal central)
+- 100+ direct children possible; running 22
 
 Device mix:
 - 8× Aqara MCCGQ11LM (door/window)
@@ -83,6 +85,8 @@ Total: 22 Zigbee devices on the mesh. Healthy at this size.
 ```
 
 Z2M's UI shows the full mesh topology — which device is routing for which, signal strength per hop, last-seen timestamp. Hugely useful for debugging.
+
+![The Zigbee mesh as Z2M's topology view shows it. At the center, the coordinator stick. Mains-powered devices — wall plugs, the IKEA repeater, bulbs — act as routers, forming the backbone and relaying for others; battery-powered end devices like the Aqara door, vibration, and temperature sensors hang off whichever router is nearest rather than straining to reach the coordinator directly. Link-quality numbers label a few hops. A caption explains why this matters: adding a mains-powered router near a dead spot fixes a flaky sensor far better than moving the coordinator, and the topology view is how you find the weak hop.](../../assets/blog/zigbee-mesh-topology-routers.svg)
 
 ## The MQTT contract
 
@@ -116,23 +120,27 @@ If you already own a ConBee II, deCONZ's Phoscon UI is genuinely nice. It's also
 
 But if you're starting from scratch with HA, Z2M usually wins.
 
+Boiled down to the two questions that actually decide it:
+
+![A decision tree for picking a Zigbee stack in 2020. The first question — already own a ConBee II, or running Zigbee off a non-HA box? — branches yes to deCONZ, whose Phoscon UI is genuinely nice and whose WebSocket API is callable from anywhere. No leads to a second question: fewer than 15 devices, all standard-spec, and is MQTT intimidating? Yes lands on ZHA — zero add-ons, lives inside HA, updates with HA core. No lands on Zigbee2MQTT — widest device support at 1,800-plus, the best topology UI, riding your existing MQTT bus. A caption notes all three land within about 10 percent on reliability, so the real question is which ergonomics fit you, not which one works.](../../assets/blog/zigbee-stack-decision-tree.svg)
+
 ## The hardware path I'd take in 2020
 
 Starting fresh:
 
 ```
-1. Buy Sonoff ZBDongle-P with external antenna: $30 total.
-2. Install Hass.io if not already (HA OS).
-3. Install Mosquitto add-on.
-4. Install Zigbee2MQTT add-on. Configure to use /dev/ttyUSB0 (or wherever the dongle is).
+1. Buy a slaesh CC2652RB (or Electrolama zzh!) with external antenna: ~$30.
+2. Install Home Assistant OS if not already.
+3. Install the Mosquitto add-on.
+4. Install the Zigbee2MQTT add-on. Point it at /dev/ttyACM0 (or wherever the dongle enumerates).
 5. Permit join, pair devices.
 6. Add the MQTT integration to HA if not already. Z2M devices appear automatically.
 ```
 
-Total time: 45 minutes. Total cost: $30 + devices.
+Total time: 45 minutes. Total cost: ~$30 + devices. (Use the USB extension cable — a CC2652 stick jammed straight into a Pi 4's USB3 port picks up enough 2.4 GHz noise to drop packets.)
 
 ## What's next
 
-- **Sonoff ZBDongle-E** rumored for late 2020 — TI CC2652RB (different revision) plus open-source firmware. Higher power output. Going to evaluate when available.
-- **Zigbee + Thread coexistence.** Project CHIP / Matter will mandate Thread in some devices. Some Thread radios share the 2.4 GHz band with Zigbee. The interference story is being worked out.
-- **Z2M moving toward CC2652-only support** at some point. Older CC2530-based sticks (the original Sonoff bridge) may lose support in 2021.
+- **The CC2652 sticks getting easier to buy.** Right now the good coordinators (slaesh, Electrolama) are hobbyist small-batch runs that sell out. A commodity, off-the-shelf CC2652 dongle would lower the barrier a lot; I expect one within a year.
+- **Zigbee + Thread coexistence.** Project CHIP — announced last December — will mandate Thread in some devices, and Thread radios share the 2.4 GHz band with Zigbee. Whether they can cohabit a house without stepping on each other is an open question; I'll be watching as the first CHIP drafts land.
+- **Z2M dropping the old CC2531.** The ubiquitous $5 CC2531 stick everyone started on is memory-starved and already strains past ~20 devices. Z2M's clearly steering people to CC2652; I'd expect CC2531 support to wither in 2021.

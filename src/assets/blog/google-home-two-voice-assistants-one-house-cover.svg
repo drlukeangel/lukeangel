@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="two voice assistants">
+  <defs>
+    <pattern id="dotsGH" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsGH)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- a single house outline containing both -->
+  <path d="M250 360 L600 150 L950 360" fill="none" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.35" stroke-linejoin="round"/>
+  <rect x="250" y="360" width="700" height="150" fill="none" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.35"/>
+
+  <!-- left: tall cylinder speaker (Echo-like), 7-mic implied by a denser ring -->
+  <g transform="translate(440,395)">
+    <!-- listening rings -->
+    <g fill="none" stroke="#6a4c93" stroke-opacity="0.45">
+      <ellipse cx="0" cy="-118" rx="70" ry="20" stroke-width="3"/>
+      <ellipse cx="0" cy="-118" rx="48" ry="13" stroke-width="3" stroke-opacity="0.65"/>
+    </g>
+    <!-- body -->
+    <rect x="-40" y="-100" width="80" height="180" rx="20" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <!-- speaker grille texture -->
+    <g stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2">
+      <line x1="-30" y1="-70" x2="30" y2="-70"/><line x1="-30" y1="-52" x2="30" y2="-52"/>
+      <line x1="-30" y1="-34" x2="30" y2="-34"/><line x1="-30" y1="-16" x2="30" y2="-16"/>
+    </g>
+    <!-- top light ring -->
+    <ellipse cx="0" cy="-100" rx="40" ry="11" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3.5"/>
+  </g>
+
+  <!-- right: short squat speaker (Google-Home-like), angled top -->
+  <g transform="translate(740,420)">
+    <!-- listening rings -->
+    <g fill="none" stroke="#3a7d44" stroke-opacity="0.45">
+      <ellipse cx="0" cy="-92" rx="62" ry="18" stroke-width="3"/>
+      <ellipse cx="0" cy="-92" rx="42" ry="12" stroke-width="3" stroke-opacity="0.65"/>
+    </g>
+    <!-- squat body: wider base, slanted top -->
+    <path d="M-46 60 L-46 -40 L46 -62 L46 60 Z" fill="#fff" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <!-- fabric base band -->
+    <path d="M-46 10 L46 10 L46 60 L-46 60 Z" fill="#1a1d24" fill-opacity="0.06" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.3"/>
+    <!-- four LED dots on slanted top -->
+    <g fill="#3a7d44" fill-opacity="0.7">
+      <circle cx="-22" cy="-46" r="5"/><circle cx="-7" cy="-50" r="5"/>
+      <circle cx="8" cy="-53" r="5"/><circle cx="23" cy="-57" r="5"/>
+    </g>
+  </g>
+</svg>

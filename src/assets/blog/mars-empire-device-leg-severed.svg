@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 400" width="1080" height="400" role="img" aria-label="Mars's vertical-integration stack with the device leg cut off.">
+  <rect width="1080" height="400" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE EMPIRE, MINUS ONE LEG</text>
+
+  <!-- the dog at the center -->
+  <g transform="translate(490,170)">
+    <circle cx="50" cy="50" r="48" fill="#c87533" fill-opacity="0.12" stroke="#1a1d24" stroke-width="3"/>
+    <text x="50" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">your</text>
+    <text x="50" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">dog</text>
+  </g>
+
+  <!-- four legs Mars owns; three intact, one cut -->
+  <!-- FOOD (left) -->
+  <g transform="translate(70,90)">
+    <rect x="0" y="0" width="190" height="56" rx="9" fill="#1a1d24" fill-opacity="0.06" stroke="#1a1d24" stroke-width="3"/>
+    <text x="95" y="27" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">FOOD</text>
+    <text x="95" y="45" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">Royal Canin · Pedigree</text>
+  </g>
+  <line x1="260" y1="118" x2="486" y2="190" stroke="#3a7d44" stroke-width="3"/>
+
+  <!-- CLINICS (left lower) -->
+  <g transform="translate(70,254)">
+    <rect x="0" y="0" width="190" height="56" rx="9" fill="#1a1d24" fill-opacity="0.06" stroke="#1a1d24" stroke-width="3"/>
+    <text x="95" y="27" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">CLINICS</text>
+    <text x="95" y="45" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">Banfield · VCA · AniCura</text>
+  </g>
+  <line x1="260" y1="282" x2="486" y2="250" stroke="#3a7d44" stroke-width="3"/>
+
+  <!-- ANALYTICS (right upper) -->
+  <g transform="translate(820,90)">
+    <rect x="0" y="0" width="190" height="56" rx="9" fill="#1a1d24" fill-opacity="0.06" stroke="#1a1d24" stroke-width="3"/>
+    <text x="95" y="27" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">ANALYTICS</text>
+    <text x="95" y="45" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">the customer-life graph</text>
+  </g>
+  <line x1="820" y1="118" x2="594" y2="190" stroke="#3a7d44" stroke-width="3"/>
+
+  <!-- DEVICE (right lower) — severed -->
+  <g transform="translate(820,254)" opacity="0.55">
+    <rect x="0" y="0" width="190" height="56" rx="9" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="3" stroke-dasharray="8 5"/>
+    <text x="95" y="27" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#c14a3a">DEVICE</text>
+    <text x="95" y="45" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">Whistle — divested</text>
+  </g>
+  <!-- the cut link -->
+  <line x1="820" y1="282" x2="700" y2="262" stroke="#c14a3a" stroke-width="3" stroke-dasharray="3 6"/>
+  <!-- scissors-cut mark -->
+  <g transform="translate(706,258)" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round">
+    <line x1="-12" y1="-12" x2="12" y2="12"/>
+    <line x1="-12" y1="12" x2="12" y2="-12"/>
+  </g>
+
+  <text x="540" y="378" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">Food, clinics, and the data graph stay wired to the dog. The always-on collar that fed them no longer does.</text>
+</svg>

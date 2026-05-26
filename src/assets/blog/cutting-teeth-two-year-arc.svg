@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="A two-year platform timeline across eight quarters.">
+  <rect width="1120" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="40" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">SEP 2017 &#8594; SEP 2019 &#183; THE PLATFORM, QUARTER BY QUARTER</text>
+
+  <!-- baseline -->
+  <line x1="60" y1="300" x2="1080" y2="300" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.4"/>
+
+  <!-- ===== shaded "13 months of platform work" band: Q1 2018 .. Q1 2019 ===== -->
+  <!-- columns are 122px wide starting at x=66; Q1'18 is col 2 (x=188), Q1'19 is col 6 (x=676..798) -->
+  <rect x="188" y="312" width="610" height="150" rx="8" fill="#357a8c" fill-opacity="0.08" stroke="#357a8c" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="493" y="446" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#357a8c">~13 months of platform plumbing before the first compounding feature shipped</text>
+
+  <!-- ===== eight quarter columns. cx per col: 127,249,371,493,615,737,859,981 ===== -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+
+    <!-- Q4 2017 — diagnosis -->
+    <g transform="translate(127,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q4 &#8217;17</text>
+      <!-- scattered dots above = eight APIs -->
+      <g fill="#7a808c">
+        <circle cx="-26" cy="150" r="4"/><circle cx="-10" cy="172" r="4"/><circle cx="8" cy="148" r="4"/><circle cx="24" cy="176" r="4"/>
+        <circle cx="-18" cy="196" r="4"/><circle cx="2" cy="206" r="4"/><circle cx="22" cy="200" r="4"/><circle cx="-30" cy="174" r="4"/>
+      </g>
+      <text x="0" y="246" text-anchor="middle" font-size="11.5" fill="#5b616b">diagnosis</text>
+      <text x="0" y="262" text-anchor="middle" font-size="11" fill="#7a808c">8 APIs</text>
+    </g>
+
+    <!-- Q1 2018 — privacy classification (fork into 3 lanes) -->
+    <g transform="translate(249,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q1 &#8217;18</text>
+      <g fill="none" stroke="#357a8c" stroke-width="3" stroke-linecap="round">
+        <path d="M-18 210 l24 -28"/><path d="M-18 210 l24 0"/><path d="M-18 210 l24 28"/>
+      </g>
+      <circle cx="-18" cy="210" r="5" fill="#357a8c"/>
+      <g fill="#357a8c"><circle cx="10" cy="182" r="3.5"/><circle cx="10" cy="210" r="3.5"/><circle cx="10" cy="238" r="3.5"/></g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">3-tier privacy</text>
+    </g>
+
+    <!-- Q2 2018 — five-entity domain model -->
+    <g transform="translate(371,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q2 &#8217;18</text>
+      <!-- five small linked nodes -->
+      <g stroke="#357a8c" stroke-width="2.5"><line x1="0" y1="170" x2="0" y2="240"/><line x1="0" y1="205" x2="-22" y2="225"/><line x1="0" y1="205" x2="22" y2="225"/></g>
+      <g fill="#fdfaf2" stroke="#357a8c" stroke-width="3">
+        <circle cx="0" cy="170" r="7"/><circle cx="0" cy="205" r="7"/><circle cx="0" cy="240" r="7"/><circle cx="-22" cy="225" r="7"/><circle cx="22" cy="225" r="7"/>
+      </g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">5 entities</text>
+    </g>
+
+    <!-- Q3 2018 — auth model (key) -->
+    <g transform="translate(493,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q3 &#8217;18</text>
+      <!-- key glyph -->
+      <g stroke="#357a8c" stroke-width="3.5" fill="none">
+        <circle cx="-10" cy="195" r="12"/>
+        <line x1="0" y1="201" x2="24" y2="225"/>
+        <line x1="16" y1="217" x2="24" y2="209"/>
+        <line x1="24" y1="225" x2="32" y2="217"/>
+      </g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">auth model</text>
+    </g>
+
+    <!-- Q4 2018 — first line migrated (strangler-fig cutover) -->
+    <g transform="translate(615,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q4 &#8217;18</text>
+      <!-- old box shrinking, new box growing, arrow between -->
+      <rect x="-32" y="186" width="20" height="24" rx="3" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.6"/>
+      <rect x="12" y="176" width="24" height="44" rx="4" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="3"/>
+      <path d="M-8 198 l16 0" fill="none" stroke="#357a8c" stroke-width="3"/>
+      <path d="M8 198 l-6 -4 l0 8 z" fill="#357a8c"/>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">line 1 cut over</text>
+    </g>
+
+    <!-- Q1 2019 — OTA live, canary near-disaster -->
+    <g transform="translate(737,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q1 &#8217;19</text>
+      <!-- down-arrow firmware into device + a red warning dot -->
+      <rect x="-14" y="200" width="28" height="22" rx="4" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="3"/>
+      <path d="M0 168 l0 26" fill="none" stroke="#357a8c" stroke-width="3.5"/>
+      <path d="M0 198 l-6 -8 l12 0 z" fill="#357a8c"/>
+      <circle cx="20" cy="176" r="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+      <line x1="20" y1="171" x2="20" y2="178" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="20" cy="182" r="1.6" fill="#c14a3a"/>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">OTA + canary</text>
+    </g>
+
+    <!-- Q2 2019 — rest of fleet + dentist portal -->
+    <g transform="translate(859,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#357a8c" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q2 &#8217;19</text>
+      <g fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="3">
+        <rect x="-30" y="180" width="22" height="40" rx="4"/><rect x="-4" y="180" width="22" height="40" rx="4"/>
+      </g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">+2 lines, portal</text>
+    </g>
+
+    <!-- Q3 2019 — maturity + exit -->
+    <g transform="translate(981,0)">
+      <circle cx="0" cy="300" r="9.5" fill="#357a8c"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q3 &#8217;19</text>
+      <!-- a solid filled platform block + door -->
+      <rect x="-26" y="176" width="52" height="44" rx="6" fill="#357a8c" fill-opacity="0.22" stroke="#357a8c" stroke-width="3"/>
+      <rect x="6" y="186" width="14" height="34" rx="2" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.6"/>
+      <circle cx="9" cy="204" r="1.8" fill="#357a8c"/>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">~1M devices</text>
+      <text x="0" y="278" text-anchor="middle" font-size="11" fill="#7a808c">exit</text>
+    </g>
+  </g>
+
+  <!-- arc sweep across the top tying the quarters together -->
+  <path d="M127 130 Q554 96 981 130" fill="none" stroke="#357a8c" stroke-width="2.5" opacity="0.45" stroke-dasharray="2 9" stroke-linecap="round"/>
+
+  <text x="34" y="500" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">scattered APIs &#8594; one entity model &#8594; auth &#8594; migrations &#8594; OTA &#8594; one platform holding ~1M devices</text>
+</svg>

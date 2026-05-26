@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-label="Multi-cat household setup, end of 2020">
+  <rect width="1000" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700;}
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:10.5px;fill:#5b616b;}
+    .kick{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;letter-spacing:2px;fill:#7a808c;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+    .tag{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:10px;fill:#c87533;}
+  </style>
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 z" fill="#1a1d24"/></marker>
+  </defs>
+
+  <text x="40" y="42" class="kick">THE HOUSE WENT MULTI-CAT IN 2020</text>
+  <text x="40" y="64" class="sm">Boson arrived in June — every connected device suddenly had to know which cat</text>
+
+  <!-- two cats -->
+  <g transform="translate(60,100)">
+    <rect x="0" y="0" width="180" height="70" rx="10" fill="#c87533" fill-opacity="0.08" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="90" y="30" text-anchor="middle" class="lab">Joule + Boson</text>
+    <text x="90" y="52" text-anchor="middle" class="sm">two cats, two microchips</text>
+  </g>
+
+  <!-- doors -->
+  <g transform="translate(390,96)">
+    <rect x="0" y="0" width="240" height="80" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="120" y="26" text-anchor="middle" class="lab">2× SureFlap door</text>
+    <text x="120" y="46" text-anchor="middle" class="sm">front + back deck (Aug)</text>
+    <text x="120" y="64" text-anchor="middle" class="tag">per-cat curfew — works as advertised</text>
+  </g>
+
+  <!-- feeders -->
+  <g transform="translate(390,206)">
+    <rect x="0" y="0" width="240" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="120" y="26" text-anchor="middle" class="lab">feeders, split</text>
+    <text x="120" y="46" text-anchor="middle" class="sm">SureFeed chip feeder · Boson (Sep)</text>
+    <text x="120" y="64" text-anchor="middle" class="sm">PetSafe Smart Feed · Joule</text>
+    <text x="120" y="82" text-anchor="middle" class="tag">no single feeder does per-cat</text>
+  </g>
+
+  <!-- litter -->
+  <g transform="translate(390,328)">
+    <rect x="0" y="0" width="240" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="120" y="26" text-anchor="middle" class="lab">2× Litter-Robot III</text>
+    <text x="120" y="46" text-anchor="middle" class="sm">kitchen (Joule) + basement (Boson)</text>
+    <text x="120" y="64" text-anchor="middle" class="sm">capacity for two cats · ~$1,100</text>
+    <text x="120" y="82" text-anchor="middle" class="tag">no native who-used-it signal</text>
+  </g>
+
+  <!-- arrows from cats to each subsystem -->
+  <line x1="240" y1="125" x2="386" y2="130" stroke="#1a1d24" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="240" y1="140" x2="386" y2="245" stroke="#1a1d24" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="240" y1="150" x2="386" y2="370" stroke="#1a1d24" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- the glue script -->
+  <line x1="630" y1="374" x2="710" y2="374" stroke="#c87533" stroke-width="2.5" marker-end="url(#a)"/>
+  <g transform="translate(715,330)">
+    <rect x="0" y="0" width="240" height="92" rx="10" fill="#c87533" fill-opacity="0.06" stroke="#c87533" stroke-width="3"/>
+    <text x="120" y="28" text-anchor="middle" class="lab">my attribution script</text>
+    <text x="120" y="50" text-anchor="middle" class="sm">weight delta → which cat</text>
+    <text x="120" y="70" text-anchor="middle" class="sm" fill="#3a7d44">96.4% accurate per-cat</text>
+    <text x="120" y="88" text-anchor="middle" class="tag">the smart part is still hand-built</text>
+  </g>
+
+  <line x1="40" y1="456" x2="960" y2="456" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="500" y="488" text-anchor="middle" class="cap">Two cats doubled the device count — and the only thing that knows which cat did what is a script I wrote.</text>
+</svg>

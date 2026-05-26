@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420" role="img" aria-label="Two SmartThings hubs covering for each other">
+  <rect width="1000" height="420" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #7a808c; letter-spacing: 1.2px; }
+    .lbl { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #1a1d24; }
+    .sub { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 11px; fill: #5b616b; }
+    .cap { font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 13.5px; fill: #7a808c; }
+  </style>
+
+  <text x="40" y="34" class="h">TWO SMARTTHINGS HUBS, ONE THREAD NETWORK — REDUNDANCY THAT'S ACTUALLY BEEN USED</text>
+
+  <!-- hub A: fridge -->
+  <g transform="translate(120,90)">
+    <rect x="0" y="0" width="180" height="80" rx="10" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="3"/>
+    <text x="90" y="36" text-anchor="middle" class="lbl">Family Hub fridge</text>
+    <text x="90" y="58" text-anchor="middle" class="sub">hub A</text>
+  </g>
+  <!-- hub B: frame -->
+  <g transform="translate(700,90)">
+    <rect x="0" y="0" width="180" height="80" rx="10" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="3"/>
+    <path d="M60 34 l30 -16 l30 16" fill="none" stroke="#6a4c93" stroke-width="2.6"/>
+    <text x="90" y="56" text-anchor="middle" class="lbl">Frame TV</text>
+    <text x="90" y="74" text-anchor="middle" class="sub">hub B</text>
+  </g>
+
+  <!-- shared thread network band -->
+  <g transform="translate(120,210)">
+    <rect x="0" y="0" width="760" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="380" y="34" text-anchor="middle" class="lbl">one shared Thread network · Matter devices commission via either</text>
+  </g>
+  <!-- links hubs -> thread band -->
+  <g stroke="#6a4c93" stroke-width="2.6">
+    <line x1="210" y1="170" x2="210" y2="210"/>
+    <line x1="790" y1="170" x2="790" y2="210"/>
+  </g>
+
+  <!-- failover note -->
+  <g transform="translate(120,300)">
+    <rect x="0" y="0" width="760" height="60" rx="10" fill="#3a7d44" fill-opacity="0.07" stroke="#3a7d44" stroke-width="2"/>
+    <text x="20" y="26" class="lbl" fill="#3a7d44">When one drops, the other carries the house:</text>
+    <text x="20" y="48" class="sub">fridge unplugged for service → Frame keeps lights + sensors alive · Frame's One Connect cable bumped (twice) → fridge picks up the slack</text>
+  </g>
+
+  <!-- caveat -->
+  <text x="500" y="196" text-anchor="middle" class="sub" fill="#c14a3a">caveat: Z-Wave can't merge — each hub keeps its own separate Z-Wave network</text>
+</svg>

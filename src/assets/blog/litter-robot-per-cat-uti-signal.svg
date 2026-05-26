@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="per-cat baseline reveals UTI">
+  <rect width="1000" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">THE SAME SPIKE, HIDDEN AND REVEALED</text>
+
+  <!-- TOP: aggregate view, spike diluted -->
+  <text x="40" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#7a808c">AGGREGATED &#183; both cats summed</text>
+  <g transform="translate(90,110)">
+    <line x1="0" y1="90" x2="820" y2="90" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+    <!-- flattish line ~6-7/day with a barely-there bump -->
+    <path d="M0 44 L120 46 L240 42 L360 48 L480 38 L600 44 L720 40 L820 42"
+          fill="none" stroke="#7a808c" stroke-width="3.5"/>
+    <text x="828" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#7a808c">~6-7/day</text>
+    <text x="0" y="116" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#5b616b">one cat's spike vanishes into the other cat's steady pattern &#8212; looks like noise</text>
+  </g>
+
+  <!-- BOTTOM: per-cat, spike visible -->
+  <text x="40" y="290" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">SPLIT BY CAT &#183; each against its own baseline</text>
+  <g transform="translate(90,308)">
+    <line x1="0" y1="120" x2="820" y2="120" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+    <!-- Boson: flat low -->
+    <path d="M0 96 L160 98 L320 94 L480 96 L640 95 L820 96"
+          fill="none" stroke="#357a8c" stroke-width="3.5"/>
+    <text x="828" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#357a8c">Boson</text>
+    <!-- Joule: flat ~3 then jumps to 6 short visits -->
+    <path d="M0 92 L320 90 L420 92 C 470 92, 480 30, 540 30 L820 30"
+          fill="none" stroke="#3a7d44" stroke-width="3.5"/>
+    <text x="828" y="34" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#3a7d44">Joule</text>
+    <!-- spike callout -->
+    <circle cx="600" cy="30" r="7" fill="#c14a3a"/>
+    <text x="600" y="14" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#c14a3a">6 short visits = UTI shape</text>
+    <text x="0" y="146" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#5b616b">frequent + brief, against Joule's own flat baseline &#8212; the classic UTI presentation, now obvious</text>
+  </g>
+</svg>

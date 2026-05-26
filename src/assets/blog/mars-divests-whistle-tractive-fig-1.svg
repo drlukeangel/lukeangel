@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" role="img" aria-label="Connected-collar market after Whistle">
+  <rect width="1000" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700;}
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12.5px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:10.5px;fill:#5b616b;}
+    .kick{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;letter-spacing:2px;fill:#7a808c;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="42" class="kick">THE COLLAR MARKET, AUGUST 2025</text>
+  <text x="40" y="64" class="sm">three tiers — and the gap Whistle left</text>
+
+  <!-- TIER 1: cellular -->
+  <rect x="40" y="86" width="920" height="150" rx="10" fill="#c87533" fill-opacity="0.06" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+  <text x="58" y="112" class="hd">CELLULAR (LTE-M) · always-on, subscription</text>
+  <!-- Fi -->
+  <g transform="translate(58,128)">
+    <rect x="0" y="0" width="270" height="90" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="16" y="26" class="lab">Fi</text>
+    <text x="16" y="46" class="sm">activity only · no cat tracker</text>
+    <text x="16" y="64" class="sm">$99/yr · independent, US</text>
+    <text x="16" y="82" class="sm">— pioneered the home-anchor idea</text>
+  </g>
+  <!-- Tractive (highlighted) -->
+  <g transform="translate(346,128)">
+    <rect x="0" y="0" width="300" height="90" rx="9" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+    <text x="16" y="26" class="lab">Tractive  ◄ now owns Whistle</text>
+    <text x="16" y="46" class="sm">activity · sleep · resting HR + resp rate</text>
+    <text x="16" y="64" class="sm">GPS Cat Mini · Base Station anchor</text>
+    <text x="16" y="82" class="sm">from ~$5/mo · independent, Austrian</text>
+  </g>
+  <!-- Halo -->
+  <g transform="translate(664,128)">
+    <rect x="0" y="0" width="278" height="90" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="16" y="26" class="lab">Halo Collar</text>
+    <text x="16" y="46" class="sm">activity · no cat tracker</text>
+    <text x="16" y="64" class="sm">$9.95/mo · independent, US</text>
+    <text x="16" y="82" class="sm">— fence-correction model</text>
+  </g>
+
+  <!-- TIER 2: BLE / Find My -->
+  <rect x="40" y="252" width="600" height="118" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+  <text x="58" y="278" class="hd">BLE / FIND MY · crowdsourced, no subscription</text>
+  <g class="sm" transform="translate(58,296)">
+    <text x="0" y="16">Pebblebee Clip  · $30 · collar-sized</text>
+    <text x="0" y="38">Chipolo One Spot · $30</text>
+    <text x="0" y="60">Eufy SmartTrack Card · $25</text>
+  </g>
+  <g class="sm" transform="translate(330,296)">
+    <text x="0" y="16">AirTag-on-collar — Apple</text>
+    <text x="0" y="34">discourages it; anti-stalking</text>
+    <text x="0" y="52">architecture mismatch unchanged</text>
+    <text x="0" y="78" fill="#c14a3a">no continuous track off-grid</text>
+  </g>
+
+  <!-- TIER 3: health-only / non-tracker -->
+  <rect x="660" y="252" width="300" height="118" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+  <text x="678" y="278" class="hd">HEALTH-ONLY</text>
+  <g class="sm" transform="translate(678,296)">
+    <text x="0" y="16">PetPace · vitals collar, no GPS</text>
+    <text x="0" y="38">Petivity · litter analytics (Purina)</text>
+    <text x="0" y="60">Fitbark · BLE base-station, niche</text>
+  </g>
+
+  <!-- The departed -->
+  <rect x="40" y="388" width="920" height="64" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <text x="58" y="414" class="lab" fill="#c14a3a">Whistle  ✗  cloud dark Aug 31, 2025</text>
+  <text x="58" y="436" class="sm">Go Explore + Fit were 3G — US consumer 3G retired through 2022; Mars chose not to retool. Health line absorbed by Tractive.</text>
+
+  <line x1="40" y1="478" x2="960" y2="478" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="500" y="508" text-anchor="middle" class="cap">The category consolidated faster than I expected — and the one vendor that shipped real vitals just absorbed the one that never did.</text>
+</svg>

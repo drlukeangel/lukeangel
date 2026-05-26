@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="The loop that catches a regression before it ships.">
+  <rect width="1120" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE LOOP — CATCH IT BEFORE IT SHIPS</text>
+
+  <!-- 1. prompt change (input trigger) -->
+  <rect x="48" y="118" width="150" height="64" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="123" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">prompt</text>
+  <text x="123" y="166" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">change</text>
+
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="198" y1="150" x2="246" y2="150"/><path d="M252 150 l-16 -7 v14 z"/></g>
+
+  <!-- 2. for each row: send input to model, capture fresh output -->
+  <rect x="258" y="96" width="236" height="108" rx="12" fill="#fdfaf2" stroke="#4f46b8" stroke-width="3"/>
+  <text x="376" y="122" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#4f46b8">for each row</text>
+  <text x="376" y="150" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">input → model</text>
+  <text x="376" y="174" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">→ fresh output</text>
+  <!-- tiny model glyph -->
+  <g transform="translate(300,160)" stroke="#4f46b8" stroke-width="1.6" opacity="0.5" fill="none">
+    <circle cx="0" cy="0" r="3.5"/><circle cx="0" cy="14" r="3.5"/><circle cx="16" cy="7" r="3.5"/>
+    <line x1="3" y1="1" x2="13" y2="6"/><line x1="3" y1="13" x2="13" y2="8"/>
+  </g>
+
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="494" y1="150" x2="542" y2="150"/><path d="M548 150 l-16 -7 v14 z"/></g>
+
+  <!-- 3. compare fresh vs expected (the human review on Sundays) -->
+  <rect x="554" y="96" width="248" height="108" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="678" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">compare to expected</text>
+  <!-- fresh swatch over expected swatch -->
+  <rect x="592" y="134" width="172" height="20" rx="5" fill="#4f46b8" opacity="0.85"/>
+  <rect x="592" y="160" width="172" height="20" rx="5" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="820" y="92" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">human · Sundays</text>
+
+  <!-- decision: worse? -->
+  <!-- PASS branch down-right to ship -->
+  <g stroke="#3a7d44" stroke-width="3" fill="none"><path d="M802 150 H 902 V 250"/></g>
+  <path d="M902 256 l-7 -16 h14 z" fill="#3a7d44"/>
+  <text x="846" y="142" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#3a7d44">as good →</text>
+
+  <!-- FAIL branch down from compare to "caught regression" -->
+  <g stroke="#c14a3a" stroke-width="3" fill="none"><path d="M678 204 V 300"/></g>
+  <path d="M678 306 l-7 -16 h14 z" fill="#c14a3a"/>
+  <text x="694" y="248" font-family="ui-monospace,monospace" font-size="11.5" fill="#c14a3a">worse</text>
+
+  <!-- caught regression box (stops here) -->
+  <rect x="560" y="312" width="236" height="74" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <circle cx="600" cy="349" r="15" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <path d="M593 342 l14 14 M607 342 l-14 14" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+  <text x="628" y="345" font-family="ui-monospace,monospace" font-size="12.5" fill="#c14a3a">caught here —</text>
+  <text x="628" y="366" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">never shipped</text>
+
+  <!-- SHIP / customer (right) -->
+  <rect x="858" y="262" width="208" height="74" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="962" y="292" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">ship → customer</text>
+  <circle cx="900" cy="316" r="8" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+  <path d="M896 316 l3 4 6 -7" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- DASHED bypass: without the loop, a prompt change flows straight to the customer -->
+  <path d="M123 182 V 458 H 962 V 342" fill="none" stroke="#c14a3a" stroke-width="2.4" stroke-dasharray="8 6" opacity="0.7"/>
+  <path d="M962 348 l-7 16 h14 z" fill="#c14a3a" opacity="0.7"/>
+  <text x="150" y="452" font-family="ui-monospace,monospace" font-size="11.5" fill="#c14a3a" opacity="0.85">without the loop: the regression rides straight through, unnoticed</text>
+</svg>

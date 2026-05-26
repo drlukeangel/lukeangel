@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 16
 excerpt: "Nine months with HomeKit (since iOS 9). Three HomeKit devices working, ten more I wish would work but can't. The MFi chip is the moat."
 pullquote: "Every HomeKit device costs $2-5 of BOM for an Apple-licensed authentication chip. The chip is the wall. Inside the wall, the security model is the best in the industry. Outside, you don't exist."
-cover: "../../assets/blog/homekit-and-the-mfi-chip-moat-cover.png"
-coverAlt: "HomeKit and the MFi chip moat — the hardware tax"
+cover: "../../assets/blog/homekit-and-the-mfi-chip-moat-cover.svg"
+coverAlt: "A walled enclosure with a single gated entry guarded by an authentication chip; a few premium devices stand inside the wall while a crowd of cheap devices is stranded outside — the MFi chip as the moat around HomeKit."
 ---
 
 Nine months on HomeKit, since iOS 9 shipped in September 2015. Three devices in the house work with Siri:
@@ -52,6 +52,8 @@ End-to-end, MFi adds **$2-5 of effective cost per device** plus 3-6 months of ce
 
 That's the moat: HomeKit excludes the cheap-end devices structurally.
 
+![The MFi chip as a moat around HomeKit. Inside the wall sit the devices that paid the toll — a $200 thermostat, a smart bridge, a premium bulb hub — each carrying the Apple-licensed authentication chip and reachable by Siri. Outside, locked out, is a crowd of cheap gear — a $20 smart plug, generic Z-Wave and Zigbee sensors, Wi-Fi bulbs — that can't justify the $2-5-per-device chip cost plus months of certification. The single gate is guarded by the auth chip: no chip, no entry. The wall isn't about capability; it's about who can afford the toll.](../../assets/blog/homekit-mfi-moat.svg)
+
 ## The HomeKit Accessory Protocol (HAP)
 
 HAP is what runs on the wire between iOS and a HomeKit accessory. Two transports:
@@ -82,13 +84,15 @@ Lightbulb Service (0x00000043)
 
 Compared with my Hue REST API JSON, the HomeKit data is almost identical content — the abstractions match because lighting is lighting. The difference is the **wire encryption + pairing model**, which HomeKit takes seriously.
 
+![How a HomeKit accessory pairs and then talks securely. First, iOS challenges the accessory's MFi authentication chip; the chip returns a response signed with its Apple-issued certificate, and only if that verifies does pairing proceed — that single step is what no uncertified device can fake. Then the user enters the 8-digit setup code, the two sides derive per-device keys, and from that point every message runs over a ChaCha20-Poly1305 encrypted channel with mutual authentication on every connection. The result: a device on your Wi-Fi that a guest on the same network still cannot command, because they were never paired. The chip gates entry; the key exchange secures everything after.](../../assets/blog/homekit-hap-pairing-flow.svg)
+
 ## What HomeKit gets right
 
 **Security**. The mutual-auth + per-key model means a HomeKit device on your network can't be controlled by anyone who isn't paired with it. No "guest jumps on WiFi and turns off the lights" attack. This is *much* stronger than Hue's local REST (anyone on LAN), Wemo's UPnP (anyone on LAN), or SmartThings (anyone who can hit your cloud account).
 
 **The Home app is good**. Siri integration is tight. Latency on Lutron Caseta + Siri is 1-2 seconds — faster than any Echo + SmartThings command path.
 
-**Scenes and automations are local-when-possible**. With Apple TV 4 (or now the rumored HomePod) as the HomeKit hub, automations run locally when you're home and through iCloud when you're away. No vendor cloud required.
+**Scenes and automations are local-when-possible**. With the Apple TV 4 (or whatever home hub Apple ships next) acting as the HomeKit hub, automations run locally when you're home and through iCloud when you're away. No vendor cloud required.
 
 ## What HomeKit gets wrong
 
@@ -108,6 +112,6 @@ I'd love HomeKit to be the primary, but the device support is too narrow. Until 
 
 ## What I'm watching
 
-- **Apple's rumored smart speaker** (the AppleHome / HomePod). If Apple ships their own Echo competitor with a HomeKit hub built in, that changes the math.
+- **Apple's rumored smart speaker** (the "AppleHome," whatever they end up calling it). If Apple ships their own Echo competitor with a HomeKit hub built in, that changes the math.
 - **IKEA TRÅDFRI**. Rumored to launch later this year — IKEA's first connected lighting, supposedly with HomeKit support via their hub. If they price it under Hue (likely — IKEA prices to disrupt), the consumer market shifts.
 - **Hue Motion sensor** (rumored August). Hue's first native motion device. If it works with HomeKit through the Hue v2 bridge, the HomeKit ecosystem gets a real automation primitive.

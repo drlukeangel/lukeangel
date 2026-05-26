@@ -9,11 +9,17 @@ tags:
   - architecture
 excerpt: "Four AWS spend leaks I find every quarter, no matter the org. The audit takes a Friday afternoon and usually pays for the next year of cloud bills."
 pullquote: "AWS doesn't optimize your bill. AWS optimizes their revenue. The two are not the same hobby."
+notebook: building-with-ai-ml
+notebookOrder: 8
 cover: "../../assets/blog/aws-spend-audit-quarterly-cover.svg"
-coverAlt: "Cover graphic — The AWS spend audit I do every quarter. April 2025."
+coverAlt: "A stack of spend bars leaking red drops out their right edges while a magnifying glass passes over them, a green check inside the lens — the quarterly audit catching the recurring leaks."
 ---
 
 Once a quarter, the Friday before the budget meeting, I block four hours and audit our AWS spend. I've done this at three different companies now. The four leaks I find are *always* the same four leaks. Writing them down so the next engineering leader can skip the rediscovery.
+
+The map is always the same shape: four buckets, each with its own tell and its own lever. Here's what I'm looking for before I open Cost Explorer.
+
+![The four recurring AWS spend leaks, each in its own card with the tell and the lever. Leak 1, idle dev and staging compute: RDS and EC2 running 24/7 after owners rotated off; lever is schedule, stop, delete, or reserve; typical find about $14K per month. Leak 2, storage on the wrong tier: S3 Standard holding cold data, gp2 EBS volumes, snapshots that never expire; lever is Intelligent-Tiering, gp3, and retention policies; typical find $4K to $8K per month. Leak 3, egress and cross-AZ chatter: NAT-to-S3, cross-AZ hops, and idle replication; lever is VPC endpoints, co-locating services, and dropping unused replication; typical find $2K to $5K per month. Leak 4, oversized everything: EC2, RDS, and Lambda sized on day one and never revisited; lever is Compute Optimizer, right-sizing, and autoscaling; typical find $5K to $15K per month.](../../assets/blog/aws-spend-audit-four-leaks.svg)
 
 ## Leak 1: idle dev / staging compute
 
@@ -64,12 +70,16 @@ The shape: every EC2 instance, every RDS class, every Lambda memory setting was 
 
 **Typical find:** $5K – $15K/month, depending on size of fleet. Often the team will push back ("but we *might* need it during a spike"). The right answer is auto-scaling, not over-provisioning the baseline.
 
+![Two spend bars side by side. On the left, a tall bar labeled "provisioned for the spike, 24/7": only the bottom slab is "actually used" while the larger top slab is "paid, never used." An arrow points to the right bar, labeled "right-sized + autoscale on spike": a short solid bar sized to the real baseline, with a dashed-outline block above it that "scales on demand" — capacity that only exists, and only bills, when the spike actually arrives.](../../assets/blog/aws-spend-audit-rightsize-bars.svg)
+
+The picture is the whole argument: you can pay for the spike's headroom every hour of every day, or you can pay for it only in the hours the spike shows up. Provisioning the baseline to the peak is buying insurance you already have — that's what auto-scaling *is*.
+
 ## What I don't audit
 
 A few things I deliberately don't touch on quarterly audits:
 
 - **Reserved Instances / Savings Plans changes.** Those are *annual* commitments — I revisit once a year, in tandem with our capacity-planning conversation, not quarterly.
-- **Bedrock cost optimization.** That's a different audit. Bedrock prompt caching (GA'd a few weeks back, finally) and intelligent prompt routing are the main levers. I do a separate AI-cost audit monthly because the workload is moving too fast for quarterly to keep up.
+- **Bedrock cost optimization.** That's a different audit. Bedrock prompt caching went GA last week — finally — and it's already the biggest single lever I have on our LLM bill (it bills cached input tokens at a fraction of the read rate, so the long, repeated system-prompt context stops costing full freight on every call). Intelligent prompt routing is the other lever I'm watching, but it's still in preview as I write this, so I'm evaluating it, not committing a budget line to it yet. I do a separate AI-cost audit monthly because the workload is moving too fast for quarterly to keep up.
 - **Anything below $100/month.** Time is finite. The audit budget is $5K minimum-find before I'll pull the thread.
 
 ## The script that runs every Monday
@@ -81,6 +91,10 @@ Beyond the quarterly audit, the team runs a small Lambda every Monday at 8am tha
 - Anything that crossed +20% week-over-week
 
 Most weeks the channel is boring. The week when it isn't, we catch the leak the same week instead of three months later.
+
+![Two timelines for the same leak, started when a box scales up and never scales back down. The top track is the weekly watchdog: a Lambda posts to Slack every Monday at 8am, and the week the +20% week-over-week alert fires, the leak is caught and fixed that same week. The bottom track is quarterly-only: nothing watches the leak between audits, so roughly three months of waste is billed before the audit Friday finally catches it. The shaded wedge on the bottom track is the spend that the weekly check would have stopped.](../../assets/blog/aws-spend-audit-weekly-watchdog.svg)
+
+The quarterly audit finds the big structural leaks; the weekly Lambda is what keeps a new one from running unnoticed for a full quarter between audits. Different tools for different failure modes.
 
 ## The framing that lands with execs
 

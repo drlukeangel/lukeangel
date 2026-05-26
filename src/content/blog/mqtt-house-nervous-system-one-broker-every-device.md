@@ -12,6 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 28
 excerpt: "MQTT started as a side bus in 2018. After Google killed Works with Nest, it became the plan: route every device through one broker I own, so no vendor's API decision can unravel a web of automations. The topic hierarchy, the bridge pattern, the retained-message trick, and why this is the same architecture I build at work for fleets of connected devices."
 pullquote: "When every device speaks to one broker instead of to each other, killing a vendor's cloud API stops being a catastrophe and becomes a footnote. You lose one device's features, not the web. That's the whole point of a nervous system — you can lose a finger without losing the hand."
+cover: "../../assets/blog/mqtt-house-nervous-system-one-broker-every-device-cover.svg"
+coverAlt: "Every device in the house publishing to a single MQTT broker at the center, and every controller subscribing from it — one nervous system the homeowner owns, instead of a tangle of point-to-point vendor links."
 ---
 
 [Works with Nest dying in the spring](/blog/works-with-nest-is-dead-platform-risk-made-real/) was the push. The plan it pushed me toward: make **MQTT the primary nervous system of the house**, not the side bus it's been since [I stood up Mosquitto in 2018](/blog/node-red-flows-automations-yaml-couldnt-handle/).
@@ -53,6 +55,8 @@ Not every device speaks MQTT natively. The job is to bridge each protocol island
 
 Home Assistant sits on the bus like everything else — it subscribes for its dashboards and automations, and publishes commands. It's a *participant*, not the spine. If HA goes down for an upgrade, the bus keeps carrying messages and Node-RED keeps reacting.
 
+![The bridge pattern drawn as a hub-and-spoke around one MQTT broker. On the left, four protocol islands feed in through bridges: Zigbee via deCONZ, Z-Wave via zwave2mqtt, Hue mirrored through Home Assistant, and custom ESP sensors publishing native MQTT directly. All of them land on a single broker in the center, publishing to the home/ topic tree. On the right, the consumers subscribe from the same broker: Home Assistant for dashboards and automations, and Node-RED for flows. A note marks Home Assistant as just another participant on the bus, not the spine — so if it restarts, the broker and Node-RED keep the house running.](../../assets/blog/mqtt-bridge-pattern-bus.svg)
+
 ## The retained-message trick
 
 The detail that made this feel solid: **retained messages.** Publish a device's state with the retain flag, and the broker holds the last value. Anything that subscribes later immediately gets the current state instead of waiting for the next change.
@@ -62,6 +66,8 @@ mosquitto_pub -t 'home/frontdoor/contact/state' -m 'closed' -r
 ```
 
 So when Home Assistant restarts, it doesn't come up blind — it subscribes, and the broker immediately replays the retained state of every door, light, and sensor. The house's current state lives in the broker, durably, independent of any one application.
+
+![The retained-message trick on a timeline. A door sensor publishes "closed" with the retain flag set, and the broker holds that last value. Later, Home Assistant restarts and comes up blank. The moment it re-subscribes, the broker immediately replays the retained state of every topic — door closed, light on, motion clear — so HA is fully caught up without waiting for the next change. A caption contrasts this with a non-retained bus, where a restarting consumer would sit blind until each device happened to report again, and notes that the house's authoritative current state therefore lives in the broker, not in any one app.](../../assets/blog/mqtt-retained-message-restart.svg)
 
 ## Why this is the day job in miniature
 

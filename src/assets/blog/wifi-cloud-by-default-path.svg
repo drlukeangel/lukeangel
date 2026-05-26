@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="Cloud round-trip vs local control path">
+  <rect width="1000" height="430" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24" text-anchor="middle">
+
+    <text x="500" y="34" font-size="15" fill="#6a4c93">same house, same Wi-Fi — but the command leaves the building</text>
+
+    <!-- LEFT: WiFi plug, cloud round-trip -->
+    <text x="250" y="72" font-size="14" fill="#c14a3a">Wemo-style Wi-Fi plug</text>
+
+    <!-- cloud -->
+    <g transform="translate(250 130)">
+      <path d="M-46 12 a26 26 0 0 1 8 -50 a34 34 0 0 1 64 6 a24 24 0 0 1 14 44 z" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="0" y="6" font-size="11" fill="#c14a3a">vendor cloud</text>
+    </g>
+
+    <!-- phone -->
+    <g transform="translate(150 300)">
+      <rect x="-26" y="-40" width="52" height="80" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="62" font-size="11">phone</text>
+    </g>
+    <!-- plug -->
+    <g transform="translate(350 300)">
+      <rect x="-30" y="-34" width="60" height="68" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <circle cx="-10" cy="-6" r="3" fill="#1a1d24"/><circle cx="10" cy="-6" r="3" fill="#1a1d24"/>
+      <text x="0" y="56" font-size="11">plug</text>
+    </g>
+
+    <!-- up to cloud and back down -->
+    <path d="M170 262 L222 170" stroke="#c14a3a" stroke-width="2.5" marker-end="url(#r)"/>
+    <path d="M278 170 L330 262" stroke="#c14a3a" stroke-width="2.5" marker-end="url(#r)"/>
+    <text x="250" y="262" font-size="10" fill="#c14a3a">held-open TCP</text>
+    <text x="250" y="356" font-size="11" fill="#c14a3a">dead Wi-Fi uplink = dead plug</text>
+
+    <!-- divider -->
+    <line x1="500" y1="64" x2="500" y2="372" stroke="#7a808c" stroke-width="1.5" stroke-dasharray="4 5"/>
+
+    <!-- RIGHT: Hue, local bridge -->
+    <text x="750" y="72" font-size="14" fill="#3a7d44">Hue bridge — local REST</text>
+
+    <!-- internet crossed out -->
+    <g transform="translate(750 130)">
+      <path d="M-46 12 a26 26 0 0 1 8 -50 a34 34 0 0 1 64 6 a24 24 0 0 1 14 44 z" fill="#fdfaf2" stroke="#7a808c" stroke-width="2" stroke-dasharray="4 4"/>
+      <line x1="-30" y1="-28" x2="30" y2="14" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="0" y="6" font-size="10" fill="#7a808c">not needed</text>
+    </g>
+
+    <!-- phone -->
+    <g transform="translate(650 300)">
+      <rect x="-26" y="-40" width="52" height="80" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="62" font-size="11">phone</text>
+    </g>
+    <!-- bridge -->
+    <g transform="translate(850 300)">
+      <rect x="-30" y="-22" width="60" height="44" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="44" font-size="11">bridge</text>
+    </g>
+    <!-- straight LAN hop -->
+    <path d="M680 300 L818 300" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#g)"/>
+    <text x="750" y="288" font-size="10" fill="#3a7d44">LAN-only REST call</text>
+    <text x="750" y="356" font-size="11" fill="#3a7d44">runs with the internet down</text>
+
+    <text x="500" y="408" font-size="12" fill="#5b616b">cloud-by-default is cheaper to build — and hands the vendor a kill switch</text>
+
+    <defs>
+      <marker id="r" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#c14a3a"/></marker>
+      <marker id="g" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#3a7d44"/></marker>
+    </defs>
+  </g>
+</svg>

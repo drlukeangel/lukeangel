@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="battery: claim vs steady vs emergency">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24">
+
+    <text x="40" y="44" font-size="18" font-weight="700">BATTERY: THE BOX CLAIM VS THE JOB</text>
+
+    <!-- axes -->
+    <line x1="90" y1="80" x2="90" y2="360" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2.5"/>
+    <line x1="90" y1="360" x2="900" y2="360" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2.5"/>
+    <text x="50" y="120" font-size="12" fill="#5b616b" transform="rotate(-90 50 120)">charge %</text>
+    <text x="100" y="384" font-size="12" fill="#5b616b">day 0</text>
+
+    <!-- day gridlines / labels: day0=90 .. day7=900, ~116px/day -->
+    <g font-size="11" fill="#7a808c" text-anchor="middle">
+      <line x1="206" y1="80" x2="206" y2="360" stroke="#1a1d24" stroke-opacity="0.08"/>
+      <line x1="322" y1="80" x2="322" y2="360" stroke="#1a1d24" stroke-opacity="0.08"/>
+      <line x1="438" y1="80" x2="438" y2="360" stroke="#1a1d24" stroke-opacity="0.08"/>
+      <line x1="554" y1="80" x2="554" y2="360" stroke="#1a1d24" stroke-opacity="0.08"/>
+      <line x1="670" y1="80" x2="670" y2="360" stroke="#1a1d24" stroke-opacity="0.08"/>
+      <line x1="786" y1="80" x2="786" y2="360" stroke="#1a1d24" stroke-opacity="0.08"/>
+      <text x="206" y="378">1</text><text x="438" y="378">3</text>
+      <text x="670" y="378">5</text><text x="900" y="378">7</text>
+    </g>
+
+    <!-- emergency: ~1 day, steep (red) -->
+    <path d="M90 90 L206 360" fill="none" stroke="#c14a3a" stroke-width="3.5"/>
+    <!-- steady state: ~3.5 days (accent) -->
+    <path d="M90 90 L90 90 Q300 130 482 360" fill="none" stroke="#c87533" stroke-width="3.5"/>
+    <!-- claimed: ~7 days, gentle (muted) -->
+    <path d="M90 90 Q500 150 900 360" fill="none" stroke="#7a808c" stroke-width="3.5" stroke-dasharray="2 6"/>
+
+    <!-- empty line -->
+    <text x="100" y="356" font-size="11" fill="#7a808c">empty</text>
+
+    <!-- end markers -->
+    <circle cx="206" cy="360" r="5" fill="#c14a3a"/>
+    <circle cx="482" cy="360" r="5" fill="#c87533"/>
+    <circle cx="900" cy="360" r="5" fill="#7a808c"/>
+  </g>
+
+  <!-- legend -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">
+    <g transform="translate(120,420)"><line x1="0" y1="-4" x2="34" y2="-4" stroke="#7a808c" stroke-width="3.5" stroke-dasharray="2 6"/><text x="46" y="0">claimed ~7 d &#183; dog home, GPS asleep</text></g>
+    <g transform="translate(120,448)"><line x1="0" y1="-4" x2="34" y2="-4" stroke="#c87533" stroke-width="3.5"/><text x="46" y="0">steady ~3&#8211;4 d &#183; normal daily walks</text></g>
+    <g transform="translate(560,448)"><line x1="0" y1="-4" x2="34" y2="-4" stroke="#c14a3a" stroke-width="3.5"/><text x="46" y="0">when it matters ~1 d &#183; dog loose, polled</text></g>
+  </g>
+</svg>

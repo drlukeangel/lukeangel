@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 470" width="1080" height="470" role="img" aria-label="Frequency mismatch: a single-frequency scanner misses an off-frequency chip; a universal scanner sweeps both.">
+  <rect width="1080" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHY THE FREQUENCY MATTERS</text>
+
+  <!-- divider -->
+  <line x1="540" y1="66" x2="540" y2="402" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- LEFT: single-frequency scanner misses the old chip -->
+  <g transform="translate(60,84)">
+    <text x="0" y="0" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">SINGLE-FREQUENCY SCANNER</text>
+    <text x="0" y="22" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">tuned to 134.2 kHz only</text>
+
+    <!-- scanner -->
+    <g transform="translate(60,110)">
+      <rect x="-44" y="-40" width="88" height="100" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="-30" y="-26" width="60" height="28" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+      <text x="0" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">134.2</text>
+      <text x="0" y="40" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#7a808c">kHz</text>
+    </g>
+    <!-- old chip 125 kHz -->
+    <g transform="translate(300,110)">
+      <rect x="-44" y="-15" width="88" height="30" rx="15" fill="#fdfaf2" stroke="#7a808c" stroke-width="3"/>
+      <line x1="16" y1="-15" x2="16" y2="15" stroke="#7a808c" stroke-width="2" opacity="0.6"/>
+      <line x1="4" y1="-15" x2="4" y2="15" stroke="#7a808c" stroke-width="2" opacity="0.6"/>
+      <text x="0" y="42" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">old 125 kHz chip</text>
+    </g>
+    <!-- mismatch: broken link with an X -->
+    <g transform="translate(180,110)">
+      <line x1="-56" y1="0" x2="-18" y2="0" stroke="#c14a3a" stroke-width="4"/>
+      <line x1="18" y1="0" x2="56" y2="0" stroke="#c14a3a" stroke-width="4"/>
+      <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round">
+        <line x1="-12" y1="-12" x2="12" y2="12"/>
+        <line x1="12" y1="-12" x2="-12" y2="12"/>
+      </g>
+    </g>
+
+    <text x="180" y="230" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#c14a3a">reads as NO CHIP</text>
+    <text x="180" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">a chipped pet looks unchipped</text>
+  </g>
+
+  <!-- RIGHT: universal scanner sweeps both -->
+  <g transform="translate(580,84)">
+    <text x="0" y="0" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">UNIVERSAL SCANNER</text>
+    <text x="0" y="22" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">sweeps 125 / 128 / 134.2 kHz</text>
+
+    <!-- scanner -->
+    <g transform="translate(60,110)">
+      <rect x="-44" y="-40" width="88" height="100" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="-30" y="-26" width="60" height="28" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+      <text x="0" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#7a808c">multi-freq</text>
+      <text x="0" y="40" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#7a808c">sweep</text>
+    </g>
+    <!-- either chip -->
+    <g transform="translate(300,90)">
+      <rect x="-44" y="-15" width="88" height="30" rx="15" fill="#fdfaf2" stroke="#7a808c" stroke-width="3"/>
+      <line x1="10" y1="-15" x2="10" y2="15" stroke="#7a808c" stroke-width="2" opacity="0.6"/>
+      <text x="0" y="-26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">125 kHz</text>
+    </g>
+    <g transform="translate(300,140)">
+      <rect x="-44" y="-15" width="88" height="30" rx="15" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+      <line x1="10" y1="-15" x2="10" y2="15" stroke="#c87533" stroke-width="2" opacity="0.6"/>
+      <text x="0" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c87533">134.2 kHz</text>
+    </g>
+    <!-- good links to both -->
+    <g stroke="#3a7d44" stroke-width="4" fill="none">
+      <path d="M124 100 q40 -10 84 -10"/>
+      <path d="M124 120 q40 20 84 20"/>
+    </g>
+    <!-- check -->
+    <g transform="translate(180,110)" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" fill="none">
+      <path d="M-10 0 l7 8 l14 -16"/>
+    </g>
+
+    <text x="180" y="230" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#3a7d44">reads EITHER chip</text>
+    <text x="180" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">the responsible-shelter standard now</text>
+  </g>
+
+  <text x="540" y="442" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">Coupling is tuned to a frequency — scan on the wrong one and you get silence, not a wrong answer.</text>
+</svg>

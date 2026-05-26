@@ -13,6 +13,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 25
 excerpt: "The Zigbee bulbs and sensors had been hostage to the SmartThings hub for years — local control routed through someone else's cloud-then-bridge. A $40 ConBee USB stick and deCONZ change that: a Zigbee coordinator I own, paired straight to Home Assistant, no vendor in the path. The bulbs answer to my closet now."
 pullquote: "A radio you don't control isn't local-first, no matter where the automation logic runs. The SmartThings hub was a cloud account wearing a Zigbee antenna. The ConBee is just an antenna."
+cover: "../../assets/blog/conbee-deconz-zigbee-off-the-smartthings-hub-cover.svg"
+coverAlt: "On the left, an old smart-home hub tethered up to a faint cloud, greyed out and crossed with a red X — retired for Zigbee. An arrow leads to a Raspberry Pi with a ConBee USB stick plugged into its side, antenna waves radiating from the stick into a local Zigbee mesh on the right: filled nodes for mains-powered routers and hollow nodes for battery sensors, all wired together and rooted at the stick. The mesh answers to the Pi now, not the cloud."
 ---
 
 The project I've deferred since [last year's review](/blog/2017-in-review-smart-home-journal-goes-quiet/) finally happened over a weekend the day job didn't claim. The Zigbee devices are off the SmartThings hub and onto a coordinator I own.
@@ -22,6 +24,8 @@ The project I've deferred since [last year's review](/blog/2017-in-review-smart-
 [Home Assistant runs the logic locally](/blog/first-home-assistant-install-yaml-configs/), but until now it reached the Zigbee bulbs and sensors *through* the SmartThings hub — which means through SmartThings' cloud-then-local bridge. Every "turn on the kitchen light" round-tripped through a dependency I'd spent a year trying to remove from everything else.
 
 That's not local-first. That's local logic with a cloud-shaped hole in the middle.
+
+![Where the Zigbee commands go, before and after. Before: a bulb talks to the SmartThings hub, which round-trips through the SmartThings cloud before reaching Home Assistant — drawn in red, labelled "local logic with a cloud-shaped hole in it." After: the same bulb talks straight to a ConBee coordinator on the Pi, then to Home Assistant — drawn in green, "no cloud, no bridge, the hole is gone." A caption notes a radio you don't control isn't local-first, no matter where the logic runs.](../../assets/blog/conbee-before-after-coordinator.svg)
 
 ## The hardware: ConBee + deCONZ
 
@@ -51,6 +55,8 @@ Notes from doing ~20 devices in an evening:
 ## The Zigbee mesh lesson
 
 Zigbee is a mesh: mains-powered devices (bulbs, plugs) route for battery devices (sensors). When I moved the coordinator, the mesh had to rebuild. For a day, the far-corner sensors were flaky until the routing tables settled and the bulbs in between started repeating. Patience, not panic — the mesh heals itself if you give it mains-powered routers to lean on.
+
+![A Zigbee mesh rooted at the ConBee coordinator on the left. Mains-powered devices — bulbs and a plug — are drawn as filled nodes forming a routing backbone; battery sensors are hollow nodes out at the edges. Links run coordinator to routers to leaves, and a highlighted green dashed path traces a far sensor's data hopping router-to-router back to the coordinator. A caption notes the sensor's data hops router-to-router home, so give the mesh mains-powered devices to lean on.](../../assets/blog/conbee-zigbee-mesh-routing.svg)
 
 ## Where this leaves the architecture
 

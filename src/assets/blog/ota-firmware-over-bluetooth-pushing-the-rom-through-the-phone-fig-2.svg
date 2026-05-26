@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 460" width="1080" height="460" role="img" aria-label="A persisted write cursor lets a transfer resume across sessions.">
+  <rect width="1080" height="460" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE PERSISTED CURSOR — A TRANSFER RESUMES, NEVER RESTARTS</text>
+
+  <!-- image as a long bar of chunks -->
+  <text x="60" y="92" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">firmware image · 10,000 chunks (worst case)</text>
+  <g>
+    <!-- full bar outline -->
+    <rect x="60" y="104" width="960" height="46" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <!-- window 1 committed -->
+    <rect x="60" y="104" width="300" height="46" rx="8" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="0"/>
+    <!-- window 2 committed -->
+    <rect x="360" y="104" width="280" height="46" fill="#3a7d44" fill-opacity="0.16"/>
+    <!-- window 3 in progress -->
+    <rect x="640" y="104" width="180" height="46" fill="#357a8c" fill-opacity="0.18"/>
+    <!-- remaining -->
+    <!-- cursor line -->
+    <line x1="640" y1="96" x2="640" y2="166" stroke="#1a1d24" stroke-width="2.6"/>
+    <text x="640" y="186" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">cursor = 6500</text>
+  </g>
+  <!-- window dividers + labels -->
+  <g font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">
+    <text x="210" y="132" text-anchor="middle" fill="#3a7d44">window 1 ✓</text>
+    <text x="500" y="132" text-anchor="middle" fill="#3a7d44">window 2 ✓</text>
+    <text x="730" y="132" text-anchor="middle" fill="#357a8c">window 3 …</text>
+    <text x="920" y="132" text-anchor="middle">not yet sent</text>
+  </g>
+
+  <!-- timeline of sessions below -->
+  <text x="60" y="244" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">three in-range windows, spread over days</text>
+  <g transform="translate(60,266)">
+    <!-- session 1 -->
+    <rect x="0" y="0" width="300" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="150" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Mon · ~3 min in range</text>
+    <text x="150" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">commit 0 → 3000, then out of range</text>
+    <!-- session 2 -->
+    <rect x="330" y="0" width="280" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="470" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Wed · app reopened</text>
+    <text x="470" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">"cursor?" → resume 3000 → 6500</text>
+    <!-- session 3 -->
+    <rect x="640" y="0" width="320" height="64" rx="10" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.2"/>
+    <text x="800" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">Fri · finishes the image</text>
+    <text x="800" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">resume 6500 → 10000 · done</text>
+  </g>
+  <!-- resume arrows between sessions -->
+  <g stroke="#357a8c" stroke-width="2.6" fill="#357a8c" stroke-linecap="round">
+    <line x1="362" y1="298" x2="388" y2="298"/><path d="M392 298 l-12 -6 v12 z"/>
+    <line x1="642" y1="298" x2="698" y2="298"/><path d="M702 298 l-12 -6 v12 z"/>
+  </g>
+
+  <!-- note about Bank 1 inert -->
+  <g transform="translate(60,360)">
+    <rect x="0" y="0" width="960" height="46" rx="10" fill="#fdfaf2" stroke="#7a808c" stroke-width="1.8" stroke-dasharray="6 5"/>
+    <text x="20" y="29" font-family="ui-monospace,monospace" font-size="12" fill="#3a3f4a">between windows the partial image sits in Bank 1, inert — Bank 0 keeps running, so a dropped link is harmless</text>
+  </g>
+
+  <text x="44" y="440" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">Without resume, a device that never gets one uninterrupted window would never update. Resume makes a slow pipe converge.</text>
+</svg>

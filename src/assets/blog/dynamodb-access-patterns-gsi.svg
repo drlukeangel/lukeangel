@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 460" width="1120" height="460" role="img" aria-label="Base table and GSI access patterns">
+  <rect width="1120" height="460" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE ITEM SET · TWO ACCESS PATTERNS · NO JOIN</text>
+
+  <!-- the single item set in the middle -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" transform="translate(430, 110)">
+    <rect x="0" y="0" width="260" height="240" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="0" y="0" width="260" height="34" rx="12" fill="#1a1d24" opacity="0.06"/>
+    <text x="130" y="23" text-anchor="middle" font-size="13" fill="#1a1d24">device_telemetry items</text>
+    <!-- items each carry both keys -->
+    <g font-size="11">
+      <g>
+        <rect x="16" y="46"  width="228" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <rect x="16" y="92"  width="228" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <rect x="16" y="138" width="228" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <rect x="16" y="184" width="228" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+      </g>
+      <g fill="#2a52be"><text x="28" y="62">device_id</text></g>
+      <g fill="#c87533"><text x="140" y="62">job_site_id</text></g>
+      <g fill="#7a808c">
+        <text x="28" y="78">event_ts · payload · expires_at</text>
+        <text x="28" y="108">device_id  job_site_id</text><text x="28" y="124">event_ts · payload · expires_at</text>
+        <text x="28" y="154">device_id  job_site_id</text><text x="28" y="170">event_ts · payload · expires_at</text>
+        <text x="28" y="200">device_id  job_site_id</text><text x="28" y="216">event_ts · payload · expires_at</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- LEFT access pattern: base table by device -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="40" y="120" width="320" height="120" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <text x="60" y="150" font-size="14" fill="#2a52be">BASE TABLE</text>
+    <text x="60" y="176" font-size="12" fill="#1a1d24">pk = device_id</text>
+    <text x="60" y="196" font-size="12" fill="#1a1d24">sk = event_ts</text>
+    <text x="60" y="222" font-size="11.5" fill="#7a808c">"recent events for one device"</text>
+    <!-- arrow into item set -->
+    <g stroke="#2a52be" stroke-width="3" fill="none" stroke-linecap="round"><path d="M360 180 H 422"/></g>
+    <path d="M426 180 l-15 -7 v14 z" fill="#2a52be"/>
+  </g>
+
+  <!-- RIGHT access pattern: GSI by job site -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="760" y="120" width="320" height="120" rx="10" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+    <text x="780" y="150" font-size="14" fill="#c87533">GSI · job_site_index</text>
+    <text x="780" y="176" font-size="12" fill="#1a1d24">pk = job_site_id</text>
+    <text x="780" y="196" font-size="12" fill="#1a1d24">sk = event_ts</text>
+    <text x="780" y="222" font-size="11.5" fill="#7a808c">"all devices at one site"</text>
+    <g stroke="#c87533" stroke-width="3" fill="none" stroke-linecap="round"><path d="M760 180 H 698"/></g>
+    <path d="M694 180 l15 -7 v14 z" fill="#c87533"/>
+  </g>
+
+  <!-- both are single-partition range scans -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <rect x="330" y="380" width="460" height="46" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <path d="M356 403 l8 8 16 -19" fill="none" stroke="#3a7d44" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="396" y="408" font-size="13" fill="#1a1d24">each is a single-partition range scan — no scan, no JOIN</text>
+    <g stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2" fill="none" stroke-dasharray="3 6"><path d="M200 244 V 360 H 396 V 378"/><path d="M920 244 V 360 H 724 V 378"/></g>
+  </g>
+</svg>

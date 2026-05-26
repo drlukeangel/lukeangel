@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 430" width="1080" height="430" role="img" aria-label="Two tiers of detection. Rules use a static threshold and catch the known-bad you wrote down. ML learns a baseline band and flags deviations you didn't predict. Plus Random Cut Forest on telemetry for patterns neither names.">
+  <rect width="1080" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">TWO TIERS OF DETECTION</text>
+
+  <line x1="540" y1="92" x2="540" y2="330" stroke="#1a1d24" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.22"/>
+
+  <!-- RULES -->
+  <text x="270" y="118" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" letter-spacing="1" fill="#1a1d24">RULES</text>
+  <text x="270" y="140" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#7a808c">the known-bad you wrote down</text>
+  <line x1="90" y1="210" x2="450" y2="210" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text x="96" y="200" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">threshold</text>
+  <polyline points="90,280 140,272 190,284 240,268 290,278 330,260 360,150 392,250 440,276" fill="none" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="360" cy="150" r="16" fill="none" stroke="#c14a3a" stroke-width="4"/>
+
+  <!-- ML -->
+  <text x="810" y="118" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" letter-spacing="1" fill="#1a1d24">ML</text>
+  <text x="810" y="140" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#7a808c">the deviations you didn't predict</text>
+  <rect x="630" y="206" width="360" height="60" rx="8" fill="#1a1d24" opacity="0.05"/>
+  <line x1="630" y1="206" x2="990" y2="206" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 6" opacity="0.35"/>
+  <line x1="630" y1="266" x2="990" y2="266" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 6" opacity="0.35"/>
+  <text x="998" y="200" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c" text-anchor="end">learned normal</text>
+  <polyline points="630,240 680,228 730,246 780,230 830,244 880,166 920,238 990,232" fill="none" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="880" cy="166" r="16" fill="none" stroke="#c14a3a" stroke-width="4"/>
+
+  <line x1="40" y1="360" x2="1040" y2="360" stroke="#1a1d24" stroke-width="1" opacity="0.15"/>
+  <text x="540" y="398" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">Plus Random Cut Forest on the telemetry, for the patterns neither one names.</text>
+</svg>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="920" height="560" role="img" aria-label="The read-and-latch loop.">
+  <rect x="1" y="1" width="918" height="558" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#5b616b;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;fill:#5b616b;}
+  </style>
+
+  <!-- boundary box: everything is inside the door frame -->
+  <rect x="34" y="60" width="852" height="430" rx="12" fill="none" stroke="#c87533" stroke-width="2.5" stroke-dasharray="8 7" opacity="0.8"/>
+  <text x="50" y="84" class="mut" font-size="15">inside the door frame — no network</text>
+
+  <!-- ===== node 1: cat approaches + reader energizes ===== -->
+  <g transform="translate(140,150)">
+    <rect x="-86" y="-40" width="172" height="80" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="-8" text-anchor="middle" class="lbl" font-size="17" font-weight="600">cat approaches</text>
+    <text x="0" y="16" text-anchor="middle" class="mut" font-size="14">reader coil energizes</text>
+    <text x="0" y="33" text-anchor="middle" class="mut" font-size="13">134.2 kHz field</text>
+  </g>
+
+  <!-- ===== node 2: chip answers ===== -->
+  <g transform="translate(460,150)">
+    <rect x="-110" y="-40" width="220" height="80" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="-8" text-anchor="middle" class="lbl" font-size="17" font-weight="600">chip answers</text>
+    <text x="0" y="16" text-anchor="middle" class="mut" font-size="14">passive FDX-B tag, no battery</text>
+    <text x="0" y="33" text-anchor="middle" class="mut" font-size="13">sends 15-digit ID back</text>
+  </g>
+
+  <!-- ===== node 3: check the allow-list ===== -->
+  <g transform="translate(770,150)">
+    <rect x="-86" y="-40" width="172" height="80" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="-8" text-anchor="middle" class="lbl" font-size="17" font-weight="600">check allow-list</text>
+    <text x="0" y="16" text-anchor="middle" class="mut" font-size="14">is this number</text>
+    <text x="0" y="33" text-anchor="middle" class="mut" font-size="13">one I know?</text>
+  </g>
+
+  <!-- top-row arrows -->
+  <g fill="none" stroke="#1a1d24" stroke-width="2.5">
+    <path d="M232 150 L344 150" marker-end="url(#ah)"/>
+    <path d="M576 150 L678 150" marker-end="url(#ah)"/>
+  </g>
+
+  <!-- ===== decision: known vs unknown ===== -->
+  <!-- known branch -> latch unlocks -->
+  <g transform="translate(640,330)">
+    <rect x="-150" y="-44" width="300" height="92" rx="10" fill="#fff" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="0" y="-12" text-anchor="middle" class="lbl" font-size="17" font-weight="600" fill="#3a7d44">on the list -&gt; unlock</text>
+    <text x="0" y="12" text-anchor="middle" class="mut" font-size="14">solenoid draws the bolt back</text>
+    <text x="0" y="30" text-anchor="middle" class="mut" font-size="13">flap free for a few seconds</text>
+    <!-- mini bolt retracted -->
+    <g transform="translate(120,-26)">
+      <rect x="0" y="-7" width="22" height="14" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+      <rect x="3" y="-4" width="10" height="8" rx="2" fill="#3a7d44"/>
+    </g>
+  </g>
+
+  <!-- unknown branch -> stays locked -->
+  <g transform="translate(220,330)">
+    <rect x="-150" y="-44" width="300" height="92" rx="10" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="0" y="-12" text-anchor="middle" class="lbl" font-size="17" font-weight="600" fill="#c14a3a">not on the list -&gt; stay shut</text>
+    <text x="0" y="12" text-anchor="middle" class="mut" font-size="14">bolt stays thrown</text>
+    <text x="0" y="30" text-anchor="middle" class="mut" font-size="13">flap physically won't open</text>
+    <!-- mini bolt extended -->
+    <g transform="translate(120,-26)">
+      <rect x="-4" y="-7" width="22" height="14" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+      <rect x="8" y="-4" width="14" height="8" rx="2" fill="#c14a3a"/>
+    </g>
+  </g>
+
+  <!-- arrows from decision node down to the two branches -->
+  <g fill="none" stroke="#1a1d24" stroke-width="2.5">
+    <path d="M770 190 L770 250 L640 250 L640 282" marker-end="url(#ah)"/>
+    <path d="M770 190 L770 250 L220 250 L220 282" marker-end="url(#ah)"/>
+  </g>
+
+  <!-- re-lock & forget, centered, then looping back to idle -->
+  <g transform="translate(460,440)">
+    <rect x="-130" y="-26" width="260" height="52" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="-2" text-anchor="middle" class="lbl" font-size="16" font-weight="600">re-lock &amp; idle</text>
+    <text x="0" y="17" text-anchor="middle" class="mut" font-size="13">nothing logged, nothing kept</text>
+  </g>
+
+  <!-- both branches funnel down into the centered re-lock box -->
+  <g fill="none" stroke="#1a1d24" stroke-width="2.5">
+    <path d="M220 378 L220 440 L326 440" marker-end="url(#ah)"/>
+    <path d="M640 378 L640 440 L594 440" marker-end="url(#ah)"/>
+  </g>
+  <!-- loop arrow: out the left of re-lock, up the clear left gutter, back into node 1's left edge -->
+  <path d="M330 440 L54 440 L54 150 L54 150" fill="none" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="5 6"/>
+  <path d="M54 150 L52 150" fill="none" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="44" y="300" text-anchor="middle" class="cap" font-size="13" transform="rotate(-90 44 300)">waits for the next approach</text>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+</svg>

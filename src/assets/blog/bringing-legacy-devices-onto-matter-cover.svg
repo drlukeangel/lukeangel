@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Matter bridges">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- Matter fabric node, top center -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <circle cx="600" cy="150" r="58" fill="#6a4c93" fill-opacity="0.12"/>
+    <!-- six-petal matter-ish mark -->
+    <g stroke="#6a4c93" stroke-width="4">
+      <line x1="600" y1="112" x2="600" y2="188"/>
+      <line x1="567" y1="131" x2="633" y2="169"/>
+      <line x1="567" y1="169" x2="633" y2="131"/>
+    </g>
+    <circle cx="600" cy="150" r="10" fill="#6a4c93" stroke="none"/>
+  </g>
+
+  <!-- trunk down -->
+  <line x1="600" y1="208" x2="600" y2="270" stroke="#1a1d24" stroke-width="3"/>
+  <!-- split to three bridges -->
+  <path d="M600 270 H270 V320" stroke="#1a1d24" stroke-width="3" fill="none"/>
+  <path d="M600 270 V320" stroke="#1a1d24" stroke-width="3" fill="none"/>
+  <path d="M600 270 H930 V320" stroke="#1a1d24" stroke-width="3" fill="none"/>
+
+  <!-- three bridge boxes (hubs) -->
+  <g stroke="#1a1d24" stroke-width="3">
+    <rect x="200" y="320" width="140" height="90" rx="10" fill="#fff"/>
+    <rect x="530" y="320" width="140" height="90" rx="10" fill="#fff"/>
+    <rect x="860" y="320" width="140" height="90" rx="10" fill="#fff"/>
+    <!-- little radio waves on each hub -->
+    <g stroke="#6a4c93" stroke-width="3" fill="none">
+      <path d="M255 345 q15 -14 30 0"/>
+      <path d="M248 352 q22 -22 44 0"/>
+      <path d="M585 345 q15 -14 30 0"/>
+      <path d="M578 352 q22 -22 44 0"/>
+      <path d="M915 345 q15 -14 30 0"/>
+      <path d="M908 352 q22 -22 44 0"/>
+    </g>
+  </g>
+
+  <!-- legacy devices fanning out below each hub -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#fdfaf2">
+    <!-- under hub 1 -->
+    <g>
+      <line x1="270" y1="410" x2="225" y2="470" stroke-width="2"/>
+      <line x1="270" y1="410" x2="270" y2="470" stroke-width="2"/>
+      <line x1="270" y1="410" x2="315" y2="470" stroke-width="2"/>
+      <rect x="212" y="470" width="26" height="26" rx="4"/>
+      <rect x="257" y="470" width="26" height="26" rx="4"/>
+      <rect x="302" y="470" width="26" height="26" rx="4"/>
+    </g>
+    <!-- under hub 2 -->
+    <g>
+      <line x1="600" y1="410" x2="555" y2="470" stroke-width="2"/>
+      <line x1="600" y1="410" x2="600" y2="470" stroke-width="2"/>
+      <line x1="600" y1="410" x2="645" y2="470" stroke-width="2"/>
+      <circle cx="555" cy="483" r="14"/>
+      <circle cx="600" cy="483" r="14"/>
+      <circle cx="645" cy="483" r="14"/>
+    </g>
+    <!-- under hub 3 -->
+    <g>
+      <line x1="930" y1="410" x2="885" y2="470" stroke-width="2"/>
+      <line x1="930" y1="410" x2="930" y2="470" stroke-width="2"/>
+      <line x1="930" y1="410" x2="975" y2="470" stroke-width="2"/>
+      <path d="M872 496 l13 -26 13 26 z"/>
+      <path d="M917 496 l13 -26 13 26 z"/>
+      <path d="M962 496 l13 -26 13 26 z"/>
+    </g>
+  </g>
+</svg>

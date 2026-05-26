@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="two parallel stacks">
+  <rect width="1000" height="470" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">ONE HOUSE, TWO PARALLEL STACKS</text>
+
+  <!-- left column: Echo -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" text-anchor="middle">
+    <g transform="translate(255,110)"><rect x="-150" y="-30" width="300" height="60" rx="10" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2.5"/><text y="-4" font-size="14" fill="#1a1d24">wake word: "Alexa"</text><text y="16" font-size="12" fill="#5b616b">Echo · Echo Dot</text></g>
+    <g transform="translate(255,210)"><rect x="-150" y="-26" width="300" height="52" rx="9" fill="#fff" stroke="#1a1d24" stroke-width="2"/><text y="-2" font-size="13" fill="#1a1d24">Alexa Skills Kit</text><text y="15" font-size="11" fill="#5b616b">its own skill registry</text></g>
+    <g transform="translate(255,300)"><rect x="-150" y="-26" width="300" height="52" rx="9" fill="#fff" stroke="#1a1d24" stroke-width="2"/><text y="-2" font-size="13" fill="#1a1d24">Smart Home API</text><text y="15" font-size="11" fill="#5b616b">its own linked accounts</text></g>
+    <g transform="translate(255,390)"><rect x="-150" y="-26" width="300" height="52" rx="9" fill="#fff" stroke="#1a1d24" stroke-width="2"/><text y="-2" font-size="13" fill="#1a1d24">strengths</text><text y="15" font-size="11" fill="#5b616b">skills · music · far-field mic</text></g>
+  </g>
+  <g stroke="#6a4c93" stroke-width="2" stroke-opacity="0.5"><line x1="255" y1="140" x2="255" y2="184"/><line x1="255" y1="236" x2="255" y2="274"/><line x1="255" y1="326" x2="255" y2="364"/></g>
+
+  <!-- right column: Google Home -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" text-anchor="middle">
+    <g transform="translate(745,110)"><rect x="-150" y="-30" width="300" height="60" rx="10" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/><text y="-4" font-size="14" fill="#1a1d24">wake word: "OK Google"</text><text y="16" font-size="12" fill="#5b616b">Google Home</text></g>
+    <g transform="translate(745,210)"><rect x="-150" y="-26" width="300" height="52" rx="9" fill="#fff" stroke="#1a1d24" stroke-width="2"/><text y="-2" font-size="13" fill="#1a1d24">Actions on Google</text><text y="15" font-size="11" fill="#5b616b">its own action registry</text></g>
+    <g transform="translate(745,300)"><rect x="-150" y="-26" width="300" height="52" rx="9" fill="#fff" stroke="#1a1d24" stroke-width="2"/><text y="-2" font-size="13" fill="#1a1d24">Home Graph</text><text y="15" font-size="11" fill="#5b616b">its own linked accounts</text></g>
+    <g transform="translate(745,390)"><rect x="-150" y="-26" width="300" height="52" rx="9" fill="#fff" stroke="#1a1d24" stroke-width="2"/><text y="-2" font-size="13" fill="#1a1d24">strengths</text><text y="15" font-size="11" fill="#5b616b">natural language · knowledge · audio</text></g>
+  </g>
+  <g stroke="#3a7d44" stroke-width="2" stroke-opacity="0.5"><line x1="745" y1="140" x2="745" y2="184"/><line x1="745" y1="236" x2="745" y2="274"/><line x1="745" y1="326" x2="745" y2="364"/></g>
+
+  <!-- the no-bridge gap between the two stacks -->
+  <g transform="translate(500,255)">
+    <circle r="15" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <line x1="-7" y1="-7" x2="7" y2="7" stroke="#c14a3a" stroke-width="2.5"/>
+    <line x1="7" y1="-7" x2="-7" y2="7" stroke="#c14a3a" stroke-width="2.5"/>
+    <text y="40" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">no shared API</text>
+  </g>
+</svg>

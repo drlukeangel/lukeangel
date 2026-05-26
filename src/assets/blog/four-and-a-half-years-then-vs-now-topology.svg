@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="v1 versus v2 connectivity topology.">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- divider -->
+  <line x1="560" y1="40" x2="560" y2="520" stroke="#1a1d24" stroke-opacity="0.14" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <text x="40" y="56" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">v1 &#183; 2017&#8211;2019 &#183; BLE through a phone</text>
+  <text x="600" y="56" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#2a52be">v2 &#183; 2023&#8211;2025 &#183; WiFi straight to a broker</text>
+
+  <!-- ===================== LEFT: v1 ===================== -->
+  <!-- device -->
+  <g transform="translate(70,300)">
+    <rect x="0" y="0" width="92" height="74" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="14" y="14" width="64" height="30" rx="5" fill="#7a808c" fill-opacity="0.18"/>
+    <circle cx="46" cy="58" r="8" fill="none" stroke="#7a808c" stroke-width="2.5"/>
+    <text x="46" y="98" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">device</text>
+    <text x="46" y="116" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#7a808c">BLE only</text>
+  </g>
+  <!-- BLE link -->
+  <g stroke="#7a808c" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M162 326 l66 0" stroke-dasharray="3 7"/>
+  </g>
+  <text x="195" y="316" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#7a808c">BLE</text>
+
+  <!-- phone gateway -->
+  <g transform="translate(232,288)">
+    <rect x="0" y="0" width="60" height="98" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="9" y="11" width="42" height="68" rx="4" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="2"/>
+    <circle cx="30" cy="88" r="3.5" fill="#1a1d24" opacity="0.5"/>
+    <text x="30" y="120" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">phone</text>
+    <text x="30" y="138" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#7a808c">gateway</text>
+  </g>
+  <!-- REST link -->
+  <g stroke="#5b616b" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M292 326 l86 0"/>
+    <path d="M378 326 l-9 -5 l0 10 z" fill="#5b616b" stroke="none"/>
+  </g>
+  <text x="335" y="312" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" fill="#5b616b">home-grown REST</text>
+
+  <!-- cloud v1 -->
+  <g transform="translate(388,276)">
+    <path d="M40 96 a40 40 0 0 1 4 -80 a54 54 0 0 1 104 -5 a44 44 0 0 1 40 85 z" fill="#fdfaf2" stroke="#5b616b" stroke-width="4"/>
+    <rect x="74" y="44" width="48" height="30" rx="4" fill="#5b616b" fill-opacity="0.16" stroke="#5b616b" stroke-width="2.5"/>
+    <text x="98" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">custom API tier</text>
+  </g>
+
+  <!-- v1 note -->
+  <text x="70" y="470" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#5b616b">Two trust hops: device&#8594;phone, phone&#8594;cloud. The</text>
+  <text x="70" y="492" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#5b616b">phone is a gateway you can&#8217;t trust &#8212; so the device signs.</text>
+
+  <!-- ===================== RIGHT: v2 ===================== -->
+  <!-- device -->
+  <g transform="translate(610,300)">
+    <rect x="0" y="0" width="92" height="74" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="14" y="14" width="64" height="30" rx="5" fill="#2a52be" fill-opacity="0.14"/>
+    <circle cx="46" cy="58" r="8" fill="none" stroke="#2a52be" stroke-width="2.5"/>
+    <!-- antenna -->
+    <line x1="78" y1="0" x2="78" y2="-16" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="78" cy="-20" r="4" fill="#2a52be"/>
+    <text x="46" y="98" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">device</text>
+    <text x="46" y="116" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#2a52be">WiFi + LTE-M backup</text>
+  </g>
+  <!-- MQTT/TLS link straight to broker -->
+  <g stroke="#2a52be" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M702 326 l176 0"/>
+    <path d="M878 326 l-9 -5 l0 10 z" fill="#2a52be" stroke="none"/>
+  </g>
+  <text x="790" y="304" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" fill="#2a52be">MQTT over TLS</text>
+  <text x="790" y="318" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10.5" fill="#7a808c">no gateway in the loop</text>
+
+  <!-- cloud v2 broker -->
+  <g transform="translate(888,272)">
+    <path d="M44 104 a44 44 0 0 1 4 -88 a58 58 0 0 1 112 -5 a48 48 0 0 1 44 92 z" fill="#fdfaf2" stroke="#2a52be" stroke-width="4.5"/>
+    <circle cx="108" cy="58" r="11" fill="#2a52be" fill-opacity="0.22" stroke="#2a52be" stroke-width="2.6"/>
+    <g stroke="#2a52be" stroke-width="2.6" stroke-linecap="round">
+      <line x1="108" y1="58" x2="74" y2="40"/>
+      <line x1="108" y1="58" x2="142" y2="40"/>
+      <line x1="108" y1="58" x2="108" y2="88"/>
+    </g>
+    <circle cx="74" cy="40" r="5" fill="#2a52be"/>
+    <circle cx="142" cy="40" r="5" fill="#2a52be"/>
+    <circle cx="108" cy="88" r="5" fill="#2a52be"/>
+    <text x="108" y="140" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#2a52be">managed IoT broker</text>
+  </g>
+
+  <!-- v2 note -->
+  <text x="610" y="470" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#2a52be">One trust hop, more reliable link &#8212; but the principle</text>
+  <text x="610" y="492" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#2a52be">is unchanged: device signs, cloud verifies, never trust the wire.</text>
+</svg>

@@ -1,35 +1,108 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A managed retrieval pipeline with warning markers on its gotcha steps.">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="kb-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+    <pattern id="kbg-dots" width="22" height="22" patternUnits="userSpaceOnUse">
       <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#kb-dots)"/>
-  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
-  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">PRODUCTION NOTES — FEB 2025</text>
-  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">7 MO IN</text>
-  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#kbg-dots)"/>
+  <rect width="24" height="630" fill="#4f46b8"/>
 
-  <g transform="translate(810, 168)">
-    <rect x="0" y="0" width="80" height="80" rx="6" fill="none" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="14" y1="20" x2="66" y2="20" stroke="#1a1d24" stroke-width="1.5"/>
-    <line x1="14" y1="34" x2="56" y2="34" stroke="#1a1d24" stroke-width="1.5"/>
-    <line x1="14" y1="48" x2="60" y2="48" stroke="#1a1d24" stroke-width="1.5"/>
-    <line x1="14" y1="62" x2="48" y2="62" stroke="#1a1d24" stroke-width="1.5"/>
-    <line x1="80" y1="40" x2="110" y2="40" stroke="#2a52be" stroke-width="2" stroke-dasharray="3,3"/>
-    <circle cx="130" cy="40" r="18" fill="#2a52be" stroke="#2a52be"/>
-    <text x="130" y="45" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#fdfaf2">vec</text>
-    <line x1="148" y1="40" x2="178" y2="40" stroke="#2a52be" stroke-width="2" stroke-dasharray="3,3"/>
-    <rect x="178" y="20" width="100" height="40" rx="4" fill="none" stroke="#1a1d24" stroke-width="2"/>
-    <text x="228" y="44" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">retrieve</text>
+  <!-- connecting baseline through the pipeline -->
+  <line x1="150" y1="315" x2="1060" y2="315" stroke="#1a1d24" stroke-width="3" opacity="0.5"/>
+
+  <!-- arrowheads between stages -->
+  <g fill="#1a1d24" opacity="0.5">
+    <path d="M318 315 l-16 -7 v14 z"/>
+    <path d="M510 315 l-16 -7 v14 z"/>
+    <path d="M702 315 l-16 -7 v14 z"/>
+    <path d="M894 315 l-16 -7 v14 z"/>
   </g>
 
-  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="60" fill="#1a1d24">Knowledge Bases for Bedrock</text>
-  <text x="80" y="356" font-family="Newsreader, serif" font-weight="500" font-size="60" fill="#1a1d24">in production —</text>
-  <text x="80" y="420" font-family="Newsreader, serif" font-style="italic" font-size="32" fill="#7a808c">the gotchas list we wish we'd had.</text>
+  <!-- STAGE 1: source documents (a stack of pages) -->
+  <g>
+    <rect x="150" y="262" width="84" height="106" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="160" y="252" width="84" height="106" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="170" y="242" width="84" height="106" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g fill="#1a1d24" opacity="0.2">
+      <rect x="184" y="262" width="56" height="6" rx="3"/>
+      <rect x="184" y="278" width="56" height="6" rx="3"/>
+      <rect x="184" y="294" width="40" height="6" rx="3"/>
+      <rect x="184" y="310" width="50" height="6" rx="3"/>
+    </g>
+  </g>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — RAG · BEDROCK</text>
+  <!-- STAGE 2: chunks (split blocks) — GOTCHA -->
+  <g>
+    <rect x="332" y="252" width="78" height="28" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="332" y="288" width="78" height="28" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="332" y="324" width="78" height="28" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g fill="#1a1d24" opacity="0.2">
+      <rect x="344" y="264" width="42" height="5" rx="2"/>
+      <rect x="344" y="300" width="42" height="5" rx="2"/>
+      <rect x="344" y="336" width="32" height="5" rx="2"/>
+    </g>
+  </g>
+
+  <!-- STAGE 3: vector embeddings (dotted grid of points) -->
+  <g>
+    <rect x="432" y="248" width="108" height="134" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g fill="#4f46b8">
+      <circle cx="458" cy="276" r="5"/><circle cx="486" cy="276" r="5"/><circle cx="514" cy="276" r="5"/>
+      <circle cx="458" cy="312" r="5"/><circle cx="486" cy="312" r="5"/><circle cx="514" cy="312" r="5"/>
+      <circle cx="458" cy="348" r="5"/><circle cx="486" cy="348" r="5"/><circle cx="514" cy="348" r="5"/>
+    </g>
+  </g>
+
+  <!-- STAGE 4: retrieve (a magnifier over ranked bars) — GOTCHA -->
+  <g>
+    <rect x="624" y="248" width="108" height="134" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g fill="#4f46b8" opacity="0.55">
+      <rect x="644" y="300" width="60" height="9" rx="4"/>
+      <rect x="644" y="318" width="44" height="9" rx="4"/>
+      <rect x="644" y="336" width="30" height="9" rx="4"/>
+    </g>
+    <circle cx="690" cy="284" r="20" fill="none" stroke="#1a1d24" stroke-width="3.5"/>
+    <line x1="704" y1="298" x2="718" y2="312" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- STAGE 5: generated answer (a chat/answer card) -->
+  <g>
+    <rect x="816" y="248" width="120" height="134" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="846" cy="282" r="11" fill="#4f46b8"/>
+    <g fill="#1a1d24" opacity="0.2">
+      <rect x="836" y="318" width="84" height="7" rx="3"/>
+      <rect x="836" y="334" width="84" height="7" rx="3"/>
+      <rect x="836" y="350" width="56" height="7" rx="3"/>
+    </g>
+  </g>
+
+  <!-- WARNING markers on the gotcha steps (chunk, retrieve, re-ingest/sync) -->
+  <g>
+    <!-- on chunking -->
+    <g transform="translate(371,212)">
+      <path d="M0 -20 L20 18 L-20 18 Z" fill="#c14a3a" stroke="#fdfaf2" stroke-width="2"/>
+      <rect x="-2.5" y="-8" width="5" height="14" rx="2.5" fill="#fdfaf2"/>
+      <circle cx="0" cy="12" r="3" fill="#fdfaf2"/>
+    </g>
+    <!-- on retrieve/filter -->
+    <g transform="translate(678,212)">
+      <path d="M0 -20 L20 18 L-20 18 Z" fill="#c14a3a" stroke="#fdfaf2" stroke-width="2"/>
+      <rect x="-2.5" y="-8" width="5" height="14" rx="2.5" fill="#fdfaf2"/>
+      <circle cx="0" cy="12" r="3" fill="#fdfaf2"/>
+    </g>
+  </g>
+
+  <!-- re-ingest loop: from vector store back to chunks (dashed arc above) — the expensive op -->
+  <path d="M486 248 C 486 150, 371 150, 371 248" fill="none" stroke="#4f46b8" stroke-width="2.6" stroke-dasharray="7 5" opacity="0.7"/>
+  <path d="M371 248 l-7 -12 14 0 z" fill="#4f46b8" opacity="0.7"/>
+
+  <!-- sync delay marker on the source->chunk feed (a small clock) -->
+  <g transform="translate(284,430)">
+    <circle cx="0" cy="0" r="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="0" y1="0" x2="0" y2="-12" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="10" y2="4" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="192" y1="0" x2="-30" y2="0" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 5" opacity="0.5"/>
+  </g>
 </svg>

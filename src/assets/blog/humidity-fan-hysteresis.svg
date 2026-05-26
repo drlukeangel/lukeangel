@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="hysteresis loop">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="50" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">WHY TWO THRESHOLDS, NOT ONE</text>
+
+  <!-- axes -->
+  <g stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2">
+    <line x1="90" y1="110" x2="90" y2="430"/>
+    <line x1="90" y1="430" x2="940" y2="430"/>
+  </g>
+  <text x="48" y="120" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b" transform="rotate(-90 48,120)">humidity %</text>
+  <text x="860" y="455" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">time →</text>
+
+  <!-- the two threshold lines -->
+  <line x1="90" y1="180" x2="940" y2="180" stroke="#c14a3a" stroke-width="2" stroke-dasharray="6 5" stroke-opacity="0.7"/>
+  <text x="700" y="174" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a">on at 65%</text>
+  <line x1="90" y1="300" x2="940" y2="300" stroke="#3a7d44" stroke-width="2" stroke-dasharray="6 5" stroke-opacity="0.8"/>
+  <text x="700" y="294" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#3a7d44">off at 55%</text>
+
+  <!-- the humidity curve: rises through 65 (shower), fan on, falls through 55, fan off -->
+  <path d="M90 400 L200 395 L300 320 L360 200 L400 150 L470 130 L540 175 L620 290 L700 360 L820 395 L940 400"
+        fill="none" stroke="#1a1d24" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- fan-on marker where curve crosses 65 going up -->
+  <g transform="translate(345,180)">
+    <circle r="9" fill="#c14a3a"/>
+    <circle r="9" fill="none" stroke="#fdfaf2" stroke-width="2"/>
+  </g>
+  <text x="300" y="115" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a" text-anchor="middle">fan ON</text>
+  <line x1="345" y1="135" x2="345" y2="172" stroke="#c14a3a" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <!-- fan-off marker where curve crosses 55 going down -->
+  <g transform="translate(648,300)">
+    <circle r="9" fill="#3a7d44"/>
+    <circle r="9" fill="none" stroke="#fdfaf2" stroke-width="2"/>
+  </g>
+  <text x="690" y="340" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#3a7d44">fan OFF</text>
+  <line x1="660" y1="322" x2="678" y2="335" stroke="#3a7d44" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <!-- the deadband shading -->
+  <rect x="90" y="180" width="850" height="120" fill="#6a4c93" fill-opacity="0.06"/>
+  <text x="130" y="245" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#5b616b">the 10-point gap is the deadband — humidity can wobble</text>
+  <text x="130" y="268" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#5b616b">in here without flipping the fan on and off every minute.</text>
+</svg>

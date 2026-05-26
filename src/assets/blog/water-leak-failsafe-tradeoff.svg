@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" aria-label="Fail-safe trade-off">
+  <rect width="880" height="380" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#7a808c}
+  </style>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#1a1d24" fill-opacity="0.55"/></marker>
+  </defs>
+
+  <!-- decision node -->
+  <g transform="translate(120 190)">
+    <rect x="-58" y="-30" width="116" height="60" rx="10" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="2.5"/>
+    <text class="lbl" x="-44" y="-4">sensor</text>
+    <text class="lbl" x="-30" y="14">fires</text>
+  </g>
+
+  <!-- branch arrows -->
+  <g stroke="#1a1d24" stroke-width="2" stroke-opacity="0.55" fill="none">
+    <path d="M178 168 L300 100" marker-end="url(#a)"/>
+    <path d="M178 212 L300 280" marker-end="url(#a)"/>
+  </g>
+
+  <!-- TOP branch: false alarm (small cost) -->
+  <g transform="translate(360 92)">
+    <rect x="-58" y="-22" width="116" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.4"/>
+    <text class="mut" x="-50" y="-2">false alarm,</text>
+    <text class="mut" x="-50" y="14">no real leak</text>
+  </g>
+  <path d="M422 92 L560 92" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.55" fill="none" marker-end="url(#a)"/>
+  <!-- small cost bar -->
+  <g transform="translate(600 92)">
+    <rect x="0" y="-16" width="60" height="32" rx="6" fill="#3a7d44" fill-opacity="0.18" stroke="#3a7d44" stroke-width="2.5"/>
+    <text class="lbl" x="74" y="-2">one-tap re-open</text>
+    <text class="mut" x="74" y="16">minutes without water</text>
+  </g>
+
+  <!-- BOTTOM branch: missed leak (big cost) -->
+  <g transform="translate(360 288)">
+    <rect x="-58" y="-22" width="116" height="44" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text class="mut" x="-50" y="-2">leak ignored,</text>
+    <text class="mut" x="-50" y="14">water runs</text>
+  </g>
+  <path d="M422 288 L560 288" stroke="#c14a3a" stroke-width="2" fill="none" marker-end="url(#a)"/>
+  <!-- big cost bar (much taller) -->
+  <g transform="translate(600 288)">
+    <rect x="0" y="-72" width="60" height="144" rx="6" fill="#c14a3a" fill-opacity="0.2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text class="lbl" x="74" y="-6">~$11k claim</text>
+    <text class="mut" x="74" y="12">days of repair</text>
+  </g>
+
+  <!-- baseline + scale hint -->
+  <line x1="595" y1="200" x2="700" y2="200" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="4 4"/>
+</svg>

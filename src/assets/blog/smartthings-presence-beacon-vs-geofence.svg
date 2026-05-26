@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="BLE beacon range vs phone geofence">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">WHERE "NOBODY HOME" GOES WRONG</text>
+
+  <!-- the house footprint -->
+  <g transform="translate(500,300)">
+    <!-- big geofence circle (~50m, phone) -->
+    <circle cx="0" cy="0" r="200" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <!-- house outline -->
+    <g transform="translate(-30,-30)">
+      <rect x="-90" y="-20" width="180" height="110" rx="4" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+      <path d="M-90 -20 L0 -70 L90 -20 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+      <!-- floor line: upstairs / basement -->
+      <line x1="-90" y1="35" x2="90" y2="35" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.3"/>
+    </g>
+    <!-- hub location (upstairs, with small BLE bubble ~3m) -->
+    <g transform="translate(-70,-40)">
+      <rect x="-10" y="-8" width="20" height="16" rx="3" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="62" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2.5"/>
+    </g>
+  </g>
+
+  <!-- labels for the two ranges -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="500" y="158" text-anchor="middle" font-size="13" fill="#3a7d44" font-weight="700">phone geofence &#183; ~50 m</text>
+    <text x="318" y="232" text-anchor="end" font-size="12.5" fill="#6a4c93" font-weight="700">BLE fob &#183; ~3 m</text>
+  </g>
+
+  <!-- dropout spots: basement, backyard, far bathroom — inside geofence, outside beacon -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5">
+    <!-- backyard (inside geofence, well outside the house + fob) -->
+    <g transform="translate(648,238)">
+      <circle cx="0" cy="0" r="7" fill="#c14a3a"/>
+      <path d="M-4 -4 l8 8 M4 -4 l-8 8" stroke="#fdfaf2" stroke-width="2" stroke-linecap="round"/>
+      <text x="14" y="4" fill="#1a1d24">backyard</text>
+    </g>
+    <!-- basement (below the floor line, outside the fob bubble) -->
+    <g transform="translate(508,312)">
+      <circle cx="0" cy="0" r="7" fill="#c14a3a"/>
+      <path d="M-4 -4 l8 8 M4 -4 l-8 8" stroke="#fdfaf2" stroke-width="2" stroke-linecap="round"/>
+      <text x="14" y="4" fill="#1a1d24">basement</text>
+    </g>
+    <!-- far bathroom (far end of the house, past the fob bubble) -->
+    <g transform="translate(556,268)">
+      <circle cx="0" cy="0" r="7" fill="#c14a3a"/>
+      <path d="M-4 -4 l8 8 M4 -4 l-8 8" stroke="#fdfaf2" stroke-width="2" stroke-linecap="round"/>
+      <text x="14" y="4" fill="#1a1d24">far bathroom</text>
+    </g>
+  </g>
+
+  <!-- legend / takeaway -->
+  <g transform="translate(40,440)">
+    <circle cx="10" cy="-4" r="7" fill="#c14a3a"/><path d="M6 -8 l8 8 M14 -8 l-8 8" stroke="#fdfaf2" stroke-width="2" stroke-linecap="round"/>
+    <text x="28" y="0" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">still inside the house, but outside the fob's bubble &#8594; hub thinks you left &#8594; false alarm.</text>
+  </g>
+</svg>

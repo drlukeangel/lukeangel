@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="Cloud cost scales with device count, not user count">
+  <rect width="1120" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHAT THE CLOUD BILL TRACKS</text>
+
+  <line x1="560" y1="80" x2="560" y2="430" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.12"/>
+
+  <!-- ===== LEFT: SaaS — cost tracks active users ===== -->
+  <text x="285" y="106" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#5b616b">SaaS · cost follows active users</text>
+
+  <!-- axes -->
+  <g stroke="#1a1d24" stroke-width="2.4" stroke-opacity="0.55">
+    <line x1="92" y1="370" x2="498" y2="370"/>
+    <line x1="92" y1="140" x2="92" y2="370"/>
+  </g>
+  <text x="295" y="402" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">active users →</text>
+  <text x="74" y="255" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c" transform="rotate(-90 74 255)">cloud $ →</text>
+
+  <!-- usage curve (rises only when users are active) and a flat spell -->
+  <path d="M92 360 L 150 352 L 210 300 L 270 286 L 330 290 L 390 232 L 450 210"
+        fill="none" stroke="#5b616b" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- the "quiet week" flat segment annotated -->
+  <rect x="270" y="270" width="60" height="34" rx="6" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="300" y="332" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#3a7d44">nobody on → flat</text>
+  <g fill="#5b616b"><circle cx="150" cy="352" r="4"/><circle cx="210" cy="300" r="4"/><circle cx="270" cy="286" r="4"/><circle cx="330" cy="290" r="4"/><circle cx="390" cy="232" r="4"/><circle cx="450" cy="210" r="4"/></g>
+
+  <!-- ===== RIGHT: IoT — cost tracks shipped devices ===== -->
+  <text x="835" y="106" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#2a52be">IoT · cost follows units shipped</text>
+
+  <g stroke="#1a1d24" stroke-width="2.4" stroke-opacity="0.55">
+    <line x1="652" y1="370" x2="1058" y2="370"/>
+    <line x1="652" y1="140" x2="652" y2="370"/>
+  </g>
+  <text x="855" y="402" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">units in the field →</text>
+  <text x="634" y="255" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c" transform="rotate(-90 634 255)">cloud $ →</text>
+
+  <!-- a step-staircase that only ever climbs as devices ship -->
+  <path d="M652 360 H 712 V 320 H 772 V 320 H 832 V 274 H 892 V 274 H 952 V 222 H 1012 V 178 H 1058"
+        fill="none" stroke="#2a52be" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- the persistent-floor band: each shipped unit is a standing connection -->
+  <rect x="772" y="300" width="120" height="60" rx="6" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="832" y="334" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#2a52be">app idle a week,</text>
+  <text x="832" y="350" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#2a52be">still connected</text>
+
+  <!-- little shipped-device pucks marching along the floor -->
+  <g fill="#2a52be" opacity="0.8">
+    <rect x="700" y="384" width="16" height="11" rx="3"/>
+    <rect x="760" y="384" width="16" height="11" rx="3"/>
+    <rect x="820" y="384" width="16" height="11" rx="3"/>
+    <rect x="880" y="384" width="16" height="11" rx="3"/>
+    <rect x="940" y="384" width="16" height="11" rx="3"/>
+    <rect x="1000" y="384" width="16" height="11" rx="3"/>
+  </g>
+
+  <text x="560" y="468" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">Ship a unit and you've added a persistent customer of the cloud — whether or not anyone opens the app.</text>
+</svg>

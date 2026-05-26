@@ -13,8 +13,8 @@ notebook: connected-products
 notebookOrder: 1
 excerpt: "The PRD I'm writing before v2 hardware goes into prototyping. Part 1 of three — the hardware spec for a wheeled scanner-and-payment workstation."
 pullquote: "The PRD answers one question at every layer: 'what does this device need to do that a smartphone with the same app couldn't do?' Every part of the spec earns its place against that question."
-cover: "../../assets/blog/prd-part-1-hardware-specs-cover.png"
-coverAlt: "v2 PRD, Part 1 — hardware specs for a battery device"
+cover: "../../assets/blog/prd-part-1-hardware-specs-cover.svg"
+coverAlt: "A battery-powered wheeled scanner-and-payment workstation: a touch display showing a running total, an NFC tap pad, a 2D barcode scanner reading an item, dual antennas radiating WiFi and cellular, a swappable Li-ion pack, and a secure-element chip."
 ---
 
 I'm writing the product requirements document for the v2 connected hardware product. **This is my second time writing one of these.** I led the API platform for a BLE-connected consumer-health portfolio from 2017 to 2019 — the [v1 series](/notebooks/building-medical-iot-connected-products/) is the full story. That experience is shaping every section of this PRD. The team is freshly chartered, the budget just landed, and we have eight weeks to decide what we're building before we run out of "Q3 is for figuring it out" runway.
@@ -67,7 +67,9 @@ The PRD lists 47 functional requirements. The top 10:
 9. Locate itself within the store to within 10 meters (for cart-recovery and analytics).
 10. Allow store staff to override any session state via a paired tablet.
 
-The other 37 are mostly "if X then Y" branches that came out of the user-story workshops.
+The other 37 are mostly "if X then Y" branches that came out of the user-story workshops. The cleanest way to see why is to draw the one thing every story is really describing: the lifecycle of a single session.
+
+![Session state machine across the user stories. The happy-path spine runs IDLE → ACTIVE (scanning) → COMPLETE (paid, receipt), entered by a loyalty tap or shop-as-guest and exited by paying at the end. The four golden paths all ride this spine. PAUSED branches off ACTIVE when the cart sleeps mid-shop and holds the session in flash, then resumes back to ACTIVE — the interrupted-shop case. VOIDED/ABANDONED branches off ACTIVE on a battery cliff or a cart leaving the store. A sidebar lists the three edge cases: connectivity loss triggers store-and-forward, low battery triggers a sync-swap-merge to a new cart, and a cart left in the lot pings its location hourly over cellular. Account is optional throughout, so a guest session never leaves the happy path.](../../assets/blog/prd-part-1-session-states.svg)
 
 ## Non-functional requirements (the don't-do list)
 
@@ -111,11 +113,19 @@ The PRD's hardware section is specific:
 - Battery-management IC with low-battery cutoff at 6.4 V
 - Estimated draw: 0.4A average across a shift (mixed scanning + idle), 0.1A in deep sleep
 
+That 0.4A average is the number the whole power section is built around, and it's an average of very spiky behavior — short scan bursts riding on a low idle baseline, dropping to a deep-sleep floor whenever the cart is parked. Drawn out across a shift, the math is almost boring, which is the point: the pack has the headroom only because the design spends most of its time near idle.
+
+![A power-budget chart across a 12-hour shift. Current draw spikes to roughly 0.7–0.8 A during scan bursts, rides a ~0.25 A idle baseline between them, and drops to a ~0.1 A deep-sleep floor when the cart is parked. A dashed line marks the ~0.4 A shift average. A 7.8 Ah pack divided by ~0.4 A average covers a full 12-hour shift, then charges to 80% in about two hours at the dock. The cloud round-trip is deliberately kept off the scan path, so the 200 ms scan-acknowledgement budget is local-only.](../../assets/blog/prd-part-1-power-budget.svg)
+
 **Mechanicals**
 - IP54 ingress rating (dust + splash, not submersion)
 - Drop tested to 3 feet onto vinyl
 - Operating temperature: -10°C to +40°C (refrigerated-aisles consideration)
 - Weight target: under 3.5 kg without battery, under 4.5 kg with
+
+That parts list isn't a shopping cart of independent choices — it's a graph. The ESP32-C3 sits in the middle and everything else hangs off it, and every block I picked quietly commits the rest of the platform to something: the secure element fixes my crypto to P-256, the radios fix my transport to MQTT, the imager and weight platform fix what my data model has to carry. Here's the whole thing on one page.
+
+![Hardware block diagram of the cart. At the center, an ESP32-C3 MCU — RISC-V, 160 MHz, integrated WiFi and BLE 5.0, 4 MB SPI flash. Around it: a radios block (WiFi 2.4 GHz primary, LTE-M Cat-M1 backup, BLE 5.0 for proximity only); an ATECC608A secure element for the device cert, P-256 signing, and payment-token wrapping; a power block (7.4 V 7.8 Ah swappable Li-ion, battery-management IC with a 6.4 V cutoff); and a sensors-and-I/O block (2D imager, 0–30 kg weight platform, 7-inch capacitive touch, NFC reader, speaker, buttons). One MCU at the center; every other block is a choice that commits the rest of the platform.](../../assets/blog/prd-part-1-hardware-block.svg)
 
 ## Why MQTT over WiFi (the architecture decision the rest pivots on)
 
@@ -133,6 +143,8 @@ A modest-sized scan event becomes a 2 KB TX/RX over a radio that's hard-on for 2
 
 MQTT, by contrast, holds a single persistent TLS connection. After the initial handshake (which happens once per cart power-up or radio re-association), every subsequent message is ~50 bytes of MQTT framing + 50 bytes of TLS framing. The radio can be in low-power-listen mode between messages, kicked into TX for milliseconds to publish, back to listen. Battery savings on the radio path are measured in 3–5×.
 
+![What one scan event costs the radio, HTTP versus MQTT. On the HTTP-REST side, every request pays the whole stack again: a TCP handshake (3 round trips), a TLS handshake (4–6 round trips), 600+ bytes of header plumbing, then payload and teardown — the radio is hard-on for roughly 200–300 ms moving about 2 KB. On the MQTT side, the handshake happens once per power-up or re-association; after that each message is only ~50 bytes of MQTT framing plus ~50 bytes of TLS framing, the radio transmits for a few milliseconds, and it spends the rest of the time in low-power listen. The result is 3–5× less radio energy per event. At ~55,000 wake-cycles a year on a 12-hour battery, the transport is the budget.](../../assets/blog/prd-part-1-mqtt-vs-http.svg)
+
 For a cart that has to last 12 hours on a single charge, MQTT is the only transport that hits the budget.
 
 **Why WiFi primary.**
@@ -145,6 +157,10 @@ Full 4G LTE (Cat-4 or higher) would give us 10× more throughput but cost 5× mo
 
 **Why BLE only for proximity.**
 BLE in this design is not the primary radio. It's used for short-range pairing with three specific peer devices: the in-store payment terminal (for hand-off at checkout), the staff-override tablet (for incident response), and optionally the customer's phone (for app-QR-to-cart pairing). BLE bonds are stored in flash and survive reboots.
+
+The honest reason there are three radios and not one: no single radio wins on power, reach, and cost at the same time. So each one does the job it's actually best at.
+
+![A tradeoff matrix of the cart's three radios across role, transmit power, throughput, and the reason each was chosen. WiFi 2.4 GHz is the primary transport: store-powered, 5–50 Mbps, known in-store coverage — the store pays the bill and the cart needs only about 10 kbps. LTE-M (Cat-M1) is the backup: 50–100 mW transmit, roughly 300 kbps, carrier-wide coverage — the battery-IoT cellular standard, with deep-sleep paging. BLE 5.0 is proximity-only: about 10 mW, short bursts, under 10 meters — used for the payment terminal, staff tablet, and phone-QR pairing, not as a transport. No single radio wins on power, reach, and cost at once, so the spec carries all three.](../../assets/blog/prd-part-1-radio-tradeoff.svg)
 
 ## BOM target (the ugly math)
 
@@ -167,7 +183,9 @@ Component costs at 5,000-cart volumes, current 2023 pricing:
 | Logistics / packaging | $18.00 |
 | **Landed COGS** | **$218.00** |
 
-We're projecting $22 under the $240 target with no compromises on the spec. The barcode scanner is the single biggest line item; we evaluated three vendors and the Honeywell-equivalent at $42 is the best perf/$ at our volume.
+We're projecting $22 under the $240 target with no compromises on the spec. The barcode scanner is the single biggest line item; we evaluated three vendors and the Honeywell-equivalent at $42 is the best perf/$ at our volume. Stacked up against the ceiling, the headroom is real but not generous:
+
+![BOM building up to landed COGS against the $240 target. A stacked bar shows the $176 BOM subtotal, with the 2D imager at $42 forming the base of the stack — the single biggest line — above it the $24 display, $26 mechanicals, $22 battery, $14 LTE-M module, $18 weight platform, $14.40 misc, $11.50 NFC reader, and the $4.10 ESP32-C3 plus ATECC608A on top. A second bar adds $24 assembly-and-test and $18 logistics to reach $218 landed COGS. A dashed red line marks the $240 landed-COGS ceiling, with a green bracket showing the $22 of headroom below it — achieved with no cuts to the spec.](../../assets/blog/prd-part-1-bom-cogs.svg)
 
 ## Where the PRD ends (Part 1)
 

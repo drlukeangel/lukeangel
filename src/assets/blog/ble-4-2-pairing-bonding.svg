@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 560" width="1080" height="560" role="img" aria-label="LE Secure Connections pairing and bonding on first pair. Step 1: the device and the phone each generate an elliptic-curve P-256 keypair. Step 2: they exchange public keys over the air. Step 3: each side computes the same shared secret by ECDH, and the secret itself never crosses the air. Step 4: from that secret each derives the same long-term key, the LTK, and stores it. After bonding, every reconnection is encrypted under the cached LTK with no re-pairing, and the device recognizes that specific phone. The older Just Works exchange derived no mutually authenticated secret and was trivially intercepted.">
+  <rect width="1080" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">LE SECURE CONNECTIONS — PAIR ONCE, BOND FOREVER</text>
+
+  <!-- two party columns -->
+  <rect x="56" y="76" width="320" height="372" rx="14" fill="none" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+  <text x="78" y="106" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2" fill="#1a1d24">DEVICE</text>
+  <rect x="704" y="76" width="320" height="372" rx="14" fill="none" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+  <text x="726" y="106" font-family="ui-monospace,monospace" font-size="14" letter-spacing="2" fill="#1a1d24">PHONE</text>
+
+  <!-- STEP 1: each generates a P-256 keypair -->
+  <text x="540" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#357a8c">1 — each generates a P-256 keypair</text>
+  <g transform="translate(96,152)">
+    <rect x="0" y="0" width="240" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="120" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">priv_D (secret)</text>
+    <text x="120" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">pub_D (shareable)</text>
+  </g>
+  <g transform="translate(744,152)">
+    <rect x="0" y="0" width="240" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="120" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">priv_P (secret)</text>
+    <text x="120" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">pub_P (shareable)</text>
+  </g>
+
+  <!-- STEP 2: exchange public keys -->
+  <text x="540" y="244" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#357a8c">2 — exchange public keys</text>
+  <g stroke="#1a1d24" stroke-width="2.6" fill="none">
+    <line x1="336" y1="272" x2="724" y2="272"/>
+  </g>
+  <path d="M740 272 l-18 -8 v16 z" fill="#1a1d24"/>
+  <text x="430" y="266" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24" stroke="none">pub_D →</text>
+  <g stroke="#1a1d24" stroke-width="2.6" fill="none">
+    <line x1="744" y1="300" x2="356" y2="300"/>
+  </g>
+  <path d="M340 300 l18 -8 v16 z" fill="#1a1d24"/>
+  <text x="650" y="318" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24" stroke="none" text-anchor="end">← pub_P</text>
+
+  <!-- STEP 3: each computes the same shared secret (ECDH) -->
+  <text x="540" y="356" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#357a8c">3 — ECDH: same shared secret, never sent</text>
+  <g transform="translate(96,370)">
+    <rect x="0" y="0" width="240" height="48" rx="10" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="120" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">priv_D · pub_P = S</text>
+  </g>
+  <g transform="translate(744,370)">
+    <rect x="0" y="0" width="240" height="48" rx="10" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="120" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">priv_P · pub_D = S</text>
+  </g>
+  <!-- equality brace between the two S boxes -->
+  <text x="540" y="400" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#3a7d44">=</text>
+
+  <!-- STEP 4: derive + store the LTK -->
+  <text x="540" y="478" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#357a8c">4 — derive &amp; store the long-term key</text>
+  <g transform="translate(360,492)">
+    <rect x="0" y="0" width="360" height="50" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <g transform="translate(20,13)" stroke="#357a8c" stroke-width="2.6" fill="none" stroke-linecap="round">
+      <rect x="0" y="9" width="18" height="14" rx="2.5" fill="#fdfaf2"/>
+      <path d="M3 9 v-4 a6 6 0 0 1 12 0 v4"/>
+      <circle cx="9" cy="16" r="2.6" fill="#357a8c" stroke="none"/>
+    </g>
+    <text x="200" y="31" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">LTK — cached on both, bonded</text>
+  </g>
+
+  <!-- right-side note: reconnect + contrast -->
+  <text x="936" y="500" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">reconnect: encrypted under LTK,</text>
+  <text x="936" y="516" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">no re-pairing</text>
+
+  <text x="240" y="503" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">vs Just Works: no real</text>
+  <text x="240" y="519" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">secret — easily intercepted</text>
+</svg>

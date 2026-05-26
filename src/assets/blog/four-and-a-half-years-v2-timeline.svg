@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="The cart platform quarter by quarter, 2023 to 2025.">
+  <rect width="1120" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="40" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">Q3 2023 &#8594; Q4 2025 &#183; THE CART, QUARTER BY QUARTER</text>
+
+  <!-- baseline -->
+  <line x1="60" y1="300" x2="1080" y2="300" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.4"/>
+
+  <!-- device-count ramp band, drawn BELOW the labels so it never collides with milestone text -->
+  <g transform="translate(0,68)">
+    <line x1="60" y1="392" x2="1010" y2="392" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.18"/>
+    <path d="M127 392 L249 391 L371 388 L493 380 L615 366 L737 346 L859 330 L981 322 L981 392 Z" fill="#2a52be" fill-opacity="0.08"/>
+    <path d="M127 392 L249 391 L371 388 L493 380 L615 366 L737 346 L859 330 L981 322" fill="none" stroke="#2a52be" stroke-width="2.5" stroke-opacity="0.55"/>
+    <circle cx="127" cy="392" r="3.5" fill="#2a52be"/>
+    <circle cx="981" cy="322" r="4.5" fill="#2a52be"/>
+    <text x="116" y="408" text-anchor="end" font-family="ui-monospace, monospace" font-size="10.5" fill="#7a808c">units in field:</text>
+    <text x="127" y="378" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#7a808c">~100</text>
+    <text x="993" y="318" text-anchor="start" font-family="ui-monospace, monospace" font-size="11" fill="#2a52be">10k</text>
+  </g>
+
+  <!-- eight quarter columns. cx: 127,249,371,493,615,737,859,981 -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+
+    <!-- Q3 2023 — PRD -->
+    <g transform="translate(127,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q3 &#8217;23</text>
+      <!-- document lines -->
+      <g transform="translate(-13,168)">
+        <rect x="0" y="0" width="26" height="34" rx="3" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.6"/>
+        <line x1="5" y1="8" x2="21" y2="8" stroke="#2a52be" stroke-width="2"/>
+        <line x1="5" y1="15" x2="21" y2="15" stroke="#2a52be" stroke-width="2"/>
+        <line x1="5" y1="22" x2="16" y2="22" stroke="#2a52be" stroke-width="2"/>
+      </g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">wrote the PRD</text>
+    </g>
+
+    <!-- Q4 2023 — picked chip/cloud/protocol (and deferred OTA) -->
+    <g transform="translate(249,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q4 &#8217;23</text>
+      <!-- chip glyph -->
+      <g transform="translate(-15,172)">
+        <rect x="0" y="0" width="30" height="28" rx="3" fill="#1a1d24"/>
+        <g stroke="#fdfaf2" stroke-width="1.8" stroke-opacity="0.8">
+          <line x1="-6" y1="7" x2="0" y2="7"/><line x1="-6" y1="14" x2="0" y2="14"/><line x1="-6" y1="21" x2="0" y2="21"/>
+          <line x1="30" y1="7" x2="36" y2="7"/><line x1="30" y1="14" x2="36" y2="14"/><line x1="30" y1="21" x2="36" y2="21"/>
+        </g>
+      </g>
+      <!-- small deferred-OTA flag -->
+      <circle cx="20" cy="178" r="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+      <line x1="20" y1="174" x2="20" y2="180" stroke="#c14a3a" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="20" cy="184" r="1.4" fill="#c14a3a"/>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">chip / broker / MQTT</text>
+      <text x="0" y="278" text-anchor="middle" font-size="11" fill="#c14a3a">OTA deferred</text>
+    </g>
+
+    <!-- Q1 2024 — first 100, provisioning rewrite -->
+    <g transform="translate(371,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q1 &#8217;24</text>
+      <!-- loop arrow (rewrote it twice) -->
+      <g fill="none" stroke="#2a52be" stroke-width="3" transform="translate(0,192)">
+        <path d="M-12 0 a14 14 0 1 1 -4 10"/>
+        <path d="M-16 10 l-5 -2 l1 7 z" fill="#2a52be" stroke="none"/>
+      </g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">first 100 units</text>
+      <text x="0" y="278" text-anchor="middle" font-size="11" fill="#7a808c">provisioning rewrite</text>
+    </g>
+
+    <!-- Q2 2024 — 1k units, two near-incidents, observability -->
+    <g transform="translate(493,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q2 &#8217;24</text>
+      <!-- two warning triangles -->
+      <g transform="translate(0,176)">
+        <path d="M-20 24 l11 -22 11 22 z" fill="none" stroke="#c14a3a" stroke-width="2.6" stroke-linejoin="round"/>
+        <path d="M2 24 l11 -22 11 22 z" fill="none" stroke="#c14a3a" stroke-width="2.6" stroke-linejoin="round"/>
+      </g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">1k units &#183; 2 near-misses</text>
+      <text x="0" y="278" text-anchor="middle" font-size="11" fill="#7a808c">built observability</text>
+    </g>
+
+    <!-- Q3-Q4 2024 — 5k, Rev B, cert rotation -->
+    <g transform="translate(615,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q3&#8211;Q4 &#8217;24</text>
+      <!-- board respin: rect with antenna + recycle-ish arrows -->
+      <rect x="-16" y="178" width="32" height="24" rx="3" fill="#2a52be" fill-opacity="0.14" stroke="#2a52be" stroke-width="2.6"/>
+      <text x="0" y="170" text-anchor="middle" font-size="10" fill="#5b616b">Rev B</text>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">5k units</text>
+      <text x="0" y="278" text-anchor="middle" font-size="11" fill="#7a808c">cert rotation</text>
+    </g>
+
+    <!-- Q1-Q2 2025 — 10k, OTA shipped -->
+    <g transform="translate(737,0)">
+      <circle cx="0" cy="300" r="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q1&#8211;Q2 &#8217;25</text>
+      <!-- firmware down-arrow into device -->
+      <rect x="-14" y="186" width="28" height="20" rx="4" fill="#2a52be" fill-opacity="0.16" stroke="#2a52be" stroke-width="3"/>
+      <path d="M0 156 l0 24" fill="none" stroke="#2a52be" stroke-width="3.5"/>
+      <path d="M0 184 l-6 -8 l12 0 z" fill="#2a52be"/>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">10k units</text>
+      <text x="0" y="278" text-anchor="middle" font-size="11" fill="#2a52be">OTA shipped</text>
+    </g>
+
+    <!-- Q3-Q4 2025 — operational maturity + open source -->
+    <g transform="translate(859,0)">
+      <circle cx="0" cy="300" r="9.5" fill="#2a52be"/>
+      <text x="0" y="332" text-anchor="middle" font-size="12.5" fill="#1a1d24">Q3&#8211;Q4 &#8217;25</text>
+      <!-- downward bar (on-call burden down) + open box -->
+      <g transform="translate(0,176)">
+        <path d="M0 0 l0 26" fill="none" stroke="#3a7d44" stroke-width="3.5"/>
+        <path d="M0 26 l-6 -8 l12 0 z" fill="#3a7d44"/>
+        <text x="2" y="-6" text-anchor="middle" font-size="10" fill="#3a7d44">on-call &#8722;40%</text>
+      </g>
+      <text x="0" y="262" text-anchor="middle" font-size="11.5" fill="#5b616b">operational maturity</text>
+      <text x="0" y="278" text-anchor="middle" font-size="11" fill="#7a808c">starter kit open-sourced</text>
+    </g>
+
+  </g>
+
+  <!-- arc tying quarters -->
+  <path d="M127 132 Q554 100 859 132" fill="none" stroke="#2a52be" stroke-width="2.5" opacity="0.4" stroke-dasharray="2 9" stroke-linecap="round"/>
+
+  <text x="34" y="500" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">PRD &#8594; chip/broker/protocol &#8594; first units &#8594; observability &#8594; Rev B + cert rotation &#8594; OTA &#8594; one platform holding 10k carts</text>
+</svg>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A dog and a cat: the dog instrumented, the cat blank.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="yr-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#yr-dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- faint vertical divider between the two animals -->
+  <line x1="620" y1="96" x2="620" y2="544" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.16"/>
+
+  <!-- ===================== LEFT: the instrumented dog ===================== -->
+  <!-- rising activity bars climbing toward a trend line above the dog -->
+  <g transform="translate(120,150)">
+    <g fill="#c87533">
+      <rect x="0"   y="118" width="22" height="42"  rx="3" opacity="0.55"/>
+      <rect x="34"  y="100" width="22" height="60"  rx="3" opacity="0.6"/>
+      <rect x="68"  y="108" width="22" height="52"  rx="3" opacity="0.6"/>
+      <rect x="102" y="78"  width="22" height="82"  rx="3" opacity="0.7"/>
+      <rect x="136" y="86"  width="22" height="74"  rx="3" opacity="0.7"/>
+      <rect x="170" y="58"  width="22" height="102" rx="3" opacity="0.8"/>
+      <rect x="204" y="66"  width="22" height="94"  rx="3" opacity="0.85"/>
+      <rect x="238" y="40"  width="22" height="120" rx="3" opacity="0.95"/>
+    </g>
+    <!-- trend line riding the bar tops -->
+    <path d="M11 130 L45 112 L79 120 L113 90 L147 98 L181 70 L215 78 L249 52"
+          fill="none" stroke="#1a1d24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+    <circle cx="249" cy="52" r="6.5" fill="#c87533" stroke="#1a1d24" stroke-width="3"/>
+  </g>
+
+  <!-- the dog: a seated yellow Lab, profile, head turned out -->
+  <g transform="translate(150,330)">
+    <!-- body + haunch -->
+    <path d="M40 210
+             C 18 150 24 96 70 78
+             C 96 68 132 70 150 92
+             C 168 70 206 70 230 86
+             C 268 112 270 168 250 210 Z"
+          fill="#e8a85c" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+    <!-- chest highlight -->
+    <path d="M150 100 C 138 140 142 178 150 206" fill="none" stroke="#1a1d24" stroke-width="3" opacity="0.18"/>
+    <!-- front legs -->
+    <path d="M150 206 L150 212 M198 206 L198 212" stroke="#1a1d24" stroke-width="3" opacity="0.18"/>
+    <!-- head -->
+    <g transform="translate(78,46)">
+      <!-- skull + muzzle -->
+      <path d="M2 36
+               C -6 6 16 -16 44 -14
+               C 70 -12 86 6 84 30
+               C 96 34 110 44 112 56
+               C 114 70 100 80 84 80
+               L 64 80
+               C 40 84 14 70 2 48 Z"
+            fill="#e8a85c" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <!-- floppy ear -->
+      <path d="M16 -8 C -6 0 -10 40 8 56 C 18 38 14 12 28 0 Z"
+            fill="#d8954a" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <!-- eye -->
+      <circle cx="46" cy="26" r="5.5" fill="#1a1d24"/>
+      <!-- nose -->
+      <circle cx="106" cy="56" r="7" fill="#1a1d24"/>
+      <!-- mouth line -->
+      <path d="M100 66 C 88 74 76 74 66 70" fill="none" stroke="#1a1d24" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+    <!-- the collar + activity puck (the instrument) -->
+    <path d="M96 118 C 120 138 168 138 196 122" fill="none" stroke="#1a1d24" stroke-width="9" stroke-linecap="round"/>
+    <g transform="translate(146,138)">
+      <circle r="20" fill="#c87533" stroke="#1a1d24" stroke-width="5"/>
+      <circle r="8" fill="#fdfaf2"/>
+      <!-- tiny ble pulse off the puck -->
+      <g fill="none" stroke="#c87533" stroke-width="3.5" stroke-linecap="round">
+        <path d="M22 -10 a18 18 0 0 1 0 24" opacity="0.9"/>
+        <path d="M33 -19 a31 31 0 0 1 0 42" opacity="0.5"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ===================== RIGHT: the un-instrumented cat ===================== -->
+  <!-- the cat: a seated tabby, profile, tail curled -->
+  <g transform="translate(760,300)">
+    <!-- tail sweeping around the base -->
+    <path d="M232 232 C 300 236 316 176 286 150 C 272 138 252 146 252 166"
+          fill="none" stroke="#1a1d24" stroke-width="6" stroke-linecap="round"/>
+    <!-- body -->
+    <path d="M70 238
+             C 44 178 52 110 104 96
+             C 128 90 156 96 168 118
+             C 180 100 210 100 230 122
+             C 258 154 256 206 232 238 Z"
+          fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+    <!-- tabby stripes on the flank -->
+    <g stroke="#1a1d24" stroke-width="3" opacity="0.25" fill="none" stroke-linecap="round">
+      <path d="M96 150 C 108 158 116 170 118 184"/>
+      <path d="M84 176 C 98 182 108 194 112 208"/>
+      <path d="M82 204 C 96 208 108 216 116 226"/>
+    </g>
+    <!-- head with pointed ears -->
+    <g transform="translate(96,58)">
+      <!-- ears -->
+      <path d="M6 18 L -4 -22 L 34 6 Z" fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M64 10 L 84 -24 L 86 18 Z" fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <!-- face -->
+      <path d="M2 24 C -2 -2 22 -14 44 -14 C 66 -14 90 -2 86 24 C 84 50 64 64 44 64 C 24 64 6 50 2 24 Z"
+            fill="#9aa1ad" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round"/>
+      <!-- eyes -->
+      <circle cx="30" cy="22" r="5" fill="#1a1d24"/>
+      <circle cx="58" cy="22" r="5" fill="#1a1d24"/>
+      <!-- nose + mouth -->
+      <path d="M44 34 l -6 6 l 12 0 z" fill="#1a1d24"/>
+      <path d="M44 40 C 44 48 38 50 32 50 M44 40 C 44 48 50 50 56 50" fill="none" stroke="#1a1d24" stroke-width="3" stroke-linecap="round"/>
+      <!-- whiskers -->
+      <g stroke="#1a1d24" stroke-width="2.5" stroke-linecap="round" opacity="0.6">
+        <path d="M28 38 L -6 34 M28 44 L -4 48"/>
+        <path d="M60 38 L 94 34 M60 44 L 92 48"/>
+      </g>
+    </g>
+    <!-- the ONLY instrument: a passive microchip under the skin at the shoulder, glinting -->
+    <g transform="translate(150,140)">
+      <!-- skin window / faint inset -->
+      <ellipse cx="0" cy="0" rx="40" ry="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="4 5" opacity="0.55"/>
+      <!-- the glass-capsule chip -->
+      <rect x="-22" y="-7" width="44" height="14" rx="7" fill="#c87533" stroke="#1a1d24" stroke-width="3.5"/>
+      <line x1="-12" y1="-7" x2="-12" y2="7" stroke="#1a1d24" stroke-width="2" opacity="0.5"/>
+      <line x1="-2" y1="-7" x2="-2" y2="7" stroke="#1a1d24" stroke-width="2" opacity="0.5"/>
+      <!-- a single faint glint -->
+      <path d="M20 -18 l 6 -6 M30 -14 l 9 -4 M22 -28 l 3 -8" stroke="#c87533" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    </g>
+  </g>
+</svg>

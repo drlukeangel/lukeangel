@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-label="one trip through the door, end to end">
+  <rect width="1000" height="360" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24">
+
+    <text x="40" y="44" font-size="18" font-weight="700">ONE TRIP, CHIP-READ TO PHONE &#183; ~5&#8211;10 s</text>
+
+    <!-- four stages as nodes on a row -->
+    <!-- node: door -->
+    <g transform="translate(70,150)">
+      <rect x="0" y="0" width="150" height="84" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="75" y="34" text-anchor="middle" font-size="13" font-weight="700">CAT DOOR</text>
+      <text x="75" y="56" text-anchor="middle" font-size="11" fill="#7a808c">chip read</text>
+      <text x="75" y="72" text-anchor="middle" font-size="11" fill="#7a808c">entry/exit logged</text>
+    </g>
+    <!-- node: hub -->
+    <g transform="translate(330,150)">
+      <rect x="0" y="0" width="150" height="84" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="75" y="40" text-anchor="middle" font-size="13" font-weight="700">HUB</text>
+      <text x="75" y="62" text-anchor="middle" font-size="11" fill="#7a808c">wired, no Wi-Fi</text>
+    </g>
+    <!-- node: cloud -->
+    <g transform="translate(590,150)">
+      <rect x="0" y="0" width="150" height="84" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <path d="M40 56 a16 16 0 0 1 6 -31 a20 20 0 0 1 39 4 a14 14 0 0 1 -3 27 z" fill="none" stroke="#1a1d24" stroke-width="2"/>
+      <text x="75" y="78" text-anchor="middle" font-size="11" fill="#7a808c">Sure Petcare cloud</text>
+    </g>
+    <!-- node: phone -->
+    <g transform="translate(850,150)">
+      <rect x="0" y="0" width="100" height="84" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+      <rect x="34" y="14" width="32" height="56" rx="5" fill="none" stroke="#1a1d24" stroke-width="2"/>
+      <line x1="44" y1="63" x2="56" y2="63" stroke="#1a1d24" stroke-width="2"/>
+      <text x="50" y="100" text-anchor="middle" font-size="11" fill="#7a808c">app + history</text>
+    </g>
+
+    <!-- hop 1: sub-GHz RF (closed) -->
+    <g>
+      <line x1="220" y1="192" x2="324" y2="192" stroke="#c87533" stroke-width="3"/>
+      <path d="M330 192 l-14 -6 l0 12 z" fill="#c87533"/>
+      <text x="275" y="178" text-anchor="middle" font-size="11" fill="#c87533">sub-GHz RF</text>
+      <text x="275" y="220" text-anchor="middle" font-size="10" fill="#7a808c">868 MHz</text>
+    </g>
+    <!-- hop 2: Ethernet -->
+    <g>
+      <line x1="480" y1="192" x2="584" y2="192" stroke="#1a1d24" stroke-width="3"/>
+      <path d="M590 192 l-14 -6 l0 12 z" fill="#1a1d24"/>
+      <text x="532" y="178" text-anchor="middle" font-size="11">Ethernet</text>
+    </g>
+    <!-- hop 3: cloud->phone -->
+    <g>
+      <line x1="740" y1="192" x2="844" y2="192" stroke="#1a1d24" stroke-width="3"/>
+      <path d="M850 192 l-14 -6 l0 12 z" fill="#1a1d24"/>
+      <text x="792" y="178" text-anchor="middle" font-size="11">push</text>
+    </g>
+
+    <!-- closed-link bracket under door..cloud -->
+    <line x1="70" y1="278" x2="740" y2="278" stroke="#c14a3a" stroke-width="2" stroke-opacity="0.55" stroke-dasharray="5 5"/>
+    <text x="405" y="304" text-anchor="middle" font-size="12.5" fill="#c14a3a">closed link end to end &#183; no Home Assistant, no third-party integration</text>
+  </g>
+</svg>

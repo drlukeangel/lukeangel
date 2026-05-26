@@ -4,6 +4,31 @@ The full connected-products / IoT body of work — v1 medical, v2 connected prod
 
 ---
 
+## ⚑ REMEDIATION LOG — issues, decisions, gaps, ideas (review at the end)
+_Per Luke: don't stop mid-run to ask — log here, we talk at the end._
+
+### Decisions made (flag if you disagree)
+- **Employer naming → abstracted.** The v1 retrospective named "Philips"; every other v1 post abstracts it ("a connected-health portfolio / connected-toothbrush line"). Standardized to **abstract the employer** across the series — consistent + discreet about a former employer's internal architecture and near-misses. Your résumé/LinkedIn carries the Philips attribution; the blog shows the thinking. **Say the word if you'd rather name Philips for credibility — I'll then do it consistently everywhere.**
+- **Covers fully text-free.** Standardized covers to zero text (not even functional labels like "BANK 0"); labels live on inline diagrams only. Stripped the OTA cover to match.
+
+### Tiny cleanups (non-blocking)
+- `prd-part-1-hardware-block.svg` — the functional label "a11y" kerns to look like "ally" in the mono font (meaning is in body + alt). Respace later.
+
+### Content gaps vs the SBD VP (Connected Digital Products) JD — candidate NEW posts
+Weave subtly, dated to your real arc; don't fabricate professional construction — the pet-tracker BLE+LoRa work is the vehicle. Demonstrate you've reasoned through DEWALT's exact problems:
+- **Construction / industrial IoT + BIM/MEP field-data workflows** (→ MSUITE) — blog has nothing; highest-value gap.
+- **Connected asset gateways + digital tagging** for tool/equipment tracking (→ ToolConnect).
+- **LoRa / LPWAN / FSK** for asset tags at industrial scale (JD names these explicitly).
+- **Diagnostics & prognostics / predictive maintenance** as customer-facing AI/ML.
+- **AI/ML inside the product-development process** (JD calls this out separately from in-product AI).
+- **GDPR / PII / global compliance** for connected-device data.
+- **Cloud cost modeling + vendor/ESP sourcing & margins** (VP business lens → maps to your Visa $100M portfolio / TCO work).
+- **24/7 global connected-product ops** (follow-the-sun / Pune-style → maps to Visa).
+- **Platform strategy + opening a 3rd-party ecosystem/API** (→ "DEWALT digital product platform").
+- **IP / patentable concepts** in connected products.
+
+---
+
 ## 1. Blog posts by series
 
 ### v1 — Building Medical IoT Connected Products (7 posts · 2017–2019)
@@ -19,7 +44,7 @@ Notebook: `building-medical-iot-connected-products`
 | 6 | 2019-05-13 | Where hardware specs meet API contracts — the room |
 | 7 | 2019-09-23 | Two years on medical IoT — the platform retrospective |
 
-### v2 — Building IoT Connected Products (9 posts · 2023–2025)
+### v2 — Building IoT Connected Products (10 posts · 2023–2025)
 Notebook: `connected-products`
 
 | # | Date | Title |
@@ -30,9 +55,12 @@ Notebook: `connected-products`
 | 4 | 2023-11-29 | Building a connected hardware product — month one |
 | 5 | 2024-03-19 | DynamoDB for time-series IoT — when the relational urge is wrong |
 | 6 | 2024-05-08 | BLE vs LoRa vs cellular — the connected-product decision matrix |
-| 7 | 2024-09-11 | What good IoT observability looks like in CloudWatch |
-| 8 | 2025-10-22 | Open-sourcing the Connected Products Starter Kit |
-| 9 | 2025-11-18 | 4.5 years of connected products — what I'd do again |
+| 7 | 2024-07-16 | Keeping garbage out of the fleet — validating IoT data at ingestion, three ways ⟵ this session |
+| 8 | 2024-09-11 | What good IoT observability looks like in CloudWatch |
+| 9 | 2025-10-22 | Open-sourcing the Connected Products Starter Kit |
+| 10 | 2025-11-18 | 4.5 years of connected products — what I'd do again |
+
+> The validation post (order 7) is new this session. A pointer paragraph was added to PRD Part 2 (order 2); orders 8–10 were renumbered up by one to make room.
 
 ### IoT Security — The Full Stack (3 posts · 2024–2025)
 Notebook: `iot-security`
@@ -170,7 +198,7 @@ Notebook: `smart-home-iot-journey`
 
 > **Content gap (FILLED this session):** smart-home previously jumped order 21 (`2017-10-14`) → order 31 (`2019-12-29`), a ~26-month hole. Closed with **7 new posts (orders 22–28)**: the missing 2017 + 2018 year-in-reviews plus 3 posts for 2018 (Node-RED, Amazon/Ring, ConBee/deCONZ) and 2 for 2019 (Works-with-Nest shutdown, MQTT nervous system). Voice keeps the time-machine rule and weaves a light "journal went quiet because the day job was the v1 medical device (2017–2019)" thread so the gap reads intentional. Orders 29–30 left unused (existing review is 31). Series now = **54 posts**.
 
-**IoT series total: 126 posts** (v1: 7 · v2: 9 · security: 3 · predictions: 11 · pet: 42 · smart home: 54).
+**IoT series total: 127 posts** (v1: 7 · v2: 10 · security: 3 · predictions: 11 · pet: 42 · smart home: 54).
 
 ---
 

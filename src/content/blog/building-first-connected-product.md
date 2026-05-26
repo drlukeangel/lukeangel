@@ -13,7 +13,7 @@ notebookOrder: 4
 excerpt: "Notes from the first month leading a connected-product team for the second time. What changed from v1 (2017-2019) to v2, what didn't, and the three decisions that mattered more than the rest."
 pullquote: "The hardware decision is a five-year contract with your past self. On v1 I argued for two more bytes and lost. This time the room is mine."
 cover: "../../assets/blog/building-first-connected-product-cover.svg"
-coverAlt: "Cover graphic — Building a connected hardware product, first month, second time around. November 2023."
+coverAlt: "A wheeled scanner-and-payment cart on a blueprint grid, mid-build — a secure-element chip waiting to drop into a dashed slot — reaching over WiFi to a cloud broker, a certificate seal traveling up the link."
 ---
 
 I'm leading the engineering team building a connected hardware product. We're a month in. This is my second time around — 2017 to 2019 I led the API platform side of a BLE-connected consumer-health portfolio (the [v1 series](/notebooks/building-medical-iot-connected-products/) is the full story). This time the device has WiFi and I own the hardware and the firmware too. Different stack, different scale, mostly the same mental model.
@@ -28,7 +28,11 @@ On v1 I argued for two more bytes in a device-ID byte format. I lost the argumen
 
 **Two.** The cloud bill scales with the *device count*, not the user count. I learned this previously and had to re-explain it to the team here in a budget meeting that did not go great. With IoT, every device you ship is a persistent customer of the cloud whether the user opens the app or not. We're used to "if a feature gets popular, infra grows." With IoT, "if hardware ships, infra grows" — and hardware ships even when nobody opens the app for a week.
 
+![Two cost curves side by side. Left, a SaaS app: cloud spend tracks active users and flattens out during a quiet week when nobody is on. Right, an IoT fleet: cloud spend is a staircase that only ever climbs as units ship, with a persistent floor under it — a week of an idle app still leaves every shipped unit holding a standing connection. The bill follows units in the field, not active users.](../../assets/blog/bcp-device-vs-user-cost.svg)
+
 **Three.** Provisioning is its own product. On v1 this was almost trivial — the device had only BLE, the user paired in the app, done. On v2 the device has WiFi, which means putting a device on Wi-Fi for the first time, getting a certificate onto it, getting that certificate registered with the IoT broker, and having all of that survive the user being out of cell range — that flow is its own project. We are still on the first draft.
+
+![First boot as a four-step pipeline: (1) get the device onto WiFi via a SoftAP or BLE handoff, (2) land a certificate on the chip with the private key staying in the secure element, (3) register that certificate with the broker through just-in-time provisioning or a registered CA, (4) the first MQTT-over-TLS publish lands and the link is up. A dashed fault line runs under the first three steps: any of them can fail mid-flow if the unit drops connectivity, so every step has to be resumable rather than assumed-online.](../../assets/blog/bcp-provisioning-flow.svg)
 
 ## What we got right (informed by v1)
 
@@ -45,6 +49,8 @@ Three things on the watch list:
 - **OTA firmware updates.** We're going to need this. We don't have it yet. I [shipped OTA on the first connected product](/blog/ota-firmware-over-bluetooth-pushing-the-rom-through-the-phone/) and I know what it costs to ship without it — every minor firmware bug becomes a customer-support escalation, every sensor-calibration issue an RMA. We're deferring out of capacity, not naïveté, which is worse in some ways. The cost is going to come due in 12-18 months.
 - **Per-device certificates at fleet scale.** A cert per device is fine when there are five devices on a desk. Previously we got this right by accident — the hardware team baked the cert into the firmware at factory provisioning and we never rotated. We won't get away with that here; this market has cert-rotation expectations. I'm reading about Just-in-Time Provisioning and Multi-Account Registration this weekend.
 - **What we do when the cloud has an outage.** Our device is useless without the cloud right now. On v1 the device worked offline — the device ran, the user used it, the session got recorded to flash, synced later. Here the cart can't accept payment offline. That's an architecture choice we made and didn't think hard enough about. Whether to push compute to the device or accept the dependency is a real product question, not a tech question.
+
+![The same cloud outage, two generations. v1 kept compute on the device: with the link broken it keeps running, records the session to flash, and syncs later when connectivity returns, so the user keeps working. v2 put compute in the cloud: payment needs a cloud authorization, so with the link broken the cart stalls at checkout and the customer is stuck at the gate. Push compute to the device or accept the dependency — the same decision, opposite answers.](../../assets/blog/bcp-offline-dependency.svg)
 
 ## The framing that's helped most
 

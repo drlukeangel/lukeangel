@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 400" width="1080" height="400" role="img" aria-label="Four pets' presence across twelve years and the gear each wore.">
+  <rect width="1080" height="400" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="38" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">FOUR PETS, TWELVE YEARS</text>
+
+  <!-- year axis 2013..2025 mapped x 220..1010 -->
+  <g font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c" text-anchor="middle">
+    <text x="220" y="74">2013</text>
+    <text x="418" y="74">2016</text>
+    <text x="616" y="74">2019</text>
+    <text x="814" y="74">2022</text>
+    <text x="1010" y="74">2025</text>
+  </g>
+  <line x1="220" y1="84" x2="1010" y2="84" stroke="#1a1d24" stroke-width="1.2" opacity="0.18"/>
+  <g stroke="#1a1d24" stroke-width="1" opacity="0.08">
+    <line x1="418" y1="84" x2="418" y2="350"/>
+    <line x1="616" y1="84" x2="616" y2="350"/>
+    <line x1="814" y1="84" x2="814" y2="350"/>
+  </g>
+
+  <!-- Atom: dog, 2013–2024 (x 220 .. ~982), ends with a dot -->
+  <g transform="translate(0,120)">
+    <text x="60" y="5" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">Atom · dog</text>
+    <line x1="220" y1="0" x2="982" y2="0" stroke="#1a1d24" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+    <circle cx="982" cy="0" r="7" fill="#1a1d24"/>
+    <text x="240" y="-12" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">Whistle → Fi → Whistle Health</text>
+  </g>
+
+  <!-- Joule: cat, 2014– (x ~286 ..1010) -->
+  <g transform="translate(0,190)">
+    <text x="60" y="5" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">Joule · cat</text>
+    <line x1="286" y1="0" x2="1010" y2="0" stroke="#c87533" stroke-width="6" stroke-linecap="round"/>
+    <text x="306" y="-12" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">microchip → SureFlap → GPS Cat Mini → Pebblebee</text>
+  </g>
+
+  <!-- Boson: cat, 2020– (x ~748 ..1010) -->
+  <g transform="translate(0,260)">
+    <text x="60" y="5" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">Boson · cat</text>
+    <line x1="748" y1="0" x2="1010" y2="0" stroke="#c87533" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+    <text x="768" y="-12" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">GPS Cat Mini · Pebblebee</text>
+  </g>
+
+  <!-- Quark: dog, 2022– (x ~880 ..1010) -->
+  <g transform="translate(0,320)">
+    <text x="60" y="5" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">Quark · dog</text>
+    <line x1="880" y1="0" x2="1010" y2="0" stroke="#1a1d24" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+    <text x="900" y="-12" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">Fi cellular</text>
+  </g>
+
+  <text x="540" y="384" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">The gear rotates every few years; the dog the data was about does not come back.</text>
+</svg>

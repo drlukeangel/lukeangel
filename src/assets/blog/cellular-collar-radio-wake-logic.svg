@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="radio wake logic">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:19px;font-weight:700;fill:#1a1d24;}
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;font-weight:700;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11.5px;fill:#5b616b;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:13.5px;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="46" class="hd">KEEP THE EXPENSIVE RADIOS ASLEEP UNTIL THEY EARN IT</text>
+
+  <!-- three gated states, left to right, escalating cost -->
+  <!-- State A: home / asleep -->
+  <g transform="translate(60,110)">
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#3a7d44" fill-opacity="0.07" stroke="#3a7d44" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" class="lab" fill="#3a7d44">HOME &#183; near base</text>
+    <text x="20" y="70" class="sm">cellular: deep sleep (PSM)</text>
+    <text x="20" y="92" class="sm">GPS: off</text>
+    <text x="20" y="114" class="sm">BLE: confirms presence</text>
+    <text x="125" y="142" text-anchor="middle" class="sm" fill="#3a7d44">microamps</text>
+  </g>
+
+  <!-- arrow A->B -->
+  <g transform="translate(320,185)">
+    <line x1="0" y1="0" x2="48" y2="0" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2.5"/>
+    <polygon points="48,0 36,-6 36,6" fill="#1a1d24" fill-opacity="0.45"/>
+    <text x="24" y="-12" text-anchor="middle" class="sm">moves</text>
+  </g>
+
+  <!-- State B: out / motion-gated -->
+  <g transform="translate(375,110)">
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#c87533" fill-opacity="0.08" stroke="#c87533" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" class="lab" fill="#c87533">OUT, IN GEOFENCE</text>
+    <text x="20" y="70" class="sm">accel says moving</text>
+    <text x="20" y="92" class="sm">GPS: brief fixes</text>
+    <text x="20" y="114" class="sm">cellular: still sleeping</text>
+    <text x="125" y="142" text-anchor="middle" class="sm" fill="#c87533">single-digit mA avg</text>
+  </g>
+
+  <!-- arrow B->C -->
+  <g transform="translate(635,185)">
+    <line x1="0" y1="0" x2="48" y2="0" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2.5"/>
+    <polygon points="48,0 36,-6 36,6" fill="#1a1d24" fill-opacity="0.45"/>
+    <text x="24" y="-12" text-anchor="middle" class="sm">breaks fence</text>
+  </g>
+
+  <!-- State C: escape / full power -->
+  <g transform="translate(690,110)">
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#c14a3a" fill-opacity="0.07" stroke="#c14a3a" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" class="lab" fill="#c14a3a">ESCAPE &#183; locating</text>
+    <text x="20" y="70" class="sm">GPS: fixing constantly</text>
+    <text x="20" y="92" class="sm">cellular: transmitting</text>
+    <text x="20" y="114" class="sm">every position uploaded</text>
+    <text x="125" y="142" text-anchor="middle" class="sm" fill="#c14a3a">hundreds of mA peaks</text>
+  </g>
+
+  <!-- battery life band under each -->
+  <text x="185" y="310" text-anchor="middle" class="sm" fill="#3a7d44">weeks of standby</text>
+  <text x="500" y="310" text-anchor="middle" class="sm" fill="#c87533">days</text>
+  <text x="815" y="310" text-anchor="middle" class="sm" fill="#c14a3a">a day or two</text>
+
+  <line x1="60" y1="330" x2="940" y2="330" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <text x="40" y="372" class="cap">The trick isn't a bigger battery — it's gating each radio so the modem only transmits</text>
+  <text x="40" y="394" class="cap">when the dog has actually left the geofence. The "weeks" number is a standby number.</text>
+  <text x="40" y="416" class="cap">The instant a dog is genuinely loose and being located, the budget collapses to days —</text>
+  <text x="40" y="438" class="cap">and no radio standard, LTE-M included, changes that.</text>
+</svg>

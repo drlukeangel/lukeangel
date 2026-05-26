@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" width="1080" height="360" role="img" aria-label="Detection signals; response acts. An anomaly trips the alarm, which only tells you something is wrong. The runbook is what acts — flipping the device's policy to deny-all to revoke it.">
+  <rect width="1080" height="360" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">DETECTION SIGNALS · RESPONSE ACTS</text>
+
+  <!-- anomaly -->
+  <text x="120" y="150" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">anomaly</text>
+  <polyline points="64,210 92,202 120,150 148,206 176,200" fill="none" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="120" cy="150" r="13" fill="none" stroke="#c14a3a" stroke-width="3.5"/>
+
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="206" y1="196" x2="270" y2="196"/><path d="M274 196 l-15 -7 v14 z"/></g>
+
+  <!-- alarm (signals only) -->
+  <g transform="translate(286,150)" fill="none" stroke="#c14a3a" stroke-width="4" stroke-linecap="round">
+    <path d="M14 6 a22 22 0 0 1 44 0 c0 26 10 34 10 34 H4 c0 0 10 -8 10 -34 z"/>
+    <path d="M28 50 a8 8 0 0 0 16 0"/>
+  </g>
+  <text x="322" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">ALARM</text>
+  <text x="322" y="260" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">"something's off"</text>
+  <text x="322" y="290" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#c14a3a">it signals — it doesn't act</text>
+
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="404" y1="180" x2="486" y2="180"/><path d="M490 180 l-15 -7 v14 z"/></g>
+
+  <!-- runbook -->
+  <rect x="500" y="146" width="180" height="68" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="590" y="178" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">RUNBOOK</text>
+  <text x="590" y="198" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">human decides</text>
+
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="690" y1="180" x2="772" y2="180"/><path d="M776 180 l-15 -7 v14 z"/></g>
+
+  <!-- revoke (acts) -->
+  <g transform="translate(800,148)">
+    <rect x="0" y="0" width="210" height="68" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <g transform="translate(22,16)" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"><rect x="0" y="14" width="26" height="20" rx="3" fill="#fdfaf2"/><path d="M5 14 v-6 a8 8 0 0 1 16 0 v6"/><line x1="6" y1="6" x2="20" y2="20"/></g>
+    <text x="130" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">REVOKE</text>
+    <text x="130" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">policy = deny *</text>
+  </g>
+  <text x="905" y="252" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#3a3f4a">this is the part that acts</text>
+</svg>

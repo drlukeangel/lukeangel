@@ -1,34 +1,105 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="An ML pipeline DAG with a conditional gate and a feedback loop.">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="sm-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-      <circle cx="14" cy="14" r="1" fill="#1a1d24" opacity="0.05"/>
+    <pattern id="smp-dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#1a1d24" opacity="0.05"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#sm-dots)"/>
-  <rect x="0" y="0" width="16" height="630" fill="#1a1d24"/>
-  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" letter-spacing="4" fill="#7a808c">FIELD NOTES — APR 2024</text>
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#smp-dots)"/>
+  <rect width="24" height="630" fill="#4f46b8"/>
 
-  <g transform="translate(810, 175)" stroke="#1a1d24" stroke-width="2" fill="none">
-    <circle cx="20" cy="20" r="14"/>
-    <line x1="34" y1="20" x2="86" y2="20"/>
-    <circle cx="100" cy="20" r="14"/>
-    <line x1="114" y1="20" x2="166" y2="20"/>
-    <circle cx="180" cy="20" r="14"/>
-    <line x1="194" y1="20" x2="246" y2="20"/>
-    <circle cx="260" cy="20" r="14" fill="#2a52be" stroke="#2a52be"/>
-    <text x="20"  y="56" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">prep</text>
-    <text x="100" y="56" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">train</text>
-    <text x="180" y="56" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">eval</text>
-    <text x="260" y="56" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#2a52be" stroke="none">deploy</text>
+  <!-- edges between DAG steps (drawn first so nodes sit on top) -->
+  <g stroke="#1a1d24" stroke-width="4" fill="none" opacity="0.9">
+    <!-- prep -> train -->
+    <path d="M286 250 L378 250"/>
+    <!-- train -> eval -->
+    <path d="M510 250 L602 250"/>
+    <!-- eval -> gate (diamond) -->
+    <path d="M734 250 L812 250"/>
+    <!-- gate -> register (pass, downstream-right) -->
+    <path d="M916 250 L1006 250"/>
+  </g>
+  <!-- arrowheads on the forward edges -->
+  <g fill="#1a1d24">
+    <path d="M378 250 l-20 -8 v16 z"/>
+    <path d="M602 250 l-20 -8 v16 z"/>
+    <path d="M812 250 l-20 -8 v16 z"/>
+    <path d="M1006 250 l-20 -8 v16 z"/>
   </g>
 
-  <text x="80" y="295" font-family="Newsreader, serif" font-weight="500" font-size="72" fill="#1a1d24">SageMaker Pipelines —</text>
-  <text x="80" y="375" font-family="Newsreader, serif" font-style="italic" font-size="48" fill="#1a1d24">week three notes.</text>
-  <text x="80" y="430" font-family="Newsreader, serif" font-style="italic" font-size="28" fill="#7a808c">what stuck, what I'd swap.</text>
+  <!-- feedback loop: a dashed return arc from the deployed/monitor node back to prep -->
+  <g stroke="#4f46b8" stroke-width="3.5" fill="none" stroke-dasharray="12 9" opacity="0.85">
+    <path d="M1060 320 C 1060 470, 700 510, 226 510 C 140 510, 110 470, 110 380"/>
+  </g>
+  <path d="M110 380 l-8 22 l16 0 z" fill="#4f46b8"/>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — ML PIPELINES</text>
+  <!-- STEP 1: prep (processing step) drawn as a beaker/container -->
+  <g transform="translate(160,200)">
+    <rect x="0" y="0" width="126" height="100" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <g stroke="#4f46b8" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 24 L44 50 L30 74 a18 18 0 0 0 16 26 h34 a18 18 0 0 0 16 -26 L82 50 L82 24"/>
+      <line x1="40" y1="24" x2="86" y2="24"/>
+      <line x1="34" y1="66" x2="92" y2="66"/>
+    </g>
+  </g>
+
+  <!-- STEP 2: train (gears) -->
+  <g transform="translate(384,200)">
+    <rect x="0" y="0" width="126" height="100" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <g transform="translate(63,50)" fill="none" stroke="#4f46b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="0" r="22"/>
+      <circle cx="0" cy="0" r="7" fill="#4f46b8"/>
+      <g stroke-width="6">
+        <line x1="0" y1="-22" x2="0" y2="-32"/>
+        <line x1="0" y1="22" x2="0" y2="32"/>
+        <line x1="-22" y1="0" x2="-32" y2="0"/>
+        <line x1="22" y1="0" x2="32" y2="0"/>
+        <line x1="-16" y1="-16" x2="-23" y2="-23"/>
+        <line x1="16" y1="16" x2="23" y2="23"/>
+        <line x1="16" y1="-16" x2="23" y2="-23"/>
+        <line x1="-16" y1="16" x2="-23" y2="23"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- STEP 3: eval (a small chart / scored bars) -->
+  <g transform="translate(608,200)">
+    <rect x="0" y="0" width="126" height="100" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <g stroke="#4f46b8" stroke-width="5" stroke-linecap="round" fill="none">
+      <line x1="34" y1="28" x2="34" y2="76"/>
+      <line x1="34" y1="76" x2="96" y2="76"/>
+      <line x1="48" y1="76" x2="48" y2="58"/>
+      <line x1="64" y1="76" x2="64" y2="46"/>
+      <line x1="80" y1="76" x2="80" y2="36"/>
+    </g>
+  </g>
+
+  <!-- CONDITIONAL GATE: a diamond (decision step) -->
+  <g transform="translate(864,250)">
+    <path d="M0 -52 L52 0 L0 52 L-52 0 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <g stroke="#4f46b8" stroke-width="6" stroke-linecap="round" fill="none">
+      <path d="M-16 2 L-4 16 L20 -14"/>
+    </g>
+  </g>
+  <!-- halt branch off the gate (downward), the path that doesn't register -->
+  <g stroke="#c14a3a" stroke-width="4" fill="none" opacity="0.9">
+    <path d="M864 302 L864 372"/>
+  </g>
+  <g transform="translate(864,402)" stroke="#c14a3a" stroke-width="5" stroke-linecap="round">
+    <circle cx="0" cy="0" r="22" fill="none"/>
+    <line x1="-12" y1="-12" x2="12" y2="12"/>
+    <line x1="12" y1="-12" x2="-12" y2="12"/>
+  </g>
+
+  <!-- STEP 5: register / deploy (a stacked model-registry card with a checked seal) -->
+  <g transform="translate(1010,200)">
+    <rect x="14" y="14" width="126" height="100" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4" opacity="0.55"/>
+    <rect x="7" y="7" width="126" height="100" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5" opacity="0.8"/>
+    <rect x="0" y="0" width="126" height="100" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <g transform="translate(63,50)">
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#3a7d44" stroke-width="6"/>
+      <path d="M-12 0 L-3 10 L14 -12" fill="none" stroke="#3a7d44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
 </svg>

@@ -11,12 +11,14 @@ tags:
 excerpt: "Humane crashed, Rabbit shrank, and Ray-Ban Meta quietly outsold Vision Pro 4:1. The 2024 score sheet, plus what happens when AR glasses, smart rings, and ambient AI all hit the same year."
 pullquote: "The flagship category creators of 2024 (Vision Pro, AI Pin, Rabbit R1) all sold under 500K units. The quiet success (Ray-Ban Meta) sold 2M+. Glasses won. Headsets and pins lost."
 cover: ../../assets/blog/iot-predictions-2025-cover.svg
-coverAlt: "IoT & Connected Devices — 2025 Predictions and Outcomes — Ray-Ban Meta, Galaxy Ring, and Apple Watch Series 10 silhouettes on a blue-teal gradient"
+coverAlt: "A pair of smart glasses drawn large in the foreground, with a smart ring, a watch, and an earbud arranged around it on a cream field, and a faint dashed forecast arc rising through the scene — the 2025 body-sensor stack, glasses out front."
 notebook: iot-predictions
 notebookOrder: 10
 ---
 
 Year ten. AI-on-device was supposed to be the big 2024 category. It mostly wasn't. Smart glasses were supposed to be the long-shot. They quietly won. Glasses + ring + watch + earbud is the new four-piece body-sensor stack for 2025.
+
+![The 2025 body-sensor stack drawn around a single person: smart glasses on the face (camera, audio, a heads-up display coming next), an earbud at the ear (audio plus a hearing-aid mode), a watch on the wrist (heart rate, ECG, and a blood-pressure trend on the forecast list), and a ring on the finger (sleep, recovery, no display). No single device wins the year — the stack does; the body is the platform.](../../assets/blog/iot-predictions-2025-body-stack.svg)
 
 ## How 2024 actually played out
 
@@ -32,6 +34,8 @@ Year ten. AI-on-device was supposed to be the big 2024 category. It mostly wasn'
 
 **Samsung Galaxy Ring shipped August 2024.** $399, sleep + activity tracking, no display. Strong reception, sold well into Q4. **Hit, exactly priced.**
 
+**AirPods Pro 2 became a clinical-grade hearing aid by firmware.** FDA cleared the Hearing Aid feature in September 2024; it shipped in the iOS 18.1 / firmware update late October. A $249 earbud now does what a $5,000 prescription device does — over-the-counter, no audiologist. The single most disruptive wearable move of the year and almost nobody outside the hearing-health world noticed. **Hit on the thesis that earbuds eat the hearing-aid market — earlier and cleaner than I expected.**
+
 **Matter v1.3 shipped Q2 2024** with cameras, energy management. v1.4 in November added more device types. **Hit, slightly earlier than I forecast.**
 
 **Sonos shipped Ace headphones May 2024.** $449. Reviews mixed. App-launch disaster predicted came true: Sonos rewrote its app in May 2024, broke speakers for millions of customers, CEO resigned by January 2025. **Hit on shape, the app debacle was worse than I called.**
@@ -40,6 +44,8 @@ Year ten. AI-on-device was supposed to be the big 2024 category. It mostly wasn'
 
 Net 2024 scorecard: roughly **90% prediction accuracy.** The Sonos app collapse was the biggest miss-of-magnitude (I called the launch issues, not the executive bloodbath). Glasses-vs-headset was the biggest win.
 
+![The 2024 score sheet as a bar chart of annual unit run-rate, because units — not reviews — decide the winner. Ray-Ban Meta runs off the chart past two million units (the breakout). Galaxy Ring at $399 and the Apple Watch Series 10 are mid-length bars marked as solid sellers. Below them, in red, the three category-creators: Vision Pro at $3,499 under 500,000 and bleeding quarter over quarter, the Humane AI Pin a stub bar (panned, exploring a sale), and the Rabbit R1 the shortest bar of all (its Large Action Model turned out to be scripts). The flagship category-creators each sold under 500K; the quiet one sold 2M+ — glasses won.](../../assets/blog/iot-predictions-2025-scorecard.svg)
+
 ## What I got wrong
 
 The Sonos app story was bigger than I called. The headphones landed; the app rewrite *broke the entire installed base* of Sonos speakers for months. CEO out in January 2025. Brand damage permanent. I called the issue, not the magnitude.
@@ -47,6 +53,8 @@ The Sonos app story was bigger than I called. The headphones landed; the app rew
 I also missed the Brilliant Labs Frame ($350, July 2024) and the early signal it sent on "AI glasses without Meta's scale." A small but real product category I should have flagged.
 
 ## 2025 predictions
+
+![The 2025 prediction calendar laid out on a vertical spine, Q1 through Q4. Q1: Humane acquired by HP for roughly $200M to $1B, the AI Pin product killed and the team landing. Spring/summer: Galaxy Ring Gen 2 at Unpacked with refinements, Oura answering with a Ring Gen 5. June at WWDC: Apple announces consumer AR glasses with a 2026 ship target, not this year. September: Ray-Ban Gen 3 ships with a display, and the Watch Series 11 adds an FDA-cleared blood-pressure trend. Fall: a competitor matches Apple's OTC hearing-aid move (Samsung Galaxy Buds the likely answer), turning a single feature into a category and pricing $250 earbuds against $5,000 aids. Q3 to Q4, marked in red: the first connected-device class action over an AI-agent action gone wrong. A side note collects the all-year tides — Vision Pro 2 does not ship (a cheaper model rumored for Q1 2026), and on-device LLMs become table stakes rather than a category, leaving the standalone AI device a graveyard. These are forecasts, not hindsight — written the second week of January.](../../assets/blog/iot-predictions-2025-timeline.svg)
 
 **1. Apple Vision Pro 2 doesn't ship in 2025.** Strong rumor of a *cheaper* model (under $2,000) targeting Q1 2026. Apple does NOT pull a Series 9-to-10 marketing trick here; they sit on inventory and bet on the cheaper model. Vision Pro becomes a $3,000 dev kit for the next 18 months.
 
@@ -62,7 +70,7 @@ I also missed the Brilliant Labs Frame ($350, July 2024) and the early signal it
 
 **7. Matter expands beyond US/EU/JP into broad APAC adoption.** China-domestic Matter alternatives compete; the global stack stabilizes by Q4.
 
-**8. Connected hearing aids become normal.** Apple Hearing Aid mode (via AirPods Pro 2 firmware update) lands in fall, FDA-cleared. The $5,000 traditional hearing aid market gets disrupted by the $250 earbud.
+**8. A competitor matches Apple's hearing-aid move — and the disruption goes mainstream.** Apple cleared the OTC hearing-aid bar in October 2024 with an AirPods Pro 2 firmware update. In 2025, Samsung (Galaxy Buds) or another major earbud maker ships its own OTC hearing-aid feature to chase it, and the FDA's 2022 OTC pathway turns from a single product into a category. The $5,000 traditional hearing-aid market starts pricing against $250 earbuds for real. (Watch for international approvals lagging US clearance — EU and Japan medical-device review is the gate, not the silicon.)
 
 **9. AI on the device gets meaningful — not as a category creator, but as a feature.** On-device LLMs (Apple Intelligence, Galaxy AI, Pixel AI) become table-stakes for new phones / watches / earbuds. The standalone "AI device" category stays a graveyard.
 

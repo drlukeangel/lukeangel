@@ -1,12 +1,99 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="One endpoint fanning out to many foundation models behind a private boundary.">
   <rect width="1200" height="630" fill="#fdfaf2"/>
-  <rect x="0" y="0" width="12" height="630" fill="#1a1d24"/>
-  <text x="60" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">FIRST IMPRESSIONS — DEC 2023</text>
-  <line x1="60" y1="120" x2="1140" y2="120" stroke="#1a1d24" stroke-width="1"/>
-  <text x="60" y="280" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#1a1d24">First week with</text>
-  <text x="60" y="360" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#2a52be">Bedrock.</text>
-  <text x="60" y="424" font-family="Newsreader, serif" font-style="italic" font-size="32" fill="#7a808c">A PM's read on the September GA.</text>
-  <line x1="60" y1="480" x2="1140" y2="480" stroke="#1a1d24" stroke-width="1"/>
-  <text x="60" y="530" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">CLAUDE 2.1 · TITAN · COHERE · AI21</text>
+  <defs>
+    <pattern id="bd-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bd-dots)"/>
+  <rect width="24" height="630" fill="#4f46b8"/>
+
+  <!-- private boundary: a dashed rounded box around the whole exchange -->
+  <rect x="120" y="120" width="980" height="400" rx="28" fill="none"
+        stroke="#4f46b8" stroke-width="3" stroke-dasharray="13 11" opacity="0.8"/>
+
+  <!-- single SDK / endpoint node on the left, holding one IAM key -->
+  <g transform="translate(250,320)">
+    <!-- the endpoint, an upright rounded slab -->
+    <rect x="-70" y="-92" width="140" height="184" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- three connector ports on its right edge, the single SDK surface -->
+    <g stroke="#1a1d24" stroke-width="6" stroke-linecap="round">
+      <line x1="70" y1="-44" x2="86" y2="-44"/>
+      <line x1="70" y1="0" x2="86" y2="0"/>
+      <line x1="70" y1="44" x2="86" y2="44"/>
+    </g>
+    <!-- one IAM key glyph centered on the slab -->
+    <g fill="none" stroke="#4f46b8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="-14" cy="-22" r="26"/>
+      <line x1="4" y1="-4" x2="44" y2="36"/>
+      <line x1="30" y1="22" x2="44" y2="8"/>
+      <line x1="40" y1="32" x2="54" y2="18"/>
+    </g>
+  </g>
+
+  <!-- fan-out: routing lines from the single node to a column of model cards -->
+  <g stroke="#1a1d24" stroke-width="3.5" fill="none" opacity="0.85">
+    <path d="M344 276 C 470 230, 560 188, 690 188"/>
+    <path d="M344 296 C 470 280, 560 268, 690 268"/>
+    <path d="M344 344 C 470 350, 560 362, 690 362"/>
+    <path d="M344 364 C 470 410, 560 452, 690 452"/>
+  </g>
+  <!-- arrowheads into the cards -->
+  <g fill="#1a1d24">
+    <path d="M690 188 l-18 -7 v14 z"/>
+    <path d="M690 268 l-18 -7 v14 z"/>
+    <path d="M690 362 l-18 -7 v14 z"/>
+    <path d="M690 452 l-18 -7 v14 z"/>
+  </g>
+
+  <!-- a row of distinct foundation models, drawn as different abstract shapes (different providers) -->
+  <!-- model 1: a small neural-graph node cluster -->
+  <g transform="translate(770,162)">
+    <rect x="0" y="0" width="240" height="52" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <g stroke="#4f46b8" stroke-width="3" fill="#4f46b8">
+      <circle cx="34" cy="16" r="4"/><circle cx="34" cy="36" r="4"/>
+      <circle cx="64" cy="26" r="4"/>
+      <circle cx="94" cy="16" r="4"/><circle cx="94" cy="36" r="4"/>
+      <g stroke-width="2.4" fill="none" opacity="0.85">
+        <line x1="34" y1="16" x2="64" y2="26"/><line x1="34" y1="36" x2="64" y2="26"/>
+        <line x1="64" y1="26" x2="94" y2="16"/><line x1="64" y1="26" x2="94" y2="36"/>
+      </g>
+    </g>
+  </g>
+  <!-- model 2: concentric arcs (a different family) -->
+  <g transform="translate(770,242)">
+    <rect x="0" y="0" width="240" height="52" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <g transform="translate(56,26)" fill="none" stroke="#4f46b8" stroke-width="3.4" stroke-linecap="round">
+      <path d="M-18 0 a18 18 0 0 1 36 0"/>
+      <path d="M-11 0 a11 11 0 0 1 22 0"/>
+      <circle cx="0" cy="0" r="3.4" fill="#4f46b8"/>
+    </g>
+  </g>
+  <!-- model 3: a stacked-blocks family -->
+  <g transform="translate(770,336)">
+    <rect x="0" y="0" width="240" height="52" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <g transform="translate(42,14)" fill="none" stroke="#4f46b8" stroke-width="3.2">
+      <rect x="0" y="0" width="40" height="9" rx="2"/>
+      <rect x="6" y="13" width="40" height="9" rx="2"/>
+      <rect x="0" y="26" width="40" height="9" rx="2"/>
+    </g>
+  </g>
+  <!-- model 4: a triangle/wedge family -->
+  <g transform="translate(770,426)">
+    <rect x="0" y="0" width="240" height="52" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <g transform="translate(58,26)" fill="none" stroke="#4f46b8" stroke-width="3.4" stroke-linejoin="round">
+      <path d="M-18 14 L0 -16 L18 14 Z"/>
+    </g>
+  </g>
+
+  <!-- a single bill / invoice glyph at lower-left, inside the boundary: one bill -->
+  <g transform="translate(250,452)">
+    <rect x="-46" y="0" width="92" height="56" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <g stroke="#7a808c" stroke-width="4" stroke-linecap="round">
+      <line x1="-30" y1="16" x2="22" y2="16"/>
+      <line x1="-30" y1="28" x2="22" y2="28"/>
+      <line x1="-30" y1="40" x2="6" y2="40"/>
+    </g>
+  </g>
 </svg>

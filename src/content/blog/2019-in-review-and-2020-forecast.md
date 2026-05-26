@@ -10,8 +10,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 31
 excerpt: "BLE presence finally works. Glass-break sensors caught the failure mode contact sensors miss. The kid's bedroom dashboard joined the kitchen."
 pullquote: "Looking back: 5.5/8 on 2018's forecasts. ~73%. The miss was Frigate's maturity — running on a Pi without a Coral, the detection was too slow."
-cover: "../../assets/blog/2019-in-review-and-2020-forecast-cover.png"
-coverAlt: "2019 review — local-first arrives, security maturing"
+cover: "../../assets/blog/2019-in-review-and-2020-forecast-cover.svg"
+coverAlt: "A 2019 scorecard motif — verdict marks against the year's forecast beside a house whose logic has moved into a local closet, the year local-first arrived and security matured."
 ---
 
 End of year. Pattern.
@@ -30,6 +30,8 @@ End of year. Pattern.
 | Aqara outdoor sensors | 60% | Aqara T1 outdoor motion shipped in China; no US distribution yet | ✗ (partial) |
 
 5.5/8 = **73%**. Frigate underperformed; smart lock was just a procrastination problem. The Wink miss is starting to look like "they have nine lives."
+
+![The 2019 scorecard as a ledger against the 2018 forecast. Four clean hits — glass-break and vibration sensors installed, BLE presence fixed by the Companion App, Matter still vapor as predicted, the second wall dashboard up — sit beside green checks. Two amber half-marks: Frigate object detection (alive but too slow on a Pi without a Coral) and Aqara outdoor sensors (shipped in China, no US distribution). Two red misses: the Wink collapse that didn't come and the smart lock that kept getting punted. A tally on the right reads 5.5 of 8, about 73%, with a note that the Wink miss is starting to look like nine lives.](../../assets/blog/smart-home-2019-forecast-scorecard.svg)
 
 ## What got added this year
 

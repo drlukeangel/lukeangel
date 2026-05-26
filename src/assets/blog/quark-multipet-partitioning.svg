@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 500" role="img" aria-label="Four-pet data partitioning">
+  <rect width="940" height="500" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .pet{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .dev{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .ok{fill:#3a7d44;}
+    .bad{fill:#c14a3a;}
+  </style>
+
+  <!-- pets row -->
+  <g class="pet" text-anchor="middle">
+    <text x="160" y="52">Atom (dog)</text>
+    <text x="380" y="52">Quark (dog)</text>
+    <text x="600" y="52">Joule (cat)</text>
+    <text x="800" y="52">Boson (cat)</text>
+  </g>
+  <g stroke="#1a1d24" stroke-opacity="0.2"><line x1="60" y1="64" x2="900" y2="64"/></g>
+
+  <!-- devices as boxes lower down -->
+  <!-- Fi (both dogs) -->
+  <g transform="translate(120,150)">
+    <rect x="0" y="0" width="160" height="44" rx="8" fill="#fdfaf2" stroke="#c87533" stroke-width="2.5"/>
+    <text x="80" y="21" text-anchor="middle" class="dev">Fi</text>
+    <text x="80" y="37" text-anchor="middle" class="sm ok">2 profiles · clean</text>
+  </g>
+  <line x1="160" y1="68" x2="180" y2="150" stroke="#c87533" stroke-width="2"/>
+  <line x1="380" y1="68" x2="240" y2="150" stroke="#c87533" stroke-width="2"/>
+
+  <!-- Whistle Health (Atom only) -->
+  <g transform="translate(120,230)">
+    <rect x="0" y="0" width="160" height="44" rx="8" fill="#fdfaf2" stroke="#c87533" stroke-width="2.5"/>
+    <text x="80" y="21" text-anchor="middle" class="dev">Whistle Health</text>
+    <text x="80" y="37" text-anchor="middle" class="sm ok">Atom only · 1 profile</text>
+  </g>
+  <line x1="160" y1="68" x2="170" y2="230" stroke="#c87533" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- SureFlap door (both cats, by chip = solved) -->
+  <g transform="translate(540,150)">
+    <rect x="0" y="0" width="180" height="44" rx="8" fill="#fdfaf2" stroke="#c87533" stroke-width="2.5"/>
+    <text x="90" y="21" text-anchor="middle" class="dev">SureFlap door</text>
+    <text x="90" y="37" text-anchor="middle" class="sm ok">by microchip · solved</text>
+  </g>
+  <line x1="600" y1="68" x2="610" y2="150" stroke="#c87533" stroke-width="2"/>
+  <line x1="800" y1="68" x2="690" y2="150" stroke="#c87533" stroke-width="2"/>
+
+  <!-- Litter boxes (both cats, by weight = open problem) -->
+  <g transform="translate(540,230)">
+    <rect x="0" y="0" width="180" height="56" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <text x="90" y="21" text-anchor="middle" class="dev">litter boxes</text>
+    <text x="90" y="38" text-anchor="middle" class="sm bad">by weight only —</text>
+    <text x="90" y="52" text-anchor="middle" class="sm bad">can't split Joule / Boson</text>
+  </g>
+  <line x1="600" y1="68" x2="610" y2="230" stroke="#c14a3a" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="800" y1="68" x2="690" y2="230" stroke="#c14a3a" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <line x1="40" y1="420" x2="900" y2="420" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="470" y="450" text-anchor="middle" class="cap">The hard part isn't the hardware — it's attributing each reading to the right animal.</text>
+  <text x="470" y="474" text-anchor="middle" class="sm">Microchip resolves the cats at the door; weight alone can't, at the litter box.</text>
+</svg>

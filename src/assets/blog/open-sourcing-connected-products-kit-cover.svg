@@ -1,39 +1,63 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Open repository emitting a fleet-ingestion pipeline">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="cp-launch-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    <pattern id="cpk-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#cp-launch-dots)"/>
+  <rect width="1200" height="630" fill="url(#cpk-dots)"/>
   <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
-  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#7a808c">LAUNCH — OCT 2025</text>
-  <text x="1120" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 02 OPEN SOURCE</text>
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
 
-  <g transform="translate(800, 170)" stroke="#2a52be" fill="none" stroke-width="3">
-    <rect x="0" y="0" width="80" height="56" rx="6"/>
-    <rect x="100" y="0" width="80" height="56" rx="6"/>
-    <rect x="200" y="0" width="80" height="56" rx="6"/>
-    <line x1="80" y1="28" x2="100" y2="28"/>
-    <line x1="180" y1="28" x2="200" y2="28"/>
-    <line x1="280" y1="28" x2="304" y2="28"/>
-    <circle cx="320" cy="28" r="16" fill="#2a52be" fill-opacity="0.18"/>
-    <circle cx="320" cy="28" r="6" fill="#2a52be"/>
-    <text x="40"  y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" fill="#2a52be" stroke="none">📡</text>
-    <text x="140" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#2a52be" stroke="none">mqtt</text>
-    <text x="240" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#2a52be" stroke="none">aws</text>
+  <!-- open box / repo, lid lifted, layers inside -->
+  <g transform="translate(150,150)">
+    <!-- box back wall -->
+    <path d="M40 120 L200 60 L360 120 L360 300 L200 360 L40 300 Z" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="3"/>
+    <!-- inner stacked layers (component map: docs / device / cloud) -->
+    <g stroke="#2a52be" stroke-width="3" fill="#fdfaf2">
+      <path d="M88 150 L200 108 L312 150 L200 192 Z"/>
+      <path d="M88 200 L200 158 L312 200 L200 242 Z"/>
+      <path d="M88 250 L200 208 L312 250 L200 292 Z"/>
+    </g>
+    <!-- lid lifted, open at an angle -->
+    <path d="M40 120 L200 60 L360 120 L200 12 Z" fill="#2a52be" fill-opacity="0.22" stroke="#2a52be" stroke-width="3" transform="translate(0,-78) rotate(-8 200 60)"/>
   </g>
 
-  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#1a1d24">Open-sourcing the</text>
-  <text x="80" y="360" font-family="Newsreader, serif" font-weight="500" font-size="68" fill="#2a52be">Connected Products</text>
-  <text x="80" y="424" font-family="Newsreader, serif" font-weight="500" font-size="42" fill="#1a1d24">Starter Kit.</text>
-
-  <line x1="80" y1="468" x2="1120" y2="468" stroke="#1a1d24" stroke-width="1" stroke-dasharray="6,8"/>
-  <text x="80" y="510" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="3" fill="#1a1d24">PYTHON · RUST · TYPESCRIPT · AWS IOT CORE</text>
-
-  <line x1="80" y1="560" x2="1120" y2="560" stroke="#1a1d24" stroke-width="2"/>
-  <text x="80" y="600" font-family="Newsreader, serif" font-weight="500" font-size="22" fill="#1a1d24">Luke Angel</text>
-  <text x="1120" y="600" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c" text-anchor="end">LUKEANGEL.CO / JOURNAL</text>
+  <!-- pipeline emitted to the right: device puck -> broker -> compute -> store -> dashboard -->
+  <g transform="translate(560,300)">
+    <!-- connecting spine -->
+    <line x1="0" y1="0" x2="540" y2="0" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.45"/>
+    <!-- device puck -->
+    <circle cx="0" cy="0" r="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="0" r="8" fill="#2a52be"/>
+    <!-- radio arcs -->
+    <path d="M18 -18 A 26 26 0 0 1 18 18" fill="none" stroke="#2a52be" stroke-width="2.5"/>
+    <path d="M30 -28 A 42 42 0 0 1 30 28" fill="none" stroke="#2a52be" stroke-width="2" stroke-opacity="0.6"/>
+    <!-- broker node -->
+    <g transform="translate(135,0)">
+      <rect x="-26" y="-26" width="52" height="52" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <circle cx="0" cy="0" r="9" fill="none" stroke="#2a52be" stroke-width="3"/>
+      <circle cx="0" cy="0" r="2.5" fill="#2a52be"/>
+    </g>
+    <!-- compute (lambda lozenge) -->
+    <g transform="translate(270,0)">
+      <rect x="-26" y="-26" width="52" height="52" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <path d="M-12 -14 L4 -14 L-4 2 L10 2 L-8 18 L-2 0 L-14 0 Z" fill="#2a52be"/>
+    </g>
+    <!-- store (cylinder / DDB) -->
+    <g transform="translate(405,0)">
+      <path d="M-22 -22 a22 9 0 0 0 44 0 v40 a22 9 0 0 1 -44 0 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <ellipse cx="0" cy="-22" rx="22" ry="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    </g>
+    <!-- dashboard panel -->
+    <g transform="translate(540,0)">
+      <rect x="-28" y="-30" width="56" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="-20" y="-2" width="9" height="10" fill="#2a52be"/>
+      <rect x="-7" y="-9" width="9" height="17" fill="#2a52be" fill-opacity="0.7"/>
+      <rect x="6" y="-15" width="9" height="23" fill="#2a52be" fill-opacity="0.45"/>
+      <line x1="-22" y1="14" x2="22" y2="14" stroke="#1a1d24" stroke-width="2.5"/>
+      <line x1="0" y1="14" x2="0" y2="22" stroke="#1a1d24" stroke-width="2.5"/>
+      <line x1="-12" y1="22" x2="12" y2="22" stroke="#1a1d24" stroke-width="2.5"/>
+    </g>
+  </g>
 </svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="SmartThings Edge drivers">
+  <defs>
+    <pattern id="dots52" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots52)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- faded cloud, top, with a cut/severed link to it -->
+  <g opacity="0.45">
+    <path d="M780 130 q-50 -45 -100 -8 q-55 -30 -95 18 q-45 5 -38 50 q0 30 45 30 h210 q45 0 45 -38 q0 -38 -45 -42 q5 -28 -27 -32 z" fill="#fff" stroke="#7a808c" stroke-width="3"/>
+  </g>
+  <!-- severed connection: dashed line with a slash -->
+  <g stroke="#c14a3a" stroke-width="3">
+    <line x1="660" y1="220" x2="660" y2="300" stroke-dasharray="8 8"/>
+    <line x1="640" y1="248" x2="680" y2="272"/>
+    <line x1="680" y1="248" x2="640" y2="272"/>
+  </g>
+
+  <!-- the hub at center: a box with a chip + "Lua runs here" rendered as a code bracket glyph -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#fff">
+    <rect x="500" y="300" width="320" height="170" rx="16"/>
+  </g>
+  <!-- chip inside -->
+  <g stroke="#6a4c93" stroke-width="4" fill="none">
+    <rect x="600" y="345" width="120" height="80" rx="6" fill="#6a4c93" fill-opacity="0.10"/>
+    <!-- pins -->
+    <g stroke="#6a4c93" stroke-width="3">
+      <line x1="600" y1="360" x2="585" y2="360"/><line x1="600" y1="385" x2="585" y2="385"/><line x1="600" y1="410" x2="585" y2="410"/>
+      <line x1="720" y1="360" x2="735" y2="360"/><line x1="720" y1="385" x2="735" y2="385"/><line x1="720" y1="410" x2="735" y2="410"/>
+    </g>
+    <!-- code brackets inside chip = local logic -->
+    <path d="M642 372 l-12 13 l12 13 M678 372 l12 13 l-12 13" stroke="#6a4c93" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- devices fan out from hub locally (fast, solid lines) -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#fdfaf2">
+    <line x1="500" y1="400" x2="370" y2="400"/>
+    <line x1="500" y1="430" x2="380" y2="500"/>
+    <line x1="820" y1="400" x2="950" y2="400"/>
+    <line x1="820" y1="430" x2="940" y2="500"/>
+    <!-- device glyphs -->
+    <rect x="320" y="384" width="34" height="34" rx="5"/>
+    <circle cx="357" cy="513" r="17"/>
+    <rect x="966" y="384" width="34" height="34" rx="5"/>
+    <path d="M923 525 l17 -32 17 32 z"/>
+  </g>
+</svg>

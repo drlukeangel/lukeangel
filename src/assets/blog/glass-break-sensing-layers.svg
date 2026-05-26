@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" role="img" aria-label="What each sensor class detects">
+  <rect width="760" height="420" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- the window unit, centered -->
+  <g transform="translate(280,90)">
+    <rect x="-30" y="-30" width="260" height="260" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="7"/>
+    <rect x="0" y="0" width="200" height="200" fill="#6a4c93" opacity="0.06" stroke="#1a1d24" stroke-width="4"/>
+    <line x1="100" y1="0" x2="100" y2="200" stroke="#1a1d24" stroke-width="4"/>
+    <line x1="0" y1="100" x2="200" y2="100" stroke="#1a1d24" stroke-width="4"/>
+
+    <!-- crack -->
+    <g stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M50 42 l30 40 l-20 32 l36 28 l26 -20"/>
+      <path d="M80 82 l40 -14"/>
+      <path d="M60 114 l-28 10"/>
+    </g>
+  </g>
+
+  <!-- contact sensor on top-right frame -->
+  <g transform="translate(470,52)">
+    <rect x="0" y="0" width="30" height="20" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="35" y="2" width="11" height="16" rx="3" fill="#7a808c" stroke="#1a1d24" stroke-width="3"/>
+  </g>
+  <text x="540" y="60" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">contact</text>
+  <text x="540" y="81" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">open / closed</text>
+
+  <!-- glass-break detector (left) -->
+  <g transform="translate(120,150)">
+    <circle cx="0" cy="0" r="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="0" cy="0" r="9" fill="#6a4c93"/>
+    <g stroke="#6a4c93" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M34 -18 q20 18 0 36"/>
+      <path d="M48 -30 q34 30 0 60"/>
+    </g>
+  </g>
+  <text x="40" y="222" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">glass-break</text>
+  <text x="40" y="243" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">hears the crash</text>
+
+  <!-- vibration sensor on pane (lower-right of window) -->
+  <g transform="translate(420,250)">
+    <rect x="0" y="0" width="28" height="28" rx="6" fill="#fdfaf2" stroke="#6a4c93" stroke-width="4"/>
+    <circle cx="14" cy="14" r="5" fill="#6a4c93"/>
+  </g>
+  <text x="540" y="270" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">vibration</text>
+  <text x="540" y="291" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">feels the impact</text>
+</svg>

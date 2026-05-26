@@ -11,8 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 34
 excerpt: "Five years of piecemeal security automations. Six door sensors, two glass-break, six vibration, two presence signals. Tonight all of it became one panel."
 pullquote: "An arm/disarm state machine isn't optional once the sensor count crosses a threshold. With 14 security sensors and 3 modes, the alarm-panel abstraction is the only way the family can use the system without me on call."
-cover: "../../assets/blog/building-security-alarm-panel-in-ha-cover.png"
-coverAlt: "Building the security alarm panel in Home Assistant"
+cover: "../../assets/blog/building-security-alarm-panel-in-ha-cover.svg"
+coverAlt: "An alarm-panel state machine — disarmed, armed-stay, armed-away, triggered — with fourteen scattered sensors feeding into the single armed/disarmed abstraction the whole family can actually use."
 ---
 
 Five years of piecemeal security automations. Six door/window contact sensors, two glass-break, six vibration, two presence signals. The automations work but they're disjoint — each "if X happens, do Y" lives separately in YAML. The family interface is "Luke configured something."
@@ -35,6 +35,8 @@ Plus delay windows:
 - **Exit delay**: 30 seconds after arming "Away" before sensors are armed (so you can walk to your car without tripping it).
 - **Entry delay**: 30 seconds after a "trigger" sensor fires before the alarm escalates (so you can disarm when coming home).
 - **No delay**: glass-break and panic events skip the delay window.
+
+![The alarm state machine drawn as four states with labeled transitions. From disarmed, you can arm to Stay (perimeter sensors only, no exit delay) or arm to Away (perimeter plus interior motion, with a 30-second exit delay to get out the door). From either armed state, a qualifying sensor moves the panel to Triggered — but most sensors run a 30-second entry-delay timer first so you can disarm on the way in, while glass-break and panic skip straight through with no delay. From Triggered or any armed state, entering the code returns to disarmed. A caption notes that HA's manual alarm platform implements exactly this machine, including the per-mode delay timers, so the sensor automations don't have to.](../../assets/blog/alarm-panel-state-machine.svg)
 
 ## HA's alarm_control_panel
 
@@ -121,6 +123,8 @@ The panel state machine is centralized. The triggers fan out from the existing s
 
 The state machine in `manual` handles entry/exit delays. The trigger automations are dumb — they just call `alarm_trigger` and let HA's state machine handle timing.
 
+![The alarm architecture as fan-in then fan-out around one central state machine. On the left, the fourteen scattered sensors — six door/window contacts, two glass-break, six vibration, three interior motion — each feed a dumb little trigger automation whose only job is to call alarm_trigger when its condition and the current armed mode line up. All of those converge on the single HA manual alarm panel in the middle, which owns the arm/disarm/delay logic. On the right, when that panel enters the triggered state, one actions automation fans back out: lights to red, the basement siren on, critical push to both phones, and the PoE cameras start recording. A caption marks the design rule — centralize the state, keep the sensor automations dumb — so adding a sensor never means touching the timing logic.](../../assets/blog/alarm-panel-fan-in-fan-out.svg)
+
 ## What happens when the alarm fires
 
 A separate automation listens for state changes to `triggered`:
@@ -145,7 +149,7 @@ A separate automation listens for state changes to `triggered`:
     # Push to both phones, critical priority
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "🚨 ALARM TRIGGERED"
+        title: "[ALARM] TRIGGERED"
         message: >
           Trigger source: {{ states('input_text.last_trigger_source') }}
           at {{ now() }}
@@ -156,7 +160,7 @@ A separate automation listens for state changes to `triggered`:
               critical: 1
     - service: notify.mobile_app_wife_iphone
       data:
-        title: "🚨 ALARM TRIGGERED"
+        title: "[ALARM] TRIGGERED"
         message: "Check house immediately."
         data:
           push:

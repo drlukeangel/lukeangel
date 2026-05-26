@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="identity vs inference">
+  <rect width="1000" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">TWO WAYS TO TELL TWO CATS APART</text>
+
+  <line x1="500" y1="80" x2="500" y2="470" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- LEFT: identity at point of access -->
+  <text x="40" y="108" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#3a7d44">IDENTITY &#183; read the chip where the cat acts</text>
+
+  <!-- chip-gated door -->
+  <g transform="translate(120,180)">
+    <rect x="-46" y="0" width="92" height="120" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-30" y="24" width="60" height="70" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="108" r="6" fill="#3a7d44"/>
+    <text x="0" y="142" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#7a808c">chip door</text>
+  </g>
+  <!-- chip-gated feeder -->
+  <g transform="translate(310,180)">
+    <path d="M-40 8 L-22 -50 L22 -50 L40 8 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-40" y="8" width="80" height="34" rx="7" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="0" cy="56" rx="28" ry="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="24" r="6" fill="#3a7d44"/>
+    <text x="0" y="86" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#7a808c">chip feeder</text>
+  </g>
+  <!-- chip read marks -->
+  <g transform="translate(120,330)">
+    <rect x="-90" y="0" width="360" height="64" rx="10" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="1.5"/>
+    <text x="90" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#1a1d24">reads chip ID &#8594; knows the cat</text>
+    <text x="90" y="48" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#3a7d44">exact, every time</text>
+  </g>
+
+  <!-- RIGHT: inference -->
+  <text x="540" y="108" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#c87533">INFERENCE &#183; guess the cat from a measurement</text>
+
+  <!-- litter box weighing -->
+  <g transform="translate(700,200)">
+    <rect x="-60" y="60" width="120" height="44" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="20" r="56" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="20" r="30" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- scale needle -->
+    <text x="0" y="138" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#7a808c">litter box: weighs entry</text>
+  </g>
+  <g transform="translate(560,360)">
+    <rect x="0" y="0" width="370" height="64" rx="10" fill="#c87533" fill-opacity="0.08" stroke="#c87533" stroke-width="1.5"/>
+    <text x="185" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#1a1d24">weight &#8594; owner infers the cat</text>
+    <text x="185" y="48" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#c87533">works only while weights stay apart</text>
+  </g>
+
+  <text x="500" y="498" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">Identity is exact. Inference is a guess that degrades as a kitten grows.</text>
+</svg>

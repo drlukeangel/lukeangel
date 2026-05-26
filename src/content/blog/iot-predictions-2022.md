@@ -10,12 +10,14 @@ tags:
 excerpt: "AirTags shipped right on cue, supply chain crunch made every gadget six weeks late, and Matter slipped (again). The 2021 score sheet, plus eight bets for the year Matter actually maybe finally ships."
 pullquote: "AirTag stalking is the first real proof that a $29 IoT device can change real-world human behavior. Privacy is now a product feature, not an afterthought."
 cover: ../../assets/blog/iot-predictions-2022-cover.svg
-coverAlt: "IoT & Connected Devices — 2022 Predictions and Outcomes — Matter logo, Pixel Watch, and AirPods Pro 2 silhouettes on a navy gradient"
+coverAlt: "A connected hub radiating signal rings, a smartwatch, and an earbuds case lined up on a shelf, with a dashed arrow shifting the lineup forward — the year's launches sitting behind a manufacturing gate that pushes every date to the right."
 notebook: iot-predictions
 notebookOrder: 7
 ---
 
 Year seven. Supply chain was the dominant story of 2021. Matter was the dominant non-story. The category is still compounding but the gates are now manufacturing, not invention.
+
+![The gate moved from invention to manufacturing. A product flows from design through two gates to a shelf. Gate 1, invention — "can we build it?" — is drawn open and green: the silicon, radio, and software problems are solved. Gate 2, manufacturing — "can we ship it?" — is drawn shut and red, the new bottleneck. The product still reaches the shelf, but six weeks late, if at all. A callout notes 2021's real story was chips, containers, and ports: the predictions were right; the dates all slipped right.](../../assets/blog/iot-predictions-2022-gate-shift.svg)
 
 ## How 2021 actually played out
 
@@ -37,6 +39,8 @@ Year seven. Supply chain was the dominant story of 2021. Matter was the dominant
 
 Net 2021 scorecard: roughly **88% prediction accuracy**. Supply chain didn't break the calls; it broke the dates.
 
+![The 2021 calls scored. Seven hits, marked with green checks: AirTag ships spring at $29 / $99; Matter slips again from Q4 2021 to fall 2022; Wi-Fi 6E lands in enthusiast routers while mass market stays on Wi-Fi 6; Apple Watch Series 7 redesign with no blood-glucose; the supply-chain crunch hits H2; the connected-health regulatory tailwind lands with Oura Gen 3 and six FDA clearances; the doorbell race stays a draw. One half-hit, marked in blue: the big IoT class-action wave happened — Ring and ADT settled — but the biggest one, AirTag stalking, slipped past 2021. Tally: roughly 88% accuracy, the crunch broke the dates, not the calls.](../../assets/blog/iot-predictions-2022-scorecard-2021.svg)
+
 ## What I got wrong
 
 I underestimated the Steam Deck. Announced July 2021, shipping February 2022 — Valve created a *new connected-device category* (handheld PC) that I didn't list. Connected gaming hardware deserves a slot in the 2022 predictions.
@@ -44,6 +48,8 @@ I underestimated the Steam Deck. Announced July 2021, shipping February 2022 —
 I also missed how thoroughly Google Pixel Watch (rumored since 2018) would *not* ship in 2021. Calling it would've been an easy hit.
 
 ## 2022 predictions
+
+![Where the 2022 bets land across the year, plotted on a quarterly timeline. Mid-year: RTK-guided robot mowers cross the "good enough to recommend" threshold. Q3: Amazon's iRobot acquisition closes. A dashed September–October cluster holds most of the launches: AirPods Pro 2 with the H2 chip, the $799 Apple Watch Ultra, the ~$349 Pixel Watch, the OTC hearing-aid rule taking effect, and the headline call in green — Matter 1.0 finally ships, covering lights, plugs, and locks only. Along the bottom, an arrow runs from rough H1 shipments to a Q4 where the crunch eases and you can buy a PS5 at retail.](../../assets/blog/iot-predictions-2022-launch-calendar.svg)
 
 **1. Matter 1.0 actually ships in fall.** September-October. First Matter-certified products by Black Friday. Apple HomeKit, Google Home, Amazon Alexa all add Matter support. The 5-year standards saga finally concludes — except Matter v1.0 only covers lighting, plugs, locks, sensors, thermostats. *Cameras, doorbells, robot vacuums, garage doors — all v1.1 or later.*
 

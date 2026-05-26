@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-label="four-piece body sensor stack">
+  <rect width="760" height="440" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="44" font-size="20" fill="#1a1d24" font-weight="600">The 4-piece body sensor stack</text>
+    <text x="40" y="68" font-size="13" fill="#7a808c">By Q4 2026, the median early adopter wears 3 of these 4</text>
+
+    <!-- four worn devices on the left -->
+    <!-- glasses -->
+    <g transform="translate(60,120)">
+      <rect width="200" height="58" rx="8" fill="#fff" stroke="#0066cc" stroke-width="2"/>
+      <g transform="translate(20,18)">
+        <rect x="0" y="2" width="22" height="14" rx="4" fill="none" stroke="#1a1d24" stroke-width="2"/>
+        <rect x="30" y="2" width="22" height="14" rx="4" fill="none" stroke="#1a1d24" stroke-width="2"/>
+        <line x1="22" y1="9" x2="30" y2="9" stroke="#1a1d24" stroke-width="2"/>
+      </g>
+      <text x="78" y="28" font-size="13" fill="#1a1d24" font-weight="600">AR glasses</text>
+      <text x="78" y="46" font-size="11" fill="#5b616b">gaze · scene · HUD</text>
+    </g>
+    <!-- watch -->
+    <g transform="translate(60,194)">
+      <rect width="200" height="58" rx="8" fill="#fff" stroke="#0066cc" stroke-width="2"/>
+      <g transform="translate(22,15)">
+        <rect x="0" y="0" width="24" height="28" rx="6" fill="none" stroke="#1a1d24" stroke-width="2"/>
+        <rect x="6" y="6" width="12" height="16" rx="2" fill="#0066cc" opacity="0.25"/>
+      </g>
+      <text x="78" y="28" font-size="13" fill="#1a1d24" font-weight="600">Watch</text>
+      <text x="78" y="46" font-size="11" fill="#5b616b">HR · ECG · BP · SpO2</text>
+    </g>
+    <!-- ring -->
+    <g transform="translate(60,268)">
+      <rect width="200" height="58" rx="8" fill="#fff" stroke="#0066cc" stroke-width="2"/>
+      <circle cx="34" cy="29" r="14" fill="none" stroke="#1a1d24" stroke-width="3"/>
+      <text x="78" y="28" font-size="13" fill="#1a1d24" font-weight="600">Smart ring</text>
+      <text x="78" y="46" font-size="11" fill="#5b616b">sleep · temp · HRV</text>
+    </g>
+    <!-- earbud -->
+    <g transform="translate(60,342)">
+      <rect width="200" height="58" rx="8" fill="#fff" stroke="#0066cc" stroke-width="2"/>
+      <g transform="translate(24,14)">
+        <path d="M2 4 q10 -8 18 4 q4 10 -6 18 q-8 4 -12 -6 q6 -4 0 -16" fill="none" stroke="#1a1d24" stroke-width="2"/>
+      </g>
+      <text x="78" y="28" font-size="13" fill="#1a1d24" font-weight="600">Earbud</text>
+      <text x="78" y="46" font-size="11" fill="#5b616b">in-ear HR · hearing</text>
+    </g>
+
+    <!-- connecting lines to fusion -->
+    <g stroke="#0066cc" stroke-width="2" fill="none" opacity="0.55">
+      <path d="M262 149 C 380 149, 420 205, 478 220"/>
+      <path d="M262 223 C 380 223, 430 222, 478 230"/>
+      <path d="M262 297 C 380 297, 430 238, 478 240"/>
+      <path d="M262 371 C 380 371, 420 255, 478 250"/>
+    </g>
+
+    <!-- fusion box -->
+    <g transform="translate(480,180)">
+      <rect width="240" height="100" rx="10" fill="#0066cc" fill-opacity="0.08" stroke="#0066cc" stroke-width="2"/>
+      <text x="120" y="34" font-size="14" fill="#1a1d24" font-weight="700" text-anchor="middle">Sensor fusion</text>
+      <text x="120" y="58" font-size="11.5" fill="#5b616b" text-anchor="middle">cross-device signal,</text>
+      <text x="120" y="75" font-size="11.5" fill="#5b616b" text-anchor="middle">one health timeline</text>
+    </g>
+    <!-- platform arrow -->
+    <path d="M600 280 l0 30" stroke="#1a1d24" stroke-width="2" marker-end="url(#a)"/>
+    <defs><marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0 L8 5 L0 10 z" fill="#1a1d24"/></marker></defs>
+    <text x="600" y="334" font-size="13" fill="#1a1d24" font-weight="600" text-anchor="middle">The new platform</text>
+    <text x="600" y="352" font-size="11" fill="#5b616b" text-anchor="middle">whoever owns the fusion</text>
+    <text x="600" y="368" font-size="11" fill="#5b616b" text-anchor="middle">owns the relationship</text>
+
+    <text x="40" y="424" font-size="11.5" fill="#7a808c" font-style="italic" font-family="Newsreader, Georgia, serif">Four worn devices stop being four products and become one body-sensor mesh.</text>
+  </g>
+</svg>

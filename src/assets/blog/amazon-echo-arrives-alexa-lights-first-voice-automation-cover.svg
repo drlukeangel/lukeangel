@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Voice control arrives">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- LEFT: voice waveform arriving -->
+  <g transform="translate(230,315)" stroke="#6a4c93" stroke-width="5" stroke-linecap="round">
+    <line x1="-60" y1="0" x2="-60" y2="0"/>
+    <line x1="-60" y1="-14" x2="-60" y2="14"/>
+    <line x1="-40" y1="-30" x2="-40" y2="30"/>
+    <line x1="-20" y1="-52" x2="-20" y2="52"/>
+    <line x1="0" y1="-34" x2="0" y2="34"/>
+    <line x1="20" y1="-60" x2="20" y2="60"/>
+    <line x1="40" y1="-26" x2="40" y2="26"/>
+    <line x1="60" y1="-44" x2="60" y2="44"/>
+    <line x1="80" y1="-16" x2="80" y2="16"/>
+  </g>
+
+  <!-- CENTER: Echo cylinder with glowing top ring -->
+  <g transform="translate(600,315)">
+    <!-- body -->
+    <rect x="-60" y="-110" width="120" height="240" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- speaker grille texture -->
+    <g stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2">
+      <line x1="-50" y1="-40" x2="50" y2="-40"/><line x1="-50" y1="-20" x2="50" y2="-20"/>
+      <line x1="-50" y1="0" x2="50" y2="0"/><line x1="-50" y1="20" x2="50" y2="20"/>
+      <line x1="-50" y1="40" x2="50" y2="40"/><line x1="-50" y1="60" x2="50" y2="60"/>
+    </g>
+    <!-- glowing top LED ring (listening = blue/purple) -->
+    <ellipse cx="0" cy="-110" rx="60" ry="16" fill="#6a4c93" fill-opacity="0.18" stroke="#6a4c93" stroke-width="5"/>
+    <ellipse cx="0" cy="-110" rx="40" ry="9" fill="none" stroke="#6a4c93" stroke-width="3"/>
+  </g>
+
+  <!-- RIGHT: a light bulb switching off (command result) -->
+  <g transform="translate(960,300)">
+    <!-- bulb glass -->
+    <circle cx="0" cy="0" r="48" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- filament, dimmed -->
+    <path d="M -16 8 Q 0 -18 16 8" fill="none" stroke="#7a808c" stroke-width="3"/>
+    <!-- base -->
+    <rect x="-20" y="44" width="40" height="22" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <line x1="-20" y1="52" x2="20" y2="52" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <line x1="-20" y1="59" x2="20" y2="59" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <!-- "off" indicated by a small slash, muted -->
+    <line x1="-40" y1="40" x2="40" y2="-40" stroke="#7a808c" stroke-width="4" stroke-linecap="round" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- arrow from echo to bulb -->
+  <line x1="668" y1="300" x2="900" y2="300" stroke="#6a4c93" stroke-width="4" stroke-dasharray="2 11" stroke-linecap="round"/>
+</svg>

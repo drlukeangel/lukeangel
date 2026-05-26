@@ -10,13 +10,13 @@ tags:
   - poe
 notebook: smart-home-iot-journey
 notebookOrder: 36
-excerpt: "Four Reolink PoE cameras + Frigate 0.10 + Coral USB Accelerator. Object detection runs locally on the home server at 10 fps per stream."
+excerpt: "Four Reolink PoE cameras + Frigate 0.8 + a Coral USB Accelerator. Object detection runs locally on the home server at 10 fps per stream — no vendor cloud, no per-camera subscription."
 pullquote: "Cloud camera services charge $5-15/mo per camera. Frigate + a Coral USB does the same object detection locally for $75 of one-time hardware. The cost-per-camera-month asymptote is zero."
-cover: "../../assets/blog/poe-cameras-and-frigate-nvr-cover.png"
-coverAlt: "PoE cameras + Frigate NVR — local object detection"
+cover: "../../assets/blog/poe-cameras-and-frigate-nvr-cover.svg"
+coverAlt: "PoE cameras feeding a local Frigate server with a Coral accelerator that detects a person in-frame — object detection running on the home LAN with no vendor cloud and no per-camera subscription."
 ---
 
-Four PoE cameras now live around the house: front porch, backyard, side yard, driveway. RTSP feeds flow into Frigate 0.10 running on a small Pi 4. Frigate uses the Coral USB Accelerator for object detection — runs at 10 fps per stream across all four streams concurrently. All local. No vendor cloud.
+Four PoE cameras now live around the house: front porch, backyard, side yard, driveway. RTSP feeds flow into Frigate 0.8 running on a small Pi 4. Frigate uses the Coral USB Accelerator for object detection — runs at 10 fps per stream across all four streams concurrently. All local. No vendor cloud.
 
 ## Hardware
 
@@ -59,6 +59,8 @@ VLAN 40: guests
 The cameras have no internet route. Reolink's cloud features (which want to upload to their servers) silently fail. Each camera can only talk to the Frigate Pi on the same VLAN.
 
 This is the **"cameras don't phone home" guarantee**. Their default behavior would be to upload motion clips to Reolink's cloud + send DNS lookups all over the place. With VLAN isolation, none of that happens.
+
+![The camera VLAN isolation as a network map. The cameras sit alone on VLAN 30, which has its outbound route to the internet blocked — drawn as a severed link with a red cross. Within that VLAN the cameras reach exactly one thing: the Frigate server. Frigate, on the main LAN, is what talks to Home Assistant and, only when a person is actually detected, sends a notification out. A caption marks the property this buys: the cameras can record everything and phone home to nobody, because the one device that can reach the internet is the server I control, not the camera firmware I don't.](../../assets/blog/camera-vlan-isolation.svg)
 
 ## Frigate config
 
@@ -111,6 +113,8 @@ cameras:
 
 The split between **detect stream** (640×360 sub-stream, low bandwidth) and **record stream** (4K main stream, full quality) is the key Frigate trick. Object detection runs on the small stream (CPU + Coral can handle 10 fps × 4 cameras easily). The 4K stream is only used for recording, never decoded for detection.
 
+![The dual-stream trick each camera publishes. A single camera emits two RTSP streams: a tiny 640×360 sub-stream and a full 4K main stream. Frigate routes only the small sub-stream into the detect pipeline — decoded cheaply and run through the Coral accelerator at 10 fps to find objects — while the heavy 4K main stream is passed straight to the recorder, written to disk, and never decoded for detection. A caption explains why this is the whole reason a Pi plus a Coral can watch four 4K cameras at once: you detect on the cheap pixels and only store the expensive ones.](../../assets/blog/frigate-detect-record-dual-stream.svg)
+
 Total CPU on the Frigate Pi: ~40% steady state. Coral inference: ~12 ms/frame. Recording disk usage: ~20 GB/day across 4 cameras at 7-day retention.
 
 ## What Frigate detects, in practice
@@ -146,7 +150,7 @@ For security, the person classification is the load-bearing one. 99% recall with
   action:
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "👤 Person on porch"
+        title: "Person on porch"
         message: "Detected at {{ now().strftime('%H:%M') }}"
         data:
           image: "/api/frigate/notifications/{{ trigger.payload_json.after.id }}/thumbnail.jpg"
@@ -168,5 +172,5 @@ Annual storage cost: a 4TB NAS drive ($90) covers ~6 months of full retention + 
 ## What I'm wishing for
 
 - **License-plate recognition** on the driveway camera. Frigate doesn't ship with LPR; the OpenALPR add-on exists. Going to try.
-- **Person re-identification across cameras**. Frigate 0.10 hints at this; not stable yet.
+- **Person re-identification across cameras** — recognizing the same person as they move from the porch cam to the side-yard cam. The Frigate roadmap gestures at it; nothing usable yet, but it's the feature I want most.
 - **More cameras**. Each new one is $80 of hardware + 5 minutes of YAML. The marginal cost has dropped enough that "everywhere there's a wall outlet, put a camera" is the new default.

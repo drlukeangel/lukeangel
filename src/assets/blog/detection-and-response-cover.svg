@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A device's behavior holding a normal baseline band, with one anomaly spiking out of range and flagged.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs><pattern id="dr-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/></pattern></defs>
+  <rect width="1200" height="630" fill="url(#dr-dots)"/>
+  <rect width="24" height="630" fill="#c14a3a"/>
+
+  <!-- normal band -->
+  <rect x="120" y="300" width="960" height="84" rx="8" fill="#1a1d24" opacity="0.05"/>
+  <line x1="120" y1="300" x2="1080" y2="300" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 7" opacity="0.3"/>
+  <line x1="120" y1="384" x2="1080" y2="384" stroke="#1a1d24" stroke-width="2" stroke-dasharray="6 7" opacity="0.3"/>
+
+  <!-- waveform: normal, then one spike out of band -->
+  <polyline points="120,344 180,318 240,356 300,326 360,352 420,320 480,358 540,326 600,350 660,322 720,356 770,200 820,352 880,322 940,356 1000,326 1060,348" fill="none" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- anomaly flag -->
+  <line x1="770" y1="200" x2="770" y2="300" stroke="#c14a3a" stroke-width="2" stroke-dasharray="4 5" opacity="0.6"/>
+  <circle cx="770" cy="200" r="30" fill="none" stroke="#c14a3a" stroke-width="5"/>
+  <circle cx="770" cy="200" r="6" fill="#c14a3a"/>
+</svg>

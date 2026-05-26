@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Three local-first pieces assembling inside a house">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- the house, with three pieces snapped in -->
+  <g transform="translate(360,120)">
+    <path d="M40 140 L240 30 L440 140 L440 420 L40 420 Z" fill="none" stroke="#1a1d24" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M40 140 L240 30 L440 140" fill="none" stroke="#6a4c93" stroke-width="6" stroke-linejoin="round"/>
+
+    <!-- piece 1: the brain (Node-RED) - a node-flow glyph -->
+    <g transform="translate(110,190)">
+      <rect x="0" y="0" width="120" height="70" rx="12" fill="#6a4c93" fill-opacity="0.12" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#6a4c93"><circle cx="26" cy="26" r="8"/><circle cx="60" cy="44" r="8"/><circle cx="94" cy="26" r="8"/></g>
+      <g stroke="#6a4c93" stroke-width="2.6" fill="none"><path d="M26 26 L60 44"/><path d="M60 44 L94 26"/></g>
+    </g>
+
+    <!-- piece 2: the nervous system (MQTT) - a bus bar w/ pub/sub dots -->
+    <g transform="translate(250,190)">
+      <rect x="0" y="0" width="120" height="70" rx="12" fill="#6a4c93" fill-opacity="0.12" stroke="#1a1d24" stroke-width="3"/>
+      <line x1="20" y1="35" x2="100" y2="35" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#6a4c93"><circle cx="30" cy="20" r="6"/><circle cx="60" cy="20" r="6"/><circle cx="90" cy="50" r="6"/><circle cx="45" cy="50" r="6"/></g>
+      <g stroke="#6a4c93" stroke-width="2" opacity="0.6"><line x1="30" y1="26" x2="30" y2="35"/><line x1="60" y1="26" x2="60" y2="35"/><line x1="90" y1="44" x2="90" y2="35"/><line x1="45" y1="44" x2="45" y2="35"/></g>
+    </g>
+
+    <!-- piece 3: the local radio (ConBee) - a USB stick w/ waves -->
+    <g transform="translate(180,300)">
+      <rect x="0" y="0" width="80" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="74" y="6" width="14" height="18" rx="2" fill="#1a1d24" opacity="0.5"/>
+      <g stroke="#6a4c93" stroke-width="2.6" fill="none"><path d="M96 15 a14 14 0 0 1 0 0"/><path d="M100 4 a18 18 0 0 1 0 22"/></g>
+    </g>
+
+    <!-- a green "all local" status dot near the door -->
+    <rect x="180" y="350" width="80" height="70" rx="4" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="245" cy="408" r="6" fill="#3a7d44"/>
+  </g>
+
+  <!-- a single, lonely "post" page floating outside — the quiet year (only a few) -->
+  <g transform="translate(860,210)">
+    <rect x="0" y="0" width="120" height="150" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g stroke="#7a808c" stroke-width="4" stroke-linecap="round" opacity="0.5">
+      <line x1="20" y1="34" x2="100" y2="34"/><line x1="20" y1="58" x2="90" y2="58"/><line x1="20" y1="82" x2="100" y2="82"/>
+    </g>
+  </g>
+  <!-- only three small page-corner ticks beside it = three posts -->
+  <g fill="#6a4c93"><circle cx="1010" cy="250" r="6"/><circle cx="1010" cy="280" r="6"/><circle cx="1010" cy="310" r="6"/></g>
+</svg>

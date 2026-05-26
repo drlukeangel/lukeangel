@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 460" width="980" height="460" role="img" aria-label="SageMaker Pipelines DAG.">
+  <rect width="980" height="460" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- forward edges -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <path d="M196 130 L256 130"/>
+    <path d="M392 130 L452 130"/>
+    <path d="M588 130 L648 130"/>
+    <path d="M784 130 L834 130"/>
+  </g>
+  <g fill="#1a1d24">
+    <path d="M256 130 l-16 -6 v12 z"/>
+    <path d="M452 130 l-16 -6 v12 z"/>
+    <path d="M648 130 l-16 -6 v12 z"/>
+    <path d="M834 130 l-16 -6 v12 z"/>
+  </g>
+
+  <!-- prep -->
+  <g transform="translate(100,98)">
+    <rect x="0" y="0" width="96" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="48" y="38" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">ProcessingStep</text>
+    <text x="48" y="-12" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">prep</text>
+  </g>
+  <!-- train -->
+  <g transform="translate(296,98)">
+    <rect x="0" y="0" width="96" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="48" y="38" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">TrainingStep</text>
+    <text x="48" y="-12" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">train</text>
+  </g>
+  <!-- eval -->
+  <g transform="translate(492,98)">
+    <rect x="0" y="0" width="96" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="48" y="38" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">ProcessingStep</text>
+    <text x="48" y="-12" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">eval</text>
+  </g>
+
+  <!-- conditional gate, diamond -->
+  <g transform="translate(696,130)">
+    <path d="M0 -46 L52 0 L0 46 L-52 0 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="0" y="-2" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">ConditionStep</text>
+    <text x="0" y="15" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">new ≥ old?</text>
+  </g>
+
+  <!-- register (pass path) -->
+  <g transform="translate(834,98)">
+    <rect x="0" y="0" width="116" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="58" y="32" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">RegisterModel</text>
+    <text x="58" y="50" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#3a7d44">→ Registry</text>
+  </g>
+  <!-- pass label on the gate->register edge -->
+  <text x="789" y="116" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#3a7d44">pass</text>
+
+  <!-- halt branch downward from gate -->
+  <g stroke="#c14a3a" stroke-width="3" fill="none">
+    <path d="M696 176 L696 232"/>
+  </g>
+  <path d="M696 232 l-6 -16 h12 z" fill="#c14a3a"/>
+  <text x="724" y="206" text-anchor="start" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">regression</text>
+  <g transform="translate(696,262)">
+    <rect x="-86" y="0" width="172" height="46" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <text x="0" y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a">halt — no register</text>
+  </g>
+
+  <!-- step caching band under prep/train/eval -->
+  <g>
+    <rect x="86" y="346" width="516" height="58" rx="10" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5" stroke-dasharray="9 7"/>
+    <text x="344" y="372" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#4f46b8">step cache — identical input + config</text>
+    <text x="344" y="392" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">unchanged steps are skipped, not re-run</text>
+  </g>
+  <!-- dotted connectors from the three cached steps down to the cache band -->
+  <g stroke="#4f46b8" stroke-width="2" stroke-dasharray="3 5" opacity="0.7">
+    <line x1="148" y1="162" x2="148" y2="346"/>
+    <line x1="344" y1="162" x2="344" y2="346"/>
+    <line x1="540" y1="162" x2="540" y2="346"/>
+  </g>
+</svg>

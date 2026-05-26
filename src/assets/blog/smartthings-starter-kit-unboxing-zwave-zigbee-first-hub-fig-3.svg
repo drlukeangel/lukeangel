@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="Dual-radio hub topology">
+  <rect width="1000" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+
+    <!-- central hub -->
+    <rect x="420" y="220" width="160" height="80" rx="12" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2.5"/>
+    <text x="500" y="252" text-anchor="middle" font-size="15" fill="#6a4c93">SmartThings</text>
+    <text x="500" y="272" text-anchor="middle" font-size="15" fill="#6a4c93">Hub v1</text>
+    <text x="500" y="290" text-anchor="middle" font-size="11" fill="#5b616b">2 radios + Ethernet</text>
+
+    <!-- ETHERNET up to cloud -->
+    <line x1="500" y1="220" x2="500" y2="120" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="512" y="175" font-size="11" fill="#c14a3a">Ethernet</text>
+    <g transform="translate(420 70)">
+      <path d="M30 30 a18 18 0 0 1 4 -35 a24 24 0 0 1 46 6 a16 16 0 0 1 -2 31 z" fill="#c14a3a" fill-opacity="0.07" stroke="#c14a3a" stroke-width="2"/>
+      <text x="55" y="22" text-anchor="middle" font-size="12" fill="#c14a3a">cloud</text>
+    </g>
+    <text x="600" y="95" font-size="11" fill="#5b616b">vendor islands: Hue · Wemo · Lutron — each cloud-mediated</text>
+
+    <!-- LEFT: Z-Wave mesh, 908.4 MHz -->
+    <text x="150" y="48" text-anchor="middle" font-size="15" fill="#1a1d24">Z-Wave Plus mesh</text>
+    <text x="150" y="66" text-anchor="middle" font-size="11" fill="#5b616b">908.4 MHz · ≤232 nodes</text>
+    <line x1="420" y1="260" x2="250" y2="150" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="420" y1="270" x2="250" y2="300" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="420" y1="280" x2="250" y2="420" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2"/>
+    <!-- mesh hops between nodes -->
+    <line x1="200" y1="150" x2="200" y2="300" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="4 5"/>
+    <line x1="200" y1="300" x2="200" y2="420" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="4 5"/>
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2">
+      <circle cx="200" cy="150" r="30"/>
+      <circle cx="200" cy="300" r="30"/>
+      <circle cx="200" cy="420" r="30"/>
+    </g>
+    <g fill="#1a1d24" font-size="11" text-anchor="middle">
+      <text x="200" y="146">multi</text><text x="200" y="160">sensor</text>
+      <text x="200" y="296">arrival</text><text x="200" y="310">sensor</text>
+      <text x="200" y="416">smart</text><text x="200" y="430">outlet</text>
+    </g>
+
+    <!-- RIGHT: Zigbee HA mesh, 2.4 GHz -->
+    <text x="850" y="48" text-anchor="middle" font-size="15" fill="#1a1d24">Zigbee HA 1.2 mesh</text>
+    <text x="850" y="66" text-anchor="middle" font-size="11" fill="#5b616b">2.4 GHz · HA profile</text>
+    <line x1="580" y1="260" x2="750" y2="150" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="580" y1="280" x2="750" y2="380" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="750" y1="150" x2="750" y2="380" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="4 5"/>
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2">
+      <circle cx="750" cy="150" r="30"/>
+      <circle cx="750" cy="380" r="30"/>
+    </g>
+    <g fill="#1a1d24" font-size="11" text-anchor="middle">
+      <text x="750" y="146">motion</text><text x="750" y="160">sensor</text>
+      <text x="750" y="376">Zigbee</text><text x="750" y="390">bulbs*</text>
+    </g>
+    <text x="850" y="430" text-anchor="middle" font-size="10" fill="#7a808c">*HA ≠ Hue's Light Link — no native interop</text>
+
+    <text x="500" y="500" text-anchor="middle" font-size="13" fill="#5b616b">one hub bridges two separate native meshes; cross-vendor brands stay islands behind their clouds</text>
+  </g>
+</svg>

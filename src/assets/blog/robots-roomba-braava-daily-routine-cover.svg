@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Two cleaning robots tracing paths across a floor map">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- a floor-plan outline (rooms) -->
+  <g transform="translate(150,110)" stroke="#1a1d24" stroke-width="4" fill="none">
+    <rect x="0" y="0" width="900" height="420" rx="6"/>
+    <!-- interior walls -->
+    <line x1="380" y1="0" x2="380" y2="250"/>
+    <line x1="380" y1="250" x2="0" y2="250"/>
+    <line x1="640" y1="170" x2="900" y2="170"/>
+    <line x1="640" y1="170" x2="640" y2="420"/>
+    <!-- door gaps drawn by overlaying cream segments -->
+  </g>
+  <!-- door gaps (cream over walls) -->
+  <g stroke="#fdfaf2" stroke-width="6">
+    <line x1="530" y1="110" x2="530" y2="160"/>
+    <line x1="240" y1="360" x2="290" y2="360"/>
+    <line x1="1020" y1="280" x2="1020" y2="330"/>
+  </g>
+
+  <!-- Roomba path (vacuum) — boustrophedon sweep in one zone -->
+  <g stroke="#6a4c93" stroke-width="3" fill="none" opacity="0.6">
+    <path d="M180 160 H 480 M480 200 H 180 M180 240 H 480 M480 280 H 180 M180 320 H 480 M480 360 H 180"/>
+    <path d="M480 160 V 200 M180 200 V 240 M480 240 V 280 M180 280 V 320 M480 320 V 360"/>
+  </g>
+  <!-- Roomba puck -->
+  <g transform="translate(340,300)">
+    <circle cx="0" cy="0" r="34" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <circle cx="0" cy="0" r="14" fill="#6a4c93" fill-opacity="0.3"/>
+    <!-- bumper line -->
+    <path d="M-34 0 a34 34 0 0 1 68 0" fill="none" stroke="#6a4c93" stroke-width="3"/>
+  </g>
+
+  <!-- Braava path (mop) — tidy back-and-forth in a different zone -->
+  <g stroke="#357a8c" stroke-width="3" fill="none" opacity="0.55">
+    <path d="M720 220 H 1010 M1010 256 H 720 M720 292 H 1010 M1010 328 H 720 M720 364 H 1010"/>
+  </g>
+  <!-- Braava (squared mop) -->
+  <g transform="translate(860,300)">
+    <rect x="-30" y="-26" width="60" height="52" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="-18" y="-12" width="36" height="24" rx="3" fill="#357a8c" fill-opacity="0.3"/>
+    <!-- water drop hint -->
+    <path d="M0 -40 q 8 10 0 16 q -8 -6 0 -16 z" fill="#357a8c" fill-opacity="0.5"/>
+  </g>
+</svg>

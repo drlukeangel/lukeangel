@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" width="1120" height="600" role="img" aria-label="Encryption boundaries">
+  <rect width="1120" height="600" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ENCRYPTION — IN MOTION &amp; AT REST</text>
+
+  <!-- ===== IN MOTION band (top) ===== -->
+  <text x="34" y="84" font-family="ui-monospace,monospace" font-size="12" fill="#2a52be" letter-spacing="1">IN MOTION — every hop is TLS</text>
+
+  <!-- cart -->
+  <g transform="translate(40,108)">
+    <rect x="0" y="0" width="120" height="72" rx="10" fill="#2a52be" fill-opacity="0.08" stroke="#2a52be" stroke-width="3"/>
+    <text x="60" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">Cart</text>
+    <text x="60" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">signs each msg</text>
+  </g>
+  <!-- locked link cart->core -->
+  <g stroke="#3a7d44" stroke-width="3" fill="none"><line x1="160" y1="144" x2="252" y2="144"/></g>
+  <g transform="translate(190,124)"><rect x="0" y="6" width="22" height="16" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/><path d="M4 6 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#3a7d44" stroke-width="2.4"/></g>
+  <text x="206" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#3a7d44">MQTT/TLS · mTLS</text>
+
+  <!-- iot core -->
+  <g transform="translate(252,108)">
+    <rect x="0" y="0" width="140" height="72" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="70" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#2a52be">IoT CORE</text>
+    <text x="70" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">+ Lambda</text>
+  </g>
+  <!-- locked link core->stores -->
+  <g stroke="#3a7d44" stroke-width="3" fill="none"><line x1="392" y1="144" x2="484" y2="144"/></g>
+  <g transform="translate(422,124)"><rect x="0" y="6" width="22" height="16" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/><path d="M4 6 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#3a7d44" stroke-width="2.4"/></g>
+  <text x="438" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#3a7d44">in-VPC TLS</text>
+
+  <!-- stores cluster (motion view) -->
+  <g transform="translate(484,108)">
+    <rect x="0" y="0" width="150" height="72" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="75" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#2a52be">DATA STORES</text>
+    <text x="75" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">RDS · DynamoDB · S3</text>
+  </g>
+  <!-- locked link stores->api -->
+  <g stroke="#3a7d44" stroke-width="3" fill="none"><line x1="634" y1="144" x2="726" y2="144"/></g>
+  <g transform="translate(664,124)"><rect x="0" y="6" width="22" height="16" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/><path d="M4 6 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#3a7d44" stroke-width="2.4"/></g>
+
+  <!-- api gw -->
+  <g transform="translate(726,108)">
+    <rect x="0" y="0" width="130" height="72" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="65" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#2a52be">API GW</text>
+    <text x="65" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">REST</text>
+  </g>
+  <!-- locked link api->clients -->
+  <g stroke="#3a7d44" stroke-width="3" fill="none"><line x1="856" y1="144" x2="948" y2="144"/></g>
+  <g transform="translate(886,124)"><rect x="0" y="6" width="22" height="16" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/><path d="M4 6 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#3a7d44" stroke-width="2.4"/></g>
+  <text x="902" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#3a7d44">HTTPS/TLS 1.2+</text>
+
+  <!-- clients -->
+  <g transform="translate(948,108)">
+    <rect x="0" y="0" width="132" height="72" rx="10" fill="#2a52be" fill-opacity="0.08" stroke="#2a52be" stroke-width="3"/>
+    <text x="66" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">CLIENTS</text>
+    <text x="66" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">app · tablet · ops</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="40" y1="232" x2="1080" y2="232" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- ===== AT REST band (bottom) ===== -->
+  <text x="34" y="270" font-family="ui-monospace,monospace" font-size="12" fill="#2a52be" letter-spacing="1">AT REST — every store encrypted, keys in KMS</text>
+
+  <!-- KMS box (left, source of keys) -->
+  <g transform="translate(40,300)">
+    <rect x="0" y="0" width="150" height="210" rx="12" fill="#2a52be" fill-opacity="0.07" stroke="#2a52be" stroke-width="3"/>
+    <text x="75" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">AWS KMS</text>
+    <!-- key glyph -->
+    <g transform="translate(58,52)" stroke="#2a52be" stroke-width="3" fill="none">
+      <circle cx="10" cy="10" r="9"/>
+      <line x1="18" y1="14" x2="34" y2="30"/>
+      <line x1="28" y1="24" x2="34" y2="18"/>
+      <line x1="33" y1="29" x2="38" y2="24"/>
+    </g>
+    <text x="75" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">CMK per data</text>
+    <text x="75" y="136" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">domain</text>
+    <text x="75" y="166" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">annual rotation</text>
+    <text x="75" y="188" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">access audited</text>
+  </g>
+
+  <!-- key feeds the three stores -->
+  <g stroke="#2a52be" stroke-width="2.4" fill="#2a52be" stroke-dasharray="5 4">
+    <line x1="190" y1="350" x2="318" y2="350"/>
+    <line x1="190" y1="405" x2="318" y2="405"/>
+    <line x1="190" y1="460" x2="318" y2="460"/>
+  </g>
+  <g fill="#2a52be"><path d="M322 350 l-13 -6 v12 z"/><path d="M322 405 l-13 -6 v12 z"/><path d="M322 460 l-13 -6 v12 z"/></g>
+
+  <!-- three encrypted stores, each with a lock -->
+  <g transform="translate(322,322)">
+    <rect x="0" y="0" width="300" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(16,18)"><rect x="0" y="6" width="20" height="15" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/><path d="M3 6 v-3 a7 7 0 0 1 14 0 v3" fill="none" stroke="#3a7d44" stroke-width="2.4"/></g>
+    <text x="170" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">RDS Postgres — AES-256 volume</text>
+    <text x="170" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">entity state · PII column-encrypted</text>
+  </g>
+  <g transform="translate(322,377)">
+    <rect x="0" y="0" width="300" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(16,18)"><rect x="0" y="6" width="20" height="15" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/><path d="M3 6 v-3 a7 7 0 0 1 14 0 v3" fill="none" stroke="#3a7d44" stroke-width="2.4"/></g>
+    <text x="170" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">DynamoDB — encryption at rest</text>
+    <text x="170" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">telemetry · no PII by design</text>
+  </g>
+  <g transform="translate(322,432)">
+    <rect x="0" y="0" width="300" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(16,18)"><rect x="0" y="6" width="20" height="15" rx="3" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/><path d="M3 6 v-3 a7 7 0 0 1 14 0 v3" fill="none" stroke="#3a7d44" stroke-width="2.4"/></g>
+    <text x="170" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">S3 — SSE-KMS per object</text>
+    <text x="170" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">OTA · signed receipts · archive</text>
+  </g>
+
+  <!-- right column: principle callout -->
+  <g transform="translate(666,322)">
+    <rect x="0" y="0" width="414" height="166" rx="12" fill="#2a52be" fill-opacity="0.06" stroke="#2a52be" stroke-width="2"/>
+    <text x="24" y="34" font-family="ui-monospace,monospace" font-size="11.5" fill="#2a52be">THE BOUNDARY THAT MATTERS</text>
+    <g font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">
+      <text x="24" y="64">PII lives in exactly one place — the</text>
+      <text x="24" y="86">Account row in Postgres, column-</text>
+      <text x="24" y="108">encrypted under its own KMS key.</text>
+      <text x="24" y="136" fill="#3a7d44">Telemetry and receipts never carry it,</text>
+    </g>
+    <text x="24" y="156" font-family="ui-monospace,monospace" font-size="11.5" fill="#3a7d44">so the blast radius is one table.</text>
+  </g>
+
+  <text x="560" y="556" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">Nothing crosses the wire in the clear and nothing sits on disk in the clear; the keys belong to KMS, not to the service.</text>
+</svg>

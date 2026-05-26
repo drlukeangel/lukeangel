@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-label="2026 AR glasses market split">
+  <rect width="760" height="420" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="44" font-size="20" fill="#1a1d24" font-weight="600">2026 head-worn market — who takes which end</text>
+    <text x="40" y="68" font-size="13" fill="#7a808c">My call: Apple takes the high end, Meta keeps the mainstream</text>
+
+    <!-- price axis -->
+    <line x1="80" y1="350" x2="700" y2="350" stroke="#1a1d24" stroke-width="2"/>
+    <text x="80" y="378" font-size="11" fill="#5b616b" text-anchor="middle">$499</text>
+    <text x="390" y="378" font-size="11" fill="#5b616b" text-anchor="middle">~$1,500</text>
+    <text x="700" y="378" font-size="11" fill="#5b616b" text-anchor="middle">~$2,000</text>
+    <text x="390" y="398" font-size="11" fill="#7a808c" text-anchor="middle" font-style="italic" font-family="Newsreader, Georgia, serif">price / commitment →</text>
+
+    <!-- Meta Ray-Ban Display Gen 2 — mainstream, left -->
+    <g transform="translate(80,110)">
+      <rect width="230" height="150" rx="10" fill="#0066cc" fill-opacity="0.06" stroke="#0066cc" stroke-width="2"/>
+      <g transform="translate(24,26)">
+        <rect x="0" y="2" width="26" height="16" rx="5" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+        <rect x="36" y="2" width="26" height="16" rx="5" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+        <line x1="26" y1="10" x2="36" y2="10" stroke="#1a1d24" stroke-width="2.5"/>
+      </g>
+      <text x="24" y="78" font-size="13.5" fill="#1a1d24" font-weight="700">Meta Ray-Ban</text>
+      <text x="24" y="96" font-size="13.5" fill="#1a1d24" font-weight="700">Display Gen 2</text>
+      <text x="24" y="120" font-size="11.5" fill="#5b616b">~5M annual run-rate</text>
+      <text x="24" y="138" font-size="11.5" fill="#5b616b">mainstream / glanceable</text>
+    </g>
+    <text x="195" y="290" font-size="12" fill="#0066cc" font-weight="600" text-anchor="middle">VOLUME</text>
+
+    <!-- Vision Pro 2 — middle, headset -->
+    <g transform="translate(345,130)">
+      <rect width="170" height="130" rx="10" fill="#fff" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="1.5"/>
+      <g transform="translate(50,22)">
+        <rect x="0" y="0" width="70" height="34" rx="16" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+        <ellipse cx="24" cy="17" rx="9" ry="8" fill="#1a1d24" opacity="0.18"/>
+        <ellipse cx="46" cy="17" rx="9" ry="8" fill="#1a1d24" opacity="0.18"/>
+      </g>
+      <text x="20" y="86" font-size="13" fill="#1a1d24" font-weight="700">Vision Pro 2</text>
+      <text x="20" y="106" font-size="11.5" fill="#5b616b">M4 · smaller · ~$1,999</text>
+      <text x="20" y="123" font-size="11.5" fill="#5b616b">1–2M in CY2026</text>
+    </g>
+
+    <!-- Apple AR glasses — high end, right -->
+    <g transform="translate(540,110)">
+      <rect width="160" height="150" rx="10" fill="#fff" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2"/>
+      <g transform="translate(20,26)">
+        <rect x="0" y="2" width="26" height="16" rx="5" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+        <rect x="36" y="2" width="26" height="16" rx="5" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+        <line x1="26" y1="10" x2="36" y2="10" stroke="#1a1d24" stroke-width="2.5"/>
+        <circle cx="13" cy="10" r="3" fill="#0066cc"/>
+      </g>
+      <text x="20" y="78" font-size="13.5" fill="#1a1d24" font-weight="700">Apple AR</text>
+      <text x="20" y="96" font-size="13.5" fill="#1a1d24" font-weight="700">glasses (fall)</text>
+      <text x="20" y="120" font-size="11.5" fill="#5b616b">~$1,499 · &gt;1M in Q4</text>
+      <text x="20" y="138" font-size="11.5" fill="#5b616b">high end / locked-in</text>
+    </g>
+    <text x="620" y="290" font-size="12" fill="#1a1d24" font-weight="600" text-anchor="middle">MARGIN</text>
+  </g>
+</svg>

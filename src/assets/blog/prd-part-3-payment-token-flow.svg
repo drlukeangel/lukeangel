@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" width="1120" height="600" role="img" aria-label="Payment-token flow keeps card data off the cart">
+  <rect width="1120" height="600" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">HOW CARD DATA STAYS OFF THE CART</text>
+
+  <!-- ===== PCI-scope regions (red-bordered) ===== -->
+  <!-- region A: EMV-certified reader -->
+  <rect x="40" y="92" width="212" height="210" rx="14" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="8 5"/>
+  <text x="146" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#c14a3a">IN PCI SCOPE</text>
+  <!-- region B: isolated payment AWS account (far right) -->
+  <rect x="868" y="92" width="212" height="210" rx="14" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="8 5"/>
+  <text x="974" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#c14a3a">IN PCI SCOPE</text>
+
+  <!-- ===== contactless card (start) ===== -->
+  <g transform="translate(62,150)">
+    <rect x="0" y="0" width="80" height="52" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="10" y="12" width="20" height="15" rx="3" fill="#c14a3a" fill-opacity="0.3" stroke="#c14a3a" stroke-width="2"/>
+    <g fill="#1a1d24" opacity="0.5"><rect x="10" y="36" width="14" height="5" rx="2"/><rect x="28" y="36" width="14" height="5" rx="2"/><rect x="46" y="36" width="14" height="5" rx="2"/></g>
+  </g>
+  <text x="102" y="232" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">contactless card</text>
+  <text x="102" y="252" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">PAN + CVV live here</text>
+
+  <!-- ===== EMV-certified module ===== -->
+  <rect x="284" y="120" width="232" height="160" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+  <text x="400" y="150" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">EMV-certified NFC module</text>
+  <text x="400" y="172" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">own MCU · vendor firmware</text>
+  <!-- tokenization gear/box inside -->
+  <rect x="316" y="190" width="168" height="64" rx="9" fill="#c14a3a" fill-opacity="0.07" stroke="#c14a3a" stroke-width="2"/>
+  <text x="400" y="216" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">tokenize</text>
+  <text x="400" y="238" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">PAN → opaque token</text>
+
+  <!-- the boundary line: only EMV-defined responses cross -->
+  <g stroke="#3a7d44" stroke-width="3" fill="#3a7d44">
+    <line x1="516" y1="200" x2="588" y2="200"/><path d="M592 200 l-15 -7 v14 z"/>
+  </g>
+  <text x="554" y="186" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#3a7d44">token only</text>
+  <text x="554" y="232" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">serial line</text>
+
+  <!-- ===== cart MCU (explicitly OUT of scope) ===== -->
+  <rect x="592" y="120" width="232" height="160" rx="14" fill="#2a52be" fill-opacity="0.07" stroke="#2a52be" stroke-width="3.5"/>
+  <text x="708" y="150" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">CART MCU</text>
+  <text x="708" y="172" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">ESP32-C3 · out of PCI scope</text>
+  <!-- opaque token chip glyph -->
+  <rect x="624" y="190" width="168" height="64" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="2"/>
+  <text x="708" y="214" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">24-char opaque token</text>
+  <text x="708" y="236" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">held in RAM, then dropped</text>
+
+  <!-- token to cloud over MQTT -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="824" y1="200" x2="864" y2="200"/><path d="M868 200 l-15 -7 v14 z"/>
+  </g>
+
+  <!-- ===== isolated payment service (cloud, PCI scope) ===== -->
+  <g transform="translate(890,140)">
+    <path d="M28 64 a30 30 0 0 1 4 -60 a36 36 0 0 1 66 11 a27 27 0 0 1 -7 53 z" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  </g>
+  <text x="974" y="174" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">payment svc</text>
+  <text x="974" y="218" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">isolated AWS account</text>
+  <text x="974" y="238" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">reached by one cross-account</text>
+  <text x="974" y="256" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">Lambda · swaps token w/ processor</text>
+
+  <!-- ===== bottom: the checkout hand-off + scope summary ===== -->
+  <line x1="40" y1="334" x2="1080" y2="334" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.12"/>
+
+  <text x="34" y="372" font-family="ui-monospace,monospace" font-size="12.5" letter-spacing="1.5" fill="#7a808c">AND PAYMENT ITSELF NEVER COMPLETES ON THE CART</text>
+  <g font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">
+    <text x="40" y="404">at session-end the cart hands off to the in-store EMV terminal over BLE proximity;</text>
+    <text x="40" y="428">the PCI-certified terminal completes the charge and returns an auth token the cart forwards to the cloud.</text>
+  </g>
+
+  <!-- scope ledger -->
+  <g transform="translate(40,452)">
+    <rect x="0" y="0" width="1040" height="118" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+    <!-- in scope -->
+    <text x="28" y="34" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1" fill="#c14a3a">IN PCI SCOPE (small)</text>
+    <g font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">
+      <text x="28" y="62">✗ EMV-certified NFC reader (vendor cert)</text>
+      <text x="28" y="86">✗ EMV terminal (vendor cert)</text>
+      <text x="28" y="110">✗ isolated payment-service AWS account</text>
+    </g>
+    <line x1="540" y1="20" x2="540" y2="100" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.12"/>
+    <!-- out of scope -->
+    <text x="568" y="34" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1" fill="#3a7d44">OUT OF SCOPE (everything else)</text>
+    <g font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">
+      <text x="568" y="62">✓ the cart &amp; its MCU</text>
+      <text x="568" y="86">✓ the main cloud platform · mobile app</text>
+      <text x="568" y="110">✓ the staff tablet · the ops dashboard</text>
+    </g>
+  </g>
+</svg>

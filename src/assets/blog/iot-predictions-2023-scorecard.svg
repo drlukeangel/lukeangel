@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" role="img" aria-label="2022 prediction scorecard">
+  <rect width="820" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="56" font-size="22" fill="#1a1d24" font-weight="600">2022 SCORECARD</text>
+    <text x="40" y="82" font-size="14" fill="#7a808c">what I called vs. what shipped</text>
+
+    <!-- legend -->
+    <g transform="translate(560,44)">
+      <circle cx="0" cy="0" r="9" fill="#3a7d44"/>
+      <path d="M-4 0 l3 4 l6 -8" stroke="#fdfaf2" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <text x="16" y="5" font-size="13" fill="#5b616b">hit</text>
+      <g transform="translate(110,0)">
+        <circle cx="0" cy="0" r="9" fill="#0066cc"/>
+        <path d="M0 -9 a9 9 0 0 0 0 18 z" fill="#fdfaf2" fill-opacity="0.0"/>
+        <path d="M0 -9 a9 9 0 0 1 0 18 z" fill="#fdfaf2" fill-opacity="0.55"/>
+        <text x="16" y="5" font-size="13" fill="#5b616b">half</text>
+      </g>
+    </g>
+
+    <!-- rows -->
+    <g font-size="15" fill="#1a1d24">
+      <!-- helper: each row = y baseline -->
+      <g transform="translate(0,120)">
+        <g><circle cx="56" cy="0" r="11" fill="#3a7d44"/><path d="M51 0 l3 5 l7 -10" stroke="#fdfaf2" stroke-width="3" fill="none" stroke-linecap="round"/><text x="84" y="5">Matter 1.0 ships (lighting, locks, sensors)</text></g>
+      </g>
+      <g transform="translate(0,164)">
+        <circle cx="56" cy="0" r="11" fill="#3a7d44"/><path d="M51 0 l3 5 l7 -10" stroke="#fdfaf2" stroke-width="3" fill="none" stroke-linecap="round"/><text x="84" y="5">Pixel Watch — politely mediocre, below target</text>
+      </g>
+      <g transform="translate(0,208)">
+        <circle cx="56" cy="0" r="11" fill="#3a7d44"/><path d="M51 0 l3 5 l7 -10" stroke="#fdfaf2" stroke-width="3" fill="none" stroke-linecap="round"/><text x="84" y="5">AirPods Pro 2 — same price, H2 chip</text>
+      </g>
+      <g transform="translate(0,252)">
+        <circle cx="56" cy="0" r="11" fill="#3a7d44"/><path d="M51 0 l3 5 l7 -10" stroke="#fdfaf2" stroke-width="3" fill="none" stroke-linecap="round"/><text x="84" y="5">Apple Watch Ultra — premium mix, margin lift</text>
+      </g>
+      <g transform="translate(0,296)">
+        <circle cx="56" cy="0" r="11" fill="#3a7d44"/><path d="M51 0 l3 5 l7 -10" stroke="#fdfaf2" stroke-width="3" fill="none" stroke-linecap="round"/><text x="84" y="5">OTC hearing-aid rule takes effect; Sony ships</text>
+      </g>
+      <g transform="translate(0,340)">
+        <circle cx="56" cy="0" r="11" fill="#3a7d44"/><path d="M51 0 l3 5 l7 -10" stroke="#fdfaf2" stroke-width="3" fill="none" stroke-linecap="round"/><text x="84" y="5">Supply chain eases through Q4</text>
+      </g>
+
+      <!-- half hits -->
+      <g transform="translate(0,384)">
+        <circle cx="56" cy="0" r="11" fill="#0066cc"/><path d="M56 -11 a11 11 0 0 1 0 22 z" fill="#fdfaf2" fill-opacity="0.55"/><text x="84" y="5">Robot mowers announced, not yet mass-market</text>
+      </g>
+      <g transform="translate(0,428)">
+        <circle cx="56" cy="0" r="11" fill="#0066cc"/><path d="M56 -11 a11 11 0 0 1 0 22 z" fill="#fdfaf2" fill-opacity="0.55"/><text x="84" y="5">Amazon–iRobot announced ($1.7B) — stalled at FTC</text>
+      </g>
+    </g>
+
+    <line x1="40" y1="462" x2="780" y2="462" stroke="#1a1d24" stroke-opacity="0.12"/>
+    <text x="40" y="492" font-size="15" fill="#1a1d24" font-weight="600">Net: ~85% accuracy</text>
+    <text x="240" y="492" font-size="14" fill="#7a808c">Matter slipped less; iRobot stalled more</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="Litter box health signatures">
+  <rect width="1000" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+
+    <!-- helper: each row is a label + a strip of visit blocks; block width ~ duration -->
+
+    <!-- NORMAL -->
+    <text x="40" y="70" font-size="16" fill="#3a7d44">normal</text>
+    <text x="40" y="90" font-size="12" fill="#5b616b">2–4 visits/day · 60–90 s</text>
+    <g transform="translate(360 50)" fill="#3a7d44" fill-opacity="0.65">
+      <rect x="0" y="0" width="70" height="34" rx="5"/>
+      <rect x="120" y="0" width="78" height="34" rx="5"/>
+      <rect x="270" y="0" width="64" height="34" rx="5"/>
+    </g>
+
+    <!-- URINARY -->
+    <text x="40" y="190" font-size="16" fill="#c14a3a">urinary trouble</text>
+    <text x="40" y="210" font-size="12" fill="#5b616b">6+ visits · short</text>
+    <g transform="translate(360 170)" fill="#c14a3a" fill-opacity="0.6">
+      <rect x="0" y="0" width="26" height="34" rx="4"/>
+      <rect x="40" y="0" width="22" height="34" rx="4"/>
+      <rect x="76" y="0" width="28" height="34" rx="4"/>
+      <rect x="118" y="0" width="20" height="34" rx="4"/>
+      <rect x="152" y="0" width="26" height="34" rx="4"/>
+      <rect x="192" y="0" width="22" height="34" rx="4"/>
+      <rect x="228" y="0" width="26" height="34" rx="4"/>
+      <rect x="268" y="0" width="22" height="34" rx="4"/>
+    </g>
+    <text x="640" y="194" font-size="12" fill="#c14a3a">freq ↑  duration ↓</text>
+
+    <!-- DIABETES -->
+    <text x="40" y="310" font-size="16" fill="#c87533">diabetes onset</text>
+    <text x="40" y="330" font-size="12" fill="#5b616b">more frequent · heavier fill</text>
+    <g transform="translate(360 290)" fill="#c87533" fill-opacity="0.6">
+      <rect x="0" y="0" width="58" height="34" rx="5"/>
+      <rect x="90" y="0" width="64" height="34" rx="5"/>
+      <rect x="186" y="0" width="60" height="34" rx="5"/>
+      <rect x="278" y="0" width="56" height="34" rx="5"/>
+    </g>
+    <!-- a small heavier-drawer marker -->
+    <g transform="translate(640 296)">
+      <path d="M0 0 L40 0 L46 24 L-6 24 Z" fill="#c87533" fill-opacity="0.2" stroke="#c87533" stroke-width="2"/>
+      <text x="56" y="18" font-size="12" fill="#c87533">drawer fills faster</text>
+    </g>
+
+    <!-- WEIGHT TRACK -->
+    <text x="40" y="425" font-size="16" fill="#1a1d24">entry weight</text>
+    <text x="40" y="445" font-size="12" fill="#5b616b">slow decline = silent warning</text>
+    <g transform="translate(360 400)">
+      <line x1="0" y1="40" x2="580" y2="40" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+      <polyline points="0,18 100,20 200,24 300,28 400,34 500,42 580,50" fill="none" stroke="#1a1d24" stroke-width="3.5"/>
+      <circle cx="580" cy="50" r="5" fill="#c14a3a"/>
+    </g>
+    <text x="640" y="455" font-size="12" fill="#c14a3a">thyroid / kidney / cancer</text>
+
+    <text x="500" y="500" text-anchor="middle" font-size="13" fill="#5b616b">the same signals a vet reads — captured every day, not once a year</text>
+  </g>
+</svg>

@@ -1,31 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t">
-  <title id="t">IoT & Connected Devices — 2022 Predictions and Outcomes cover</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="2022 IoT predictions cover">
   <defs>
-    <linearGradient id="g22" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e3a8a"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
+    <pattern id="dots22" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#g22)"/>
-  <g fill="#fff" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
-    <text x="80" y="100" font-size="22" letter-spacing="6" opacity="0.7">CONNECTED DEVICES · YEAR IN REVIEW</text>
-    <text x="80" y="220" font-size="120" font-weight="500" letter-spacing="-2">2022</text>
-    <text x="80" y="320" font-size="44" font-weight="300">Predictions &amp; outcomes</text>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots22)"/>
+  <rect width="24" height="630" fill="#0066cc"/>
+
+  <!-- a shelf line the devices sit on: the "manufacturing gate" motif, abstract -->
+  <line x1="150" y1="470" x2="1060" y2="470" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="3"/>
+
+  <!-- Matter hub / connected node, center: rings radiating from a node -->
+  <g transform="translate(330,300)" fill="none" stroke="#0066cc" stroke-width="6">
+    <circle cx="0" cy="0" r="34" fill="#0066cc" stroke="none"/>
+    <path d="M-58 0 a58 58 0 0 1 116 0" stroke-opacity="0.75"/>
+    <path d="M-92 0 a92 92 0 0 1 184 0" stroke-opacity="0.45"/>
+    <path d="M-126 0 a126 126 0 0 1 252 0" stroke-opacity="0.22"/>
   </g>
-  <g transform="translate(720,180)">
-    <circle cx="50" cy="50" r="50" fill="#fff"/>
-    <text x="50" y="55" text-anchor="middle" fill="#1e3a8a" font-family="'Inter', Arial" font-weight="700" font-size="16">Matter</text>
-    <text x="50" y="160" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">Matter 1.0</text>
+
+  <!-- smartwatch on the shelf -->
+  <g transform="translate(620,330)">
+    <rect x="-66" y="-110" width="32" height="60" rx="12" fill="#1a1d24" fill-opacity="0.8"/>
+    <rect x="-66" y="100" width="32" height="60" rx="12" fill="#1a1d24" fill-opacity="0.8"/>
+    <rect x="-90" y="-66" width="180" height="200" rx="44" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <rect x="-66" y="-42" width="132" height="152" rx="24" fill="#0066cc" fill-opacity="0.85"/>
+    <rect x="90" y="0" width="14" height="36" rx="5" fill="#1a1d24" fill-opacity="0.8"/>
   </g>
-  <g transform="translate(850,180)">
-    <circle cx="50" cy="50" r="50" fill="#fff"/>
-    <rect x="32" y="35" width="36" height="40" rx="6" fill="#1e3a8a"/>
-    <text x="50" y="160" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">Pixel Watch</text>
+
+  <!-- earbuds case + buds -->
+  <g transform="translate(860,360)">
+    <rect x="-58" y="-30" width="116" height="92" rx="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <ellipse cx="-22" cy="-40" rx="18" ry="34" fill="#fdfaf2" stroke="#0066cc" stroke-width="6"/>
+    <ellipse cx="22" cy="-40" rx="18" ry="34" fill="#fdfaf2" stroke="#0066cc" stroke-width="6"/>
+    <circle cx="-22" cy="-50" r="7" fill="#0066cc"/>
+    <circle cx="22" cy="-50" r="7" fill="#0066cc"/>
   </g>
-  <g transform="translate(990,180)">
-    <ellipse cx="40" cy="60" rx="30" ry="55" fill="#fff"/>
-    <ellipse cx="120" cy="60" rx="30" ry="55" fill="#fff"/>
-    <text x="80" y="170" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">AirPods Pro 2</text>
+
+  <!-- faint slipped-date motif: a dashed forward shift -->
+  <g stroke="#0066cc" stroke-opacity="0.5" stroke-width="4" stroke-dasharray="10 8" fill="none">
+    <path d="M150 540 h840"/>
+    <path d="M990 540 l-22 -11 v22 z" fill="#0066cc" fill-opacity="0.5" stroke="none"/>
   </g>
-  <text x="80" y="580" fill="#fff" opacity="0.6" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="4">LUKEANGEL.CO · THE JOURNAL</text>
 </svg>

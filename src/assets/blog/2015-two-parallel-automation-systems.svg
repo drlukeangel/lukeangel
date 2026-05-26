@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="Two automation systems">
+  <rect width="1000" height="460" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24">
+
+    <text x="500" y="44" text-anchor="middle" font-size="16">two automation systems running side by side — neither sees the other</text>
+
+    <!-- LEFT: SmartThings cloud world -->
+    <g>
+      <rect x="55" y="80" width="400" height="300" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="255" y="112" text-anchor="middle" font-size="15">SmartThings (cloud-executed)</text>
+
+      <!-- cloud glyph -->
+      <g transform="translate(180 140)">
+        <path d="M20 40 a26 26 0 0 1 4 -51 a32 32 0 0 1 60 6 a22 22 0 0 1 6 45 z" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="2.5"/>
+        <text x="55" y="32" text-anchor="middle" font-size="12" fill="#6a4c93">SmartApps</text>
+      </g>
+      <text x="255" y="220" text-anchor="middle" font-size="11" fill="#c14a3a">cloud dies → automation goes silent</text>
+
+      <!-- devices -->
+      <g font-size="12" fill="#5b616b">
+        <rect x="90" y="244" width="150" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <text x="165" y="266" text-anchor="middle">Z-Wave / Zigbee</text>
+        <rect x="270" y="244" width="150" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <text x="345" y="266" text-anchor="middle">Aeotec Multisensor</text>
+        <rect x="90" y="296" width="330" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <text x="255" y="318" text-anchor="middle">door / presence — security automation</text>
+      </g>
+      <text x="255" y="362" text-anchor="middle" font-size="11" fill="#5b616b">2 major outages this year, no local fallback</text>
+    </g>
+
+    <!-- RIGHT: HomeKit walled garden -->
+    <g>
+      <rect x="545" y="80" width="400" height="300" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="745" y="112" text-anchor="middle" font-size="15">HomeKit (Siri / iOS 9)</text>
+
+      <!-- phone glyph -->
+      <g transform="translate(715 134)">
+        <rect x="0" y="0" width="60" height="62" rx="8" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="2.5"/>
+        <path d="M30 14 l18 14 v18 h-12 v-12 h-12 v12 h-12 v-18 z" fill="#6a4c93" fill-opacity="0.5"/>
+      </g>
+      <text x="745" y="220" text-anchor="middle" font-size="11" fill="#c14a3a">MFi tax keeps non-certified gear out</text>
+
+      <g font-size="12" fill="#5b616b">
+        <rect x="580" y="244" width="100" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <text x="630" y="266" text-anchor="middle">Lutron</text>
+        <rect x="694" y="244" width="100" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <text x="744" y="266" text-anchor="middle">Ecobee3</text>
+        <rect x="808" y="244" width="100" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+        <text x="858" y="266" text-anchor="middle">Hue v2</text>
+      </g>
+      <text x="745" y="318" text-anchor="middle" font-size="12" fill="#3a7d44">Apple TV 4 as the de facto hub</text>
+      <text x="745" y="362" text-anchor="middle" font-size="11" fill="#5b616b">reliable, low latency — but a short guest list</text>
+    </g>
+
+    <!-- the gap between them -->
+    <g stroke="#c14a3a" stroke-width="2.5">
+      <line x1="475" y1="200" x2="525" y2="200" stroke-dasharray="3 7"/>
+    </g>
+    <text x="500" y="196" text-anchor="middle" font-size="22" fill="#c14a3a">/</text>
+
+    <text x="500" y="426" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">the year's real cost: I maintain two brains, and a bulb on one is invisible to the other</text>
+  </g>
+</svg>

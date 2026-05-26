@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 440" width="980" height="440" aria-label="Monolith vs composable">
+  <rect width="980" height="440" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT: Bedrock Agents — monolithic -->
+  <text x="245" y="44" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#1a1d24">BEDROCK AGENTS</text>
+  <text x="245" y="66" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="14" fill="#7a808c">monolithic, opinionated</text>
+
+  <rect x="95" y="92" width="300" height="300" rx="14" fill="#4f46b8" opacity="0.10" stroke="#4f46b8" stroke-width="2.5"/>
+  <!-- fused inner pieces — no gaps, one slab -->
+  <g font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24" text-anchor="middle">
+    <line x1="95" y1="152" x2="395" y2="152" stroke="#4f46b8" stroke-width="1.2" opacity="0.45"/>
+    <line x1="95" y1="212" x2="395" y2="212" stroke="#4f46b8" stroke-width="1.2" opacity="0.45"/>
+    <line x1="95" y1="272" x2="395" y2="272" stroke="#4f46b8" stroke-width="1.2" opacity="0.45"/>
+    <line x1="95" y1="332" x2="395" y2="332" stroke="#4f46b8" stroke-width="1.2" opacity="0.45"/>
+    <text x="245" y="127">the loop</text>
+    <text x="245" y="187">prompt scaffolding</text>
+    <text x="245" y="247">tool-call format</text>
+    <text x="245" y="307">action groups + KBs</text>
+    <text x="245" y="367">a Bedrock model</text>
+  </g>
+  <text x="245" y="418" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="13" fill="#5b616b">all-or-nothing — you take the whole stack</text>
+
+  <!-- divider -->
+  <line x1="490" y1="80" x2="490" y2="400" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <!-- RIGHT: AgentCore — composable -->
+  <text x="735" y="44" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#4f46b8">AGENTCORE (preview)</text>
+  <text x="735" y="66" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="14" fill="#7a808c">modular, composable</text>
+
+  <g font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24" text-anchor="middle">
+    <rect x="560" y="92"  width="160" height="56" rx="9" fill="#fdfaf2" stroke="#4f46b8" stroke-width="2.5"/>
+    <text x="640" y="125">Runtime</text>
+    <rect x="750" y="92"  width="160" height="56" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="830" y="125">Memory</text>
+    <rect x="560" y="170" width="160" height="56" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="640" y="203">Identity</text>
+    <rect x="750" y="170" width="160" height="56" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="830" y="203">Gateway / Tools</text>
+    <rect x="655" y="248" width="160" height="56" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="735" y="281">Observability</text>
+  </g>
+  <!-- pick-one callout -->
+  <rect x="560" y="330" width="350" height="58" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="735" y="356" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#3a7d44">adopt one — leave the rest</text>
+  <text x="735" y="377" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="13" fill="#5b616b">e.g. just Memory beside your own stack</text>
+  <text x="735" y="418" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="13" fill="#5b616b">framework-agnostic — bring your own loop</text>
+</svg>

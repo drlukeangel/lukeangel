@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="920" height="480" role="img" aria-label="Five-year cost of ownership, Tagg vs Whistle.">
+  <rect x="1" y="1" width="918" height="478" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#5b616b;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="48" class="lbl" font-size="16" letter-spacing="1.5">FIVE YEARS OF OWNERSHIP</text>
+
+  <!-- axes -->
+  <!-- plot area: x 110..820 (year 0..5), y 90..380 ($0 top..$500 bottom) -->
+  <line x1="110" y1="90" x2="110" y2="380" stroke="#1a1d24" stroke-width="2"/>
+  <line x1="110" y1="380" x2="830" y2="380" stroke="#1a1d24" stroke-width="2"/>
+
+  <!-- y gridlines + dollar labels ($0 at 380, $500 at 90 -> 58px per $100) -->
+  <g class="mut" font-size="12" text-anchor="end">
+    <line x1="110" y1="380" x2="830" y2="380" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <text x="100" y="384">$0</text>
+    <line x1="110" y1="322" x2="830" y2="322" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <text x="100" y="326">$100</text>
+    <line x1="110" y1="264" x2="830" y2="264" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <text x="100" y="268">$200</text>
+    <line x1="110" y1="206" x2="830" y2="206" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <text x="100" y="210">$300</text>
+    <line x1="110" y1="148" x2="830" y2="148" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <text x="100" y="152">$400</text>
+    <line x1="110" y1="90" x2="830" y2="90" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <text x="100" y="94">$500</text>
+  </g>
+
+  <!-- x labels: year 0..5 at x = 110 + year*128 -->
+  <g class="mut" font-size="12" text-anchor="middle">
+    <text x="110" y="402">yr 0</text>
+    <text x="238" y="402">yr 1</text>
+    <text x="366" y="402">yr 2</text>
+    <text x="494" y="402">yr 3</text>
+    <text x="622" y="402">yr 4</text>
+    <text x="750" y="402">yr 5</text>
+  </g>
+
+  <!-- TAGG line: $99 start (y=380-99*0.58=322.6), +$79/yr. y = 380 - cost*0.58 -->
+  <!-- yr0 99->322.4 ; yr1 178->276.8 ; yr2 257->230.9 ; yr3 336->185.1 ; yr4 415->139.3 ; yr5 494->93.5 -->
+  <polyline points="110,322.4 238,276.8 366,230.9 494,185.1 622,139.3 750,93.5" fill="none" stroke="#c87533" stroke-width="3.5"/>
+  <g fill="#c87533"><circle cx="110" cy="322.4" r="4"/><circle cx="750" cy="93.5" r="5"/></g>
+  <text x="762" y="92" class="lbl" font-size="13" font-weight="600" fill="#c87533">Tagg $494</text>
+
+  <!-- WHISTLE line: $129 flat (no subscription). y = 380 - 129*0.58 = 305.2 -->
+  <polyline points="110,305.2 750,305.2" fill="none" stroke="#1a1d24" stroke-width="3.5"/>
+  <g fill="#1a1d24"><circle cx="110" cy="305.2" r="4"/><circle cx="750" cy="305.2" r="5"/></g>
+  <text x="762" y="309" class="lbl" font-size="13" font-weight="600">Whistle $129</text>
+
+  <!-- annotation: hardware gap at yr0 -->
+  <text x="120" y="296" class="mut" font-size="11.5">$30 hardware gap</text>
+  <text x="120" y="338" class="mut" font-size="11.5">(Whistle costs more on day one)</text>
+
+  <!-- the subscription swallows it -->
+  <text x="500" y="440" text-anchor="middle" class="cap" font-size="14.5">The $30 hardware gap is gone by the second month of subscription — after that, the fee is the whole story.</text>
+</svg>

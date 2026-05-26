@@ -11,8 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 4
 excerpt: "A year on SmartThings + Hue. WiFi smart bulbs and plugs sounded great — until the router was rebooted and 30 devices went offline at once."
 pullquote: "A 15-device WiFi smart home draws 22 watts before you turn anything on. That's $30/year in electricity to power the radios that command the radios."
-cover: "../../assets/blog/wifi-as-smart-home-transport-the-always-on-tax-cover.png"
-coverAlt: "WiFi as smart-home transport — the always-on tax"
+cover: "../../assets/blog/wifi-as-smart-home-transport-the-always-on-tax-cover.svg"
+coverAlt: "A row of Wi-Fi smart plugs each drawing a constant trickle of power from the wall even while switched off — the always-on tax of radios that never sleep, beside a much smaller Zigbee/BLE draw."
 ---
 
 Wemo has been shipping WiFi smart plugs for six months. Belkin's about to add light switches, light bulbs (rebranded GE/Wemo bulbs), and a motion sensor to the lineup. A handful of smaller vendors are queuing up too — Quirky's Spotter, Lowe's Iris-branded outlets, a few smaller startups. WiFi is the cheap path to smart home for any vendor that doesn't want to design a hub.
@@ -23,7 +23,7 @@ Notes on why WiFi wins for vendors and what it costs the homeowner.
 
 A WiFi smart plug, at minimum:
 
-- A 2.4 GHz WiFi SoC — typically TI's **CC3000** (announced 2012, in volume this year) or Atmel's WINC1500-class part. Around $3-5 in volume at 2013 pricing.
+- A 2.4 GHz WiFi SoC — typically TI's **CC3000** (announced 2012, in volume this year) or one of the comparable embedded-WiFi modules from Atmel/Microchip and the GainSpan/Roving-Networks crowd. Around $3-5 in volume at 2013 pricing.
 - A small companion microcontroller (8-bit AVR or low-end Cortex-M0) to drive the relay and shuttle data to/from the WiFi part.
 - A relay capable of 10-15 A switching.
 - A small AC-DC converter to power the electronics.
@@ -95,6 +95,8 @@ Multiply across a smart home:
 
 This is the **always-on tax**. Zigbee and BLE peripherals draw microamps idle; WiFi devices draw nearly a thousand times more.
 
+![The always-on tax drawn as a bar chart of idle power against device count. A WiFi smart home climbs steeply — five plugs at about 7.5 watts and ten dollars a year, fifteen devices at 22 watts and thirty dollars, thirty devices at 45 watts and sixty-three dollars — every bar standing for radios that never sleep. Beside it, a single flat sliver marks the same count of Zigbee or BLE peripherals at microamps idle, effectively zero on the same scale. A caption notes the cost is electricity spent powering the radios that wait for a command, not doing any work.](../../assets/blog/wifi-always-on-tax-chart.svg)
+
 ## Architectural cost — cloud by default
 
 Most WiFi vendors don't bother with a local API. The plug holds a persistent TCP connection to the vendor cloud; commands route through that cloud even when phone and plug are on the same WiFi.
@@ -102,6 +104,8 @@ Most WiFi vendors don't bother with a local API. The plug holds a persistent TCP
 This is **cheaper to engineer** (no local discovery server, no per-vendor SDK quirks) and gives the vendor telemetry they can sell separately. It also gives the vendor a kill switch.
 
 Compare to Hue: bulbs talk Zigbee to the bridge, bridge has a local REST API, the whole thing runs without internet. The contrast couldn't be sharper.
+
+![Two control paths side by side, both in the same house on the same Wi-Fi. On the left, the Wemo-style Wi-Fi plug: the plug holds an open TCP connection to a vendor cloud, so a command from the phone travels up to the cloud and back down to the plug even though both are on the same LAN — and a dead Wi-Fi uplink means a dead plug. On the right, the Hue bridge: the internet is crossed out as not needed, and the phone makes a LAN-only REST call straight to the bridge, which still runs with the internet down. A caption notes cloud-by-default is cheaper to build and hands the vendor a kill switch.](../../assets/blog/wifi-cloud-by-default-path.svg)
 
 Most consumer-WiFi vendors will *not* expose a local API until forced by regulation. That's still years off in 2013.
 
@@ -126,6 +130,8 @@ A 2.4 GHz home network in an urban apartment building is already crowded with ne
 - 30 WiFi smart devices on the same channel can knock 802.11n throughput down 30-50%.
 
 The takeaway: planned smart homes split WiFi 5 GHz for laptops/phones and use 2.4 GHz only for IoT. Most consumer routers don't make this easy in 2013.
+
+![The crowded 2.4 GHz band drawn as a frequency strip. The three non-overlapping US Wi-Fi channels — 1, 6, and 11 — sit as wide humps across the band. Zigbee's narrower channels are marked between them: channels 15, 20, and 25 fall right on top of Wi-Fi 1, 6, and 11 (flagged as the bad overlaps to avoid), while channels like 25/26 at the top edge sit in the quiet gap above Wi-Fi 11 (flagged as the safe ones). A note states the rule — pick a Zigbee channel in the gaps, and move the IoT Wi-Fi devices off the channel your laptops use.](../../assets/blog/24ghz-wifi-zigbee-channel-overlap.svg)
 
 ## What's next
 

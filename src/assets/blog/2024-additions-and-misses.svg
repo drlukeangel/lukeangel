@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 430" role="img" aria-label="2024 additions and misses">
+  <rect x="0.5" y="0.5" width="1039" height="429" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14.5px;fill:#1a1d24}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12.5px;fill:#5b616b}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;font-weight:700;fill:#1a1d24}
+  </style>
+
+  <!-- ADDED column -->
+  <text x="180" y="46" text-anchor="middle" class="hd" fill="#6a4c93">ADDED IN 2024</text>
+  <g class="lbl">
+    <g transform="translate(40,84)">
+      <rect x="0" y="-18" width="280" height="42" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.4"/>
+      <text x="14" y="0" class="lbl">Bespoke oven · dishwasher</text>
+      <text x="14" y="18" class="sm">+ washer/dryer — kitchen complete</text>
+    </g>
+    <g transform="translate(40,142)">
+      <rect x="0" y="-18" width="280" height="42" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.4"/>
+      <text x="14" y="0" class="lbl">Tesla Wall Connector 48A</text>
+      <text x="14" y="18" class="sm">EV charging, off-peak automated</text>
+    </g>
+    <g transform="translate(40,200)">
+      <rect x="0" y="-18" width="280" height="42" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.4"/>
+      <text x="14" y="0" class="lbl">3 Matter bridges live</text>
+      <text x="14" y="18" class="sm">Aqara M2 · Hue · HA add-on</text>
+    </g>
+    <g transform="translate(40,258)">
+      <rect x="0" y="-18" width="280" height="42" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.4"/>
+      <text x="14" y="0" class="lbl">18 Matter devices</text>
+      <text x="14" y="18" class="sm">Eve · Nanoleaf · Eve Energy</text>
+    </g>
+    <g transform="translate(40,316)">
+      <rect x="0" y="-18" width="280" height="42" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.4"/>
+      <text x="14" y="0" class="lbl">2nd LoRa gateway</text>
+      <text x="14" y="18" class="sm">garden edge — fixes back-fence range</text>
+    </g>
+  </g>
+
+  <!-- divider -->
+  <line x1="380" y1="40" x2="380" y2="390" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+
+  <!-- WORKED column -->
+  <text x="540" y="46" text-anchor="middle" class="hd" fill="#3a7d44">HELD UP</text>
+  <g>
+    <g transform="translate(420,80)">
+      <circle cx="12" cy="-4" r="11" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M7 -4 l3 4 7 -9" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="34" y="0" class="lbl">Matter bridges + multi-ecosystem</text>
+    </g>
+    <g transform="translate(420,128)">
+      <circle cx="12" cy="-4" r="11" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M7 -4 l3 4 7 -9" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="34" y="0" class="lbl">Frigate 0.13 re-identification</text>
+    </g>
+    <g transform="translate(420,176)">
+      <circle cx="12" cy="-4" r="11" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M7 -4 l3 4 7 -9" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="34" y="0" class="lbl">Off-peak EV charging automation</text>
+    </g>
+    <g transform="translate(420,224)">
+      <circle cx="12" cy="-4" r="11" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M7 -4 l3 4 7 -9" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="34" y="0" class="lbl">The LoRa mailbox sensor</text>
+    </g>
+  </g>
+
+  <!-- DIDN'T column -->
+  <text x="540" y="282" text-anchor="middle" class="hd" fill="#c14a3a">DIDN'T</text>
+  <g>
+    <g transform="translate(420,316)">
+      <circle cx="12" cy="-4" r="11" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M7 -10 l13 12 M20 -10 l-13 12" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="34" y="0" class="lbl">Local HA voice (slow ASR, robotic)</text>
+    </g>
+    <g transform="translate(420,358)">
+      <circle cx="12" cy="-4" r="11" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M7 -10 l13 12 M20 -10 l-13 12" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="34" y="0" class="lbl">Frigate face recognition (false positives)</text>
+    </g>
+  </g>
+
+  <!-- score chip -->
+  <g transform="translate(820,40)">
+    <circle cx="100" cy="180" r="92" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="3"/>
+    <text x="100" y="170" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="44" font-weight="700" fill="#1a1d24">6/8</text>
+    <text x="100" y="206" text-anchor="middle" class="sm">calls for 2024</text>
+    <text x="100" y="226" text-anchor="middle" class="sm">76% — within band</text>
+  </g>
+</svg>

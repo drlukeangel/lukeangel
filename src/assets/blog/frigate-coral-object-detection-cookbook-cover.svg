@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Detection funnel">
+  <defs>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- camera at left -->
+  <g transform="translate(120,250)">
+    <rect x="0" y="0" width="120" height="80" rx="10" fill="#1a1d24"/>
+    <circle cx="60" cy="40" r="26" fill="#fdfaf2"/>
+    <circle cx="60" cy="40" r="15" fill="#6a4c93"/>
+    <circle cx="60" cy="40" r="6" fill="#1a1d24"/>
+    <rect x="100" y="22" width="34" height="36" rx="5" fill="#1a1d24"/>
+  </g>
+
+  <!-- a flood of detection boxes streaming out -->
+  <g stroke="#7a808c" stroke-width="2.5" fill="none" stroke-opacity="0.7">
+    <rect x="300" y="120" width="46" height="46" rx="4"/>
+    <rect x="300" y="190" width="46" height="46" rx="4"/>
+    <rect x="300" y="260" width="46" height="46" rx="4"/>
+    <rect x="300" y="330" width="46" height="46" rx="4"/>
+    <rect x="300" y="400" width="46" height="46" rx="4"/>
+    <rect x="300" y="470" width="46" height="46" rx="4"/>
+  </g>
+
+  <!-- funnel: three narrowing filter slats -->
+  <g fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="3">
+    <path d="M420 110 L560 175 L560 455 L420 520 Z"/>
+  </g>
+  <g fill="#6a4c93" fill-opacity="0.18" stroke="#6a4c93" stroke-width="3">
+    <path d="M600 185 L720 235 L720 395 L600 445 Z"/>
+  </g>
+  <g fill="#6a4c93" fill-opacity="0.24" stroke="#6a4c93" stroke-width="3">
+    <path d="M760 250 L860 280 L860 350 L760 380 Z"/>
+  </g>
+
+  <!-- arrows through the funnel, thinning -->
+  <g stroke="#1a1d24" stroke-width="3" stroke-opacity="0.55" fill="none" marker-mid="none">
+    <line x1="900" y1="315" x2="980" y2="315"/>
+    <path d="M972 308 L982 315 L972 322" fill="none"/>
+  </g>
+
+  <!-- single surviving detection: a person box with a check -->
+  <g transform="translate(1000,255)">
+    <rect x="0" y="0" width="120" height="120" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4"/>
+    <!-- person glyph -->
+    <circle cx="60" cy="40" r="16" fill="#1a1d24"/>
+    <path d="M34 100 q26 -42 52 0 Z" fill="#1a1d24"/>
+    <!-- check badge -->
+    <circle cx="104" cy="20" r="18" fill="#3a7d44"/>
+    <path d="M96 20 l6 7 l11 -14" stroke="#fdfaf2" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

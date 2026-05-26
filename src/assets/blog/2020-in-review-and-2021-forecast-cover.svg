@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2020 smart home review">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- scorecard column: 6 check, 2 partial -->
+  <g transform="translate(170 130)" stroke-linecap="round">
+    <g>
+      <rect x="80" y="0" width="300" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 7 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <rect x="80" y="48" width="250" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 55 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <rect x="80" y="96" width="280" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 103 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <rect x="80" y="144" width="260" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 151 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <rect x="80" y="192" width="240" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 199 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <rect x="80" y="240" width="230" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 247 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <!-- 2 partial -->
+      <rect x="80" y="288" width="200" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <circle cx="36" cy="295" r="18" fill="none" stroke="#c87533" stroke-width="7"/>
+      <path d="M36 277 a18 18 0 0 1 0 36 z" fill="#c87533"/>
+      <rect x="80" y="336" width="180" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <circle cx="36" cy="343" r="18" fill="none" stroke="#c87533" stroke-width="7"/>
+      <path d="M36 325 a18 18 0 0 1 0 36 z" fill="#c87533"/>
+    </g>
+  </g>
+
+  <!-- house with hub running while internet link is cut -->
+  <g transform="translate(780 160)">
+    <path d="M30 130 L200 24 L370 130 L370 360 L30 360 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- the local hub inside, green = alive -->
+    <rect x="150" y="210" width="100" height="100" rx="10" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="5"/>
+    <g stroke="#6a4c93" stroke-width="4" stroke-linecap="round"><line x1="168" y1="236" x2="232" y2="236"/><line x1="168" y1="260" x2="232" y2="260"/><line x1="168" y1="284" x2="210" y2="284"/></g>
+    <circle cx="222" cy="300" r="5" fill="#3a7d44"/>
+  </g>
+  <!-- internet link to the house, cut with red X -->
+  <g transform="translate(640 250)">
+    <line x1="-90" y1="0" x2="170" y2="0" stroke="#1a1d24" stroke-width="4" stroke-dasharray="3 8" opacity="0.35"/>
+    <g transform="translate(0 0)"><line x1="-16" y1="-16" x2="16" y2="16" stroke="#c14a3a" stroke-width="6"/><line x1="16" y1="-16" x2="-16" y2="16" stroke="#c14a3a" stroke-width="6"/></g>
+    <!-- a cloud at the far left of the cut link -->
+    <g transform="translate(-130 0)"><path d="M-46 14 a22 22 0 0 1 12 -40 a30 30 0 0 1 56 5 a20 20 0 0 1 2 35 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/></g>
+  </g>
+</svg>

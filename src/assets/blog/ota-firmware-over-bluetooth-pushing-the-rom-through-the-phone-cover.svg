@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A firmware image pushed through a phone into a dual-bank device over Bluetooth.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="ota-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ota-dots)"/>
+  <rect width="24" height="630" fill="#357a8c"/>
+
+  <!-- ROM image, sliced into numbered chunks, on the cloud/source side -->
+  <g transform="translate(110,250)">
+    <rect x="0" y="0" width="120" height="150" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g stroke="#1a1d24" stroke-width="2" stroke-opacity="0.5">
+      <line x1="0" y1="30" x2="120" y2="30"/>
+      <line x1="0" y1="60" x2="120" y2="60"/>
+      <line x1="0" y1="90" x2="120" y2="90"/>
+      <line x1="0" y1="120" x2="120" y2="120"/>
+    </g>
+    <g fill="#357a8c" opacity="0.9">
+      <rect x="0" y="0" width="120" height="30" rx="9"/>
+    </g>
+    <!-- signature seal on the ROM -->
+    <g transform="translate(96,118)">
+      <circle cx="0" cy="0" r="22" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+      <path d="M-9 1 l6 7 12 -15" fill="none" stroke="#357a8c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M-7 18 l-5 16 8 -5 8 5 -5 -16" fill="#357a8c" stroke="none"/>
+    </g>
+  </g>
+
+  <!-- chunks crawling across the BLE link toward the phone -->
+  <g>
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6">
+      <rect x="270" y="300" width="46" height="34" rx="6"/>
+      <rect x="330" y="300" width="46" height="34" rx="6"/>
+      <rect x="390" y="300" width="46" height="34" rx="6"/>
+    </g>
+    <g fill="#357a8c">
+      <circle cx="293" cy="317" r="4"/>
+      <circle cx="353" cy="317" r="4"/>
+      <circle cx="413" cy="317" r="4"/>
+    </g>
+  </g>
+
+  <!-- the phone: untrusted courier -->
+  <g transform="translate(488,210)">
+    <rect x="0" y="0" width="150" height="220" rx="24" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="16" y="30" width="118" height="150" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.5"/>
+    <circle cx="75" cy="200" r="9" fill="none" stroke="#1a1d24" stroke-width="2.4"/>
+    <rect x="55" y="14" width="40" height="6" rx="3" fill="#1a1d24" opacity="0.45"/>
+    <!-- a single cached chunk shown inside the screen -->
+    <rect x="52" y="92" width="46" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <circle cx="75" cy="109" r="4" fill="#357a8c"/>
+    <!-- BLE waves emanating to the right -->
+    <g transform="translate(150,105)" fill="none" stroke="#357a8c" stroke-width="3" stroke-linecap="round">
+      <path d="M14 -30 a34 34 0 0 1 0 60"/>
+      <path d="M30 -44 a50 50 0 0 1 0 88"/>
+    </g>
+  </g>
+
+  <!-- chunks crawling from the phone toward the device -->
+  <g>
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6">
+      <rect x="724" y="300" width="46" height="34" rx="6"/>
+      <rect x="784" y="300" width="46" height="34" rx="6"/>
+    </g>
+    <g fill="#357a8c">
+      <circle cx="747" cy="317" r="4"/>
+      <circle cx="807" cy="317" r="4"/>
+    </g>
+  </g>
+
+  <!-- the device: dual-bank flash, one running one staging, gated by a signature -->
+  <g transform="translate(900,206)">
+    <rect x="0" y="0" width="200" height="228" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- chip pins along the top -->
+    <g stroke="#1a1d24" stroke-width="4" stroke-linecap="round">
+      <line x1="46" y1="-14" x2="46" y2="0"/>
+      <line x1="100" y1="-14" x2="100" y2="0"/>
+      <line x1="154" y1="-14" x2="154" y2="0"/>
+    </g>
+    <!-- Bank 0: running (green, solid) -->
+    <rect x="26" y="34" width="148" height="56" rx="9" fill="#3a7d44" fill-opacity="0.14" stroke="#3a7d44" stroke-width="3"/>
+    <!-- Bank 1: staging the incoming image (teal, dashed) -->
+    <rect x="26" y="102" width="148" height="56" rx="9" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="3" stroke-dasharray="6 4"/>
+    <!-- signature gate before the swap -->
+    <g transform="translate(100,192)">
+      <circle cx="0" cy="0" r="20" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+      <rect x="-8" y="-2" width="16" height="13" rx="2.5" fill="none" stroke="#357a8c" stroke-width="2.6"/>
+      <path d="M-5 -2 v-4 a5 5 0 0 1 10 0 v4" fill="none" stroke="#357a8c" stroke-width="2.6"/>
+    </g>
+  </g>
+</svg>

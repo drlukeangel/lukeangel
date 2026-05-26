@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 400" width="1080" height="400" role="img" aria-label="Local Hue path versus cloud-mediated SmartThings path through Home Assistant.">
+  <rect width="1080" height="400" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHERE EACH COMMAND ACTUALLY GOES</text>
+
+  <!-- the house boundary -->
+  <rect x="50" y="70" width="640" height="290" rx="12" fill="#6a4c93" fill-opacity="0.05" stroke="#6a4c93" stroke-width="2.4" stroke-dasharray="8 6"/>
+  <text x="66" y="92" font-family="ui-monospace,monospace" font-size="10.5" fill="#6a4c93">MY LAN — internet not required</text>
+
+  <!-- HA hub in the house -->
+  <g transform="translate(90,180)">
+    <rect x="0" y="0" width="120" height="80" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="24" cy="26" r="7" fill="#3a7d44"/>
+    <text x="60" y="60" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">HA (Pi)</text>
+  </g>
+
+  <!-- LOCAL path: HA -> Hue bridge -> bulb -->
+  <g transform="translate(280,120)">
+    <rect x="0" y="0" width="110" height="56" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <text x="55" y="33" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">Hue Bridge</text>
+    <g transform="translate(150,28)"><circle cx="0" cy="0" r="18" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2.6"/><rect x="-8" y="16" width="16" height="8" rx="2" fill="#1a1d24" opacity="0.5"/></g>
+  </g>
+  <g stroke="#3a7d44" stroke-width="3" fill="#3a7d44">
+    <path d="M210 196 C240 170, 250 156, 278 148" fill="none"/><path d="M282 146 l-16 0 l6 13 z"/>
+    <path d="M390 148 H424" fill="none"/><path d="M428 148 l-12 -6 v12 z"/>
+  </g>
+  <text x="300" y="200" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">local · &lt; 300 ms</text>
+
+  <!-- CLOUD path: HA -> out of house -> SmartThings cloud -> back -->
+  <g stroke="#c14a3a" stroke-width="3" fill="none">
+    <path d="M210 240 C400 320, 620 320, 770 250" />
+  </g>
+  <g fill="#c14a3a"><path d="M774 248 l-16 2 l9 11 z"/></g>
+  <text x="430" y="332" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">leaves the house → SmartThings cloud → back · 2–4 s</text>
+
+  <!-- the cloud (outside the house, right) -->
+  <g transform="translate(770,150)">
+    <path d="M40 96 a28 28 0 0 1 4 -54 a34 34 0 0 1 64 6 a24 24 0 0 1 -2 48 z" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.6"/>
+    <text x="76" y="78" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">SmartThings</text>
+    <text x="76" y="94" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">cloud</text>
+  </g>
+  <text x="846" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">down in an outage</text>
+
+  <text x="540" y="386" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Hue commands never leave the house. SmartThings ones round-trip to a server — and stop when it does.</text>
+</svg>

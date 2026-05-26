@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 392" width="760" height="392" role="img" aria-label="Fixed timer versus humidity-sensing fan run">
+  <rect width="760" height="392" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT: fixed timer -->
+  <g transform="translate(60,50)">
+    <!-- axes -->
+    <line x1="0" y1="0" x2="0" y2="210" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.4"/>
+    <line x1="0" y1="210" x2="280" y2="210" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.4"/>
+    <!-- humidity decay curve -->
+    <path d="M0 20 C70 30 110 150 180 178 S260 196 280 198" fill="none" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+    <!-- fan run block (flat fixed duration) -->
+    <rect x="0" y="216" width="150" height="22" rx="4" fill="#6a4c93" opacity="0.5"/>
+    <!-- the mismatch: curve still high where block ends -->
+    <line x1="150" y1="0" x2="150" y2="240" stroke="#1a1d24" stroke-width="2" stroke-dasharray="5 4" stroke-opacity="0.45"/>
+    <circle cx="150" cy="158" r="6" fill="#c14a3a"/>
+    <text x="140" y="290" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">fixed timer</text>
+    <text x="140" y="312" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">stops while still damp</text>
+  </g>
+
+  <!-- RIGHT: humidity sensing -->
+  <g transform="translate(420,50)">
+    <line x1="0" y1="0" x2="0" y2="210" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.4"/>
+    <line x1="0" y1="210" x2="280" y2="210" stroke="#1a1d24" stroke-width="2.5" stroke-opacity="0.4"/>
+    <!-- same humidity decay -->
+    <path d="M0 20 C70 30 110 150 180 178 S260 196 280 198" fill="none" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+    <!-- fan run block tracks until dry -->
+    <rect x="0" y="216" width="232" height="22" rx="4" fill="#3a7d44" opacity="0.45"/>
+    <line x1="232" y1="0" x2="232" y2="240" stroke="#1a1d24" stroke-width="2" stroke-dasharray="5 4" stroke-opacity="0.45"/>
+    <circle cx="232" cy="190" r="6" fill="#3a7d44"/>
+    <text x="140" y="290" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">humidity-sensing</text>
+    <text x="140" y="312" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">runs until dry, then stops</text>
+  </g>
+</svg>

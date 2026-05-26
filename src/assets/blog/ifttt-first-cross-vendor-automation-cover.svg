@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="IFTTT cross-vendor path">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- trigger device, bottom left -->
+  <g transform="translate(140 440)">
+    <rect x="0" y="0" width="90" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <circle cx="45" cy="30" r="13" fill="#6a4c93"/>
+  </g>
+  <!-- trigger vendor cloud -->
+  <g transform="translate(180 240)">
+    <path d="M-78 24 a36 36 0 0 1 20 -66 a48 48 0 0 1 90 8 a34 34 0 0 1 3 60 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+  </g>
+
+  <!-- IFTTT center cloud (bigger) -->
+  <g transform="translate(600 150)">
+    <path d="M-120 36 a56 56 0 0 1 30 -100 a74 74 0 0 1 138 12 a54 54 0 0 1 5 92 z" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="6"/>
+  </g>
+
+  <!-- action vendor cloud -->
+  <g transform="translate(1020 240)">
+    <path d="M-78 24 a36 36 0 0 1 20 -66 a48 48 0 0 1 90 8 a34 34 0 0 1 3 60 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+  </g>
+  <!-- action device, bottom right -->
+  <g transform="translate(980 440)">
+    <rect x="0" y="0" width="90" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <circle cx="45" cy="30" r="13" fill="#6a4c93"/>
+  </g>
+
+  <!-- the long path: device->cloud->IFTTT->cloud->device -->
+  <g fill="none" stroke="#6a4c93" stroke-width="5" stroke-linecap="round">
+    <path d="M185 440 L185 290" marker-end="url(#a)"/>
+    <path d="M230 235 C 360 170, 440 150, 478 150" marker-end="url(#a)"/>
+    <path d="M722 150 C 760 150, 840 170, 970 235" marker-end="url(#a)"/>
+    <path d="M1025 290 L1025 440" marker-end="url(#a)"/>
+  </g>
+
+  <!-- faint short LAN line between the two devices, crossed (the path NOT taken) -->
+  <path d="M230 470 L980 470" stroke="#1a1d24" stroke-width="3" stroke-dasharray="3 9" stroke-opacity="0.3"/>
+  <g transform="translate(605 470)" stroke="#c14a3a" stroke-width="4" stroke-linecap="round" opacity="0.6">
+    <line x1="-12" y1="-12" x2="12" y2="12"/><line x1="12" y1="-12" x2="-12" y2="12"/>
+  </g>
+
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto"><path d="M0 0 L9 4 L0 8 z" fill="#6a4c93"/></marker>
+  </defs>
+</svg>

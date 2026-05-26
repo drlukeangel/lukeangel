@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="The 2025 four-piece body-sensor stack: glasses, earbud, watch, ring.">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE 2025 BODY-SENSOR STACK — FOUR PIECES, ONE PERSON</text>
+
+  <!-- central body silhouette: simple head + shoulders -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <circle cx="560" cy="210" r="58"/>
+    <path d="M476 360 Q560 274 644 360"/>
+  </g>
+
+  <!-- GLASSES on the face (upper right) -->
+  <g>
+    <line x1="616" y1="200" x2="690" y2="170" stroke="#0066cc" stroke-width="2"/>
+    <g transform="translate(700,120)">
+      <circle cx="22" cy="40" r="20" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <circle cx="78" cy="40" r="20" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <line x1="42" y1="40" x2="58" y2="40" stroke="#0066cc" stroke-width="3"/>
+      <line x1="98" y1="36" x2="118" y2="30" stroke="#0066cc" stroke-width="3"/>
+      <rect x="14" y="58" width="16" height="6" rx="2" fill="#0066cc"/>
+      <text x="50" y="98" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">GLASSES</text>
+      <text x="50" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">camera · audio · HUD next</text>
+    </g>
+  </g>
+
+  <!-- EARBUD at the ear (upper left) -->
+  <g>
+    <line x1="504" y1="210" x2="430" y2="200" stroke="#0066cc" stroke-width="2"/>
+    <g transform="translate(300,150)">
+      <path d="M118 18 q-26 -10 -40 12 q-14 22 6 40 l6 26" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <circle cx="96" cy="34" r="9" fill="#0066cc"/>
+      <text x="78" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">EARBUD</text>
+      <text x="78" y="118" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">audio · hearing-aid mode</text>
+    </g>
+  </g>
+
+  <!-- WATCH on wrist (lower right) -->
+  <g>
+    <line x1="644" y1="358" x2="716" y2="392" stroke="#0066cc" stroke-width="2"/>
+    <g transform="translate(720,378)">
+      <rect x="20" y="10" width="56" height="68" rx="14" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <rect x="32" y="22" width="32" height="44" rx="5" fill="#0066cc" fill-opacity="0.25"/>
+      <text x="48" y="106" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">WATCH</text>
+      <text x="48" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">HR · ECG · BP trend (forecast)</text>
+    </g>
+  </g>
+
+  <!-- RING on finger (lower left) -->
+  <g>
+    <line x1="476" y1="358" x2="404" y2="392" stroke="#0066cc" stroke-width="2"/>
+    <g transform="translate(290,378)">
+      <ellipse cx="100" cy="44" rx="30" ry="22" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <ellipse cx="100" cy="44" rx="16" ry="11" fill="#fdfaf2" stroke="#0066cc" stroke-width="2"/>
+      <text x="100" y="106" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">RING</text>
+      <text x="100" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">sleep · recovery · no display</text>
+    </g>
+  </g>
+
+  <text x="560" y="540" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">The body is the platform. No single device wins — the stack does.</text>
+</svg>

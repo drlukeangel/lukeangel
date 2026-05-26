@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="camera bandwidth budget, wired vs wireless">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">THE FIT IS ABOUT THE TRANSPORT, NOT THE CAMERA</text>
+
+  <!-- WIRED side -->
+  <text x="40" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#3a7d44">WIRED GIGABIT VLAN &#183; 1000 Mbps</text>
+  <!-- the full capacity bar -->
+  <rect x="40" y="106" width="900" height="40" rx="8" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="2"/>
+  <!-- used: 24 Mbps (4 x 4K PoE) — a thin slice -->
+  <rect x="40" y="106" width="36" height="40" rx="8" fill="#3a7d44" fill-opacity="0.45"/>
+  <text x="86" y="131" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">4&#215; 4K PoE = 24 Mbps</text>
+  <text x="930" y="131" text-anchor="end" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#3a7d44">enormous headroom &#8594; stream all you want</text>
+
+  <!-- WIRELESS side -->
+  <text x="40" y="206" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#c14a3a">SHARED 2.4 GHz BAND &#183; already busy</text>
+  <rect x="40" y="220" width="900" height="40" rx="8" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="2"/>
+  <!-- existing IoT ~40 Mbps -->
+  <rect x="40" y="220" width="420" height="40" rx="8" fill="#7a808c" fill-opacity="0.3"/>
+  <text x="250" y="245" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#1a1d24">~30-50 Mbps: a houseful of IoT</text>
+  <!-- the good case: +2 Mbps 1080p PIR -->
+  <rect x="460" y="220" width="24" height="40" fill="#3a7d44" fill-opacity="0.5"/>
+  <text x="492" y="282" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#3a7d44">+2 Mbps 1080p PIR &#10003; disappears into the noise</text>
+  <!-- the bad case: +6 Mbps 4K always-on (drawn as an overflow chunk) -->
+  <rect x="484" y="220" width="72" height="40" fill="#c14a3a" fill-opacity="0.4"/>
+  <text x="492" y="304" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">+6 Mbps 4K always-on &#10007; crowds everyone else</text>
+
+  <text x="40" y="360" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#1a1d24" font-weight="700">Counter-intuitive:</text>
+  <text x="40" y="382" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">a PIR-triggered Wi-Fi cam bursts only on motion &#8212; easier on the network than an always-on PoE cam.</text>
+
+  <text x="500" y="446" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">1080p capped + PIR fits the wireless budget; 4K always-on belongs on a wire.</text>
+</svg>

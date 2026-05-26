@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-label="2023 forecast confidence chart">
+  <rect width="960" height="560" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .pct{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#5b616b;}
+    .ax{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#7a808c;}
+    .ttl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:18px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+  </style>
+  <text x="40" y="46" class="ttl">2023 forecast — by confidence</text>
+  <g class="ax" text-anchor="middle">
+    <line x1="300" y1="78" x2="300" y2="500" stroke="#1a1d24" stroke-opacity="0.15"/>
+    <line x1="440" y1="78" x2="440" y2="500" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <line x1="580" y1="78" x2="580" y2="500" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <line x1="720" y1="78" x2="720" y2="500" stroke="#1a1d24" stroke-opacity="0.08"/>
+    <line x1="860" y1="78" x2="860" y2="500" stroke="#1a1d24" stroke-opacity="0.15"/>
+    <text x="300" y="72">0%</text><text x="440" y="72">25%</text><text x="580" y="72">50%</text><text x="720" y="72">75%</text><text x="860" y="72">100%</text>
+  </g>
+
+  <!-- 1: 80 read -->
+  <g transform="translate(0,90)"><text x="285" y="20" text-anchor="end" class="lab">Mars acquires another pet-tech player</text>
+    <rect x="300" y="4" width="448" height="24" rx="4" fill="#c87533" fill-opacity="0.6"/><text x="758" y="22" class="pct">80%</text></g>
+  <!-- 2: 65 read -->
+  <g transform="translate(0,134)"><text x="285" y="20" text-anchor="end" class="lab">A credible AI behavior product ships</text>
+    <rect x="300" y="4" width="364" height="24" rx="4" fill="#c87533" fill-opacity="0.6"/><text x="674" y="22" class="pct">65%</text></g>
+  <!-- 3: 70 read -->
+  <g transform="translate(0,178)"><text x="285" y="20" text-anchor="end" class="lab">Atom's baseline drifts (he turns 10)</text>
+    <rect x="300" y="4" width="392" height="24" rx="4" fill="#c87533" fill-opacity="0.6"/><text x="702" y="22" class="pct">70%</text></g>
+  <!-- 4: 95 near-certain, highlighted -->
+  <g transform="translate(0,222)"><text x="285" y="20" text-anchor="end" class="lab">New build move-in, layout redesign</text>
+    <rect x="300" y="4" width="532" height="24" rx="4" fill="#c87533" fill-opacity="0.85" stroke="#1a1d24" stroke-width="2"/><text x="842" y="22" class="pct">95%</text></g>
+  <!-- 5: 50 coin -->
+  <g transform="translate(0,266)"><text x="285" y="20" text-anchor="end" class="lab">Petivity changes its model</text>
+    <rect x="300" y="4" width="280" height="24" rx="4" fill="#c87533" fill-opacity="0.6"/><text x="590" y="22" class="pct">50%</text></g>
+  <!-- 6: 45 wish -->
+  <g transform="translate(0,310)"><text x="285" y="20" text-anchor="end" class="lab">An independent health tracker ships</text>
+    <rect x="300" y="4" width="252" height="24" rx="4" fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="1.5" stroke-dasharray="5 3"/><text x="562" y="22" class="pct">45%</text></g>
+  <!-- 7: 60 read -->
+  <g transform="translate(0,354)"><text x="285" y="20" text-anchor="end" class="lab">More Halo-class shock-fences ship</text>
+    <rect x="300" y="4" width="336" height="24" rx="4" fill="#c87533" fill-opacity="0.6"/><text x="646" y="22" class="pct">60%</text></g>
+  <!-- 8: 50 coin -->
+  <g transform="translate(0,398)"><text x="285" y="20" text-anchor="end" class="lab">First Matter-compatible pet device</text>
+    <rect x="300" y="4" width="280" height="24" rx="4" fill="#c87533" fill-opacity="0.6"/><text x="590" y="22" class="pct">50%</text></g>
+
+  <g transform="translate(300,450)">
+    <rect x="0" y="0" width="20" height="14" rx="3" fill="#c87533" fill-opacity="0.6"/><text x="28" y="12" class="ax">grounded read</text>
+    <rect x="170" y="0" width="20" height="14" rx="3" fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="1.5" stroke-dasharray="5 3"/><text x="198" y="12" class="ax">wishful</text>
+    <rect x="300" y="0" width="20" height="14" rx="3" fill="#c87533" fill-opacity="0.85" stroke="#1a1d24" stroke-width="1.5"/><text x="328" y="12" class="ax">near-certain — the year turns on it</text>
+  </g>
+  <line x1="40" y1="500" x2="920" y2="500" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="534" class="cap">The new build is the one I'm certain of — and the independent tracker is still a wish.</text>
+</svg>

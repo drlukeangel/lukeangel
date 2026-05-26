@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" role="img" aria-label="Bespoke kitchen architecture">
+  <rect x="0.5" y="0.5" width="1039" height="499" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14.5px;font-weight:700;fill:#1a1d24}
+    .node{fill:#fff;stroke:#1a1d24;stroke-width:2}
+  </style>
+
+  <!-- HA brain in center -->
+  <rect x="400" y="210" width="240" height="80" rx="12" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-width="2.5"/>
+  <text x="520" y="244" text-anchor="middle" class="hd" fill="#6a4c93">Home Assistant</text>
+  <text x="520" y="266" text-anchor="middle" class="sm">bridges everything · runs cross-device logic</text>
+
+  <!-- top: appliances via SmartThings -->
+  <g>
+    <rect x="70" y="40" width="180" height="64" rx="10" class="node"/>
+    <text x="160" y="68" text-anchor="middle" class="lbl">Family Hub fridge</text>
+    <text x="160" y="88" text-anchor="middle" class="sm">SmartThings hub + 21" display</text>
+
+    <rect x="290" y="40" width="160" height="64" rx="10" class="node"/>
+    <text x="370" y="68" text-anchor="middle" class="lbl">Bespoke oven</text>
+    <text x="370" y="88" text-anchor="middle" class="sm">+ temp probe</text>
+
+    <rect x="490" y="40" width="170" height="64" rx="10" class="node"/>
+    <text x="575" y="68" text-anchor="middle" class="lbl">dishwasher</text>
+    <text x="575" y="88" text-anchor="middle" class="sm">SmartThings device</text>
+
+    <rect x="700" y="40" width="180" height="64" rx="10" class="node"/>
+    <text x="790" y="68" text-anchor="middle" class="lbl">washer / dryer</text>
+    <text x="790" y="88" text-anchor="middle" class="sm">SmartThings device</text>
+  </g>
+  <!-- ST bus bar (sits below the per-appliance stubs and the label) -->
+  <text x="350" y="128" text-anchor="middle" class="sm" fill="#5b616b">all six connect via the SmartThings hub (Zigbee + Z-Wave + Matter)</text>
+  <line x1="160" y1="104" x2="160" y2="142" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="1.5"/>
+  <line x1="370" y1="104" x2="370" y2="142" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="1.5"/>
+  <line x1="575" y1="104" x2="575" y2="142" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="1.5"/>
+  <line x1="790" y1="104" x2="790" y2="142" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="1.5"/>
+  <line x1="160" y1="142" x2="790" y2="142" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="1.5"/>
+  <line x1="475" y1="142" x2="475" y2="208" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+  <polygon points="470,200 475,210 480,200" fill="#1a1d24" fill-opacity="0.55"/>
+  <text x="492" y="178" class="sm">SmartThings &#8596; HA</text>
+
+  <!-- right: Frame TV -->
+  <rect x="760" y="222" width="200" height="64" rx="10" class="node"/>
+  <text x="860" y="250" text-anchor="middle" class="lbl">Frame TV</text>
+  <text x="860" y="270" text-anchor="middle" class="sm">Tizen + SmartThings 2nd hub</text>
+  <line x1="640" y1="252" x2="752" y2="252" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+  <polygon points="752,247 762,252 752,257" fill="#1a1d24" fill-opacity="0.55"/>
+
+  <!-- bottom: outputs the automations drive -->
+  <g>
+    <rect x="120" y="380" width="180" height="64" rx="10" class="node"/>
+    <text x="210" y="408" text-anchor="middle" class="lbl">kitchen lights</text>
+    <text x="210" y="428" text-anchor="middle" class="sm">+ range hood + dehumidifier</text>
+
+    <rect x="350" y="380" width="160" height="64" rx="10" class="node"/>
+    <text x="430" y="408" text-anchor="middle" class="lbl">Echo</text>
+    <text x="430" y="428" text-anchor="middle" class="sm">voice announce</text>
+
+    <rect x="560" y="380" width="160" height="64" rx="10" class="node"/>
+    <text x="640" y="408" text-anchor="middle" class="lbl">Frame TV banner</text>
+    <text x="640" y="428" text-anchor="middle" class="sm">across the room</text>
+
+    <rect x="770" y="380" width="160" height="64" rx="10" class="node"/>
+    <text x="850" y="408" text-anchor="middle" class="lbl">phone push</text>
+    <text x="850" y="428" text-anchor="middle" class="sm">when away</text>
+  </g>
+  <g stroke="#6a4c93" stroke-width="2" fill="#6a4c93">
+    <line x1="470" y1="290" x2="210" y2="376"/><polygon points="208,366 210,378 217,368" />
+    <line x1="500" y1="290" x2="430" y2="376"/><polygon points="424,367 430,378 435,368"/>
+    <line x1="545" y1="290" x2="640" y2="376"/><polygon points="635,367 640,378 645,368"/>
+    <line x1="575" y1="290" x2="850" y2="376"/><polygon points="844,367 850,378 855,368"/>
+  </g>
+  <text x="520" y="476" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="14.5" fill="#5b616b">Cross-device automations live in HA, where they're testable.</text>
+</svg>

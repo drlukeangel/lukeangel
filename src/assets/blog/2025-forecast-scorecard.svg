@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 430" width="1080" height="430" role="img" aria-label="The 2024 forecast scored four hits, one partial, three misses.">
+  <rect width="1080" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">SCORING THE 2024 FORECAST</text>
+
+  <!-- 8 rows, each a chip with a verdict glyph -->
+  <g font-family="ui-monospace,monospace" font-size="12.5">
+    <!-- hit -->
+    <g transform="translate(60,70)">
+      <circle cx="16" cy="16" r="14" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M9 16 l5 6 l10 -12" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="44" y="21" fill="#1a1d24">DIY ESP32 hardware goes mainstream</text>
+    </g>
+    <g transform="translate(60,112)">
+      <circle cx="16" cy="16" r="14" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M9 16 l5 6 l10 -12" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="44" y="21" fill="#1a1d24">AI behavior detection stays marketing</text>
+    </g>
+    <g transform="translate(60,154)">
+      <circle cx="16" cy="16" r="14" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M9 16 l5 6 l10 -12" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="44" y="21" fill="#1a1d24">long-arc retrospective written</text>
+    </g>
+    <g transform="translate(60,196)">
+      <circle cx="16" cy="16" r="14" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M9 16 l5 6 l10 -12" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="44" y="21" fill="#1a1d24">non-Mars vitals tracker (Tractive, May)</text>
+    </g>
+    <!-- partial -->
+    <g transform="translate(60,238)">
+      <circle cx="16" cy="16" r="14" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="2.5"/>
+      <path d="M16 6 a10 10 0 0 1 0 20 z" fill="#c87533"/>
+      <text x="44" y="21" fill="#1a1d24">local-first pet camera (partial)</text>
+    </g>
+    <!-- misses -->
+    <g transform="translate(60,280)">
+      <circle cx="16" cy="16" r="14" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M10 10 l12 12 M22 10 l-12 12" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      <text x="44" y="21" fill="#1a1d24">senior pet mode UX</text>
+    </g>
+    <g transform="translate(60,322)">
+      <circle cx="16" cy="16" r="14" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M10 10 l12 12 M22 10 l-12 12" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      <text x="44" y="21" fill="#1a1d24">Matter smart litter / feeder ships</text>
+    </g>
+  </g>
+
+  <!-- the one that broke the model, highlighted on the right -->
+  <g transform="translate(610,118)">
+    <rect x="0" y="0" width="420" height="150" rx="12" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="7 5"/>
+    <circle cx="40" cy="44" r="16" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.5"/>
+    <path d="M33 37 l14 14 M47 37 l-14 14" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+    <text x="70" y="40" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">"Mars consolidates another player"</text>
+    <text x="70" y="60" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">held at 80% — and flatly wrong.</text>
+    <text x="24" y="100" font-family="ui-monospace,monospace" font-size="11.5" fill="#c14a3a">Mars DIVESTED Whistle instead.</text>
+    <text x="24" y="124" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">The high-confidence "trend continues" call</text>
+    <text x="24" y="140" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">is the one that blew up.</text>
+  </g>
+
+  <!-- tally -->
+  <text x="820" y="320" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="22" fill="#1a1d24">4 ✓ · 1 ½ · 3 ✗</text>
+  <text x="820" y="348" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">≈ 56% — worst year</text>
+
+  <text x="540" y="408" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">The box-score barely captures it: I was wrong about the shape of the whole arc.</text>
+</svg>

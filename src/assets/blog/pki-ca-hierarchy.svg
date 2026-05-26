@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-label="The chain of trust in the cloud: an offline root CA signs an online intermediate (issuing) CA, which signs each device's leaf certificate, so a compromised intermediate is recoverable without losing the root.">
+  <rect width="1000" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE CHAIN OF TRUST · WHO SIGNS WHAT</text>
+
+  <!-- ROOT CA -->
+  <rect x="370" y="66" width="260" height="78" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <g transform="translate(404,76)" stroke="#c14a3a" stroke-width="2.6" fill="none">
+    <rect x="0" y="12" width="24" height="19" rx="3.5"/>
+    <path d="M4 12 v-5 a8 8 0 0 1 16 0 v5"/>
+  </g>
+  <text x="522" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" fill="#1a1d24">ROOT CA</text>
+  <text x="500" y="128" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">offline · HSM · signs only intermediates</text>
+
+  <g stroke="#c14a3a" stroke-width="3" fill="#c14a3a">
+    <line x1="500" y1="144" x2="500" y2="190"/>
+    <path d="M500 194 l-7 -15 h14 z"/>
+  </g>
+  <text x="518" y="174" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">signs</text>
+
+  <!-- INTERMEDIATE CA -->
+  <rect x="370" y="196" width="260" height="78" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="510" y="230" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" fill="#1a1d24">INTERMEDIATE CA</text>
+  <text x="510" y="256" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">online · issuing · revocable</text>
+
+  <g stroke="#c14a3a" stroke-width="3" fill="#c14a3a">
+    <line x1="500" y1="274" x2="500" y2="320"/>
+    <path d="M500 324 l-7 -15 h14 z"/>
+  </g>
+  <text x="518" y="304" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">signs</text>
+
+  <!-- DEVICE LEAF CERT -->
+  <rect x="370" y="326" width="260" height="74" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="510" y="360" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" fill="#1a1d24">DEVICE CERT (leaf)</text>
+  <text x="510" y="385" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#7a808c">one per device</text>
+
+  <!-- fan to devices -->
+  <g stroke="#1a1d24" stroke-width="1.6" opacity="0.4">
+    <line x1="430" y1="400" x2="362" y2="452"/>
+    <line x1="510" y1="400" x2="510" y2="452"/>
+    <line x1="590" y1="400" x2="658" y2="452"/>
+  </g>
+  <g fill="none" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="340" y="454" width="44" height="30" rx="7"/>
+    <rect x="488" y="454" width="44" height="30" rx="7"/>
+    <rect x="636" y="454" width="44" height="30" rx="7"/>
+  </g>
+</svg>

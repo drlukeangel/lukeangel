@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" role="img" aria-label="Platform pick decision tree 2025">
+  <rect x="0.5" y="0.5" width="1039" height="469" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .q{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13.5px;fill:#1a1d24}
+    .a{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;font-weight:700;fill:#6a4c93}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b}
+  </style>
+
+  <!-- four question→answer rows -->
+  <g>
+    <!-- row 1 -->
+    <rect x="40" y="44" width="500" height="66" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+    <text x="60" y="74" class="q">Developer / hobbyist / want full control?</text>
+    <text x="60" y="96" class="sm">8 years of custom integrations, ESPHome, LoRa</text>
+    <g stroke="#1a1d24" stroke-width="2" fill="#1a1d24"><line x1="540" y1="77" x2="610" y2="77"/><polygon points="610,72 620,77 610,82"/></g>
+    <rect x="620" y="50" width="380" height="54" rx="10" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="2"/>
+    <text x="640" y="83" class="a">Home Assistant</text>
+
+    <!-- row 2 -->
+    <rect x="40" y="138" width="500" height="66" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+    <text x="60" y="168" class="q">Apple-only? Privacy-focused?</text>
+    <text x="60" y="190" class="sm">wants local video, tight ecosystem</text>
+    <g stroke="#1a1d24" stroke-width="2" fill="#1a1d24"><line x1="540" y1="171" x2="610" y2="171"/><polygon points="610,166 620,171 610,176"/></g>
+    <rect x="620" y="144" width="380" height="54" rx="10" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="2"/>
+    <text x="640" y="170" class="a">Apple Home + HomeKit</text>
+    <text x="640" y="190" class="sm">with HKSV cameras</text>
+
+    <!-- row 3 -->
+    <rect x="40" y="232" width="500" height="66" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+    <text x="60" y="262" class="q">Samsung-heavy house? Want minimal setup?</text>
+    <text x="60" y="284" class="sm">Bespoke appliances, Family Hub fridge</text>
+    <g stroke="#1a1d24" stroke-width="2" fill="#1a1d24"><line x1="540" y1="265" x2="610" y2="265"/><polygon points="610,260 620,265 610,270"/></g>
+    <rect x="620" y="238" width="380" height="54" rx="10" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="2"/>
+    <text x="640" y="264" class="a">SmartThings + Edge</text>
+    <text x="640" y="284" class="sm">local-first — cloud complaint goes away</text>
+
+    <!-- row 4 -->
+    <rect x="40" y="326" width="500" height="66" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="2"/>
+    <text x="60" y="356" class="q">Want maximum cross-vendor compatibility?</text>
+    <text x="60" y="378" class="sm">mixed Zigbee / Z-Wave / Wi-Fi fleet</text>
+    <g stroke="#1a1d24" stroke-width="2" fill="#1a1d24"><line x1="540" y1="359" x2="610" y2="359"/><polygon points="610,354 620,359 610,364"/></g>
+    <rect x="620" y="332" width="380" height="54" rx="10" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="2"/>
+    <text x="640" y="358" class="a">Any of the above</text>
+    <text x="640" y="378" class="sm">+ a Matter bridge strategy</text>
+  </g>
+
+  <text x="520" y="436" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="15" fill="#5b616b">A year ago I'd have called SmartThings "ages poorly." With Edge running locally, that's no longer true.</text>
+</svg>

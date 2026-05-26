@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Multi-vendor app problem">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- three phones, each over its own island -->
+  <!-- island 1 -->
+  <g transform="translate(180 150)">
+    <rect x="0" y="0" width="120" height="220" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="14" y="26" width="92" height="150" rx="5" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="2"/>
+    <circle cx="60" cy="196" r="9" fill="#1a1d24"/>
+    <!-- a bulb icon on screen -->
+    <circle cx="60" cy="86" r="22" fill="#6a4c93" fill-opacity="0.25" stroke="#1a1d24" stroke-width="3"/><circle cx="60" cy="86" r="7" fill="#6a4c93"/>
+    <!-- island ground -->
+    <ellipse cx="60" cy="430" rx="120" ry="26" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-opacity="0.4" stroke-width="2.5"/>
+    <line x1="60" y1="372" x2="60" y2="404" stroke="#1a1d24" stroke-width="3" stroke-dasharray="3 5"/>
+  </g>
+
+  <!-- island 2 -->
+  <g transform="translate(540 150)">
+    <rect x="0" y="0" width="120" height="220" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="14" y="26" width="92" height="150" rx="5" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="2"/>
+    <circle cx="60" cy="196" r="9" fill="#1a1d24"/>
+    <!-- a plug icon on screen -->
+    <rect x="40" y="64" width="40" height="46" rx="8" fill="#6a4c93" fill-opacity="0.25" stroke="#1a1d24" stroke-width="3"/><circle cx="60" cy="87" r="7" fill="#6a4c93"/>
+    <ellipse cx="60" cy="430" rx="120" ry="26" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-opacity="0.4" stroke-width="2.5"/>
+    <line x1="60" y1="372" x2="60" y2="404" stroke="#1a1d24" stroke-width="3" stroke-dasharray="3 5"/>
+  </g>
+
+  <!-- island 3 -->
+  <g transform="translate(900 150)">
+    <rect x="0" y="0" width="120" height="220" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="14" y="26" width="92" height="150" rx="5" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="2"/>
+    <circle cx="60" cy="196" r="9" fill="#1a1d24"/>
+    <!-- a router icon on screen -->
+    <rect x="34" y="74" width="52" height="28" rx="5" fill="#6a4c93" fill-opacity="0.25" stroke="#1a1d24" stroke-width="3"/><line x1="46" y1="64" x2="46" y2="74" stroke="#1a1d24" stroke-width="3"/><line x1="74" y1="64" x2="74" y2="74" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="60" cy="430" rx="120" ry="26" fill="#6a4c93" fill-opacity="0.10" stroke="#6a4c93" stroke-opacity="0.4" stroke-width="2.5"/>
+    <line x1="60" y1="372" x2="60" y2="404" stroke="#1a1d24" stroke-width="3" stroke-dasharray="3 5"/>
+  </g>
+
+  <!-- crossed-out links between islands (no shared state) -->
+  <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round">
+    <path d="M360 430 L420 430" stroke-dasharray="4 8" opacity="0.5"/>
+    <g transform="translate(390 430)"><line x1="-12" y1="-12" x2="12" y2="12"/><line x1="12" y1="-12" x2="-12" y2="12"/></g>
+    <path d="M720 430 L780 430" stroke-dasharray="4 8" opacity="0.5"/>
+    <g transform="translate(750 430)"><line x1="-12" y1="-12" x2="12" y2="12"/><line x1="12" y1="-12" x2="-12" y2="12"/></g>
+  </g>
+</svg>

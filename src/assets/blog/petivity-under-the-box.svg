@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 430" role="img" aria-label="scale slides under any box">
+  <rect width="940" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="46" class="hd">ONE SENSOR, ANY BOX ON TOP</text>
+
+  <!-- LEFT: plain pan on the scale -->
+  <g transform="translate(70,90)">
+    <text x="120" y="0" text-anchor="middle" class="lab">plain pan</text>
+    <!-- box -->
+    <path d="M40 40 L200 40 L188 110 L52 110 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M40 40 L200 40 L210 30 L50 30 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- the Petivity scale base under it -->
+    <rect x="30" y="116" width="180" height="26" rx="6" fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="3"/>
+    <text x="120" y="134" text-anchor="middle" class="lab" fill="#c87533">scale</text>
+  </g>
+
+  <!-- RIGHT: Litter-Robot globe on the same scale -->
+  <g transform="translate(470,90)">
+    <text x="120" y="0" text-anchor="middle" class="lab">Litter-Robot</text>
+    <!-- base -->
+    <path d="M70 80 L170 80 L160 116 L80 116 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <!-- globe -->
+    <circle cx="120" cy="56" r="40" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M92 44 A40 40 0 0 1 148 44" fill="none" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.4"/>
+    <!-- the same scale base under it -->
+    <rect x="40" y="116" width="160" height="26" rx="6" fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="3"/>
+    <text x="120" y="134" text-anchor="middle" class="lab" fill="#c87533">scale</text>
+  </g>
+
+  <!-- shared data spine: both scales feed one stream -->
+  <g transform="translate(0,300)">
+    <line x1="190" y1="-42" x2="350" y2="-2" stroke="#c87533" stroke-width="2.5" marker-end="url(#d)"/>
+    <line x1="590" y1="-42" x2="590" y2="-2" stroke="#c87533" stroke-width="2.5" marker-end="url(#d)"/>
+    <rect x="300" y="0" width="340" height="44" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="470" y="28" text-anchor="middle" class="lab" fill="#1a1d24">per-visit: weight · duration · timestamp</text>
+  </g>
+
+  <defs><marker id="d" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 z" fill="#c87533"/></marker></defs>
+
+  <text x="40" y="406" class="cap">No litter mechanism of its own — it instruments whatever box already works in your house.</text>
+</svg>

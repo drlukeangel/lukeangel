@@ -8,10 +8,10 @@ tags:
   - forecast
 notebook: smart-home-iot-journey
 notebookOrder: 19
-excerpt: "Google Home shipped (predicted), Hue Motion shipped (predicted), Apple's HomeKit hub didn't (missed). 2015 forecast scored 88%."
-pullquote: "Looking back at the 2015 forecast: 7/8 hit and the one miss was Apple's HomePod, which slipped. ~88% accurate. The pattern: Apple is always a year later than I predict."
-cover: "../../assets/blog/2016-in-review-and-2017-forecast-cover.png"
-coverAlt: "2016 review — Google Home, HomeKit, Hue automation"
+excerpt: "Google Home shipped (predicted), Hue Motion shipped (predicted), Apple's rumored smart speaker didn't (missed again). The 2015 forecast came in at a humbling 69% — and the year's real problem is still three hubs that won't talk to each other."
+pullquote: "Grading the 2015 forecast honestly lands me at 69%, not the 88% I'd hoped — and the miss is the same one every year: Apple's rumored smart speaker that keeps not shipping. The pattern is that I forecast Apple on a calendar, and Apple ships when Apple ships."
+cover: "../../assets/blog/2016-in-review-and-2017-forecast-cover.svg"
+coverAlt: "Two smart speakers on a kitchen counter — a tall cylinder with a light ring and a shorter angled speaker with four status dots — each emitting voice-wave arcs toward the other but stopping short, a faint dashed gap between them. Two voice ecosystems sharing a house and not quite talking to each other."
 ---
 
 2016 done. Time to grade and forecast.
@@ -33,6 +33,8 @@ Eight predictions for 2016. Let me grade:
 
 Counting partials as halves: **5.5/8 = 69%**. Worse than I want. The Apple miss is structural — Apple ships when Apple ships and I keep predicting on a calendar.
 
+![Grading the 2015 forecast: four clean green checks (Google Home ships, Hue ships a motion sensor, a first useful PoE camera, Home Assistant gets on my radar), three purple half-marks for partials (Zigbee 3.0 in real products, Thread ships first products, SmartThings cracks on reliability), and one red cross — Apple ships a dedicated HomeKit hub or speaker. A callout notes the miss is the same one every year: Apple's smart speaker slips again, because I keep forecasting Apple on a calendar. Tally: 5.5 of 8, about 69 percent counting partials as halves.](../../assets/blog/2016-forecast-scorecard.svg)
+
 ## What got added to the house this year
 
 - **Google Home** (November). Now competing with Echo for kitchen real estate.
@@ -44,6 +46,8 @@ Counting partials as halves: **5.5/8 = 69%**. Worse than I want. The Apple miss 
 ## What works at year-end
 
 - **Voice-driven everything.** "OK Google, dim the kitchen" is now the default. Echo in the bedroom for music + timers. Two ecosystems, working.
+
+![Two voice surfaces sharing one house at the end of 2016. On the left, an Echo cylinder with its light ring (Alexa, in the bedroom since 2014) drives its own slice — music, timers, Hue and SmartThings via their Alexa Skills. On the right, the newly arrived Google Home (kitchen, November 2016) drives "dim the kitchen," Hue and Chromecast, with no routines yet. Between them a red dashed gap labelled "don't share state": the two assistants each command their own slice of the house and nothing bridges them, because the rumored Siri speaker that might have hasn't shipped.](../../assets/blog/2016-in-review-and-2017-forecast-fig-3.svg)
 - **Hue Motion + Hue Bridge** automations. Hallway light on under 200ms after motion. Basement stairs the same. Best UX upgrade of the year.
 - **HomeKit for the Apple-only members of the family.** Three devices (Lutron, Ecobee, Hue) work flawlessly with Siri.
 - **The first PoE camera.** Not in dashboard yet, but RTSP working into a Synology NAS for recording.
@@ -51,7 +55,9 @@ Counting partials as halves: **5.5/8 = 69%**. Worse than I want. The Apple miss 
 ## What still doesn't
 
 - **The multi-hub problem.** Three hubs now (SmartThings, Hue, Lutron). Each has its own devices. Cross-hub automations have to go through SmartThings (cloud-mediated) or HomeKit (limited devices). I'm running parallel systems.
-- **Apple HomePod still vaporware.** Promised for 2016; pushed to 2017.
+
+![Three hub islands across the top — the SmartThings hub with its Z-Wave and Zigbee sensors, locks, and the security automation; the Hue Bridge with its Zigbee bulbs and motion sensors; and Lutron Caséta with its Clear Connect dimmers and switches. Below them, two awkward bridges: a red cloud labelled cross-hub-via-SmartThings-cloud that dies in an outage, and a HomeKit box that only carries the three MFi devices and leaves most of the house out. Dashed lines run from each hub down to whichever bridge can reach it. A caption notes every cross-hub automation rides the cloud or HomeKit, and each leaves something important out.](../../assets/blog/2016-multi-hub-problem.svg)
+- **Apple's rumored smart speaker still vaporware.** The Siri-in-a-speaker device the rumor mill has been promising hasn't materialized; if it's coming, it's a 2017 story.
 - **SmartThings cloud reliability.** Two more outages this year (one during Thanksgiving; the security automation was silent for six hours). Cloud-required custom SmartApps remain a structural weakness.
 - **Camera-in-dashboard story.** Reolink works for recording. There's no clean way to view the live feed inside SmartThings or HomeKit. Each ecosystem has its own camera support and the Reolink isn't supported by either.
 
@@ -59,15 +65,15 @@ Counting partials as halves: **5.5/8 = 69%**. Worse than I want. The Apple miss 
 
 **1. I finally install Home Assistant on a Raspberry Pi. (Confidence: 90%)**
 
-I've been reading the HA docs for six months. The community has grown enormously (the subreddit went from 5k to 50k+ this year). The Hass.io packaging that shipped in June makes installation a one-card flash. I'm going to install it Q1 2017. Whether it replaces SmartThings or runs alongside, TBD.
+I've been reading the HA docs for six months. The community has grown enormously (the subreddit went from 5k to 50k+ this year). Installation is still a manual Python-venv-on-Raspbian affair today, but the project's clearly heading toward a flash-and-go image, and I'm going to set it up Q1 2017 either way. Whether it replaces SmartThings or runs alongside, TBD.
 
-**2. Apple HomePod ships. (Confidence: 80%)**
+**2. Apple ships its rumored Siri speaker. (Confidence: 80%)**
 
-Pushed from 2016. Apple basically has to ship in 2017 or the smart-speaker market is locked out for them. Expect a June (WWDC) announcement, fall release.
+The smart-speaker device the rumors keep describing has to land in 2017, or Apple cedes the kitchen to Amazon and Google entirely. My bet: a June (WWDC) announcement, fall release — and knowing Apple, an MFi-gated, HomeKit-only walled garden rather than anything that talks to my SmartThings devices.
 
-**3. SmartThings ships a v2 hub. (Confidence: 70%)**
+**3. SmartThings finally makes the v2 hub run automations locally. (Confidence: 55%)**
 
-Samsung's been quiet on the hub side since the acquisition. The current hardware is from 2012. A v2 with more local execution capability — bigger CPU, more RAM, potential for actually running custom SmartApps locally — would address the cloud-outage problem. Rumors say September.
+The v2 hub shipped in 2015 with the *hardware* for local execution — more CPU and RAM than the 2012 original — and Samsung has barely used it. Almost everything still round-trips through the cloud, which is why a Thanksgiving outage left my security automation silent for six hours. The bet for 2017 is that Samsung ships a firmware update that actually runs a meaningful slice of automations on the hub itself. I'm only at 55% because they've sat on this capability for over a year already; the will, not the silicon, is the blocker.
 
 **4. Aqara / Xiaomi Zigbee sensors enter the US market. (Confidence: 70%)**
 
@@ -75,7 +81,7 @@ Aqara's been popular in China — their door/window sensors are tiny (1/3 the si
 
 **5. Matter / a unified protocol — still nothing. (Confidence: 10%)**
 
-The CSA hasn't been heard from. Thread Group ships intermittent products. No unification on the horizon. Maybe 2019 or later.
+The Zigbee Alliance is busy certifying Zigbee 3.0, not bridging to anyone else. Thread Group ships intermittent products. AllSeen and the Open Connectivity Foundation each claim they're the unifier; neither has shipped a device I can buy. No real unification on the horizon. Maybe 2019 or later.
 
 **6. Amazon Echo Show / a screen-based Echo. (Confidence: 75%)**
 
@@ -93,5 +99,5 @@ Wink's been bleeding users since the 2015 cloud outages. If they don't sell to s
 
 - A Raspberry Pi 3 + microSD for Home Assistant.
 - Two Aqara door sensors if/when they hit US (replacing the SmartThings Multipurpose sensors which are getting battery-old).
-- HomePod if it launches and pricing isn't insane.
+- Apple's Siri speaker if it actually launches and the pricing isn't insane.
 - A second PoE camera (front porch).

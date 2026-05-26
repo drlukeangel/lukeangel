@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 420" width="1040" height="420" role="img" aria-label="Street-facing doorbells aggregating to one cloud">
+  <rect x="0.5" y="0.5" width="1039" height="419" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lb{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;letter-spacing:2px;fill:#7a808c}
+    .cl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;font-weight:700;fill:#1a1d24}
+    .rd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#c14a3a}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <text x="60" y="42" class="hd">EVERY DOORBELL IS A NODE — AGGREGATION IS THE PRODUCT</text>
+
+  <!-- row of houses, each a street-facing doorbell -->
+  <g>
+    <!-- house template repeated -->
+    <g transform="translate(90,140)">
+      <path d="M0 40 L30 12 L60 40 Z" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+      <rect x="8" y="40" width="44" height="44" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+      <!-- doorbell -->
+      <rect x="52" y="52" width="8" height="16" rx="3" fill="#6a4c93"/>
+      <!-- FOV cone to street -->
+      <path d="M60 60 L96 48 L96 72 Z" fill="#6a4c93" fill-opacity="0.14"/>
+    </g>
+  </g>
+  <g transform="translate(250,140)">
+    <path d="M0 40 L30 12 L60 40 Z" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+    <rect x="8" y="40" width="44" height="44" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+    <rect x="52" y="52" width="8" height="16" rx="3" fill="#6a4c93"/>
+    <path d="M60 60 L96 48 L96 72 Z" fill="#6a4c93" fill-opacity="0.14"/>
+  </g>
+  <g transform="translate(410,140)">
+    <path d="M0 40 L30 12 L60 40 Z" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+    <rect x="8" y="40" width="44" height="44" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+    <rect x="52" y="52" width="8" height="16" rx="3" fill="#6a4c93"/>
+    <path d="M60 60 L96 48 L96 72 Z" fill="#6a4c93" fill-opacity="0.14"/>
+  </g>
+  <text x="300" y="250" text-anchor="middle" class="lb">millions of front doors, always recording the street</text>
+  <text x="300" y="268" text-anchor="middle" class="lb">one impulse purchase at a time</text>
+
+  <!-- upload arrows to cloud -->
+  <path d="M186 150 C 360 70, 600 70, 720 120" fill="none" stroke="#6a4c93" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M346 150 C 480 90, 620 90, 720 130" fill="none" stroke="#6a4c93" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M506 150 C 600 110, 680 110, 720 150" fill="none" stroke="#6a4c93" stroke-width="2" stroke-dasharray="5 4"/>
+
+  <!-- cloud -->
+  <g transform="translate(720,110)">
+    <path d="M40 70 a40 40 0 0 1 8 -78 a52 52 0 0 1 96 12 a36 36 0 0 1 22 66 Z"
+          fill="#fff" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2"/>
+    <circle cx="40" cy="6" r="6" fill="#c14a3a"/>
+    <text x="98" y="6" text-anchor="middle" class="cl">one cloud</text>
+    <text x="98" y="24" text-anchor="middle" class="rd" font-size="11">face + motion analytics</text>
+    <text x="98" y="42" text-anchor="middle" class="rd" font-size="11">searchable video record</text>
+    <text x="98" y="60" text-anchor="middle" class="rd" font-size="11">police-request partners</text>
+  </g>
+
+  <text x="520" y="396" text-anchor="middle" class="cap">Not a doorbell feature — street-level infrastructure, accumulated one purchase at a time.</text>
+</svg>

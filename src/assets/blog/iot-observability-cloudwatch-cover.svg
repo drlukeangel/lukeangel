@@ -1,31 +1,57 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Fleet observability dashboard">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="iot-obs-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+    <pattern id="obs-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
       <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
     </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#iot-obs-dots)"/>
-  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
-  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">OBSERVABILITY — SEP 2024</text>
-  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">CLOUDWATCH</text>
-  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+  <rect width="1200" height="630" fill="url(#obs-dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
 
-  <g transform="translate(820, 175)" stroke="#1a1d24" stroke-width="2" fill="none">
-    <polyline points="0,40 30,30 60,38 90,18 120,28 150,12 180,22 210,8 240,16" stroke="#2a52be"/>
-    <line x1="0" y1="50" x2="240" y2="50"/>
-    <circle cx="0"   cy="40" r="3" fill="#2a52be" stroke="none"/>
-    <circle cx="60"  cy="38" r="3" fill="#2a52be" stroke="none"/>
-    <circle cx="120" cy="28" r="3" fill="#2a52be" stroke="none"/>
-    <circle cx="180" cy="22" r="3" fill="#2a52be" stroke="none"/>
-    <circle cx="240" cy="16" r="3" fill="#2a52be" stroke="none"/>
+  <!-- fleet of device pucks, left, feeding the dashboard -->
+  <g stroke="#1a1d24" stroke-width="3" fill="none">
+    <g transform="translate(110,150)"><rect x="0" y="0" width="58" height="58" rx="14"/><circle cx="29" cy="29" r="9" fill="#2a52be" stroke="none"/></g>
+    <g transform="translate(110,290)"><rect x="0" y="0" width="58" height="58" rx="14"/><circle cx="29" cy="29" r="9" fill="#2a52be" stroke="none"/></g>
+    <g transform="translate(110,430)"><rect x="0" y="0" width="58" height="58" rx="14"/><circle cx="29" cy="29" r="9" fill="#c14a3a" stroke="none"/></g>
   </g>
 
-  <text x="80" y="295" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">What good IoT observability</text>
-  <text x="80" y="365" font-family="Newsreader, serif" font-weight="500" font-size="62" fill="#1a1d24">looks like in CloudWatch.</text>
-  <text x="80" y="425" font-family="Newsreader, serif" font-style="italic" font-size="28" fill="#7a808c">— or, what we wish we'd set up before the first incident.</text>
+  <!-- telemetry streams converging -->
+  <g stroke="#2a52be" stroke-width="3" fill="none" opacity="0.85">
+    <path d="M176 179 C 260 179 270 300 350 300"/>
+    <path d="M176 319 C 250 319 270 300 350 300"/>
+    <path d="M176 459 C 260 459 270 300 350 300" stroke="#c14a3a"/>
+  </g>
+  <g fill="#1a1d24"><path d="M356 300 l-16 -7 v14 z"/></g>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT OPS</text>
+  <!-- dashboard panel -->
+  <rect x="372" y="118" width="700" height="394" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <line x1="372" y1="166" x2="1072" y2="166" stroke="#1a1d24" stroke-width="2"/>
+  <circle cx="402" cy="142" r="6" fill="#2a52be"/>
+  <circle cx="424" cy="142" r="6" fill="#1a1d24" opacity="0.25"/>
+  <circle cx="446" cy="142" r="6" fill="#1a1d24" opacity="0.25"/>
+
+  <!-- sparkline tile (top, wide) -->
+  <rect x="400" y="190" width="640" height="120" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+  <polyline points="420,290 470,270 520,278 570,250 620,262 670,232 720,246 770,214 820,228 870,200 920,216 970,190 1020,206" fill="none" stroke="#2a52be" stroke-width="3.5" stroke-linejoin="round"/>
+  <g fill="#2a52be"><circle cx="620" cy="262" r="4"/><circle cx="820" cy="228" r="4"/><circle cx="1020" cy="206" r="4"/></g>
+
+  <!-- three metric tiles (bottom row) -->
+  <g>
+    <rect x="400" y="330" width="200" height="150" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <g transform="translate(420,360)" fill="#2a52be"><rect x="0" y="50" width="20" height="40" rx="3"/><rect x="34" y="32" width="20" height="58" rx="3"/><rect x="68" y="18" width="20" height="72" rx="3"/><rect x="102" y="40" width="20" height="50" rx="3"/><rect x="136" y="10" width="20" height="80" rx="3"/></g>
+  </g>
+  <g>
+    <rect x="620" y="330" width="200" height="150" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <circle cx="720" cy="405" r="50" fill="none" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="14"/>
+    <path d="M720 355 A 50 50 0 1 1 678 432" fill="none" stroke="#3a7d44" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <g>
+    <rect x="840" y="330" width="200" height="150" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <!-- alarm bell, firing -->
+    <path d="M940 360 C 916 360 902 378 902 404 L 902 432 L 894 444 L 986 444 L 978 432 L 978 404 C 978 378 964 360 940 360 Z" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M932 452 a 8 8 0 0 0 16 0" fill="none" stroke="#c14a3a" stroke-width="3.5"/>
+    <circle cx="940" cy="352" r="5" fill="#c14a3a"/>
+    <g stroke="#c14a3a" stroke-width="3" stroke-linecap="round" opacity="0.8"><line x1="884" y1="388" x2="872" y2="382"/><line x1="996" y1="388" x2="1008" y2="382"/></g>
+  </g>
 </svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="radio wake logic">
+  <rect width="1000" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">KEEP THE EXPENSIVE RADIOS ASLEEP</text>
+  <text x="40" y="72" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">the design that turns days into weeks: wake on a trigger, not on a timer</text>
+
+  <!-- three states across the top, gated by triggers -->
+  <!-- STATE 1: home -->
+  <g transform="translate(60,130)">
+    <rect x="0" y="0" width="250" height="120" rx="12" fill="#3a7d44" fill-opacity="0.07" stroke="#3a7d44" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">HOME &#183; near base</text>
+    <text x="125" y="62" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">cellular off &#183; GPS off</text>
+    <text x="125" y="84" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">BLE to base only</text>
+    <text x="125" y="108" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#3a7d44">draws microamps &#183; weeks</text>
+  </g>
+
+  <!-- STATE 2: out, geofenced -->
+  <g transform="translate(375,130)">
+    <rect x="0" y="0" width="250" height="120" rx="12" fill="#c87533" fill-opacity="0.08" stroke="#c87533" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">OUT &#183; inside fence</text>
+    <text x="125" y="62" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">cellular asleep (PSM)</text>
+    <text x="125" y="84" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">GPS gated on motion</text>
+    <text x="125" y="108" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#c87533">brief wakes &#183; days&#8211;weeks</text>
+  </g>
+
+  <!-- STATE 3: escape -->
+  <g transform="translate(690,130)">
+    <rect x="0" y="0" width="250" height="120" rx="12" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">ESCAPE &#183; fence broken</text>
+    <text x="125" y="62" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">cellular ON, transmitting</text>
+    <text x="125" y="84" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">GPS fixing every minute</text>
+    <text x="125" y="108" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#c14a3a">budget collapses &#183; a day</text>
+  </g>
+
+  <!-- triggers between states -->
+  <g transform="translate(310,190)">
+    <path d="M0 0 L55 0" fill="none" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#ah)"/>
+    <text x="30" y="-12" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">leaves base</text>
+  </g>
+  <g transform="translate(625,190)">
+    <path d="M0 0 L55 0" fill="none" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#ah)"/>
+    <text x="30" y="-12" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">geofence break</text>
+  </g>
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <!-- bottom note -->
+  <rect x="60" y="320" width="880" height="130" rx="12" fill="#fff" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="84" y="356" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">THE DOMINANT TERM IS THE CELLULAR MODEM'S AVERAGE CURRENT</text>
+  <text x="84" y="388" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">LTE-M Power Saving Mode lets it stay registered while drawing microamps &#8212; asleep ~95% of the day.</text>
+  <text x="84" y="414" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">Motion-gates GPS; geofence-gates cellular. Everything else in the budget is rounding error.</text>
+  <text x="84" y="440" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#c14a3a">No radio standard saves you once the dog is genuinely loose and being located every minute.</text>
+</svg>

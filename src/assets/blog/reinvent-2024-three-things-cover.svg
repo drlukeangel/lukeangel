@@ -1,30 +1,88 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Three cards pulled from a tall stack.">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="ri-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+    <pattern id="ri-dots" width="22" height="22" patternUnits="userSpaceOnUse">
       <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
     </pattern>
   </defs>
   <rect width="1200" height="630" fill="url(#ri-dots)"/>
-  <rect x="0" y="0" width="20" height="630" fill="#1a1d24"/>
-  <text x="80" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">re:INVENT — DEC 2024</text>
-  <text x="1120" y="90" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#2a52be" text-anchor="end">3 OF 200</text>
-  <line x1="80" y1="118" x2="1120" y2="118" stroke="#1a1d24" stroke-width="1"/>
+  <rect width="24" height="630" fill="#4f46b8"/>
 
-  <g transform="translate(820, 170)" stroke="#1a1d24" stroke-width="2" fill="none">
-    <rect x="0"   y="0" width="80" height="44" rx="4"/>
-    <text x="40"  y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">cache</text>
-    <rect x="100" y="0" width="80" height="44" rx="4"/>
-    <text x="140" y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24" stroke="none">nova</text>
-    <rect x="200" y="0" width="80" height="44" rx="4" fill="#2a52be" stroke="#2a52be"/>
-    <text x="240" y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#fdfaf2" stroke="none">sm.ai</text>
+  <!-- LEFT: the tall stack of announcements (the "200"), drawn as many thin offset slabs -->
+  <g transform="translate(300,140)">
+    <!-- a faint shadow under the stack -->
+    <ellipse cx="40" cy="360" rx="150" ry="20" fill="#1a1d24" opacity="0.05"/>
+    <!-- the stack: a column of thin cards, slightly offset, fading toward the bottom -->
+    <g stroke="#1a1d24" stroke-width="3">
+      <rect x="-70" y="320" width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.55"/>
+      <rect x="-64" y="288" width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.6"/>
+      <rect x="-72" y="256" width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.65"/>
+      <rect x="-60" y="224" width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.7"/>
+      <rect x="-68" y="192" width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.75"/>
+      <rect x="-58" y="160" width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.82"/>
+      <rect x="-66" y="128" width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.88"/>
+      <rect x="-56" y="96"  width="220" height="26" rx="5" fill="#fdfaf2" opacity="0.94"/>
+      <rect x="-64" y="64"  width="220" height="26" rx="5" fill="#fdfaf2"/>
+      <rect x="-54" y="32"  width="220" height="26" rx="5" fill="#fdfaf2"/>
+      <rect x="-62" y="0"   width="220" height="26" rx="5" fill="#fdfaf2"/>
+    </g>
+    <!-- faint text-ruling marks on the top few cards, to read as paper, not labels -->
+    <g stroke="#7a808c" stroke-width="2.4" stroke-linecap="round" opacity="0.5">
+      <line x1="-44" y1="13"  x2="120" y2="13"/>
+      <line x1="-36" y1="45"  x2="128" y2="45"/>
+      <line x1="-46" y1="77"  x2="110" y2="77"/>
+    </g>
   </g>
 
-  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="66" fill="#1a1d24">Three things from</text>
-  <text x="80" y="360" font-family="Newsreader, serif" font-weight="500" font-size="66" fill="#2a52be">re:Invent</text>
-  <text x="80" y="420" font-family="Newsreader, serif" font-style="italic" font-size="32" fill="#7a808c">that actually change my roadmap.</text>
+  <!-- the "pull" gesture: three faint arcs sweeping from the stack toward the three chosen cards -->
+  <g fill="none" stroke="#4f46b8" stroke-width="2.6" stroke-dasharray="3 9" stroke-linecap="round" opacity="0.55">
+    <path d="M470 210 C 600 200, 660 200, 760 196"/>
+    <path d="M470 260 C 600 300, 660 320, 760 332"/>
+    <path d="M470 300 C 600 410, 660 450, 760 468"/>
+  </g>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — re:INVENT 2024</text>
+  <!-- RIGHT: the three chosen cards, set apart, larger, each with a small change-arrow -->
+  <!-- card 1 -->
+  <g transform="translate(770,156)">
+    <rect x="0" y="0" width="300" height="86" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- a left accent tab to mark it as "selected" -->
+    <rect x="0" y="0" width="12" height="86" rx="5" fill="#4f46b8"/>
+    <!-- two ruling lines -->
+    <g stroke="#7a808c" stroke-width="3" stroke-linecap="round" opacity="0.7">
+      <line x1="40" y1="30" x2="190" y2="30"/>
+      <line x1="40" y1="52" x2="150" y2="52"/>
+    </g>
+    <!-- a change-arrow: an upward/forward jog in the indigo accent -->
+    <g fill="none" stroke="#4f46b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M226 60 L 252 34 L 270 50"/>
+      <path d="M252 34 L 252 64"/>
+    </g>
+  </g>
+  <!-- card 2 -->
+  <g transform="translate(770,272)">
+    <rect x="0" y="0" width="300" height="86" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="0" y="0" width="12" height="86" rx="5" fill="#4f46b8"/>
+    <g stroke="#7a808c" stroke-width="3" stroke-linecap="round" opacity="0.7">
+      <line x1="40" y1="30" x2="190" y2="30"/>
+      <line x1="40" y1="52" x2="150" y2="52"/>
+    </g>
+    <g fill="none" stroke="#4f46b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M226 60 L 252 34 L 270 50"/>
+      <path d="M252 34 L 252 64"/>
+    </g>
+  </g>
+  <!-- card 3 -->
+  <g transform="translate(770,388)">
+    <rect x="0" y="0" width="300" height="86" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="0" y="0" width="12" height="86" rx="5" fill="#4f46b8"/>
+    <g stroke="#7a808c" stroke-width="3" stroke-linecap="round" opacity="0.7">
+      <line x1="40" y1="30" x2="190" y2="30"/>
+      <line x1="40" y1="52" x2="150" y2="52"/>
+    </g>
+    <g fill="none" stroke="#4f46b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M226 60 L 252 34 L 270 50"/>
+      <path d="M252 34 L 252 64"/>
+    </g>
+  </g>
 </svg>

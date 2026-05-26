@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="motion lights a bulb">
+  <defs>
+    <pattern id="dotsHM" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsHM)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <line x1="90" y1="500" x2="1120" y2="500" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- PIR motion sensor on the left, small wedge cone of detection -->
+  <g transform="translate(280,300)">
+    <!-- the sensor: small square with a faceted PIR dome -->
+    <rect x="-44" y="-44" width="88" height="88" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="0" cy="0" r="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g stroke="#1a1d24" stroke-width="1.4" stroke-opacity="0.3">
+      <line x1="-26" y1="0" x2="26" y2="0"/><line x1="0" y1="-26" x2="0" y2="26"/>
+      <line x1="-18" y1="-18" x2="18" y2="18"/><line x1="-18" y1="18" x2="18" y2="-18"/>
+    </g>
+    <circle cx="0" cy="0" r="7" fill="#6a4c93" fill-opacity="0.4" stroke="#6a4c93" stroke-width="2"/>
+  </g>
+
+  <!-- detection cone fanning toward a walking figure -->
+  <path d="M324 285 L470 210 L470 410 L324 335 Z" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- walking figure inside the cone -->
+  <g transform="translate(440,300)" stroke="#1a1d24" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="-34" r="11" fill="#1a1d24" fill-opacity="0.12"/>
+    <path d="M0 -23 L0 16 M0 -12 L-16 0 M0 -12 L16 -4 M0 16 L-14 42 M0 16 L16 38"/>
+  </g>
+
+  <!-- short hop arc (same mesh) to the bulb -->
+  <g stroke="#6a4c93" stroke-width="3.5" fill="none" stroke-dasharray="2 8" stroke-linecap="round">
+    <path d="M334 300 q300 -120 540 0"/>
+  </g>
+
+  <!-- lit bulb on the right with glow -->
+  <g transform="translate(900,300)">
+    <circle cx="0" cy="-10" r="70" fill="#6a4c93" fill-opacity="0.10"/>
+    <circle cx="0" cy="-10" r="46" fill="#6a4c93" fill-opacity="0.14"/>
+    <!-- bulb -->
+    <path d="M0 -54 a40 40 0 0 1 26 70 l-4 14 a4 4 0 0 1 -4 3 l-36 0 a4 4 0 0 1 -4 -3 l-4 -14 a40 40 0 0 1 26 -70 Z"
+          fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <!-- filament glow -->
+    <g stroke="#6a4c93" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M-12 -22 q12 -16 24 0"/>
+      <path d="M-12 -10 q12 -16 24 0"/>
+    </g>
+    <!-- screw base -->
+    <rect x="-14" y="33" width="28" height="9" rx="2" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-11" y="42" width="22" height="7" rx="2" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- emitted light rays -->
+    <g stroke="#6a4c93" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6">
+      <line x1="58" y1="-40" x2="74" y2="-50"/>
+      <line x1="64" y1="-12" x2="82" y2="-12"/>
+      <line x1="58" y1="16" x2="74" y2="26"/>
+    </g>
+  </g>
+</svg>

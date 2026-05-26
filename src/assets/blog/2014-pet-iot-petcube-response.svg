@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" role="img" aria-label="PetCube response by pet">
+  <rect width="960" height="470" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .ttl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:17px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .bad{fill:#c14a3a;}
+    .acc{fill:#c87533;}
+  </style>
+
+  <text x="40" y="48" class="ttl">The interactive-camera bet: engagement over time</text>
+
+  <!-- axes -->
+  <line x1="120" y1="100" x2="120" y2="320" stroke="#1a1d24" stroke-width="2"/>
+  <line x1="120" y1="320" x2="860" y2="320" stroke="#1a1d24" stroke-width="2"/>
+  <text x="62" y="115" class="sm">interest</text>
+  <text x="780" y="345" class="sm">minutes</text>
+
+  <!-- x ticks -->
+  <text x="120" y="345" text-anchor="middle" class="sm">0</text>
+  <text x="300" y="345" text-anchor="middle" class="sm">3</text>
+  <text x="860" y="345" text-anchor="middle" class="sm">on</text>
+
+  <!-- Joule: brief spike then flat to zero -->
+  <polyline points="120,300 160,150 220,200 300,310 860,318" fill="none" stroke="#5b616b" stroke-width="3"/>
+  <circle cx="300" cy="310" r="4" fill="#5b616b"/>
+  <text x="340" y="306" class="sm">Joule: ~3 min, then walks off</text>
+
+  <!-- Atom: rockets up and stays pinned at top (tries to eat it) -->
+  <polyline points="120,300 180,130 300,108 600,104 860,102" fill="none" stroke="#c87533" stroke-width="3"/>
+  <circle cx="860" cy="102" r="4" fill="#c87533"/>
+  <text x="560" y="92" class="acc">Atom: tries to eat the camera</text>
+
+  <!-- the toy assumption marker -->
+  <rect x="180" y="375" width="600" height="34" rx="6" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="480" y="397" text-anchor="middle" class="sm bad">the category assumes a pet engages an on-screen toy like a person — at least one of mine doesn't</text>
+
+  <line x1="40" y1="430" x2="920" y2="430" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="480" y="460" text-anchor="middle" class="cap">Returned in June — the camera survived; the peace did not.</text>
+
+  <defs></defs>
+</svg>

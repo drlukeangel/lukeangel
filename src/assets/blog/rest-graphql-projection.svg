@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="Two API projections over one shared domain model. A band across the bottom is labelled the domain model, the durable contract, listing Account, Device, Consumable, Session, and Event. Above it on the left, the REST surface shipping now: separate endpoints for accounts, devices, and nested sessions, with a multi-device timeline read costing four or five round trips. Above it on the right, a GraphQL layer left for later: one query returns the whole Account-Device-Session-Consumable graph in a single round trip. Both rest on the same model.">
+  <rect width="1120" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">TWO PROJECTIONS, ONE MODEL</text>
+
+  <!-- ============ LEFT: REST surface (shipping now) ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="40" y="74" width="470" height="250" rx="12" fill="#fdfaf2" stroke="#357a8c" stroke-width="3"/>
+    <text x="64" y="106" font-size="15" fill="#357a8c">REST &#8212; shipping now</text>
+    <text x="64" y="128" font-size="11" fill="#7a808c">API Gateway + Lambda · JSON/HTTPS</text>
+
+    <!-- endpoints -->
+    <g font-size="12" fill="#1a1d24">
+      <rect x="64" y="146" width="422" height="30" rx="7" fill="#357a8c" fill-opacity="0.08" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+      <text x="78" y="166">GET /v2/accounts/{id}</text>
+      <rect x="64" y="184" width="422" height="30" rx="7" fill="#357a8c" fill-opacity="0.08" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+      <text x="78" y="204">GET /v2/devices/{serial}</text>
+      <rect x="64" y="222" width="422" height="30" rx="7" fill="#357a8c" fill-opacity="0.08" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+      <text x="78" y="242">GET /v2/devices/{serial}/sessions</text>
+    </g>
+    <!-- cost note -->
+    <text x="64" y="288" font-size="11.5" fill="#c14a3a">timeline read = 4&#8211;5 round trips</text>
+    <g stroke="#c14a3a" stroke-width="2" fill="none" opacity="0.7">
+      <path d="M300 282 q 18 -10 36 0 q 18 10 36 0 q 18 -10 36 0"/>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: GraphQL layer (later) ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="610" y="74" width="470" height="250" rx="12" fill="#fdfaf2" stroke="#7a808c" stroke-width="3" stroke-dasharray="8 5"/>
+    <text x="634" y="106" font-size="15" fill="#7a808c">GraphQL &#8212; left for later</text>
+    <text x="634" y="128" font-size="11" fill="#7a808c">one query, the graph you asked for</text>
+
+    <!-- query block -->
+    <rect x="634" y="146" width="422" height="106" rx="7" fill="#357a8c" fill-opacity="0.06" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+    <g font-size="11.5" fill="#1a1d24">
+      <text x="650" y="168">account(id) {</text>
+      <text x="668" y="186">devices {</text>
+      <text x="686" y="204">sessions { start, payload }</text>
+      <text x="686" y="222">consumable { type }</text>
+      <text x="668" y="240">} }</text>
+    </g>
+    <text x="634" y="288" font-size="11.5" fill="#3a7d44">timeline read = 1 round trip</text>
+    <g stroke="#3a7d44" stroke-width="2.5" fill="#3a7d44" stroke-linecap="round">
+      <line x1="880" y1="283" x2="1010" y2="283"/>
+      <path d="M1022 283 l-14 -6 v12 z"/>
+    </g>
+  </g>
+
+  <!-- both project DOWN onto the same model -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#1a1d24" opacity="0.45" stroke-linecap="round">
+    <line x1="275" y1="324" x2="275" y2="376"/>
+    <path d="M275 390 l-7 -16 h14 z"/>
+    <line x1="845" y1="324" x2="845" y2="376"/>
+    <path d="M845 390 l-7 -16 h14 z"/>
+  </g>
+
+  <!-- ============ BOTTOM: the shared domain model (the contract) ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="40" y="392" width="1040" height="96" rx="12" fill="#357a8c" fill-opacity="0.10" stroke="#357a8c" stroke-width="3.5"/>
+    <text x="64" y="424" font-size="14" fill="#357a8c">THE DOMAIN MODEL &#8212; the durable contract</text>
+    <g font-size="13" fill="#1a1d24">
+      <rect x="64" y="440" width="180" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+      <text x="154" y="462" text-anchor="middle">Account</text>
+      <rect x="258" y="440" width="180" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+      <text x="348" y="462" text-anchor="middle">Device</text>
+      <rect x="452" y="440" width="180" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+      <text x="542" y="462" text-anchor="middle">Consumable</text>
+      <rect x="646" y="440" width="180" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+      <text x="736" y="462" text-anchor="middle">Session</text>
+      <rect x="840" y="440" width="180" height="34" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+      <text x="930" y="462" text-anchor="middle">Event</text>
+    </g>
+  </g>
+</svg>

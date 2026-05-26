@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" role="img" aria-label="Idle baseline versus right-sized spend.">
+  <rect width="820" height="440" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <text x="40" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" letter-spacing="2" fill="#1a1d24">PROVISIONED BASELINE vs. RIGHT-SIZED + AUTOSCALE</text>
+  <line x1="40" y1="64" x2="780" y2="64" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- baseline axis -->
+  <line x1="120" y1="100" x2="120" y2="360" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="1.5"/>
+  <line x1="120" y1="360" x2="760" y2="360" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="1.5"/>
+
+  <!-- LEFT: provisioned for the spike, 24/7 -->
+  <g>
+    <rect x="200" y="120" width="150" height="240" rx="4" fill="#7a808c"/>
+    <!-- the portion actually used -->
+    <rect x="200" y="288" width="150" height="72" rx="4" fill="#4f46b8"/>
+    <text x="275" y="392" font-family="ui-monospace, monospace" font-size="14" fill="#1a1d24" text-anchor="middle">provisioned</text>
+    <text x="275" y="412" font-family="ui-monospace, monospace" font-size="14" fill="#1a1d24" text-anchor="middle">for the spike, 24/7</text>
+    <!-- the wasted slab callout -->
+    <text x="360" y="200" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#c14a3a">paid, never used</text>
+    <text x="360" y="320" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#4f46b8">actually used</text>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <line x1="500" y1="240" x2="575" y2="240"/>
+    <path d="M 575 240 l -14 -8 M 575 240 l -14 8" stroke-linecap="round"/>
+  </g>
+
+  <!-- RIGHT: right-sized baseline, autoscale for the spike -->
+  <g>
+    <rect x="610" y="288" width="120" height="72" rx="4" fill="#4f46b8"/>
+    <!-- autoscale headroom, only when needed (dashed) -->
+    <rect x="610" y="232" width="120" height="56" rx="4" fill="none" stroke="#3a7d44" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="670" y="392" font-family="ui-monospace, monospace" font-size="14" fill="#1a1d24" text-anchor="middle">right-sized</text>
+    <text x="670" y="412" font-family="ui-monospace, monospace" font-size="14" fill="#1a1d24" text-anchor="middle">+ autoscale on spike</text>
+    <line x1="730" y1="260" x2="756" y2="248" stroke="#3a7d44" stroke-width="1.5"/>
+    <text x="762" y="244" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a7d44">scales</text>
+    <text x="762" y="262" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a7d44">on</text>
+    <text x="762" y="280" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#3a7d44">demand</text>
+  </g>
+
+  <text x="120" y="92" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">$ / month</text>
+</svg>

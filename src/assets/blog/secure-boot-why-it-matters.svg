@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 440" width="1120" height="440" role="img" aria-label="Why even a $5 bulb does Secure Boot: after an attacker reflashes the chip, a bulb without Secure Boot runs the malicious code and becomes a silent network sniffer, while a bulb with Secure Boot fails the signature check and refuses to boot.">
+  <rect width="1120" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHY EVEN A $5 BULB DOES THIS</text>
+  <text x="560" y="86" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="17" font-style="italic" fill="#3a3f4a">An attacker clips on and reflashes the chip. Then —</text>
+
+  <line x1="560" y1="116" x2="560" y2="404" stroke="#1a1d24" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.25"/>
+
+  <text x="290" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#c14a3a">WITHOUT SECURE BOOT</text>
+  <g transform="translate(290,236)" fill="none" stroke="#c14a3a" stroke-linecap="round">
+    <path d="M46 -34 a 26 26 0 0 1 0 38" stroke-width="3" opacity="0.85"/>
+    <path d="M60 -48 a 44 44 0 0 1 0 66" stroke-width="3" opacity="0.5"/>
+  </g>
+  <g transform="translate(290,236)">
+    <circle cx="0" cy="0" r="32" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-13" y="22" width="26" height="18" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M-11 30 h22 M-11 36 h22" stroke="#1a1d24" stroke-width="1.6"/>
+    <path d="M-11 6 l7 -18 l4 11 l8 -15" fill="none" stroke="#c14a3a" stroke-width="2.6" stroke-linejoin="round"/>
+  </g>
+  <text x="290" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">runs the malicious code</text>
+  <text x="290" y="342" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">→ a silent network sniffer</text>
+
+  <text x="830" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#3a7d44">WITH SECURE BOOT</text>
+  <g transform="translate(830,236)" opacity="0.55">
+    <circle cx="0" cy="0" r="32" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-13" y="22" width="26" height="18" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M-11 30 h22 M-11 36 h22" stroke="#1a1d24" stroke-width="1.6"/>
+  </g>
+  <g transform="translate(830,236)">
+    <line x1="-21" y1="-21" x2="21" y2="21" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="21" y1="-21" x2="-21" y2="21" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+  <text x="830" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">signature check fails</text>
+  <text x="830" y="342" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">→ won't boot</text>
+</svg>

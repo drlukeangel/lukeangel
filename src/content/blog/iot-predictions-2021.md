@@ -10,7 +10,7 @@ tags:
 excerpt: "Pandemic-fueled IoT surge crushed forecasts, Apple Watch SE became the gateway drug, and Sonos still hasn't shipped headphones. 2020 scored."
 pullquote: "When the world got smaller in 2020, the home got smarter. Cumulative smart-home device counts in US households roughly doubled in 12 months."
 cover: ../../assets/blog/iot-predictions-2021-cover.svg
-coverAlt: "IoT & Connected Devices — 2021 Predictions and Outcomes — AirTag, Eero 6, and Matter spec callouts on a teal gradient"
+coverAlt: "A forecast plot for connected devices: a solid adoption curve through the known past forks into dashed projected branches for the year ahead, beside a smartwatch, a tracker puck emitting a finding signal, and a mesh router node."
 notebook: iot-predictions
 notebookOrder: 6
 ---
@@ -23,9 +23,9 @@ Year six. Worth admitting upfront: the 2020 prediction post — written January 
 
 **Pandemic-driven IoT surge — bigger than the structural-only forecast.** Connected fitness devices, smart-home adds, telehealth tech all exploded in Q2-Q3. Peloton's connected-fitness installed base cleared 1M by Q4 (the prediction held); but the *speed* of the curve was 2x what I called pre-pandemic. **Hit on shape, undershot on magnitude.**
 
-**AirTags did NOT ship in 2020.** Rumored heavily through Q3, slipped to April 2021. **Miss on timing.** Filed-bug rather than wrong-call.
+**AirTags did NOT ship in 2020.** Rumored heavily through the year — the "Find My"/tracker plumbing even leaked in iOS betas — but the year closed with no product. **Miss on timing.** Filed-bug rather than wrong-call; the thing is clearly built and waiting on an event.
 
-**Matter (CHIP) consumer products: still 18+ months out.** Working group's 2021 spec target slipped to fall 2022. **Hit on the prediction (we said it would slip).**
+**Project CHIP consumer products: still 18+ months out.** The working group spent 2020 building, and its spec target has already drifted into 2021 with no consumer hardware in sight. **Hit on the prediction (we said it would slip).**
 
 **Body-as-sensor-array reached the median active user.** Apple Watch + AirPods Pro + Oura Ring became a real package by year-end. CGM (continuous glucose monitor) penetration among non-diabetic fitness early adopters was below my hopes but the Levels Health waitlist + Supersapiens launch validated the curve. **Hit.**
 
@@ -35,11 +35,17 @@ Year six. Worth admitting upfront: the 2020 prediction post — written January 
 
 Net 2020 scorecard: roughly **80% prediction accuracy** — the lowest of the streak, mostly because the pandemic broke the predictability of timing (AirTags slipped, others accelerated). Structural calls held; calendar calls slipped.
 
+![Last year's calls, graded. A ledger of seven 2020 predictions with verdict glyphs: hit (green check) for Apple Watch SE shipping at the called price, Project CHIP consumer products still 18-plus months out, body-as-sensor-array reaching the median active user, and camera consolidation with Wyze as the price floor; partial (blue half-circle) for the pandemic IoT surge being right on shape but undershooting magnitude and for Sonos headphones still not existing after a 2021 ship was called; missed-timing (red cross) for AirTags slipping out of the year. A footer notes the net was about 80 percent — the lowest of the streak — because structural calls held while the pandemic broke the predictability of timing.](../../assets/blog/iot-predictions-2021-scorecard.svg)
+
 ## What I got wrong
 
 I called Sonos's headphone product to land in 2021. Twelve months on, the rumor's older but no clearer. The company kept investing in speakers + portable through 2020 instead.
 
-I also missed the *scale* of pandemic-driven connected fitness. Mirror (acquired by Lululemon June 2020 for $500M), Tonal raised at $1.6B, Hydrow, Tempo — the whole vertical of "screen + bike/rower/weight + subscription" expanded from one company (Peloton) to a real category in 12 months. I should have called the *fitness vertical* not just Peloton.
+I also missed the *scale* of pandemic-driven connected fitness. Mirror (acquired by Lululemon June 2020 for $500M), Tonal closing a fresh raise, Hydrow, Tempo — the whole vertical of "screen + bike/rower/weight + subscription" expanded from one company (Peloton) to a real category in 12 months. I should have called the *fitness vertical* not just Peloton.
+
+The pattern under all of it: a forecast has two parts, and only one of them survived 2020. The *structural* part — what happens and why — held; the *calendar* part — the exact date it lands — did not. A pandemic is a catalyst, and a catalyst changes timing, not direction. So the calls that named a force (work-from-home pulls telehealth and home fitness forward) landed; the calls that named a quarter (AirTags in fall) missed by exactly the amount the catalyst moved the date.
+
+![Structural calls held, calendar calls slipped. Top lane, in blue: a "structural call" forecast arrow — the shape, what happens and why — curves up and lands dead center on a target, marked "held," with WFH-plus-telehealth surge, connected fitness as a category, and body-as-sensor-array named as examples. Bottom lane, in red: a "calendar call" timeline where a hollow "predicted" marker is connected by a dashed slip arrow to a filled "actual" marker further along the line, captioned that AirTags slipped out of the year while other launches accelerated past the date that was set. The takeaway: a catalyst moves timing, not direction.](../../assets/blog/iot-predictions-2021-structural-vs-calendar.svg)
 
 ## 2021 predictions
 
@@ -58,6 +64,10 @@ I also missed the *scale* of pandemic-driven connected fitness. Mirror (acquired
 **7. Connected health gets a regulatory tailwind.** FDA's Software-as-Medical-Device (SaMD) framework keeps maturing; expect 5-10 additional FDA clearances on consumer wearables in 2021 (Apple Watch sleep apnea? unlikely; Oura overnight respiratory rate? more likely). The medical-device side of the wearables category is finally compounding.
 
 **8. The first IoT class-action settles publicly for $50M+.** Almost certainly default-credentials baby monitor or camera with leaked footage. Hot-take prediction; could be Q1, could be Q4.
+
+Lined up by how much I'd stake on each, the year's bets aren't equal. The standards and supply-chain calls are nearly structural — I'd defend them hard. AirTags and a Series 7 redesign are well-sourced but calendar-bound, so the catalyst caveat applies. The class-action settlement is the one I'm taking with eyes open: directionally likely, impossible to date.
+
+![The 2021 bets, ranked by how much I'd stake. A horizontal-bar ladder on a confidence axis, longest and most saturated blue bars at top: Matter ships a v1.0 spec rather than consumer products because standards slip; a supply-chain crunch reaches connected devices in the second half; AirTags finally ship with UWB precision finding at a spring event; an Apple Watch Series 7 with the first case redesign since Series 4. Mid-length, lighter bars: Wi-Fi 6E reaches enthusiast routers while the mass market stays Wi-Fi 6; connected health gets a regulatory tailwind of more FDA clearances; the Ring versus Nest doorbell race settles to a draw. At the bottom, a short dashed outline-only bar marks the hot take: the first IoT class-action settles publicly for fifty million dollars or more. A caption notes the solid bars are calls I'd defend and the dashed one is the swing — and that these are forecasts written in January, ungraded.](../../assets/blog/iot-predictions-2021-confidence-ladder.svg)
 
 ## Gratitude beat
 

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" role="img" aria-label="2019 forecast scorecard">
+  <rect width="1000" height="450" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="52" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">SCORING THE 2019 FORECAST</text>
+  <text x="40" y="78" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#7a808c">8 predictions &#183; 50% &#183; the misses all rhyme</text>
+
+  <!-- legend -->
+  <g transform="translate(40,116)">
+    <g>
+      <circle cx="18" cy="18" r="18" fill="#3a7d44"/>
+      <path d="M9 18 l6 7 l13 -15" fill="none" stroke="#fdfaf2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">HIT</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">4</text>
+    </g>
+    <g transform="translate(260,0)">
+      <circle cx="18" cy="18" r="18" fill="#c14a3a"/>
+      <path d="M11 11 l14 14 M25 11 l-14 14" stroke="#fdfaf2" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">MISS</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">4 &#183; the smart products that don't exist yet</text>
+    </g>
+  </g>
+
+  <!-- rows -->
+  <g transform="translate(40,186)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">
+    <g transform="translate(0,0)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Petnet's catastrophic outage</text><text x="640" y="0" fill="#7a808c" font-size="12.5">a week in February</text></g>
+    <g transform="translate(0,32)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">Next-gen Litter-Robot announced</text><text x="640" y="0" fill="#7a808c" font-size="12.5">still rumored</text></g>
+    <g transform="translate(0,64)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">A collar ships true vitals</text><text x="640" y="0" fill="#7a808c" font-size="12.5">none exists &#8212; all infer from behavior</text></g>
+    <g transform="translate(0,96)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Halo Collar finally ships</text><text x="640" y="0" fill="#7a808c" font-size="12.5">November, ~$999</text></g>
+    <g transform="translate(0,128)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">The Apple tracker materializes</text><text x="640" y="0" fill="#7a808c" font-size="12.5">slipped to 2021</text></g>
+    <g transform="translate(0,160)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">Native multi-cat smart litter</text><text x="640" y="0" fill="#7a808c" font-size="12.5">nothing &#8212; still scripting it</text></g>
+    <g transform="translate(0,192)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Mars consolidates further</text><text x="640" y="0" fill="#7a808c" font-size="12.5">more tuck-ins</text></g>
+    <g transform="translate(0,224)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">A device-stranding category shock</text><text x="640" y="0" fill="#7a808c" font-size="12.5">Petnet, exactly</text></g>
+  </g>
+</svg>

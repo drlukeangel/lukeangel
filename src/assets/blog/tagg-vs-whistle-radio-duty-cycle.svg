@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" role="img" aria-label="Two radio power timelines: a cellular radio mostly on, a BLE radio mostly off with brief wake blips.">
+  <rect width="1080" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="44" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">RADIO DUTY CYCLE = BATTERY LIFE</text>
+
+  <!-- ===== TAGG / cellular timeline ===== -->
+  <text x="40" y="96" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="14" fill="#1a1d24">TAGG · cellular</text>
+  <text x="40" y="116" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">modem keeps checking in with the tower</text>
+
+  <!-- baseline -->
+  <line x1="300" y1="150" x2="1000" y2="150" stroke="#1a1d24" stroke-width="2" opacity="0.25"/>
+  <text x="270" y="118" text-anchor="end" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">on</text>
+  <text x="270" y="154" text-anchor="end" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">off</text>
+  <line x1="280" y1="100" x2="280" y2="150" stroke="#1a1d24" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- mostly-on waveform (high almost the whole time, tiny dips) -->
+  <path d="M300 150 V104 H372 V150 H392 V104 H520 V150 H540 V104 H700 V150 H720 V104 H860 V150 H880 V104 H1000 V150"
+        fill="none" stroke="#c87533" stroke-width="4" stroke-linejoin="round"/>
+  <!-- shade the on-area lightly -->
+  <path d="M300 150 V104 H372 V150 H392 V104 H520 V150 H540 V104 H700 V150 H720 V104 H860 V150 H880 V104 H1000 V150 Z"
+        fill="#c87533" opacity="0.12"/>
+
+  <rect x="300" y="166" width="700" height="0" />
+  <g transform="translate(300,168)">
+    <rect x="0" y="0" width="290" height="30" rx="7" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2"/>
+    <text x="145" y="20" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#c14a3a">mostly awake → drains in 2–3 days</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="40" y1="232" x2="1040" y2="232" stroke="#1a1d24" stroke-width="1" opacity="0.1"/>
+
+  <!-- ===== WHISTLE / BLE timeline ===== -->
+  <text x="40" y="276" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="14" fill="#1a1d24">WHISTLE · BLE</text>
+  <text x="40" y="296" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">wakes only to advertise, then sleeps</text>
+
+  <!-- baseline -->
+  <line x1="300" y1="330" x2="1000" y2="330" stroke="#1a1d24" stroke-width="2" opacity="0.25"/>
+  <text x="270" y="298" text-anchor="end" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">on</text>
+  <text x="270" y="334" text-anchor="end" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">off</text>
+  <line x1="280" y1="284" x2="280" y2="330" stroke="#1a1d24" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- mostly-off waveform: flat low with short periodic blips up -->
+  <path d="M300 330 H360 V288 H378 V330 H520 V288 H538 V330 H680 V288 H698 V330 H840 V288 H858 V330 H1000"
+        fill="none" stroke="#c87533" stroke-width="4" stroke-linejoin="round"/>
+
+  <g transform="translate(300,348)">
+    <rect x="0" y="0" width="270" height="30" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+    <text x="135" y="20" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#3a7d44">mostly asleep → lasts 7+ days</text>
+  </g>
+
+  <text x="540" y="404" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">Same battery, opposite habits — how often the radio wakes is the whole difference.</text>
+</svg>

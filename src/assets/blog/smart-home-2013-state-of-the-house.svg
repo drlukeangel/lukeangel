@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="State of the house end of 2013">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24" text-anchor="middle">
+
+    <!-- three islands -->
+    <!-- HUE -->
+    <g transform="translate(160 70)">
+      <rect x="-110" y="0" width="220" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="26" font-size="15" fill="#6a4c93">Hue</text>
+      <text x="0" y="48" font-size="11" fill="#5b616b">Zigbee · local REST</text>
+      <text x="0" y="68" font-size="11" fill="#3a7d44">reliable, fast</text>
+      <ellipse cx="0" cy="120" rx="108" ry="18" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.3" stroke-width="2"/>
+    </g>
+    <!-- WEMO -->
+    <g transform="translate(500 70)">
+      <rect x="-110" y="0" width="220" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="26" font-size="15" fill="#6a4c93">Wemo</text>
+      <text x="0" y="48" font-size="11" fill="#5b616b">Wi-Fi · cloud off-LAN</text>
+      <text x="0" y="68" font-size="11" fill="#c14a3a">flaky, drops weekly</text>
+      <ellipse cx="0" cy="120" rx="108" ry="18" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.3" stroke-width="2"/>
+    </g>
+    <!-- ROUTER -->
+    <g transform="translate(840 70)">
+      <rect x="-110" y="0" width="220" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="26" font-size="15" fill="#6a4c93">router</text>
+      <text x="0" y="48" font-size="11" fill="#5b616b">static IP · basic auth</text>
+      <text x="0" y="68" font-size="11" fill="#5b616b">no automation</text>
+      <ellipse cx="0" cy="120" rx="108" ry="18" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-opacity="0.3" stroke-width="2"/>
+    </g>
+
+    <!-- sagging IFTTT bridge -->
+    <g stroke="#c87533" stroke-width="3" fill="none" stroke-dasharray="2 8" stroke-linecap="round">
+      <path d="M268 190 Q 330 224 392 190"/>
+      <path d="M608 190 Q 670 224 732 190"/>
+    </g>
+    <text x="500" y="232" font-size="12" fill="#c87533">IFTTT — slow, lossy "duct tape"</text>
+
+    <!-- empty hub slot -->
+    <g transform="translate(500 360)">
+      <rect x="-100" y="-44" width="200" height="88" rx="14" fill="none" stroke="#6a4c93" stroke-width="3" stroke-dasharray="7 7"/>
+      <text x="0" y="-2" font-size="13" fill="#6a4c93">the missing hub</text>
+      <text x="0" y="18" font-size="11" fill="#5b616b">local · multi-protocol</text>
+    </g>
+    <!-- dashed reaches from islands toward the slot -->
+    <g stroke="#6a4c93" stroke-width="2" stroke-dasharray="3 6" opacity="0.45" fill="none">
+      <path d="M160 190 C 240 300, 380 320, 410 322"/>
+      <path d="M500 190 L500 314"/>
+      <path d="M840 190 C 760 300, 620 320, 590 322"/>
+    </g>
+
+    <text x="500" y="448" font-size="13" fill="#5b616b">three islands, no shared state — the 2014 bet is on the hub-shaped hole</text>
+  </g>
+</svg>

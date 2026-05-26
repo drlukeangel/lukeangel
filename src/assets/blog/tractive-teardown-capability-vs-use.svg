@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 480" width="1080" height="480" role="img" aria-label="What the nRF52840 can do versus what Tractive ships.">
+  <rect width="1080" height="480" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="42" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE CHIP — WHAT IT CAN DO vs WHAT SHIPS</text>
+
+  <!-- central chip -->
+  <g transform="translate(470,196)">
+    <rect x="0" y="0" width="140" height="96" rx="10" fill="#1a1d24"/>
+    <circle cx="18" cy="18" r="6" fill="#c87533"/>
+    <text x="70" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#fdfaf2">nRF52840</text>
+    <text x="70" y="66" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">multi-protocol SoC</text>
+    <g fill="#7a808c">
+      <rect x="14" y="-7" width="6" height="7"/><rect x="34" y="-7" width="6" height="7"/><rect x="54" y="-7" width="6" height="7"/><rect x="74" y="-7" width="6" height="7"/><rect x="94" y="-7" width="6" height="7"/><rect x="114" y="-7" width="6" height="7"/>
+      <rect x="14" y="96" width="6" height="7"/><rect x="34" y="96" width="6" height="7"/><rect x="54" y="96" width="6" height="7"/><rect x="74" y="96" width="6" height="7"/><rect x="94" y="96" width="6" height="7"/><rect x="114" y="96" width="6" height="7"/>
+    </g>
+  </g>
+
+  <!-- LEFT: capabilities (greyed, unused) -->
+  <text x="200" y="90" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#7a808c">SUPPORTS — unused</text>
+  <g font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">
+    <g>
+      <rect x="60" y="110" width="320" height="34" rx="7" fill="#fdfaf2" stroke="#7a808c" stroke-width="1.8" stroke-dasharray="5 5"/>
+      <text x="80" y="132">BLE 5 · LE Coded PHY (≈4× range)</text>
+    </g>
+    <g>
+      <rect x="60" y="156" width="320" height="34" rx="7" fill="#fdfaf2" stroke="#7a808c" stroke-width="1.8" stroke-dasharray="5 5"/>
+      <text x="80" y="178">802.15.4 · Thread (mesh)</text>
+    </g>
+    <g>
+      <rect x="60" y="202" width="320" height="34" rx="7" fill="#fdfaf2" stroke="#7a808c" stroke-width="1.8" stroke-dasharray="5 5"/>
+      <text x="80" y="224">Matter (cross-vendor)</text>
+    </g>
+    <g>
+      <rect x="60" y="248" width="320" height="34" rx="7" fill="#fdfaf2" stroke="#7a808c" stroke-width="1.8" stroke-dasharray="5 5"/>
+      <text x="80" y="270">ANT+ · Nordic ESB / Gazell</text>
+    </g>
+    <g>
+      <rect x="60" y="294" width="320" height="34" rx="7" fill="#fdfaf2" stroke="#7a808c" stroke-width="1.8" stroke-dasharray="5 5"/>
+      <text x="80" y="316">NFC-A tag mode</text>
+    </g>
+  </g>
+  <!-- faint connectors capability -> chip -->
+  <g stroke="#7a808c" stroke-width="1.6" opacity="0.4">
+    <line x1="380" y1="127" x2="470" y2="210"/>
+    <line x1="380" y1="173" x2="470" y2="226"/>
+    <line x1="380" y1="219" x2="470" y2="240"/>
+    <line x1="380" y1="265" x2="470" y2="254"/>
+    <line x1="380" y1="311" x2="470" y2="270"/>
+  </g>
+
+  <!-- RIGHT: the one mode shipped (lit) -->
+  <text x="850" y="90" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24">SHIPS</text>
+  <g>
+    <line x1="610" y1="244" x2="700" y2="200" stroke="#c87533" stroke-width="4"/>
+    <rect x="700" y="170" width="320" height="60" rx="9" fill="#c87533" fill-opacity="0.14" stroke="#c87533" stroke-width="3"/>
+    <text x="724" y="196" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">plain BLE advertising</text>
+    <text x="724" y="216" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">standard 1M PHY · advertise-only beacon</text>
+  </g>
+  <!-- BLE wave glyph next to the shipped box -->
+  <g transform="translate(975,260)" stroke="#c87533" stroke-width="3" fill="none">
+    <path d="M-14 0 a14 14 0 0 1 28 0"/>
+    <path d="M-22 0 a22 22 0 0 1 44 0"/>
+  </g>
+
+  <text x="540" y="436" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">The hardware is a Swiss-army knife. The firmware opens one blade.</text>
+</svg>

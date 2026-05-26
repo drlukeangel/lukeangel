@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" width="1120" height="600" role="img" aria-label="A two-column ledger of what to keep and what to undo.">
+  <rect width="1120" height="600" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- center divider -->
+  <line x1="560" y1="40" x2="560" y2="560" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.14"/>
+
+  <!-- ===== LEFT COLUMN: GOT RIGHT ===== -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- header with check -->
+    <g transform="translate(40,54)">
+      <circle cx="14" cy="-5" r="15" fill="#3a7d44" fill-opacity="0.14" stroke="#3a7d44" stroke-width="3"/>
+      <path d="M7 -5 l5 6 9 -13" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="42" y="2" font-size="19" letter-spacing="2" fill="#3a7d44">GOT RIGHT</text>
+    </g>
+
+    <g font-size="14" fill="#1a1d24">
+      <!-- item 1 -->
+      <g transform="translate(54,116)">
+        <path d="M-8 0 l5 6 10 -14" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="20" y="4" font-size="14.5">Consolidate the domain model first</text>
+        <text x="20" y="26" font-size="12" fill="#7a808c">sold it by naming the feature it unlocks</text>
+      </g>
+      <!-- item 2 -->
+      <g transform="translate(54,190)">
+        <path d="M-8 0 l5 6 10 -14" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="20" y="4" font-size="14.5">OTA production-grade before scaling</text>
+        <text x="20" y="26" font-size="12" fill="#7a808c">fleet-health dashboard caught the canary brick</text>
+      </g>
+      <!-- item 3 -->
+      <g transform="translate(54,264)">
+        <path d="M-8 0 l5 6 10 -14" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="20" y="4" font-size="14.5">Bond trust to a physical button-press</text>
+        <text x="20" y="26" font-size="12" fill="#7a808c">no remote re-bond surface to find</text>
+      </g>
+      <!-- item 4 -->
+      <g transform="translate(54,338)">
+        <path d="M-8 0 l5 6 10 -14" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="20" y="4" font-size="14.5">Treat the phone as a flaky courier</text>
+        <text x="20" y="26" font-size="12" fill="#7a808c">sign on device, verify in the cloud</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ===== RIGHT COLUMN: WOULD UNDO ===== -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <g transform="translate(600,54)">
+      <circle cx="14" cy="-5" r="15" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="3"/>
+      <path d="M8 -11 l12 12 M20 -11 l-12 12" fill="none" stroke="#c14a3a" stroke-width="3.2" stroke-linecap="round"/>
+      <text x="42" y="2" font-size="19" letter-spacing="2" fill="#c14a3a">WOULD UNDO</text>
+    </g>
+
+    <g font-size="14" fill="#1a1d24">
+      <!-- item 1 -->
+      <g transform="translate(614,116)">
+        <path d="M-9 -7 l14 14 M5 -7 l-14 14" fill="none" stroke="#c14a3a" stroke-width="2.8" stroke-linecap="round"/>
+        <text x="20" y="4" font-size="14.5">Let hardware fix the head-ID bytes</text>
+        <text x="20" y="26" font-size="12" fill="#7a808c">no API input &#8594; two engineer-months of workarounds</text>
+      </g>
+      <!-- item 2 -->
+      <g transform="translate(614,190)">
+        <path d="M-9 -7 l14 14 M5 -7 l-14 14" fill="none" stroke="#c14a3a" stroke-width="2.8" stroke-linecap="round"/>
+        <text x="20" y="4" font-size="14.5">Let the small device lines drift</text>
+        <text x="20" y="26" font-size="12" fill="#7a808c">migrate the cheap ones while they're still cheap</text>
+      </g>
+      <!-- item 3 -->
+      <g transform="translate(614,264)">
+        <path d="M-9 -7 l14 14 M5 -7 l-14 14" fill="none" stroke="#c14a3a" stroke-width="2.8" stroke-linecap="round"/>
+        <text x="20" y="4" font-size="14.5">Build OTA telemetry only just in time</text>
+        <text x="20" y="26" font-size="12" fill="#7a808c">no baseline to measure the anomaly against</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- footer root-cause band spanning both columns -->
+  <rect x="40" y="470" width="1040" height="74" rx="8" fill="#357a8c" fill-opacity="0.07" stroke="#357a8c" stroke-width="2"/>
+  <text x="560" y="503" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" letter-spacing="1" fill="#357a8c">THE WHOLE RIGHT COLUMN HAS ONE ROOT CAUSE</text>
+  <text x="560" y="528" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#5b616b">I wasn't in the room early enough &#8212; be in the hardware spec meeting from week one</text>
+</svg>

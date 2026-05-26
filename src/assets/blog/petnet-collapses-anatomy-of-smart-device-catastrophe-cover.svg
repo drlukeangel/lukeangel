@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="the dark week">
+  <defs>
+    <pattern id="dotsPC" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsPC)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- a row of 7 day-cells: the dark week -->
+  <g transform="translate(150,210)">
+    <!-- each cell: rounded square, empty bowl, small severed-cloud mark -->
+    <g>
+      <!-- cell 1 -->
+      <g transform="translate(0,0)">
+        <rect x="0" y="0" width="130" height="150" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+        <ellipse cx="65" cy="92" rx="40" ry="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+        <path d="M52 32 l26 16 M78 32 l-26 16" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <!-- cells 2-7 via repeated translate -->
+      <g transform="translate(146,0)">
+        <rect x="0" y="0" width="130" height="150" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+        <ellipse cx="65" cy="92" rx="40" ry="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+        <path d="M52 32 l26 16 M78 32 l-26 16" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(292,0)">
+        <rect x="0" y="0" width="130" height="150" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+        <ellipse cx="65" cy="92" rx="40" ry="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+        <path d="M52 32 l26 16 M78 32 l-26 16" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(438,0)">
+        <rect x="0" y="0" width="130" height="150" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+        <ellipse cx="65" cy="92" rx="40" ry="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+        <path d="M52 32 l26 16 M78 32 l-26 16" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(584,0)">
+        <rect x="0" y="0" width="130" height="150" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+        <ellipse cx="65" cy="92" rx="40" ry="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+        <path d="M52 32 l26 16 M78 32 l-26 16" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(730,0)">
+        <rect x="0" y="0" width="130" height="150" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+        <ellipse cx="65" cy="92" rx="40" ry="14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+        <path d="M52 32 l26 16 M78 32 l-26 16" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <!-- cell 8 = restore day: bowl filled (the mechanical backup kept this one fed) -->
+      <g transform="translate(876,0)">
+        <rect x="0" y="0" width="130" height="150" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+        <ellipse cx="65" cy="92" rx="40" ry="14" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+        <ellipse cx="65" cy="88" rx="24" ry="7" fill="#c87533" fill-opacity="0.3"/>
+        <circle cx="55" cy="88" r="4" fill="#c87533"/>
+        <circle cx="68" cy="90" r="4" fill="#c87533"/>
+        <circle cx="78" cy="86" r="4" fill="#c87533"/>
+        <!-- check -->
+        <path d="M48 38 l10 12 l22 -24" fill="none" stroke="#3a7d44" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

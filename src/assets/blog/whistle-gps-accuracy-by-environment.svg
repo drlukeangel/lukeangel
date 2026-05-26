@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="GPS accuracy by environment">
+  <rect width="1000" height="620" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <g transform="translate(330 310)" font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- concentric accuracy rings -->
+    <circle r="250" fill="none" stroke="#c14a3a" stroke-opacity="0.45" stroke-width="2.5" stroke-dasharray="5 9"/>
+    <circle r="170" fill="none" stroke="#1a1d24" stroke-opacity="0.30" stroke-width="2.5"/>
+    <circle r="115" fill="none" stroke="#c87533" stroke-opacity="0.65" stroke-width="2.5"/>
+    <circle r="70" fill="none" stroke="#c87533" stroke-width="3"/>
+    <circle r="34" fill="none" stroke="#3a7d44" stroke-width="3.5"/>
+
+    <!-- true position: the dog -->
+    <circle r="9" fill="#1a1d24"/>
+
+    <!-- satellite, top-right, with blocked indication on outer ring -->
+    <g transform="translate(205 -205)">
+      <rect x="-16" y="-9" width="32" height="18" rx="3" fill="#1a1d24"/>
+      <rect x="-26" y="-5" width="9" height="10" rx="2" fill="#7a808c"/>
+      <rect x="17" y="-5" width="9" height="10" rx="2" fill="#7a808c"/>
+    </g>
+  </g>
+
+  <!-- legend on the right -->
+  <g transform="translate(680 150)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16">
+    <g transform="translate(0 0)">
+      <circle cx="10" cy="-5" r="7" fill="none" stroke="#3a7d44" stroke-width="3.5"/>
+      <text x="30" y="0" fill="#1a1d24">open field</text>
+      <text x="30" y="22" fill="#5b616b" font-size="13">±5 m</text>
+    </g>
+    <g transform="translate(0 58)">
+      <circle cx="10" cy="-5" r="7" fill="none" stroke="#c87533" stroke-width="3"/>
+      <text x="30" y="0" fill="#1a1d24">suburban yard</text>
+      <text x="30" y="22" fill="#5b616b" font-size="13">±10 m</text>
+    </g>
+    <g transform="translate(0 116)">
+      <circle cx="10" cy="-5" r="7" fill="none" stroke="#c87533" stroke-opacity="0.65" stroke-width="2.5"/>
+      <text x="30" y="0" fill="#1a1d24">dense block</text>
+      <text x="30" y="22" fill="#5b616b" font-size="13">±20–30 m</text>
+    </g>
+    <g transform="translate(0 174)">
+      <circle cx="10" cy="-5" r="7" fill="none" stroke="#1a1d24" stroke-opacity="0.30" stroke-width="2.5"/>
+      <text x="30" y="0" fill="#1a1d24">wooded canopy</text>
+      <text x="30" y="22" fill="#5b616b" font-size="13">±30–50 m</text>
+    </g>
+    <g transform="translate(0 232)">
+      <circle cx="10" cy="-5" r="7" fill="none" stroke="#c14a3a" stroke-opacity="0.45" stroke-width="2.5" stroke-dasharray="3 4"/>
+      <text x="30" y="0" fill="#c14a3a">indoor — no fix</text>
+      <text x="30" y="22" fill="#5b616b" font-size="13">cell-tower fallback ±200–500 m</text>
+    </g>
+  </g>
+</svg>

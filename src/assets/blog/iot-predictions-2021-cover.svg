@@ -1,32 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t">
-  <title id="t">IoT & Connected Devices — 2021 Predictions and Outcomes cover</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A forecast year for connected devices.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <linearGradient id="g21" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d9488"/>
-      <stop offset="100%" stop-color="#134e4a"/>
-    </linearGradient>
+    <pattern id="p21-dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#g21)"/>
-  <g fill="#fff" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
-    <text x="80" y="100" font-size="22" letter-spacing="6" opacity="0.7">CONNECTED DEVICES · YEAR IN REVIEW</text>
-    <text x="80" y="220" font-size="120" font-weight="500" letter-spacing="-2">2021</text>
-    <text x="80" y="320" font-size="44" font-weight="300">Predictions &amp; outcomes</text>
+  <rect width="1200" height="630" fill="url(#p21-dots)"/>
+  <rect width="24" height="630" fill="#0066cc"/>
+
+  <!-- forecast plot: a settled past curve, a fork into projected futures -->
+  <g transform="translate(150,120)">
+    <!-- baseline axis -->
+    <g stroke="#7a808c" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M40 360 H 760"/>
+      <path d="M40 360 V 40"/>
+    </g>
+    <path d="M760 360 l-16 -8 v16 z" fill="#7a808c"/>
+    <path d="M40 40 l-8 -16 l16 0 z" fill="#7a808c"/>
+
+    <!-- the known past: a solid rising adoption curve -->
+    <path d="M40 330 C 150 320, 230 270, 330 210 S 470 130, 520 110" fill="none" stroke="#0066cc" stroke-width="6" stroke-linecap="round"/>
+    <!-- past data points -->
+    <g fill="#0066cc">
+      <circle cx="40" cy="330" r="9"/>
+      <circle cx="180" cy="288" r="9"/>
+      <circle cx="330" cy="210" r="9"/>
+      <circle cx="520" cy="110" r="9"/>
+    </g>
+
+    <!-- the fork: dashed projected branches into the future -->
+    <g fill="none" stroke="#0066cc" stroke-width="5" stroke-linecap="round" stroke-dasharray="4 12" opacity="0.85">
+      <path d="M520 110 C 600 90, 660 70, 740 56"/>
+    </g>
+    <g fill="none" stroke="#7a808c" stroke-width="4" stroke-linecap="round" stroke-dasharray="4 12" opacity="0.7">
+      <path d="M520 110 C 600 130, 660 150, 740 150"/>
+      <path d="M520 110 C 610 110, 670 108, 740 104"/>
+    </g>
+    <!-- a marker where past becomes forecast -->
+    <circle cx="520" cy="110" r="13" fill="#fdfaf2" stroke="#0066cc" stroke-width="6"/>
   </g>
-  <g transform="translate(720,200)">
-    <circle cx="60" cy="60" r="60" fill="#fff"/>
-    <circle cx="60" cy="60" r="30" fill="#0d9488"/>
-    <text x="60" y="160" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">AirTag</text>
+
+  <!-- the devices the forecast is about: a watch, a tracker puck, a mesh router -->
+  <!-- smartwatch -->
+  <g transform="translate(940,150)">
+    <rect x="0" y="0" width="96" height="116" rx="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="22" y="-20" width="52" height="22" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="22" y="114" width="52" height="22" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <circle cx="48" cy="58" r="26" fill="none" stroke="#0066cc" stroke-width="5"/>
+    <path d="M48 42 V 58 L 60 66" fill="none" stroke="#0066cc" stroke-width="5" stroke-linecap="round"/>
   </g>
-  <g transform="translate(870,180)">
-    <rect x="0" y="0" width="120" height="160" rx="14" fill="#fff"/>
-    <rect x="10" y="10" width="100" height="80" rx="4" fill="#0d9488"/>
-    <text x="60" y="190" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">Eero 6</text>
+
+  <!-- tracker puck with finding signal -->
+  <g transform="translate(965,330)">
+    <circle cx="40" cy="40" r="42" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <circle cx="40" cy="40" r="14" fill="#0066cc"/>
+    <g stroke="#0066cc" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7">
+      <path d="M86 18 a40 40 0 0 1 0 44"/>
+      <path d="M100 6 a58 58 0 0 1 0 68"/>
+    </g>
   </g>
-  <g transform="translate(1040,180)">
-    <rect x="0" y="0" width="120" height="120" rx="60" fill="#fff"/>
-    <text x="60" y="65" text-anchor="middle" fill="#0d9488" font-family="'Inter', Arial" font-size="14">Matter</text>
-    <text x="60" y="85" text-anchor="middle" fill="#0d9488" font-family="'Inter', Arial" font-size="14">1.0?</text>
-    <text x="60" y="160" text-anchor="middle" fill="#fff" font-family="'Inter', Arial" font-size="14">Matter spec</text>
+
+  <!-- mesh router node -->
+  <g transform="translate(820,420)">
+    <rect x="0" y="20" width="104" height="64" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <line x1="26" y1="20" x2="26" y2="-8" stroke="#1a1d24" stroke-width="5" stroke-linecap="round"/>
+    <line x1="78" y1="20" x2="78" y2="-8" stroke="#1a1d24" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="30" cy="52" r="7" fill="#0066cc"/>
+    <circle cx="56" cy="52" r="7" fill="#7a808c"/>
+    <circle cx="82" cy="52" r="7" fill="#7a808c"/>
   </g>
-  <text x="80" y="580" fill="#fff" opacity="0.6" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="4">LUKEANGEL.CO · THE JOURNAL</text>
 </svg>

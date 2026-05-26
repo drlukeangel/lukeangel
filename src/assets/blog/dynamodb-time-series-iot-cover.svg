@@ -1,31 +1,95 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="DynamoDB time-series storage">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
     <pattern id="dd-dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-      <circle cx="14" cy="14" r="1" fill="#1a1d24" opacity="0.04"/>
+      <circle cx="14" cy="14" r="1" fill="#1a1d24" opacity="0.05"/>
     </pattern>
   </defs>
   <rect width="1200" height="630" fill="url(#dd-dots)"/>
-  <rect x="0" y="0" width="16" height="630" fill="#1a1d24"/>
-  <text x="80" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" letter-spacing="4" fill="#7a808c">PATTERNS — MAR 2024</text>
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="1"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
 
-  <g transform="translate(820, 180)">
-    <rect x="0" y="0" width="280" height="40" fill="none" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="70" y1="0"  x2="70"  y2="40" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="140" y1="0" x2="140" y2="40" stroke="#1a1d24" stroke-width="2"/>
-    <line x1="210" y1="0" x2="210" y2="40" stroke="#1a1d24" stroke-width="2"/>
-    <text x="35" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">pk</text>
-    <text x="105" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">sk</text>
-    <text x="175" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">data</text>
-    <text x="245" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">ttl</text>
+  <!-- device puck emitting telemetry -->
+  <g transform="translate(150, 250)">
+    <ellipse cx="0" cy="78" rx="64" ry="16" fill="#1a1d24" opacity="0.08"/>
+    <rect x="-58" y="6" width="116" height="64" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="-58" y="6" width="116" height="22" rx="20" fill="#2a52be" opacity="0.12"/>
+    <circle cx="0" cy="40" r="16" fill="none" stroke="#2a52be" stroke-width="4"/>
+    <circle cx="0" cy="40" r="5" fill="#2a52be"/>
+    <!-- antenna / signal arcs -->
+    <path d="M-2 -2 a14 14 0 0 1 28 0" fill="none" stroke="#2a52be" stroke-width="3.5" opacity="0.55"/>
+    <path d="M-10 -14 a26 26 0 0 1 48 0" fill="none" stroke="#2a52be" stroke-width="3.5" opacity="0.32"/>
   </g>
 
-  <text x="80" y="290" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#1a1d24">DynamoDB for</text>
-  <text x="80" y="370" font-family="Newsreader, serif" font-weight="500" font-size="74" fill="#1a1d24">time-series IoT.</text>
-  <text x="80" y="430" font-family="Newsreader, serif" font-style="italic" font-size="30" fill="#7a808c">— when the relational urge is wrong.</text>
+  <!-- telemetry points streaming toward the partition (dashed flight path) -->
+  <g stroke="#2a52be" stroke-width="3" fill="none" stroke-dasharray="3 11" stroke-linecap="round" opacity="0.7">
+    <path d="M238 285 C 360 285 410 250 470 250"/>
+  </g>
+  <g fill="#2a52be">
+    <circle cx="300" cy="285" r="6"/>
+    <circle cx="356" cy="276" r="6"/>
+    <circle cx="412" cy="262" r="6"/>
+  </g>
 
-  <line x1="80" y1="490" x2="1120" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="80" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT · DATA</text>
+  <!-- the partition: a time-ordered stack of records, hot (recent) bright -> cold (old) faded -->
+  <g transform="translate(470, 150)">
+    <!-- newest / hot record at top -->
+    <rect x="0" y="0"   width="360" height="46" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4"/>
+    <rect x="0" y="58"  width="360" height="46" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="4" opacity="0.9"/>
+    <rect x="0" y="116" width="360" height="46" rx="9" fill="#fdfaf2" stroke="#2a52be" stroke-width="3.5" opacity="0.72"/>
+    <rect x="0" y="174" width="360" height="46" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3" opacity="0.5"/>
+    <rect x="0" y="232" width="360" height="46" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5" opacity="0.34"/>
+    <rect x="0" y="290" width="360" height="46" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" opacity="0.2"/>
+
+    <!-- each record: a key cell + a value bar (no readable text, just structure) -->
+    <g>
+      <line x1="92" y1="0"   x2="92" y2="46"  stroke="#2a52be" stroke-width="4"/>
+      <line x1="92" y1="58"  x2="92" y2="104" stroke="#2a52be" stroke-width="4" opacity="0.9"/>
+      <line x1="92" y1="116" x2="92" y2="162" stroke="#2a52be" stroke-width="3.5" opacity="0.72"/>
+      <line x1="92" y1="174" x2="92" y2="220" stroke="#1a1d24" stroke-width="3" opacity="0.5"/>
+      <line x1="92" y1="232" x2="92" y2="278" stroke="#1a1d24" stroke-width="2.5" opacity="0.34"/>
+      <line x1="92" y1="290" x2="92" y2="336" stroke="#1a1d24" stroke-width="2" opacity="0.2"/>
+    </g>
+    <!-- value bars inside each record -->
+    <g fill="#2a52be">
+      <rect x="116" y="17" width="150" height="12" rx="6"/>
+      <rect x="116" y="75" width="120" height="12" rx="6" opacity="0.9"/>
+      <rect x="116" y="133" width="170" height="12" rx="6" opacity="0.72"/>
+    </g>
+    <g fill="#1a1d24">
+      <rect x="116" y="191" width="110" height="12" rx="6" opacity="0.5"/>
+      <rect x="116" y="249" width="140" height="12" rx="6" opacity="0.34"/>
+      <rect x="116" y="307" width="95"  height="12" rx="6" opacity="0.2"/>
+    </g>
+
+    <!-- downward time arrow alongside the stack -->
+    <g stroke="#7a808c" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M-26 6 V 330"/>
+    </g>
+    <path d="M-26 344 l-7 -16 h14 z" fill="#7a808c"/>
+  </g>
+
+  <!-- TTL / aging: oldest records fall off toward a cold archive (S3-style) -->
+  <g stroke="#7a808c" stroke-width="3" fill="none" stroke-dasharray="3 10" stroke-linecap="round" opacity="0.65">
+    <path d="M838 460 C 905 470 935 500 990 500"/>
+  </g>
+  <!-- cold archive bin (stacked layers = object storage) -->
+  <g transform="translate(995, 446)">
+    <path d="M0 18 q55 -26 110 0 v66 q-55 26 -110 0 z" fill="#fdfaf2" stroke="#7a808c" stroke-width="3.5"/>
+    <path d="M0 18 q55 26 110 0" fill="none" stroke="#7a808c" stroke-width="3.5"/>
+    <path d="M0 46 q55 26 110 0" fill="none" stroke="#7a808c" stroke-width="2.5" opacity="0.7"/>
+    <path d="M0 74 q55 26 110 0" fill="none" stroke="#7a808c" stroke-width="2.5" opacity="0.7"/>
+  </g>
+
+  <!-- analytics split: a stream branch leaves the hot partition upward -->
+  <g stroke="#2a52be" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85">
+    <path d="M838 170 C 920 170 940 140 1000 140"/>
+  </g>
+  <g fill="#2a52be" opacity="0.85"><path d="M1004 140 l-15 -7 v14 z"/></g>
+  <!-- small chart glyph = analytics destination -->
+  <g transform="translate(1010, 96)" stroke="#2a52be" stroke-width="3.5" fill="none" stroke-linecap="round">
+    <rect x="0" y="0" width="92" height="72" rx="10" fill="#fdfaf2"/>
+    <path d="M14 56 L 36 34 L 52 46 L 78 18" />
+    <path d="M70 18 h10 v10" />
+  </g>
 </svg>

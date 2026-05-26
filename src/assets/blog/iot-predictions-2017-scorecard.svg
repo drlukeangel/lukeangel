@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img" aria-label="2016 scorecard">
+  <rect width="760" height="560" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+
+    <!-- header -->
+    <text x="40" y="56" font-size="22" fill="#1a1d24" letter-spacing="1">2016 SCORECARD</text>
+    <text x="40" y="82" font-size="14" fill="#7a808c">six bets called · best year of the streak</text>
+    <line x1="40" y1="98" x2="720" y2="98" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1.5"/>
+
+    <!-- column headers -->
+    <text x="40" y="128" font-size="12" fill="#5b616b" letter-spacing="1">PREDICTION</text>
+    <text x="640" y="128" font-size="12" fill="#5b616b" letter-spacing="1">RESULT</text>
+
+    <!-- row template: y baselines -->
+    <!-- row 1 -->
+    <g>
+      <text x="40" y="168" font-size="15" fill="#1a1d24">Voice owns the home interface</text>
+      <text x="40" y="188" font-size="11.5" fill="#7a808c">Echo Dot $50, Google Home Nov — 8M+ units</text>
+      <circle cx="668" cy="172" r="15" fill="#3a7d44"/>
+      <path d="M661 172 l5 6 l9 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="694" y="177" font-size="11" fill="#3a7d44">BIG</text>
+    </g>
+    <line x1="40" y1="204" x2="720" y2="204" stroke="#1a1d24" stroke-opacity="0.08"/>
+
+    <!-- row 2 -->
+    <g>
+      <text x="40" y="234" font-size="15" fill="#1a1d24">Mesh wifi becomes a category</text>
+      <text x="40" y="254" font-size="11.5" fill="#7a808c">Eero, Luma, Google WiFi</text>
+      <circle cx="668" cy="238" r="15" fill="#3a7d44"/>
+      <path d="M661 238 l5 6 l9 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <line x1="40" y1="270" x2="720" y2="270" stroke="#1a1d24" stroke-opacity="0.08"/>
+
+    <!-- row 3 -->
+    <g>
+      <text x="40" y="300" font-size="15" fill="#1a1d24">AR via the phone you carry</text>
+      <text x="40" y="320" font-size="11.5" fill="#7a808c">Pokémon Go — 500M downloads in two months</text>
+      <circle cx="668" cy="304" r="15" fill="#3a7d44"/>
+      <path d="M661 304 l5 6 l9 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="694" y="309" font-size="11" fill="#3a7d44">BIG</text>
+    </g>
+    <line x1="40" y1="336" x2="720" y2="336" stroke="#1a1d24" stroke-opacity="0.08"/>
+
+    <!-- row 4 -->
+    <g>
+      <text x="40" y="366" font-size="15" fill="#1a1d24">Independent smartwatch fades</text>
+      <text x="40" y="386" font-size="11.5" fill="#7a808c">Pebble IP to Fitbit ~$40M; duopoly Apple+Garmin</text>
+      <circle cx="668" cy="370" r="15" fill="#3a7d44"/>
+      <path d="M661 370 l5 6 l9 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <line x1="40" y1="402" x2="720" y2="402" stroke="#1a1d24" stroke-opacity="0.08"/>
+
+    <!-- row 5 -->
+    <g>
+      <text x="40" y="432" font-size="15" fill="#1a1d24">Ambient hub beats the dedicated hub</text>
+      <text x="40" y="452" font-size="11.5" fill="#7a808c">SmartThings flat, Wink fades — the Echo is the hub</text>
+      <circle cx="668" cy="436" r="15" fill="#3a7d44"/>
+      <path d="M661 436 l5 6 l9 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <line x1="40" y1="468" x2="720" y2="468" stroke="#1a1d24" stroke-opacity="0.08"/>
+
+    <!-- row 6 -->
+    <g>
+      <text x="40" y="498" font-size="15" fill="#1a1d24">Medical wearables won't ship</text>
+      <text x="40" y="518" font-size="11.5" fill="#7a808c">Watch S2: GPS + waterproof, no FDA-cleared health</text>
+      <circle cx="668" cy="502" r="15" fill="#3a7d44"/>
+      <path d="M661 502 l5 6 l9 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- tally bar -->
+    <text x="40" y="546" font-size="13" fill="#0066cc" letter-spacing="0.5">~85% accuracy — the category is consolidating</text>
+  </g>
+</svg>

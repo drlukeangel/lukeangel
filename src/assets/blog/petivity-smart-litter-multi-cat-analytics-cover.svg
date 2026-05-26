@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="One scale, two cats">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- LEFT: a litter box sitting on the flat sensor base -->
+  <g transform="translate(300,300)">
+    <!-- litter box (trapezoid pan) -->
+    <path d="M -110 -40 L 110 -40 L 90 60 L -90 60 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round"/>
+    <!-- litter surface line -->
+    <line x1="-92" y1="-8" x2="92" y2="-8" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="3"/>
+    <!-- the Petivity flat sensor base under it -->
+    <rect x="-130" y="64" width="260" height="34" rx="8" fill="#c87533" fill-opacity="0.12" stroke="#c87533" stroke-width="5"/>
+    <!-- four corner sensor dots -->
+    <circle cx="-112" cy="81" r="6" fill="#c87533"/>
+    <circle cx="112" cy="81" r="6" fill="#c87533"/>
+    <circle cx="-40" cy="81" r="5" fill="#c87533" fill-opacity="0.6"/>
+    <circle cx="40" cy="81" r="5" fill="#c87533" fill-opacity="0.6"/>
+    <!-- single weight reading rising from the base -->
+    <line x1="0" y1="64" x2="0" y2="-100" stroke="#c87533" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+    <circle cx="0" cy="-110" r="9" fill="#fdfaf2" stroke="#c87533" stroke-width="4"/>
+  </g>
+
+  <!-- fork: one reading splits into two cat trend lines on the right -->
+  <g transform="translate(620,190)">
+    <!-- fork point -->
+    <circle cx="0" cy="0" r="7" fill="#c87533"/>
+    <!-- upper branch -> cat A profile -->
+    <path d="M 0 0 C 80 -20 140 -30 210 -30" fill="none" stroke="#c87533" stroke-width="4" stroke-linecap="round"/>
+    <!-- lower branch -> cat B profile -->
+    <path d="M 0 0 C 80 40 140 90 210 110" fill="none" stroke="#1a1d24" stroke-width="4" stroke-linecap="round" stroke-opacity="0.7"/>
+  </g>
+
+  <!-- two cat-head glyphs at the branch ends -->
+  <g transform="translate(850,160)" fill="#fdfaf2" stroke="#c87533" stroke-width="4" stroke-linejoin="round">
+    <path d="M -22 -4 L -14 -22 L -4 -10 L 4 -10 L 14 -22 L 22 -4 Q 22 22 0 24 Q -22 22 -22 -4 Z"/>
+    <circle cx="-8" cy="2" r="2.6" fill="#c87533" stroke="none"/>
+    <circle cx="8" cy="2" r="2.6" fill="#c87533" stroke="none"/>
+  </g>
+  <g transform="translate(850,300)" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round" stroke-opacity="0.85">
+    <path d="M -22 -4 L -14 -22 L -4 -10 L 4 -10 L 14 -22 L 22 -4 Q 22 22 0 24 Q -22 22 -22 -4 Z"/>
+    <circle cx="-8" cy="2" r="2.6" fill="#1a1d24" stroke="none"/>
+    <circle cx="8" cy="2" r="2.6" fill="#1a1d24" stroke="none"/>
+  </g>
+</svg>

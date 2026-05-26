@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 380" width="1080" height="380" role="img" aria-label="Config as version-controlled text files versus a cloud web IDE.">
+  <rect width="1080" height="380" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">CONFIG IS TEXT YOU OWN</text>
+
+  <line x1="540" y1="70" x2="540" y2="340" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.16"/>
+
+  <!-- LEFT: HA YAML in git -->
+  <text x="270" y="92" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24">HOME ASSISTANT — YAML in git</text>
+  <!-- stack of yaml files -->
+  <g transform="translate(70,116)">
+    <rect x="0" y="0" width="150" height="40" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="14" y="25" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">configuration.yaml</text>
+    <rect x="0" y="48" width="150" height="40" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="14" y="73" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">automations.yaml</text>
+    <rect x="0" y="96" width="150" height="40" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="14" y="121" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">secrets.yaml</text>
+    <text x="14" y="160" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">(secrets git-ignored)</text>
+  </g>
+  <!-- git ops chain -->
+  <g transform="translate(250,120)">
+    <g stroke="#6a4c93" stroke-width="2.6" fill="#6a4c93">
+      <path d="M0 16 H40" fill="none"/><path d="M44 16 l-12 -6 v12 z"/>
+    </g>
+    <g font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">
+      <text x="52" y="20">git commit</text>
+      <text x="52" y="58">git diff</text>
+      <text x="52" y="96">git checkout HEAD~1</text>
+    </g>
+    <g stroke="#6a4c93" stroke-width="2.6" fill="none" opacity="0.5">
+      <line x1="6" y1="30" x2="6" y2="88"/>
+    </g>
+    <text x="52" y="130" font-family="ui-monospace,monospace" font-size="10.5" fill="#3a7d44">→ revert to last working state</text>
+  </g>
+
+  <!-- RIGHT: SmartThings web IDE -->
+  <text x="810" y="92" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24">SMARTTHINGS — Groovy in a web IDE</text>
+  <g transform="translate(620,116)">
+    <rect x="0" y="0" width="380" height="150" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <!-- browser chrome -->
+    <rect x="0" y="0" width="380" height="26" rx="8" fill="#1a1d24" fill-opacity="0.06"/>
+    <circle cx="16" cy="13" r="4" fill="#c14a3a" opacity="0.6"/><circle cx="30" cy="13" r="4" fill="#c87533" opacity="0.6"/><circle cx="44" cy="13" r="4" fill="#3a7d44" opacity="0.6"/>
+    <text x="190" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">edit SmartApp in the cloud IDE</text>
+    <text x="190" y="92" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">no version history</text>
+    <text x="190" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">no diff · no revert · no local copy</text>
+  </g>
+
+  <text x="540" y="356" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">When I break something at 11 PM, one path lets me roll back. The other lets me hope I remember what I changed.</text>
+</svg>

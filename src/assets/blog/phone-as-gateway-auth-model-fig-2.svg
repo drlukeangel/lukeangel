@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" role="img" aria-label="Two mechanisms close replay even though a replayed signature is valid.">
+  <rect width="1080" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">A REPLAYED SIGNATURE IS VALID — SO TWO OTHER CHECKS CLOSE REPLAY</text>
+
+  <!-- captured upload -->
+  <g transform="translate(44,96)">
+    <rect x="0" y="0" width="172" height="92" rx="10" fill="#c14a3a" fill-opacity="0.07" stroke="#c14a3a" stroke-width="2.4"/>
+    <text x="86" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">captured upload</text>
+    <text x="86" y="56" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">SN 4471 · counter 88</text>
+    <g transform="translate(86,74)">
+      <path d="M-10 0 q5 -10 10 0 q5 10 10 0" fill="none" stroke="#3a7d44" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="130" y="208" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#c14a3a">signature still verifies — it IS valid</text>
+
+  <!-- branch arrow -->
+  <g stroke="#7a808c" stroke-width="2.6" fill="#7a808c" stroke-linecap="round">
+    <line x1="216" y1="142" x2="300" y2="142"/><path d="M304 142 l-12 -6 v12 z"/>
+  </g>
+
+  <!-- DEFENSE 1: monotonic counter dedup -->
+  <g transform="translate(320,76)">
+    <rect x="0" y="0" width="340" height="280" rx="14" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="20" y="34" font-family="ui-monospace,monospace" font-size="13" fill="#357a8c">1 · MONOTONIC COUNTER, IN THE SIGNED PAYLOAD</text>
+    <text x="20" y="60" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">dedupe on (serial, counter)</text>
+    <!-- accepted log -->
+    <text x="20" y="92" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">accepted log for SN 4471:</text>
+    <g transform="translate(20,104)">
+      <g font-family="ui-monospace,monospace" font-size="11">
+        <rect x="0" y="0" width="44" height="34" rx="5" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="1.8"/><text x="22" y="22" text-anchor="middle" fill="#3a7d44">86</text>
+        <rect x="52" y="0" width="44" height="34" rx="5" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="1.8"/><text x="74" y="22" text-anchor="middle" fill="#3a7d44">87</text>
+        <rect x="104" y="0" width="44" height="34" rx="5" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="1.8"/><text x="126" y="22" text-anchor="middle" fill="#3a7d44">88</text>
+        <rect x="156" y="0" width="44" height="34" rx="5" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="1.8"/><text x="178" y="22" text-anchor="middle" fill="#3a7d44">89</text>
+      </g>
+    </g>
+    <!-- replay lands on 88 -->
+    <g transform="translate(20,164)">
+      <g stroke="#c14a3a" stroke-width="2.4" fill="#c14a3a">
+        <line x1="106" y1="-22" x2="126" y2="-6"/><path d="M126 -2 l3 -12 -10 4 z"/>
+      </g>
+      <text x="0" y="34" font-family="ui-monospace,monospace" font-size="11.5" fill="#c14a3a">replay of 88 → already accepted</text>
+      <text x="0" y="54" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">→ dropped (same as an honest dup)</text>
+    </g>
+    <text x="20" y="262" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#357a8c">stops re-upload into the same account</text>
+  </g>
+
+  <!-- DEFENSE 2: bond set -->
+  <g transform="translate(696,76)">
+    <rect x="0" y="0" width="340" height="280" rx="14" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="20" y="34" font-family="ui-monospace,monospace" font-size="13" fill="#357a8c">2 · BOND-SET CHECK</text>
+    <text x="20" y="60" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">serial must be in the uploader's set</text>
+    <!-- attacker account -->
+    <g transform="translate(20,84)">
+      <rect x="0" y="0" width="300" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8"/>
+      <text x="16" y="26" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">attacker account · bond set</text>
+      <text x="16" y="48" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">{ SN 9002, SN 9007 }</text>
+    </g>
+    <text x="20" y="176" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">replay carries SN 4471 …</text>
+    <g transform="translate(20,190)">
+      <text x="0" y="20" font-family="ui-monospace,monospace" font-size="11.5" fill="#c14a3a">SN 4471 ∉ { 9002, 9007 }</text>
+      <g transform="translate(258,12)" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round">
+        <circle cx="0" cy="0" r="14" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2"/>
+        <line x1="-6" y1="-6" x2="6" y2="6"/><line x1="6" y1="-6" x2="-6" y2="6"/>
+      </g>
+      <text x="0" y="44" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">→ rejected</text>
+    </g>
+    <text x="20" y="262" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#357a8c">stops cross-account replay</text>
+  </g>
+
+  <text x="540" y="398" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">The work to tolerate a flaky gateway turned out to be most of what was needed to tolerate a hostile one.</text>
+</svg>

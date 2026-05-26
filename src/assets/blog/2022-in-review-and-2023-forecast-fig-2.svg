@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="LoRa garden irrigation, 2022">
+  <rect width="1000" height="440" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24" text-anchor="middle">
+
+    <!-- soil sensors column -->
+    <text x="118" y="40" font-size="12" fill="#5b616b">8 RAK soil sensors</text>
+    <g font-size="10">
+      <g transform="translate(118 64)"><rect x="-84" y="0" width="168" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="0" y="20" fill="#1a1d24">bed · moisture %</text></g>
+      <g transform="translate(118 102)"><rect x="-84" y="0" width="168" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="0" y="20" fill="#1a1d24">bed · moisture %</text></g>
+      <g transform="translate(118 140)"><rect x="-84" y="0" width="168" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="0" y="20" fill="#1a1d24">bed · moisture %</text></g>
+      <g transform="translate(118 178)"><rect x="-84" y="0" width="168" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="0" y="20" fill="#5b616b">… ×8 total</text></g>
+    </g>
+
+    <!-- LoRa link symbol -->
+    <g transform="translate(300 130)" stroke="#6a4c93" stroke-width="2" fill="none" opacity="0.7">
+      <path d="M-90 -40 L0 -10"/><path d="M-90 0 L0 0"/><path d="M-90 40 L0 10"/>
+      <path d="M-90 84 L0 18"/>
+    </g>
+    <text x="300" y="200" font-size="11" fill="#6a4c93">LoRa · sub-GHz</text>
+    <g transform="translate(300 130)" stroke="#6a4c93" stroke-width="2" fill="none" opacity="0.6">
+      <path d="M14 -22 A 26 26 0 0 1 14 22"/>
+      <path d="M22 -32 A 40 40 0 0 1 22 32"/>
+    </g>
+
+    <!-- gateway -->
+    <g transform="translate(430 130)">
+      <rect x="-58" y="-34" width="116" height="68" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="-6" font-size="12" fill="#6a4c93">LoRa</text>
+      <text x="0" y="12" font-size="12" fill="#6a4c93">gateway</text>
+      <text x="0" y="30" font-size="10" fill="#5b616b">→ MQTT</text>
+    </g>
+
+    <!-- HA decision -->
+    <g transform="translate(620 130)">
+      <rect x="-86" y="-50" width="172" height="100" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="0" y="-24" font-size="13" fill="#6a4c93">Home Assistant</text>
+      <text x="0" y="-2" font-size="10" fill="#1a1d24">moisture &lt; setpoint?</text>
+      <text x="0" y="18" font-size="10" fill="#3a7d44">dry → open valve</text>
+      <text x="0" y="36" font-size="10" fill="#c14a3a">wet → skip cycle</text>
+    </g>
+    <line x1="488" y1="130" x2="534" y2="130" stroke="#6a4c93" stroke-width="2.5"/>
+
+    <!-- valves -->
+    <text x="868" y="40" font-size="12" fill="#5b616b">3 B-Hyve valves</text>
+    <g font-size="10">
+      <g transform="translate(868 80)"><rect x="-74" y="0" width="148" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="0" y="22" fill="#1a1d24">zone · veg beds</text></g>
+      <g transform="translate(868 124)"><rect x="-74" y="0" width="148" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="0" y="22" fill="#1a1d24">zone · borders</text></g>
+      <g transform="translate(868 168)"><rect x="-74" y="0" width="148" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="0" y="22" fill="#1a1d24">zone · lawn drip</text></g>
+    </g>
+    <g stroke="#6a4c93" stroke-width="2" fill="none" opacity="0.7">
+      <path d="M706 110 C 760 100, 800 96, 794 97"/>
+      <path d="M706 130 L794 141"/>
+      <path d="M706 150 C 760 165, 800 180, 794 185"/>
+    </g>
+
+    <text x="500" y="418" font-size="13" fill="#5b616b">water off real soil data, not a dumb timer — a full season, unattended</text>
+  </g>
+</svg>

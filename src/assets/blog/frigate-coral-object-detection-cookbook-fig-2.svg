@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="motion mask vs object mask">
+  <rect width="1000" height="420" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="500" y="42" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" font-weight="700" fill="#1a1d24">OPPOSITE SEMANTICS, ON PURPOSE</text>
+
+  <!-- MOTION MASK panel -->
+  <g transform="translate(50,80)">
+    <text x="200" y="0" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#6a4c93">MOTION MASK</text>
+    <text x="200" y="22" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">ignore motion INSIDE</text>
+    <!-- camera frame -->
+    <rect x="0" y="36" width="400" height="240" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <!-- masked region (tree line, top) -->
+    <rect x="0" y="36" width="400" height="100" fill="#7a808c" fill-opacity="0.22"/>
+    <line x1="0" y1="136" x2="400" y2="136" stroke="#6a4c93" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="200" y="90" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">masked: trees / sky</text>
+    <text x="200" y="110" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">no inference spent here</text>
+    <!-- a person below the line, allowed -->
+    <circle cx="120" cy="200" r="14" fill="#3a7d44" fill-opacity="0.6"/>
+    <text x="200" y="240" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#3a7d44">motion below the line still runs</text>
+    <text x="200" y="306" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">stops the work before it runs</text>
+  </g>
+
+  <!-- OBJECT MASK panel -->
+  <g transform="translate(550,80)">
+    <text x="200" y="0" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#6a4c93">OBJECT MASK</text>
+    <text x="200" y="22" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">count objects ONLY INSIDE</text>
+    <rect x="0" y="36" width="400" height="240" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <!-- driveway box, bottom-left -->
+    <rect x="20" y="170" width="180" height="100" rx="4" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="2"/>
+    <text x="110" y="225" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">my driveway</text>
+    <!-- car inside = counted -->
+    <rect x="70" y="232" width="60" height="22" rx="5" fill="#3a7d44" fill-opacity="0.6"/>
+    <text x="100" y="290" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#3a7d44">car here = real</text>
+    <!-- car outside (street) = discarded -->
+    <rect x="260" y="90" width="60" height="22" rx="5" fill="#c14a3a" fill-opacity="0.5"/>
+    <text x="290" y="130" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">neighbor's car</text>
+    <text x="290" y="146" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">outside = discarded</text>
+    <text x="200" y="306" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">discards a detection that was real but elsewhere</text>
+  </g>
+</svg>

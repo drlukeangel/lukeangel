@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 480" width="1120" height="480" role="img" aria-label="One question picks the pattern: does the device need to know it sent garbage? No leads to the async filter (IoT Rule to Lambda, drop and dead-letter). Yes, immediately leads to HTTPS with API Gateway returning a 400 in the same round trip. On Kafka or off-AWS, a Kafka-native broker routes rejects to a dead-letter topic.">
+  <rect width="1120" height="480" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE QUESTION PICKS THE PATTERN</text>
+
+  <rect x="330" y="84" width="460" height="68" rx="14" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+  <text x="560" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">does the device need to know</text>
+  <text x="560" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">it sent garbage?</text>
+
+  <!-- branches -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none">
+    <path d="M560 152 V 188 H 200 V 268"/>
+    <path d="M560 152 V 268"/>
+    <path d="M560 152 V 188 H 910 V 268"/>
+  </g>
+  <g fill="#1a1d24"><path d="M200 272 l-6 -14 h12 z"/><path d="M560 272 l-6 -14 h12 z"/><path d="M910 272 l-6 -14 h12 z"/></g>
+  <text x="360" y="180" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#3a7d44">no</text>
+  <text x="582" y="208" font-family="ui-monospace,monospace" font-size="12" fill="#2a52be">yes — now</text>
+  <text x="740" y="180" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">Kafka / off-AWS</text>
+
+  <!-- pattern boxes -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="50" y="272" width="300" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="200" y="306" text-anchor="middle" font-size="14" fill="#2a52be">PATTERN 1 · async filter</text>
+    <text x="200" y="336" text-anchor="middle" font-size="11.5" fill="#1a1d24">IoT Rule → Lambda</text>
+    <text x="200" y="356" text-anchor="middle" font-size="11.5" fill="#1a1d24">→ drop + dead-letter</text>
+    <text x="200" y="392" text-anchor="middle" font-size="11" fill="#7a808c">device stays dumb · cheapest</text>
+
+    <rect x="410" y="272" width="300" height="150" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <text x="560" y="306" text-anchor="middle" font-size="14" fill="#2a52be">PATTERN 2 · HTTPS</text>
+    <text x="560" y="336" text-anchor="middle" font-size="11.5" fill="#1a1d24">API Gateway schema →</text>
+    <text x="560" y="356" text-anchor="middle" font-size="11.5" fill="#1a1d24">400 in the same trip</text>
+    <text x="560" y="392" text-anchor="middle" font-size="11" fill="#7a808c">device finds out instantly</text>
+
+    <rect x="770" y="272" width="300" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="920" y="306" text-anchor="middle" font-size="14" fill="#2a52be">PATTERN 3 · Kafka-native</text>
+    <text x="920" y="336" text-anchor="middle" font-size="11.5" fill="#1a1d24">Zilla / Waterstream</text>
+    <text x="920" y="356" text-anchor="middle" font-size="11.5" fill="#1a1d24">→ dead-letter topic</text>
+    <text x="920" y="392" text-anchor="middle" font-size="11" fill="#7a808c">replayable · at scale</text>
+  </g>
+</svg>

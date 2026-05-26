@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="The four-step first-boot provisioning flow, and where it breaks offline">
+  <rect width="1120" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">FIRST BOOT IS A FOUR-STEP PROJECT</text>
+
+  <!-- four stage boxes across -->
+  <g font-family="ui-monospace,monospace">
+    <!-- 1 join wifi -->
+    <rect x="40" y="118" width="228" height="150" rx="14" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="74" cy="152" r="13" fill="#2a52be" fill-opacity="0.18" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="74" y="157" text-anchor="middle" font-size="13" fill="#2a52be">1</text>
+    <text x="160" y="156" text-anchor="middle" font-size="13.5" fill="#1a1d24">get onto Wi-Fi</text>
+    <!-- wifi glyph -->
+    <g fill="none" stroke="#2a52be" stroke-width="3" stroke-linecap="round" opacity="0.85">
+      <path d="M122 214 a48 48 0 0 1 76 0"/>
+      <path d="M136 200 a30 30 0 0 1 48 0"/>
+    </g>
+    <circle cx="160" cy="226" r="5" fill="#2a52be"/>
+    <text x="160" y="252" text-anchor="middle" font-size="10" fill="#7a808c">SoftAP / BLE handoff</text>
+
+    <!-- 2 cert onto device -->
+    <rect x="318" y="118" width="228" height="150" rx="14" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="352" cy="152" r="13" fill="#2a52be" fill-opacity="0.18" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="352" y="157" text-anchor="middle" font-size="13" fill="#2a52be">2</text>
+    <text x="438" y="156" text-anchor="middle" font-size="13.5" fill="#1a1d24">cert onto the chip</text>
+    <!-- cert seal glyph -->
+    <circle cx="438" cy="212" r="20" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <path d="M429 212 l6 7 13 -15" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M431 228 l-5 16 12 -7 12 7 -5 -16" fill="#3a7d44" opacity="0.8"/>
+    <text x="438" y="262" text-anchor="middle" font-size="10" fill="#7a808c">key stays in secure element</text>
+
+    <!-- 3 register with broker -->
+    <rect x="596" y="118" width="228" height="150" rx="14" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="630" cy="152" r="13" fill="#2a52be" fill-opacity="0.18" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="630" y="157" text-anchor="middle" font-size="13" fill="#2a52be">3</text>
+    <text x="716" y="156" text-anchor="middle" font-size="13.5" fill="#1a1d24">register with broker</text>
+    <!-- cloud glyph -->
+    <path d="M682 230 a18 18 0 0 1 2 -36 a25 25 0 0 1 48 -2 a20 20 0 0 1 18 38 z" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="718" cy="214" r="5" fill="#2a52be"/>
+    <text x="716" y="258" text-anchor="middle" font-size="10" fill="#7a808c">JITP / register-the-CA</text>
+
+    <!-- 4 first publish -->
+    <rect x="874" y="118" width="206" height="150" rx="14" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <circle cx="908" cy="152" r="13" fill="#3a7d44" fill-opacity="0.18" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="908" y="157" text-anchor="middle" font-size="13" fill="#3a7d44">4</text>
+    <text x="980" y="156" text-anchor="middle" font-size="13.5" fill="#1a1d24">first publish</text>
+    <path d="M945 208 l16 16 30 -36" fill="none" stroke="#3a7d44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="980" y="262" text-anchor="middle" font-size="10" fill="#7a808c">mTLS link is up</text>
+  </g>
+
+  <!-- arrows between stages -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="268" y1="193" x2="312" y2="193"/><path d="M316 193 l-15 -7 v14 z"/>
+    <line x1="546" y1="193" x2="590" y2="193"/><path d="M594 193 l-15 -7 v14 z"/>
+    <line x1="824" y1="193" x2="868" y2="193"/><path d="M872 193 l-15 -7 v14 z"/>
+  </g>
+
+  <!-- the offline-fragility band under steps 1-3 -->
+  <path d="M40 300 H 824" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="9 7" fill="none"/>
+  <text x="432" y="328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#c14a3a">any of these can fail mid-flow if the unit drops connectivity</text>
+  <text x="432" y="350" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">— every step has to be resumable, not assumed-online</text>
+
+  <text x="560" y="420" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">On a BLE-only v1 the user paired in the app and it was done. On Wi-Fi, first boot is its own product.</text>
+</svg>

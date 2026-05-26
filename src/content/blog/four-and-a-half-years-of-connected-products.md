@@ -9,11 +9,11 @@ tags:
   - retrospective
   - reflection
 notebook: connected-products
-notebookOrder: 9
+notebookOrder: 11
 excerpt: "Across two connected hardware products and 4.5 years of active build — a BLE-connected consumer-health platform 2017-2019, a payment-and-identity cart 2023-2025."
 pullquote: "I had the v1 OTA post on my desk when I scoped v2. I knew exactly what it cost on v1 to ship without OTA. I deferred it anyway. The mistake wasn't ignoring the lesson — it was assuming the cost curve was the same."
-cover: "../../assets/blog/iot-2-5-year-retrospective-cover.svg"
-coverAlt: "Cover graphic — Four and a half years of connected products, what I'd do differently. November 2025."
+cover: "../../assets/blog/four-and-a-half-years-of-connected-products-cover.svg"
+coverAlt: "Two connected devices across a four-year gap, both reaching one cloud platform — a BLE-connected consumer-health puck relayed through a phone gateway, and a WiFi-direct scanner-and-payment cart talking straight to a managed IoT broker."
 ---
 
 Two years ago, almost to the week, I [wrote down what I was underestimating](/blog/building-first-connected-product/) about leading my second connected-product engineering team. (My first was 2017-2019 — a BLE-connected consumer-health platform, covered in the [v1 series](/notebooks/building-medical-iot-connected-products/).) Ten thousand cart devices in the field later, this is the long-form follow-up across both eras.
@@ -28,7 +28,13 @@ What compounded from v1 to v2, what I still got wrong the second time around, an
 
 Net: four years of active build, plus six months of PRD work on v2 at the front, plus a four-year gap in between. The patterns that survived the gap are the ones in the [open-sourced starter kit](/blog/open-sourcing-the-connected-products-starter-kit/) now.
 
+The topology is the cleanest place to see what changed and what didn't. v1 had no radio on the device — it spoke BLE to the user's phone, and the phone relayed home-grown REST up to a custom API tier. v2 puts a WiFi radio (with LTE-M backup) on the device and talks MQTT-over-TLS straight to a managed broker, no phone in the path. The link got shorter and more reliable. The security principle underneath it — the device signs, the cloud verifies, you never trust the wire — did not move an inch.
+
+![Side-by-side connectivity topology. Left, v1 2017–2019: a BLE-only device links to a phone gateway, which relays home-grown REST to a custom API tier — two trust hops. Right, v2 2023–2025: a device with WiFi plus LTE-M backup talks MQTT over TLS straight to a managed IoT broker, one trust hop, no gateway in the loop. Both annotate the same rule: device signs, cloud verifies, never trust the wire.](../../assets/blog/four-and-a-half-years-then-vs-now-topology.svg)
+
 ## v2's timeline, by quarter
+
+![The cart platform quarter by quarter, Q3 2023 to Q4 2025. Eight milestones along a baseline: wrote the PRD; picked chip, broker and MQTT (with OTA deferred, flagged); first 100 units and a provisioning rewrite; 1,000 units with two near-incidents that forced building observability; 5,000 units with a Rev B board respin and cert rotation; 10,000 units and OTA finally shipped; operational maturity with on-call burden down 40% and the starter kit open-sourced. A rising band below the line tracks units in the field climbing from about 100 to 10,000.](../../assets/blog/four-and-a-half-years-v2-timeline.svg)
 
 **Q3 2023 — wrote the PRD.** The [three-part PRD](/blog/prd-part-1-hardware-specs/) for v2 was the first thing the team did. Every section had a v1 lesson sitting behind it: the entity model, the three-tier PII classification, the phone-as-gateway debate (this time, no — the device has its own radio), the OTA architecture (this time, signed firmware direct to device, no phone relay).
 
@@ -70,6 +76,8 @@ Then a board-level sensor calibration bug shipped in Q3 2024, we hit 5,000 devic
 
 The mistake wasn't ignoring the v1 lesson — I understood it. The mistake was assuming the cost curve looked the same as v1. On v1, shipping OTA was hard (BLE through a phone, ~18 engineer-months of work). On v2, OTA was easy (WiFi direct to device with a managed jobs orchestrator, ~4 engineer-months). Because v2's version was easier, I undervalued shipping it early. **Backwards: if the implementation is easy, ship it sooner.**
 
+![OTA effort versus when I chose to ship it. Two effort bars: v1, BLE through a phone, about 18 engineer-months, tall; v2, WiFi direct with a managed jobs orchestrator, about 4 engineer-months, short. An arrow notes that because v2 was easier, I undervalued it. A timeline shows OTA deferred in Q4 2023, a calibration bug shipping in Q3 2024 that triggered a fleet-wide RMA, and OTA finally shipping in Q1 2025 — with the RMA cost funding the OTA project several times over. The lesson: when implementation is cheap, that is a reason to ship sooner, not later.](../../assets/blog/four-and-a-half-years-ota-cost-curve.svg)
+
 **Treating the dashboard as engineering-only.**
 On v1 a partner-facing portal showed me what a customer-facing dashboard looks like. I built v2's first dashboard for engineers anyway. Customer-support rebuilt it from scratch nine months later. I'd build that one first next time.
 
@@ -77,6 +85,8 @@ On v1 a partner-facing portal showed me what a customer-facing dashboard looks l
 This one had no v1 lesson — v1 was BLE-only, no cellular. We picked one carrier; their service had a regional outage in Q2 2025; 300 devices went offline for 14 hours. We've since dual-SIM'd new cellular devices. v1 didn't prepare me for this because the situation didn't exist there. v2 paid the new-domain tax.
 
 ## What v2 had to figure out from scratch
+
+![A two-column ledger. Left, carried over from v1 (ported, saved time), six green checks: three-tier PII classification; the Account / Device / Session / Event entity spine; sign on device, verify in cloud; bond authorization to a physical act; dual-bank flash with a boot-counter failsafe; the instinct to minimize regulated-data scope. Right, new on v2 (the domain tax v1 never charged), six red crosses: EMC in front of fridge compressors; PCI-DSS scope and EMV tokenization; multi-tenant retail at stores times thousands; loss prevention as a product feature; cellular carrier risk from a single MVNO; a customer-facing dashboard from day one.](../../assets/blog/four-and-a-half-years-compounded-vs-new.svg)
 
 Things v1 didn't prepare me for because they didn't exist on v1:
 
@@ -99,6 +109,8 @@ Building the **wireless-decision rubric** as a written artifact and forcing the 
 When we picked BLE + LoRa dual-radio for our second product line in Q3 2024, the architecture conversation that previously took three meetings took twenty minutes. The rubric was written; we walked through five questions; the answers picked the design. The first product took 11 weeks to land that decision. The second took an afternoon.
 
 The rubric is in the [open-sourced kit](/blog/open-sourcing-the-connected-products-starter-kit/) now. If I could go back and hand it to my Q4 2023 self, I'd save the team about eight weeks of architecture-review meetings. That's the post-mortem lesson with the highest leverage.
+
+![Two horizontal bars, drawn to scale, comparing how long the wireless decision took before and after the rubric existed. The first product, with no written rubric, took eleven weeks across three architecture-review meetings — a long red bar. The second product, with the five-question rubric written down, took an afternoon in one twenty-minute walkthrough — a tiny green bar. Below, the artifact itself: the five questions in order — range, then cadence times payload, then BOM, then power, then security model.](../../assets/blog/four-and-a-half-years-rubric-leverage.svg)
 
 ## What I'm watching for the next two years
 

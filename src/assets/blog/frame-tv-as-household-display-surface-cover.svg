@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A framed wall display that is also a hub">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- the Frame TV: a framed picture on a wall -->
+  <g transform="translate(330,120)">
+    <!-- outer frame (wood-look bevel) -->
+    <rect x="0" y="0" width="540" height="340" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="10"/>
+    <rect x="18" y="18" width="504" height="304" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- "art mode" abstract landscape inside -->
+    <g>
+      <rect x="22" y="22" width="496" height="296" fill="#6a4c93" fill-opacity="0.06"/>
+      <!-- hills -->
+      <path d="M22 250 Q 150 180 280 240 T 518 220 L518 318 L22 318 Z" fill="#6a4c93" fill-opacity="0.16"/>
+      <path d="M22 290 Q 200 230 360 280 T 518 270 L518 318 L22 318 Z" fill="#6a4c93" fill-opacity="0.26"/>
+      <!-- sun -->
+      <circle cx="410" cy="100" r="34" fill="#c87533" fill-opacity="0.30"/>
+    </g>
+  </g>
+
+  <!-- the hub radiating from behind the frame to small device glyphs -->
+  <g stroke="#6a4c93" stroke-width="3" opacity="0.7">
+    <line x1="330" y1="200" x2="200" y2="150"/>
+    <line x1="330" y1="300" x2="170" y2="320"/>
+    <line x1="330" y1="400" x2="200" y2="470"/>
+    <line x1="870" y1="200" x2="1000" y2="150"/>
+    <line x1="870" y1="300" x2="1030" y2="320"/>
+    <line x1="870" y1="400" x2="1000" y2="470"/>
+  </g>
+  <!-- device glyphs around -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="4">
+    <!-- bulb left -->
+    <circle cx="180" cy="135" r="18"/>
+    <!-- sensor left -->
+    <rect x="148" y="305" width="36" height="36" rx="7"/>
+    <!-- phone left -->
+    <rect x="182" y="468" width="28" height="46" rx="5"/>
+    <!-- camera right -->
+    <circle cx="1018" cy="135" r="18"/>
+    <!-- speaker right -->
+    <rect x="1014" y="302" width="34" height="44" rx="6"/>
+    <!-- lock right -->
+    <circle cx="1018" cy="487" r="20"/>
+  </g>
+  <!-- small detail dots inside glyphs -->
+  <g fill="#6a4c93" fill-opacity="0.5">
+    <circle cx="166" cy="323" r="6"/>
+    <circle cx="1018" cy="135" r="6"/>
+  </g>
+</svg>

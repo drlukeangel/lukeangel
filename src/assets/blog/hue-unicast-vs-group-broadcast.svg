@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Unicast vs group broadcast">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <line x1="60" y1="250" x2="940" y2="250" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2" stroke-dasharray="4 8"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+
+    <!-- TOP: unicast -->
+    <text x="70" y="50" font-size="16" fill="#1a1d24">unicast — one command per bulb</text>
+    <!-- bridge -->
+    <g transform="translate(80 90)">
+      <rect x="0" y="0" width="80" height="56" rx="12" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+      <circle cx="40" cy="28" r="9" fill="#6a4c93"/>
+      <text x="40" y="78" text-anchor="middle" font-size="12" fill="#5b616b">bridge</text>
+    </g>
+    <!-- three separate sends, numbered, to bulbs in a row -->
+    <g>
+      <path d="M160 110 L300 100" stroke="#6a4c93" stroke-width="2.5"/>
+      <text x="225" y="92" text-anchor="middle" font-size="12" fill="#6a4c93">1</text>
+      <path d="M160 120 L470 118" stroke="#6a4c93" stroke-width="2.5"/>
+      <text x="320" y="110" text-anchor="middle" font-size="12" fill="#6a4c93">2</text>
+      <path d="M160 130 L640 136" stroke="#6a4c93" stroke-width="2.5"/>
+      <text x="420" y="150" text-anchor="middle" font-size="12" fill="#6a4c93">3</text>
+    </g>
+    <g transform="translate(300 100)"><circle r="20" fill="#6a4c93" fill-opacity="0.22" stroke="#1a1d24" stroke-width="2"/><circle r="6" fill="#6a4c93"/></g>
+    <g transform="translate(470 118)"><circle r="20" fill="#6a4c93" fill-opacity="0.10" stroke="#1a1d24" stroke-width="2"/><circle r="6" fill="#6a4c93" fill-opacity="0.4"/></g>
+    <g transform="translate(640 136)"><circle r="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/></g>
+    <text x="760" y="124" font-size="13" fill="#5b616b">bulbs change one-by-one</text>
+    <text x="760" y="144" font-size="13" fill="#5b616b">— a visible ripple</text>
+
+    <!-- BOTTOM: group broadcast -->
+    <text x="70" y="300" font-size="16" fill="#1a1d24">group — one multicast, all at once</text>
+    <g transform="translate(80 340)">
+      <rect x="0" y="0" width="80" height="56" rx="12" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+      <circle cx="40" cy="28" r="9" fill="#6a4c93"/>
+      <text x="40" y="78" text-anchor="middle" font-size="12" fill="#5b616b">bridge</text>
+    </g>
+    <!-- single broadcast wavefront -->
+    <g stroke="#6a4c93" fill="none" stroke-width="2.5">
+      <path d="M168 350 a30 30 0 0 1 0 36" opacity="0.4"/>
+      <path d="M178 342 a48 48 0 0 1 0 52" opacity="0.65"/>
+      <path d="M188 334 a66 66 0 0 1 0 68" opacity="0.9"/>
+    </g>
+    <g transform="translate(320 350)"><circle r="20" fill="#6a4c93" fill-opacity="0.22" stroke="#1a1d24" stroke-width="2"/><circle r="6" fill="#6a4c93"/></g>
+    <g transform="translate(480 368)"><circle r="20" fill="#6a4c93" fill-opacity="0.22" stroke="#1a1d24" stroke-width="2"/><circle r="6" fill="#6a4c93"/></g>
+    <!-- one bulb misses (stays unlit) -->
+    <g transform="translate(640 350)"><circle r="20" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="4 4"/></g>
+    <text x="760" y="356" font-size="13" fill="#5b616b">all change together</text>
+    <text x="760" y="376" font-size="12" fill="#c14a3a">~1 in 100 misses; bridge</text>
+    <text x="760" y="394" font-size="12" fill="#c14a3a">re-broadcasts up to 3x</text>
+  </g>
+</svg>

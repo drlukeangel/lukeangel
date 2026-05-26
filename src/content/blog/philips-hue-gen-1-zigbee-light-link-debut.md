@@ -1,6 +1,6 @@
 ---
 title: "Philips Hue is here — I turned my dining room blue from my phone"
-date: 2012-10-29T20:30:00-04:00
+date: 2012-10-30T20:30:00-04:00
 category: tools
 tags:
   - smart-home
@@ -36,6 +36,8 @@ No CD-ROM. No printed manual beyond a quickstart card with a single URL. 2012-Ap
 
 Ten minutes elapsed. The bulbs were already turned on (light switches up) when I started; as soon as the bridge claimed them, each flashed once to confirm.
 
+![The setup as a sequence across three actors — the iPhone on Wi-Fi, the bridge on Ethernet, and the three bulbs on Zigbee. Step one, the app finds the bridge on the LAN via mDNS/Bonjour. Step two, you press the physical link button on the bridge. Step three, the bridge claims the bulbs over a Zigbee Light Link join. Step four, each bulb flashes once to confirm. Step five, the app reports three bulbs found. A caption notes there is no account and no cloud step — pressing the link button is the entire authorization.](../../assets/blog/hue-pairing-handshake.svg)
+
 ## The dining pendant is the showstopper
 
 I knew before I bought it that the dining pendant was going to be the killer placement. It hangs in the middle of the great room — kitchen on one side, dining table directly under it, living room visible from the other side. *One bulb* shifts the color temperature of the entire shared space.
@@ -68,7 +70,9 @@ Reading the support docs: it's **Zigbee**. Specifically a profile called Zigbee 
 
 The mesh part means: if I add a fourth bulb far from the bridge but near one of my existing three, the new bulb routes its traffic through the existing one. So I don't need the bridge to be physically central; I need *bulbs* to be distributed.
 
-Interesting that Philips picked a hub-plus-mesh approach instead of WiFi-only. There's a Kickstarter called **LIFX** that just closed a couple of weeks ago (October 18, $1.3M raised) — doing WiFi-only color bulbs, no hub, every bulb on the home WiFi directly. Their bulbs aren't shipping until well into next year. I can see arguments either way: WiFi-only is simpler for the customer (no extra box), but every device is on the WiFi taking an IP, drawing more power, and dependent on the router being healthy. Mesh-plus-hub uses a separate radio so the bulbs don't fight with the laptop for airtime, and the bridge is the single thing that integrates with the network.
+![Two smart-bulb architectures side by side. On the left, the Hue approach: a phone on Wi-Fi talks to a bridge wired to the router; the bridge speaks Zigbee on a separate radio to the bulbs, which form a mesh and relay for each other, so a distant bulb routes through a nearer one. On the right, the WiFi-only approach (LIFX): each bulb joins the home Wi-Fi directly with its own IP address and no hub. A caption notes the tradeoff — the WiFi-only design drops the extra box but puts every bulb on the crowded 2.4 GHz Wi-Fi, while the hub-plus-mesh design adds a box but keeps the bulbs on their own low-power radio.](../../assets/blog/hue-hub-mesh-vs-wifi-only.svg)
+
+Interesting that Philips picked a hub-plus-mesh approach instead of WiFi-only. There's a Kickstarter called **LIFX** that's been running since mid-September and has already blown past its goal — pledges capped at $1.3M — doing WiFi-only color bulbs, no hub, every bulb on the home WiFi directly. Their bulbs aren't shipping until well into next year. I can see arguments either way: WiFi-only is simpler for the customer (no extra box), but every device is on the WiFi taking an IP, drawing more power, and dependent on the router being healthy. Mesh-plus-hub uses a separate radio so the bulbs don't fight with the laptop for airtime, and the bridge is the single thing that integrates with the network.
 
 I'm using Hue today. I'll see what LIFX delivers when it ships.
 

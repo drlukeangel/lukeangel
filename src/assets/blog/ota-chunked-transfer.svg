@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" role="img" aria-label="Chunked BLE transfer with per-chunk ack and nack retransmit.">
+  <rect width="1080" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">CHUNKED TRANSFER — ACK GOOD, NACK-AND-RETRY THE BAD ONE</text>
+
+  <!-- phone side -->
+  <g transform="translate(56,86)">
+    <rect x="0" y="0" width="150" height="250" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <text x="75" y="-12" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">PHONE</text>
+    <text x="75" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">cached image</text>
+    <!-- stacked chunks -->
+    <g fill="#357a8c" fill-opacity="0.14" stroke="#357a8c" stroke-width="2.4">
+      <rect x="30" y="44" width="90" height="30" rx="5"/>
+      <rect x="30" y="82" width="90" height="30" rx="5"/>
+      <rect x="30" y="120" width="90" height="30" rx="5"/>
+      <rect x="30" y="158" width="90" height="30" rx="5"/>
+    </g>
+    <g font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24" text-anchor="middle">
+      <text x="75" y="64">#42</text>
+      <text x="75" y="102">#43</text>
+      <text x="75" y="140">#44</text>
+      <text x="75" y="178">#45</text>
+    </g>
+  </g>
+
+  <!-- anatomy of one chunk -->
+  <g transform="translate(250,300)">
+    <text x="0" y="-8" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">one chunk:</text>
+    <rect x="0" y="0" width="60" height="34" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="30" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">idx</text>
+    <rect x="64" y="0" width="180" height="34" rx="5" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="154" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">payload (20–240 B)</text>
+    <rect x="248" y="0" width="66" height="34" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="281" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">CRC16</text>
+  </g>
+
+  <!-- happy path: chunk -> ack -->
+  <g>
+    <line x1="210" y1="120" x2="660" y2="120" stroke="#357a8c" stroke-width="3"/>
+    <path d="M664 120 l-15 -7 v14 z" fill="#357a8c"/>
+    <text x="430" y="108" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#357a8c">chunk #43</text>
+
+    <line x1="660" y1="158" x2="214" y2="158" stroke="#3a7d44" stroke-width="3" stroke-dasharray="2 0"/>
+    <path d="M210 158 l15 -7 v14 z" fill="#3a7d44"/>
+    <text x="430" y="180" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#3a7d44">ACK → advance to #44</text>
+  </g>
+
+  <!-- failure path: chunk -> nack -> retransmit -->
+  <g>
+    <line x1="210" y1="226" x2="660" y2="226" stroke="#357a8c" stroke-width="3"/>
+    <path d="M664 226 l-15 -7 v14 z" fill="#357a8c"/>
+    <text x="430" y="214" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#357a8c">chunk #44</text>
+
+    <line x1="660" y1="262" x2="214" y2="262" stroke="#c14a3a" stroke-width="3" stroke-dasharray="7 4"/>
+    <path d="M210 262 l15 -7 v14 z" fill="#c14a3a"/>
+    <text x="430" y="252" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#c14a3a">NACK · CRC failed</text>
+
+    <line x1="210" y1="300" x2="660" y2="300" stroke="#357a8c" stroke-width="3"/>
+    <path d="M664 300 l-15 -7 v14 z" fill="#357a8c"/>
+    <text x="436" y="290" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#357a8c">retransmit #44 (≤ 3×)</text>
+  </g>
+
+  <!-- device side -->
+  <g transform="translate(674,86)">
+    <g stroke="#1a1d24" stroke-width="3.5" stroke-linecap="round">
+      <line x1="40" y1="-12" x2="40" y2="0"/><line x1="90" y1="-12" x2="90" y2="0"/><line x1="140" y1="-12" x2="140" y2="0"/>
+    </g>
+    <rect x="0" y="0" width="180" height="250" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <text x="90" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">DEVICE</text>
+    <text x="90" y="58" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">checks each CRC</text>
+    <text x="90" y="80" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">writes to Bank 1</text>
+    <rect x="26" y="104" width="128" height="120" rx="8" fill="#357a8c" fill-opacity="0.1" stroke="#357a8c" stroke-width="2.6" stroke-dasharray="6 4"/>
+    <text x="90" y="128" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">BANK 1</text>
+    <g fill="#357a8c" fill-opacity="0.5">
+      <rect x="44" y="140" width="92" height="14" rx="3"/>
+      <rect x="44" y="160" width="92" height="14" rx="3"/>
+      <rect x="44" y="180" width="56" height="14" rx="3"/>
+    </g>
+    <text x="90" y="214" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">cursor → #43</text>
+  </g>
+
+  <text x="540" y="402" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">CRC catches the bad packet fast; SHA-256 over the whole image catches everything else at the end.</text>
+</svg>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 480" width="1120" height="480" role="img" aria-label="BOM to landed COGS against the target">
+  <rect width="1120" height="480" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">BOM → LANDED COGS, vs THE $240 TARGET</text>
+
+  <!-- vertical scale: $0 at y=400, $240 at y=90. 1px ~ $0.77 -->
+  <!-- target line -->
+  <line x1="90" y1="90" x2="1050" y2="90" stroke="#c14a3a" stroke-width="2.4" stroke-dasharray="8 6"/>
+  <text x="1044" y="82" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#c14a3a">$240 landed-COGS target — the ceiling</text>
+
+  <!-- baseline -->
+  <line x1="90" y1="400" x2="1050" y2="400" stroke="#1a1d24" stroke-width="2.5"/>
+
+  <!-- STACKED BOM BAR (col A) ~ $176 -> height ~228, top at y=172 -->
+  <g transform="translate(150,0)">
+    <!-- segments bottom-up; widths/heights scaled: $1 ~ 1.29px -->
+    <!-- scanner $42 -> 54px -->
+    <rect x="0" y="346" width="150" height="54" fill="#2a52be" fill-opacity="0.72"/>
+    <!-- display $24 -> 31 -->
+    <rect x="0" y="315" width="150" height="31" fill="#2a52be" fill-opacity="0.60"/>
+    <!-- mechanicals $26 -> 33 -->
+    <rect x="0" y="282" width="150" height="33" fill="#2a52be" fill-opacity="0.52"/>
+    <!-- battery $22 -> 28 -->
+    <rect x="0" y="254" width="150" height="28" fill="#2a52be" fill-opacity="0.46"/>
+    <!-- LTE-M $14 -> 18 -->
+    <rect x="0" y="236" width="150" height="18" fill="#2a52be" fill-opacity="0.40"/>
+    <!-- weight platform $18 -> 23 -->
+    <rect x="0" y="213" width="150" height="23" fill="#2a52be" fill-opacity="0.36"/>
+    <!-- misc $14.40 -> 19 -->
+    <rect x="0" y="194" width="150" height="19" fill="#2a52be" fill-opacity="0.30"/>
+    <!-- NFC $11.50 -> 15 -->
+    <rect x="0" y="179" width="150" height="15" fill="#2a52be" fill-opacity="0.24"/>
+    <!-- ESP32 + ATECC $4.10 -> 5 -->
+    <rect x="0" y="174" width="150" height="5" fill="#2a52be" fill-opacity="0.18"/>
+    <rect x="0" y="174" width="150" height="226" fill="none" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+    <text x="75" y="424" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">BOM subtotal</text>
+    <text x="75" y="442" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">$176</text>
+  </g>
+
+  <!-- + assembly + logistics -> landed (col B) ~ $218 top at y=119 -->
+  <g transform="translate(420,0)">
+    <rect x="0" y="174" width="150" height="226" fill="#2a52be" fill-opacity="0.20"/>
+    <!-- assembly $24 -> 31 -->
+    <rect x="0" y="143" width="150" height="31" fill="#7a808c" fill-opacity="0.45"/>
+    <!-- logistics $18 -> 23 -->
+    <rect x="0" y="120" width="150" height="23" fill="#7a808c" fill-opacity="0.30"/>
+    <rect x="0" y="120" width="150" height="280" fill="none" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+    <text x="75" y="113" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">+ assembly + logistics</text>
+    <text x="75" y="424" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">landed COGS</text>
+    <text x="75" y="442" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">$218</text>
+  </g>
+
+  <!-- headroom bracket between $218 and $240 -->
+  <g transform="translate(570,0)">
+    <line x1="20" y1="90" x2="20" y2="120" stroke="#3a7d44" stroke-width="2.4"/>
+    <line x1="14" y1="90" x2="26" y2="90" stroke="#3a7d44" stroke-width="2.4"/>
+    <line x1="14" y1="120" x2="26" y2="120" stroke="#3a7d44" stroke-width="2.4"/>
+    <text x="34" y="108" font-family="ui-monospace,monospace" font-size="12" fill="#3a7d44">$22 under, no spec cuts</text>
+  </g>
+
+  <!-- callout: scanner is the biggest line -->
+  <g transform="translate(720,300)">
+    <rect x="0" y="0" width="330" height="100" rx="10" fill="#2a52be" fill-opacity="0.06" stroke="#2a52be" stroke-width="2"/>
+    <text x="18" y="30" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">The 2D imager is the whole bar's base —</text>
+    <text x="18" y="52" font-family="ui-monospace,monospace" font-size="12" fill="#5b616b">$42, the single biggest line item.</text>
+    <text x="18" y="78" font-family="ui-monospace,monospace" font-size="11.5" fill="#5b616b">Three vendors evaluated; best perf/$ at 5k volume.</text>
+  </g>
+
+  <!-- y axis ticks -->
+  <g font-family="ui-monospace,monospace" font-size="11" fill="#7a808c" text-anchor="end">
+    <text x="80" y="404">$0</text>
+    <text x="80" y="262">$120</text>
+    <text x="80" y="94">$240</text>
+  </g>
+</svg>

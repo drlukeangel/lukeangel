@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" width="1080" height="360" role="img" aria-label="Each Z-Wave device must be excluded from SmartThings and re-included on the Pi's Z-Stick.">
+  <rect width="1080" height="360" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE Z-WAVE MOVE — ONE BUTTON-PRESS PER DEVICE</text>
+
+  <!-- SmartThings hub (left) -->
+  <g transform="translate(80,140)">
+    <rect x="0" y="0" width="150" height="90" rx="10" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="3"/>
+    <text x="75" y="42" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">SmartThings</text>
+    <text x="75" y="62" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">hub</text>
+  </g>
+  <text x="155" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">1 · EXCLUDE (factory-reset the node)</text>
+
+  <!-- the device in the middle, with a finger-press glyph -->
+  <g transform="translate(490,150)">
+    <rect x="0" y="0" width="100" height="70" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- button -->
+    <circle cx="50" cy="35" r="14" fill="#6a4c93" fill-opacity="0.3" stroke="#1a1d24" stroke-width="2.6"/>
+    <text x="50" y="-12" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">each sensor</text>
+    <text x="50" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">walk to it, press the button</text>
+  </g>
+
+  <!-- arrow off SmartThings -->
+  <g stroke="#c14a3a" stroke-width="3" fill="#c14a3a">
+    <path d="M230 185 H470" fill="none"/><path d="M474 185 l-15 -7 v14 z"/>
+  </g>
+  <!-- arrow onto Z-Stick -->
+  <g stroke="#3a7d44" stroke-width="3" fill="#3a7d44">
+    <path d="M600 185 H840" fill="none"/><path d="M844 185 l-15 -7 v14 z"/>
+  </g>
+
+  <!-- the Pi + Z-Stick (right) -->
+  <g transform="translate(850,140)">
+    <rect x="0" y="0" width="150" height="90" rx="10" fill="#6a4c93" fill-opacity="0.10" stroke="#1a1d24" stroke-width="3"/>
+    <text x="75" y="40" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">Pi + Z-Stick</text>
+    <!-- usb stick glyph -->
+    <rect x="40" y="54" width="70" height="18" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <rect x="104" y="58" width="14" height="10" rx="2" fill="#1a1d24" opacity="0.5"/>
+  </g>
+  <text x="925" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#3a7d44">2 · INCLUDE (add node to the new network)</text>
+
+  <text x="540" y="316" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">No bulk import — every device is a physical visit. Eight devices, two hours, one Saturday.</text>
+</svg>

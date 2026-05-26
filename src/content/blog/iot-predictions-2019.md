@@ -8,9 +8,9 @@ tags:
   - hardware
   - wearables
 excerpt: "ECG shipped, HomePod missed, and Sonos rang the IPO bell. The 2018 score sheet, plus eight bets for 2019 — including the year true wireless earbuds become a Gen Z status symbol."
-pullquote: "The smartwatch became a medical device in 2018. The earbud became a hearing aid in 2019. The body is the next platform."
+pullquote: "The smartwatch became a medical device in 2018. The earbud is next, and the ring after that. The body is the platform everyone's racing onto."
 cover: ../../assets/blog/iot-predictions-2019-cover.svg
-coverAlt: "IoT & Connected Devices — 2019 Predictions and Outcomes — Apple Watch Series 5, AirPods Pro, and Oura Ring silhouettes on a violet gradient"
+coverAlt: "A forecast trend line rising solid through a marked you-are-here point, then forking into two dashed projection branches, drawn over faint silhouettes of a smartwatch, an earbud, and a smart ring"
 notebook: iot-predictions
 notebookOrder: 4
 ---
@@ -29,19 +29,23 @@ Year four. The streak is running about 80% accuracy and the category is now the 
 
 **Apple Watch ECG shipped Series 4, September 2018.** FDA cleared. Real medical-device claim. Three years late vs the 2015 hype, on time vs my own 2016 prediction (the "18+ months" delay). **Hit.**
 
-**AirPods 2 didn't ship in 2018.** Refresh came March 2019. Held my call. **Hit.**
+**AirPods 2 didn't ship in 2018.** The year closed with the original still selling out and no refresh — a 2019 model is rumored but unannounced. Held my call. **Hit.**
 
 **Sonos IPO'd August 2018.** Priced lower than the rumored range but cleared the bell. **Hit on shape, slight miss on timing — I said Q3 filing, they did Q3 *trading*.**
 
-**An IoT-security scandal made the front page.** Multiple actually — VTech, Strava heatmap, MyHeritage breach. The default-credentials baby monitor headline was Mozi botnet building through 2018. **Half-hit** — happened, but more of a slow burn than the singular Q1 headline I called.
+**An IoT-security scandal made the front page.** Multiple, actually — the Strava heatmap exposing military base layouts, the VTech fallout still echoing, the MyHeritage breach. The default-credentials camera and baby-monitor stories kept simmering as Mirai-style botnets recruited unpatched devices all year. **Half-hit** — it happened, but more of a slow burn than the singular Q1 headline I called.
 
 Net 2018 scorecard: roughly **88% prediction accuracy**. The platform-and-medical-device thesis is holding. Less drama, more compounding.
+
+![The 2018 calls marked against what shipped: six clean hits — Google Home Hub shipping Q4, HomePod missing commercially at roughly 3.5M units, mesh wifi going table-stakes, Ring and Nest Hello winning doorbells at 70%-plus combined share, the Apple Watch ECG shipping FDA-cleared in Series 4, and no AirPods refresh in 2018 — plus two half-hits: Sonos trading rather than filing in Q3, and the IoT-security scandal arriving as a slow burn instead of one front-page headline. Net roughly 88% accuracy in year four.](../../assets/blog/iot-predictions-2019-2018-scorecard.svg)
 
 ## What I got wrong
 
 I missed Wyze. The $20 Wyze Cam (released late 2017) ate the bottom end of the connected-camera market through 2018 in a way I didn't see coming. Three brands ≠ three winners; there's a fourth tier of cheap-and-good that the premium brands ignore at their peril.
 
 I also missed how big the "true wireless" earbud market would become *beyond Apple*. Galaxy Buds were rumored, Sony WF-1000X was already real (released late 2017), Jabra Elite Active 65t shipped April 2018. The category was already three-deep before AirPods 2 even refreshed.
+
+![The body as the next platform, one sensor site at a time. Wrist: the smartwatch, which got an FDA-cleared ECG in 2018. Ear: the true-wireless earbud, where active noise cancellation is the 2019 bet. Finger: the smart ring, predicted to get serious in 2019. The same playbook runs each time — a clinical-grade sensor migrates onto an everyday-wear object — and each step here is a forecast, not a finished move.](../../assets/blog/iot-predictions-2019-body-platform.svg)
 
 ## 2019 predictions
 
@@ -60,6 +64,8 @@ I also missed how big the "true wireless" earbud market would become *beyond App
 **7. Fitbit either gets acquired or pivots away from hardware.** Tracker market is saturated, Versa hasn't caught Apple Watch, the smartwatch pivot stalled. Best buyer: Google. (Bet: announcement before year-end.)
 
 **8. Smart-display sales overtake smart-speaker sales for the first quarter.** Q4. Echo Show 5, Echo Show 8, Google Nest Hub Max — the visual-first home interface is the new default.
+
+![The eight 2019 bets placed on a four-quarter calendar. AirPods Pro with noise cancellation and the smart-display-outsells-speakers call land in Q4; the Apple Watch Series 5 with always-on display and cellular-only mode land around September; the Wi-Fi 6 router retail push is timed for Q3 with slow adoption until 2020-21; the smart-ring and Fitbit-acquisition calls resolve by year-end; the home-IP interop standard is expected to be announced this year but not ship for 18-plus months. Each is framed as a forecast the author is willing to be wrong on.](../../assets/blog/iot-predictions-2019-forecast-timeline.svg)
 
 ## Gratitude beat
 

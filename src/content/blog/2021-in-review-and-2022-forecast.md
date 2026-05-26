@@ -8,10 +8,10 @@ tags:
   - forecast
 notebook: smart-home-iot-journey
 notebookOrder: 39
-excerpt: "Five PoE cameras + one WiFi cam, all routing through Frigate + Coral. The doorbell experience finally landed. Wink folded for real."
-pullquote: "Looking back: 6/8 on 2020's forecasts, ~75%. Cameras hit, ESP DIY hit, Wink hit, Matter still vapor. The miss: voice-assistant fatigue formalization (Amazon/Google did nothing about it — Echo/Google Home stay muted in our house)."
-cover: "../../assets/blog/2021-in-review-and-2022-forecast-cover.png"
-coverAlt: "2021 in review — cameras everywhere, Coral landed. 2022 forecast."
+excerpt: "Five PoE cameras plus one Wi-Fi cam, all routing through Frigate on a Coral accelerator. The doorbell-to-every-screen experience finally landed, and 14 ESPHome sensors went in. Matter is still vapor and Wink is a zombie. 2020's forecast came in at ~69%."
+pullquote: "Five of eight on 2020's forecasts, ~69%. Cameras, ESP DIY, and the garage controller all hit; the misses were timing — cross-camera tracking and Wink's actual death are both still 'next year,' and Matter is still a spec without a single product."
+cover: "../../assets/blog/2021-in-review-and-2022-forecast-cover.svg"
+coverAlt: "The year's smart-home themes — a cluster of PoE cameras feeding a small box with an AI accelerator, surrounded by a scatter of tiny DIY sensor boards — cameras everywhere, local object detection, and a wall of ESPHome sensors."
 ---
 
 End of year.
@@ -20,25 +20,29 @@ End of year.
 
 | Prediction | Confidence | Outcome | Verdict |
 |---|---|---|---|
-| Frigate + multi-camera person-tracking | 80% | Frigate 0.11 added tentative re-id; works ~60% | ✓ (partial) |
-| Matter / CHIP first dev spec | 80% | Spec drafts circulating, no consumer products yet | ✓ (partial) |
-| Aqara hub replacement story | 65% | Aqara M2 hub shipped — Matter-ready hardware | ✓ |
+| Frigate + multi-camera person-tracking | 80% | Still on the 0.9 line; solid per-camera detection, but cross-camera re-id isn't here yet | ✗ (the tracking part slipped) |
+| Matter / CHIP first dev spec | 80% | Spec drafts circulating, SDK in dev, no consumer products yet | ✓ (partial) |
+| Aqara hub replacement story | 65% | Aqara M2 hub shipped; Aqara is loudly telegraphing Matter support | ✓ |
 | ESPHome on a dozen DIY devices | 90% | 14 ESP-based sensors deployed | ✓ |
 | Aeotec Garage Door Controller | 75% | Installed October | ✓ |
 | Second + fourth PoE cameras | 85% | 5 PoE + 1 WiFi cameras now | ✓ |
 | Voice assistant fatigue formalized | 60% | Amazon/Google did nothing | ✗ |
-| Wink folds for real | 70% | Yes — service shut down July | ✓ |
+| Wink finally folds for real | 70% | Not a clean death — a 10-day outage in February, then a zombie limp-along nobody should trust | ✗ (close; it's abandonware, not gone) |
 
-6/8 + 2 partials = ~75%. Decent year.
+5/8 + 1 partial = ~69%. The misses cluster on timing: the Frigate re-id and Wink's actual death are both "next year" problems.
+
+![Scoring the 2020 forecast: five hits (the Aqara Matter-ready hub, a dozen-plus ESPHome DIY sensors, the Aeotec garage controller, the second-through-fifth PoE cameras, and the Matter dev spec as a partial), and three misses (Frigate's cross-camera re-id still on the 0.9 line and not shipped, no voice-assistant-fatigue response from Amazon or Google, and Wink not cleanly folding — a February outage and a zombie limp-along rather than a real shutdown). About 69%; the misses are all timing, not wrong calls.](../../assets/blog/2021-smart-home-scorecard.svg)
 
 ## What got added
 
-- **5× PoE cameras** (Reolink RLC-820A + RVD doorbell + RLC-822A): porch, backyard, side yard, driveway, doorbell.
-- **1× WiFi camera** (Reolink Argus 3 Pro): garage.
-- **Coral USB Accelerator** + Frigate 0.10 → 0.11.
+- **5× PoE cameras** (Reolink RLC-820A + RLC-822A + a Dahua VTO2311R PoE doorbell): porch, backyard, side yard, driveway, doorbell.
+- **1× WiFi camera** (Reolink Argus 3): garage.
+- **Coral USB Accelerator** driving Frigate (on the 0.9 line) — the Coral is what makes five-plus camera streams of object detection run on a mini-PC without melting it.
 - **Aeotec Garage Door Controller** (Z-Wave, October).
 - **14× ESP-based DIY sensors** (ESPHome firmware): SHT31 temp/humidity in 4 bathrooms + kitchen, PIR motion in 3 corner-rooms, plant moisture in 6 indoor planters.
 - **Sonoff ZBDongle-E** (December) — newer Zigbee coordinator, +50% range vs the ZBDongle-P. Migration planned for January.
+
+![The 2021 camera pipeline as a left-to-right flow. On the left, six cameras stacked — five PoE feeds (porch, backyard, side yard, driveway, and the doorbell) plus one Wi-Fi camera for the garage, drawn dashed to mark it as the odd one out. All six streams converge into the center box: Frigate on the 0.9 line, running on a mini-PC with a Coral USB TPU accelerator drawn as a labelled chip with pins. From Frigate a single arrow leads to Home Assistant on the right, which routes the results — a person fires a notification, a car or dog is ignored, and events are saved to the NVR. The caption makes the year's lesson explicit: one accelerator runs object detection on every stream locally.](../../assets/blog/2021-in-review-and-2022-forecast-fig-2.svg)
 
 ## Forecast for 2022
 

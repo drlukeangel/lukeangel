@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Two dog activity trackers on one collar over a shared motion trace.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="fb-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#fb-dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- ===== the collar: one strap carrying both devices ===== -->
+  <!-- strap as a gentle arc across the canvas -->
+  <path d="M120 250 C 420 150, 780 150, 1080 250"
+        fill="none" stroke="#1a1d24" stroke-width="22" stroke-linecap="round" opacity="0.9"/>
+  <path d="M120 250 C 420 150, 780 150, 1080 250"
+        fill="none" stroke="#fdfaf2" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 26" opacity="0.5"/>
+  <!-- buckle hardware at left -->
+  <rect x="96" y="232" width="40" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+
+  <!-- ===== LEFT device: bone-shaped activity tag (accent-filled hero) ===== -->
+  <g transform="translate(410,196)">
+    <!-- hang loop over the strap -->
+    <path d="M0 -34 a18 18 0 0 1 0 36" fill="none" stroke="#1a1d24" stroke-width="7"/>
+    <!-- bone body -->
+    <g fill="#c87533" stroke="#1a1d24" stroke-width="6" stroke-linejoin="round">
+      <circle cx="-58" cy="0" r="30"/>
+      <circle cx="-58" cy="-26" r="22"/>
+      <circle cx="-58" cy="26" r="22"/>
+      <circle cx="58" cy="0" r="30"/>
+      <circle cx="58" cy="-26" r="22"/>
+      <circle cx="58" cy="26" r="22"/>
+      <rect x="-58" y="-26" width="116" height="52" rx="10"/>
+    </g>
+    <!-- LED window -->
+    <circle cx="0" cy="0" r="13" fill="#fdfaf2"/>
+    <circle cx="0" cy="0" r="6" fill="#c87533"/>
+  </g>
+
+  <!-- ===== RIGHT device: coin-shaped activity puck (outline) ===== -->
+  <g transform="translate(790,196)">
+    <!-- hang loop over the strap -->
+    <path d="M0 -34 a18 18 0 0 1 0 36" fill="none" stroke="#1a1d24" stroke-width="7"/>
+    <circle cx="0" cy="6" r="48" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <circle cx="0" cy="6" r="29" fill="none" stroke="#c87533" stroke-width="5"/>
+    <circle cx="0" cy="6" r="7" fill="#c87533"/>
+  </g>
+
+  <!-- ===== the shared motion trace below: same dog, one accelerometer signal ===== -->
+  <!-- baseline -->
+  <line x1="150" y1="500" x2="1050" y2="500" stroke="#1a1d24" stroke-width="3" opacity="0.18"/>
+  <!-- jagged activity trace: flat rests, spiky play bursts -->
+  <path d="M150 500
+           L210 500 L226 470 L240 500 L258 500
+           L276 420 L290 500 L300 500
+           L332 500 L348 396 L362 500 L378 500
+           L410 500 L420 500
+           L452 452 L466 500 L486 500
+           L520 500 L536 372 L550 500 L566 500
+           L600 500 L616 500
+           L648 440 L662 500 L686 500
+           L720 500 L736 408 L750 500 L766 500
+           L800 500 L820 500
+           L852 462 L866 500 L890 500
+           L924 500 L940 384 L954 500 L968 500
+           L1000 500 L1050 500"
+        fill="none" stroke="#c87533" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- two faint thresholds: the trace is one signal, but each device counts it differently -->
+  <line x1="150" y1="446" x2="1050" y2="446" stroke="#1a1d24" stroke-width="3" stroke-dasharray="6 10" opacity="0.28"/>
+  <line x1="150" y1="466" x2="1050" y2="466" stroke="#7a808c" stroke-width="3" stroke-dasharray="6 10" opacity="0.45"/>
+</svg>

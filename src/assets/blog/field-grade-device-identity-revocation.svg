@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320" role="img" aria-label="Revocation timeline. AWS IoT Device Defender flags an anomaly; the incident runbook flips the device's IoT policy to deny-all with one action; the device is refused on its next connection attempt. The whole path runs in under a minute. A deny-list updated by hand takes days, which is not identity.">
+  <rect width="1000" height="320" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">REVOCATION — THE TEST OF REAL IDENTITY</text>
+
+  <!-- connecting line -->
+  <line x1="130" y1="120" x2="870" y2="120" stroke="#1a1d24" stroke-width="2.5" opacity="0.35"/>
+
+  <!-- node 1: detect -->
+  <circle cx="130" cy="120" r="36" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <path d="M130 102 l16 28 h-32 z" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linejoin="round"/>
+  <line x1="130" y1="114" x2="130" y2="122" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="130" cy="128" r="1.8" fill="#c14a3a"/>
+  <text x="130" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">Device Defender</text>
+  <text x="130" y="208" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">flags anomaly</text>
+
+  <!-- node 2: revoke -->
+  <circle cx="500" cy="120" r="36" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <path d="M500 98 l16 8 v14 c0 12 -8 18 -16 22 c-8 -4 -16 -10 -16 -22 v-14 z" fill="none" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="491" y1="111" x2="509" y2="129" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="509" y1="111" x2="491" y2="129" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="500" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">one action:</text>
+  <text x="500" y="208" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">IoT policy = deny *</text>
+
+  <!-- node 3: refused -->
+  <circle cx="870" cy="120" r="36" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <circle cx="870" cy="120" r="17" fill="none" stroke="#c14a3a" stroke-width="3.5"/>
+  <line x1="858" y1="108" x2="882" y2="132" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="870" y="190" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">next connect</text>
+  <text x="870" y="208" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">refused</text>
+
+  <!-- arrowheads on the line -->
+  <path d="M318 120 l-15 -7 v14 z" fill="#1a1d24" opacity="0.6"/>
+  <path d="M688 120 l-15 -7 v14 z" fill="#1a1d24" opacity="0.6"/>
+
+  <!-- under-bracket: < 60 seconds -->
+  <path d="M150 244 v10 h700 v-10" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+  <line x1="500" y1="254" x2="500" y2="264" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="500" y="290" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" letter-spacing="3" fill="#c14a3a">&lt; 60 SECONDS</text>
+</svg>

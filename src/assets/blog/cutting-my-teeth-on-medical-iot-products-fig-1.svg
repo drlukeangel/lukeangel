@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" width="1040" height="560" role="img" aria-label="Eight separate device APIs consolidated into one platform.">
+  <rect width="1040" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- titles -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="1">
+    <text x="60" y="50" fill="#c14a3a">Q4 2017 &#8212; WHAT I WALKED INTO</text>
+    <text x="700" y="50" fill="#3a7d44">THE TARGET</text>
+  </g>
+
+  <!-- ===== LEFT: eight scattered APIs ===== -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#1a1d24">
+    <!-- each box is a device API with its own "user" definition -->
+    <g stroke="#c14a3a" stroke-width="2" fill="#fdfaf2">
+      <rect x="60"  y="86"  width="120" height="48" rx="7"/>
+      <rect x="210" y="104" width="120" height="48" rx="7"/>
+      <rect x="78"  y="168" width="120" height="48" rx="7"/>
+      <rect x="232" y="190" width="120" height="48" rx="7"/>
+      <rect x="56"  y="252" width="120" height="48" rx="7"/>
+      <rect x="208" y="274" width="120" height="48" rx="7"/>
+      <rect x="86"  y="338" width="120" height="48" rx="7"/>
+      <rect x="236" y="360" width="120" height="48" rx="7"/>
+    </g>
+    <g text-anchor="middle" fill="#5b616b">
+      <text x="120" y="104">api · adult brush</text><text x="120" y="122" font-size="10">own "user"</text>
+      <text x="270" y="122">api · kids brush</text><text x="270" y="140" font-size="10">own "user"</text>
+      <text x="138" y="186">api · interdental</text><text x="138" y="204" font-size="10">own "user"</text>
+      <text x="292" y="208">api · sonic v2</text><text x="292" y="226" font-size="10">own "user"</text>
+      <text x="116" y="270">api · travel</text><text x="116" y="288" font-size="10">deprecated, live</text>
+      <text x="268" y="292">api · pro line</text><text x="268" y="310" font-size="10">own "user"</text>
+      <text x="146" y="356">api · charger</text><text x="146" y="374" font-size="10">deprecated, live</text>
+      <text x="296" y="378">api · gum care</text><text x="296" y="396" font-size="10">shared? unclear</text>
+    </g>
+  </g>
+  <text x="210" y="450" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">eight products wearing a trench coat</text>
+  <text x="210" y="474" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">five definitions of "user" &#183; two deprecated, still serving</text>
+
+  <!-- ===== arrow ===== -->
+  <g transform="translate(440,250)">
+    <path d="M0 0 H120" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="3" fill="none"/>
+    <path d="M124 0 l-14 -9 v18 z" fill="#1a1d24" fill-opacity="0.45"/>
+    <text x="62" y="-14" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#357a8c">consolidate</text>
+    <text x="62" y="26" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#357a8c">13 months</text>
+  </g>
+
+  <!-- ===== RIGHT: one platform, one user model ===== -->
+  <g transform="translate(620,140)">
+    <rect x="0" y="0" width="360" height="240" rx="14" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="3"/>
+    <rect x="0" y="0" width="10" height="240" rx="3" fill="#3a7d44"/>
+    <text x="190" y="40" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#3a7d44">one platform</text>
+    <!-- single user model -->
+    <g transform="translate(190,118)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#1a1d24" text-anchor="middle">
+      <rect x="-120" y="-32" width="240" height="64" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.4"/>
+      <text x="0" y="-6">one definition of "user"</text>
+      <text x="0" y="18" font-size="11" fill="#5b616b">every device line maps to it</text>
+    </g>
+    <text x="190" y="206" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">versioned contracts &#183; append-only events</text>
+  </g>
+  <text x="800" y="450" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15" fill="#5b616b">a portfolio, not eight integrations</text>
+
+  <!-- caption -->
+  <text x="520" y="524" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14.5" fill="#5b616b">the diagnosis that set the whole arc: stop shipping features until the eight collapse into one</text>
+</svg>

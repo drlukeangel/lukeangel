@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="Find My versus cellular tradeoff">
+  <rect width="1000" height="460" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:19px;font-weight:700;fill:#1a1d24;}
+    .col{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:16px;font-weight:700;fill:#1a1d24;}
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#7a808c;}
+    .val{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13.5px;font-weight:700;fill:#1a1d24;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:13.5px;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="46" class="hd">TWO LOCATION MODELS — COMPLEMENTS, NOT RIVALS</text>
+
+  <line x1="500" y1="80" x2="500" y2="350" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- LEFT: Find My -->
+  <text x="40" y="112" class="col" fill="#c87533">FIND MY CLIP &#183; Pebblebee</text>
+  <g font-size="13">
+    <text x="40" y="150" class="lab">locating</text><text x="240" y="150" class="val">borrowed from passing iPhones</text>
+    <text x="40" y="182" class="lab">freshness</text><text x="240" y="182" class="val">last-seen, never live</text>
+    <text x="40" y="214" class="lab">battery</text><text x="240" y="214" class="val">~12 months, coin cell</text>
+    <text x="40" y="246" class="lab">cost</text><text x="240" y="246" class="val">$35 once</text>
+    <text x="40" y="278" class="lab">privacy</text><text x="240" y="278" class="val" fill="#3a7d44">end-to-end encrypted</text>
+    <text x="40" y="310" class="lab">best at</text><text x="240" y="310" class="val">indoor cat that rarely bolts</text>
+  </g>
+
+  <!-- RIGHT: Fi cellular -->
+  <text x="540" y="112" class="col" fill="#2a52be">FI COLLAR &#183; LTE-M cellular</text>
+  <g font-size="13">
+    <text x="540" y="150" class="lab">locating</text><text x="740" y="150" class="val">own GPS + cellular uplink</text>
+    <text x="540" y="182" class="lab">freshness</text><text x="740" y="182" class="val" fill="#3a7d44">real-time</text>
+    <text x="540" y="214" class="lab">battery</text><text x="740" y="214" class="val">~14 days, rechargeable</text>
+    <text x="540" y="246" class="lab">cost</text><text x="740" y="246" class="val">$99 + $99/yr</text>
+    <text x="540" y="278" class="lab">privacy</text><text x="740" y="278" class="val" fill="#c14a3a">vendor cloud sees location</text>
+    <text x="540" y="310" class="lab">best at</text><text x="740" y="310" class="val">escape-artist outdoor dog</text>
+  </g>
+
+  <line x1="40" y1="346" x2="960" y2="346" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="388" class="cap">Find My is densest exactly where you'd find the pet anyway — your own street — and blind</text>
+  <text x="40" y="410" class="cap">in the woods where one actually ends up. For active outdoor tracking, cellular still wins;</text>
+  <text x="40" y="432" class="cap">the right answer for a dog you can't lose is to run both, with BLE as the backup layer.</text>
+</svg>

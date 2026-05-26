@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Before and after: self-maintained code shrinks to managed services.">
+  <rect width="1000" height="560" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT column: homegrown stack, ~4000 lines, all self-maintained -->
+  <text x="70" y="56" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="1" fill="#7a808c">HOMEGROWN</text>
+  <text x="70" y="78" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a">~4,000 lines we own</text>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle">
+    <rect x="70" y="100" width="280" height="76" rx="10" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="210" y="143" fill="#1a1d24">own agent loop</text>
+    <rect x="70" y="184" width="280" height="76" rx="10" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="210" y="227" fill="#1a1d24">own memory (DynamoDB)</text>
+    <rect x="70" y="268" width="280" height="76" rx="10" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="210" y="311" fill="#1a1d24">own tool registry</text>
+    <rect x="70" y="352" width="280" height="76" rx="10" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="210" y="395" fill="#1a1d24">own OTel pipeline</text>
+  </g>
+
+  <!-- arrow with the real win label -->
+  <g>
+    <line x1="378" y1="264" x2="612" y2="264" stroke="#1a1d24" stroke-width="3.5"/>
+    <path d="M618 264 l-18 -8 v16 z" fill="#1a1d24"/>
+    <text x="495" y="248" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" text-anchor="middle" fill="#4f46b8" font-weight="bold">surface area, not unit cost</text>
+    <text x="495" y="290" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" text-anchor="middle" fill="#5b616b">~0.5 FTE back to product</text>
+  </g>
+
+  <!-- RIGHT column: AgentCore stack, mostly managed + a thin self-maintained block -->
+  <text x="650" y="56" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="1" fill="#7a808c">ON AGENTCORE</text>
+  <text x="650" y="78" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#3a7d44">~1,200 lines we own</text>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" text-anchor="middle">
+    <!-- managed blocks (green-tinted, labeled managed) -->
+    <rect x="650" y="100" width="280" height="52" rx="9" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="790" y="131" fill="#1a1d24">AgentCore Runtime · managed</text>
+    <rect x="650" y="160" width="280" height="52" rx="9" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="790" y="191" fill="#1a1d24">AgentCore Memory · managed</text>
+    <rect x="650" y="220" width="280" height="52" rx="9" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="790" y="251" fill="#1a1d24">AgentCore Gateway · managed</text>
+    <rect x="650" y="280" width="280" height="52" rx="9" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="790" y="311" fill="#1a1d24">AgentCore Identity · managed</text>
+    <!-- the thin self-maintained block -->
+    <rect x="650" y="352" width="280" height="76" rx="10" fill="#4f46b8" fill-opacity="0.14" stroke="#4f46b8" stroke-width="3"/>
+    <text x="790" y="386" font-size="13" fill="#1a1d24" font-weight="bold">business logic + tools</text>
+    <text x="790" y="408" font-size="12" fill="#5b616b">the only code we still own</text>
+  </g>
+
+  <!-- caption -->
+  <text x="70" y="500" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17" fill="#5b616b">The win is the shrinking pile of code you maintain, not a cheaper per-request bill.</text>
+</svg>

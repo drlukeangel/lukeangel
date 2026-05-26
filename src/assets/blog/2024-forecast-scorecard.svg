@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" role="img" aria-label="2023 forecast scorecard">
+  <rect width="1000" height="450" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="52" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">SCORING THE 2023 FORECAST</text>
+  <text x="40" y="78" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#7a808c">8 predictions &#183; ~69% &#183; the ones that hurt to get right</text>
+
+  <!-- legend -->
+  <g transform="translate(40,116)">
+    <g>
+      <circle cx="18" cy="18" r="18" fill="#3a7d44"/>
+      <path d="M9 18 l6 7 l13 -15" fill="none" stroke="#fdfaf2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">HIT</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">5</text>
+    </g>
+    <g transform="translate(170,0)">
+      <circle cx="18" cy="18" r="18" fill="#c87533"/>
+      <path d="M18 6 a12 12 0 0 1 0 24 Z" fill="#fdfaf2" fill-opacity="0.55"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">PARTIAL</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">1</text>
+    </g>
+    <g transform="translate(410,0)">
+      <circle cx="18" cy="18" r="18" fill="#c14a3a"/>
+      <path d="M11 11 l14 14 M25 11 l-14 14" stroke="#fdfaf2" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="48" y="16" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">MISS</text>
+      <text x="48" y="35" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">2 &#183; the products still missing</text>
+    </g>
+  </g>
+
+  <!-- rows -->
+  <g transform="translate(40,186)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">
+    <g transform="translate(0,0)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Find My pet-tag accessories adopted</text><text x="700" y="0" fill="#7a808c" font-size="12.5">on Joule</text></g>
+    <g transform="translate(0,32)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Atom needs more monitoring + meds</text><text x="700" y="0" fill="#7a808c" font-size="12.5">mitral valve disease</text></g>
+    <g transform="translate(0,64)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">A non-Mars vitals tracker</text><text x="700" y="0" fill="#7a808c" font-size="12.5">still nothing</text></g>
+    <g transform="translate(0,96)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Mars buys another competitor</text><text x="700" y="0" fill="#7a808c" font-size="12.5">two tuck-ins</text></g>
+    <g transform="translate(0,128)"><circle cx="11" cy="-5" r="11" fill="#c14a3a"/><text x="34" y="0">Consumer multi-pet RFID</text><text x="700" y="0" fill="#7a808c" font-size="12.5">hinted, not shipped</text></g>
+    <g transform="translate(0,160)"><circle cx="11" cy="-5" r="11" fill="#c87533"/><text x="34" y="0">Halo Collar restructuring</text><text x="700" y="0" fill="#7a808c" font-size="12.5">layoffs, still operating</text></g>
+    <g transform="translate(0,192)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">Atom's 11th year, hard conversations</text><text x="700" y="0" fill="#7a808c" font-size="12.5">the one I hated calling</text></g>
+    <g transform="translate(0,224)"><circle cx="11" cy="-5" r="11" fill="#3a7d44"/><text x="34" y="0">A mature DIY ESP32 feeder</text><text x="700" y="0" fill="#7a808c" font-size="12.5">community templates</text></g>
+  </g>
+</svg>

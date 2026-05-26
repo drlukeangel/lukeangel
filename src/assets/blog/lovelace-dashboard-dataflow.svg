@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" aria-label="Dashboard data flow">
+  <rect width="880" height="380" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c}
+  </style>
+
+  <!-- LAN boundary -->
+  <rect x="30" y="30" width="820" height="280" rx="14" fill="none" stroke="#6a4c93" stroke-width="2" stroke-dasharray="7 6" stroke-opacity="0.6"/>
+  <text class="mut" x="46" y="52">home network</text>
+
+  <!-- tablet -->
+  <g transform="translate(120 170)">
+    <rect x="-46" y="-58" width="92" height="116" rx="10" fill="#1a1d24"/>
+    <rect x="-38" y="-50" width="76" height="100" rx="5" fill="#fdfaf2"/>
+    <rect x="-30" y="-42" width="60" height="16" rx="3" fill="#6a4c93" fill-opacity="0.25"/>
+    <rect x="-30" y="-20" width="60" height="10" rx="3" fill="#1a1d24" fill-opacity="0.12"/>
+    <rect x="-30" y="16" width="60" height="22" rx="5" fill="#2a3f5f"/>
+  </g>
+  <text class="lbl" x="92" y="262">tablet</text>
+
+  <!-- Pi -->
+  <g transform="translate(440 170)">
+    <rect x="-66" y="-46" width="132" height="92" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="-44" cy="-24" r="5" fill="#3a7d44"/>
+    <rect x="-30" y="-32" width="84" height="12" rx="3" fill="#1a1d24" fill-opacity="0.1"/>
+    <rect x="-30" y="-12" width="84" height="12" rx="3" fill="#1a1d24" fill-opacity="0.1"/>
+    <!-- two radio sticks -->
+    <rect x="-66" y="14" width="40" height="18" rx="5" fill="#6a4c93"/>
+    <rect x="-20" y="14" width="40" height="18" rx="5" fill="#c87533"/>
+  </g>
+  <text class="lbl" x="396" y="262">Raspberry Pi</text>
+  <text class="mut" x="372" y="280">Home Assistant + Lovelace</text>
+
+  <!-- sensors column -->
+  <g transform="translate(760 90)">
+    <rect x="-44" y="-22" width="88" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="-30" y="-9" width="36" height="18" rx="3" fill="none" stroke="#1a1d24" stroke-width="2"/>
+  </g>
+  <text class="mut" x="724" y="138">door sensors</text>
+
+  <g transform="translate(760 200)">
+    <circle cx="0" cy="0" r="24" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="9" fill="#c87533" fill-opacity="0.5"/>
+  </g>
+  <text class="mut" x="730" y="248">thermostat</text>
+
+  <g transform="translate(760 280)">
+    <rect x="-22" y="-18" width="44" height="36" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <circle cx="-7" cy="0" r="3" fill="#1a1d24"/><circle cx="7" cy="0" r="3" fill="#1a1d24"/>
+  </g>
+  <text class="mut" x="724" y="326">plug / light</text>
+
+  <!-- arrows: tablet <-> Pi (Lovelace served + taps) -->
+  <g stroke="#6a4c93" stroke-width="3" fill="none">
+    <path d="M168 158 L372 158" marker-end="url(#ah)"/>
+    <path d="M372 188 L168 188" marker-end="url(#ah)"/>
+  </g>
+  <text class="mut" x="210" y="146">serves UI</text>
+  <text class="mut" x="214" y="208">taps</text>
+
+  <!-- arrows: Pi radios -> sensors -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none" stroke-opacity="0.55">
+    <path d="M506 150 L714 96" marker-end="url(#ah2)"/>
+    <path d="M506 178 L730 200" marker-end="url(#ah2)"/>
+    <path d="M506 196 L730 278" marker-end="url(#ah2)"/>
+  </g>
+
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#6a4c93"/></marker>
+    <marker id="ah2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#1a1d24" fill-opacity="0.55"/></marker>
+  </defs>
+</svg>

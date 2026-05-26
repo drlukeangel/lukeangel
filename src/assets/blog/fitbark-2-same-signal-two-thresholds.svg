@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 600" width="1180" height="600" role="img" aria-label="One motion signal counted two ways yields two daily totals that still trend together.">
+  <rect width="1180" height="600" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- ===== TOP: one accelerometer trace, two thresholds ===== -->
+  <text x="60" y="56" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">one accelerometer · same dog, same minute</text>
+
+  <!-- plot frame -->
+  <line x1="80" y1="240" x2="1100" y2="240" stroke="#1a1d24" stroke-width="3" opacity="0.25"/>
+
+  <!-- the shared motion trace -->
+  <path d="M80 240
+           L150 240 L168 196 L184 240 L210 240
+           L240 240 L258 150 L274 240 L300 240
+           L330 240 L348 210 L364 240 L400 240
+           L440 240 L458 120 L474 240 L500 240
+           L540 240 L558 184 L574 240 L610 240
+           L650 240 L668 138 L684 240 L720 240
+           L760 240 L778 206 L794 240 L840 240
+           L880 240 L898 132 L914 240 L950 240
+           L990 240 L1008 178 L1024 240 L1100 240"
+        fill="none" stroke="#1a1d24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- FitBark threshold (more lenient = lower line) -->
+  <line x1="80" y1="214" x2="1100" y2="214" stroke="#c87533" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="92" y="206" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c87533">FitBark counts above here</text>
+
+  <!-- Whistle threshold (stricter = higher line) -->
+  <line x1="80" y1="184" x2="1100" y2="184" stroke="#5b616b" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="92" y="176" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">Whistle counts above here</text>
+
+  <text x="80" y="280" font-family="Newsreader, Georgia, serif" font-size="14" font-style="italic" fill="#7a808c">a lower bar means more minutes get called "active" — same motion, bigger number</text>
+
+  <!-- ===== BOTTOM: the week, two totals, parallel lines ===== -->
+  <text x="60" y="350" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">a week of daily totals · the gap is constant, the shape is identical</text>
+
+  <!-- chart frame -->
+  <line x1="120" y1="540" x2="1080" y2="540" stroke="#1a1d24" stroke-width="3"/>
+  <line x1="120" y1="380" x2="120" y2="540" stroke="#1a1d24" stroke-width="3"/>
+
+  <!-- day ticks -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c" text-anchor="middle">
+    <text x="190" y="562">Mon</text>
+    <text x="310" y="562">Tue</text>
+    <text x="430" y="562">Wed</text>
+    <text x="550" y="562">Thu</text>
+    <text x="670" y="562">Fri</text>
+    <text x="790" y="562">Sat</text>
+    <text x="910" y="562">Sun</text>
+  </g>
+
+  <!-- FitBark line (higher, orange) -->
+  <polyline points="190,476 310,442 430,492 550,452 670,470 790,398 910,420"
+            fill="none" stroke="#c87533" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#c87533">
+    <circle cx="190" cy="476" r="6"/><circle cx="310" cy="442" r="6"/><circle cx="430" cy="492" r="6"/>
+    <circle cx="550" cy="452" r="6"/><circle cx="670" cy="470" r="6"/><circle cx="790" cy="398" r="6"/><circle cx="910" cy="420" r="6"/>
+  </g>
+
+  <!-- Whistle line (lower, grey, parallel) -->
+  <polyline points="190,498 310,464 430,514 550,474 670,492 790,420 910,442"
+            fill="none" stroke="#5b616b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#5b616b">
+    <circle cx="190" cy="498" r="6"/><circle cx="310" cy="464" r="6"/><circle cx="430" cy="514" r="6"/>
+    <circle cx="550" cy="474" r="6"/><circle cx="670" cy="492" r="6"/><circle cx="790" cy="420" r="6"/><circle cx="910" cy="442" r="6"/>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(960,400)">
+    <line x1="0" y1="0" x2="28" y2="0" stroke="#c87533" stroke-width="5" stroke-linecap="round"/>
+    <text x="36" y="5" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">FitBark</text>
+    <line x1="0" y1="26" x2="28" y2="26" stroke="#5b616b" stroke-width="5" stroke-linecap="round"/>
+    <text x="36" y="31" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">Whistle</text>
+  </g>
+</svg>

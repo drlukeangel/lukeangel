@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="The invisible boundary">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- GPS satellite top-left, dropping the boundary -->
+  <g transform="translate(250,130)">
+    <rect x="-20" y="-11" width="40" height="22" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="-58" y="-14" width="32" height="28" rx="2" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <rect x="26" y="-14" width="32" height="28" rx="2" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+  </g>
+
+  <!-- the invisible boundary: a tall dashed arc curving down the middle -->
+  <path d="M 600 60 Q 720 315 600 570" fill="none" stroke="#c14a3a" stroke-width="5" stroke-dasharray="3 16" stroke-linecap="round"/>
+  <!-- a few warning chevrons along it -->
+  <g stroke="#c14a3a" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.8">
+    <path d="M 648 200 l 14 14 l -14 14"/>
+    <path d="M 668 315 l 14 14 l -14 14"/>
+    <path d="M 648 430 l 14 14 l -14 14"/>
+  </g>
+
+  <!-- a simple clean dog silhouette on the safe (left) side, facing the boundary (right) -->
+  <g transform="translate(350,360)" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- torso -->
+    <rect x="-70" y="0" width="150" height="62" rx="30"/>
+    <!-- four legs -->
+    <rect x="-54" y="58" width="16" height="44" rx="6"/>
+    <rect x="-24" y="58" width="16" height="44" rx="6"/>
+    <rect x="40" y="58" width="16" height="44" rx="6"/>
+    <rect x="64" y="58" width="16" height="44" rx="6"/>
+    <!-- neck + head, facing right toward the boundary -->
+    <path d="M 70 6 q 34 -6 46 16 q 6 12 24 14 q 8 1 8 9 q 0 7 -8 8 l -24 0 q -22 0 -34 -16 z"/>
+    <!-- folded ear -->
+    <path d="M 96 6 q 18 -10 26 6 q 4 10 -8 16"/>
+    <!-- snout line + nose -->
+    <circle cx="146" cy="45" r="4" fill="#1a1d24" stroke="none"/>
+    <!-- eye -->
+    <circle cx="120" cy="34" r="3.5" fill="#1a1d24" stroke="none"/>
+    <!-- tail, up and back (left) -->
+    <path d="M -70 24 q -30 -4 -34 -36" fill="none"/>
+  </g>
+
+  <!-- collar warning glyph above the dog's neck: small radiating beep (placed clear of the head) -->
+  <g transform="translate(440,318)" stroke="#c87533" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M 0 16 Q 15 -4 30 16"/>
+    <path d="M 8 24 Q 15 13 22 24" stroke-opacity="0.6"/>
+    <circle cx="15" cy="28" r="3.5" fill="#c87533" stroke="none"/>
+  </g>
+
+  <!-- link from satellite to boundary, faint -->
+  <line x1="250" y1="150" x2="590" y2="120" stroke="#c87533" stroke-width="2.5" stroke-dasharray="2 10" stroke-linecap="round" opacity="0.7"/>
+</svg>

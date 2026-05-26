@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" role="img" aria-label="Groovy cloud path versus Edge local path">
+  <rect x="0.5" y="0.5" width="1039" height="479" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12.5px;fill:#5b616b}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;font-weight:700;fill:#1a1d24}
+    .node{fill:#fff;stroke:#1a1d24;stroke-width:2}
+  </style>
+
+  <!-- TOP: Groovy cloud path -->
+  <text x="40" y="48" class="hd" fill="#c14a3a">BEFORE — Groovy device handlers (cloud)</text>
+
+  <g>
+    <rect x="40" y="70" width="110" height="56" rx="8" class="node"/>
+    <text x="95" y="103" text-anchor="middle" class="lbl">device</text>
+
+    <rect x="200" y="70" width="110" height="56" rx="8" class="node"/>
+    <text x="255" y="103" text-anchor="middle" class="lbl">hub</text>
+
+    <!-- cloud -->
+    <path d="M470 78 q-30 -22 -58 -2 q-32 -16 -54 12 q-26 4 -22 28 q0 18 26 18 h126 q26 0 26 -22 q0 -22 -26 -24 z" class="node"/>
+    <text x="450" y="106" text-anchor="middle" class="lbl">cloud</text>
+    <text x="450" y="58" text-anchor="middle" class="sm">execute Groovy</text>
+
+    <rect x="630" y="70" width="110" height="56" rx="8" class="node"/>
+    <text x="685" y="103" text-anchor="middle" class="lbl">hub</text>
+
+    <rect x="790" y="70" width="110" height="56" rx="8" class="node"/>
+    <text x="845" y="103" text-anchor="middle" class="lbl">device</text>
+  </g>
+  <g stroke="#c14a3a" stroke-width="2.5" fill="#c14a3a">
+    <line x1="150" y1="98" x2="195" y2="98"/><polygon points="195,93 205,98 195,103"/>
+    <line x1="310" y1="92" x2="350" y2="92"/><polygon points="350,87 360,92 350,97"/>
+    <line x1="540" y1="92" x2="624" y2="92"/><polygon points="624,87 634,92 624,97"/>
+    <line x1="740" y1="98" x2="784" y2="98"/><polygon points="784,93 794,98 784,103"/>
+  </g>
+  <text x="470" y="156" text-anchor="middle" class="sm" fill="#c14a3a">2–5 s round trip · cloud outage = devices unresponsive</text>
+
+  <!-- divider -->
+  <line x1="40" y1="200" x2="1000" y2="200" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+
+  <!-- BOTTOM: Edge local path -->
+  <text x="40" y="248" class="hd" fill="#3a7d44">AFTER — Edge drivers (Lua, on the hub)</text>
+
+  <g>
+    <rect x="180" y="288" width="150" height="64" rx="8" class="node"/>
+    <text x="255" y="316" text-anchor="middle" class="lbl">device</text>
+    <text x="255" y="338" text-anchor="middle" class="sm">Zigbee/Z-Wave/LAN</text>
+
+    <rect x="445" y="278" width="170" height="84" rx="10" class="node" fill="#6a4c93" fill-opacity="0.08"/>
+    <text x="530" y="308" text-anchor="middle" class="hd" fill="#6a4c93">hub</text>
+    <text x="530" y="332" text-anchor="middle" class="sm">Lua driver executes</text>
+    <text x="530" y="350" text-anchor="middle" class="sm">locally — no cloud</text>
+
+    <rect x="730" y="288" width="150" height="64" rx="8" class="node"/>
+    <text x="805" y="316" text-anchor="middle" class="lbl">device</text>
+    <text x="805" y="338" text-anchor="middle" class="sm">command lands</text>
+  </g>
+  <g stroke="#3a7d44" stroke-width="2.5" fill="#3a7d44">
+    <line x1="330" y1="320" x2="440" y2="320"/><polygon points="440,315 450,320 440,325"/>
+    <line x1="615" y1="320" x2="725" y2="320"/><polygon points="725,315 735,320 725,325"/>
+  </g>
+  <text x="530" y="404" text-anchor="middle" class="sm" fill="#3a7d44">&lt; 500 ms · keeps working through a SmartThings cloud outage</text>
+
+  <text x="520" y="448" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="15" fill="#5b616b">Same shift Home Assistant made on day one — SmartThings caught up.</text>
+</svg>

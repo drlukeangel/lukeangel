@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" role="img" aria-label="2022 household pet-tech timeline">
+  <rect width="960" height="450" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c;}
+    .lane{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#5b616b;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+  </style>
+  <g class="mut" text-anchor="middle">
+    <line x1="120" y1="74" x2="900" y2="74" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="120" y="62">Jan</text><text x="191" y="62">Feb</text><text x="262" y="62">Mar</text><text x="333" y="62">Apr</text>
+    <text x="404" y="62">May</text><text x="475" y="62">Jun</text><text x="546" y="62">Jul</text><text x="617" y="62">Aug</text>
+    <text x="688" y="62">Sep</text><text x="759" y="62">Oct</text><text x="830" y="62">Nov</text><text x="900" y="62">Dec</text>
+  </g>
+
+  <!-- DOG lane: Atom (Fi+Whistle Health) all year; Quark joins April -->
+  <text x="40" y="135" class="lane">DOGS</text>
+  <rect x="120" y="120" width="780" height="22" rx="11" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="2"/>
+  <text x="128" y="136" class="lab">Atom — Fi + Whistle Health</text>
+  <rect x="333" y="150" width="567" height="22" rx="11" fill="#c87533" fill-opacity="0.30" stroke="#c87533" stroke-width="2"/>
+  <text x="341" y="166" class="lab">+ Quark on a Fi (April) — second dog</text>
+
+  <!-- Halo June, struck through July -->
+  <g transform="translate(475,196)">
+    <rect x="0" y="0" width="110" height="22" rx="11" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="55" y="16" text-anchor="middle" class="lab" fill="#c14a3a">Halo</text>
+  </g>
+  <text x="475" y="242" class="mut" fill="#c14a3a">tried June, returned July</text>
+
+  <line x1="40" y1="280" x2="920" y2="280" stroke="#1a1d24" stroke-opacity="0.1" stroke-width="1.5"/>
+
+  <!-- CAT lane: Petivity late Sep, Litter-Robot 4 after July -->
+  <text x="40" y="335" class="lane">CATS</text>
+  <rect x="546" y="320" width="354" height="22" rx="11" fill="#c87533" fill-opacity="0.30" stroke="#c87533" stroke-width="2"/>
+  <text x="554" y="336" class="lab">Litter-Robot 4 (summer) — replaces the III</text>
+  <rect x="688" y="350" width="212" height="22" rx="11" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="2"/>
+  <text x="696" y="366" class="lab">+ Petivity scale (late Sep)</text>
+
+  <text x="40" y="425" class="cap">The year the household hit four animals — and the cat side finally got analytics.</text>
+</svg>

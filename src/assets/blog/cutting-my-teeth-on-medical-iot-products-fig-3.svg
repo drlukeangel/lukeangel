@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 540" width="1040" height="540" role="img" aria-label="Why the OTA canary brick was caught: monitoring fleet health after the update, not just transfer success.">
+  <rect width="1040" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="520" y="46" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="1" fill="#1a1d24">Q1 2019 &#8212; THE CANARY THAT THE SAFETY WORK CAUGHT</text>
+
+  <!-- dual-bank flash strip -->
+  <g transform="translate(60,86)">
+    <text x="0" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#5b616b">dual-bank flash &#183; verify-then-commit</text>
+    <!-- bank A (running) -->
+    <rect x="0" y="14" width="180" height="46" rx="7" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="2.4"/>
+    <text x="90" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#3a7d44">bank A &#183; running</text>
+    <text x="90" y="52" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#5b616b">stays bootable</text>
+    <!-- write into B -->
+    <path d="M186 37 H236" stroke="#357a8c" stroke-width="2.6" fill="none"/><path d="M240 37 l-12 -7 v14 z" fill="#357a8c"/>
+    <rect x="246" y="14" width="180" height="46" rx="7" fill="#357a8c" fill-opacity="0.08" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="336" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#357a8c">bank B &#183; new image</text>
+    <text x="336" y="52" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#5b616b">signed, verify, then boot</text>
+    <!-- rollback -->
+    <path d="M336 64 v22 H90 v-22" stroke="#c14a3a" stroke-width="2" fill="none" stroke-dasharray="3 5"/>
+    <path d="M90 68 l-7 12 h14 z" fill="#c14a3a"/>
+    <text x="213" y="102" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10.5" fill="#c14a3a">boot-counter rollback on failure</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="40" y1="220" x2="1000" y2="220" stroke="#1a1d24" stroke-opacity="0.14" stroke-width="1.5"/>
+
+  <!-- ===== LEFT: transfer-success-only (the version we didn't ship) ===== -->
+  <g transform="translate(60,244)">
+    <rect x="0" y="0" width="420" height="252" rx="12" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="2.4" stroke-dasharray="7 5"/>
+    <text x="210" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a">"TRANSFER SUCCESS = DONE"</text>
+    <text x="210" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">the half-quality version we refused to ship</text>
+    <!-- bytes arrive checkmark, then silence -->
+    <g transform="translate(60,110)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">
+      <path d="M0 0 l6 7 12 -16" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="30" y="5">bytes arrived &#8212; report OK</text>
+    </g>
+    <g transform="translate(60,160)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#c14a3a">
+      <text x="0" y="5">...then devices go quiet</text>
+      <text x="0" y="26" font-size="11" fill="#5b616b">post-boot bug, never seen on the bench</text>
+    </g>
+    <text x="210" y="232" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#c14a3a">brick 20,000 toothbrushes over a weekend</text>
+  </g>
+
+  <!-- ===== RIGHT: fleet-health monitoring (what we built) ===== -->
+  <g transform="translate(560,244)">
+    <rect x="0" y="0" width="420" height="252" rx="12" fill="#3a7d44" fill-opacity="0.05" stroke="#3a7d44" stroke-width="2.4"/>
+    <text x="210" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#3a7d44">FLEET-HEALTH AFTER THE UPDATE</text>
+    <text x="210" y="54" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">watch devices for hours after, not just the bytes</text>
+    <!-- mini chart: check-ins drop off -->
+    <g transform="translate(40,86)">
+      <line x1="0" y1="0" x2="0" y2="96" stroke="#5b616b" stroke-width="1.6"/>
+      <line x1="0" y1="96" x2="340" y2="96" stroke="#5b616b" stroke-width="1.6"/>
+      <text x="-6" y="6" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9.5" fill="#5b616b">check-ins</text>
+      <!-- healthy then drop -->
+      <polyline points="0,18 70,16 140,20 180,18" fill="none" stroke="#3a7d44" stroke-width="3"/>
+      <polyline points="180,18 220,46 260,78 320,92" fill="none" stroke="#c14a3a" stroke-width="3"/>
+      <!-- halt marker -->
+      <line x1="200" y1="0" x2="200" y2="96" stroke="#c14a3a" stroke-width="1.6" stroke-dasharray="3 4"/>
+      <text x="206" y="14" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#c14a3a">rollout halted</text>
+      <text x="0" y="116" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#5b616b">caught at a few hundred devices, not the whole fleet</text>
+    </g>
+    <text x="210" y="232" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#3a7d44">the safety work I almost cut is why that's hypothetical</text>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Alarm fan-in fan-out">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+
+    <!-- LEFT: sensors fan in -->
+    <text x="130" y="40" text-anchor="middle" font-size="14" fill="#5b616b">14 sensors → dumb triggers</text>
+    <g font-size="11" text-anchor="middle">
+      <g transform="translate(60 90)"><rect x="0" y="0" width="140" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="70" y="20">6× door/window</text></g>
+      <g transform="translate(60 135)"><rect x="0" y="0" width="140" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="70" y="20">2× glass-break</text></g>
+      <g transform="translate(60 180)"><rect x="0" y="0" width="140" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="70" y="20">6× vibration</text></g>
+      <g transform="translate(60 225)"><rect x="0" y="0" width="140" height="30" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="70" y="20">3× motion</text></g>
+    </g>
+    <g stroke="#6a4c93" stroke-width="2.5" fill="none">
+      <path d="M200 105 C 300 120, 360 220, 410 240" marker-end="url(#a)"/>
+      <path d="M200 150 C 300 170, 360 230, 410 245" marker-end="url(#a)"/>
+      <path d="M200 195 C 300 210, 360 245, 410 252" marker-end="url(#a)"/>
+      <path d="M200 240 C 300 250, 360 252, 410 258" marker-end="url(#a)"/>
+    </g>
+
+    <!-- CENTER: the state machine -->
+    <g transform="translate(500 250)">
+      <rect x="-90" y="-60" width="180" height="120" rx="14" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="4"/>
+      <text x="0" y="-12" text-anchor="middle" font-size="13" fill="#6a4c93">HA manual</text>
+      <text x="0" y="8" text-anchor="middle" font-size="13" fill="#6a4c93">alarm panel</text>
+      <text x="0" y="34" text-anchor="middle" font-size="11" fill="#5b616b">owns arm/disarm</text>
+      <text x="0" y="50" text-anchor="middle" font-size="11" fill="#5b616b">+ delay timers</text>
+    </g>
+
+    <!-- RIGHT: triggered actions fan out -->
+    <text x="850" y="40" text-anchor="middle" font-size="14" fill="#c14a3a">on triggered → fan out</text>
+    <g font-size="11" text-anchor="middle">
+      <g transform="translate(770 90)"><rect x="0" y="0" width="170" height="28" rx="6" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-opacity="0.4" stroke-width="2"/><text x="85" y="19">lights → red</text></g>
+      <g transform="translate(770 130)"><rect x="0" y="0" width="170" height="28" rx="6" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-opacity="0.4" stroke-width="2"/><text x="85" y="19">siren on</text></g>
+      <g transform="translate(770 170)"><rect x="0" y="0" width="170" height="28" rx="6" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-opacity="0.4" stroke-width="2"/><text x="85" y="19">critical push ×2</text></g>
+      <g transform="translate(770 210)"><rect x="0" y="0" width="170" height="28" rx="6" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-opacity="0.4" stroke-width="2"/><text x="85" y="19">cameras record</text></g>
+    </g>
+    <g stroke="#c14a3a" stroke-width="2.5" fill="none">
+      <path d="M590 240 C 680 160, 720 120, 766 110" marker-end="url(#b)"/>
+      <path d="M590 248 C 680 200, 720 150, 766 148" marker-end="url(#b)"/>
+      <path d="M590 256 C 680 230, 720 190, 766 186" marker-end="url(#b)"/>
+      <path d="M590 264 C 680 250, 720 225, 766 224" marker-end="url(#b)"/>
+    </g>
+
+    <text x="500" y="430" text-anchor="middle" font-size="13" fill="#5b616b">centralize the state, keep the sensor automations dumb — add a sensor without touching the timing logic</text>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+      <marker id="b" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#c14a3a"/></marker>
+    </defs>
+  </g>
+</svg>

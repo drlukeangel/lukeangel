@@ -11,11 +11,11 @@ notebook: smart-home-iot-journey
 notebookOrder: 3
 excerpt: "BLE 4.0 has been shipping in phones since the iPhone 4S (Oct 2011). It's now showing up in fitness trackers, beacons, and the first smart-home devices. A protocol primer before the products land."
 pullquote: "BLE solves one specific problem: a peripheral that runs for a year on a coin cell while still being discoverable by your phone. That constraint shapes everything else about the protocol."
-cover: "../../assets/blog/bluetooth-low-energy-4-0-in-the-smart-home-primer-cover.png"
-coverAlt: "Bluetooth Low Energy 4.0 in the smart home — the protocol primer"
+cover: "../../assets/blog/bluetooth-low-energy-4-0-in-the-smart-home-primer-cover.svg"
+coverAlt: "A coin-cell BLE peripheral broadcasting short advertising packets to a nearby phone, the radio asleep between bursts — the tiny duty cycle that lets it run for a year on one battery."
 ---
 
-BLE 4.0 was ratified in June 2010. iPhone 4S (October 2011) was the first major handset to ship with it. By early 2013, BLE peripherals are common — Fitbit Flex ships next month, Pebble shipped in January, smart locks (Lockitron, August Smart Lock) are about to land. Smart-home is the next wave.
+BLE 4.0 was ratified in June 2010. iPhone 4S (October 2011) was the first major handset to ship with it. By early 2013, BLE peripherals are common — Fitbit Flex ships next month, Pebble shipped in January, and the first BLE smart-lock retrofit (Lockitron) is taking pre-orders. Smart-home is the next wave.
 
 Notes on the protocol underneath, before the smart-home devices arrive.
 
@@ -56,6 +56,8 @@ Battery Service (0x180F)
 ```
 
 Standard services have 16-bit UUIDs assigned by the Bluetooth SIG. Vendor-specific services use 128-bit UUIDs (Nest's thermostat service, for example, is custom).
+
+![The GATT data model drawn as a tree. A peripheral exposes one or more services, each a logical group with a UUID — a standard Heart Rate service (0x180D) and Battery service (0x180F), plus a vendor's 128-bit custom service. Under each service hang characteristics, the actual values, each tagged with its access type: heart-rate measurement (notify), body-sensor location (read), control point (write), battery level (read and notify). A note marks that the phone, acting as the central, discovers this tree on connect and then reads, writes, or subscribes to characteristics by UUID.](../../assets/blog/ble-gatt-hierarchy.svg)
 
 ## Apple's iBeacon (rumored for WWDC 2013, soft-leaked already)
 
@@ -108,12 +110,12 @@ Coin cell (CR2032, 225 mAh @ 3V):
 
 Door/window sensors and temperature sensors target the advertising-only mode for multi-year life. Locks and locks-class devices use connection mode when active, advertising when idle.
 
+![The BLE power story drawn as a radio-activity timeline against battery life from one CR2032 coin cell. Advertising-only at 1 Hz: a tiny ~1 ms radio blip once a second with long sleep between, averaging ~10 microamps for roughly a two-year life. Persistent connection at a 1-second interval: slightly more frequent wakeups, ~30 microamps, about ten months. Responsive 100 ms connection interval: frequent wakeups, ~200 microamps, about six weeks. A caption marks the rule — the duty cycle, not the peak transmit power, sets battery life, which is why a door sensor advertises and a lock only opens a connection when it has to.](../../assets/blog/ble-duty-cycle-battery.svg)
+
 ## The first BLE smart-home devices I'm watching
 
-- **Lockitron** (Kickstarter-funded BLE smart lock retrofit): shipping later this year, allegedly.
-- **August Smart Lock**: announced this month, ships fall 2013.
-
-I'll write about whichever lands first and is integrate-able.
+- **Lockitron** — a BLE/Wi-Fi smart-lock retrofit that fits over your existing deadbolt. Kickstarter turned it down as a "home improvement" project last fall, so the team stood up their own pre-order site and pulled in well over a million dollars in the first week. Shipping "later this year," allegedly — crowdfunded hardware timelines being what they are.
+- And whatever follows it: a phone-as-key smart lock is the obvious first BLE product for the home, and Lockitron won't be the only one. I'll write about whichever actually lands and is integrate-able.
 
 ## What's next
 

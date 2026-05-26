@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" role="img" aria-label="Enter reliable, exit unreliable">
+  <rect width="860" height="320" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- room box -->
+  <rect x="330" y="90" width="200" height="140" rx="10" fill="#6a4c93" fill-opacity="0.07" stroke="#1a1d24" stroke-width="3"/>
+  <circle cx="430" cy="160" r="11" fill="#6a4c93"/>
+
+  <!-- ENTER: solid green arrow in -->
+  <path d="M120 160 H326" fill="none" stroke="#3a7d44" stroke-width="5" marker-end="url(#g)"/>
+  <text x="150" y="142" font-family="ui-monospace, monospace" font-size="14" fill="#3a7d44">enter</text>
+  <text x="150" y="200" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#5b616b">fires within 30 s — solid</text>
+
+  <!-- EXIT: dashed red, marked unreliable -->
+  <path d="M534 160 H740" fill="none" stroke="#c14a3a" stroke-width="5" stroke-dasharray="7 9" marker-end="url(#r)"/>
+  <text x="700" y="142" font-family="ui-monospace, monospace" font-size="14" fill="#c14a3a" text-anchor="end">exit</text>
+  <text x="640" y="200" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#5b616b" text-anchor="middle">often late or missed</text>
+
+  <!-- mitigation note -->
+  <text x="430" y="278" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24" text-anchor="middle">mitigation: motion sensor confirms the room is really empty</text>
+
+  <defs>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#3a7d44"/></marker>
+    <marker id="r" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#c14a3a"/></marker>
+  </defs>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="SmartThings hub unifier">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- the hub, center -->
+  <g transform="translate(600 315)">
+    <rect x="-90" y="-60" width="180" height="120" rx="20" fill="#fdfaf2" stroke="#6a4c93" stroke-width="7"/>
+    <!-- two radio rings emanating: Zigbee + Z-Wave -->
+    <circle cx="0" cy="0" r="16" fill="#6a4c93"/>
+    <circle cx="0" cy="0" r="34" fill="none" stroke="#6a4c93" stroke-width="3" opacity="0.5"/>
+    <circle cx="0" cy="0" r="52" fill="none" stroke="#6a4c93" stroke-width="3" opacity="0.3"/>
+    <!-- ethernet stub -->
+    <line x1="0" y1="60" x2="0" y2="100" stroke="#1a1d24" stroke-width="5"/>
+    <rect x="-12" y="100" width="24" height="14" rx="2" fill="#1a1d24"/>
+  </g>
+
+  <!-- four device clusters around it, now connected by spokes -->
+  <!-- bulbs (Hue, cloud-mediated dashed) -->
+  <g transform="translate(230 150)">
+    <circle r="30" fill="#6a4c93" fill-opacity="0.2" stroke="#1a1d24" stroke-width="4"/><circle r="9" fill="#6a4c93"/>
+    <rect x="-11" y="26" width="22" height="12" rx="3" fill="#1a1d24"/>
+  </g>
+  <path d="M520 280 L268 178" stroke="#1a1d24" stroke-width="3" stroke-dasharray="3 7"/>
+
+  <!-- plug (Wemo, cloud dashed) -->
+  <g transform="translate(970 150)">
+    <rect x="-28" y="-30" width="56" height="64" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><circle cy="2" r="9" fill="#6a4c93"/>
+  </g>
+  <path d="M680 280 L940 168" stroke="#1a1d24" stroke-width="3" stroke-dasharray="3 7"/>
+
+  <!-- z-wave sensor (native solid) -->
+  <g transform="translate(230 490)">
+    <rect x="-30" y="-30" width="60" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><circle r="9" fill="#6a4c93"/>
+  </g>
+  <path d="M520 350 L262 470" stroke="#6a4c93" stroke-width="4"/>
+
+  <!-- zigbee motion sensor (native solid) -->
+  <g transform="translate(970 490)">
+    <rect x="-30" y="-30" width="60" height="60" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <path d="M-14 6 a16 16 0 0 1 28 0" fill="none" stroke="#6a4c93" stroke-width="4"/><circle cy="-6" r="5" fill="#6a4c93"/>
+  </g>
+  <path d="M680 350 L938 470" stroke="#6a4c93" stroke-width="4"/>
+</svg>

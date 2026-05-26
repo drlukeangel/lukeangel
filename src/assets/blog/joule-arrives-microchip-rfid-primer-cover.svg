@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A handheld scanner held above a cat's shoulder, reading a battery-less microchip by inductive coupling.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="joule-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#joule-dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- ground line -->
+  <line x1="150" y1="560" x2="820" y2="560" stroke="#1a1d24" stroke-opacity="0.16" stroke-width="3"/>
+
+  <!-- sitting tabby cat, profile facing right, lower portion of canvas -->
+  <g>
+    <!-- tail curling around the base -->
+    <path d="M300 560 q-78 8 -104 -42 q-16 -32 8 -54 q18 -16 38 -6 q-24 4 -24 28 q0 28 32 36 q26 6 50 -4 z" fill="#c98a52" stroke="#9c6630" stroke-width="3"/>
+    <!-- body / haunch (sitting) -->
+    <path d="M350 560 q-46 0 -58 -58 q-18 -86 28 -150 q44 -60 124 -60 q34 0 58 14 l0 304 q0 10 -12 10 z" fill="#d59a64" stroke="#9c6630" stroke-width="3.5"/>
+    <!-- tabby stripes on haunch -->
+    <g stroke="#9c6630" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.65">
+      <path d="M338 386 q-16 32 -14 86"/>
+      <path d="M372 376 q-18 38 -16 104"/>
+      <path d="M406 372 q-16 44 -14 112"/>
+    </g>
+    <!-- front legs down to the ground -->
+    <path d="M428 480 l0 80 q0 8 -10 8 l-26 0 q-10 0 -10 -8 l0 -80 z" fill="#cf9259" stroke="#9c6630" stroke-width="3"/>
+    <path d="M480 484 l0 76 q0 8 -10 8 l-26 0 q-10 0 -10 -8 l0 -76 z" fill="#d59a64" stroke="#9c6630" stroke-width="3"/>
+    <!-- paws -->
+    <path d="M386 560 q26 0 32 8 l-40 0 q0 -8 8 -8 z" fill="#cf9259" stroke="#9c6630" stroke-width="2.5"/>
+    <path d="M438 560 q26 0 32 8 l-40 0 q0 -8 8 -8 z" fill="#d59a64" stroke="#9c6630" stroke-width="2.5"/>
+    <!-- chest highlight -->
+    <path d="M474 340 q34 16 34 64 l0 140 q-28 8 -56 4 l0 -184 q12 -22 22 -28 z" fill="#e3b483" stroke="none" opacity="0.55"/>
+    <!-- neck + head, facing right and slightly down -->
+    <path d="M468 314 q20 -42 68 -50 q52 -8 84 28 q28 30 18 68 q-10 38 -50 52 q-42 14 -82 0 q-42 -18 -52 -54 q-8 -30 16 -62 z" fill="#d8a068" stroke="#9c6630" stroke-width="3.5"/>
+    <!-- pointed cat ears -->
+    <path d="M512 278 q-12 -48 8 -70 q28 28 36 60 z" fill="#cf9259" stroke="#9c6630" stroke-width="3"/>
+    <path d="M594 270 q24 -44 52 -50 q4 36 -16 66 z" fill="#cf9259" stroke="#9c6630" stroke-width="3"/>
+    <path d="M528 266 q-4 -24 6 -42 q16 18 20 38 z" fill="#e8c39b" stroke="none"/>
+    <path d="M606 262 q14 -28 32 -34 q0 24 -14 44 z" fill="#e8c39b" stroke="none"/>
+    <!-- muzzle -->
+    <path d="M610 330 q42 0 58 24 q14 18 2 40 q-12 18 -44 16 q-32 -2 -46 -22 q-12 -20 4 -40 q10 -16 26 -18 z" fill="#e0b07a" stroke="#9c6630" stroke-width="2.5"/>
+    <!-- nose -->
+    <path d="M658 356 l16 0 l-8 11 z" fill="#9c5a3a"/>
+    <!-- closed content eye -->
+    <path d="M598 322 q14 -8 28 0 q-14 8 -28 0 z" fill="#1a1d24"/>
+    <!-- whiskers -->
+    <g stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round">
+      <line x1="662" y1="362" x2="728" y2="350"/>
+      <line x1="662" y1="370" x2="730" y2="370"/>
+      <line x1="660" y1="378" x2="726" y2="390"/>
+    </g>
+  </g>
+
+  <!-- implant at the shoulder/upper back (between shoulder blades), with a faint glow -->
+  <g transform="translate(486,344)">
+    <circle r="15" fill="#c87533" opacity="0.18"/>
+    <rect x="-12" y="-5" width="24" height="10" rx="5" fill="#fdfaf2" stroke="#c87533" stroke-width="2.5"/>
+    <line x1="3" y1="-5" x2="3" y2="5" stroke="#c87533" stroke-width="1.5" opacity="0.7"/>
+    <line x1="-1" y1="-5" x2="-1" y2="5" stroke="#c87533" stroke-width="1.5" opacity="0.7"/>
+  </g>
+
+  <!-- inductive-coupling waves rising from the implant up toward the scanner, in the clear air gap -->
+  <g fill="none" stroke="#c87533" stroke-linecap="round" transform="translate(486,344)">
+    <path d="M-30 -34 a44 44 0 0 1 60 0" stroke-width="5" opacity="0.9"/>
+    <path d="M-48 -58 a72 72 0 0 1 96 0" stroke-width="5" opacity="0.55"/>
+    <path d="M-66 -82 a100 100 0 0 1 132 0" stroke-width="5" opacity="0.3"/>
+  </g>
+
+  <!-- handheld scanner wand held above the shoulder, read-face pointing DOWN at the implant -->
+  <g transform="translate(486,116)">
+    <!-- read head -->
+    <rect x="-52" y="0" width="104" height="116" rx="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- handle rising up from the head -->
+    <rect x="-28" y="-118" width="56" height="124" rx="24" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- screen on the head -->
+    <rect x="-34" y="16" width="68" height="34" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="3"/>
+    <!-- antenna coil at the read face (bottom) -->
+    <g fill="none" stroke="#c87533" stroke-width="4">
+      <ellipse cx="0" cy="92" rx="30" ry="13"/>
+      <ellipse cx="0" cy="92" rx="16" ry="7" opacity="0.6"/>
+    </g>
+  </g>
+</svg>

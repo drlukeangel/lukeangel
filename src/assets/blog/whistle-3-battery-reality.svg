@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" role="img" aria-label="Cellular battery claim vs reality">
+  <rect width="920" height="480" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .ax{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#7a808c;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+  </style>
+
+  <!-- axes: plot box x 90..820, y 70..360 ; x=days 0..7, y=battery 100..0 -->
+  <line x1="90" y1="70" x2="90" y2="360" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <line x1="90" y1="360" x2="820" y2="360" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+
+  <!-- y labels -->
+  <text x="80" y="76" text-anchor="end" class="ax">100%</text>
+  <text x="80" y="219" text-anchor="end" class="ax">50%</text>
+  <text x="80" y="364" text-anchor="end" class="ax">0%</text>
+  <!-- x day ticks: 7 days across 730px -> ~104px/day -->
+  <g class="ax" text-anchor="middle">
+    <text x="90" y="382">0</text>
+    <text x="194" y="382">1</text>
+    <text x="298" y="382">2</text>
+    <text x="402" y="382">3</text>
+    <text x="506" y="382">4</text>
+    <text x="610" y="382">5</text>
+    <text x="714" y="382">6</text>
+    <text x="818" y="382">7</text>
+  </g>
+  <text x="455" y="412" text-anchor="middle" class="sm">days since charge</text>
+
+  <!-- CLAIMED curve: gentle, reaches ~0 near day 7 -->
+  <path d="M 90 70 C 300 110, 560 250, 818 358" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="600" y="190" class="lab" fill="#3a7d44">claimed — home, GPS idle</text>
+  <text x="600" y="210" class="sm">"7-day battery"</text>
+
+  <!-- IN-USE curve: steep, hits 0 around day 3.5 -->
+  <path d="M 90 70 C 200 130, 320 290, 454 358" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="150" y="320" class="lab" fill="#c14a3a">in use — dog out,</text>
+  <text x="150" y="340" class="lab" fill="#c14a3a">GPS every few min</text>
+
+  <!-- marker where the steep curve dies -->
+  <circle cx="454" cy="358" r="6" fill="#c14a3a"/>
+  <line x1="454" y1="358" x2="454" y2="70" stroke="#c14a3a" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="462" y="98" class="sm" fill="#c14a3a">dead by day 3–4</text>
+
+  <!-- the cruel note -->
+  <line x1="90" y1="430" x2="830" y2="430" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="455" y="460" text-anchor="middle" class="cap">The radios cost the most exactly when the dog is missing — so the battery fails when it matters.</text>
+</svg>

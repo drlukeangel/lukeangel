@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 540" width="1040" height="540" role="img" aria-label="2025 smart-home forecast scorecard">
+  <rect x="0.5" y="0.5" width="1039" height="539" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .p{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24}
+    .c{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <g>
+    <text x="60" y="75" class="p">SmartThings local-execution post</text>
+    <text x="60" y="123" class="p">Robots — Roomba + Braava routines</text>
+    <text x="60" y="171" class="p">Frame TV + appliance sync improves</text>
+    <text x="60" y="219" class="p">Thirteen-year retrospective</text>
+    <text x="60" y="267" class="p">Matter camera support in products</text>
+    <text x="60" y="315" class="p">HA voice gets usable</text>
+    <text x="60" y="363" class="p">Solar + Powerwall reconsidered</text>
+    <text x="60" y="411" class="p">End-of-2025 review</text>
+    <text x="640" y="75" class="c">95%</text>
+    <text x="640" y="123" class="c">90%</text>
+    <text x="640" y="171" class="c">85%</text>
+    <text x="640" y="219" class="c">100%</text>
+    <text x="640" y="267" class="c">70%</text>
+    <text x="640" y="315" class="c">50%</text>
+    <text x="640" y="363" class="c">30%</text>
+    <text x="640" y="411" class="c">100%</text>
+  </g>
+
+  <g stroke="#1a1d24" stroke-opacity="0.10" stroke-width="1">
+    <line x1="40" y1="94" x2="1000" y2="94"/><line x1="40" y1="142" x2="1000" y2="142"/>
+    <line x1="40" y1="190" x2="1000" y2="190"/><line x1="40" y1="238" x2="1000" y2="238"/>
+    <line x1="40" y1="286" x2="1000" y2="286"/><line x1="40" y1="334" x2="1000" y2="334"/>
+    <line x1="40" y1="382" x2="1000" y2="382"/>
+  </g>
+
+  <g stroke="#3a7d44" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M740 70 l9 10 18 -23"/>
+    <path d="M740 118 l9 10 18 -23"/>
+    <path d="M740 166 l9 10 18 -23"/>
+    <path d="M740 214 l9 10 18 -23"/>
+    <path d="M740 310 l9 10 18 -23"/>
+    <path d="M740 406 l9 10 18 -23"/>
+  </g>
+  <g transform="translate(752,262)">
+    <circle r="15" fill="none" stroke="#7a808c" stroke-width="3.2"/>
+    <path d="M0 -15 a15 15 0 0 1 0 30 z" fill="#7a808c"/>
+  </g>
+  <text x="785" y="267" class="c" fill="#7a808c">partial — spec, not products</text>
+  <g transform="translate(752,358)" stroke="#c14a3a" stroke-width="4" stroke-linecap="round">
+    <line x1="-11" y1="-11" x2="11" y2="11"/><line x1="11" y1="-11" x2="-11" y2="11"/>
+  </g>
+  <text x="785" y="363" class="c" fill="#c14a3a">said no — flipped to yes</text>
+
+  <line x1="40" y1="440" x2="1000" y2="440" stroke="#1a1d24" stroke-width="2"/>
+  <text x="60" y="478" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="18" font-weight="700" fill="#6a4c93">7.5 / 8  ≈  94%</text>
+  <text x="530" y="510" text-anchor="middle" class="cap">The cleanest year on record — which usually means the year was predictable, not that I read it well.</text>
+</svg>

@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 13
 excerpt: "A year living with all three protocols on the SmartThings hub plus Hue's separate Zigbee bridge. The frequency bands, the mesh behaviors."
 pullquote: "Z-Wave for sensors, Zigbee for lights, WiFi for cameras. If you can't remember anything else from this post, remember that."
-cover: "../../assets/blog/zwave-vs-zigbee-vs-wifi-year-with-smartthings-cover.png"
-coverAlt: "Z-Wave vs Zigbee vs WiFi — a year on SmartThings"
+cover: "../../assets/blog/zwave-vs-zigbee-vs-wifi-year-with-smartthings-cover.svg"
+coverAlt: "Three wireless protocols sharing a house — one radio alone on a quiet low band, two more crowded together on a busy band shared with the router, microwave, and phone — the radio-spectrum reason Z-Wave sensors stay reliable."
 ---
 
 A year with all three radio protocols running in the same house. The SmartThings hub carries Z-Wave + Zigbee HA; the Hue bridge carries Zigbee Light Link separately; Wemo plugs and a new LIFX bulb hang off WiFi. Time for a proper comparison.
@@ -33,6 +33,8 @@ The biggest reason I now reach for Z-Wave on every battery-powered sensor: **908
 Z-Wave Plus on 908.4 MHz US sees almost no other RF traffic. The result: Z-Wave sensors report reliably, with 5-year battery life, where a Zigbee version of the same sensor might drop messages once a week and chew through a coin cell every nine months.
 
 The tradeoff: throughput. Z-Wave maxes out around 40 kbps; useless for video, fine for "the door just opened."
+
+![Why Z-Wave sensors stay reliable: the radio-band map. The 2.4 GHz band is drawn crowded — Wi-Fi, Zigbee, Bluetooth, the microwave, the baby monitor, and the phone all packed into the same space, overlapping and colliding. Z-Wave sits by itself on the US 908.4 MHz band, nearly empty, with room to report cleanly. Throughput runs the other way: the crowded 2.4 GHz band carries tens of megabits for video, while the quiet 908 MHz band carries only about 40 kilobits — plenty for "the door opened," useless for a camera. The quiet band buys reliability and battery life at the cost of speed.](../../assets/blog/zwave-zigbee-wifi-band-map.svg)
 
 ## Zigbee's two profiles, still not interop
 
@@ -54,6 +56,8 @@ In practice:
 - **Mesh healing is slow.** When I added a new Z-Wave switch, the mesh didn't re-route to use it for two days. SmartThings has a "repair Z-Wave network" command that forces it; never run it during the day because it takes 20 minutes and pauses normal operation.
 - **Battery-powered devices don't repeat.** They're end-devices only. Adding ten more door sensors does *not* extend your coverage; only mains-powered devices (switches, outlets, plugs) do.
 - **Zigbee mesh through walls is meh.** 2.4 GHz hates drywall. I've got a Zigbee sensor 12 meters from the SmartThings hub, line-of-sight; works fine. The same sensor 8 meters away through two walls drops messages.
+
+![The mesh-repeating reality that surprises people. Mains-powered devices — in-wall switches, outlets, plugs — are always listening and act as repeaters, so each one extends the mesh and gives distant nodes a path back to the hub. Battery-powered devices — door sensors, motion sensors — sleep to save power and are end-devices only: they talk to the mesh but never relay for anyone else. The diagram shows a hub reaching a far sensor by hopping through two mains-powered repeaters, while a clump of battery sensors sits off to the side adding zero coverage. Adding ten more door sensors doesn't extend range; adding one more plug-in outlet does.](../../assets/blog/zwave-zigbee-mesh-repeaters.svg)
 
 ## WiFi as the "what else" option
 

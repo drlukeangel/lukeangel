@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="spectrum bands">
+  <rect width="1000" height="520" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="52" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#1a1d24">WHO SHARES THE AIR</text>
+
+  <!-- Z-Wave clear band -->
+  <g transform="translate(0,110)">
+    <text x="40" y="-6" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">908.4 MHz · Z-Wave only</text>
+    <rect x="40" y="6" width="920" height="64" rx="9" fill="#fff" stroke="#3a7d44" stroke-width="2.5"/>
+    <!-- one tidy occupant -->
+    <g transform="translate(120,38)">
+      <rect x="-44" y="-16" width="88" height="32" rx="6" fill="#3a7d44" fill-opacity="0.15" stroke="#3a7d44" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">Z-Wave</text>
+    </g>
+    <text x="700" y="44" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a7d44">empty · packets land</text>
+  </g>
+
+  <!-- 2.4 GHz crowded band -->
+  <g transform="translate(0,250)">
+    <text x="40" y="-6" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">2.4 GHz · shared by everyone</text>
+    <rect x="40" y="6" width="920" height="120" rx="9" fill="#fff" stroke="#c14a3a" stroke-width="2.5"/>
+    <!-- many crammed occupants -->
+    <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24" text-anchor="middle">
+      <g transform="translate(115,40)"><rect x="-50" y="-15" width="100" height="30" rx="5" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="1.8"/><text y="4">WiFi router</text></g>
+      <g transform="translate(228,40)"><rect x="-46" y="-15" width="92" height="30" rx="5" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="1.8"/><text y="4">Zigbee HA</text></g>
+      <g transform="translate(338,40)"><rect x="-44" y="-15" width="88" height="30" rx="5" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="1.8"/><text y="4">Zigbee ZLL</text></g>
+      <g transform="translate(443,40)"><rect x="-42" y="-15" width="84" height="30" rx="5" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="1.8"/><text y="4">Bluetooth</text></g>
+      <g transform="translate(545,40)"><rect x="-40" y="-15" width="80" height="30" rx="5" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="1.8"/><text y="4">laptop</text></g>
+      <g transform="translate(640,40)"><rect x="-38" y="-15" width="76" height="30" rx="5" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="1.8"/><text y="4">phone</text></g>
+      <g transform="translate(742,40)"><rect x="-46" y="-15" width="92" height="30" rx="5" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="1.8"/><text y="4">microwave</text></g>
+      <g transform="translate(855,40)"><rect x="-48" y="-15" width="96" height="30" rx="5" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="1.8"/><text y="4">baby monitor</text></g>
+    </g>
+    <text x="120" y="100" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#c14a3a">collisions · retries · dropped messages · battery drain</text>
+  </g>
+</svg>

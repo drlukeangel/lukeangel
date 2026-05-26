@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" width="1080" height="540" role="img" aria-label="Whistle's 2013 data path: a two-radio collar puck syncs to the cloud over BLE-via-phone or WiFi directly.">
+  <rect width="1080" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHISTLE'S DATA PATH (2013)</text>
+
+  <!-- ============ COLLAR PUCK (left, center height) ============ -->
+  <g transform="translate(40,180)">
+    <rect x="0" y="0" width="184" height="150" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- accelerometer chip glyph -->
+    <g transform="translate(26,24)">
+      <rect x="0" y="0" width="40" height="36" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <circle cx="20" cy="18" r="8.5" fill="none" stroke="#c87533" stroke-width="3"/>
+      <circle cx="20" cy="18" r="2.5" fill="#c87533"/>
+    </g>
+    <text x="120" y="32" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">COLLAR PUCK</text>
+    <text x="120" y="51" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">accel + MCU</text>
+    <!-- two radios -->
+    <g transform="translate(20,78)">
+      <rect x="0" y="0" width="68" height="26" rx="6" fill="#fdfaf2" stroke="#c87533" stroke-width="2.4"/>
+      <text x="34" y="17" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c87533">BLE 4.0</text>
+      <rect x="76" y="0" width="68" height="26" rx="6" fill="#fdfaf2" stroke="#c87533" stroke-width="2.4"/>
+      <text x="110" y="17" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c87533">WiFi</text>
+    </g>
+    <text x="92" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">one radio on at a time</text>
+    <text x="92" y="140" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">syncs ~1×/hour</text>
+  </g>
+
+  <!-- ============ PATH A: BLE -> phone -> cloud (upper) ============ -->
+  <!-- BLE arrow from puck top toward phone -->
+  <g stroke="#c87533" stroke-width="3" fill="#c87533">
+    <path d="M232 196 L356 132" fill="none"/>
+    <path d="M360 130 l-17 -1 l8 14 z"/>
+  </g>
+  <text x="276" y="150" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c87533">BLE</text>
+
+  <!-- phone / app (upper middle) -->
+  <g transform="translate(366,70)">
+    <rect x="0" y="0" width="96" height="142" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="10" y="22" width="76" height="98" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.16" stroke-width="2"/>
+    <circle cx="48" cy="12" r="3.5" fill="#1a1d24" opacity="0.4"/>
+    <g fill="#c87533">
+      <rect x="22" y="92" width="11" height="20" rx="2"/>
+      <rect x="38" y="80" width="11" height="32" rx="2"/>
+      <rect x="54" y="68" width="11" height="44" rx="2"/>
+      <rect x="70" y="86" width="11" height="26" rx="2" opacity="0.55"/>
+    </g>
+  </g>
+  <text x="414" y="232" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">PAIRED PHONE</text>
+  <text x="414" y="250" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">relays to cloud</text>
+
+  <!-- phone -> cloud arrow (upper) -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <path d="M464 132 L724 132" fill="none"/>
+    <path d="M728 132 l-15 -7 v14 z"/>
+  </g>
+
+  <!-- ============ PATH B: WiFi -> cloud direct (lower) ============ -->
+  <g stroke="#c87533" stroke-width="3" fill="#c87533">
+    <path d="M232 308 C404 380, 560 372, 724 310" fill="none"/>
+    <path d="M728 308 l-16 4 l11 11 z"/>
+  </g>
+  <text x="478" y="350" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c87533">WiFi → cloud directly (no phone)</text>
+
+  <!-- ============ CLOUD (right) ============ -->
+  <g transform="translate(730,150)">
+    <rect x="0" y="0" width="180" height="170" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M52 96 a28 28 0 0 1 4 -55 a34 34 0 0 1 64 6 a24 24 0 0 1 -2 49 z" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+    <text x="90" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">WHISTLE CLOUD</text>
+  </g>
+
+  <!-- app reads summary back down from cloud (curved return to phone) -->
+  <g stroke="#1a1d24" stroke-width="2.6" fill="none" stroke-dasharray="2 6" stroke-linecap="round">
+    <path d="M726 168 C600 92, 520 92, 466 110"/>
+  </g>
+  <g fill="#1a1d24"><path d="M462 112 l16 -3 l-9 -12 z"/></g>
+  <text x="592" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">app reads daily summary ↓</text>
+
+  <!-- ============ OUT-OF-RANGE NOTE ============ -->
+  <g transform="translate(40,404)">
+    <rect x="0" y="0" width="688" height="116" rx="12" fill="#fdfaf2" stroke="#c87533" stroke-width="2.4" stroke-dasharray="7 5"/>
+    <text x="22" y="34" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">OUT OF RANGE OF BOTH</text>
+    <text x="22" y="60" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">no phone, no home WiFi — puck buffers to flash</text>
+    <text x="22" y="80" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">(up to ~3 weeks), uploads the backlog when next</text>
+    <text x="22" y="100" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">near the phone or home WiFi — no live data, none lost</text>
+    <!-- no-GPS glyph -->
+    <g transform="translate(610,58)" stroke="#7a808c" stroke-width="2.6" fill="none" stroke-linecap="round">
+      <circle cx="0" cy="0" r="20"/>
+      <path d="M-9 -3 q9 -12 18 0"/>
+      <line x1="-6" y1="8" x2="6" y2="8"/>
+      <line x1="-26" y1="-26" x2="26" y2="26" stroke="#c87533"/>
+    </g>
+    <text x="610" y="96" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">no GPS</text>
+  </g>
+
+  <text x="884" y="430" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Two radios, two paths to</text>
+  <text x="884" y="452" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">the cloud — and no hub.</text>
+</svg>

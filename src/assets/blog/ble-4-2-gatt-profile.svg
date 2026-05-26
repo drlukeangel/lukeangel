@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540" width="1080" height="540" role="img" aria-label="GATT profile of the toothbrush as a tree of services and characteristics. Device Information service: serial number (read), firmware revision (read). Battery service: battery level (read and notify). Brushing service (vendor): session record (notify, streams session data out), control point (write, for sync and time-set commands), sync cursor (read and write, tracks replay position). Each characteristic shows the operations it supports — R read, W write, N notify, I indicate.">
+  <rect width="1080" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">GATT PROFILE — THE ENTIRE OVER-THE-AIR API</text>
+
+  <!-- legend for op badges -->
+  <g font-family="ui-monospace,monospace" font-size="11">
+    <text x="724" y="40" fill="#7a808c">R read</text>
+    <text x="800" y="40" fill="#7a808c">W write</text>
+    <text x="880" y="40" fill="#7a808c">N notify</text>
+    <text x="966" y="40" fill="#7a808c">I indicate</text>
+  </g>
+
+  <!-- ROOT: brush -->
+  <g transform="translate(40,236)">
+    <rect x="0" y="0" width="150" height="78" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(28,28)" stroke="#357a8c" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 -14 L10 -6 L-7 8 M-7 -6 L10 8 L0 14 L0 -14"/>
+    </g>
+    <text x="92" y="39" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">BRUSH</text>
+    <text x="92" y="58" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">GATT server</text>
+  </g>
+
+  <!-- connectors root -> services -->
+  <g stroke="#1a1d24" stroke-width="2" fill="none" opacity="0.5">
+    <path d="M190 275 H 214 V 110 H 250"/>
+    <path d="M190 275 H 214 V 250 H 250"/>
+    <path d="M190 275 H 214 V 420 H 250"/>
+  </g>
+
+  <!-- ============ SERVICE 1: Device Information ============ -->
+  <g transform="translate(250,72)">
+    <rect x="0" y="0" width="250" height="76" rx="12" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.6"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">Device Information</text>
+    <text x="16" y="52" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">service</text>
+  </g>
+  <!-- chars for svc1 -->
+  <g stroke="#1a1d24" stroke-width="2" fill="none" opacity="0.4"><path d="M500 110 H 540"/></g>
+  <g transform="translate(540,82)">
+    <rect x="0" y="0" width="270" height="54" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="14" y="32" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">serial number</text>
+    <g font-family="ui-monospace,monospace" font-size="11"><rect x="226" y="16" width="22" height="22" rx="5" fill="#357a8c"/><text x="237" y="32" text-anchor="middle" fill="#fdfaf2">R</text></g>
+  </g>
+  <g transform="translate(826,82)">
+    <rect x="0" y="0" width="218" height="54" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="14" y="32" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">firmware rev</text>
+    <g font-family="ui-monospace,monospace" font-size="11"><rect x="174" y="16" width="22" height="22" rx="5" fill="#357a8c"/><text x="185" y="32" text-anchor="middle" fill="#fdfaf2">R</text></g>
+  </g>
+
+  <!-- ============ SERVICE 2: Battery ============ -->
+  <g transform="translate(250,212)">
+    <rect x="0" y="0" width="250" height="76" rx="12" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.6"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">Battery</text>
+    <text x="16" y="52" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">service</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="2" fill="none" opacity="0.4"><path d="M500 250 H 540"/></g>
+  <g transform="translate(540,222)">
+    <rect x="0" y="0" width="300" height="54" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="14" y="32" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">battery level</text>
+    <g font-family="ui-monospace,monospace" font-size="11">
+      <rect x="228" y="16" width="22" height="22" rx="5" fill="#357a8c"/><text x="239" y="32" text-anchor="middle" fill="#fdfaf2">R</text>
+      <rect x="256" y="16" width="22" height="22" rx="5" fill="#357a8c"/><text x="267" y="32" text-anchor="middle" fill="#fdfaf2">N</text>
+    </g>
+  </g>
+
+  <!-- ============ SERVICE 3: Brushing (vendor) ============ -->
+  <g transform="translate(250,382)">
+    <rect x="0" y="0" width="250" height="76" rx="12" fill="#fdfaf2" stroke="#357a8c" stroke-width="3.4"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">Brushing (vendor)</text>
+    <text x="16" y="52" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">service · the real work</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="2" fill="none" opacity="0.4">
+    <path d="M500 420 H 522 V 348 H 540"/>
+    <path d="M500 420 H 522 V 420 H 540"/>
+    <path d="M500 420 H 522 V 492 H 540"/>
+  </g>
+  <!-- session record -->
+  <g transform="translate(540,322)">
+    <rect x="0" y="0" width="504" height="52" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="14" y="31" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">session record</text>
+    <text x="170" y="31" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">streams sessions out</text>
+    <g font-family="ui-monospace,monospace" font-size="11"><rect x="460" y="15" width="22" height="22" rx="5" fill="#357a8c"/><text x="471" y="31" text-anchor="middle" fill="#fdfaf2">N</text></g>
+  </g>
+  <!-- control point -->
+  <g transform="translate(540,394)">
+    <rect x="0" y="0" width="504" height="52" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="14" y="31" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">control point</text>
+    <text x="156" y="31" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">sync · set-time commands</text>
+    <g font-family="ui-monospace,monospace" font-size="11">
+      <rect x="432" y="15" width="22" height="22" rx="5" fill="#357a8c"/><text x="443" y="31" text-anchor="middle" fill="#fdfaf2">W</text>
+      <rect x="460" y="15" width="22" height="22" rx="5" fill="#357a8c"/><text x="471" y="31" text-anchor="middle" fill="#fdfaf2">I</text>
+    </g>
+  </g>
+  <!-- sync cursor -->
+  <g transform="translate(540,466)">
+    <rect x="0" y="0" width="504" height="52" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="14" y="31" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">sync cursor</text>
+    <text x="146" y="31" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">tracks replay position</text>
+    <g font-family="ui-monospace,monospace" font-size="11">
+      <rect x="432" y="15" width="22" height="22" rx="5" fill="#357a8c"/><text x="443" y="31" text-anchor="middle" fill="#fdfaf2">R</text>
+      <rect x="460" y="15" width="22" height="22" rx="5" fill="#357a8c"/><text x="471" y="31" text-anchor="middle" fill="#fdfaf2">W</text>
+    </g>
+  </g>
+</svg>

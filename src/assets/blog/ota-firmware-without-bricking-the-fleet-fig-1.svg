@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 440" width="1060" height="440" role="img" aria-label="IoT Jobs plus rollback channel">
+  <rect width="1060" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">JOBS STATUS IS ASYMMETRIC — YOU NEED A SECOND CHANNEL</text>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- IoT Jobs orchestrator -->
+    <rect x="40" y="92" width="220" height="120" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="60" y="122" font-size="13" fill="#2a52be">AWS IoT Jobs</text>
+    <text x="60" y="146" font-size="11" fill="#7a808c">job doc: target version,</text>
+    <text x="60" y="164" font-size="11" fill="#7a808c">presigned S3 URL,</text>
+    <text x="60" y="182" font-size="11" fill="#7a808c">expected SHA256</text>
+
+    <!-- device -->
+    <rect x="420" y="84" width="220" height="136" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="440" y="114" font-size="13" fill="#1a1d24">Device</text>
+    <rect x="440" y="128" width="22" height="58" rx="3" fill="#2a52be"/>
+    <rect x="466" y="134" width="16" height="6" fill="#7a808c"/>
+    <rect x="466" y="146" width="16" height="6" fill="#7a808c"/>
+    <rect x="466" y="158" width="16" height="6" fill="#7a808c"/>
+    <text x="500" y="142" font-size="11.5" fill="#7a808c">verify sig,</text>
+    <text x="500" y="160" font-size="11.5" fill="#7a808c">flash inactive slot,</text>
+    <text x="500" y="178" font-size="11.5" fill="#7a808c">try, mark good</text>
+
+    <!-- job-doc arrow out -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+      <line x1="260" y1="138" x2="416" y2="138"/><path d="M420 138 l-15 -7 v14 z"/>
+    </g>
+    <text x="338" y="128" font-size="10.5" fill="#7a808c" text-anchor="middle">job doc</text>
+
+    <!-- status arrow back -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+      <line x1="416" y1="178" x2="264" y2="178"/><path d="M260 178 l15 -7 v14 z"/>
+    </g>
+    <text x="338" y="200" font-size="10.5" fill="#7a808c" text-anchor="middle">IN_PROGRESS → SUCCEEDED / FAILED</text>
+  </g>
+
+  <!-- the gap callout -->
+  <g font-family="Newsreader, Georgia, serif">
+    <text x="150" y="262" font-size="15" font-style="italic" fill="#c14a3a">Jobs has no "rolled back after success" state —</text>
+    <text x="150" y="284" font-size="15" font-style="italic" fill="#c14a3a">a quiet rollback reads as "shipped."</text>
+  </g>
+
+  <!-- second channel: rollback metric -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <line x1="530" y1="220" x2="530" y2="312" stroke="#c14a3a" stroke-width="3" stroke-dasharray="6,7"/>
+    <path d="M530 316 l-7 -15 h14 z" fill="#c14a3a"/>
+    <rect x="404" y="316" width="252" height="92" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="424" y="346" font-size="12.5" fill="#1a1d24">firmware_rollback_count</text>
+    <text x="424" y="368" font-size="11" fill="#7a808c">dim: target version</text>
+    <text x="424" y="388" font-size="11" fill="#7a808c">+1 on boot into old slot</text>
+
+    <!-- to dashboard -->
+    <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+      <line x1="656" y1="362" x2="752" y2="362"/><path d="M756 362 l-15 -7 v14 z"/>
+    </g>
+    <rect x="760" y="316" width="260" height="92" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="780" y="346" font-size="12.5" fill="#2a52be">Rollout dashboard</text>
+    <text x="780" y="368" font-size="11" fill="#7a808c">% on new version</text>
+    <text x="780" y="388" font-size="11" fill="#7a808c">% rolled back ≠ 0 → look now</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 600" role="img" aria-label="2020 forecast scorecard">
+  <rect width="940" height="600" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:16px;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#7a808c;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:16px;fill:#5b616b;}
+    .big{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:22px;fill:#1a1d24;font-weight:700;}
+  </style>
+  <text x="40" y="46" class="big">2020 → 2021 forecast: 5½ of 8</text>
+
+  <!-- rows -->
+  <g transform="translate(40,76)">
+    <text x="0" y="24" class="lab">Apple ships AirTag</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <line x1="0" y1="40" x2="840" y2="40" stroke="#1a1d24" stroke-opacity="0.08"/>
+  </g>
+  <g transform="translate(40,134)">
+    <text x="0" y="24" class="lab">Whistle's health tier reads behavior, not just steps</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <line x1="0" y1="40" x2="840" y2="40" stroke="#1a1d24" stroke-opacity="0.08"/>
+  </g>
+  <g transform="translate(40,192)">
+    <text x="0" y="24" class="lab">Petivity (Purina smart litter) shows up</text>
+    <text x="470" y="24" class="mut">— signals 2022, not retail yet</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#c87533" fill-opacity="0.14" stroke="#c87533" stroke-width="2.5"/><path d="M 0 -16 A 16 16 0 0 0 0 16 Z" fill="#c87533" fill-opacity="0.5"/></g>
+    <line x1="0" y1="40" x2="840" y2="40" stroke="#1a1d24" stroke-opacity="0.08"/>
+  </g>
+  <g transform="translate(40,250)">
+    <text x="0" y="24" class="lab">Litter-Robot 4 announced</text>
+    <text x="470" y="24" class="mut">— nothing formal</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/><path d="M -6 -6 L 6 6 M 6 -6 L -6 6" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/></g>
+    <line x1="0" y1="40" x2="840" y2="40" stroke="#1a1d24" stroke-opacity="0.08"/>
+  </g>
+  <g transform="translate(40,308)">
+    <text x="0" y="24" class="lab">Mars Petcare keeps consolidating</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <line x1="0" y1="40" x2="840" y2="40" stroke="#1a1d24" stroke-opacity="0.08"/>
+  </g>
+  <g transform="translate(40,366)">
+    <text x="0" y="24" class="lab">A humane GPS-fence competitor to the shock collar</text>
+    <text x="540" y="24" class="mut">— nothing credible</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/><path d="M -6 -6 L 6 6 M 6 -6 L -6 6" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/></g>
+    <line x1="0" y1="40" x2="840" y2="40" stroke="#1a1d24" stroke-opacity="0.08"/>
+  </g>
+  <g transform="translate(40,424)">
+    <text x="0" y="24" class="lab">An "AirTag on a collar" controversy materializes</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2.5"/><path d="M -7 1 L -2 7 L 9 -7" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <line x1="0" y1="40" x2="840" y2="40" stroke="#1a1d24" stroke-opacity="0.08"/>
+  </g>
+  <g transform="translate(40,482)">
+    <text x="0" y="24" class="lab">AI behavior-detection reaches a shipping product</text>
+    <text x="540" y="24" class="mut">— demos, not products</text>
+    <g transform="translate(800,12)"><circle r="16" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2.5"/><path d="M -6 -6 L 6 6 M 6 -6 L -6 6" fill="none" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/></g>
+  </g>
+
+  <line x1="40" y1="536" x2="880" y2="536" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="568" class="cap">The two misses are the category's old failures: a humane fence, and AI that actually works.</text>
+</svg>

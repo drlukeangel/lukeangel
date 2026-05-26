@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2019 pet IoT year">
+  <defs>
+    <pattern id="dots19" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots19)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <line x1="90" y1="500" x2="1120" y2="500" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- Fi collar puck, strong signal (the year's win) -->
+  <g transform="translate(220,300)">
+    <rect x="-60" y="-44" width="120" height="86" rx="20" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="60" y="-8" width="8" height="20" rx="3" fill="#1a1d24" fill-opacity="0.7"/>
+    <circle cx="0" cy="0" r="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="0" r="5" fill="#3a7d44"/>
+    <circle cx="0" cy="62" r="14" fill="none" stroke="#7a808c" stroke-width="6"/>
+    <circle cx="0" cy="62" r="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <!-- strong signal arcs -->
+    <g stroke="#c87533" fill="none" stroke-linecap="round">
+      <path d="M44 -38 a40 40 0 0 1 30 -26" stroke-width="4" stroke-opacity="0.85"/>
+      <path d="M44 -38 a70 70 0 0 1 56 -46" stroke-width="4" stroke-opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- Whistle's health pivot: rival puck with a heart glyph -->
+  <g transform="translate(470,310)">
+    <rect x="-54" y="-40" width="108" height="80" rx="18" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <!-- heart glyph (behavioral-health pivot) -->
+    <path d="M0 16 C -26 -6, -22 -30, 0 -16 C 22 -30, 26 -6, 0 16 Z"
+          fill="#c14a3a" fill-opacity="0.18" stroke="#c14a3a" stroke-width="3" stroke-linejoin="round"/>
+    <circle cx="0" cy="58" r="12" fill="none" stroke="#7a808c" stroke-width="5"/>
+  </g>
+
+  <!-- Litter-Robot globe -->
+  <g transform="translate(740,300)">
+    <rect x="-50" y="120" width="100" height="56" rx="9" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="66" r="74" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="66" r="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="66" r="40" fill="#1a1d24" fill-opacity="0.05"/>
+    <circle cx="48" cy="16" r="5" fill="#c87533"/>
+    <path d="M41 16 a10 10 0 0 1 14 0" fill="none" stroke="#c87533" stroke-width="3"/>
+  </g>
+
+  <!-- Petnet feeder, precarious with a warning mark -->
+  <g transform="translate(990,300)">
+    <path d="M-58 6 L-30 -90 L30 -90 L58 6 Z" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="-58" y="6" width="116" height="44" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="0" cy="64" rx="40" ry="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- warning triangle -->
+    <g transform="translate(0,-44)">
+      <path d="M0 -20 L20 16 L-20 16 Z" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3.5" stroke-linejoin="round"/>
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="0" cy="11" r="2.4" fill="#c14a3a"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="one press, every screen">
+  <defs>
+    <pattern id="dotsDB" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsDB)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- the doorbell unit (left), button highlighted -->
+  <g transform="translate(220,315)">
+    <rect x="-40" y="-90" width="80" height="180" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <!-- camera lens -->
+    <circle cx="0" cy="-50" r="18" fill="#1a1d24"/>
+    <circle cx="0" cy="-50" r="8" fill="#6a4c93" fill-opacity="0.5"/>
+    <!-- the lit button -->
+    <circle cx="0" cy="40" r="20" fill="#6a4c93" fill-opacity="0.25" stroke="#6a4c93" stroke-width="4"/>
+    <circle cx="0" cy="40" r="7" fill="#6a4c93"/>
+    <!-- press ripples -->
+    <g stroke="#6a4c93" fill="none" stroke-linecap="round" stroke-opacity="0.5">
+      <path d="M28 22 a30 30 0 0 1 0 36" stroke-width="3.5"/>
+      <path d="M44 10 a50 50 0 0 1 0 60" stroke-width="3.5" stroke-opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- fan-out lines from the doorbell to three destinations -->
+  <g stroke="#6a4c93" stroke-width="3" fill="none" stroke-dasharray="2 8" stroke-linecap="round">
+    <path d="M280 300 q200 -110 420 -120"/>
+    <path d="M290 320 q220 -10 420 0"/>
+    <path d="M280 340 q200 110 420 130"/>
+  </g>
+
+  <!-- destination 1: hub display (top) showing a visitor -->
+  <g transform="translate(800,170)">
+    <rect x="-70" y="-46" width="140" height="92" rx="10" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="-58" y="-34" width="116" height="68" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <!-- a little person figure on screen -->
+    <g transform="translate(0,4)" stroke="#6a4c93" stroke-width="3" fill="none" stroke-linecap="round">
+      <circle cx="0" cy="-16" r="7" fill="#6a4c93" fill-opacity="0.2"/>
+      <path d="M0 -9 L0 12 M0 -2 L-12 6 M0 -2 L12 6 M0 12 L-9 26 M0 12 L9 26"/>
+    </g>
+    <rect x="-16" y="46" width="32" height="10" rx="2" fill="#1a1d24" fill-opacity="0.2"/>
+  </g>
+
+  <!-- destination 2: phone (middle) with thumbnail -->
+  <g transform="translate(800,315)">
+    <rect x="-32" y="-56" width="64" height="112" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="-24" y="-46" width="48" height="78" rx="2" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5"/>
+    <circle cx="0" cy="44" r="5" fill="#1a1d24" fill-opacity="0.4"/>
+    <!-- bell glyph on screen (drawn, not emoji) -->
+    <g transform="translate(0,-8)" stroke="#6a4c93" stroke-width="2.5" fill="none">
+      <path d="M-9 6 a9 12 0 0 1 18 0 l3 6 l-24 0 Z" fill="#6a4c93" fill-opacity="0.15"/>
+      <path d="M-3 14 a3 3 0 0 0 6 0"/>
+    </g>
+  </g>
+
+  <!-- destination 3: voice speaker (bottom) announcing -->
+  <g transform="translate(800,470)">
+    <rect x="-30" y="-46" width="60" height="92" rx="16" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <ellipse cx="0" cy="-46" rx="30" ry="9" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+    <g stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"><line x1="-20" y1="-20" x2="20" y2="-20"/><line x1="-20" y1="-4" x2="20" y2="-4"/><line x1="-20" y1="12" x2="20" y2="12"/></g>
+    <!-- sound waves -->
+    <g stroke="#6a4c93" fill="none" stroke-linecap="round" stroke-opacity="0.6">
+      <path d="M40 -20 a26 26 0 0 1 0 40" stroke-width="3.5"/>
+    </g>
+  </g>
+</svg>

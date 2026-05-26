@@ -1,5 +1,5 @@
 ---
-title: "Petivity smart-litter — multi-cat analytics, Purina-built"
+title: "Petivity smart-litter — multi-cat analytics, built by Purina"
 date: 2022-10-08T15:00:00-04:00
 category: tools
 tags:
@@ -10,114 +10,87 @@ tags:
   - multi-cat
 notebook: pet-iot-field-guide
 notebookOrder: 30
-excerpt: "Petivity Smart Litterbox Monitor shipped March; bought in July. Sits under any litter box. Reads weight + visit duration + frequency. Multi-cat aware. Purina-built — same conflict as Mars/Whistle."
-pullquote: "Petivity is built by Purina to find UTI signals and feed-them-back-to-Royal-Canin-recommendations. The signal is real. The recommendation layer is the conflict. The data is worth the conflict if you ignore the recommendations."
-cover: "../../assets/blog/petivity-smart-litter-multi-cat-analytics-cover.png"
-coverAlt: "Petivity smart-litter — multi-cat analytics, Purina-built"
+excerpt: "Purina's Petivity Smart Litterbox Monitor just launched — a scale that slides under any litter box and tells two same-size cats apart with no chip or collar. Two weeks in: the multi-cat attribution is the real trick, and the Purina-owned recommendation layer is the catch."
+pullquote: "Petivity tells Joule from Boson with no microchip and no collar — just a scale and a model. That's the genuinely hard problem this category has dodged for years. The catch is who built it, and what the app wants to sell me on the way out."
+cover: "../../assets/blog/petivity-smart-litter-multi-cat-analytics-cover.svg"
+coverAlt: "An illustration in warm orange of a flat sensor base sitting under an ordinary litter box, with two same-sized cat profiles diverging from a single weight reading into two separate labelled trend lines — a scale that splits one signal into two cats with no chip or collar."
 ---
 
-Petivity Smart Litterbox Monitor shipped in March 2022; bought one in July for evaluation. It's a smart base that sits under any existing litter box — agnostic to the box type. Weight sensor + visit detection + multi-cat profiling.
+Purina's **Petivity Smart Litterbox Monitor** launched a couple of weeks ago — late September — and I bought one immediately, because it claims to do the thing this notebook has wanted for years: tell two same-weight cats apart at the litter box with no microchip and no collar. It's a flat scale that slides *under* any existing box — a regular pan, a Litter-Robot, whatever — and watches who steps on.
 
-Made by **Purina** (Nestlé-owned). Same data-ownership-conflict shape as Mars-owned Whistle. Different brand.
-
-Three months in.
+Two weeks in. First impressions, with the honest caveat up front: two weeks is a baseline, not a verdict. But the shape of what it does — and what it's for — is already clear.
 
 ## What Petivity is
 
 **Hardware:**
-- A flat plastic base, ~50×40 cm, ~3 cm tall.
-- 4 weight sensors at the corners.
-- WiFi 2.4 GHz, AC-powered.
-- No litter mechanism — you place a regular box (or Litter-Robot, or whatever) on top.
+- A flat plastic base, roughly 23 × 18 inches, a couple inches tall.
+- Weight sensors under the platform.
+- 2.4 GHz Wi-Fi; runs on a power cord or batteries (not both).
+- No litter mechanism of its own — you set any box on top.
 
 **Software:**
 - iOS / Android app.
-- Multi-cat profile setup (enter each cat's weight; app builds the per-cat identification model).
-- Visit logs per cat: timestamp, weight, duration.
-- "Wellness signals": frequency / duration anomaly detection.
-- Cloud-based ML for the multi-cat attribution.
+- Multi-cat setup: you enter each cat's weight, and the app builds a per-cat model from there.
+- Per-visit logs: timestamp, weight, duration.
+- AI "wellness" signals — frequency and duration anomalies against a learned baseline.
+- All of it cloud-side; the multi-cat attribution is an ML model running on Purina's servers.
 
-**Service model:**
-- $149 hardware + **$5.99/month subscription** for the wellness analytics. Without subscription, you get visit logs but no anomaly detection.
+![Petivity's hardware role, drawn as two setups feeding one data stream. On the left, a plain litter pan sits on the flat Petivity scale; on the right, a Litter-Robot globe sits on the same scale. Neither box belongs to Petivity — it owns no litter mechanism of its own, it just slides under whatever box already works. Arrows from both scales converge into a single per-visit record of weight, duration, and timestamp. A caption notes it instruments the box you already have rather than replacing it.](../../assets/blog/petivity-under-the-box.svg)
 
-The subscription is doing the heavy lifting. Petivity is selling analytics-as-a-service on top of a fairly simple weight scale.
+**The pricing surprised me, in a good way:** about $200 for the hardware, and **no subscription** — the tracking, alerts, monthly reports, and multi-cat profiles are all included. That's a notably different posture from [Mars-owned Whistle's monthly-fee model](/blog/whistle-3-cellular-mars-acquires-whistle/). Which raises the obvious question of how Purina plans to make its money back, and the answer is in the recommendation layer — more on that below.
 
-## The multi-cat profiling
+## The multi-cat profiling is the real trick
 
-The interesting differentiator vs Litter-Robot is **explicit multi-cat profiling**. You enter Joule's weight (9.5 lb) and Boson's weight (now ~9.0 lb after a year-plus of growth — they're converging).
+The differentiator against my [weight-only Litter-Robot attribution](/blog/litter-robot-multi-cat-detection-weight-attribution/) is that Petivity does explicit, model-driven multi-cat identification, and Purina says it can split up to five cats with no chip or collar — built by analyzing thousands of litter-box visits from thousands of cats.
 
-Petivity's ML uses:
-- **Entry weight** (primary signal).
-- **Visit duration distribution** per cat.
+The hard case is mine: Joule (~9.5 lb) and Boson (~9.0 lb) are both adult now and have converged to within half a pound of each other. At that gap, entry weight alone can't reliably tell them apart — my own script struggles exactly here. So the model has to lean on the secondary signals:
+
+- **Entry weight** — the primary axis, but nearly useless when two cats weigh almost the same.
+- **Visit-duration distribution** per cat.
 - **Time-of-day patterns** per cat.
-- **Sequence patterns** (cat-after-cat consistency).
+- **Sequence patterns** — who tends to follow whom.
 
-With two cats at similar adult weight, the model has to use the secondary signals. It claims **92% attribution accuracy** in their docs.
+![How Petivity splits two same-weight cats, drawn as a signal fork. On the left, a single litter-box visit produces one weight reading — and with Joule at about 9.5 pounds and Boson at about 9.0, the weight axis alone can't separate them, shown as two overlapping bell curves. On the right, the model adds three secondary axes — visit duration, time-of-day, and who-follows-whom sequence — and those pull the two cats apart into separate labelled profiles. A caption notes the trick is that weight starts the guess and the behavioral signals finish it; no microchip or collar is involved.](../../assets/blog/petivity-multicat-attribution.svg)
 
-My measured accuracy after three months (comparing Petivity's per-cat attribution against my [Litter-Robot weight-based analytics script](/blog/litter-robot-multi-cat-detection-weight-attribution.md)):
-
-- **Agreement rate**: 87%. Of 410 visits, 357 attributed identically.
-- **Disagreement**: 53 visits. About half are "Petivity says Joule, my script says Boson" or vice versa.
-
-87% is good but not amazing. For weight-similar cats, neither approach is definitive. The right answer would be RFID-based identification (microchip read at entry); Petivity doesn't ship that.
+Two weeks isn't enough to grade the accuracy hard, but the early read against my own script is encouraging-not-perfect: across the visits so far, the two methods agree on the clear majority and disagree on a minority — and the disagreements cluster exactly where you'd expect, the near-identical-weight visits with no distinguishing duration or timing. For weight-similar cats, neither approach is definitive, and I suspect neither ever fully will be. The truly definitive answer is RFID — read the cat's existing microchip at the box entry, the same trick [the SureFlap door already uses on these two cats](/blog/sureflap-microchip-cat-door-joules-first-iot/). Petivity doesn't do that. It's solving by inference what a $5 chip reader would solve by identity.
 
 ## The wellness signals
 
-Petivity claims to detect:
+Petivity watches for deviations from each cat's baseline — the kind of changes that *can* point at a problem: more frequent or longer visits (a UTI tell), weight loss plus increased frequency (kidney), high-volume frequency (diabetes-range polyuria), long-duration low-frequency visits (constipation). The framing is appropriately hedged: "consider veterinary attention," not "your cat is sick."
 
-- **UTI risk**: frequency increases + visit-time changes.
-- **Kidney issues**: persistent weight loss + frequency increase.
-- **Diabetes**: polyuria (volume + frequency).
-- **Constipation**: long duration + low frequency.
-- **General "concern" indicators**: deviation from baseline by 30%+.
+Two weeks gives me exactly one data point on the signal quality, and it was a false positive: the app flagged Boson's visits trending high right as we'd switched litter brands — she was investigating the new substrate, not unwell. That's the expected failure mode of an anomaly detector during a baseline it hasn't finished learning, and I won't hold an early false positive against it. The thing I *can* say is that it leans sensitive, which for a screen-don't-diagnose tool is the right direction to err — better a few "go check" nudges than a missed one.
 
-Three months in:
-- One alert fired: "Boson's visits trending high" — turned out to be coincident with us switching litter brands; she was investigating the new substrate. False positive.
-- One I caught manually: Joule had two visits >120 sec each in one day. Investigated; she was hairballing. No vet visit needed. (Petivity didn't flag this; my own eyeballs did.)
+## Petivity vs the Litter-Robot, side by side
 
-The signal quality is reasonable. Slightly more sensitive (more false positives) than I'd like. The alerts are framed as "consider vet attention" not "your cat is sick" — appropriate hedging.
-
-## Petivity vs Litter-Robot Connect, side by side
-
-Three months of both running (Petivity sits under a regular litter box; Litter-Robot is the cleaning unit). The cats use both.
+The cats use both — the [Litter-Robot III Connect](/blog/litter-robot-iii-connect-smart-self-cleaning-litter/) for the not-scooping-daily virtue, the Petivity scale under a second, plain box. They're complements, not rivals.
 
 | | **Litter-Robot III Connect** | **Petivity** |
 |---|---|---|
-| Hardware role | Self-cleaning box | Multi-cat scale |
-| Visit logging | Yes | Yes |
-| Weight per visit | Yes | Yes |
-| Per-cat attribution | None native (CSV + script) | ML-driven, native |
-| Anomaly detection | None | Yes (subscription) |
+| Hardware role | Self-cleaning box | Multi-cat scale under any box |
+| Per-visit weight | Yes | Yes |
+| Per-cat attribution | None native (my CSV + script) | ML-driven, native, up to 5 cats |
+| Anomaly detection | None | Yes (included, no fee) |
 | Vendor | Whisker (independent) | Purina (Nestlé) |
-| Subscription | None | $5.99/mo |
-| HA / API integration | Unofficial only | None |
+| Subscription | None | None |
+| Local API / automation | Unofficial only | None |
 
-Petivity's per-cat ML attribution is genuinely useful for multi-cat households. Litter-Robot's hardware mechanism is genuinely useful for not-scooping-the-box-daily. They're complements, not competitors. I'm keeping both.
+Petivity's attribution is the genuinely useful part for a multi-cat house; the Litter-Robot's mechanism is useful for not living next to a scoop. I'm keeping both.
 
-## The Purina-ownership concern
+## The Purina-ownership catch
 
-Same as Mars-owned Whistle: Petivity exists in part because Purina wants to identify cats with health concerns who could benefit from **prescription diet recommendations** — which is a Purina product line (Pro Plan Veterinary Diets).
+Here's where the no-subscription generosity gets explained. Petivity exists, in part, because Purina wants to surface cats with health signals who could be sold a **prescription diet** — Pro Plan Veterinary Diets, a Purina line. When a wellness signal fires, the app's next move is a nudge:
 
-The app suggests, when wellness signals fire:
-- "Boson's pattern suggests increased water consumption. Consider a urinary-health diet."
-- (Recommendation: Pro Plan UR Urinary Ox/St — Purina-owned.)
+- "Boson's pattern suggests increased water intake. Consider a urinary-health diet."
+- And the recommended diet is, of course, Purina's own.
 
-The recommendation layer is biased. Same pattern as Whistle. Ignore the recommendations; use the data.
+It's the [exact shape of the Mars/Whistle conflict](/blog/whistle-3-cellular-mars-acquires-whistle/): the company measuring the animal also sells the remedy. The free hardware isn't charity — the data *is* the business, and the recommendation is the funnel. My rule holds the way it did for Whistle: the *signal* is real and worth having; the *recommendation* is a sales channel wearing a lab coat. Use the trend, take it to your own vet, ignore the suggested SKU.
+
+![The Purina conflict-of-interest loop, drawn the same way as the Mars/Whistle one. The litter-box scale sends weight and visit data up into a Petivity/Purina analytics box, which produces a wellness signal; an arrow labelled recommendation flows back into the owner's app — "consider a urinary-health diet" — and a dashed arrow points from there to a shelf of the same company's prescription-diet brand. A note marks the closed loop: free hardware, because the data is the product and the diet recommendation is the funnel; the party measuring the cat is the party selling the food.](../../assets/blog/petivity-purina-conflict.svg)
 
 ## What the right product would look like
 
-If I were designing this:
-
-- Petivity's hardware (multi-cat scale + cloud analytics).
-- WITHOUT vendor-aligned diet recommendations.
-- WITH explicit "consult your vet, here's the trend data to show them" framing.
-- WITH RFID reader at the box entry (would solve attribution definitively).
-- WITH HA / API integration so the data lives in my home automation, not Purina's cloud.
-
-None of those features are commercially incentivized. Vet recommendations don't sell anything; vendor-aligned ones do. Open APIs reduce ecosystem lock-in. RFID adds $5 BOM that hardware vendors don't want.
-
-The product I want doesn't exist. The product I have works 80% of the way there.
+If I were drawing it up: Petivity's scale-plus-analytics, but with the diet recommendations stripped out and replaced by "here's the trend, show your vet"; an RFID reader at the box entry to make attribution a matter of identity instead of inference; and a local API so the data lands in my home automation instead of only Purina's cloud. None of those are commercially incentivized — vendor-neutral advice sells nothing, open APIs reduce lock-in, and an RFID reader is a few dollars of bill-of-materials a vendor would rather not spend. So the product I want doesn't exist. The one I have gets most of the way there, and I can supply the skepticism myself.
 
 ## What's next
 
-Year-end review for 2022. Big year: Quark arrived, Petivity + Halo evaluated, full Bespoke kitchen ordered for 2023. The cat-IoT category finally mature.
+The 2022 year-end review. It was the year the household went to four animals and the cat side finally got the analytics layer the dog side had for years — Quark arrived, and Halo and Petivity both got real evaluations. The cat-IoT category, thin for so long in this notebook, finally has some depth to write about.

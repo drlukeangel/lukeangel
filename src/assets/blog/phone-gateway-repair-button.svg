@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 520" width="1080" height="520" role="img" aria-label="The lost-phone re-pair flow and the remote-takeover attack the physical button blocks. The legitimate transfer, across the top: the user signs in on a new phone and selects re-pair; the app prompts them to press and hold the button on the device; only on that physical button-hold does the device delete its old long-term key and accept a new bond; the cloud then revokes the old phone's upload authorization for that serial and logs the change. The attack it defeats, across the bottom: an attacker who has phished the user's credentials tries to re-point the device to their own account purely in software, but with no physical possession they cannot trigger the button-hold, so the device refuses the new bond and the takeover fails. The button-hold is the one signal no software-side compromise can forge.">
+  <rect width="1080" height="520" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">RE-PAIR: THE BUTTON IS LOAD-BEARING</text>
+
+  <!-- ============ TOP LANE: legitimate transfer ============ -->
+  <rect x="40" y="70" width="1000" height="174" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2" opacity="0.9"/>
+  <text x="62" y="96" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1.5" fill="#3a7d44">LEGITIMATE TRANSFER — succeeds</text>
+
+  <!-- step 1 new phone sign-in -->
+  <g transform="translate(64,114)">
+    <rect x="0" y="0" width="150" height="104" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="75" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">1 — new phone</text>
+    <text x="75" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">sign in, pick</text>
+    <text x="75" y="60" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">"re-pair this device"</text>
+    <text x="75" y="86" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">owner, real account</text>
+  </g>
+  <path d="M222 166 l30 0" stroke="#3a7d44" stroke-width="2.6" fill="none"/>
+  <path d="M252 166 l-12 -6 v12 z" fill="#3a7d44"/>
+
+  <!-- step 2 button hold on device -->
+  <g transform="translate(262,114)">
+    <rect x="0" y="0" width="170" height="104" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+    <text x="85" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">2 — press &amp; hold</text>
+    <!-- finger-on-button glyph: a device puck top with a pressed button -->
+    <g transform="translate(85,58)">
+      <rect x="-44" y="-4" width="88" height="30" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+      <circle cx="0" cy="11" r="9" fill="#3a7d44" opacity="0.18" stroke="#3a7d44" stroke-width="2.4"/>
+      <!-- finger -->
+      <path d="M0 -22 v18" stroke="#1a1d24" stroke-width="6" stroke-linecap="round"/>
+      <path d="M-6 -10 l6 6 l6 -6" fill="none" stroke="#1a1d24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="85" y="94" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#3a7d44">physical act on the hardware</text>
+  </g>
+  <path d="M440 166 l30 0" stroke="#3a7d44" stroke-width="2.6" fill="none"/>
+  <path d="M470 166 l-12 -6 v12 z" fill="#3a7d44"/>
+
+  <!-- step 3 device swaps LTK -->
+  <g transform="translate(480,114)">
+    <rect x="0" y="0" width="160" height="104" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="80" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">3 — device</text>
+    <text x="80" y="50" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">deletes old LTK</text>
+    <text x="80" y="70" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#3a7d44">accepts new bond</text>
+    <text x="80" y="92" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">only on the button-hold</text>
+  </g>
+  <path d="M648 166 l30 0" stroke="#3a7d44" stroke-width="2.6" fill="none"/>
+  <path d="M678 166 l-12 -6 v12 z" fill="#3a7d44"/>
+
+  <!-- step 4 cloud revokes old -->
+  <g transform="translate(688,114)">
+    <rect x="0" y="0" width="172" height="104" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="86" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">4 — cloud</text>
+    <text x="86" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">moves bond to new phone</text>
+    <text x="86" y="66" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">revokes old phone</text>
+    <text x="86" y="86" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">logs for review</text>
+  </g>
+  <g transform="translate(884,150)">
+    <circle r="22" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+    <path d="M-9 0 l6 7 l13 -15" fill="none" stroke="#3a7d44" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="42" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#3a7d44">transferred</text>
+  </g>
+
+  <!-- ============ BOTTOM LANE: remote takeover attempt ============ -->
+  <rect x="40" y="282" width="1000" height="150" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2" opacity="0.9"/>
+  <text x="62" y="308" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1.5" fill="#c14a3a">REMOTE TAKEOVER — blocked</text>
+
+  <!-- attacker phished creds -->
+  <g transform="translate(64,322)">
+    <rect x="0" y="0" width="178" height="92" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.2"/>
+    <text x="89" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">attacker</text>
+    <text x="89" y="46" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">phished credentials</text>
+    <text x="89" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">tries software re-pair</text>
+    <text x="89" y="82" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#c14a3a">no physical access</text>
+  </g>
+  <path d="M250 368 l40 0" stroke="#c14a3a" stroke-width="2.6" fill="none" stroke-dasharray="6 5"/>
+  <path d="M290 368 l-12 -6 v12 z" fill="#c14a3a"/>
+
+  <!-- the button gate: can't be triggered -->
+  <g transform="translate(300,322)">
+    <rect x="0" y="0" width="200" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="100" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">button-hold gate</text>
+    <!-- button with a no-touch cross -->
+    <g transform="translate(100,56)">
+      <rect x="-40" y="-4" width="80" height="28" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+      <circle cx="0" cy="10" r="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+      <g transform="translate(0,10)" stroke="#c14a3a" stroke-width="3" stroke-linecap="round">
+        <line x1="-7" y1="-7" x2="7" y2="7"/>
+        <line x1="7" y1="-7" x2="-7" y2="7"/>
+      </g>
+    </g>
+    <text x="100" y="86" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#c14a3a">can't press from afar</text>
+  </g>
+  <path d="M508 368 l40 0" stroke="#c14a3a" stroke-width="2.6" fill="none" stroke-dasharray="6 5"/>
+  <path d="M548 368 l-12 -6 v12 z" fill="#c14a3a"/>
+
+  <!-- device refuses -->
+  <g transform="translate(558,322)">
+    <rect x="0" y="0" width="178" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/>
+    <text x="89" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">device</text>
+    <text x="89" y="50" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">refuses new bond</text>
+    <text x="89" y="74" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">old LTK keeps the device</text>
+  </g>
+  <g transform="translate(800,368)">
+    <circle r="24" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+    <g stroke="#c14a3a" stroke-width="3.6" stroke-linecap="round">
+      <line x1="-9" y1="-9" x2="9" y2="9"/>
+      <line x1="9" y1="-9" x2="-9" y2="9"/>
+    </g>
+    <text x="0" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">takeover fails</text>
+  </g>
+
+  <line x1="40" y1="460" x2="1040" y2="460" stroke="#1a1d24" stroke-width="1" opacity="0.15"/>
+  <text x="540" y="496" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">A button-hold is low-tech, high-assurance: the one control a remote attacker can't satisfy.</text>
+</svg>

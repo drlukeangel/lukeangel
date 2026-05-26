@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2015 pet-tech roster">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- LEFT: microchip cat flap set into a wall (the cat side, newly instrumented) -->
+  <g transform="translate(150,150)">
+    <!-- wall slab -->
+    <rect x="0" y="0" width="240" height="330" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="0" y1="70" x2="240" y2="70" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+    <line x1="0" y1="170" x2="240" y2="170" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+    <line x1="0" y1="270" x2="240" y2="270" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+    <!-- flap frame -->
+    <rect x="55" y="120" width="130" height="150" rx="10" fill="#c87533" fill-opacity="0.12" stroke="#c87533" stroke-width="5"/>
+    <!-- the flap door, slightly ajar -->
+    <rect x="68" y="135" width="104" height="120" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="120" y1="135" x2="120" y2="255" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <!-- RFID reader coil arc above the flap -->
+    <path d="M 70 110 Q 120 78 170 110" fill="none" stroke="#c87533" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 80 100 Q 120 74 160 100" fill="none" stroke="#c87533" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- CENTER: dog collar arc carrying TWO trackers (the dog side, doubled) -->
+  <g transform="translate(600,315)">
+    <!-- collar arc -->
+    <path d="M -150 60 Q 0 -120 150 60" fill="none" stroke="#1a1d24" stroke-width="14" stroke-linecap="round"/>
+    <path d="M -150 60 Q 0 -120 150 60" fill="none" stroke="#c87533" stroke-width="5" stroke-linecap="round" stroke-opacity="0.5"/>
+    <!-- coin puck (Whistle) hanging center-left -->
+    <g transform="translate(-40,18)">
+      <circle cx="0" cy="0" r="44" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#c87533" stroke-width="3"/>
+      <circle cx="0" cy="0" r="7" fill="#c87533"/>
+    </g>
+    <!-- bone-shaped tag (FitBark) hanging center-right -->
+    <g transform="translate(58,30)">
+      <g transform="rotate(20)">
+        <rect x="-30" y="-13" width="60" height="26" rx="13" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+        <circle cx="-30" cy="-9" r="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+        <circle cx="-30" cy="9" r="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+        <circle cx="30" cy="-9" r="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+        <circle cx="30" cy="9" r="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+        <circle cx="0" cy="0" r="6" fill="#c87533"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- RIGHT: connected food feeder (the new category) -->
+  <g transform="translate(820,170)">
+    <!-- hopper -->
+    <path d="M 30 0 L 150 0 L 130 120 L 50 120 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="40" y1="30" x2="140" y2="30" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+    <!-- base + bowl -->
+    <rect x="30" y="120" width="120" height="70" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="90" cy="225" rx="78" ry="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <ellipse cx="90" cy="221" rx="60" ry="13" fill="#c87533" fill-opacity="0.18" stroke="#c87533" stroke-width="2"/>
+    <!-- wifi cloud signal off the top -->
+    <g transform="translate(90,-30)" stroke="#c87533" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M -28 8 Q 0 -22 28 8"/>
+      <path d="M -16 14 Q 0 -4 16 14" stroke-opacity="0.6"/>
+    </g>
+    <circle cx="90" cy="-4" r="4" fill="#c87533"/>
+  </g>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Wired house cutaway">
+  <defs>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- house outline with roof -->
+  <g stroke="#1a1d24" stroke-width="3.5" fill="none">
+    <path d="M150 250 L600 90 L1050 250"/>          <!-- roof -->
+    <rect x="190" y="250" width="820" height="300"/> <!-- body -->
+    <!-- floor + room divisions -->
+    <line x1="190" y1="400" x2="1010" y2="400"/>
+    <line x1="450" y1="250" x2="450" y2="400"/>
+    <line x1="730" y1="250" x2="730" y2="400"/>
+    <line x1="430" y1="400" x2="430" y2="550"/>
+    <line x1="700" y1="400" x2="700" y2="550"/>
+  </g>
+
+  <!-- structured-wiring closet (basement corner) -->
+  <g transform="translate(230,430)">
+    <rect x="0" y="0" width="150" height="105" rx="6" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="3"/>
+    <!-- rack units -->
+    <g fill="#6a4c93" fill-opacity="0.55">
+      <rect x="18" y="16" width="114" height="14" rx="2"/>
+      <rect x="18" y="38" width="114" height="14" rx="2"/>
+      <rect x="18" y="60" width="114" height="14" rx="2"/>
+      <rect x="18" y="82" width="114" height="14" rx="2"/>
+    </g>
+  </g>
+
+  <!-- room drop points -->
+  <g fill="#6a4c93">
+    <circle cx="320" cy="320" r="9"/>
+    <circle cx="590" cy="310" r="9"/>
+    <circle cx="870" cy="320" r="9"/>
+    <circle cx="560" cy="475" r="9"/>
+    <circle cx="850" cy="475" r="9"/>
+  </g>
+
+  <!-- home-run lines back to closet (305,480 head) -->
+  <g stroke="#6a4c93" stroke-width="2.5" stroke-opacity="0.7" fill="none">
+    <path d="M320 320 L305 480"/>
+    <path d="M590 310 Q420 360 305 480"/>
+    <path d="M870 320 Q520 380 305 480"/>
+    <path d="M560 475 Q430 470 305 530"/>
+    <path d="M850 475 Q520 500 305 530"/>
+  </g>
+
+  <!-- conduit stubs reaching out (dashed, toward future) -->
+  <g stroke="#7a808c" stroke-width="3" stroke-dasharray="8 6" fill="none">
+    <path d="M1010 290 L1110 270"/>   <!-- out to ext camera -->
+    <path d="M1010 470 L1110 500"/>   <!-- to garage/EV -->
+  </g>
+  <g fill="#7a808c">
+    <circle cx="1112" cy="269" r="8"/>
+    <circle cx="1112" cy="501" r="8"/>
+  </g>
+
+  <!-- exterior camera glyph -->
+  <g transform="translate(1095,235)">
+    <rect x="0" y="0" width="44" height="26" rx="5" fill="#1a1d24"/>
+    <circle cx="14" cy="13" r="7" fill="#fdfaf2"/><circle cx="14" cy="13" r="3" fill="#6a4c93"/>
+  </g>
+</svg>

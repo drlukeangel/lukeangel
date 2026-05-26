@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="voice, HomeKit, security in 2015">
+  <defs>
+    <pattern id="dots15" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots15)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <line x1="90" y1="500" x2="1120" y2="500" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- voice cylinder (Echo) with sound rings -->
+  <g transform="translate(290,300)">
+    <rect x="-50" y="-110" width="100" height="220" rx="14" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <ellipse cx="0" cy="-110" rx="50" ry="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- top light ring -->
+    <ellipse cx="0" cy="-110" rx="34" ry="9" fill="none" stroke="#6a4c93" stroke-width="4"/>
+    <!-- speaker grille hint -->
+    <g stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"><line x1="-34" y1="40" x2="34" y2="40"/><line x1="-34" y1="60" x2="34" y2="60"/><line x1="-34" y1="80" x2="34" y2="80"/></g>
+    <!-- sound rings -->
+    <g stroke="#6a4c93" fill="none" stroke-linecap="round">
+      <path d="M64 -150 a40 40 0 0 1 0 80" stroke-width="4" stroke-opacity="0.85"/>
+      <path d="M84 -166 a64 64 0 0 1 0 112" stroke-width="4" stroke-opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- phone with HomeKit-style home glyph -->
+  <g transform="translate(600,310)">
+    <rect x="-58" y="-100" width="116" height="200" rx="16" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="-46" y="-82" width="92" height="150" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <circle cx="0" cy="84" r="7" fill="#1a1d24" fill-opacity="0.4"/>
+    <!-- home glyph on screen -->
+    <g transform="translate(0,-8)">
+      <path d="M-30 4 L0 -30 L30 4 Z" fill="none" stroke="#6a4c93" stroke-width="4" stroke-linejoin="round"/>
+      <rect x="-20" y="4" width="40" height="34" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="4"/>
+      <rect x="-6" y="16" width="12" height="22" fill="#fdfaf2" stroke="#6a4c93" stroke-width="2.5"/>
+    </g>
+  </g>
+
+  <!-- door + contact sensor wired to a hub (security) -->
+  <g transform="translate(900,300)">
+    <rect x="-60" y="-120" width="120" height="240" rx="6" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="-46" y="-104" width="92" height="208" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <circle cx="36" cy="6" r="6" fill="#1a1d24" fill-opacity="0.4"/>
+    <!-- contact sensor on jamb -->
+    <rect x="30" y="-120" width="30" height="16" rx="3" fill="#fff" stroke="#6a4c93" stroke-width="3"/>
+    <circle cx="55" cy="-112" r="3" fill="#6a4c93"/>
+  </g>
+  <!-- small hub between phone and door, linking -->
+  <g transform="translate(770,430)">
+    <rect x="-26" y="-18" width="52" height="36" rx="8" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="0" cy="0" r="7" fill="#3a7d44"/>
+  </g>
+  <g stroke="#1a1d24" stroke-opacity="0.28" stroke-width="2.5" stroke-dasharray="4 6">
+    <line x1="876" y1="186" x2="792" y2="414"/>
+    <line x1="744" y1="424" x2="640" y2="360"/>
+  </g>
+</svg>

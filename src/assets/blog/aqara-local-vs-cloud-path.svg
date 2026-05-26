@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-label="Local versus cloud path">
+  <rect width="880" height="400" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#7a808c}
+  </style>
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#c14a3a"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#3a7d44"/></marker>
+  </defs>
+
+  <!-- shared sensor on the left -->
+  <g transform="translate(80 200)">
+    <rect x="-30" y="-20" width="50" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="22" y="-13" width="14" height="26" rx="3" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="-5" cy="0" r="5" fill="#6a4c93"/>
+  </g>
+  <text class="mut" x="46" y="252">Aqara sensor</text>
+
+  <!-- LAN boundary box -->
+  <rect x="180" y="40" width="640" height="320" rx="14" fill="none" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="mut" x="196" y="62">your home network</text>
+
+  <!-- TOP PATH: Mi Home -> cloud (bad) -->
+  <g transform="translate(330 120)">
+    <rect x="-46" y="-24" width="92" height="48" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text class="mut" x="-38" y="-2">Mi Home</text>
+    <text class="mut" x="-26" y="14">hub</text>
+  </g>
+  <!-- cloud outside the box -->
+  <g transform="translate(720 120)">
+    <path d="M-44 14 a26 26 0 0 1 8 -50 a30 30 0 0 1 56 6 a22 22 0 0 1 4 44 z" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="2.5"/>
+  </g>
+  <text class="mut" x="676" y="170">Xiaomi cloud</text>
+  <text class="mut" x="684" y="186">(overseas)</text>
+
+  <path d="M112 184 L280 132" stroke="#c14a3a" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <path d="M378 120 L666 120" stroke="#c14a3a" stroke-width="2.5" fill="none" marker-end="url(#ar)" stroke-dasharray="7 5"/>
+  <!-- crossing the boundary marker -->
+  <g transform="translate(560 120)">
+    <line x1="0" y1="-20" x2="0" y2="20" stroke="#c14a3a" stroke-width="2"/>
+    <path d="M-9 -6 l18 18 M9 -6 l-18 18" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- BOTTOM PATH: own coordinator -> HA (good, stays local) -->
+  <g transform="translate(330 280)">
+    <rect x="-52" y="-24" width="104" height="48" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <circle cx="-30" cy="0" r="6" fill="#6a4c93"/>
+    <text class="mut" x="-16" y="5">ConBee</text>
+  </g>
+  <g transform="translate(560 280)">
+    <rect x="-50" y="-26" width="100" height="52" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <circle cx="-30" cy="-10" r="4" fill="#3a7d44"/>
+    <text class="mut" x="-18" y="-6">Home</text>
+    <text class="mut" x="-30" y="12">Assistant</text>
+  </g>
+  <path d="M112 216 L272 268" stroke="#3a7d44" stroke-width="2.5" fill="none" marker-end="url(#ag)"/>
+  <path d="M382 280 L506 280" stroke="#3a7d44" stroke-width="2.5" fill="none" marker-end="url(#ag)"/>
+  <path d="M610 280 L700 280" stroke="#3a7d44" stroke-width="2.5" fill="none" marker-end="url(#ag)"/>
+  <path d="M700 280 a8 8 0 1 1 0 1" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="mut" x="640" y="326">stays in-house</text>
+</svg>

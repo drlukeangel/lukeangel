@@ -12,13 +12,15 @@ notebook: smart-home-iot-journey
 notebookOrder: 40
 excerpt: "Six raised garden beds + three planters + a sprinkler zone. Eight soil-moisture sensors on LoRa-WAN. Three valves on Z-Wave."
 pullquote: "The sprinkler runs only when soil is dry AND no rain is expected in the next 6 hours. Sounds simple. Took three iterations and two soaked planters before the algorithm was actually right."
-cover: "../../assets/blog/outdoor-watering-with-soil-moisture-cover.png"
-coverAlt: "Outdoor watering automation — the LoRa-and-rain story"
+cover: "../../assets/blog/outdoor-watering-with-soil-moisture-cover.svg"
+coverAlt: "A garden bed with a buried soil-moisture probe sending a long low-frequency signal over a privacy fence to a gateway at the house, where Wi-Fi and Zigbee can't reach — the long-range LoRa link that makes the far-corner garden automatable."
 ---
 
 The vegetable garden is at the far corner of the back yard. ~40m from the house, behind a 6-foot privacy fence. WiFi doesn't reach reliably — measured signal strength below -85 dBm at the planters. Zigbee doesn't reach at all.
 
 LoRa does. This is what I built.
+
+![Why the garden needs LoRa. The garden beds sit about 40 metres from the house, behind a 6-foot privacy fence. Wi-Fi measures below -85 dBm out there — too weak to be reliable — and Zigbee's 2.4 GHz mesh doesn't reach past the fence at all. LoRa on the 915 MHz band, designed for kilometre-scale low-power links, crosses the distance and the obstacles with margin to spare: the soil sensors uplink to a gateway at the house through three wood-frame structures and the fence. The trade is throughput — LoRa carries only a few bytes slowly — but a moisture reading every 30 minutes needs almost none, so range is the only spec that matters here.](../../assets/blog/lora-reaches-where-wifi-cant.svg)
 
 ## The hardware
 
@@ -141,6 +143,8 @@ THEN water for 8 minutes
 ```
 
 Works.
+
+![The watering decision as a gate, and the disaster each condition prevents. A morning check runs four conditions in series, and all four must pass before the valve opens. "Soil below 35%" — set too dry at first (25%), so the bed never watered and the tomatoes wilted. "Soil above 5%" — added after a stuck sensor read 5% all week and drowned the plants; this guard ignores impossible lows. "Less than 5 mm of rain forecast in the next 6 hours" — no point watering ahead of rain. "At least 18 hours since the last watering" — added after two forecast cycles cleared on the same day, opened the valve twice, and washed the soil off the lettuce. Pass all four and the valve runs 8 minutes. Each condition is a scar from a specific dead plant.](../../assets/blog/watering-decision-gate.svg)
 
 ## What's next
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="Entity-relationship diagram of the five-entity domain model. Account is the root; one Account owns many Devices through an ownership join that supports transfer. One Device holds many Consumables and produces many Sessions and many Events. A Session optionally references the Consumable in use. Every relationship is marked one-to-many. Each entity box lists its key fields.">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE FIVE-ENTITY DOMAIN MODEL</text>
+
+  <!-- ============ relationship lines (drawn first, under the boxes) ============ -->
+  <g stroke="#357a8c" stroke-width="2.5" fill="none">
+    <!-- Account -> ownership join -->
+    <line x1="250" y1="150" x2="250" y2="214"/>
+    <!-- ownership join -> Device -->
+    <line x1="250" y1="282" x2="250" y2="332"/>
+    <!-- Device -> Consumable -->
+    <path d="M360 380 H 470"/>
+    <!-- Device -> Session -->
+    <path d="M250 440 V 472 H 690"/>
+    <!-- Device -> Event -->
+    <path d="M360 360 H 600 V 150 H 690"/>
+    <!-- Session -> Consumable (optional, dashed) -->
+    <path d="M740 472 V 414 H 612 V 396" stroke-dasharray="6 5"/>
+  </g>
+
+  <!-- crow's-foot / one-to-many markers and labels -->
+  <g font-family="ui-monospace,monospace" font-size="10" fill="#357a8c">
+    <!-- 1 (account) ... many (device) on the vertical spine -->
+    <text x="262" y="172" >1</text>
+    <text x="262" y="312" >&#8734;</text>
+    <text x="400" y="372" >1 &#8594; &#8734;</text>
+    <text x="430" y="464" >1 &#8594; &#8734;</text>
+    <text x="470" y="142" >1 &#8594; &#8734;</text>
+    <text x="618" y="440" fill="#7a808c">0..1</text>
+  </g>
+
+  <!-- ============ Account (root) ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="150" y="90" width="200" height="60" rx="10" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="3.5"/>
+    <text x="250" y="118" text-anchor="middle" font-size="15" fill="#1a1d24">Account</text>
+    <text x="250" y="138" text-anchor="middle" font-size="10" fill="#7a808c">identity · privacy tier</text>
+  </g>
+
+  <!-- ownership join -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="160" y="216" width="180" height="66" rx="10" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <text x="250" y="244" text-anchor="middle" font-size="12.5" fill="#1a1d24">Ownership</text>
+    <text x="250" y="264" text-anchor="middle" font-size="10" fill="#7a808c">join · transferable</text>
+  </g>
+
+  <!-- ============ Device ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="150" y="334" width="210" height="106" rx="10" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="3.5"/>
+    <text x="255" y="362" text-anchor="middle" font-size="15" fill="#1a1d24">Device</text>
+    <line x1="170" y1="374" x2="340" y2="374" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="172" y="394" font-size="10" fill="#7a808c">serial number</text>
+    <text x="172" y="410" font-size="10" fill="#7a808c">hardware revision</text>
+    <text x="172" y="426" font-size="10" fill="#7a808c">firmware · product type</text>
+  </g>
+
+  <!-- ============ Consumable ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="472" y="338" width="200" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="572" y="366" text-anchor="middle" font-size="15" fill="#1a1d24">Consumable</text>
+    <line x1="492" y1="378" x2="652" y2="378" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="494" y="398" font-size="10" fill="#7a808c">type · attached-at</text>
+    <text x="494" y="414" font-size="10" fill="#7a808c">lifetime estimate</text>
+  </g>
+
+  <!-- ============ Event ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="692" y="90" width="210" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="797" y="118" text-anchor="middle" font-size="15" fill="#1a1d24">Event</text>
+    <line x1="712" y1="130" x2="882" y2="130" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="714" y="150" font-size="10" fill="#7a808c">battery-low · fw-done</text>
+    <text x="714" y="166" font-size="10" fill="#7a808c">append-only &#8594; analytics</text>
+  </g>
+
+  <!-- ============ Session ============ -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="692" y="438" width="210" height="92" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="797" y="466" text-anchor="middle" font-size="15" fill="#1a1d24">Session</text>
+    <line x1="712" y1="478" x2="882" y2="478" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="714" y="498" font-size="10" fill="#7a808c">start · duration</text>
+    <text x="714" y="514" font-size="10" fill="#7a808c">measurement payload</text>
+  </g>
+
+  <!-- caption -->
+  <text x="950" y="300" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="13.5" font-style="italic" fill="#3a3f4a">
+    <tspan x="980" dy="0">everything anchors</tspan>
+    <tspan x="980" dy="20">back to one Account</tspan>
+    <tspan x="980" dy="20">through its Device</tspan>
+  </text>
+</svg>

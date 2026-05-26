@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420" role="img" aria-label="What the oven exposes to the network versus what stays local">
+  <rect width="1000" height="420" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #7a808c; letter-spacing: 1.2px; }
+    .col { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; }
+    .it { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 12.5px; fill: #1a1d24; }
+    .sub { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 10.5px; fill: #5b616b; }
+    .cap { font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 13.5px; fill: #7a808c; }
+  </style>
+
+  <text x="40" y="34" class="h">THE INDUCTION OVEN'S CONTROL BOUNDARY — AND WHY IT'S DRAWN WHERE IT IS</text>
+
+  <line x1="500" y1="60" x2="500" y2="350" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- LEFT: networked -->
+  <text x="60" y="86" class="col" fill="#6a4c93">CONTROLLABLE OVER THE NETWORK</text>
+  <g>
+    <g transform="translate(60,108)"><rect x="0" y="0" width="14" height="14" rx="3" fill="#6a4c93" fill-opacity="0.5"/><text x="28" y="12" class="it">preheat to a target temp</text></g>
+    <g transform="translate(60,142)"><rect x="0" y="0" width="14" height="14" rx="3" fill="#6a4c93" fill-opacity="0.5"/><text x="28" y="12" class="it">select bake / roast / air-fry mode</text></g>
+    <g transform="translate(60,176)"><rect x="0" y="0" width="14" height="14" rx="3" fill="#6a4c93" fill-opacity="0.5"/><text x="28" y="12" class="it">Wi-Fi probe target + notify</text></g>
+    <g transform="translate(60,210)"><rect x="0" y="0" width="14" height="14" rx="3" fill="#6a4c93" fill-opacity="0.5"/><text x="28" y="12" class="it">cycle-complete push</text></g>
+    <text x="60" y="262" class="sub">all of this can fail safe — worst case, the</text>
+    <text x="60" y="280" class="sub">oven heats an empty cavity</text>
+  </g>
+
+  <!-- RIGHT: local only -->
+  <text x="540" y="86" class="col" fill="#c14a3a">LOCAL-ONLY, BY DESIGN</text>
+  <g>
+    <g transform="translate(540,108)"><circle cx="7" cy="7" r="9" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2"/><line x1="2" y1="2" x2="12" y2="12" stroke="#c14a3a" stroke-width="2"/><line x1="12" y1="2" x2="2" y2="12" stroke="#c14a3a" stroke-width="2"/><text x="28" y="12" class="it">turning a cooktop burner ON</text></g>
+    <g transform="translate(540,142)"><circle cx="7" cy="7" r="9" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2"/><line x1="2" y1="2" x2="12" y2="12" stroke="#c14a3a" stroke-width="2"/><line x1="12" y1="2" x2="2" y2="12" stroke="#c14a3a" stroke-width="2"/><text x="28" y="12" class="it">setting burner power level</text></g>
+    <text x="540" y="190" class="sub">SmartThings can READ cooktop state</text>
+    <text x="540" y="208" class="sub">(on/off, power level) — read-only.</text>
+    <text x="540" y="262" class="sub">a stray web hit must never be able to</text>
+    <text x="540" y="280" class="sub">light a burner under an empty pan</text>
+  </g>
+
+  <text x="500" y="392" text-anchor="middle" class="cap">The line isn't arbitrary: anything that could start a fire stays off the network. I'd agree with that boundary.</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-label="the week-long outage">
+  <rect width="960" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .day{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24;font-weight:700;}
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11.5px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="46" class="hd">SEVEN DAYS DARK — FEB 14 TO FEB 21</text>
+
+  <!-- shaded outage band -->
+  <rect x="60" y="78" width="840" height="200" rx="8" fill="#c14a3a" fill-opacity="0.06"/>
+
+  <!-- the week line -->
+  <line x1="92" y1="180" x2="868" y2="180" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+
+  <!-- seven day nodes -->
+  <!-- helper layout: x at 110,236,362,488,614,740,866 -->
+  <g>
+    <!-- Feb14 -->
+    <g transform="translate(110,180)">
+      <circle r="8" fill="#c14a3a"/>
+      <text x="0" y="-22" text-anchor="middle" class="day">14</text>
+      <text x="0" y="34" text-anchor="middle" class="lab">"investigating"</text>
+      <text x="0" y="50" text-anchor="middle" class="lab">— feeds still off</text>
+    </g>
+    <!-- Feb15-16 -->
+    <g transform="translate(236,180)">
+      <circle r="7" fill="#c14a3a"/>
+      <text x="0" y="-22" text-anchor="middle" class="day">15-16</text>
+      <text x="0" y="34" text-anchor="middle" class="lab">confusion;</text>
+      <text x="0" y="50" text-anchor="middle" class="lab">empty bowls</text>
+    </g>
+    <!-- Feb17 -->
+    <g transform="translate(362,180)">
+      <circle r="7" fill="#c14a3a"/>
+      <text x="0" y="-22" text-anchor="middle" class="day">17</text>
+      <text x="0" y="34" text-anchor="middle" class="lab">"is everyone's</text>
+      <text x="0" y="50" text-anchor="middle" class="lab">broken?"</text>
+    </g>
+    <!-- Feb18-20 -->
+    <g transform="translate(488,180)">
+      <circle r="7" fill="#c14a3a"/>
+      <text x="0" y="-22" text-anchor="middle" class="day">18-20</text>
+      <text x="0" y="34" text-anchor="middle" class="lab">vet visits;</text>
+      <text x="0" y="50" text-anchor="middle" class="lab">press runs it</text>
+    </g>
+    <!-- still silent -->
+    <g transform="translate(614,180)">
+      <circle r="7" fill="#c14a3a"/>
+      <text x="0" y="-22" text-anchor="middle" class="day">silent</text>
+      <text x="0" y="34" text-anchor="middle" class="lab">no status page,</text>
+      <text x="0" y="50" text-anchor="middle" class="lab">no email</text>
+    </g>
+    <!-- Feb21 restored -->
+    <g transform="translate(740,180)">
+      <circle r="8" fill="#3a7d44"/>
+      <text x="0" y="-22" text-anchor="middle" class="day">21</text>
+      <text x="0" y="34" text-anchor="middle" class="lab">restored —</text>
+      <text x="0" y="50" text-anchor="middle" class="lab">boilerplate</text>
+    </g>
+    <!-- after -->
+    <g transform="translate(852,180)">
+      <circle r="7" fill="#1a1d24" fill-opacity="0.4"/>
+      <text x="0" y="-22" text-anchor="middle" class="day">after</text>
+      <text x="4" y="34" text-anchor="middle" class="lab">brand</text>
+      <text x="4" y="50" text-anchor="middle" class="lab">already dead</text>
+    </g>
+  </g>
+
+  <!-- bracket marking the dark span -->
+  <path d="M110 124 L110 116 L740 116 L740 124" fill="none" stroke="#c14a3a" stroke-width="2"/>
+  <text x="425" y="108" text-anchor="middle" class="lab" fill="#c14a3a">no scheduled feed fired for a full week</text>
+
+  <text x="40" y="320" class="cap">A six-hour outage is a bug. A seven-day one is what a company looks like when there's nobody left to fix it.</text>
+  <text x="40" y="346" class="lab">Hours-long is a backend hiccup; a week is a backend with no one staffing it.</text>
+</svg>

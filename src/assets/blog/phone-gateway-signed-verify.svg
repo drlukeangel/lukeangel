@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" width="1120" height="540" role="img" aria-label="The verification flow that demotes the phone to a pipe: the device signs each session with a P-256 key held in its secure element and attaches its factory certificate; the phone uploads the signed record unmodified inside the user's OAuth token, unable to alter it; the cloud verifies the signature against the manufacturing CA, checks the certificate serial is in this account's bonded-device set, and reads the account owner from the OAuth token, rejecting and logging anything that fails.">
+  <rect width="1120" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">SIGN ON THE DEVICE, VERIFY IN THE CLOUD</text>
+
+  <!-- column headers -->
+  <text x="158" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">DEVICE</text>
+  <text x="158" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">signs · key on chip</text>
+  <text x="490" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">PHONE</text>
+  <text x="490" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">relays unmodified · a pipe</text>
+  <text x="888" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">CLOUD</text>
+  <text x="888" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">three checks, all required</text>
+
+  <!-- DEVICE: secure element + signed record -->
+  <g transform="translate(64,128)">
+    <rect x="0" y="0" width="188" height="120" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="94" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">SECURE ELEMENT</text>
+    <!-- lock -->
+    <g transform="translate(28,40)" fill="none" stroke="#357a8c" stroke-width="3" stroke-linecap="round">
+      <path d="M0 16 v-8 a11 11 0 0 1 22 0 v8"/>
+      <rect x="-4" y="16" width="30" height="24" rx="4" fill="#fdfaf2"/>
+      <circle cx="11" cy="28" r="3.6" fill="#357a8c" stroke="none"/>
+    </g>
+    <text x="118" y="56" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24">priv key (P-256)</text>
+    <text x="118" y="74" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">never leaves</text>
+    <text x="94" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">sign(payload) before flash</text>
+  </g>
+  <!-- the signed record block -->
+  <g transform="translate(64,272)">
+    <rect x="0" y="0" width="188" height="118" rx="10" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="94" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">SIGNED RECORD</text>
+    <line x1="16" y1="34" x2="172" y2="34" stroke="#1a1d24" stroke-width="1" opacity="0.25"/>
+    <text x="94" y="54" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">bytes + counter</text>
+    <text x="94" y="74" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">signature</text>
+    <text x="94" y="94" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">device cert (serial)</text>
+  </g>
+
+  <!-- BLE drain device->phone -->
+  <text x="320" y="312" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">BLE drain</text>
+  <g stroke="#357a8c" stroke-width="3.2" fill="#357a8c" stroke-linecap="round">
+    <line x1="256" y1="332" x2="392" y2="332"/>
+    <path d="M404 332 l-16 -7 v14 z"/>
+  </g>
+
+  <!-- PHONE: carries blob + token, can't alter -->
+  <g transform="translate(410,272)">
+    <rect x="0" y="0" width="160" height="118" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="80" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">UPLOAD (unchanged)</text>
+    <line x1="14" y1="34" x2="146" y2="34" stroke="#1a1d24" stroke-width="1" opacity="0.25"/>
+    <text x="80" y="54" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">signed record</text>
+    <text x="80" y="74" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">+ OAuth token</text>
+    <text x="80" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#c14a3a">can read, can't forge</text>
+  </g>
+
+  <!-- HTTPS upload phone->cloud -->
+  <text x="636" y="312" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">HTTPS</text>
+  <g stroke="#357a8c" stroke-width="3.2" fill="#357a8c" stroke-linecap="round">
+    <line x1="574" y1="332" x2="706" y2="332"/>
+    <path d="M718 332 l-16 -7 v14 z"/>
+  </g>
+
+  <!-- CLOUD: three checks -->
+  <g transform="translate(726,128)">
+    <rect x="0" y="0" width="328" height="262" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <!-- check 1 -->
+    <g transform="translate(20,18)">
+      <path d="M0 10 l9 9 l18 -20" fill="none" stroke="#3a7d44" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="42" y="6" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">1 — signature ✓ against CA</text>
+      <text x="42" y="24" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">a real device made these bytes</text>
+      <text x="288" y="14" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">→ Q1</text>
+    </g>
+    <line x1="18" y1="76" x2="310" y2="76" stroke="#1a1d24" stroke-width="1" opacity="0.18"/>
+    <!-- check 2 -->
+    <g transform="translate(20,96)">
+      <path d="M0 10 l9 9 l18 -20" fill="none" stroke="#3a7d44" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="42" y="6" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">2 — serial ∈ account bond set</text>
+      <text x="42" y="24" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">serial is inside the signed cert</text>
+      <text x="288" y="14" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">→ Q2</text>
+    </g>
+    <line x1="18" y1="154" x2="310" y2="154" stroke="#1a1d24" stroke-width="1" opacity="0.18"/>
+    <!-- check 3 -->
+    <g transform="translate(20,174)">
+      <path d="M0 10 l9 9 l18 -20" fill="none" stroke="#3a7d44" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="42" y="6" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">3 — token = account owner</text>
+      <text x="42" y="24" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">OAuth identifies the human</text>
+      <text x="288" y="14" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">→ Q3</text>
+    </g>
+    <line x1="18" y1="218" x2="310" y2="218" stroke="#1a1d24" stroke-width="1" opacity="0.18"/>
+    <text x="164" y="244" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">any check fails → reject + log</text>
+  </g>
+
+  <line x1="40" y1="424" x2="1080" y2="424" stroke="#1a1d24" stroke-width="1" opacity="0.15"/>
+  <text x="560" y="460" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">The phone carries a blob it can't forge and a token for a human.</text>
+  <text x="560" y="488" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">Load-bearing for delivery, irrelevant to trust — exactly where you want a hostile middleman.</text>
+</svg>

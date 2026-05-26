@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 380" width="1120" height="380" role="img" aria-label="Decision time before and after the written rubric">
+  <rect width="1120" height="380" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE RUBRIC AS LEVERAGE — TIME TO LAND THE WIRELESS DECISION</text>
+
+  <!-- before bar -->
+  <text x="60" y="118" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">first product</text>
+  <text x="60" y="138" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">no written rubric</text>
+  <rect x="240" y="96" width="760" height="52" rx="8" fill="#c14a3a" fill-opacity="0.18" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="620" y="128" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#c14a3a">11 weeks &#183; three architecture-review meetings</text>
+
+  <!-- after bar -->
+  <text x="60" y="218" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">second product</text>
+  <text x="60" y="238" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">five-question rubric written</text>
+  <rect x="240" y="196" width="70" height="52" rx="8" fill="#3a7d44" fill-opacity="0.20" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="330" y="228" font-family="ui-monospace,monospace" font-size="14" fill="#3a7d44">an afternoon &#183; one twenty-minute walkthrough</text>
+
+  <!-- scale note -->
+  <line x1="240" y1="278" x2="1000" y2="278" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="1.5"/>
+  <text x="240" y="300" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">bars to scale: 11 weeks vs ~1 day</text>
+
+  <!-- the five questions chip -->
+  <rect x="240" y="312" width="760" height="44" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+  <text x="620" y="340" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">range &#8594; cadence &#215; payload &#8594; BOM &#8594; power &#8594; security model</text>
+  <text x="60" y="340" font-family="ui-monospace,monospace" font-size="11" fill="#2a52be">the artifact</text>
+</svg>

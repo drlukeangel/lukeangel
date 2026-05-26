@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 480" width="1120" height="480" role="img" aria-label="Where a single device's certificate comes from. Factory: the chip generates its keypair on the line, the factory CA signs the public key, the cert is flashed on, and the private key never leaves the chip. Hand-rolled: the AWS console generates the keypair and cert, you download all three files and flash them, so the key was generated off the device. Both paths end with the cert and keys on the chip, ready to connect.">
+  <rect width="1120" height="480" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHERE THE CERT COMES FROM</text>
+
+  <line x1="560" y1="110" x2="560" y2="392" stroke="#1a1d24" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.25"/>
+
+  <!-- FACTORY -->
+  <text x="290" y="132" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#1a1d24">THE FACTORY</text>
+  <rect x="184" y="150" width="212" height="82" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <g transform="translate(206,172)" stroke="#c14a3a" stroke-width="2.4" fill="none">
+    <rect x="0" y="13" width="20" height="16" rx="2.5"/><path d="M3 13 v-4 a7 7 0 0 1 14 0 v4"/>
+  </g>
+  <text x="302" y="182" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">chip generates its</text>
+  <text x="302" y="200" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">keypair on the line</text>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="290" y1="232" x2="290" y2="272"/><path d="M290 276 l-7 -15 h14 z"/></g>
+  <text x="406" y="256" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">factory CA signs</text>
+  <g transform="translate(290,300)">
+    <circle cx="0" cy="0" r="20" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3.5"/>
+    <path d="M-8 14 L-12 33 L-3 26 L0 35 L3 26 L12 33 L8 14" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M-9 0 l6 7 11 -13" fill="none" stroke="#c14a3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="290" y="356" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">cert flashed on the device</text>
+  <text x="290" y="376" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">private key never leaves the chip</text>
+
+  <!-- HAND-ROLLED -->
+  <text x="830" y="132" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#1a1d24">HAND-ROLLED</text>
+  <rect x="724" y="150" width="212" height="82" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="830" y="182" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">AWS console makes</text>
+  <text x="830" y="200" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">the keypair + cert</text>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="830" y1="232" x2="830" y2="272"/><path d="M830 276 l-7 -15 h14 z"/></g>
+  <text x="946" y="256" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">download + flash</text>
+  <g fill="none" stroke="#1a1d24" stroke-width="2.2">
+    <rect x="791" y="286" width="30" height="38" rx="3"/><rect x="815" y="286" width="30" height="38" rx="3"/><rect x="839" y="286" width="30" height="38" rx="3"/>
+  </g>
+  <text x="830" y="356" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">Root CA · cert · private key</text>
+  <text x="830" y="376" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">key generated off the device</text>
+
+  <line x1="40" y1="414" x2="1080" y2="414" stroke="#1a1d24" stroke-width="1" opacity="0.15"/>
+  <text x="560" y="452" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="17" font-style="italic" fill="#3a3f4a">Both end the same place: cert + keys on the chip, ready to connect.</text>
+</svg>

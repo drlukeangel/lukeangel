@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" width="1120" height="540" role="img" aria-label="Four application surfaces">
+  <rect width="1120" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">FOUR SURFACES, TWO DOORS INTO THE CLOUD</text>
+
+  <!-- center cloud -->
+  <g transform="translate(440,222)">
+    <path d="M40 60 a44 44 0 0 1 6 -86 a52 52 0 0 1 96 -8 a40 40 0 0 1 58 30 a38 38 0 0 1 -10 64 z"
+          fill="#2a52be" fill-opacity="0.08" stroke="#2a52be" stroke-width="3"/>
+    <text x="120" y="16" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">CLOUD</text>
+    <text x="120" y="38" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">IoT Core · API GW</text>
+    <text x="120" y="56" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">stores · entity model</text>
+  </g>
+
+  <!-- ===== CART (top-left) — MQTT door ===== -->
+  <g transform="translate(56,84)">
+    <rect x="0" y="0" width="288" height="116" rx="12" fill="#2a52be" fill-opacity="0.08" stroke="#2a52be" stroke-width="3"/>
+    <text x="20" y="30" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">CART — the product</text>
+    <g font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">
+      <text x="20" y="56">scan · weigh · identify · pay-handoff</text>
+      <text x="20" y="78">session mgmt · health · OTA receive</text>
+      <text x="20" y="100">store-and-forward on dropout</text>
+    </g>
+  </g>
+  <!-- cart -> cloud via MQTT -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="344" y1="180" x2="452" y2="232"/>
+    <path d="M456 234 l-16 -2 6 -12 z"/>
+  </g>
+  <text x="372" y="196" font-family="ui-monospace,monospace" font-size="10" fill="#2a52be">MQTT/TLS</text>
+
+  <!-- ===== MOBILE APP (top-right) — REST door ===== -->
+  <g transform="translate(776,84)">
+    <rect x="0" y="0" width="288" height="116" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="20" y="30" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">MOBILE APP — optional</text>
+    <g font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">
+      <text x="20" y="56">pre-shop list · loyalty + payment mgmt</text>
+      <text x="20" y="78">session history · pair-to-cart (QR/BLE)</text>
+      <text x="20" y="100">thin client — never on cart critical path</text>
+    </g>
+  </g>
+  <!-- mobile -> cloud via REST -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="776" y1="180" x2="668" y2="232"/>
+    <path d="M664 234 l16 -2 -6 -12 z"/>
+  </g>
+  <text x="700" y="196" text-anchor="end" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">REST/TLS</text>
+
+  <!-- ===== STAFF TABLET (bottom-left) — REST door ===== -->
+  <g transform="translate(56,344)">
+    <rect x="0" y="0" width="288" height="116" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="20" y="30" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">STAFF TABLET — per store</text>
+    <g font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">
+      <text x="20" y="56">cart locator · session override</text>
+      <text x="20" y="78">maintenance flags · loss-prevention</text>
+      <text x="20" y="100">BLE proximity = authz, command via cloud</text>
+    </g>
+  </g>
+  <!-- tablet -> cloud via REST -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="344" y1="364" x2="452" y2="312"/>
+    <path d="M456 310 l-16 2 6 12 z"/>
+  </g>
+  <text x="356" y="328" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">REST/TLS</text>
+
+  <!-- ===== OPS DASHBOARD (bottom-right) — REST door ===== -->
+  <g transform="translate(776,344)">
+    <rect x="0" y="0" width="288" height="116" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="20" y="30" font-family="ui-monospace,monospace" font-size="13.5" fill="#1a1d24">OPS DASHBOARD — us</text>
+    <g font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24">
+      <text x="20" y="56">multi-store fleet · OTA orchestration</text>
+      <text x="20" y="78">incident response · billing</text>
+      <text x="20" y="100">compliance + PII access audit logs</text>
+    </g>
+  </g>
+  <!-- ops -> cloud via REST -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="776" y1="364" x2="668" y2="312"/>
+    <path d="M664 310 l16 2 -6 12 z"/>
+  </g>
+  <text x="700" y="352" text-anchor="end" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">REST/TLS</text>
+
+  <text x="560" y="506" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">Only the cart speaks MQTT; the three human-facing surfaces all read and write through one REST API.</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Litter-Robot clean cycle">
+  <rect width="1000" height="420" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24">
+
+    <!-- 5 steps across the top in a row, with arrows -->
+    <!-- step 1: cat enters, weight logged -->
+    <g transform="translate(70 90)">
+      <circle cx="40" cy="40" r="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <!-- small cat glyph -->
+      <g transform="translate(22 30)" fill="#1a1d24"><path d="M0 20 q 8 -22 26 -18 q -3 -8 1 -13 q 5 4 6 13 q 12 4 12 18 l 0 12 l -6 0 l -2 -10 q -8 4 -18 4 l -1 8 l -6 0 l 0 -10 q -12 -4 -12 -16 z"/></g>
+      <!-- weight tick -->
+      <rect x="20" y="86" width="40" height="4" rx="2" fill="#c87533"/>
+      <text x="40" y="112" text-anchor="middle" font-size="12" fill="#5b616b">enter +</text>
+      <text x="40" y="128" text-anchor="middle" font-size="12" fill="#c87533">weight logged</text>
+    </g>
+    <path d="M158 130 L196 130" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+
+    <!-- step 2: cat leaves -->
+    <g transform="translate(210 90)">
+      <circle cx="40" cy="40" r="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <path d="M30 40 L54 40 M46 32 l8 8 l-8 8" fill="none" stroke="#1a1d24" stroke-width="3"/>
+      <text x="40" y="112" text-anchor="middle" font-size="12" fill="#5b616b">cat leaves</text>
+    </g>
+    <path d="M298 130 L336 130" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+
+    <!-- step 3: ~7 min timer -->
+    <g transform="translate(350 90)">
+      <circle cx="40" cy="40" r="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <circle cx="40" cy="40" r="22" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+      <line x1="40" y1="40" x2="40" y2="24" stroke="#1a1d24" stroke-width="2.5"/>
+      <line x1="40" y1="40" x2="52" y2="46" stroke="#1a1d24" stroke-width="2.5"/>
+      <text x="40" y="112" text-anchor="middle" font-size="12" fill="#5b616b">~7 min</text>
+      <text x="40" y="128" text-anchor="middle" font-size="12" fill="#5b616b">clumps harden</text>
+    </g>
+    <path d="M438 130 L476 130" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+
+    <!-- step 4: globe rotates, separator -->
+    <g transform="translate(490 90)">
+      <circle cx="40" cy="40" r="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <path d="M16 30 A30 30 0 0 1 64 30" fill="none" stroke="#c87533" stroke-width="3"/>
+      <path d="M64 30 l-2 -12 l12 6 z" fill="#c87533"/>
+      <!-- separator grid -->
+      <g stroke="#1a1d24" stroke-width="1.5" opacity="0.5"><line x1="26" y1="48" x2="54" y2="48"/><line x1="26" y1="56" x2="54" y2="56"/></g>
+      <text x="40" y="112" text-anchor="middle" font-size="12" fill="#5b616b">globe rotates,</text>
+      <text x="40" y="128" text-anchor="middle" font-size="12" fill="#5b616b">litter sifts</text>
+    </g>
+    <path d="M578 130 L616 130" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#a)"/>
+
+    <!-- step 5: clumps to drawer, clean litter back -->
+    <g transform="translate(630 90)">
+      <circle cx="40" cy="40" r="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <!-- drawer below -->
+      <path d="M20 60 L60 60 L66 78 L14 78 Z" fill="#1a1d24" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2"/>
+      <!-- clump falling -->
+      <circle cx="40" cy="54" r="4" fill="#1a1d24"/>
+      <text x="40" y="112" text-anchor="middle" font-size="12" fill="#5b616b">clumps → sealed</text>
+      <text x="40" y="128" text-anchor="middle" font-size="12" fill="#5b616b">waste drawer</text>
+    </g>
+
+    <!-- the Connect addition callout -->
+    <g transform="translate(70 300)">
+      <rect x="0" y="0" width="860" height="64" rx="10" fill="#c87533" fill-opacity="0.08" stroke="#c87533" stroke-opacity="0.4" stroke-width="2"/>
+      <text x="24" y="28" font-size="14" fill="#1a1d24">Connect adds just two parts on top of this mechanism:</text>
+      <text x="24" y="50" font-size="14" fill="#c87533">an entry weight sensor + a Wi-Fi radio — that's the whole telemetry hardware.</text>
+    </g>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#1a1d24"/></marker>
+    </defs>
+  </g>
+</svg>

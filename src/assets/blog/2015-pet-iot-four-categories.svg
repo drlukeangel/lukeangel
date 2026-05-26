@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" role="img" aria-label="Four product categories by animal">
+  <rect width="960" height="450" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b;}
+    .ttl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:17px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+    .acc{fill:#c87533;}
+  </style>
+
+  <text x="40" y="46" class="ttl">Four categories now, across two animals</text>
+
+  <!-- column headers -->
+  <text x="350" y="92" text-anchor="middle" class="lab">Atom (dog)</text>
+  <text x="640" y="92" text-anchor="middle" class="lab">Joule (cat)</text>
+  <line x1="280" y1="104" x2="900" y2="104" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- rows: category labels -->
+  <text x="60" y="150" class="lab">activity</text>
+  <text x="60" y="220" class="lab">identity</text>
+  <text x="60" y="290" class="lab">the door</text>
+  <text x="60" y="360" class="lab">feeding</text>
+
+  <!-- filled / empty dots helper visualized as rings -->
+  <!-- activity: dog filled (Whistle + FitBark), cat empty -->
+  <circle cx="350" cy="145" r="15" fill="#c87533" stroke="#1a1d24" stroke-width="2"/>
+  <circle cx="640" cy="145" r="15" fill="none" stroke="#7a808c" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="380" y="150" class="sm">Whistle + FitBark</text>
+
+  <!-- identity: both (chip) -->
+  <circle cx="350" cy="215" r="15" fill="#c87533" stroke="#1a1d24" stroke-width="2"/>
+  <circle cx="640" cy="215" r="15" fill="#c87533" stroke="#1a1d24" stroke-width="2"/>
+  <text x="380" y="220" class="sm">microchip</text>
+  <text x="670" y="220" class="sm">microchip</text>
+
+  <!-- door: cat only (SureFlap) -->
+  <circle cx="350" cy="285" r="15" fill="none" stroke="#7a808c" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle cx="640" cy="285" r="15" fill="#c87533" stroke="#1a1d24" stroke-width="2"/>
+  <text x="670" y="290" class="sm">SureFlap DualScan</text>
+
+  <!-- feeding: both (Petnet, on probation) -->
+  <circle cx="350" cy="355" r="15" fill="#c87533" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.6"/>
+  <circle cx="640" cy="355" r="15" fill="#c87533" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.6"/>
+  <text x="380" y="360" class="sm">Petnet (on probation)</text>
+
+  <!-- legend -->
+  <circle cx="60" cy="404" r="8" fill="#c87533" stroke="#1a1d24" stroke-width="1.5"/>
+  <text x="76" y="409" class="sm">present</text>
+  <circle cx="190" cy="404" r="8" fill="none" stroke="#7a808c" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="206" y="409" class="sm">empty</text>
+
+  <text x="500" y="409" class="cap">From one instrumented animal to two, three categories to four.</text>
+</svg>

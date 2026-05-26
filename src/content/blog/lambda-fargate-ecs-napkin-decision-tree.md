@@ -8,10 +8,12 @@ tags:
   - fargate
   - ecs
   - architecture
+notebook: building-with-ai-ml
+notebookOrder: 3
 excerpt: "Four questions, in order. The right AWS compute choice usually picks itself by question two. Notes from an architecture review the team kept losing the same way."
 pullquote: "Cold-start tolerance is the question; everything else is a follow-up."
-cover: "../../assets/blog/lambda-fargate-ecs-napkin-cover.svg"
-coverAlt: "Cover graphic — Lambda vs Fargate vs ECS, the napkin decision tree. February 2024."
+cover: "../../assets/blog/lambda-fargate-ecs-napkin-tree-cover.svg"
+coverAlt: "A branching path forking from a single trunk into three landing pads of increasing size — a small serverless puck, a single container box, and a rack of boxes on a host — the compute choice narrowing as the workload grows."
 ---
 
 My team has been running the same forty-minute architecture-review meeting for a year. New service, three engineers in the room, the question is *Lambda, Fargate, or ECS,* and we re-derive the answer from first principles every single time.
@@ -19,6 +21,8 @@ My team has been running the same forty-minute architecture-review meeting for a
 I got tired of it. So I drew a four-question decision tree on a napkin at lunch last week and made everyone agree to use it. Notes here so it lives somewhere besides the napkin, which I have lost.
 
 ## The four questions, in order
+
+![The four-question decision tree drawn as a flowchart. Start at the top. Question 1: must it be ready in under 100 ms cold? If yes, not Lambda — fall through to the container side. Question 2: does it run longer than 15 minutes at a stretch? If yes, not Lambda. If both answers are no, Lambda is the default for the cold-tolerant, short workload. On the container side, Question 3: does it need a runtime Lambda doesn't ship? and Question 4: is utilization high enough or do you need instance control? High utilization or instance control routes to ECS on EC2; otherwise Fargate. The three leaves are Lambda, Fargate, and ECS.](../../assets/blog/lambda-fargate-ecs-decision-tree.svg)
 
 ### 1. Does this workload have to be ready in under 100 ms cold?
 
@@ -39,6 +43,8 @@ Lambda has a fixed set of runtimes and a Linux Amazon Linux 2 base. If the workl
 ### 4. Are you running enough hours per month that "always on" is cheaper than "pay per request"?
 
 This is the only question with real math behind it. The rule of thumb on my team: if a service runs more than about 40% of the hours in a month, ECS Fargate ends up cheaper than Lambda at typical request rates. Below that, Lambda's per-invocation pricing wins. AWS publishes a calculator; we don't trust it without checking against our own request-pattern data.
+
+![The cost crossover, drawn as two lines on a utilization-versus-cost plot. The horizontal axis is the fraction of hours per month the service is busy, from idle on the left to always-on on the right. Lambda's cost line starts near zero and climbs steeply with utilization, because you pay per invocation. Fargate's line starts higher — there's a floor for keeping a task running — but climbs gently, because an always-on task costs roughly the same whether it's busy or idle. The two lines cross at roughly 40 percent utilization: left of the crossover Lambda is cheaper, right of it Fargate is cheaper.](../../assets/blog/lambda-fargate-cost-crossover.svg)
 
 Different question: do you need to control instance shape (memory + CPU ratio, GPU access, specific networking) more tightly than Fargate exposes? If yes, ECS on EC2.
 

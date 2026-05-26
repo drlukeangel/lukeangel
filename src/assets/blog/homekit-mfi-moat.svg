@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="who is inside the MFi wall">
+  <rect width="1000" height="460" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">WHO CLEARS THE MFi TOLL &#8212; AND WHO DOESN'T</text>
+
+  <!-- the wall down the middle -->
+  <g transform="translate(500,0)">
+    <rect x="-10" y="90" width="20" height="320" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="3"/>
+    <!-- gate -->
+    <rect x="-10" y="250" width="20" height="60" fill="#fdfaf2" stroke="#6a4c93" stroke-width="2.5"/>
+    <g transform="translate(0,280)">
+      <rect x="-14" y="-12" width="28" height="24" rx="3" fill="#1a1d24"/>
+      <text x="0" y="3" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="8" fill="#6a4c93">MFi</text>
+    </g>
+    <text x="0" y="430" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#6a4c93">auth chip = the only gate</text>
+  </g>
+
+  <!-- INSIDE (left of wall = they paid) -->
+  <text x="60" y="96" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#3a7d44">INSIDE &#183; paid the toll &#183; reachable by Siri</text>
+  <g transform="translate(60,120)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">
+    <g><circle cx="10" cy="-4" r="7" fill="#3a7d44"/><text x="28" y="0">$200 thermostat (Ecobee3)</text></g>
+    <g transform="translate(0,34)"><circle cx="10" cy="-4" r="7" fill="#3a7d44"/><text x="28" y="0">smart bridge (Lutron, Hue v2)</text></g>
+    <g transform="translate(0,68)"><circle cx="10" cy="-4" r="7" fill="#3a7d44"/><text x="28" y="0">premium bulb hub</text></g>
+    <text x="0" y="118" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#5b616b">+$2-5/device + months of cert</text>
+    <text x="0" y="138" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#5b616b">= noise on a $200 product</text>
+  </g>
+
+  <!-- OUTSIDE (right of wall = locked out) -->
+  <text x="540" y="96" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#c14a3a">OUTSIDE &#183; toll too steep &#183; no Siri</text>
+  <g transform="translate(540,120)" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#1a1d24">
+    <g><path d="M4 -9 l12 12 M16 -9 l-12 12" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/><text x="28" y="0">$20 smart plug (Wemo)</text></g>
+    <g transform="translate(0,34)"><path d="M4 -9 l12 12 M16 -9 l-12 12" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/><text x="28" y="0">Z-Wave + Zigbee-HA sensors</text></g>
+    <g transform="translate(0,68)"><path d="M4 -9 l12 12 M16 -9 l-12 12" stroke="#c14a3a" stroke-width="2.5" stroke-linecap="round"/><text x="28" y="0">LIFX Wi-Fi bulbs, Aeotec</text></g>
+    <text x="0" y="118" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#5b616b">+$2-5/device + months of cert</text>
+    <text x="0" y="138" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#5b616b">= a deal-killer on a $20 plug</text>
+  </g>
+
+  <text x="500" y="452" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">The wall isn't about capability. It's about who can afford the toll.</text>
+</svg>

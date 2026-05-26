@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Connected litter box">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- Litter-Robot: globe on a base -->
+  <g transform="translate(360 330)">
+    <!-- base (trapezoid drawer) -->
+    <path d="M-120 150 L120 150 L150 270 L-150 270 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- drawer line -->
+    <line x1="-130" y1="225" x2="130" y2="225" stroke="#1a1d24" stroke-width="4"/>
+    <!-- drawer handle -->
+    <rect x="-22" y="240" width="44" height="12" rx="6" fill="#1a1d24"/>
+    <!-- globe -->
+    <circle cx="0" cy="0" r="150" fill="#fdfaf2" stroke="#1a1d24" stroke-width="6"/>
+    <!-- inner opening (the bonnet hole) -->
+    <ellipse cx="0" cy="-6" rx="84" ry="92" fill="#1a1d24" fill-opacity="0.07" stroke="#1a1d24" stroke-width="4"/>
+    <!-- a faint rotation arrow on the globe -->
+    <path d="M-110 -40 A 130 130 0 0 1 -40 -118" fill="none" stroke="#c87533" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-40 -118 l -2 22 l -20 -10 z" fill="#c87533"/>
+  </g>
+
+  <!-- data/health signal rising out of the unit, right -->
+  <g transform="translate(620 120)">
+    <!-- a small chart card -->
+    <rect x="0" y="0" width="320" height="220" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- baseline trend line: steady then a flagged spike -->
+    <polyline points="30,150 70,140 110,150 150,135 190,150 230,90 270,150 290,148"
+              fill="none" stroke="#c87533" stroke-width="5" stroke-linejoin="round"/>
+    <!-- weight track underneath, gently declining -->
+    <polyline points="30,185 90,184 150,186 210,182 270,190"
+              fill="none" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="4"/>
+    <!-- flag on the spike -->
+    <g transform="translate(230 56)">
+      <line x1="0" y1="0" x2="0" y2="34" stroke="#c14a3a" stroke-width="4"/>
+      <path d="M0 0 l30 8 l-30 8 z" fill="#c14a3a"/>
+    </g>
+    <!-- a couple of visit ticks at top -->
+    <g fill="#1a1d24" fill-opacity="0.5">
+      <rect x="30" y="26" width="10" height="14" rx="2"/>
+      <rect x="50" y="26" width="10" height="14" rx="2"/>
+      <rect x="70" y="26" width="10" height="14" rx="2"/>
+    </g>
+  </g>
+  <!-- signal arcs connecting unit to the card -->
+  <g transform="translate(470 200)" stroke="#c87533" fill="none" stroke-width="4" opacity="0.6">
+    <path d="M0 40 a40 40 0 0 1 40 -34"/>
+    <path d="M-10 56 a66 66 0 0 1 66 -56"/>
+  </g>
+</svg>

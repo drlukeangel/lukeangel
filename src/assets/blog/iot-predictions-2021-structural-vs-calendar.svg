@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" width="1120" height="540" role="img" aria-label="Structural calls held, calendar calls slipped">
+  <rect width="1120" height="540" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="46" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHAT THE PANDEMIC BROKE — AND WHAT IT DIDN'T</text>
+
+  <!-- TOP LANE: structural call (shape / what & why) — lands -->
+  <g transform="translate(40,90)">
+    <rect x="0" y="0" width="1040" height="170" rx="12" fill="#0066cc" fill-opacity="0.06" stroke="#0066cc" stroke-width="2"/>
+    <text x="24" y="34" font-family="ui-monospace,monospace" font-size="15" fill="#0066cc">STRUCTURAL CALL — the shape: what happens, and why</text>
+
+    <!-- forecast arrow that lands on target -->
+    <g transform="translate(40,70)">
+      <path d="M0 50 C 200 50, 360 20, 560 8" fill="none" stroke="#0066cc" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="0" cy="50" r="9" fill="#0066cc"/>
+      <!-- target it lands on -->
+      <g transform="translate(600,8)">
+        <circle cx="0" cy="0" r="30" fill="none" stroke="#3a7d44" stroke-width="3"/>
+        <circle cx="0" cy="0" r="16" fill="none" stroke="#3a7d44" stroke-width="3"/>
+        <circle cx="0" cy="0" r="5" fill="#3a7d44"/>
+      </g>
+      <g transform="translate(648,-2)">
+        <circle cx="14" cy="6" r="13" fill="none" stroke="#3a7d44" stroke-width="3.5"/>
+        <path d="M7 6 l5 6 l9 -13" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="40" y="11" font-family="ui-monospace,monospace" font-size="15" fill="#3a7d44">held</text>
+      </g>
+    </g>
+    <text x="24" y="150" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">WFH + telehealth surge, connected fitness as a category, body-as-sensor-array</text>
+  </g>
+
+  <!-- BOTTOM LANE: calendar call (exact date) — slips -->
+  <g transform="translate(40,290)">
+    <rect x="0" y="0" width="1040" height="200" rx="12" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="2"/>
+    <text x="24" y="34" font-family="ui-monospace,monospace" font-size="15" fill="#c14a3a">CALENDAR CALL — the exact date it lands</text>
+
+    <!-- a timeline with a predicted slot and the actual slip -->
+    <g transform="translate(40,90)">
+      <line x1="0" y1="40" x2="940" y2="40" stroke="#7a808c" stroke-width="3" stroke-linecap="round"/>
+      <!-- tick marks -->
+      <g stroke="#7a808c" stroke-width="2">
+        <line x1="40" y1="30" x2="40" y2="50"/>
+        <line x1="320" y1="30" x2="320" y2="50"/>
+        <line x1="600" y1="30" x2="600" y2="50"/>
+        <line x1="880" y1="30" x2="880" y2="50"/>
+      </g>
+      <!-- predicted landing -->
+      <g transform="translate(320,40)">
+        <circle cx="0" cy="0" r="13" fill="#fdfaf2" stroke="#0066cc" stroke-width="4"/>
+        <text x="0" y="-26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#0066cc">predicted</text>
+      </g>
+      <!-- slip arrow to actual -->
+      <path d="M340 40 C 480 40, 540 40, 660 40" fill="none" stroke="#c14a3a" stroke-width="4" stroke-dasharray="5 9" stroke-linecap="round"/>
+      <path d="M664 40 l-16 -8 v16 z" fill="#c14a3a"/>
+      <!-- actual landing -->
+      <g transform="translate(690,40)">
+        <circle cx="0" cy="0" r="13" fill="#c14a3a"/>
+        <text x="0" y="-26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">actual</text>
+      </g>
+    </g>
+    <text x="24" y="180" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">AirTags slipped out of the year; other launches accelerated past the date I set</text>
+  </g>
+</svg>

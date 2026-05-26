@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Two connected devices across a gap, both reaching one cloud">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="fy-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#fy-dots)"/>
+  <rect width="24" height="630" fill="#2a52be"/>
+
+  <!-- ===== the shared cloud (one platform behind both devices), top center ===== -->
+  <g transform="translate(470,70)">
+    <path d="M64 150
+             a62 62 0 0 1 6 -123
+             a84 84 0 0 1 160 -8
+             a68 68 0 0 1 62 131
+             z"
+          fill="#fdfaf2" stroke="#2a52be" stroke-width="5"/>
+    <!-- broker hub with subscriber dots -->
+    <circle cx="168" cy="74" r="13" fill="#2a52be" fill-opacity="0.22" stroke="#2a52be" stroke-width="3"/>
+    <g stroke="#2a52be" stroke-width="3" stroke-linecap="round">
+      <line x1="168" y1="74" x2="112" y2="48"/>
+      <line x1="168" y1="74" x2="224" y2="48"/>
+      <line x1="168" y1="74" x2="168" y2="122"/>
+    </g>
+    <circle cx="112" cy="48" r="7" fill="#2a52be"/>
+    <circle cx="224" cy="48" r="7" fill="#2a52be"/>
+    <circle cx="168" cy="122" r="7" fill="#2a52be"/>
+  </g>
+
+  <!-- ===== v1: BLE consumer-health puck + phone gateway (left) ===== -->
+  <!-- radio waves from puck up toward cloud, relayed by the phone -->
+  <g fill="none" stroke="#2a52be" stroke-width="3.5" stroke-linecap="round" opacity="0.8">
+    <path d="M300 360 a40 40 0 0 1 44 -12"/>
+    <path d="M286 392 a70 70 0 0 1 78 -20"/>
+  </g>
+  <!-- phone (gateway) -->
+  <g transform="translate(322,300)">
+    <rect x="0" y="0" width="78" height="150" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="11" y="16" width="56" height="106" rx="5" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="2.5"/>
+    <circle cx="39" cy="136" r="5" fill="#1a1d24" opacity="0.5"/>
+    <!-- BLE bolt on screen -->
+    <path d="M44 36 l-14 28 12 0 -8 26 18 -32 -12 0 8 -22 z" fill="#2a52be" opacity="0.7"/>
+  </g>
+  <!-- relay wave from phone to cloud -->
+  <g fill="none" stroke="#2a52be" stroke-width="3.5" stroke-linecap="round" opacity="0.7">
+    <path d="M404 296 a90 90 0 0 1 70 -78"/>
+  </g>
+  <!-- the puck (electric toothbrush base) -->
+  <g transform="translate(214,398)">
+    <ellipse cx="40" cy="92" rx="46" ry="13" fill="#5b616b" opacity="0.35"/>
+    <rect x="14" y="40" width="52" height="52" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <rect x="33" y="-34" width="14" height="78" rx="7" fill="#5b616b"/>
+    <rect x="29" y="-46" width="22" height="18" rx="6" fill="#5b616b"/>
+    <!-- inductive charge ring -->
+    <circle cx="40" cy="78" r="13" fill="none" stroke="#2a52be" stroke-width="3"/>
+    <circle cx="40" cy="78" r="5" fill="#2a52be" opacity="0.5"/>
+  </g>
+
+  <!-- ===== the gap between the two eras: a broken span ===== -->
+  <g stroke="#7a808c" stroke-width="3" stroke-linecap="round">
+    <line x1="470" y1="560" x2="540" y2="560" stroke-dasharray="2 12"/>
+    <line x1="660" y1="560" x2="730" y2="560" stroke-dasharray="2 12"/>
+  </g>
+  <path d="M560 548 l18 0 -10 24 18 0 -12 0" fill="none" stroke="#7a808c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M600 540 l-14 28 12 0 -8 22" fill="none" stroke="#7a808c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- ===== v2: WiFi-direct cart workstation (right) ===== -->
+  <!-- radio waves from cart antenna up to cloud (no phone in the loop) -->
+  <g fill="none" stroke="#2a52be" stroke-width="3.5" stroke-linecap="round" opacity="0.85">
+    <path d="M834 296 a52 52 0 0 1 54 -16"/>
+    <path d="M850 268 a86 86 0 0 1 94 -22"/>
+    <path d="M866 240 a118 118 0 0 1 -10 -84"/>
+  </g>
+  <g transform="translate(788,300)">
+    <!-- handle post -->
+    <rect x="30" y="-36" width="14" height="290" rx="7" fill="#5b616b"/>
+    <rect x="-30" y="-46" width="104" height="16" rx="8" fill="#5b616b"/>
+    <!-- enclosure -->
+    <rect x="56" y="0" width="232" height="190" rx="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <!-- screen with abstract running total -->
+    <rect x="78" y="22" width="188" height="112" rx="8" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="3"/>
+    <g fill="#2a52be" opacity="0.5">
+      <rect x="96" y="40" width="92" height="8" rx="4"/>
+      <rect x="96" y="58" width="68" height="8" rx="4"/>
+      <rect x="96" y="76" width="108" height="8" rx="4"/>
+    </g>
+    <line x1="96" y1="100" x2="248" y2="100" stroke="#2a52be" stroke-width="2" stroke-opacity="0.4"/>
+    <rect x="96" y="112" width="64" height="12" rx="6" fill="#3a7d44" opacity="0.7"/>
+    <rect x="196" y="112" width="52" height="12" rx="6" fill="#2a52be" opacity="0.7"/>
+    <!-- NFC tap pad -->
+    <circle cx="172" cy="162" r="15" fill="none" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.5"/>
+    <path d="M167 156 a8 8 0 0 1 0 12 M174 153 a14 14 0 0 1 0 18" fill="none" stroke="#2a52be" stroke-width="2.4" stroke-linecap="round"/>
+    <!-- antenna stubs -->
+    <line x1="80" y1="0" x2="80" y2="-30" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+    <line x1="100" y1="0" x2="100" y2="-22" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="80" cy="-38" r="6" fill="#2a52be"/>
+    <!-- wheeled base -->
+    <rect x="44" y="190" width="256" height="18" rx="9" fill="#5b616b"/>
+    <circle cx="92" cy="228" r="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="92" cy="228" r="4" fill="#1a1d24" opacity="0.5"/>
+    <circle cx="252" cy="228" r="18" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="252" cy="228" r="4" fill="#1a1d24" opacity="0.5"/>
+  </g>
+</svg>

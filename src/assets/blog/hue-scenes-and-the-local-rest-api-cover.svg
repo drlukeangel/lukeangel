@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Hue local API">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- laptop, left -->
+  <g transform="translate(120 250)">
+    <rect x="0" y="0" width="180" height="120" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- code lines on screen -->
+    <g stroke="#6a4c93" stroke-width="5" stroke-linecap="round">
+      <line x1="22" y1="30" x2="120" y2="30"/>
+      <line x1="22" y1="52" x2="90" y2="52"/>
+      <line x1="22" y1="74" x2="140" y2="74"/>
+      <line x1="22" y1="96" x2="70" y2="96"/>
+    </g>
+    <!-- base -->
+    <path d="M-20 120 L200 120 L220 150 L-40 150 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+  </g>
+
+  <!-- HTTP arrow to bridge -->
+  <path d="M360 310 L470 310" stroke="#1a1d24" stroke-width="5" marker-end="url(#a)"/>
+
+  <!-- bridge, center -->
+  <g transform="translate(490 270)">
+    <rect x="0" y="0" width="120" height="80" rx="18" fill="#fdfaf2" stroke="#6a4c93" stroke-width="6"/>
+    <circle cx="60" cy="40" r="13" fill="#6a4c93"/>
+    <circle cx="60" cy="40" r="24" fill="none" stroke="#6a4c93" stroke-width="4" opacity="0.4"/>
+  </g>
+
+  <!-- single Zigbee broadcast fanning to bulbs -->
+  <g stroke="#6a4c93" stroke-width="4" fill="none">
+    <path d="M610 290 C 720 200, 820 170, 920 150"/>
+    <path d="M610 310 C 730 300, 830 300, 930 300"/>
+    <path d="M610 330 C 720 420, 820 450, 920 470"/>
+  </g>
+
+  <!-- bulbs (3), lit -->
+  <g>
+    <g transform="translate(960 150)"><circle r="34" fill="#6a4c93" fill-opacity="0.22" stroke="#1a1d24" stroke-width="4"/><circle r="11" fill="#6a4c93"/><rect x="-12" y="30" width="24" height="14" rx="3" fill="#1a1d24"/></g>
+    <g transform="translate(975 300)"><circle r="34" fill="#6a4c93" fill-opacity="0.22" stroke="#1a1d24" stroke-width="4"/><circle r="11" fill="#6a4c93"/><rect x="-12" y="30" width="24" height="14" rx="3" fill="#1a1d24"/></g>
+    <g transform="translate(960 470)"><circle r="34" fill="#6a4c93" fill-opacity="0.22" stroke="#1a1d24" stroke-width="4"/><circle r="11" fill="#6a4c93"/><rect x="-12" y="30" width="24" height="14" rx="3" fill="#1a1d24"/></g>
+  </g>
+
+  <defs>
+    <marker id="a" markerWidth="11" markerHeight="11" refX="7" refY="4" orient="auto"><path d="M0 0 L9 4 L0 8 z" fill="#1a1d24"/></marker>
+  </defs>
+</svg>

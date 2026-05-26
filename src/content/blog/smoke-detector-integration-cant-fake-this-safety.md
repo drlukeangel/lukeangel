@@ -10,45 +10,47 @@ tags:
   - safety
 series: smart-home-iot-journey
 seriesOrder: 26
-excerpt: "First Alert ZCOMBO smoke + CO detector on Z-Wave. Three of them throughout the house, replacing the dumb battery-only smokes that were 12 years old."
-pullquote: "Smoke detectors are the one device class where ALL the automation around them is downstream of one signal you absolutely cannot afford to miss. The integration matters; the dependency on the network for the actual alert does not. Standalone alarm first; HA second."
-cover: "../../assets/blog/smoke-detector-integration-cant-fake-this-safety-cover.png"
-coverAlt: "Smoke detector integration — alerts that actually matter"
+notebook: smart-home-iot-journey
+notebookOrder: 25
+excerpt: "First Alert ZCOMBO smoke + CO detectors on Z-Wave, three of them through the house — replacing the dumb battery-only smokes that had been dying at 3 AM for years. The hard rule: the local alarm never depends on the network."
+pullquote: "Smoke is the one device class where every clever automation hangs off a single signal you cannot afford to miss. The integration matters; the alert's dependence on the network does not. Standalone buzzer first; Home Assistant second."
+cover: "../../assets/blog/smoke-detector-integration-cant-fake-this-safety-cover.svg"
+coverAlt: "A ceiling-mounted smoke and CO detector with a red status light, smoke rising into it, and a Z-Wave radio pulse carrying the event to a Home Assistant hub as a secondary path."
 ---
 
-Three First Alert ZCOMBO smoke + CO detectors installed last weekend. They replace the dumb battery-only Kidde models that had been beeping at 3 AM for years on dying 9V batteries.
+Three First Alert ZCOMBO smoke + CO detectors went up last weekend. They replace the dumb battery-only Kidde units that had spent years chirping at 3 AM on dying 9V batteries — the single most reliable way our house had of waking everyone for no reason. I wanted the events in Home Assistant. I was not willing to make the alarm itself depend on HA to do it. That tension is the whole post.
 
-## Hardware
+## The hardware
 
-**First Alert ZCOMBO:**
-- Ionization smoke + electrochemical CO detection.
-- **Z-Wave Plus** (and crucially, also operates as a standalone smoke detector — the alarm sounds locally even when Z-Wave is broken).
-- 2× AA batteries, claimed 10-year life on the detector itself (not the batteries — batteries claim 3 years).
-- UL-217 + UL-2034 certified — meets US residential smoke + CO code.
-- Interconnect-compatible via Z-Wave — when one detects smoke, the other two also sound (via HA orchestration; not hardwired).
+**First Alert ZCOMBO (Z-Wave Plus):**
 
-$45 each, $135 total.
+- Ionization smoke + electrochemical CO sensing in one head.
+- A **standalone alarm** — the local buzzer sounds on smoke or CO with zero radio involvement. The Z-Wave Plus radio is a *second* path that reports the event; it is not how the thing screams.
+- 2× AA batteries, ~3-year battery life; the sensor head itself is rated for the usual 10-year replace-the-whole-unit window.
+- UL 217 (smoke) + UL 2034 (CO) listed — meets US residential code.
 
-## The design principle: standalone first, network second
+$45 each, $135 for three. One in the upstairs hall, one in the living room, one in the basement near the furnace.
 
-The most important architectural decision with smoke + CO detection is this:
+## The design rule: standalone first, network second
+
+There's exactly one architectural decision that matters here, and it's not a clever one:
 
 **The local alarm cannot depend on the network.**
 
-If the WiFi is down, the Z-Wave mesh is broken, the Pi is unplugged — the detector still has to scream when there's smoke. UL-217 requires it. Code requires it. Common sense requires it.
+If the Wi-Fi is down, the Z-Wave mesh has a dead node, the Pi running HA is mid-reboot — the detector still has to sound when there's smoke. UL 217 requires it. Code requires it. The 2 AM version of me, half-asleep and counting children, requires it.
 
-The ZCOMBO does this correctly: when its onboard sensor detects smoke or CO, **the buzzer sounds immediately**, locally, with zero network involvement. The Z-Wave radio is a *secondary* notification path that sends events to HA. It is not the primary alert.
+The ZCOMBO gets this right: its onboard sensor drives the buzzer directly. The Z-Wave radio fires a *separate* event to HA, and everything I build — lights, push notifications, HVAC — hangs off that secondary path. If the radio path fails, I lose the automation. I do not lose the alarm. That ordering is non-negotiable, and it's the reason I bought a detector that is a *real* UL-listed alarm with a radio bolted on, rather than a "smart" alarm whose smartness is load-bearing.
 
-This is the same architectural decision Apple made with HomeKit security: the device functions standalone; the integration is bonus. Compare to "smart" smoke detectors I'm avoiding:
-- **Nest Protect**: relies on WiFi for many features, has had reliability issues with cloud outages.
-- **First Alert OneLink**: WiFi-only for connected features.
+![Two alert paths from one detector: a green primary path runs straight to a local buzzer with no network involved, while a dashed purple Z-Wave path reports the event to Home Assistant as a secondary, fail-able channel.](../../assets/blog/smoke-detector-standalone-vs-network.svg)
 
-The Z-Wave + standalone-buzzer design wins on dependency-failure mode.
+That's also why I skipped the cloud-first options. The Nest Protect is a genuinely good detector, but a chunk of its connected behavior rides on Wi-Fi and Google's cloud, and I've watched that cloud have bad days. First Alert's own OneLink is Wi-Fi for the connected features. Neither is *wrong* — but both put the network closer to the alarm than I wanted it. Z-Wave Plus plus a dumb local buzzer keeps the radio firmly in the "bonus" column.
 
-## The HA automation
+## The Home Assistant automation
+
+Smoke fires, HA does the rest. Lights to full white for evacuation, critical push to both phones, HVAC fan off so the air handler stops moving smoke around the house, and a logbook entry so I can reconstruct what happened afterward.
 
 ```yaml
-- alias: "Smoke detected — full alarm response"
+- alias: "Smoke detected — full response"
   trigger:
     - platform: state
       entity_id:
@@ -57,18 +59,18 @@ The Z-Wave + standalone-buzzer design wins on dependency-failure mode.
         - binary_sensor.smoke_basement
       to: "on"
   action:
-    # First: lights to max brightness, white, all rooms — for evacuation
+    # lights to max, white, everywhere — for getting out
     - service: light.turn_on
       data:
         entity_id: group.all_lights
         brightness: 255
         rgb_color: [255, 255, 255]
-        transition: 0   # instant
-    # Second: push notifications to all phones, critical priority
+        transition: 0
+    # critical push that bypasses Do Not Disturb (iOS 12)
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "🔥 SMOKE: {{ trigger.to_state.attributes.friendly_name }}"
-        message: "Time: {{ now() }}. Evacuate."
+        title: "SMOKE: {{ trigger.to_state.attributes.friendly_name }}"
+        message: "{{ now().strftime('%H:%M') }} — evacuate."
         data:
           push:
             sound:
@@ -77,37 +79,32 @@ The Z-Wave + standalone-buzzer design wins on dependency-failure mode.
               volume: 1.0
     - service: notify.mobile_app_wife_iphone
       data:
-        title: "🔥 SMOKE: {{ trigger.to_state.attributes.friendly_name }}"
-        message: "Time: {{ now() }}. Evacuate."
+        title: "SMOKE: {{ trigger.to_state.attributes.friendly_name }}"
+        message: "{{ now().strftime('%H:%M') }} — evacuate."
         data:
           push:
             sound:
               name: "default"
               critical: 1
               volume: 1.0
-    # Third: unlock the front door (when we have a smart lock — coming)
-    # - service: lock.unlock
-    #   data:
-    #     entity_id: lock.front_door
-    # Fourth: turn off the HVAC fan to slow smoke spread
+    # stop the air handler from spreading smoke
     - service: climate.set_fan_mode
       data:
         entity_id: climate.ecobee_main_floor
         fan_mode: "off"
-    # Fifth: log
     - service: logbook.log
       data:
         name: "Fire"
-        message: "Smoke detected: {{ trigger.to_state.attributes.friendly_name }}. Full response."
+        message: "Smoke: {{ trigger.to_state.attributes.friendly_name }}. Full response."
 ```
 
-The "critical" push notification flag (iOS 12+) makes the notification bypass Do Not Disturb and silent mode. The phone is louder than it normally would be. Critical alerts require Apple's permission grant — I approved it for HA.
+The piece that makes this worth doing is the **critical alert** flag. iOS 12 shipped a critical-alerts entitlement in September: a notification marked `critical: 1` bypasses Do Not Disturb and the ringer switch, and plays at a volume *you* set, not the phone's. It's gated — Apple makes you request the entitlement and the user has to grant it per-app — and I granted it to the Companion app for exactly this. A smoke alert that gets silenced because the phone was on Do Not Disturb is not an alert.
 
-## CO is a different category
+## CO is a different problem than smoke
 
-CO is invisible. Slow. You don't smell it. By the time symptoms appear (headache, drowsiness), it's already affecting your judgment. Smoke is "fire, evacuate." CO is "leave the house *now*, and call the gas company."
+Smoke you can see and smell; the instinct ("get out") is already correct. Carbon monoxide is invisible, odorless, and slow, and by the time you feel it — headache, drowsiness — it's already degrading the judgment you'd use to react. So I gave it a visibly different response.
 
-The CO automation is similar to smoke but with different messaging:
+![Smoke versus CO response, side by side. Smoke turns the lights white at max, kills the HVAC fan, sends a critical push, and is framed as fire — evacuate, seconds matter. CO turns the lights orange, prompts open-and-ventilate, sends a critical push plus the gas-line number, and is framed as invisible — leave and call, no smell and slow onset.](../../assets/blog/smoke-detector-smoke-vs-co.svg)
 
 ```yaml
 - alias: "CO detected — evacuate"
@@ -123,33 +120,29 @@ The CO automation is similar to smoke but with different messaging:
       data:
         entity_id: group.all_lights
         brightness: 255
-        rgb_color: [255, 100, 0]   # red-orange — distinguishes from smoke
+        rgb_color: [255, 100, 0]   # orange — not the white of a smoke event
         transition: 0
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "☠️ CARBON MONOXIDE"
+        title: "CARBON MONOXIDE"
         message: >
-          {{ trigger.to_state.attributes.friendly_name }}. Open windows, evacuate,
-          call gas company: (800) 555-0100.
+          {{ trigger.to_state.attributes.friendly_name }}. Get out, then call
+          the gas company.
         data:
           push:
             sound:
               name: "default"
               critical: 1
-    # Open windows: smart window operators don't exist in this house yet.
-    # In the future: trigger a Z-Wave-controlled ceiling fan to ventilate.
 ```
 
-The orange vs white lighting differentiates smoke (white) from CO (orange-red) so anyone in the house knows which protocol applies just by looking at the lights.
+White means smoke, orange means CO. Anyone standing in the house knows which protocol applies from the color of the lights alone, without reading their phone — which matters when the phone is the thing you grab on the way out the door.
 
-## Interconnect — when one fires, all three sound
+## Interconnect — and where the network creeps back in
 
-The original Kidde smokes I replaced were hardwired-interconnect — when the basement detector alarmed, the upstairs ones also alarmed via the 3-conductor hardwiring code requires.
-
-The ZCOMBOs are *not* hardwired-interconnected; they're standalone buzzers. To get equivalent "one fires, all sound" behavior I had to implement it in HA:
+The Kidde units I tore out were hardwired-interconnected: the three-conductor run that residential code wants, so the basement alarm makes the upstairs alarms sound too. The ZCOMBOs are standalone buzzers with no interconnect wire between them. To get "one fires, all sound," I had to fake it in HA — and this is the one place I knowingly let the network back into the safety path.
 
 ```yaml
-- alias: "Smoke interconnect — one fires, all sound"
+- alias: "Smoke interconnect — one fires, sound the others"
   trigger:
     - platform: state
       entity_id:
@@ -161,21 +154,25 @@ The ZCOMBOs are *not* hardwired-interconnected; they're standalone buzzers. To g
     - service: switch.turn_on
       data:
         entity_id:
-          - switch.smoke_living_room_test_alarm  # exposed Z-Wave "alarm test" command
-          - switch.smoke_upstairs_hall_test_alarm
-          - switch.smoke_basement_test_alarm
+          - switch.smoke_living_room_test  # Z-Wave "test alarm" command
+          - switch.smoke_upstairs_hall_test
+          - switch.smoke_basement_test
 ```
 
-Z-Wave exposes a "test alarm" command on each ZCOMBO that triggers the local buzzer remotely. Activating all three when any one fires gives the interconnect behavior. This is a network-dependent feature, so it might not work in a power outage — but the local alarm of the detector that actually saw the smoke does.
+The ZCOMBO exposes its "test alarm" over Z-Wave, so HA can sound the other two when any one of them sees smoke. It works — and I want to be honest about its limit. This is fully network-dependent. If the mesh or HA is down, the two detectors that *didn't* see the smoke stay quiet. The one that actually saw it still screams locally, because that path never needed the network. So the failure mode degrades the right way: I lose the house-wide chorus, never the alarm at the source.
 
-## What I'm wishing for
+![Software interconnect through the hub: the basement detector fires and pushes a state-on event to Home Assistant over Z-Wave; the hub fans a test-alarm command out to the upstairs and living-room detectors. A caption notes this path is network-dependent, so only the detector that actually saw smoke is guaranteed to sound.](../../assets/blog/smoke-detector-ha-interconnect.svg)
 
-- **A camera correlation**. When smoke fires, the indoor cameras should start recording and upload to off-site storage. Implementing this with Reolink + Synology Surveillance Station; ffmpeg dance is more complex than it should be.
-- **A way to know which sensor is "real" vs nuisance.** Burned toast triggers the kitchen smoke sometimes. A debounce period would help (was a leak-sensor pattern); for smoke, even a 5-second debounce is dangerous. Better: a "fire actually present" verification using a temperature sensor near each smoke — if smoke detected AND temperature rising rapidly, real fire.
-- **Eventually: a connection to a monitoring service.** Self-monitoring is fine for me (phone alerts) but my insurance company offers a 10% discount for monitored fire/smoke. The monitored services (ADT, SimpliSafe) get the signal and call you, then dispatch FD. Worth $300/yr for the discount alone.
+## What bit me, and what I'd do differently
 
-## What's not on this list (yet)
+- **Nuisance trips.** Searing a steak under the broiler set off the (kitchen-adjacent) living-room detector twice. The fix you reach for — a debounce — is the wrong instinct for smoke; a five-second "is it really smoke" delay is five seconds you don't have in a real fire, so I left smoke un-debounced and ate the false alarms. The better answer, which I haven't built yet, is *correlation*: treat it as real only when smoke AND a nearby temperature sensor shows a fast rise. Smoke alone is a maybe; smoke plus a climbing thermometer is a fire.
+- **No central siren.** The ZCOMBO buzzers are loud but localized. "Smoke in the basement, family asleep upstairs" is exactly the case where the local buzzer is least likely to wake anyone. An Aeotec Siren in the upstairs hall, fired by the same automation, is on order.
+- **No camera correlation.** When smoke fires I'd like the indoor cameras to start recording to off-site storage automatically — useful for an insurance claim and for ruling out a false alarm remotely. The Reolink-to-Synology Surveillance Station handoff is more of an ffmpeg wrestling match than it should be; it's on the list, not done.
 
-- A **siren**. Z-Wave Aeotec Doorbell 6 in siren mode is on order. The ZCOMBO buzzers are loud but localized; a bigger central siren makes "smoke + family asleep" much more effective.
-- **Heat sensors in attic/garage** (the rooms where heat-rise fire detection is preferred over smoke detection because they're dusty / fume-prone environments).
-- **A water-mist suppression system** in the basement near the furnace. Overkill for residential; would be cool.
+## What I'd tell a team
+
+Buy a detector that is a *real* UL-listed alarm first and a smart device second. If the spec sheet describes the connected features before it describes the local alarm, that's the tell — walk away. The integration is where the value is, but it has to sit downstream of a buzzer that doesn't know or care whether your hub is alive. Standalone first, network second. Everything good I built here only works because I never let that order flip.
+
+## What's next
+
+Heat sensors for the attic and garage, where dust and fumes make smoke detection a false-alarm machine and rate-of-rise heat detection is the code-preferred answer. And the central siren, so a basement fire is something the whole house hears at once — without trusting the network to make that happen.

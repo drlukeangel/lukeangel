@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="LoRa link across the yard">
+  <defs>
+    <pattern id="dotsLW" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dotsLW)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- ground line -->
+  <line x1="90" y1="470" x2="1120" y2="470" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+
+  <!-- LEFT: garden bed with plants + buried probe -->
+  <g transform="translate(230,470)">
+    <!-- raised bed -->
+    <rect x="-110" y="-44" width="220" height="44" fill="#6a4c93" fill-opacity="0.08" stroke="#1a1d24" stroke-width="3"/>
+    <!-- plants -->
+    <g stroke="#3a7d44" stroke-width="3.5" fill="none" stroke-linecap="round">
+      <path d="M-70 -44 q-8 -34 0 -54 M-70 -60 q12 -8 18 -18 M-70 -54 q-14 -6 -20 -16"/>
+      <path d="M-10 -44 q-6 -30 0 -48 M-10 -58 q12 -6 16 -16 M-10 -52 q-12 -6 -18 -14"/>
+      <path d="M54 -44 q-8 -36 0 -56 M54 -62 q12 -8 18 -18 M54 -56 q-14 -6 -20 -16"/>
+    </g>
+    <!-- buried probe -->
+    <g transform="translate(20,0)">
+      <rect x="-5" y="-6" width="10" height="48" rx="3" fill="#fff" stroke="#1a1d24" stroke-width="3"/>
+      <rect x="-12" y="-26" width="24" height="22" rx="4" fill="#fff" stroke="#6a4c93" stroke-width="3"/>
+      <circle cx="0" cy="-15" r="4" fill="#6a4c93"/>
+    </g>
+  </g>
+
+  <!-- privacy fence in the middle -->
+  <g transform="translate(600,470)" stroke="#1a1d24" stroke-width="3" fill="#fdfaf2">
+    <rect x="-70" y="-150" width="20" height="150"/>
+    <rect x="-40" y="-150" width="20" height="150"/>
+    <rect x="-10" y="-150" width="20" height="150"/>
+    <rect x="20" y="-150" width="20" height="150"/>
+    <rect x="50" y="-150" width="20" height="150"/>
+    <line x1="-80" y1="-120" x2="80" y2="-120" stroke-width="4"/>
+    <line x1="-80" y1="-40" x2="80" y2="-40" stroke-width="4"/>
+  </g>
+
+  <!-- the long LoRa signal arcing over the fence to the house -->
+  <g stroke="#6a4c93" fill="none" stroke-linecap="round">
+    <path d="M280 410 Q 600 200 920 400" stroke-width="4" stroke-opacity="0.5" stroke-dasharray="3 10"/>
+    <!-- a few wave glyphs along the arc -->
+    <path d="M300 372 a16 16 0 0 1 24 -6" stroke-width="3" stroke-opacity="0.7"/>
+    <path d="M880 366 a16 16 0 0 1 24 6" stroke-width="3" stroke-opacity="0.7"/>
+  </g>
+
+  <!-- RIGHT: the house with the LoRa gateway -->
+  <g transform="translate(960,470)">
+    <rect x="-90" y="-130" width="180" height="130" fill="#fff" stroke="#1a1d24" stroke-width="4"/>
+    <path d="M-90 -130 L0 -200 L90 -130 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4" stroke-linejoin="round"/>
+    <!-- gateway box inside -->
+    <g transform="translate(0,-55)">
+      <rect x="-34" y="-26" width="68" height="52" rx="10" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="3"/>
+      <line x1="0" y1="-26" x2="0" y2="-42" stroke="#6a4c93" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="0" cy="-44" r="4" fill="#6a4c93"/>
+      <circle cx="-16" cy="6" r="5" fill="#3a7d44"/>
+    </g>
+  </g>
+</svg>

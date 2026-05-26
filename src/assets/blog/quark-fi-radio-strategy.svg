@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" role="img" aria-label="wifi at home, cellular when out">
+  <rect width="940" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#5b616b;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+  </style>
+
+  <text x="40" y="46" class="hd">THE RADIO STRATEGY — CHEAP AT HOME, COSTLY ONLY WHEN HE LEAVES</text>
+
+  <!-- ground line -->
+  <line x1="40" y1="300" x2="900" y2="300" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+
+  <!-- HOME zone -->
+  <rect x="60" y="120" width="360" height="180" rx="10" fill="#c87533" fill-opacity="0.05" stroke="#c87533" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="240" y="146" text-anchor="middle" class="lab" fill="#c87533">HOME — in Wi-Fi range</text>
+  <!-- house -->
+  <g transform="translate(120,230)">
+    <path d="M0 30 L0 -4 L34 -28 L68 -4 L68 30 Z" fill="#fff" stroke="#1a1d24" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="24" y="6" width="20" height="24" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+  </g>
+  <!-- router waves to dog -->
+  <g transform="translate(230,200)">
+    <path d="M0 20 q22 -22 44 0" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+    <path d="M8 28 q14 -14 28 0" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="22" y="-6" text-anchor="middle" class="lab" fill="#3a7d44">Wi-Fi · ~months</text>
+  </g>
+  <!-- dog at home -->
+  <g transform="translate(320,250)">
+    <ellipse cx="0" cy="14" rx="30" ry="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="26" cy="0" r="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M22 -10 l-3 -8 M32 -10 l3 -8" stroke="#1a1d24" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-20" y1="30" x2="-20" y2="40" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="18" y1="30" x2="18" y2="40" stroke="#1a1d24" stroke-width="3"/>
+    <!-- collar dot -->
+    <circle cx="14" cy="10" r="4" fill="#c87533"/>
+  </g>
+
+  <!-- boundary marker -->
+  <line x1="460" y1="120" x2="460" y2="300" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+  <text x="460" y="318" text-anchor="middle" class="lab">leaves home base</text>
+
+  <!-- AWAY zone -->
+  <rect x="500" y="120" width="400" height="180" rx="10" fill="#1a1d24" fill-opacity="0.03" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="700" y="146" text-anchor="middle" class="lab">AWAY — out of Wi-Fi range</text>
+  <!-- cell tower -->
+  <g transform="translate(560,180)">
+    <line x1="0" y1="0" x2="-10" y2="70" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="0" y1="0" x2="10" y2="70" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="-6" y1="28" x2="6" y2="28" stroke="#1a1d24" stroke-width="2"/>
+    <path d="M-14 -8 q14 -14 28 0" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="0" y="-20" text-anchor="middle" class="lab" fill="#c14a3a">LTE-M (AT&#38;T)</text>
+  </g>
+  <!-- satellite fix -->
+  <g transform="translate(690,210)">
+    <circle r="5" fill="#1a1d24"/>
+    <ellipse rx="22" ry="9" fill="none" stroke="#1a1d24" stroke-width="2" transform="rotate(28)"/>
+    <text x="0" y="-22" text-anchor="middle" class="lab">GPS fix</text>
+  </g>
+  <!-- dog away -->
+  <g transform="translate(820,250)">
+    <ellipse cx="0" cy="14" rx="30" ry="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="26" cy="0" r="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M22 -10 l-3 -8 M32 -10 l3 -8" stroke="#1a1d24" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-20" y1="30" x2="-20" y2="40" stroke="#1a1d24" stroke-width="3"/>
+    <line x1="18" y1="30" x2="18" y2="40" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="14" cy="10" r="4" fill="#c87533"/>
+  </g>
+  <!-- radio link away -->
+  <line x1="586" y1="180" x2="800" y2="240" stroke="#c14a3a" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="610" y="268" text-anchor="middle" class="lab" fill="#c14a3a">cell radio wakes only out here</text>
+  <text x="610" y="284" text-anchor="middle" class="lab" fill="#c14a3a">~2 days in Lost Dog Mode</text>
+
+  <text x="40" y="404" class="cap">Same AT&#38;T LTE-M as the 2016 Whistle — but it stays asleep until he's off Wi-Fi, so the battery lasts months, not days.</text>
+</svg>

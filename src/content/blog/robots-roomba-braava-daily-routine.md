@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 54
 excerpt: "Five years of iRobot Roomba + Braava in the house. The vacuum is a Roomba i7+; the mop is a Braava jet m6. Both join the home routine via SmartThings."
 pullquote: "The Roomba doesn't make the floor cleaner than I would. It makes the floor cleaner more often. Frequency beats thoroughness for whole-house hygiene."
-cover: "../../assets/blog/robots-roomba-braava-daily-routine-cover.png"
-coverAlt: "Robots in the routine — Roomba + Braava choreography"
+cover: "../../assets/blog/robots-roomba-braava-daily-routine-cover.svg"
+coverAlt: "A floor plan with two cleaning robots working different zones. A round Roomba traces a back-and-forth vacuum sweep across the main living area; a squared Braava jet mop, with a small water-drop mark, traces a tidier path through a separate room. Two robots, two zones, one choreographed routine across the house."
 ---
 
 Five years of iRobot Roomba i7+ (vacuum) and Braava jet m6 (mop). Both joined the family before the new-house move. Both are part of the daily routine now in ways that wouldn't work without the connected-home integration.
@@ -22,7 +22,7 @@ This is what they do and how it's automated.
 
 ## The hardware
 
-- **Roomba i7+** ($800, bought December 2020): brushless suction, lidar-equivalent vSLAM mapping, self-emptying base. House map stored on-device + synced to iRobot cloud. Wi-Fi + cellular-fallback connectivity.
+- **Roomba i7+** ($800, bought December 2020): brushless suction, camera-based vSLAM mapping (a top-mounted camera reading visual landmarks, not lidar), self-emptying Clean Base. House map stored on-device + synced to the iRobot cloud. Wi-Fi connected (no local API, no cellular — it's Wi-Fi or nothing).
 - **Braava jet m6** ($500, bought June 2022): mop. Same vSLAM mapping platform as the Roomba. Refillable water reservoir + microfiber pads (disposable or washable).
 
 Both run iRobot's HOME app. Both expose to Home Assistant via the official iRobot integration (cloud-mediated — iRobot doesn't have a local API).
@@ -41,6 +41,8 @@ Saturday:
   
 Sunday: rest day (the robots, anyway)
 ```
+
+![The weekly cleaning choreography as a set of day-row timelines, with the vacuum in purple and the mop in teal. Monday through Friday, while nobody's home: the Roomba vacuums downstairs at 8:30, the Braava mops kitchen, dining and hall at 9:15, and both return to base at 10:00. Saturday, while the kids are still asleep: vacuum upstairs at 9:00, mop bathrooms at 10:00. Sunday is a dashed-outline rest day. A caption notes the sequencing rule — vacuum first, mop second, never the same room at once, and only while the house is empty.](../../assets/blog/robots-weekly-choreography.svg)
 
 ## The HA integration
 
@@ -76,7 +78,7 @@ Sunday: rest day (the robots, anyway)
             - hallway
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "🤖 Roomba started"
+        title: "Roomba started"
         message: "Cleaning downstairs at {{ now().strftime('%H:%M') }}"
 ```
 
@@ -117,6 +119,8 @@ Automation: when the Roomba starts, the cat's feeder gets a small treat dispense
 
 The cat is, technically, part of the smart home routine.
 
+![The cat-conditioning loop drawn as four boxes in a cycle. The Roomba changing to "cleaning" (a state change in HA) triggers a treat to be dispensed (a Z-Wave relay, two-second pulse), which sends the cat to the kitchen counter — off the floor and out of the way — which over time forms the association sound-then-treat-then-move, closing the loop back to the next Roomba run. A caption notes that run enough times, the cat hears the Roomba spin up and heads for the counter on its own — conditioning works.](../../assets/blog/robots-cat-conditioning-loop.svg)
+
 ## The "we're going on vacation" routine
 
 When we're away for >1 day:
@@ -134,7 +138,7 @@ When we're away for >1 day:
         command: "start"
     - service: notify.mobile_app_luke_iphone
       data:
-        title: "🤖 Vacation cleaning started"
+        title: "Vacation cleaning started"
         message: "Daily Roomba runs scheduled until you return"
 ```
 
@@ -159,7 +163,7 @@ I'd probably upgrade when the i7+ dies. Until then, the i7+ is fine.
 
 - **A wall-mounted Braava jet bay** in the laundry room. Currently it lives next to the Roomba dock; relocating to its own spot makes refilling water easier.
 - **Cross-floor coordination.** Currently the upstairs Roomba run is manual. Adding a second Roomba is on the table for 2026.
-- **Dog (planned for 2026) coordination.** When we add a dog, the cleanup-after-pets workload increases. May need a second pass robot. Or, you know, training the dog.
+- **Dog coordination.** The dog sheds, and a shedding dog is exactly the workload frequency-cleaning was built for — but he also treats the Roomba as an adversary. May need a second-pass robot, or just more no-go timing around where he sleeps. (Training the dog to ignore it has not gone well.)
 
 ## What this fits into
 

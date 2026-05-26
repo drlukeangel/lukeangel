@@ -11,6 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 22
 excerpt: "The year the house went local-first: Home Assistant replaced the cloud-tethered automation layer, and the SmartThings security rules moved onto hardware I own. 2016's forecast scored 70%. A heads-up for 2018 — the day job just became a connected medical device, and this journal is about to slow down."
 pullquote: "Local-first isn't a philosophy until the day the cloud you depend on has an outage and your lights still work. 2017 was the year I stopped trusting someone else's servers to run my house."
+cover: "../../assets/blog/2017-in-review-smart-home-journal-goes-quiet-cover.svg"
+coverAlt: "A house with warmly lit windows and a green status light on the door, still running. Above it, a smart-home cloud is drawn dark and dashed with a red power-off symbol, and the link between cloud and house is severed by a red X. The cloud went down; the house stayed lit."
 ---
 
 End of 2017. The year the house quietly stopped depending on other people's servers.
@@ -27,6 +29,8 @@ End of 2017. The year the house quietly stopped depending on other people's serv
 
 3/5 + 2 partials ≈ 70%. The big one landed: the automation brain is now a box in my closet, not a server in someone's data center.
 
+![Grading the 2016 forecast: a green check for moving core automations off the SmartThings cloud, a purple half-mark for HomeKit getting usable, a green check for a second voice assistant in the house, a red cross for getting Zigbee and Z-Wave both off the starter hub (didn't happen), and a purple half-mark for an automation that survives a vendor outage. Three of five plus two halves, about 70 percent. A callout notes the big one landed — the automation brain is now a box in my closet, not someone's data center — and the protocol-off-the-hub bet was the one that missed.](../../assets/blog/2017-forecast-scorecard.svg)
+
 ## What changed in 2017
 
 - **[Home Assistant](/blog/first-home-assistant-install-yaml-configs/)** (July). Running on a Raspberry Pi 3, YAML configs, local control of Hue + a handful of Z-Wave devices. The first time the house's logic lived entirely under my roof.
@@ -35,6 +39,8 @@ End of 2017. The year the house quietly stopped depending on other people's serv
 ## What worked
 
 - **The Pi survived a SmartThings cloud outage in November.** SmartThings went down for a few hours; the cloud-dependent automations across the smart-home world went with it. My door-open-to-light rules kept firing because they run locally now. That was the moment local-first stopped being a preference and became the architecture.
+
+![The November cloud outage, drawn as two houses under a downed SmartThings cloud (greyed out, dashed, with a red power-off symbol). On the left, a cloud-dependent home sits dark — grey windows, a severed link to the cloud, "lights dead, rules silent." On the right, my house runs on the Pi: lit orange windows, a purple roof, a green status dot, "door-to-light rules kept firing." Same outage, two outcomes, depending on where the automation logic lived.](../../assets/blog/2017-outage-who-kept-working.svg)
 - **YAML is verbose but legible.** Six months in, I can still read my own automations. The config is version-controlled in git. This matters more than it sounds.
 
 ## What didn't

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 580" width="1120" height="580" role="img" aria-label="Three-tier PII classification and retention">
+  <rect width="1120" height="580" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">PII IN THREE TIERS — STORAGE &amp; RETENTION</text>
+
+  <!-- column headers -->
+  <g font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">
+    <text x="300" y="86" text-anchor="middle">what it holds</text>
+    <text x="612" y="86" text-anchor="middle">where it lives</text>
+    <text x="912" y="86" text-anchor="middle">retention</text>
+  </g>
+  <line x1="40" y1="98" x2="1080" y2="98" stroke="#1a1d24" stroke-width="2" stroke-opacity="0.18"/>
+
+  <!-- ===== TIER 1 ===== -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="40" y="114" width="120" height="118" rx="10" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="3"/>
+    <text x="100" y="166" text-anchor="middle" font-size="20" fill="#3a7d44">1</text>
+    <text x="100" y="192" text-anchor="middle" font-size="11" fill="#3a7d44">NON-PII</text>
+    <text x="100" y="210" text-anchor="middle" font-size="11" fill="#3a7d44">telemetry</text>
+    <g font-size="12" fill="#1a1d24">
+      <text x="184" y="150">scans · weight · health · faults</text>
+      <text x="184" y="174">cart-id + session-id only,</text>
+      <text x="184" y="198">no customer attached</text>
+    </g>
+    <text x="612" y="150" text-anchor="middle" font-size="12.5" fill="#1a1d24">DynamoDB telemetry</text>
+    <text x="612" y="174" text-anchor="middle" font-size="11" fill="#7a808c">ordinary IAM · open to analytics</text>
+    <text x="912" y="150" text-anchor="middle" font-size="12" fill="#1a1d24">18 mo hot →</text>
+    <text x="912" y="172" text-anchor="middle" font-size="12" fill="#1a1d24">anonymized aggregate</text>
+    <text x="912" y="194" text-anchor="middle" font-size="12" fill="#1a1d24">→ deleted at 5 yr</text>
+  </g>
+
+  <!-- ===== TIER 2 ===== -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="40" y="248" width="120" height="118" rx="10" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="3"/>
+    <text x="100" y="300" text-anchor="middle" font-size="20" fill="#2a52be">2</text>
+    <text x="100" y="326" text-anchor="middle" font-size="11" fill="#2a52be">PSEUDONYMOUS</text>
+    <text x="100" y="344" text-anchor="middle" font-size="11" fill="#2a52be">customer</text>
+    <g font-size="12" fill="#1a1d24">
+      <text x="184" y="284">customer UUID (not from email),</text>
+      <text x="184" y="308">loyalty card number,</text>
+      <text x="184" y="332">session history</text>
+    </g>
+    <text x="612" y="290" text-anchor="middle" font-size="12.5" fill="#1a1d24">Postgres entity store</text>
+    <text x="612" y="314" text-anchor="middle" font-size="11" fill="#7a808c">analyzable, but not linkable</text>
+    <text x="612" y="332" text-anchor="middle" font-size="11" fill="#7a808c">to a person without Tier 3</text>
+    <text x="912" y="302" text-anchor="middle" font-size="12" fill="#1a1d24">lifetime of the account</text>
+  </g>
+
+  <!-- ===== TIER 3 ===== -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="40" y="382" width="120" height="130" rx="10" fill="#c14a3a" fill-opacity="0.10" stroke="#c14a3a" stroke-width="3"/>
+    <text x="100" y="436" text-anchor="middle" font-size="20" fill="#c14a3a">3</text>
+    <text x="100" y="462" text-anchor="middle" font-size="11" fill="#c14a3a">DIRECTLY</text>
+    <text x="100" y="480" text-anchor="middle" font-size="11" fill="#c14a3a">IDENTIFYING</text>
+    <g font-size="12" fill="#1a1d24">
+      <text x="184" y="418">email · name · address · phone,</text>
+      <text x="184" y="442">payment-token-tied-to-Account</text>
+    </g>
+    <!-- lock glyph -->
+    <g transform="translate(184,456)" stroke="#c14a3a" stroke-width="2.4" fill="none">
+      <rect x="0" y="9" width="18" height="14" rx="2.5"/>
+      <path d="M3 9 v-4 a6 6 0 0 1 12 0 v4"/>
+    </g>
+    <text x="212" y="472" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">isolated subnet</text>
+    <text x="612" y="424" text-anchor="middle" font-size="12.5" fill="#1a1d24">separate Postgres DB</text>
+    <text x="612" y="448" text-anchor="middle" font-size="11" fill="#7a808c">stricter IAM · two-person access</text>
+    <text x="612" y="466" text-anchor="middle" font-size="11" fill="#7a808c">full audit logging</text>
+    <text x="912" y="418" text-anchor="middle" font-size="12" fill="#1a1d24">account lifetime, then</text>
+    <text x="912" y="440" text-anchor="middle" font-size="12" fill="#1a1d24">+7 yr tax/audit hold</text>
+    <text x="912" y="462" text-anchor="middle" font-size="12" fill="#1a1d24">→ hard-deleted</text>
+  </g>
+
+  <!-- the one-way logged bridge between tier 2 and tier 3 -->
+  <g stroke="#c14a3a" stroke-width="2.6" fill="#c14a3a">
+    <line x1="100" y1="382" x2="100" y2="370"/>
+    <path d="M88 372 h24 l-12 -12 z"/>
+  </g>
+  <rect x="184" y="357" width="556" height="22" rx="6" fill="#c14a3a" fill-opacity="0.06"/>
+  <text x="196" y="372" text-anchor="start" font-family="ui-monospace,monospace" font-size="11.5" fill="#c14a3a">Tier 2 ↔ Tier 3 bridged ONLY via the identity service — which logs every join</text>
+
+  <!-- vertical separators -->
+  <g stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.10">
+    <line x1="468" y1="114" x2="468" y2="512"/>
+    <line x1="756" y1="114" x2="756" y2="512"/>
+  </g>
+
+  <text x="560" y="552" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">GDPR deletion hits Tier 3 and propagates to Tier 2; Tier 1 has no PII left to delete.</text>
+</svg>

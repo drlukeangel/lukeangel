@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="Postgres versus DynamoDB on IoT telemetry">
+  <rect width="1120" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">SAME QUERY — LAST 100 EVENTS FOR ONE DEVICE</text>
+  <line x1="560" y1="70" x2="560" y2="438" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT: Postgres, sequential scan that grows with the fleet -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="100" font-size="16" fill="#c14a3a">POSTGRES · one wide table</text>
+    <text x="40" y="124" font-size="12" fill="#7a808c">WHERE device_id=? ORDER BY ts DESC LIMIT 100</text>
+
+    <!-- table heap: rows for many devices interleaved, growing downward -->
+    <rect x="40" y="146" width="300" height="208" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <g>
+      <rect x="40" y="146" width="300" height="26" rx="10" fill="#c14a3a" opacity="0.10"/>
+      <text x="56" y="164" font-size="11" fill="#5b616b">device_telemetry — 10M+ rows</text>
+    </g>
+    <!-- interleaved rows of mixed devices (only a few are the target) -->
+    <g font-size="11">
+      <g fill="#7a808c" opacity="0.55">
+        <rect x="56" y="182" width="268" height="12" rx="3"/>
+        <rect x="56" y="200" width="268" height="12" rx="3"/>
+        <rect x="56" y="236" width="268" height="12" rx="3"/>
+        <rect x="56" y="254" width="268" height="12" rx="3"/>
+        <rect x="56" y="290" width="268" height="12" rx="3"/>
+        <rect x="56" y="308" width="268" height="12" rx="3"/>
+        <rect x="56" y="326" width="268" height="12" rx="3"/>
+      </g>
+      <!-- the matching rows, scattered -->
+      <g fill="#c14a3a">
+        <rect x="56" y="218" width="268" height="12" rx="3"/>
+        <rect x="56" y="272" width="268" height="12" rx="3"/>
+      </g>
+    </g>
+    <!-- scan arrow dragging top-to-bottom across everything -->
+    <g stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M28 152 V 348"/>
+    </g>
+    <path d="M28 354 l-6 -15 h12 z" fill="#c14a3a"/>
+    <text x="40" y="384" font-size="13" fill="#c14a3a">reads the whole table to find them</text>
+    <text x="40" y="408" font-size="13" fill="#1a1d24">latency climbs with every device added</text>
+    <!-- rising latency sparkline -->
+    <g stroke="#c14a3a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M392 422 L 432 414 L 470 398 L 506 360"/>
+    </g>
+    <path d="M506 360 l-2 14 14 -4 z" fill="#c14a3a"/>
+  </g>
+
+  <!-- RIGHT: DynamoDB, single-partition range scan, flat at any size -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="600" y="100" font-size="16" fill="#2a52be">DYNAMODB · partition + sort</text>
+    <text x="600" y="124" font-size="12" fill="#7a808c">pk = device_id · sk = event_ts (range)</text>
+
+    <!-- one device's partition only -->
+    <rect x="600" y="146" width="300" height="208" rx="10" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <g>
+      <rect x="600" y="146" width="300" height="26" rx="10" fill="#2a52be" opacity="0.10"/>
+      <text x="616" y="164" font-size="11" fill="#5b616b">partition: one device, sorted by time</text>
+    </g>
+    <g fill="#2a52be">
+      <rect x="616" y="182" width="268" height="12" rx="3"/>
+      <rect x="616" y="200" width="268" height="12" rx="3"/>
+      <rect x="616" y="218" width="268" height="12" rx="3"/>
+      <rect x="616" y="236" width="268" height="12" rx="3"/>
+      <rect x="616" y="254" width="268" height="12" rx="3"/>
+      <rect x="616" y="272" width="268" height="12" rx="3"/>
+      <rect x="616" y="290" width="268" height="12" rx="3"/>
+    </g>
+    <g fill="#7a808c" opacity="0.3"><rect x="616" y="308" width="268" height="12" rx="3"/><rect x="616" y="326" width="268" height="12" rx="3"/></g>
+    <!-- range scan bracket: jump straight to the contiguous slice -->
+    <g stroke="#2a52be" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M588 178 V 296"/>
+      <path d="M588 178 h10"/>
+      <path d="M588 296 h10"/>
+    </g>
+    <text x="600" y="384" font-size="13" fill="#2a52be">jumps to one contiguous slice</text>
+    <text x="600" y="408" font-size="13" fill="#1a1d24">flat single-digit ms at any table size</text>
+    <!-- flat latency line -->
+    <g stroke="#3a7d44" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M952 416 L 1080 416"/>
+    </g>
+    <circle cx="952" cy="416" r="4" fill="#3a7d44"/>
+    <circle cx="1080" cy="416" r="4" fill="#3a7d44"/>
+  </g>
+</svg>

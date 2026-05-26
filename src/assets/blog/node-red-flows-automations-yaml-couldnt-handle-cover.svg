@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A dense block of config becoming a clean visual flow of wired nodes">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6a4c93"/>
+
+  <!-- LEFT: a dense, hard-to-read block of nested config (illegible lines, deep indent) -->
+  <g transform="translate(120,180)">
+    <rect x="0" y="0" width="320" height="280" rx="10" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-width="3"/>
+    <g stroke="#7a808c" stroke-width="5" stroke-linecap="round" opacity="0.55">
+      <line x1="28" y1="34" x2="220" y2="34"/>
+      <line x1="52" y1="64" x2="180" y2="64"/>
+      <line x1="76" y1="94" x2="250" y2="94"/>
+      <line x1="100" y1="124" x2="210" y2="124"/>
+      <line x1="100" y1="154" x2="270" y2="154"/>
+      <line x1="124" y1="184" x2="230" y2="184"/>
+      <line x1="76" y1="214" x2="200" y2="214"/>
+      <line x1="52" y1="244" x2="160" y2="244"/>
+    </g>
+    <!-- a couple of red "danger / afraid to touch" marks -->
+    <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round">
+      <line x1="262" y1="118" x2="278" y2="134"/><line x1="278" y1="118" x2="262" y2="134"/>
+    </g>
+  </g>
+
+  <!-- transform arrow -->
+  <g transform="translate(470,300)">
+    <path d="M0 20 H110" fill="none" stroke="#6a4c93" stroke-width="5"/>
+    <path d="M116 20 l-20 -11 v22 z" fill="#6a4c93"/>
+  </g>
+
+  <!-- RIGHT: a clean node flow (boxes wired left-to-right, branching) -->
+  <g transform="translate(620,150)">
+    <!-- nodes -->
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="3">
+      <rect x="0" y="60" width="90" height="46" rx="10"/>
+      <rect x="150" y="60" width="90" height="46" rx="10"/>
+      <rect x="150" y="200" width="90" height="46" rx="10"/>
+      <rect x="300" y="130" width="90" height="46" rx="10"/>
+      <rect x="450" y="130" width="90" height="46" rx="10"/>
+    </g>
+    <!-- node ports (little tabs) + accent fills -->
+    <g fill="#6a4c93">
+      <circle cx="90" cy="83" r="6"/><circle cx="150" cy="83" r="6"/>
+      <circle cx="240" cy="83" r="6"/><circle cx="150" cy="223" r="6"/>
+      <circle cx="240" cy="223" r="6"/><circle cx="300" cy="153" r="6"/>
+      <circle cx="390" cy="153" r="6"/><circle cx="450" cy="153" r="6"/>
+    </g>
+    <!-- wires -->
+    <g stroke="#6a4c93" stroke-width="3" fill="none">
+      <path d="M90 83 H150"/>
+      <path d="M240 83 C275 83, 280 153, 300 153"/>
+      <path d="M240 223 C275 223, 280 153, 300 153"/>
+      <path d="M390 153 H450"/>
+    </g>
+    <!-- a live "message" dot mid-wire (the visual debugger) -->
+    <circle cx="120" cy="83" r="7" fill="#3a7d44"/>
+    <circle cx="420" cy="153" r="7" fill="#3a7d44"/>
+  </g>
+</svg>

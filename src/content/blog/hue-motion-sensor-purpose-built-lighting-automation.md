@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 17
 excerpt: "Philips finally shipped the Hue Motion sensor. Battery-powered, Zigbee Light Link, joins the Hue bridge natively. First hardware that lets us automate without rules."
 pullquote: "A motion sensor that's actually paired to its bulb ecosystem reacts in under 200 ms. Cross-ecosystem (SmartThings → Hue cloud → bulb) is 2-3 seconds. The difference is between 'magic' and 'frustrating'."
-cover: "../../assets/blog/hue-motion-sensor-purpose-built-lighting-automation-cover.png"
-coverAlt: "Hue Motion sensor — Hue's first native automation device"
+cover: "../../assets/blog/hue-motion-sensor-purpose-built-lighting-automation-cover.svg"
+coverAlt: "A small PIR motion sensor sensing a passing figure and lighting a bulb directly through the Hue bridge on one short hop — a sensor, bridge, and bulb on the same mesh, reacting almost instantly."
 ---
 
 Hue Motion sensor finally shipped this month after nine months of rumors. Battery-powered (2× AAA, claimed 2-year life), Zigbee Light Link, pairs with the Hue v2 bridge directly. $40.
@@ -56,6 +56,8 @@ Motion detected (PIR fires)
 ```
 
 End-to-end: **under 200 ms**. Light is on before your foot touches the second tile. That's the difference between "magic" and "frustrating."
+
+![Why the native Hue path feels instant and the cross-ecosystem path doesn't. Top: a cross-ecosystem motion-to-light chain hops from the PIR to the SmartThings hub, out to the SmartThings cloud, into the Hue cloud, down to the Hue bridge, and finally to the bulb — six hops, two round-trips to the internet, totalling two to four seconds. Bottom: the native Hue sensor sits on the same Zigbee mesh as the bulb, so motion goes PIR → Hue bridge (local rule) → bulb in three short hops, under 200 milliseconds, never leaving the house. The same automation; the difference is entirely in how far the signal has to travel.](../../assets/blog/hue-motion-latency-paths.svg)
 
 ## The Hue bridge's rules engine
 
@@ -100,6 +102,8 @@ That last one is the architecture problem. I now have *two* PIR sensors in the h
 - An Aeotec Multisensor (paired to SmartThings hub, feeds the security SmartApp).
 
 Both work. Both report independently. Neither knows about the other. That's the multi-hub world.
+
+![The two-PIR problem in one hallway. A single hallway holds two motion sensors that both fire on the same footsteps: a Hue Motion paired to the Hue bridge, which drives the lights instantly, and an Aeotec Multisensor paired to the SmartThings hub, which feeds the security SmartApp. Each sensor reports only to its own hub, and the two hubs have no link between them — a broken connection sits in the gap. The result is duplicated hardware doing duplicated sensing because the ecosystems don't share state. That is the everyday cost of the multi-hub world.](../../assets/blog/hue-motion-two-hubs-one-hallway.svg)
 
 ## Battery + range observations
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 380" width="1120" height="380" role="img" aria-label="Data is encrypted in motion and at rest. Across the pipeline — device, broker, stream processing, store — every hop is TLS-encrypted (in motion), and the store is encrypted with a managed key (at rest).">
+  <rect width="1120" height="380" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ENCRYPTED IN MOTION AND AT REST</text>
+
+  <text x="380" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1" fill="#c14a3a">IN MOTION · TLS every hop</text>
+
+  <g font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">
+    <rect x="40" y="150" width="150" height="74" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><text x="115" y="193" text-anchor="middle">DEVICE</text>
+    <rect x="306" y="150" width="150" height="74" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><text x="381" y="193" text-anchor="middle">BROKER</text>
+    <rect x="572" y="150" width="150" height="74" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><text x="647" y="193" text-anchor="middle">STREAM</text>
+    <rect x="838" y="150" width="170" height="74" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><text x="923" y="193" text-anchor="middle">STORE</text>
+  </g>
+  <!-- arrows + tls locks -->
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24">
+    <line x1="190" y1="187" x2="302" y2="187"/><path d="M306 187 l-15 -7 v14 z"/>
+    <line x1="456" y1="187" x2="568" y2="187"/><path d="M572 187 l-15 -7 v14 z"/>
+    <line x1="722" y1="187" x2="834" y2="187"/><path d="M838 187 l-15 -7 v14 z"/>
+  </g>
+  <g fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6">
+    <g transform="translate(236,150)"><rect x="0" y="9" width="20" height="15" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4" fill="none"/></g>
+    <g transform="translate(502,150)"><rect x="0" y="9" width="20" height="15" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4" fill="none"/></g>
+    <g transform="translate(768,150)"><rect x="0" y="9" width="20" height="15" rx="2.5"/><path d="M3 9 v-4 a7 7 0 0 1 14 0 v4" fill="none"/></g>
+  </g>
+  <!-- at rest lock on store -->
+  <g transform="translate(912,244)" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"><rect x="0" y="13" width="24" height="18" rx="3"/><path d="M4 13 v-5 a8 8 0 0 1 16 0 v5" fill="none"/><circle cx="12" cy="22" r="3" fill="#c14a3a" stroke="none"/></g>
+  <text x="923" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1" fill="#c14a3a">AT REST · KMS key</text>
+
+  <text x="560" y="350" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">No plaintext hop, ever — and a key you control and rotate at the end of it.</text>
+</svg>

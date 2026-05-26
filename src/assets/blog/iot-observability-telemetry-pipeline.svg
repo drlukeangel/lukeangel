@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" role="img" aria-label="Telemetry to CloudWatch pipeline">
+  <rect width="1120" height="560" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">TELEMETRY → CLOUDWATCH, ONE DIMENSION: thing_name</text>
+
+  <!-- fleet -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none" font-family="ui-monospace,monospace">
+    <g transform="translate(46,150)"><rect x="0" y="0" width="46" height="46" rx="10"/><circle cx="23" cy="23" r="7" fill="#2a52be" stroke="none"/></g>
+    <g transform="translate(46,230)"><rect x="0" y="0" width="46" height="46" rx="10"/><circle cx="23" cy="23" r="7" fill="#2a52be" stroke="none"/></g>
+    <g transform="translate(46,310)"><rect x="0" y="0" width="46" height="46" rx="10"/><circle cx="23" cy="23" r="7" fill="#2a52be" stroke="none"/></g>
+  </g>
+  <text x="69" y="402" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">fleet</text>
+
+  <!-- mqtt to IoT Core -->
+  <g stroke="#2a52be" stroke-width="2.5" fill="none"><path d="M92 173 C 150 173 150 250 196 250"/><path d="M92 253 H 196"/><path d="M92 333 C 150 333 150 256 196 256"/></g>
+  <g fill="#2a52be"><path d="M200 250 l-14 -6 v12 z"/></g>
+  <text x="146" y="218" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#2a52be">MQTT</text>
+
+  <!-- IoT Core -->
+  <rect x="204" y="210" width="150" height="92" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+  <text x="279" y="252" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">AWS IoT Core</text>
+  <text x="279" y="274" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">broker + rules</text>
+
+  <!-- IoT Rule -> Lambda -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#1a1d24"><line x1="354" y1="256" x2="408" y2="256"/><path d="M412 256 l-14 -6 v12 z"/></g>
+  <text x="383" y="244" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">IoT Rule</text>
+
+  <rect x="416" y="210" width="150" height="92" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="491" y="246" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">ingest Lambda</text>
+  <text x="491" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">stamp + tag thing_name</text>
+
+  <!-- Lambda -> CloudWatch metrics/logs -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#1a1d24"><line x1="566" y1="232" x2="626" y2="200"/><path d="M630 198 l-15 -1 6 11 z"/><line x1="566" y1="280" x2="626" y2="312"/><path d="M630 314 l-9 -12 -6 11 z"/></g>
+
+  <!-- CloudWatch Metrics -->
+  <rect x="634" y="150" width="210" height="86" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+  <text x="739" y="186" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">CloudWatch Metrics</text>
+  <text x="739" y="210" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">per-device p50/p95/p99</text>
+
+  <!-- CloudWatch Logs -->
+  <rect x="634" y="276" width="210" height="86" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="739" y="312" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">CloudWatch Logs</text>
+  <text x="739" y="336" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">Insights queries</text>
+
+  <!-- to dashboards / alarms -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#1a1d24"><line x1="844" y1="193" x2="912" y2="193"/><path d="M916 193 l-14 -6 v12 z"/><line x1="844" y1="319" x2="912" y2="319"/><path d="M916 319 l-14 -6 v12 z"/></g>
+  <rect x="920" y="150" width="160" height="86" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="3"/>
+  <text x="1000" y="188" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#2a52be">dashboards</text>
+  <text x="1000" y="210" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">+ alarms</text>
+  <rect x="920" y="276" width="160" height="86" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="1000" y="314" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">#fleet-errors</text>
+  <text x="1000" y="336" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">hourly Slack post</text>
+
+  <!-- side loop: fleet-diff + last_seen -->
+  <line x1="40" y1="448" x2="1080" y2="448" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1.5"/>
+  <text x="34" y="482" font-family="ui-monospace,monospace" font-size="12" letter-spacing="1" fill="#7a808c">SIDE LOOP — what the native side won't give you</text>
+
+  <rect x="204" y="496" width="280" height="44" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="344" y="524" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">fleet-diff Lambda · every 5 min</text>
+
+  <rect x="520" y="496" width="324" height="44" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="682" y="524" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">last_seen_at on the IoT Thing → Insights</text>
+</svg>

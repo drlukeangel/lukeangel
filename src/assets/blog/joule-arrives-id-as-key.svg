@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 410" width="1080" height="410" role="img" aria-label="The microchip ID is a key into a registry database, not the record itself.">
+  <rect width="1080" height="410" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE ID IS A KEY, NOT A RECORD</text>
+
+  <!-- LEFT: the chip + its one number -->
+  <g transform="translate(60,120)">
+    <rect x="0" y="0" width="300" height="180" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="150" y="36" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">THE IMPLANT</text>
+    <!-- chip glyph -->
+    <g transform="translate(150,84)">
+      <rect x="-44" y="-15" width="88" height="30" rx="15" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+      <line x1="20" y1="-15" x2="20" y2="15" stroke="#c87533" stroke-width="2" opacity="0.6"/>
+      <line x1="10" y1="-15" x2="10" y2="15" stroke="#c87533" stroke-width="2" opacity="0.6"/>
+      <line x1="0" y1="-15" x2="0" y2="15" stroke="#c87533" stroke-width="2" opacity="0.6"/>
+    </g>
+    <text x="150" y="134" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#1a1d24">985 112 005 678 901</text>
+    <text x="150" y="158" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">one number · write-once · no PII</text>
+  </g>
+
+  <!-- arrow: look up -->
+  <g transform="translate(0,210)">
+    <text x="470" y="-6" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#c87533">look up the number</text>
+    <g stroke="#c87533" stroke-width="4" fill="#c87533">
+      <line x1="372" y1="0" x2="556" y2="0"/>
+      <path d="M560 0 l-18 -8 v16 z"/>
+    </g>
+  </g>
+
+  <!-- RIGHT: the registry record -->
+  <g transform="translate(580,86)">
+    <rect x="0" y="0" width="440" height="248" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="24" y="38" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">REGISTRY DATABASE</text>
+    <text x="24" y="58" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">e.g. 24PetWatch — the real source of truth</text>
+
+    <!-- record rows -->
+    <g font-family="ui-monospace,monospace" font-size="13">
+      <line x1="24" y1="78" x2="416" y2="78" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+      <text x="24" y="106" fill="#7a808c">name</text>   <text x="150" y="106" fill="#1a1d24">Joule</text>
+      <text x="24" y="136" fill="#7a808c">owner</text>  <text x="150" y="136" fill="#1a1d24">Luke</text>
+      <text x="24" y="166" fill="#7a808c">phone</text>  <text x="150" y="166" fill="#1a1d24">···</text>
+      <text x="24" y="196" fill="#7a808c">address</text><text x="150" y="196" fill="#1a1d24">···</text>
+      <text x="24" y="226" fill="#7a808c">vet</text>    <text x="150" y="226" fill="#1a1d24">···</text>
+    </g>
+  </g>
+
+  <text x="540" y="378" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">Move house or change your number and you update the database row — never the chip.</text>
+</svg>

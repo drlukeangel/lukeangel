@@ -9,6 +9,8 @@ tags:
   - product
 excerpt: Five files, one notebook, one rubric. The point is to stop talking about evals and start running them — on a Wednesday.
 pullquote: Vibes are a feature flag without a kill switch.
+notebook: building-with-ai-ml
+notebookOrder: 7
 cover: ../../assets/blog/eval-starter-kit-cover.svg
 coverAlt: Cover graphic for the open-source eval starter kit for product managers — five files, one notebook, one rubric
 ---
@@ -61,6 +63,10 @@ The repo encodes one loop. Run it on every LLM feature you own.
 - **Model-based** — a stronger model like `gpt-4o` or `claude-3.5-sonnet` grades semantic quality on a 1 – 5 scale. Use this for tone, faithfulness, and anything else where there's no single correct string.
 
 **4. Wire it into CI/CD.** Run the eval on every prompt change or model version bump. Fail the build when the score drops below your threshold. Thirty examples through `gpt-4o-mini` plus a `gpt-4o` judge is pennies per run. Run it on every pull request without thinking about cost.
+
+The mechanical shape of that gate is the whole reason this works — the score stops being a number someone eyeballs in a notebook and becomes a pass/fail that blocks a merge, same as a unit test:
+
+![How the eval becomes a regression gate in CI. A prompt or model change opens a pull request; the runner replays the golden dataset through the model under test, the judge scores each response on the rubric, and the mean score is compared to a threshold. At or above the bar the build passes and the change can merge; below it the build fails and the regression is blocked before it ships.](../../assets/blog/eval-regression-gate.svg)
 
 ## Choosing a heavier framework once you outgrow it
 

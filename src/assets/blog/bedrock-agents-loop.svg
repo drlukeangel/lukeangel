@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 500" width="1120" height="500" role="img" aria-label="The agent orchestration loop.">
+  <rect width="1120" height="500" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <defs>
+    <marker id="lp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THINK &#8594; CALL &#8594; OBSERVE &#8594; REPEAT</text>
+
+  <!-- managed boundary -->
+  <rect x="250" y="86" width="540" height="300" rx="20" fill="none" stroke="#4f46b8" stroke-width="2.5" stroke-dasharray="11 9" opacity="0.8"/>
+  <text x="266" y="110" font-family="ui-monospace,monospace" font-size="12" fill="#4f46b8">managed (AWS owns the loop)</text>
+
+  <!-- goal in -->
+  <rect x="40" y="200" width="150" height="58" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="115" y="234" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">goal in</text>
+  <line x1="190" y1="229" x2="318" y2="229" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#lp-arrow)"/>
+
+  <!-- model node -->
+  <rect x="320" y="180" width="180" height="98" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text x="410" y="220" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#1a1d24">model</text>
+  <text x="410" y="244" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#7a808c">think</text>
+
+  <!-- top: model -> action groups (tool call) -->
+  <path d="M500 200 C 560 168, 600 168, 620 178" fill="none" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#lp-arrow)"/>
+  <text x="560" y="160" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#4f46b8">tool call</text>
+
+  <!-- action groups stack -->
+  <g>
+    <rect x="620" y="160" width="150" height="40" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="620" y="208" width="150" height="40" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="620" y="256" width="150" height="40" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="695" y="185" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">action grp &#955;</text>
+    <text x="695" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">action grp &#955;</text>
+    <text x="695" y="281" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">action grp &#955;</text>
+  </g>
+
+  <!-- bottom: action groups -> model (observation) -->
+  <path d="M620 278 C 580 320, 480 308, 460 282" fill="none" stroke="#1a1d24" stroke-width="2.5" marker-end="url(#lp-arrow)"/>
+  <text x="540" y="330" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#4f46b8">observation</text>
+
+  <!-- knowledge base feeding model -->
+  <g transform="translate(150,330)">
+    <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+      <path d="M0 5 a34 11 0 0 0 68 0 v30 a34 11 0 0 1 -68 0 z"/>
+      <ellipse cx="34" cy="5" rx="34" ry="11"/>
+    </g>
+    <text x="34" y="62" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">knowledge base</text>
+    <path d="M68 18 C 150 18, 200 60, 230 -88" fill="none" stroke="#4f46b8" stroke-width="2.2" stroke-dasharray="7 6" marker-end="url(#lp-arrow)"/>
+  </g>
+
+  <!-- loop budget note + exit -->
+  <path d="M500 244 C 560 244, 580 244, 600 244" fill="none" stroke="none"/>
+  <rect x="820" y="200" width="170" height="58" rx="12" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="905" y="226" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">answer out</text>
+  <text x="905" y="246" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">done / budget hit</text>
+  <path d="M500 258 C 640 360, 760 320, 818 250" fill="none" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="6 6" marker-end="url(#lp-arrow)" opacity="0.7"/>
+
+  <text x="560" y="468" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">You own the goal and the action groups; AWS owns the loop, the scaffolding, the retries.</text>
+</svg>

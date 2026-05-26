@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 430" width="1080" height="430" role="img" aria-label="Signed-image trust: device verifies the signature, not the phone.">
+  <rect width="1080" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">THE DEVICE TRUSTS THE SIGNATURE, NOT THE COURIER</text>
+
+  <!-- divider -->
+  <line x1="540" y1="70" x2="540" y2="386" stroke="#1a1d24" stroke-width="1.6" stroke-opacity="0.18" stroke-dasharray="6 6"/>
+  <text x="270" y="96" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">LEGITIMATE IMAGE</text>
+  <text x="810" y="96" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">MALICIOUS IMAGE</text>
+
+  <!-- LEFT: build signs -->
+  <g transform="translate(40,120)">
+    <rect x="0" y="0" width="150" height="74" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="75" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">BUILD (HSM)</text>
+    <text x="75" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">signs w/ privkey</text>
+  </g>
+  <!-- signed image -->
+  <g transform="translate(220,120)">
+    <rect x="0" y="0" width="92" height="74" rx="8" fill="#357a8c" fill-opacity="0.1" stroke="#357a8c" stroke-width="2.6"/>
+    <text x="46" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">image</text>
+    <g transform="translate(46,46)">
+      <circle cx="0" cy="0" r="13" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+      <path d="M-5 0 l3.5 4.5 7 -9" fill="none" stroke="#357a8c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <!-- phone (pipe) left -->
+  <g transform="translate(120,224)">
+    <rect x="0" y="0" width="64" height="96" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <rect x="8" y="13" width="48" height="62" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.5"/>
+    <circle cx="32" cy="85" r="5" fill="none" stroke="#1a1d24" stroke-width="1.8"/>
+    <text x="32" y="-8" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">phone · pipe</text>
+  </g>
+  <!-- arrows down into device left -->
+  <g stroke="#357a8c" stroke-width="2.8" fill="#357a8c">
+    <line x1="266" y1="198" x2="266" y2="240"/><path d="M266 244 l-7 -15 14 0 z"/>
+  </g>
+  <text x="266" y="216" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">over BLE</text>
+  <!-- device left: pass -->
+  <g transform="translate(212,250)">
+    <rect x="0" y="0" width="240" height="116" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="120" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">DEVICE · verify vs on-chip pubkey</text>
+    <g transform="translate(28,46)">
+      <circle cx="20" cy="20" r="20" fill="#3a7d44" fill-opacity="0.14" stroke="#3a7d44" stroke-width="2.6"/>
+      <path d="M11 20 l6 7 12 -15" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="150" y="72" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#3a7d44">signature valid</text>
+    <text x="150" y="94" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">→ image accepted</text>
+  </g>
+
+  <!-- RIGHT: attacker substitutes -->
+  <g transform="translate(590,120)">
+    <rect x="0" y="0" width="150" height="74" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <text x="75" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#c14a3a">ATTACKER APP</text>
+    <text x="75" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">no signing key</text>
+  </g>
+  <!-- unsigned image -->
+  <g transform="translate(770,120)">
+    <rect x="0" y="0" width="92" height="74" rx="8" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.6"/>
+    <text x="46" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">image</text>
+    <g transform="translate(46,46)" stroke="#c14a3a" stroke-width="2.6" stroke-linecap="round">
+      <line x1="-7" y1="-7" x2="7" y2="7"/><line x1="7" y1="-7" x2="-7" y2="7"/>
+    </g>
+    <text x="46" y="68" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#c14a3a">unsigned</text>
+  </g>
+  <!-- phone (pipe) right -->
+  <g transform="translate(670,224)">
+    <rect x="0" y="0" width="64" height="96" rx="11" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <rect x="8" y="13" width="48" height="62" rx="4" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.5" stroke-opacity="0.5"/>
+    <circle cx="32" cy="85" r="5" fill="none" stroke="#1a1d24" stroke-width="1.8"/>
+    <text x="32" y="-8" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">phone · pipe</text>
+  </g>
+  <g stroke="#c14a3a" stroke-width="2.8" fill="#c14a3a">
+    <line x1="816" y1="198" x2="816" y2="240"/><path d="M816 244 l-7 -15 14 0 z"/>
+  </g>
+  <text x="816" y="216" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">over BLE</text>
+  <!-- device right: fail -->
+  <g transform="translate(762,250)">
+    <rect x="0" y="0" width="240" height="116" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="120" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">DEVICE · verify vs on-chip pubkey</text>
+    <g transform="translate(28,46)">
+      <circle cx="20" cy="20" r="20" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.6"/>
+      <line x1="12" y1="12" x2="28" y2="28" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      <line x1="28" y1="12" x2="12" y2="28" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="150" y="72" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#c14a3a">signature fails</text>
+    <text x="150" y="94" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">→ discarded · logged</text>
+  </g>
+
+  <text x="540" y="412" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">The phone can withhold an update; it cannot forge one. The signature is what the device believes.</text>
+</svg>

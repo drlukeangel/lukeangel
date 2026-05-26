@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 430" width="1040" height="430" role="img" aria-label="One device's policy, scoped to itself. Device abc-123 is allowed to publish its own telemetry and subscribe to its own commands, and denied everything else: wildcard topics, the firmware bucket, and any admin API. Scoped by its own identity, with no wildcards and no shared policy.">
+  <rect width="1040" height="430" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE DEVICE'S POLICY — SCOPED TO ITSELF</text>
+
+  <g transform="translate(56,150)">
+    <rect x="0" y="0" width="170" height="104" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="30" cy="30" r="7" fill="none" stroke="#1a1d24" stroke-width="2.5"/><circle cx="30" cy="30" r="3" fill="#c14a3a"/>
+    <text x="85" y="62" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#7a808c">device</text>
+    <text x="85" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#1a1d24">abc-123</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="226" y1="202" x2="290" y2="202"/><path d="M294 202 l-15 -7 v14 z"/></g>
+
+  <text x="320" y="112" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#3a7d44">ALLOW</text>
+  <path d="M322 132 l7 7 12 -15" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="352" y="139" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">publish    telemetry/abc-123</text>
+  <path d="M322 164 l7 7 12 -15" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="352" y="171" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">subscribe  commands/abc-123</text>
+
+  <text x="320" y="228" font-family="ui-monospace,monospace" font-size="13" letter-spacing="1" fill="#c14a3a">DENY — everything else (default)</text>
+  <g transform="translate(322,240)" stroke="#c14a3a" stroke-width="2.6"><line x1="0" y1="0" x2="12" y2="12"/><line x1="12" y1="0" x2="0" y2="12"/></g>
+  <text x="352" y="252" font-family="ui-monospace,monospace" font-size="13" fill="#7a808c">publish    telemetry/*   (wildcard)</text>
+  <g transform="translate(322,272)" stroke="#c14a3a" stroke-width="2.6"><line x1="0" y1="0" x2="12" y2="12"/><line x1="12" y1="0" x2="0" y2="12"/></g>
+  <text x="352" y="284" font-family="ui-monospace,monospace" font-size="13" fill="#7a808c">read       the firmware bucket</text>
+  <g transform="translate(322,304)" stroke="#c14a3a" stroke-width="2.6"><line x1="0" y1="0" x2="12" y2="12"/><line x1="12" y1="0" x2="0" y2="12"/></g>
+  <text x="352" y="316" font-family="ui-monospace,monospace" font-size="13" fill="#7a808c">call       any admin API</text>
+
+  <line x1="40" y1="362" x2="1000" y2="362" stroke="#1a1d24" stroke-width="1" opacity="0.15"/>
+  <text x="520" y="398" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="16" font-style="italic" fill="#3a3f4a">Scoped by its own identity (${ThingName}) — no wildcards, no shared policy.</text>
+</svg>

@@ -8,15 +8,15 @@ tags:
   - aws
   - ota
   - hardware
-notebook: iot-security
-notebookOrder: 3
+notebook: connected-products
+notebookOrder: 9
 excerpt: "We finally rolled OTA to production last quarter. Eighteen months of planning, two months of execution, three near-misses. The pieces that actually mattered, written down."
 pullquote: "Bricking a device in the field is a quarter you don't get back."
 cover: "../../assets/blog/ota-firmware-without-bricking-cover.svg"
-coverAlt: "Cover graphic — OTA firmware updates without bricking the fleet. May 2025."
+coverAlt: "A device with two firmware slots — the active slot verified with a green check, the inactive slot loading a new signed image — and a rollback loop that falls back to the known-good slot if the new image fails to prove itself, so an update can't brick the device."
 ---
 
-We rolled OTA firmware updates to production last quarter. It took eighteen months of *planning,* two months of *execution,* and produced three near-misses that I'll be writing into our runbook for a long time. This is the post I wish I'd had when we started.
+We rolled OTA firmware updates to the cart fleet last quarter. It took eighteen months of *planning,* two months of *execution,* and produced three near-misses that I'll be writing into our runbook for a long time. This is the post I wish I'd had when we started — the operational mechanics of getting an update onto the fleet without bricking it. (The *security* of updates — signing, blast radius, anti-rollback, rotating the signing key — is [its own post in the security series](/blog/securing-ota-updates/); this one assumes the image you're shipping is already one you trust.)
 
 ## The four pieces, in dependency order
 
@@ -26,6 +26,8 @@ OTA is not one feature. It's four, in a fixed dependency order. Skip one and the
 The device has two firmware regions — A and B — and a tiny bootloader that picks which to run. New firmware goes into the *inactive* slot, the bootloader is told to try the new slot next boot, and the new firmware has to "phone home, mark itself good" within N minutes or the bootloader rolls back automatically.
 
 There is no version of OTA that works without this. We tried — we considered an in-place update with backup-to-flash-and-restore. It fails the first time a device loses power mid-update. A/B is the cost of doing this responsibly.
+
+![A/B firmware slots with auto-rollback: a new signed image is written to the inactive slot B; the device boots into it and must mark itself good within N minutes, or the bootloader automatically rolls back to slot A, the last known-good image — so a bad update never bricks the device.](../../assets/blog/ota-ab-rollback.svg)
 
 **2. Signed images.**
 Every firmware image is signed with a private key we hold; the device firmware has the public key compiled in (and ideally in a secure element). Before flashing the inactive slot, the device verifies the signature. Unsigned or wrong-signed image → reject, no flash.
@@ -41,6 +43,8 @@ Never ship a firmware update to the whole fleet at once. Stages:
 
 The halt-rollout condition is the part most teams skip. Ours is hard-coded: if the **per-firmware-version error rate** in the new version exceeds 1.5× the baseline of the old version over a 30-minute window during rollout, the next stage is held automatically and a human has to release it.
 
+![Staged rollout: the update reaches a 10-device canary, then 1% of the fleet, then 10%, 25%, and 100% — and at any stage, if the new version's error rate exceeds 1.5× the old one's, the next stage holds automatically for a human.](../../assets/blog/ota-staged-rollout.svg)
+
 **4. Observable rollback.**
 When a device rolls back, the *cloud* needs to know it happened. Otherwise you have a quiet failure — the device reverts to old firmware, looks fine, and the rollout dashboard says "shipped" while reality says "rolled back."
 
@@ -48,12 +52,14 @@ We have a metric (`firmware_rollback_count`, dimension: target version) that goe
 
 ## What we use to orchestrate it
 
-AWS IoT Jobs for the orchestration. Each rollout is a Job; each device is a Job target. Jobs handles the queueing, the per-device acknowledgments, the failed-device handling. Greengrass v2 is the alternative if you have devices doing edge compute; we don't, so Jobs alone is enough.
+AWS IoT Jobs for the orchestration. Each rollout is a Job; each device is a Job target. Jobs handles the queueing, the per-device acknowledgments, the failed-device handling. Greengrass v2 is the alternative if you have devices doing edge compute; we don't, so Jobs alone is enough. (The equivalents elsewhere: Azure's Device Update for IoT Hub; on GCP, with no managed IoT service since 2023, you orchestrate the rollout yourself.)
 
 Two things to know about Jobs:
 
 - **The Job document is what the device interprets.** Keep it as boring as possible: target version, signed-image URL (S3 presigned), expected SHA256. Everything else is firmware logic.
 - **The Job execution status flow is asymmetric.** A device reports `IN_PROGRESS` → `SUCCEEDED` (or `FAILED`). The "rolled back after success-reported" case isn't in the protocol. That's why the rollback metric (#4 above) is a separate channel from Jobs status. You need both.
+
+![How AWS IoT Jobs and the rollback metric fit together. The Jobs orchestrator hands each device a job document — target version, presigned S3 URL, expected SHA256 — and the device reports status back as IN_PROGRESS then SUCCEEDED or FAILED. But Jobs has no state for "rolled back after reporting success," so a quiet rollback reads as shipped. A second channel closes the gap: the device increments a firmware_rollback_count metric (dimension: target version) every time it boots back into the old slot, which feeds the rollout dashboard alongside the percent-on-new-version figure, where any non-zero rollback percentage is a look-now signal.](../../assets/blog/ota-firmware-without-bricking-the-fleet-fig-1.svg)
 
 ## The three near-misses
 

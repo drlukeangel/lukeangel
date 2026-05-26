@@ -1,12 +1,116 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="A connected cart being built, reaching to the cloud">
   <rect width="1200" height="630" fill="#fdfaf2"/>
-  <rect x="0" y="0" width="12" height="630" fill="#1a1d24"/>
-  <text x="60" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="5" fill="#7a808c">FIELD NOTES — NOV 2023</text>
-  <line x1="60" y1="120" x2="1140" y2="120" stroke="#1a1d24" stroke-width="1"/>
-  <text x="60" y="290" font-family="Newsreader, serif" font-weight="500" font-size="78" fill="#1a1d24">Building our first</text>
-  <text x="60" y="370" font-family="Newsreader, serif" font-weight="500" font-size="78" fill="#1a1d24">connected product.</text>
-  <text x="60" y="440" font-family="Newsreader, serif" font-style="italic" font-size="34" fill="#7a808c">— what nobody warned us about</text>
-  <line x1="60" y1="490" x2="1140" y2="490" stroke="#1a1d24" stroke-width="1"/>
-  <text x="60" y="540" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="3" fill="#7a808c">L. ANGEL — IOT · MQTT · AWS</text>
+  <defs>
+    <pattern id="bcp-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bcp-dots)"/>
+  <rect width="24" height="630" fill="#2a52be"/>
+
+  <!-- ===== blueprint / under-construction grid behind the device ===== -->
+  <g stroke="#2a52be" stroke-opacity="0.14" stroke-width="1.5">
+    <line x1="300" y1="150" x2="300" y2="540"/>
+    <line x1="370" y1="150" x2="370" y2="540"/>
+    <line x1="440" y1="150" x2="440" y2="540"/>
+    <line x1="510" y1="150" x2="510" y2="540"/>
+    <line x1="580" y1="150" x2="580" y2="540"/>
+    <line x1="250" y1="200" x2="630" y2="200"/>
+    <line x1="250" y1="270" x2="630" y2="270"/>
+    <line x1="250" y1="340" x2="630" y2="340"/>
+    <line x1="250" y1="410" x2="630" y2="410"/>
+    <line x1="250" y1="480" x2="630" y2="480"/>
+  </g>
+
+  <!-- ground / dock line -->
+  <line x1="250" y1="520" x2="640" y2="520" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.18"/>
+
+  <!-- ===== the cart workstation (the product being built) ===== -->
+  <!-- handle post -->
+  <rect x="318" y="214" width="15" height="300" rx="7" fill="#5b616b"/>
+  <rect x="252" y="204" width="110" height="17" rx="8" fill="#5b616b"/>
+
+  <!-- main enclosure -->
+  <rect x="348" y="252" width="276" height="222" rx="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  <!-- screen showing a running total (abstract bars, no text) -->
+  <rect x="372" y="276" width="228" height="138" rx="9" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="3"/>
+  <g fill="#2a52be" opacity="0.55">
+    <rect x="392" y="298" width="110" height="8" rx="4"/>
+    <rect x="392" y="318" width="84" height="8" rx="4"/>
+    <rect x="392" y="338" width="128" height="8" rx="4"/>
+  </g>
+  <line x1="392" y1="364" x2="580" y2="364" stroke="#2a52be" stroke-width="2" stroke-opacity="0.45"/>
+  <rect x="392" y="378" width="78" height="13" rx="6" fill="#3a7d44" opacity="0.7"/>
+  <rect x="520" y="378" width="60" height="13" rx="6" fill="#2a52be" opacity="0.7"/>
+
+  <!-- NFC tap pad -->
+  <circle cx="486" cy="444" r="17" fill="none" stroke="#1a1d24" stroke-width="3" stroke-opacity="0.5"/>
+  <path d="M480 437 a9 9 0 0 1 0 13 M488 434 a15 15 0 0 1 0 19" fill="none" stroke="#2a52be" stroke-width="2.6" stroke-linecap="round"/>
+
+  <!-- wheeled base -->
+  <rect x="330" y="474" width="312" height="20" rx="10" fill="#5b616b"/>
+  <circle cx="378" cy="514" r="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  <circle cx="378" cy="514" r="5" fill="#1a1d24" opacity="0.55"/>
+  <circle cx="600" cy="514" r="20" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  <circle cx="600" cy="514" r="5" fill="#1a1d24" opacity="0.55"/>
+
+  <!-- antenna stubs on the shoulder -->
+  <line x1="368" y1="252" x2="368" y2="216" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+  <line x1="390" y1="252" x2="390" y2="224" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="368" cy="208" r="6" fill="#2a52be"/>
+
+  <!-- ===== a partly-built corner: scaffold bracket + an unplaced module block ===== -->
+  <!-- dashed "to be built" outline of a second module above the base -->
+  <rect x="640" y="392" width="86" height="74" rx="8" fill="none" stroke="#7a808c" stroke-width="3" stroke-dasharray="8 7"/>
+  <!-- a small secure-element chip drawn solid, ready to drop in -->
+  <g transform="translate(672,316)">
+    <rect x="0" y="0" width="74" height="64" rx="7" fill="#1a1d24"/>
+    <g stroke="#fdfaf2" stroke-width="2.6" stroke-opacity="0.8">
+      <line x1="-11" y1="14" x2="0" y2="14"/>
+      <line x1="-11" y1="32" x2="0" y2="32"/>
+      <line x1="-11" y1="50" x2="0" y2="50"/>
+      <line x1="74" y1="14" x2="85" y2="14"/>
+      <line x1="74" y1="32" x2="85" y2="32"/>
+      <line x1="74" y1="50" x2="85" y2="50"/>
+    </g>
+    <rect x="27" y="29" width="20" height="16" rx="3" fill="none" stroke="#2a52be" stroke-width="2.6"/>
+    <path d="M31 29 v-4 a6 6 0 0 1 12 0 v4" fill="none" stroke="#2a52be" stroke-width="2.6"/>
+  </g>
+  <!-- dotted placement guide from chip to its dashed slot -->
+  <path d="M709 380 V 392" stroke="#7a808c" stroke-width="2" stroke-dasharray="3 5" fill="none"/>
+
+  <!-- ===== radio waves rising from the antenna toward the cloud ===== -->
+  <g fill="none" stroke="#2a52be" stroke-width="3.5" stroke-linecap="round" opacity="0.85">
+    <path d="M396 196 a52 52 0 0 1 56 -16"/>
+    <path d="M412 168 a86 86 0 0 1 96 -22"/>
+    <path d="M428 140 a120 120 0 0 1 138 -28"/>
+  </g>
+
+  <!-- ===== the cloud (the persistent dependency), upper right ===== -->
+  <g transform="translate(740,118)">
+    <path d="M70 150
+             a64 64 0 0 1 6 -127
+             a86 86 0 0 1 165 -8
+             a70 70 0 0 1 64 135
+             z"
+          fill="#fdfaf2" stroke="#2a52be" stroke-width="5"/>
+    <!-- broker hint: a small MQTT-style hub with three subscriber dots inside the cloud -->
+    <circle cx="178" cy="78" r="13" fill="#2a52be" fill-opacity="0.25" stroke="#2a52be" stroke-width="3"/>
+    <g stroke="#2a52be" stroke-width="3" stroke-linecap="round">
+      <line x1="178" y1="78" x2="120" y2="50"/>
+      <line x1="178" y1="78" x2="236" y2="50"/>
+      <line x1="178" y1="78" x2="178" y2="128"/>
+    </g>
+    <circle cx="120" cy="50" r="7" fill="#2a52be"/>
+    <circle cx="236" cy="50" r="7" fill="#2a52be"/>
+    <circle cx="178" cy="128" r="7" fill="#2a52be"/>
+  </g>
+
+  <!-- a single certificate seal traveling up the link (provisioning) -->
+  <g transform="translate(556,150)">
+    <circle cx="0" cy="0" r="20" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3.5"/>
+    <path d="M-9 0 l6 7 13 -15" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-7 16 l-5 16 9 -6 9 6 -5 -16" fill="#3a7d44" opacity="0.85"/>
+  </g>
 </svg>

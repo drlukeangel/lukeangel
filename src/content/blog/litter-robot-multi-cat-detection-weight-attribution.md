@@ -12,8 +12,8 @@ notebook: pet-iot-field-guide
 notebookOrder: 23
 excerpt: "Four months with Joule + Boson sharing a Litter-Robot. Pulled the CSV export and analyzed entry weights. Joule (9.5 lb) and Boson (3.5 lb) separate 90% of the time. The other 10% is interesting."
 pullquote: "Multi-cat attribution by weight works when the cats are weight-different. Litter-Robot's data plus a 30-line Python script give per-cat analytics today, despite the official app not supporting it."
-cover: "../../assets/blog/litter-robot-multi-cat-detection-weight-attribution-cover.png"
-coverAlt: "Litter-Robot multi-cat detection — Joule vs Boson"
+cover: "../../assets/blog/litter-robot-multi-cat-detection-weight-attribution-cover.svg"
+coverAlt: "A self-cleaning litter globe with a weight readout that fans out into two cat profiles of different sizes — one heavy, one light — the entry weight sorting each visit to the right cat."
 ---
 
 Four months of Joule + Boson sharing the same Litter-Robot III Connect. The official app still doesn't do per-cat attribution. The data is there in the entry-weight column; just no UI to slice it.
@@ -37,6 +37,8 @@ timestamp,                  cycle_time_sec, weight_lb, drawer_status
 ```
 
 Five visits at ~9.5 lb (Joule), three visits at ~3.7 lb (Boson). The weight gap is wide enough that attribution is obvious.
+
+![A histogram of every logged entry weight over four months. The visits cluster into two clean peaks — a tall one near 9.5 lb (Joule) and another near 3.7 lb (Boson) — separated by a wide empty gap with almost nothing in it. A small scatter of ambiguous readings sits in the middle, caused by the cat moving during the weigh. The clean separation between the two peaks is exactly what makes weight-based attribution reliable today.](../../assets/blog/litter-robot-weight-histogram.svg)
 
 ## The Python script
 
@@ -76,7 +78,7 @@ boson:     412 visits, avg 3.61 lb (growing — early data 3.1, late data 4.2)
 ambiguous:  18 visits  (3.6% — overlap or unusual weights)
 ```
 
-Two cats sharing one Litter-Robot. 96.4% attribution accuracy without any per-cat-aware code from Whisker.
+Two cats sharing one Litter-Robot. 96.4% attribution accuracy without a line of per-cat-aware code from AutoPets, the company that makes it.
 
 **The ambiguous 3.6%** are interesting:
 - A few "weight = 5.5 lb" visits. Probably Boson during a growth spurt + the weight-during-rotation hesitation (cat moved during measurement).
@@ -110,7 +112,9 @@ A four-month trend by cat reveals patterns that combined data hides:
 
 If Joule's pattern shifted to 6 visits/day with 20s duration each, that's a **strong UTI signal** — frequent + brief is the classic urinary-tract-infection presentation. The per-cat baseline lets me detect that. The aggregated multi-cat data would hide it.
 
-## What I want Whisker to add
+![Why per-cat baselines catch what the combined feed misses. In the aggregated view, both cats' visits are summed into one daily number; a spike in one cat's visits gets diluted by the other cat's steady pattern and looks like normal noise. Split by cat, Joule's line jumps from a flat ~3 visits a day to 6 short visits — the frequent-and-brief shape of a urinary-tract infection — standing out clearly against her own baseline. The signal only exists once each cat is measured against itself.](../../assets/blog/litter-robot-per-cat-uti-signal.svg)
+
+## What I want AutoPets to add
 
 - **Native per-cat attribution** in the app, using weight bands the user defines.
 - **Anomaly alerts**: "Joule's visits dropped 40% vs last month, consider vet attention."

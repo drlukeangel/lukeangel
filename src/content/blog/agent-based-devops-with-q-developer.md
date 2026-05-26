@@ -11,8 +11,10 @@ tags:
   - ai
 excerpt: "Eight months running Amazon Q Developer agents in our engineering org. The four agentic workflows that earned their keep, the two we shut off, and the metric that made the case to keep going."
 pullquote: "An agent that's wrong 5% of the time is not a 5% problem. It's a trust problem with a percentage attached."
+notebook: building-with-ai-ml
+notebookOrder: 11
 cover: "../../assets/blog/agent-based-devops-q-developer-cover.svg"
-coverAlt: "Cover graphic — Agent-based DevOps with Q Developer, what we kept, what we tossed. March 2026."
+coverAlt: "A central agent hub fans out to several DevOps workflow lanes; two lanes pass with green checks and two are crossed off in red and dropped — the workflows that earned their keep versus the ones shut off."
 ---
 
 We've been running Amazon Q Developer agents across our engineering org for about eight months. Started cautiously, expanded carefully, and pruned hard. What's stayed, what's gone, and the metric that made the case to leadership to keep going.
@@ -63,6 +65,10 @@ When PagerDuty fires, the agent automatically pulls together a brief: recent dep
 
 **Important caveat:** the agent does *not* take action. No flag flips, no deploys, no anything that mutates state. It assembles the brief; humans decide.
 
+That caveat isn't specific to the incident agent — it's the line that runs under all four kept workflows. Every one of them assembles, suggests, or drafts; not one of them mutates state on its own. The human is always on the trigger.
+
+![Where the line sits between the agent and the human across all four kept workflows. On the left, the agent, marked read-only: it opens the upgrade PR, comments on the review, drafts the doc follow-up, and assembles the incident brief — it surfaces work but never mutates state. A dashed boundary labelled "the trigger" separates the two, with an arrow crossing from agent to human. On the right, the human, who holds the action: approves the merge, takes or ignores the comment, edits or closes the draft, and flips the flag or runs the deploy — every state change is a human decision. The one noted exception is auto-merge, and only after CI passes on patch, dev-dependency, and security-only upgrades.](../../assets/blog/agent-based-devops-action-boundary.svg)
+
 ## What we tossed
 
 ### 1. Test-generation agent
@@ -79,6 +85,10 @@ Tried for a month. The agent would auto-fix lint and style violations. Sounded g
 
 We shut it off and went back to humans plus `pre-commit`. The lesson: the cost of "an agent fixing the wrong thing" is much higher than the cost of "an engineer running `npm run lint:fix` themselves."
 
+![The six agentic workflows sorted into two columns. The kept column holds four: dependency upgrades (around 950 of 1,200 PRs auto-merged), advisory PR review (30 percent more substantive human comments on PRs the agent commented on first), documentation-drift detection (catches about 70 percent of undocumented API changes), and incident-brief assembly (assembles context but never mutates state). The tossed column holds two: test generation, which tested the implementation rather than the contract and gave false confidence worse than no coverage, and auto-fix-the-lint, which kept "fixing" load-bearing deliberate decisions so the wrong-fix cost beat the savings. The kept workflows are boring, judgment-shaped, and advisory; the tossed ones were impressive but quietly wrong.](../../assets/blog/agent-based-devops-kept-vs-tossed.svg)
+
+The pattern across the divide is clear once you see it laid out: the agents that stuck were the boring, advisory ones that surfaced judgment rather than substituting for it. The ones we shut off were the impressive ones that quietly produced wrong work a human then had to find and undo.
+
 ## The metric that kept the program alive
 
 About four months in, our VP of Engineering started asking the right question: *is this saving time or generating noise?* I'd been measuring agent activity (PRs opened, comments posted) which is the wrong metric — it measures the agent, not the impact.
@@ -88,6 +98,8 @@ We switched to **engineering-hours-recovered**, calculated as:
 - Hours we'd have spent on the work the agent automated (dependency-upgrade time, PR-priming time, incident-assembly time)
 - *Minus* hours we spent reviewing agent output that was wrong or unhelpful
 - *Minus* hours we spent maintaining the agent integrations
+
+![The engineering-hours-recovered formula drawn as three terms over an equals bar. The first term, in green, adds the hours the agent automated — upgrade toil, PR-priming, incident assembly. The second and third terms, in red, subtract the hours spent reviewing wrong or unhelpful agent output and the hours spent maintaining the integration. Below the bar, two outcomes: the four kept agents net out to roughly plus 0.7 FTE recovered per quarter, while the two tossed agents net negative because review time exceeded the savings.](../../assets/blog/agent-based-devops-hours-recovered.svg)
 
 For the four kept agents, the answer was roughly **0.7 FTE of recovered engineering time per quarter** across our 24-person engineering org. For the two tossed agents, the answer was *negative* — we spent more time reviewing wrong agent output than the agent saved.
 
@@ -112,6 +124,8 @@ If you're considering rolling out agentic DevOps in your org:
 **Be willing to shut things off.** The hardest part of running an agent program isn't standing things up; it's accepting that some of them aren't working and turning them off without feeling like you've failed.
 
 An agent that's wrong 5% of the time is not a 5% problem. It's a *trust* problem with a percentage attached. The agent has to be right enough that engineers don't develop the habit of double-checking everything — because that habit eats the savings.
+
+![The value of an agent drawn as three zones along an axis from more errors on the left to fewer errors on the right. The leftmost zone is "shut it off" — too wrong to use, marked with a red cross. The rightmost zone is "trust the agent" — right enough that engineers stop checking its work, marked with a green check. Between them sits the widest zone, "the expensive middle," marked with a magnifier: the agent is right enough to keep but wrong often enough that engineers double-check everything it does, and that double-checking habit eats the savings. The point is that an agent's value is a step function, not a smooth slope — the middle is the worst place to be.](../../assets/blog/agent-based-devops-trust-curve.svg)
 
 Get to "trust the agent" or shut it off. The middle is the most expensive place to be.
 

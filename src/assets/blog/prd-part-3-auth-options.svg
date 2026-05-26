@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="Three allowed customer-auth options and what is disallowed">
+  <rect width="1120" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">CUSTOMER AUTH — THREE WAYS IN, ONE RESULT</text>
+
+  <!-- three input methods on the left -->
+  <g transform="translate(50,80)">
+    <!-- loyalty tap -->
+    <rect x="0" y="0" width="252" height="68" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.4"/>
+    <g transform="translate(18,18)">
+      <rect x="0" y="0" width="40" height="30" rx="5" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="2"/>
+      <path d="M48 15 q8 -8 0 0 M52 8 a12 12 0 0 1 0 14 M58 3 a18 18 0 0 1 0 24" fill="none" stroke="#2a52be" stroke-width="2"/>
+    </g>
+    <text x="106" y="32" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">loyalty card (NFC)</text>
+    <text x="106" y="52" font-family="ui-monospace,monospace" font-size="10" fill="#5b616b">→ number, Tier 2</text>
+  </g>
+  <g transform="translate(50,166)">
+    <rect x="0" y="0" width="252" height="68" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.4"/>
+    <g transform="translate(18,18)">
+      <rect x="0" y="0" width="40" height="30" rx="5" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="2"/>
+      <rect x="6" y="6" width="14" height="10" rx="2" fill="#2a52be" fill-opacity="0.5"/>
+    </g>
+    <text x="106" y="32" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">tap-to-pay at start</text>
+    <text x="106" y="52" font-family="ui-monospace,monospace" font-size="10" fill="#5b616b">→ payment token</text>
+  </g>
+  <g transform="translate(50,252)">
+    <rect x="0" y="0" width="252" height="68" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.4"/>
+    <g transform="translate(20,18)">
+      <rect x="0" y="0" width="30" height="30" fill="none" stroke="#2a52be" stroke-width="2"/>
+      <rect x="4" y="4" width="9" height="9" fill="#2a52be"/>
+      <rect x="17" y="17" width="9" height="9" fill="#2a52be"/>
+      <rect x="17" y="4" width="6" height="6" fill="#2a52be" fill-opacity="0.5"/>
+    </g>
+    <text x="106" y="32" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">mobile-app QR</text>
+    <text x="106" y="52" font-family="ui-monospace,monospace" font-size="10" fill="#5b616b">→ OAuth code</text>
+  </g>
+
+  <!-- arrows converging into identity service -->
+  <g stroke="#2a52be" stroke-width="2.6" fill="#2a52be">
+    <path d="M304 114 H360 C 410 114, 410 200, 458 200" fill="none"/>
+    <path d="M304 200 H458" fill="none"/>
+    <path d="M304 286 H360 C 410 286, 410 200, 458 200" fill="none"/>
+    <path d="M458 200 l-16 -7 v14 z"/>
+  </g>
+
+  <!-- identity service (cloud) -->
+  <g transform="translate(460,150)">
+    <rect x="0" y="0" width="230" height="100" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <text x="115" y="36" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">cloud identity service</text>
+    <text x="115" y="60" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">resolves → Account</text>
+    <text x="115" y="82" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">(or anonymous record)</text>
+  </g>
+
+  <!-- result: session-scoped ephemeral id back to cart -->
+  <g stroke="#3a7d44" stroke-width="2.6" fill="#3a7d44">
+    <path d="M690 200 H838" fill="none"/>
+    <path d="M838 200 l-16 -7 v14 z"/>
+  </g>
+  <g transform="translate(840,150)">
+    <rect x="0" y="0" width="230" height="100" rx="14" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.6"/>
+    <text x="115" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">session-scoped ID</text>
+    <text x="115" y="58" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">ephemeral, one trip</text>
+    <text x="115" y="80" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">dropped at session end</text>
+  </g>
+  <text x="955" y="278" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="12" font-style="italic" fill="#5b616b">the cart never sees name, email, or PAN</text>
+
+  <!-- disallowed bar -->
+  <g transform="translate(50,360)">
+    <rect x="0" y="0" width="1020" height="80" rx="10" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="2"/>
+    <text x="20" y="30" font-family="ui-monospace,monospace" font-size="12.5" fill="#c14a3a">DISALLOWED IN v1 (privacy-impact analysis)</text>
+    <g font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">
+      <text x="20" y="58">✗ facial recognition</text>
+      <text x="240" y="58">✗ voice biometrics</text>
+      <text x="450" y="58">✗ fingerprint</text>
+      <text x="640" y="58">✗ license-plate scan</text>
+      <text x="870" y="58">✗ any biometric</text>
+    </g>
+  </g>
+</svg>

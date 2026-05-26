@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" role="img" aria-label="RTSP to WebRTC bridge">
+  <rect width="880" height="360" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#7a808c}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:13px;fill:#5b616b}
+    .box{fill:#fdfaf2;stroke:#1a1d24;stroke-width:1.5}
+    .acc{fill:#6a4c93}
+  </style>
+
+  <!-- Dahua doorbell -->
+  <rect class="box" x="30" y="120" width="120" height="120" rx="6"/>
+  <rect x="62" y="140" width="56" height="56" rx="4" fill="#1a1d24"/>
+  <circle cx="90" cy="168" r="16" fill="#fdfaf2"/>
+  <circle cx="90" cy="168" r="9" fill="#1a1d24"/>
+  <circle cx="90" cy="216" r="9" class="acc"/>
+  <text class="lbl" x="90" y="258" text-anchor="middle">Dahua VTO</text>
+  <text class="sm" x="90" y="274" text-anchor="middle">PoE / ONVIF</text>
+
+  <!-- RTSP arrow -->
+  <line x1="150" y1="180" x2="270" y2="180" stroke="#1a1d24" stroke-width="2" marker-end="url(#ar)"/>
+  <text class="sm" x="210" y="168" text-anchor="middle">RTSP h.264</text>
+  <text class="sm" x="210" y="200" text-anchor="middle">not Cast-ready</text>
+
+  <!-- HA + webrtc component -->
+  <rect class="box" x="270" y="105" width="200" height="150" rx="6"/>
+  <text class="lbl" x="370" y="128" text-anchor="middle">Home Assistant</text>
+  <rect x="292" y="145" width="156" height="42" rx="4" fill="#fff" stroke="#6a4c93" stroke-width="1.5"/>
+  <text class="lbl" x="370" y="163" text-anchor="middle">WebRTC Camera</text>
+  <text class="sm" x="370" y="179" text-anchor="middle">repackage RTSP -&gt; SDP</text>
+  <rect x="292" y="197" width="156" height="40" rx="4" fill="#fff" stroke="#1a1d24" stroke-opacity="0.3"/>
+  <text class="sm" x="370" y="214" text-anchor="middle">ICE / STUN offer</text>
+  <text class="sm" x="370" y="229" text-anchor="middle">peer negotiation</text>
+
+  <!-- WebRTC arrow -->
+  <line x1="470" y1="180" x2="600" y2="180" stroke="#6a4c93" stroke-width="2.5" marker-end="url(#arp)"/>
+  <text class="sm" x="535" y="168" text-anchor="middle" fill="#6a4c93">WebRTC peer</text>
+  <text class="sm" x="535" y="200" text-anchor="middle" fill="#6a4c93">~sub-second</text>
+
+  <!-- Nest Hub -->
+  <rect class="box" x="600" y="118" width="150" height="124" rx="6"/>
+  <rect x="624" y="136" width="102" height="64" rx="4" fill="#1a1d24"/>
+  <rect x="634" y="146" width="82" height="44" rx="2" class="acc" opacity="0.8"/>
+  <rect x="654" y="200" width="42" height="10" rx="2" fill="#7a808c"/>
+  <text class="lbl" x="675" y="226" text-anchor="middle">Nest Hub</text>
+  <text class="sm" x="675" y="240" text-anchor="middle">Google Cast</text>
+
+  <!-- LAN boundary -->
+  <rect x="14" y="86" width="754" height="190" rx="8" fill="none" stroke="#6a4c93" stroke-width="1.3" stroke-dasharray="7 5"/>
+  <text class="sm" x="20" y="80" fill="#6a4c93">my LAN — no vendor cloud in the loop</text>
+
+  <text class="cap" x="20" y="320">The Dahua's RTSP can't Cast natively; the WebRTC Camera component re-packages it and</text>
+  <text class="cap" x="20" y="340">negotiates a peer session the Nest Hub plays directly — every hop stays on the LAN.</text>
+
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#1a1d24"/></marker>
+    <marker id="arp" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#6a4c93"/></marker>
+  </defs>
+</svg>

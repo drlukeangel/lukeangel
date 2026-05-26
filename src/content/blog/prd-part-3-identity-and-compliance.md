@@ -14,8 +14,8 @@ notebook: connected-products
 notebookOrder: 3
 excerpt: "Part 3 of the v2 PRD. The identity model, the payment-data-handling architecture, the PII classification scheme, and the compliance threat model."
 pullquote: "The PRD's job in the compliance section is to draw a small box around payment data and a smaller box around customer identity, and then design every other system component to stay outside both boxes."
-cover: "../../assets/blog/prd-part-3-identity-and-compliance-cover.png"
-coverAlt: "v2 PRD, Part 3 — identity, payment, PII, compliance"
+cover: "../../assets/blog/prd-part-3-identity-and-compliance-cover.svg"
+coverAlt: "Two nested, padlocked boxes sit at the center — a larger one holding a payment card, a smaller one inside it holding a customer's identity. Every other part of the system — the cloud, the wheeled cart, a phone, a staff tablet, an ops dashboard — is drawn outside both boxes, tethered by faint dashed lines. The whole design is about drawing a small box around regulated data and keeping everything else outside it."
 ---
 
 This is **Part 3 of 3** in the v2 PRD I've been writing across August and September. [Part 1](/blog/prd-part-1-hardware-specs/) covered the hardware spec. [Part 2](/blog/prd-part-2-application-and-data/) covered application capability and the entity model.
@@ -33,6 +33,8 @@ The cart sits at the intersection of three regulatory regimes:
 **Local sales-tax + payment compliance.** Varies by jurisdiction. In the US: sales tax must be computed and remitted correctly per state and local jurisdiction. In the EU: VAT. In some jurisdictions: tax-receipt requirements with specific data fields.
 
 The PRD addresses each in turn. The PCI-DSS section is the longest by far.
+
+![The three regulatory regimes the cart sits inside. PCI-DSS, drawn around a payment card, covers cardholder data — PAN, CVV, magstripe, PIN — with 12 control areas and hundreds of sub-controls, and an enormous scope cost. GDPR plus CCPA/CPRA, drawn around a person, covers personal data — anything that identifies a person — and grants rights of access, deletion, retention limits, and breach reporting across the EU/UK and state-level US. Sales tax and VAT, drawn around a receipt, is per-jurisdiction: tax must be computed and remitted correctly across US state and local rules and EU VAT, with tax-receipt fields, though the platform forwards this to the store's own tax engine. The whole design is a fight to shrink how much of the product sits inside each box.](../../assets/blog/prd-part-3-regulatory-regimes.svg)
 
 ## The identity model — three layers, isolated
 
@@ -63,6 +65,8 @@ Every session has a UUID generated at session-start. The session ID is what link
 
 The point of this layering: **the cart-as-thing and the customer-as-account are independently controlled, with the session as the disposable join between them.** A leaked cart cert tells an attacker nothing about customers. A leaked customer account tells an attacker nothing about a specific cart. Compromise of one identity layer does not compromise the others.
 
+![Three isolated identity layers. On the left, cart identity — an ECDSA P-256 keypair in an ATECC608A secure element, an X.509 cert carrying the serial number, and an AWS IoT Core MQTT credential; it never identifies a human. On the right, customer identity — established by loyalty tap, tap-to-pay, or app QR, resolved only in the cloud, with the Account entity holding the PII; the cart never learns the customer's name or email. In the center, the session — a per-trip UUID that is pseudonymous and meaningless without the cloud's join tables. The cart receives only a session-scoped ephemeral id; the session-to-customer link is a cloud join that is authenticated and logged. A leaked cart cert reveals nothing about any customer, and a leaked customer account reveals nothing about a specific cart, so compromise of one layer does not compromise the others.](../../assets/blog/prd-part-3-identity-layers.svg)
+
 ## Customer authentication options
 
 The PRD specifies three customer-auth options in v1 and explicitly disallows others.
@@ -79,6 +83,8 @@ Customer taps a contactless payment card on the NFC reader. The EMV-certified NF
 Customer opens the mobile app, scrolls to a "Pair to Cart" screen. The app shows a QR code. The customer holds the phone up to the cart's scanner, which reads the QR. The QR contains a short-lived OAuth code. The cart exchanges it via the cloud for a session-scoped customer ID. The customer's account is now bound to the session.
 
 Explicitly disallowed in v1: facial recognition, voice biometrics, fingerprint, license-plate scan, anything that requires the cart to capture a biometric. The privacy-impact analysis rules these out.
+
+![Customer auth — three ways in, one result. Three input methods on the left each feed a cloud identity service: a loyalty card tapped on NFC resolves to a 16-digit number treated as Tier 2 PII; a tap-to-pay at session start resolves to a payment-method token; and a mobile-app QR resolves to a short-lived OAuth code. All three converge on the cloud identity service, which resolves the credential to an Account, or creates an anonymous record. The service returns one thing to the cart: a session-scoped ephemeral ID, good for one trip and dropped at session end — the cart never sees the customer's name, email, or PAN. A bar across the bottom lists what is explicitly disallowed in v1 by the privacy-impact analysis: facial recognition, voice biometrics, fingerprint, license-plate scan, and any biometric.](../../assets/blog/prd-part-3-auth-options.svg)
 
 ## Payment scope (the PCI-DSS box)
 
@@ -99,6 +105,8 @@ The cloud's payment service runs in an isolated AWS account that *is* in PCI sco
 At session-end, the cart hands off to the in-store EMV terminal via BLE proximity. The EMV terminal (PCI-certified, vendor-managed) completes the payment, returns an auth token. The cart sends the auth token plus session contents to the cloud. The cloud reconciles, sends a receipt.
 
 Result: PCI-DSS audit scope is bounded to (a) the EMV-certified NFC reader vendor's certification, (b) the EMV terminal vendor's certification, and (c) our isolated payment-service AWS account. The cart itself, the main cloud platform, the mobile app, the staff tablet, and the ops dashboard are all out of PCI scope.
+
+![How card data stays off the cart. A contactless card — where the PAN and CVV live — taps an EMV-certified NFC module that has its own MCU and runs vendor firmware. The module tokenizes: PAN becomes an opaque token, and only that token crosses the serial line to the cart's ESP32-C3 MCU, which is explicitly out of PCI scope and holds the 24-character token in RAM before dropping it. The cart forwards the token over MQTT to an isolated AWS account that is in PCI scope, reached by exactly one cross-account Lambda, which swaps the token with the payment processor. Payment itself never completes on the cart either: at session-end the cart hands off to the in-store EMV terminal over BLE proximity, and the PCI-certified terminal completes the charge and returns an auth token the cart forwards to the cloud. The result: PCI scope is small — bounded to the EMV-certified NFC reader, the EMV terminal, and the isolated payment-service AWS account — while everything else, the cart and its MCU, the main cloud platform, the mobile app, the staff tablet, and the ops dashboard, is out of scope.](../../assets/blog/prd-part-3-payment-token-flow.svg)
 
 This isolation is worth, in 2023 dollars, somewhere between $400K and $1.5M per year in saved audit and compensating-control costs.
 
@@ -123,6 +131,8 @@ Each tier has a published retention policy:
 
 GDPR data-subject rights (access, correction, deletion) are honored against Tier 3 directly and propagate to Tier 2. Tier 1 is not affected because it has no PII to delete — the cart-and-session events are not personal data once disconnected from the customer.
 
+![PII in three tiers, with their storage and retention. Tier 1, non-PII telemetry — scans, weight, health, and fault events tied only to a cart-id and session-id with no customer attached — lives in DynamoDB telemetry under ordinary IAM, open to analytics, retained 18 months hot then anonymized to aggregate then deleted at 5 years. Tier 2, pseudonymous customer data — a customer UUID not derived from email, the loyalty card number, and session history — lives in the Postgres entity store, analyzable but not linkable to a person without Tier 3, retained for the lifetime of the account. Tier 3, directly identifying PII — email, name, address, phone, and payment-tokens-tied-to-Account — lives in a separate Postgres database in an isolated subnet with stricter IAM, two-person access, and full audit logging, retained for the account lifetime plus a seven-year tax-and-audit hold, then hard-deleted. Tier 2 and Tier 3 are bridged only via the identity service, which logs every join. GDPR deletion hits Tier 3 and propagates to Tier 2; Tier 1 has no PII left to delete.](../../assets/blog/prd-part-3-pii-tiers.svg)
+
 ## The threat model (the high-level)
 
 The PRD includes a STRIDE threat model that runs 14 pages. The summary:
@@ -142,11 +152,15 @@ The PRD includes a STRIDE threat model that runs 14 pages. The summary:
 - An EMV terminal vendor breach. *Mitigation*: out of our control; certification exists; cyber insurance covers downstream exposure.
 - A long-term cryptographic break of ECDSA P-256. *Mitigation*: we'll plan for a CA-rotation in v2; current threat is post-quantum and not v1-relevant.
 
+![The STRIDE threat model in summary, split two ways. On the left, threats considered and controlled, each with its mitigation: a stolen cart used outside its store (cert bound to a store; refuses to run without a store-network attestation); scan-and-walk-out without paying (EMV-terminal payment required to complete, with weight evidence flagging it); staff misusing the override tablet (every override logged with a staff-id, BLE proximity required, fully auditable); rogue firmware pushed to the fleet (signed image, secure element checks against the factory-burnt CA root, A/B rollback); a phished staff member reaching the ops dashboard (mandatory hardware-key MFA, PII access logged and reviewed weekly); and a cellular plan exposing roaming patterns (IMSI tied to no human, worst case is that a cart was active in some area). On the right, threats accepted as residual: shoulder-surfing a name (the display shows first-name-only), an EMV terminal vendor breach (out of our control, vendor cert exists, cyber insurance covers downstream exposure), and a long-term break of P-256 (a CA-rotation is planned for v2; post-quantum is not a v1 threat). Each control answers a specific abuse, and naming what you won't fix is part of the threat model too.](../../assets/blog/prd-part-3-threat-model.svg)
+
 ## Cross-border data flows
 
 The cart system is being designed for US launch with planned EU expansion. The PRD calls out four cross-border considerations:
 
 **Data residency.** EU customer PII will live in EU regions only (eu-west-1 or eu-central-1, depending on store location). US PII lives in US regions. We do not co-locate. This costs more in cloud infra but avoids EU-US data-transfer complications.
+
+![PII stays in-region by design. On the left, US regions hold a cloud and a locked store of US customer PII — Tier 3, US data only. On the right, EU regions (eu-west-1 or eu-central-1) hold a cloud and a locked store of EU customer PII — Tier 3, EU data only. A red dashed boundary runs down the middle with a no-crossing symbol: PII is never co-located across regions. The only sanctioned cross-region flow is a thin engineering- and ops-access path, drawn faintly, permitted only under Standard Contractual Clauses and technical-and-organizational measures. Right-to-deletion is tractable precisely because the PII sits in one isolated place per region rather than sprinkled across telemetry — a Tier-3 deletion lands within 30 days in any region.](../../assets/blog/prd-part-3-data-residency.svg)
 
 **Standard Contractual Clauses.** For any unavoidable data flow between regions (engineering access, ops dashboard from US team), SCCs will be signed with appropriate technical and organizational measures.
 

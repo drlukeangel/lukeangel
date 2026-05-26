@@ -11,13 +11,13 @@ notebook: smart-home-iot-journey
 notebookOrder: 10
 excerpt: "Amazon launched Echo on November 6 as Prime-only invitation pre-order. Mine arrived this week. Notes on what voice control actually does and doesn't do in 2014."
 pullquote: "Voice as a control surface fundamentally changes what 'smart home' means. The pain point was never the protocol; it was getting your phone out."
-cover: "../../assets/blog/amazon-echo-arrives-alexa-lights-first-voice-automation-cover.png"
-coverAlt: "Amazon Echo arrives — Alexa, lights, first voice automation"
+cover: "../../assets/blog/amazon-echo-arrives-alexa-lights-first-voice-automation-cover.svg"
+coverAlt: "An illustration in muted purple of a tall cylindrical voice speaker with a glowing top ring, a spoken-word waveform arriving from the left, and a light bulb switching off on the right — voice becoming the control surface for the smart home."
 ---
 
 Amazon Echo launched November 6, 2014 — Prime-only invitation pre-order at $199 ($99 for Prime members). I got in on the early wave; the device arrived Tuesday.
 
-It's the first time I've controlled lights with my voice. That's not a small thing. Notes on the technical bits underneath, plus what's missing.
+It's the first time I've controlled lights with my voice — [the Hue bulbs I've been running since 2012](/blog/philips-hue-gen-1-zigbee-light-link-debut/), now answering to "Alexa" instead of a phone tap. That's not a small thing. Notes on the technical bits underneath, plus what's missing.
 
 ## What the Echo actually is
 
@@ -61,6 +61,8 @@ user says "Alexa, turn off the living room lights"
 ```
 
 End-to-end latency: 1-3 seconds for Hue, 4-7 seconds for anything that crosses Amazon cloud → vendor cloud → device.
+
+![The voice-to-lights path for "Alexa, turn off the living room lights," drawn across three zones. On the device (left, dashed): a wake-word DSP hears "Alexa" locally in about 50 milliseconds, the LED ring goes blue, and the device starts streaming audio. In the Amazon cloud (center): ASR transcribes the audio, NLU classifies the intent as TurnOff with the device "living room lights," and Amazon calls the Hue cloud API with a PUT that sets the group off. In your home (right, dashed): the Hue bridge receives that and multicasts a Zigbee command to the group, and the bulbs turn off. A caption notes end-to-end is about one to three seconds for Hue, and that only the wake word is local — everything after the ring goes to the cloud and back.](../../assets/blog/amazon-echo-listening-path.svg)
 
 ## What it does in December 2014
 
@@ -128,10 +130,12 @@ That's the developer hook that lets every smart-home brand integrate. Looking fo
 
 Two unification surfaces now exist:
 
-- **Hub-based unification** (SmartThings): your stuff talks to a hub; the hub talks to other vendors' clouds. Voice is one more endpoint.
+- **Hub-based unification** ([SmartThings](/blog/smartthings-starter-kit-unboxing-zwave-zigbee-first-hub/)): your stuff talks to a hub; the hub talks to other vendors' clouds. Voice is one more endpoint.
 - **Voice-assistant unification** (Alexa, eventually Google + Siri): the voice assistant becomes the unifying API. Each vendor publishes a Skill; Alexa orchestrates.
 
 These aren't mutually exclusive. Long-term I expect both: hub for local actions and fast automations, voice for ad-hoc commands.
+
+![Two ways the smart home unifies, drawn side by side. On the left, hub unification: a central hub with a Z-Wave lock, a Zigbee bulb, a sensor, and voice all pointing into it as equal inputs — local automations are fast and voice is just one more endpoint. On the right, voice unification: Alexa at the center with a Hue skill wired in solid and Wemo, SmartThings, and custom skills drawn dashed and asterisked as arriving in 2015. A caption notes the two aren't rivals — a hub for fast local automations, voice for ad-hoc commands — and that in 2014 only Hue is actually wired up.](../../assets/blog/amazon-echo-two-unification-surfaces.svg)
 
 In 2014, Alexa is **good enough at lights** to use daily. It's bad at everything else smart-home (locks, thermostats, cameras — no integrations yet). That'll be the 2015 story.
 

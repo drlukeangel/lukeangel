@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="An operations pipeline feeding a model that serves a product, with a feedback loop from production.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="aiml-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#aiml-dots)"/>
+  <rect width="24" height="630" fill="#4f46b8"/>
+
+  <!-- OPERATIONS pipeline (left): three stacked stage chips -->
+  <g>
+    <rect x="120" y="232" width="172" height="42" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="120" y="294" width="172" height="42" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <rect x="120" y="356" width="172" height="42" rx="9" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g fill="#4f46b8"><circle cx="146" cy="253" r="6"/><circle cx="146" cy="315" r="6"/><circle cx="146" cy="377" r="6"/></g>
+    <g fill="#1a1d24" opacity="0.22">
+      <rect x="168" y="250" width="98" height="6" rx="3"/>
+      <rect x="168" y="312" width="98" height="6" rx="3"/>
+      <rect x="168" y="374" width="98" height="6" rx="3"/>
+    </g>
+    <g stroke="#1a1d24" stroke-width="2.5" opacity="0.55"><line x1="206" y1="274" x2="206" y2="294"/><line x1="206" y1="336" x2="206" y2="356"/></g>
+  </g>
+
+  <!-- arrow: pipeline -> model -->
+  <g stroke="#1a1d24" stroke-width="3.5" fill="#1a1d24"><line x1="300" y1="315" x2="450" y2="315"/><path d="M456 315 l-17 -8 v16 z"/></g>
+
+  <!-- MODEL (center): rounded square holding a small neural-net node graph -->
+  <rect x="470" y="195" width="250" height="240" rx="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  <g stroke="#4f46b8" stroke-width="2" opacity="0.5">
+    <line x1="528" y1="250" x2="600" y2="282"/><line x1="528" y1="250" x2="600" y2="348"/>
+    <line x1="528" y1="315" x2="600" y2="282"/><line x1="528" y1="315" x2="600" y2="348"/>
+    <line x1="528" y1="380" x2="600" y2="282"/><line x1="528" y1="380" x2="600" y2="348"/>
+    <line x1="600" y1="282" x2="666" y2="315"/><line x1="600" y1="348" x2="666" y2="315"/>
+  </g>
+  <g fill="#fdfaf2" stroke="#4f46b8" stroke-width="3">
+    <circle cx="528" cy="250" r="13"/><circle cx="528" cy="315" r="13"/><circle cx="528" cy="380" r="13"/>
+    <circle cx="600" cy="282" r="13"/><circle cx="600" cy="348" r="13"/>
+  </g>
+  <circle cx="666" cy="315" r="15" fill="#4f46b8"/>
+
+  <!-- arrow: model -> product -->
+  <g stroke="#1a1d24" stroke-width="3.5" fill="#1a1d24"><line x1="720" y1="315" x2="846" y2="315"/><path d="M852 315 l-17 -8 v16 z"/></g>
+
+  <!-- PRODUCT (right): an app/device screen showing an AI-driven result, on a stand -->
+  <rect x="858" y="222" width="204" height="182" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+  <g fill="#1a1d24" opacity="0.2">
+    <rect x="888" y="252" width="122" height="8" rx="4"/>
+    <rect x="888" y="275" width="88" height="8" rx="4"/>
+  </g>
+  <rect x="888" y="312" width="146" height="36" rx="8" fill="#4f46b8" fill-opacity="0.13" stroke="#4f46b8" stroke-width="2.5"/>
+  <circle cx="909" cy="330" r="6" fill="#4f46b8"/>
+  <rect x="925" y="327" width="94" height="6" rx="3" fill="#4f46b8" opacity="0.55"/>
+  <g stroke="#1a1d24" stroke-width="4" stroke-linecap="round"><line x1="960" y1="404" x2="960" y2="430"/><line x1="918" y1="430" x2="1002" y2="430"/></g>
+
+  <!-- FEEDBACK loop: product back to the pipeline (dashed arc along the bottom) -->
+  <path d="M950 460 C 790 548, 380 548, 214 470" fill="none" stroke="#4f46b8" stroke-width="2.6" stroke-dasharray="7 5" opacity="0.75"/>
+  <path d="M214 470 l11 9 -3 -17 z" fill="#4f46b8" opacity="0.75"/>
+</svg>

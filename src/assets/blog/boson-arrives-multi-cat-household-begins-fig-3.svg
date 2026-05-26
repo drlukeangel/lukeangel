@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-label="multi-cat scorecard">
+  <rect width="1000" height="540" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="46" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="19" font-weight="700" fill="#1a1d24">WHICH-CAT, DEVICE BY DEVICE (2020)</text>
+
+  <!-- column headers -->
+  <text x="40" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#7a808c">DEVICE</text>
+  <text x="430" y="92" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#7a808c">HOW IT TELLS THEM APART</text>
+  <text x="900" y="92" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#7a808c">VERDICT</text>
+  <line x1="40" y1="104" x2="960" y2="104" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- row 1: SureFlap door -->
+  <g transform="translate(0,150)">
+    <text x="40" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">SureFlap door</text>
+    <text x="430" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">reads chip at the door</text>
+    <g transform="translate(906,-13)">
+      <circle cx="0" cy="0" r="14" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2"/>
+      <path d="M-6 0 L-1.5 5 L7 -6" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="850" y="4" text-anchor="end" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#3a7d44">identity</text>
+  </g>
+  <line x1="40" y1="172" x2="960" y2="172" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+  <!-- row 2: SureFeed feeder -->
+  <g transform="translate(0,218)">
+    <text x="40" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">SureFeed feeder</text>
+    <text x="430" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">chip-gated lid at the bowl</text>
+    <g transform="translate(906,-13)">
+      <circle cx="0" cy="0" r="14" fill="#3a7d44" fill-opacity="0.12" stroke="#3a7d44" stroke-width="2"/>
+      <path d="M-6 0 L-1.5 5 L7 -6" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="850" y="4" text-anchor="end" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#3a7d44">identity</text>
+  </g>
+  <line x1="40" y1="240" x2="960" y2="240" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+  <!-- row 3: Litter-Robot -->
+  <g transform="translate(0,286)">
+    <text x="40" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">Litter-Robot Connect</text>
+    <text x="430" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">logs entry weight, no binding</text>
+    <g transform="translate(906,-13)">
+      <circle cx="0" cy="0" r="14" fill="#c87533" fill-opacity="0.14" stroke="#c87533" stroke-width="2"/>
+      <line x1="-6" y1="0" x2="6" y2="0" stroke="#c87533" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="850" y="4" text-anchor="end" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#c87533">infer by weight</text>
+  </g>
+  <line x1="40" y1="308" x2="960" y2="308" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+  <!-- row 4: PetSafe feeder -->
+  <g transform="translate(0,354)">
+    <text x="40" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">PetSafe Smart Feed</text>
+    <text x="430" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">one shared bowl, no gate</text>
+    <g transform="translate(906,-13)">
+      <circle cx="0" cy="0" r="14" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2"/>
+      <path d="M-5 -5 L5 5 M5 -5 L-5 5" fill="none" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="850" y="4" text-anchor="end" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#c14a3a">can't tell</text>
+  </g>
+  <line x1="40" y1="376" x2="960" y2="376" stroke="#1a1d24" stroke-opacity="0.08" stroke-width="1.5"/>
+
+  <!-- row 5: Indoor camera -->
+  <g transform="translate(0,422)">
+    <text x="40" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#1a1d24">Indoor camera</text>
+    <text x="430" y="0" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13.5" fill="#5b616b">no per-cat vision yet</text>
+    <g transform="translate(906,-13)">
+      <circle cx="0" cy="0" r="14" fill="#c14a3a" fill-opacity="0.12" stroke="#c14a3a" stroke-width="2"/>
+      <path d="M-5 -5 L5 5 M5 -5 L-5 5" fill="none" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="850" y="4" text-anchor="end" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#c14a3a">can't tell</text>
+  </g>
+  <line x1="40" y1="444" x2="960" y2="444" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <text x="500" y="500" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">The devices that read the chip at the point of access are the only ones that know which cat.</text>
+</svg>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 440" width="1080" height="440" role="img" aria-label="A value defined in two layers drifts, and the layer you cannot hot-fix is the one that is wrong.">
+  <rect width="1080" height="440" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">ONE NUMBER, TWO HOMES — AND THEY DRIFTED</text>
+
+  <!-- the threshold defined twice -->
+  <text x="44" y="84" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">head-replacement threshold — defined in two layers because it was easier than deciding the owner</text>
+
+  <!-- firmware constant -->
+  <g transform="translate(60,108)">
+    <rect x="0" y="0" width="380" height="118" rx="12" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.4"/>
+    <text x="20" y="32" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">FIRMWARE constant</text>
+    <text x="20" y="56" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">baked into units in the field</text>
+    <text x="20" y="92" font-family="ui-monospace,monospace" font-size="22" fill="#c14a3a">good for 90 days</text>
+    <!-- lock = frozen -->
+    <g transform="translate(326,82)" fill="none" stroke="#c14a3a" stroke-width="2.2" stroke-linecap="round">
+      <path d="M-7 0 v-5 a7 7 0 0 1 14 0 v5"/>
+      <rect x="-10" y="0" width="20" height="15" rx="3" fill="#fdfaf2"/>
+    </g>
+    <text x="326" y="112" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#c14a3a">frozen · OTA only</text>
+  </g>
+
+  <!-- cloud config -->
+  <g transform="translate(640,108)">
+    <rect x="0" y="0" width="380" height="118" rx="12" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.4"/>
+    <text x="20" y="32" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">CLOUD config</text>
+    <text x="20" y="56" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">revised recommendation, shipped later</text>
+    <text x="20" y="92" font-family="ui-monospace,monospace" font-size="22" fill="#357a8c">good for 100 days</text>
+    <text x="322" y="112" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#357a8c">ships every 2 weeks</text>
+  </g>
+
+  <!-- the drift symptom -->
+  <g transform="translate(280,250)">
+    <rect x="0" y="0" width="520" height="64" rx="10" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-width="2"/>
+    <text x="260" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">the app showed both — one screen "due", another "not yet due"</text>
+    <text x="260" y="50" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">a number that means two things at once = an auditor's finding</text>
+  </g>
+  <!-- arrows converging into drift box -->
+  <g stroke="#c14a3a" stroke-width="2.2" fill="#c14a3a" stroke-linecap="round">
+    <line x1="250" y1="226" x2="360" y2="248"/><path d="M364 250 l-13 -1 5 -10 z"/>
+    <line x1="830" y1="226" x2="720" y2="248"/><path d="M716 250 l13 -1 -5 -10 z"/>
+  </g>
+
+  <!-- the fix -->
+  <g transform="translate(280,338)">
+    <rect x="0" y="0" width="520" height="56" rx="10" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="2"/>
+    <g transform="translate(28,28)"><path d="M-7 0 l5 7 12 -14" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="278" y="24" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#1a1d24">fix: platform OVERRIDES the stale firmware value —</text>
+    <text x="278" y="44" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11.5" fill="#3a7d44">field number is a hint, cloud number is canonical</text>
+  </g>
+  <g stroke="#3a7d44" stroke-width="2.2" fill="#3a7d44" stroke-linecap="round">
+    <line x1="540" y1="314" x2="540" y2="334"/><path d="M540 338 l-6 -12 12 0 z"/>
+  </g>
+
+  <text x="540" y="424" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">A value that lives in two layers will drift — and the layer you can't update on demand is the one that will be wrong.</text>
+</svg>

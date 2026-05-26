@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 400" width="1080" height="400" role="img" aria-label="The same door rule on the SmartThings cloud versus locally on Home Assistant.">
+  <rect width="1080" height="400" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">SAME RULE, TWO PLACES IT CAN RUN</text>
+
+  <!-- BEFORE: cloud path -->
+  <text x="40" y="86" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">BEFORE — SmartThings (Groovy in the cloud)</text>
+  <g transform="translate(60,100)">
+    <!-- door -->
+    <rect x="0" y="0" width="60" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="30" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">door</text>
+    <!-- up to cloud -->
+    <g stroke="#c14a3a" stroke-width="2.6" fill="#c14a3a">
+      <path d="M60 22 C150 -10, 260 -10, 330 18" fill="none"/><path d="M334 20 l-15 -3 l3 14 z"/>
+    </g>
+    <!-- cloud -->
+    <g transform="translate(330,-12)"><path d="M34 56 a22 22 0 0 1 4 -42 a26 26 0 0 1 50 4 a18 18 0 0 1 -2 38 z" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.4"/><text x="64" y="40" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c14a3a">cloud</text></g>
+    <!-- back down to phone -->
+    <g stroke="#c14a3a" stroke-width="2.6" fill="#c14a3a">
+      <path d="M470 30 C560 -2, 650 0, 700 22" fill="none"/><path d="M704 24 l-15 -3 l2 14 z"/>
+    </g>
+    <rect x="700" y="2" width="40" height="60" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="720" y="80" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">phone</text>
+    <!-- timing + outage -->
+    <text x="820" y="20" font-family="ui-monospace,monospace" font-size="13" fill="#c14a3a">3–5 s</text>
+    <text x="820" y="42" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">✗ dies in an outage</text>
+  </g>
+
+  <line x1="40" y1="210" x2="1040" y2="210" stroke="#1a1d24" stroke-width="1" opacity="0.12"/>
+
+  <!-- AFTER: local path -->
+  <text x="40" y="252" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">AFTER — Home Assistant (YAML on the Pi)</text>
+  <g transform="translate(60,268)">
+    <rect x="0" y="0" width="60" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="30" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">door</text>
+    <!-- short hop to Pi -->
+    <g stroke="#3a7d44" stroke-width="2.6" fill="#3a7d44">
+      <path d="M60 22 H150" fill="none"/><path d="M154 22 l-14 -7 v14 z"/>
+    </g>
+    <rect x="154" y="-2" width="80" height="48" rx="8" fill="#6a4c93" fill-opacity="0.1" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="194" y="26" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24">HA (Pi)</text>
+    <!-- short hop to phone -->
+    <g stroke="#3a7d44" stroke-width="2.6" fill="#3a7d44">
+      <path d="M234 22 H324" fill="none"/><path d="M328 22 l-14 -7 v14 z"/>
+    </g>
+    <rect x="328" y="-8" width="40" height="60" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <text x="348" y="70" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#7a808c">phone</text>
+    <text x="440" y="20" font-family="ui-monospace,monospace" font-size="13" fill="#3a7d44">0.5–1 s</text>
+    <text x="440" y="42" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">✓ still fires when the internet is down</text>
+  </g>
+
+  <text x="540" y="384" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">Same trigger, same sensors — the only change is whether the decision leaves the house.</text>
+</svg>

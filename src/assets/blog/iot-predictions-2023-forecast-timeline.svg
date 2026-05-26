@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" role="img" aria-label="2023 forecast timeline">
+  <rect width="860" height="420" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="52" font-size="22" fill="#1a1d24" font-weight="600">2023 — WHAT I EXPECT, AND WHEN</text>
+    <text x="40" y="78" font-size="13" fill="#7a808c">forecasts, not facts — calls made Jan 8</text>
+
+    <!-- axis -->
+    <line x1="70" y1="300" x2="800" y2="300" stroke="#1a1d24" stroke-width="2.5"/>
+    <g font-size="13" fill="#7a808c" text-anchor="middle">
+      <line x1="70" y1="294" x2="70" y2="306" stroke="#1a1d24" stroke-width="2"/><text x="70" y="328">Jan</text>
+      <line x1="252" y1="294" x2="252" y2="306" stroke="#1a1d24" stroke-width="2"/><text x="252" y="328">Apr</text>
+      <line x1="435" y1="294" x2="435" y2="306" stroke="#1a1d24" stroke-width="2"/><text x="435" y="328">Jul</text>
+      <line x1="617" y1="294" x2="617" y2="306" stroke="#1a1d24" stroke-width="2"/><text x="617" y="328">Oct</text>
+      <line x1="800" y1="294" x2="800" y2="306" stroke="#1a1d24" stroke-width="2"/><text x="800" y="328">Dec</text>
+    </g>
+
+    <!-- markers (forecast = hollow blue circle with ? ) -->
+    <!-- Matter v1.2 (~May) at ~x=312 -->
+    <g transform="translate(312,300)">
+      <line x1="0" y1="0" x2="0" y2="-90" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="5 4"/>
+      <circle cx="0" cy="-90" r="14" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <text x="0" y="-85" text-anchor="middle" font-size="15" fill="#0066cc">?</text>
+      <text x="0" y="-118" text-anchor="middle" font-size="14" fill="#1a1d24">Matter v1.2</text>
+      <text x="0" y="-136" text-anchor="middle" font-size="12" fill="#7a808c">cameras, appliances</text>
+    </g>
+
+    <!-- WWDC headset announce (~June) at x=375 -->
+    <g transform="translate(390,300)">
+      <line x1="0" y1="0" x2="0" y2="-170" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="5 4"/>
+      <circle cx="0" cy="-170" r="14" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <text x="0" y="-165" text-anchor="middle" font-size="15" fill="#0066cc">?</text>
+      <text x="0" y="-198" text-anchor="middle" font-size="14" fill="#1a1d24">AR/VR headset</text>
+      <text x="0" y="-216" text-anchor="middle" font-size="12" fill="#7a808c">announced at WWDC</text>
+    </g>
+
+    <!-- Watch S9 + Ultra refresh (Sept) at x=556 -->
+    <g transform="translate(556,300)">
+      <line x1="0" y1="0" x2="0" y2="-90" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="5 4"/>
+      <circle cx="0" cy="-90" r="14" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <text x="0" y="-85" text-anchor="middle" font-size="15" fill="#0066cc">?</text>
+      <text x="0" y="-118" text-anchor="middle" font-size="14" fill="#1a1d24">Watch S9</text>
+      <text x="0" y="-136" text-anchor="middle" font-size="12" fill="#7a808c">double-tap gesture</text>
+    </g>
+
+    <!-- AirPods USB-C (Q4) at x=690 -->
+    <g transform="translate(700,300)">
+      <line x1="0" y1="0" x2="0" y2="-170" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="5 4"/>
+      <circle cx="0" cy="-170" r="14" fill="#fdfaf2" stroke="#0066cc" stroke-width="3"/>
+      <text x="0" y="-165" text-anchor="middle" font-size="15" fill="#0066cc">?</text>
+      <text x="0" y="-198" text-anchor="middle" font-size="14" fill="#1a1d24">AirPods USB-C</text>
+      <text x="0" y="-216" text-anchor="middle" font-size="12" fill="#7a808c">port swap, Q4</text>
+    </g>
+
+    <text x="70" y="372" font-size="13" fill="#7a808c">Dashed = a call, not a calendar entry. The category moves; the dates are my best guess.</text>
+  </g>
+</svg>

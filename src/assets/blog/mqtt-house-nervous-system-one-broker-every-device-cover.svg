@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="MQTT broker nervous system">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#6a4c93"/>
+
+  <!-- central broker -->
+  <g transform="translate(600 315)">
+    <circle r="74" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="7"/>
+    <circle r="20" fill="#6a4c93"/>
+    <!-- concentric pulse rings -->
+    <circle r="44" fill="none" stroke="#6a4c93" stroke-width="3" opacity="0.4"/>
+  </g>
+
+  <!-- six device nodes around the broker, with publish arrows IN -->
+  <!-- helper positions on a ring radius ~230 -->
+  <g>
+    <!-- node TL: bulb -->
+    <g transform="translate(280 130)"><circle r="30" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><circle r="9" fill="#6a4c93"/></g>
+    <!-- node TR: plug -->
+    <g transform="translate(920 130)"><rect x="-26" y="-26" width="52" height="52" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><circle r="9" fill="#6a4c93"/></g>
+    <!-- node L: door contact -->
+    <g transform="translate(180 315)"><rect x="-28" y="-22" width="56" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><line x1="0" y1="-22" x2="0" y2="22" stroke="#1a1d24" stroke-width="3"/></g>
+    <!-- node R: motion -->
+    <g transform="translate(1020 315)"><rect x="-28" y="-26" width="56" height="52" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><path d="M-14 8 a16 16 0 0 1 28 0" fill="none" stroke="#6a4c93" stroke-width="4"/><circle cy="-6" r="5" fill="#6a4c93"/></g>
+    <!-- node BL: ESP sensor -->
+    <g transform="translate(280 500)"><rect x="-30" y="-22" width="60" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><line x1="-16" y1="0" x2="16" y2="0" stroke="#6a4c93" stroke-width="3"/><line x1="-16" y1="10" x2="6" y2="10" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="3"/></g>
+    <!-- node BR: HA -->
+    <g transform="translate(920 500)"><rect x="-30" y="-26" width="60" height="52" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/><path d="M-16 6 L0 -12 L16 6" fill="none" stroke="#6a4c93" stroke-width="4"/></g>
+  </g>
+
+  <!-- pub/sub links (devices publish IN, controllers subscribe; show as lines with small arrowheads toward broker) -->
+  <g stroke="#6a4c93" stroke-width="3.5" fill="none">
+    <line x1="306" y1="156" x2="544" y2="271" marker-end="url(#a)"/>
+    <line x1="894" y1="156" x2="656" y2="271" marker-end="url(#a)"/>
+    <line x1="236" y1="315" x2="522" y2="315" marker-end="url(#a)"/>
+    <line x1="964" y1="315" x2="678" y2="315" marker-end="url(#a)"/>
+    <line x1="310" y1="478" x2="546" y2="360" marker-end="url(#a)"/>
+    <line x1="884" y1="478" x2="656" y2="360" marker-end="url(#a)"/>
+  </g>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+  </defs>
+</svg>

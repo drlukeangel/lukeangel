@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 440" role="img" aria-label="Where pet AI is real vs theater">
+  <rect width="940" height="440" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b;}
+  </style>
+  <defs>
+    <marker id="bc" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#3a7d44"/></marker>
+    <marker id="bxx" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#c14a3a"/></marker>
+  </defs>
+
+  <text x="40" y="44" class="ttl" style="font-family:ui-monospace,monospace;font-size:18px;font-weight:700;fill:#1a1d24;">What separates real signal from theater: the training data</text>
+
+  <!-- LEFT column: REAL (green) -->
+  <g transform="translate(60,80)">
+    <rect x="0" y="0" width="380" height="290" rx="12" fill="#3a7d44" fill-opacity="0.05" stroke="#3a7d44" stroke-width="3"/>
+    <text x="20" y="34" class="hd" fill="#3a7d44">REAL SIGNAL</text>
+    <text x="20" y="56" class="sm">labeled clinical data · controlled setting · vet-reviewed</text>
+    <g class="lab">
+      <circle cx="32" cy="92" r="6" fill="#3a7d44" fill-opacity="0.5"/><text x="50" y="97">Clinic gait / lameness analysis</text>
+      <circle cx="32" cy="128" r="6" fill="#3a7d44" fill-opacity="0.5"/><text x="50" y="133">Feline grimace-scale pain scoring</text>
+      <circle cx="32" cy="164" r="6" fill="#3a7d44" fill-opacity="0.5"/><text x="50" y="169">Dog-vs-human in frame (~95%)</text>
+      <circle cx="32" cy="200" r="6" fill="#3a7d44" fill-opacity="0.5"/><text x="50" y="205">Treat-toss target detection</text>
+    </g>
+    <text x="20" y="252" class="sm">Trained on clean labels, used where conditions are known.</text>
+  </g>
+
+  <!-- RIGHT column: THEATER (red) -->
+  <g transform="translate(500,80)">
+    <rect x="0" y="0" width="380" height="290" rx="12" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="3" stroke-dasharray="7 5"/>
+    <text x="20" y="34" class="hd" fill="#c14a3a">THEATER</text>
+    <text x="20" y="56" class="sm">user video · random homes · reassurance UX</text>
+    <g class="lab">
+      <path d="M 26 86 l 12 12 M 38 86 l -12 12" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/><text x="50" y="97">"Anxiety detected" on a camera</text>
+      <path d="M 26 122 l 12 12 M 38 122 l -12 12" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/><text x="50" y="133">Bark-type classification</text>
+      <path d="M 26 158 l 12 12 M 38 158 l -12 12" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/><text x="50" y="169">Collar "wellness scores" (1–100)</text>
+      <path d="M 26 194 l 12 12 M 38 194 l -12 12" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/><text x="50" y="205">Generic "AI training" chat</text>
+    </g>
+    <text x="20" y="252" class="sm">Real underlying data; theatrical interpretation layer.</text>
+  </g>
+
+  <line x1="40" y1="400" x2="900" y2="400" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="470" y="428" text-anchor="middle" class="cap">The data is real on both sides. The difference is whether the interpretation was earned.</text>
+</svg>

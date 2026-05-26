@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="Store-and-forward on connectivity loss">
+  <rect width="1120" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">STORE-AND-FORWARD ON CONNECTIVITY LOSS</text>
+
+  <!-- three stages, left to right -->
+  <!-- stage labels -->
+  <g font-family="ui-monospace,monospace" font-size="12" fill="#2a52be" text-anchor="middle">
+    <text x="190" y="86">1 · LINK DROPS</text>
+    <text x="560" y="86">2 · BUFFER TO FLASH</text>
+    <text x="930" y="86">3 · RECONNECT &amp; REPLAY</text>
+  </g>
+
+  <!-- stage 1 -->
+  <g transform="translate(70,110)">
+    <rect x="0" y="0" width="240" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">cart keeps scanning</text>
+    <!-- broken link glyph -->
+    <line x1="40" y1="80" x2="95" y2="80" stroke="#c14a3a" stroke-width="3"/>
+    <line x1="145" y1="80" x2="200" y2="80" stroke="#c14a3a" stroke-width="3"/>
+    <path d="M100 66 l16 28 M116 66 l-16 28" stroke="#c14a3a" stroke-width="3"/>
+    <text x="120" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">WiFi + LTE-M both down</text>
+    <text x="120" y="140" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#5b616b">session continues locally</text>
+  </g>
+
+  <!-- stage 2 -->
+  <g transform="translate(440,110)">
+    <rect x="0" y="0" width="240" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">events → local flash</text>
+    <!-- ordered queue glyph with monotonic counters -->
+    <g font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">
+      <rect x="40" y="52" width="160" height="22" rx="4" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="1.6"/>
+      <text x="50" y="68">scan  #104</text>
+      <rect x="40" y="80" width="160" height="22" rx="4" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="1.6"/>
+      <text x="50" y="96">scan  #105</text>
+      <rect x="40" y="108" width="160" height="22" rx="4" fill="#2a52be" fill-opacity="0.10" stroke="#2a52be" stroke-width="1.6"/>
+      <text x="50" y="124">health #106</text>
+    </g>
+    <text x="120" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">original timestamps preserved</text>
+  </g>
+
+  <!-- stage 3 -->
+  <g transform="translate(810,110)">
+    <rect x="0" y="0" width="240" height="150" rx="12" fill="#fdfaf2" stroke="#2a52be" stroke-width="2.5"/>
+    <text x="120" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">re-publish in order</text>
+    <!-- cloud glyph -->
+    <g transform="translate(70,52)" stroke="#2a52be" stroke-width="2.4" fill="#2a52be" fill-opacity="0.08">
+      <path d="M20 38 a18 18 0 0 1 4 -35 a22 22 0 0 1 42 6 a16 16 0 0 1 -2 29 z"/>
+    </g>
+    <g stroke="#2a52be" stroke-width="3" fill="#2a52be">
+      <path d="M40 116 H190" fill="none"/>
+      <path d="M190 116 l-16 -7 v14 z"/>
+    </g>
+    <text x="120" y="146" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#5b616b">cloud dedups on (cart-id, counter)</text>
+  </g>
+
+  <!-- flow arrows between stages -->
+  <g stroke="#7a808c" stroke-width="2.5" fill="#7a808c">
+    <path d="M312 185 H438" fill="none"/>
+    <path d="M438 185 l-16 -7 v14 z"/>
+    <path d="M682 185 H808" fill="none"/>
+    <path d="M808 185 l-16 -7 v14 z"/>
+  </g>
+
+  <!-- dedup explainer -->
+  <rect x="70" y="300" width="980" height="120" rx="10" fill="#2a52be" fill-opacity="0.05" stroke="#2a52be" stroke-width="2"/>
+  <text x="100" y="332" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">Why the monotonic counter matters</text>
+  <text x="100" y="360" font-family="ui-monospace,monospace" font-size="11.5" fill="#5b616b">MQTT may redeliver on a flaky reconnect, so the cart could re-send #104 twice.</text>
+  <text x="100" y="382" font-family="ui-monospace,monospace" font-size="11.5" fill="#5b616b">The cloud keys every event on (cart-id, counter) and drops the duplicate —</text>
+  <text x="100" y="404" font-family="ui-monospace,monospace" font-size="11.5" fill="#3a7d44">exactly-once at the data layer, even though the transport only promises at-least-once.</text>
+</svg>

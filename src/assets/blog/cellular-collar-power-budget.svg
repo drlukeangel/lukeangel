@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Cellular collar power budget">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">
+
+    <!-- axis -->
+    <line x1="120" y1="50" x2="120" y2="410" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2.5"/>
+    <line x1="120" y1="410" x2="380" y2="410" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2.5"/>
+    <text x="60" y="230" font-size="13" fill="#5b616b" transform="rotate(-90 60 230)">mWh / day</text>
+
+    <!-- stacked bar -->
+    <!-- modem (3000-5000) -->
+    <rect x="180" y="60" width="120" height="220" fill="#c87533" fill-opacity="0.75"/>
+    <!-- gps -->
+    <rect x="180" y="280" width="120" height="70" fill="#1a1d24" fill-opacity="0.55"/>
+    <!-- ble -->
+    <rect x="180" y="350" width="120" height="28" fill="#1a1d24" fill-opacity="0.30"/>
+    <!-- mcu -->
+    <rect x="180" y="378" width="120" height="32" fill="#1a1d24" fill-opacity="0.18"/>
+    <rect x="180" y="60" width="120" height="350" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+
+    <!-- segment labels to the right -->
+    <g font-size="14">
+      <line x1="300" y1="170" x2="430" y2="170" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+      <text x="440" y="166" fill="#c87533">cellular modem</text>
+      <text x="440" y="186" font-size="12" fill="#5b616b">~3,000–5,000 mWh/day</text>
+
+      <line x1="300" y1="315" x2="430" y2="315" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+      <text x="440" y="311" fill="#1a1d24">GPS</text>
+      <text x="440" y="331" font-size="12" fill="#5b616b">~500–1,500</text>
+
+      <line x1="300" y1="364" x2="430" y2="364" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+      <text x="440" y="368" font-size="12" fill="#5b616b">BLE  ~100–300</text>
+
+      <line x1="300" y1="394" x2="430" y2="394" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="1.5"/>
+      <text x="440" y="398" font-size="12" fill="#5b616b">MCU + sensors  ~250–700</text>
+    </g>
+
+    <!-- bracket on the modem segment -->
+    <path d="M316 60 q 12 0 12 12 v 92 q 0 12 12 12 q -12 0 -12 12 v 92 q 0 12 -12 12" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="700" y="166" font-size="14" fill="#c14a3a">decides the whole battery life</text>
+
+    <text x="500" y="455" text-anchor="middle" font-size="14" fill="#5b616b">shrink the modem's average current and everything else is rounding error</text>
+  </g>
+</svg>

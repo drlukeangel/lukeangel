@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Zigbee mesh topology">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">
+
+    <!-- coordinator center -->
+    <g transform="translate(500 250)">
+      <rect x="-44" y="-26" width="88" height="52" rx="10" fill="#6a4c93" fill-opacity="0.14" stroke="#6a4c93" stroke-width="3.5"/>
+      <text x="0" y="4" text-anchor="middle" font-size="12" fill="#6a4c93">coordinator</text>
+    </g>
+
+    <!-- routers (mains-powered): plugs, repeater, bulbs — solid backbone -->
+    <g>
+      <g transform="translate(280 130)"><rect x="-26" y="-22" width="52" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><circle r="6" fill="#6a4c93"/><text x="0" y="-32" text-anchor="middle" font-size="11" fill="#5b616b">plug · router</text></g>
+      <g transform="translate(730 150)"><rect x="-26" y="-22" width="52" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><circle r="6" fill="#6a4c93"/><text x="0" y="-32" text-anchor="middle" font-size="11" fill="#5b616b">repeater</text></g>
+      <g transform="translate(720 370)"><rect x="-24" y="-22" width="48" height="44" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/><circle r="6" fill="#6a4c93"/><text x="0" y="38" text-anchor="middle" font-size="11" fill="#5b616b">bulb · router</text></g>
+    </g>
+    <!-- backbone links coordinator<->routers (solid) -->
+    <g stroke="#6a4c93" stroke-width="3" fill="none">
+      <line x1="464" y1="232" x2="306" y2="148"/>
+      <line x1="540" y1="240" x2="706" y2="162"/>
+      <line x1="536" y1="262" x2="700" y2="356"/>
+    </g>
+    <text x="392" y="205" font-size="10" fill="#5b616b" transform="rotate(-26 392 205)">lqi 102</text>
+
+    <!-- end devices (battery) hanging off nearest router (thin dashed) -->
+    <g>
+      <g transform="translate(150 110)"><rect x="-22" y="-18" width="44" height="36" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/><line x1="0" y1="-18" x2="0" y2="18" stroke="#1a1d24" stroke-width="2"/><text x="0" y="-26" text-anchor="middle" font-size="10" fill="#5b616b">door</text></g>
+      <g transform="translate(180 230)"><rect x="-22" y="-18" width="44" height="36" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/><text x="0" y="38" text-anchor="middle" font-size="10" fill="#5b616b">vibration</text></g>
+      <g transform="translate(880 130)"><rect x="-22" y="-18" width="44" height="36" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/><text x="0" y="-26" text-anchor="middle" font-size="10" fill="#5b616b">temp</text></g>
+      <g transform="translate(870 420)"><rect x="-22" y="-18" width="44" height="36" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/><text x="0" y="38" text-anchor="middle" font-size="10" fill="#5b616b">motion</text></g>
+    </g>
+    <g stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 5" stroke-opacity="0.55" fill="none">
+      <line x1="172" y1="110" x2="256" y2="124"/>
+      <line x1="202" y1="222" x2="258" y2="146"/>
+      <line x1="858" y1="138" x2="752" y2="146"/>
+      <line x1="848" y1="414" x2="742" y2="378"/>
+    </g>
+
+    <!-- legend -->
+    <g transform="translate(60 460)" font-size="12">
+      <line x1="0" y1="-4" x2="26" y2="-4" stroke="#6a4c93" stroke-width="3"/><text x="34" y="0" fill="#1a1d24">mains-powered routers (backbone)</text>
+      <line x1="430" y1="-4" x2="456" y2="-4" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="3 5"/><text x="464" y="0" fill="#1a1d24">battery end devices (leaf)</text>
+    </g>
+  </g>
+</svg>

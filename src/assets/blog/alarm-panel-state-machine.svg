@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Alarm state machine">
+  <rect width="1000" height="480" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1a1d24" text-anchor="middle">
+
+    <!-- states -->
+    <g transform="translate(140 240)"><circle r="58" fill="#fdfaf2" stroke="#3a7d44" stroke-width="4"/><text x="0" y="6">disarmed</text></g>
+    <g transform="translate(440 110)"><circle r="58" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="4"/><text x="0" y="0">armed</text><text x="0" y="20">Stay</text></g>
+    <g transform="translate(440 370)"><circle r="58" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="4"/><text x="0" y="0">armed</text><text x="0" y="20">Away</text></g>
+    <g transform="translate(800 240)"><circle r="62" fill="#c14a3a" fill-opacity="0.14" stroke="#c14a3a" stroke-width="5"/><text x="0" y="6" fill="#c14a3a">triggered</text></g>
+
+    <!-- transitions -->
+    <g stroke="#1a1d24" stroke-width="2.5" fill="none" opacity="0.7">
+      <path d="M188 208 L388 138" marker-end="url(#a)"/>
+      <path d="M188 272 L388 348" marker-end="url(#a)"/>
+      <path d="M498 130 C 640 150, 700 200, 742 222" marker-end="url(#a)"/>
+      <path d="M498 350 C 640 330, 700 280, 742 258" marker-end="url(#a)"/>
+      <!-- disarm back (green) -->
+      <path d="M748 280 C 500 440, 300 360, 196 286" marker-end="url(#b)" stroke="#3a7d44"/>
+    </g>
+    <!-- transition labels -->
+    <g font-size="11" fill="#5b616b">
+      <text x="270" y="158">arm Stay · no exit delay</text>
+      <text x="270" y="318">arm Away · 30s exit delay</text>
+      <text x="650" y="150">sensor + 30s entry delay</text>
+      <text x="650" y="345">glass-break / panic · no delay</text>
+      <text x="470" y="430" fill="#3a7d44">enter code → disarm</text>
+    </g>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#1a1d24" fill-opacity="0.7"/></marker>
+      <marker id="b" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#3a7d44"/></marker>
+    </defs>
+  </g>
+</svg>

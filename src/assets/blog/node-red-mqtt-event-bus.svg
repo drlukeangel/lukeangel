@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 400" width="1080" height="400" role="img" aria-label="Point-to-point wiring versus an MQTT publish-subscribe bus.">
+  <rect width="1080" height="400" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">FROM POINT-TO-POINT TO A BUS</text>
+
+  <line x1="540" y1="70" x2="540" y2="356" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.16"/>
+
+  <!-- LEFT: point-to-point tangle -->
+  <text x="270" y="92" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#c14a3a">BEFORE — every link its own special case</text>
+  <g font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24" text-anchor="middle">
+    <g><rect x="60" y="130" width="80" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="100" y="152">door</text></g>
+    <g><rect x="60" y="200" width="80" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="100" y="222">motion</text></g>
+    <g><rect x="60" y="270" width="80" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="100" y="292">presence</text></g>
+    <g><rect x="370" y="130" width="80" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="410" y="152">HA</text></g>
+    <g><rect x="370" y="200" width="80" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="410" y="222">alarm</text></g>
+    <g><rect x="370" y="270" width="80" height="34" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="410" y="292">lights</text></g>
+  </g>
+  <!-- tangle of crossing wires -->
+  <g stroke="#c14a3a" stroke-width="2" fill="none" opacity="0.55">
+    <path d="M140 147 L370 147"/>
+    <path d="M140 147 C250 180, 280 230, 370 217"/>
+    <path d="M140 217 C250 190, 280 150, 370 147"/>
+    <path d="M140 217 L370 287"/>
+    <path d="M140 287 C250 250, 280 160, 370 147"/>
+    <path d="M140 287 L370 217"/>
+  </g>
+
+  <!-- RIGHT: MQTT bus -->
+  <text x="810" y="92" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#3a7d44">AFTER — publish / subscribe to one broker</text>
+  <!-- the broker bar in the middle -->
+  <rect x="780" y="120" width="60" height="200" rx="10" fill="#6a4c93" fill-opacity="0.14" stroke="#1a1d24" stroke-width="2.6"/>
+  <text x="810" y="226" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24" transform="rotate(-90 810 226)">MQTT broker</text>
+  <!-- publishers (left of broker) -->
+  <g font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24" text-anchor="middle">
+    <g><rect x="600" y="130" width="86" height="30" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/><text x="643" y="150">door</text></g>
+    <g><rect x="600" y="175" width="86" height="30" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/><text x="643" y="195">motion</text></g>
+    <g><rect x="600" y="220" width="86" height="30" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/><text x="643" y="240">presence</text></g>
+  </g>
+  <!-- subscribers (right of broker) -->
+  <g font-family="ui-monospace,monospace" font-size="10" fill="#1a1d24" text-anchor="middle">
+    <g><rect x="934" y="140" width="86" height="30" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/><text x="977" y="160">HA</text></g>
+    <g><rect x="934" y="205" width="86" height="30" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2"/><text x="977" y="225">Node-RED</text></g>
+    <g><rect x="934" y="270" width="86" height="30" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2" stroke-dasharray="4 4"/><text x="977" y="290" font-size="9" fill="#7a808c">future dev</text></g>
+  </g>
+  <!-- clean wires to/from broker -->
+  <g stroke="#3a7d44" stroke-width="2.4" fill="none">
+    <path d="M686 145 H780"/><path d="M686 190 H780"/><path d="M686 235 H780"/>
+    <path d="M840 155 H934"/><path d="M840 220 H934"/>
+  </g>
+  <g stroke="#7a808c" stroke-width="2.2" fill="none" stroke-dasharray="4 4"><path d="M840 285 H934"/></g>
+
+  <text x="540" y="384" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">Everything publishes to a topic; anything that cares subscribes. The next device joins the bus without rewiring a thing.</text>
+</svg>

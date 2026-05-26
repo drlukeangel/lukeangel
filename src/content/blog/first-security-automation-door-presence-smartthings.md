@@ -11,8 +11,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 12
 excerpt: "Six months on SmartThings. Starter kit's door/window sensors and Arrival Sensors sat in a drawer waiting for the first useful automation."
 pullquote: "The Arrival Sensor is a Bluetooth dongle the size of a key fob with a CR2450 battery. It's also unreliable enough that I'm already planning to replace it with phone-based presence."
-cover: "../../assets/blog/first-security-automation-door-presence-smartthings-cover.png"
-coverAlt: "First security automation — door/window + presence"
+cover: "../../assets/blog/first-security-automation-door-presence-smartthings-cover.svg"
+coverAlt: "A front door with a contact sensor, a small Bluetooth key-fob beacon, and a phone, all reporting to a hub that decides whether anyone is home — the door-plus-presence security loop."
 ---
 
 Six months on the [SmartThings hub I bought last August](/blog/smartthings-starter-kit-unboxing-zwave-zigbee-first-hub/). The starter kit's two door/window sensors and one Arrival Sensor have been sitting in a drawer waiting for me to build something with them. Tonight is the night.
@@ -85,6 +85,8 @@ Miss rate is high enough that I'm getting false alarms:
 
 False-positive rate so far: ~1 false alarm per week. Going to make the household ignore the SMS, which is the wrong outcome.
 
+![Why the Arrival Sensor produces false alarms. The BLE key-fob has a range of only about three metres from the hub, so its "present" bubble covers part of one floor; step into the basement, the backyard, or a far bathroom and the hub stops hearing the beacon and flips you to "not present" — even though you never left. A phone geofence draws a roughly fifty-metre "present" circle around the whole house and yard, so it keeps reporting you home everywhere the key-fob drops out. The gap between the tiny beacon bubble and the house-sized geofence is exactly where the false "door opened while nobody home" alerts come from.](../../assets/blog/smartthings-presence-beacon-vs-geofence.svg)
+
 **The fix:** phone-based presence. SmartThings has an iOS app that can use GPS geofencing to report presence. More accurate (50m geofence vs ~3m beacon for Arrival Sensor), and the phone is in someone's pocket basically always. Downside is the SmartThings app must run in background, which costs battery.
 
 Going to add the phone as a presence sensor next week, demote the Arrival Sensors to secondary signal, combine them with `(phone_present OR arrival_present)` logic.
@@ -101,3 +103,5 @@ This is the first piece of the security arc. Going to layer on more sensors as I
 ## What I'm wondering
 
 If a thunderstorm takes out my internet, does the automation fail? The SmartApp Groovy execution is cloud-side; the SMS dispatch is cloud-side. Local-only security automation is a problem I want to figure out — probably impossible on SmartThings v1, possibly something to revisit when they ship a beefier hub.
+
+![Where the security automation actually executes. Inside the house, the door sensor fires contact.open and the v1 hub catches it — but the hub only forwards that event up to the SmartThings cloud. The Groovy SmartApp logic, the presence check, and the sendSms call all run in the cloud, which then dispatches the SMS out through a carrier gateway to my phone. The consequence, flagged in red: if the internet drops, the logic never runs and no SMS goes out — the whole alarm is cloud-gated, with nothing surviving locally on the hub.](../../assets/blog/smartthings-groovy-cloud-execution.svg)

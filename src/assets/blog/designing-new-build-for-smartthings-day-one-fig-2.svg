@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-label="why a smart switch needs a neutral and a deeper box">
+  <rect width="1000" height="400" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" font-weight="700" fill="#1a1d24">WHAT EVERY SWITCH BOX NEEDS, AT ROUGH-IN</text>
+
+  <!-- dumb switch box (no neutral) -->
+  <g transform="translate(70,90)">
+    <text x="160" y="0" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#7a808c">DUMB SWITCH &#183; no neutral</text>
+    <rect x="80" y="20" width="160" height="200" rx="6" fill="#fdfaf2" stroke="#7a808c" stroke-width="2"/>
+    <text x="160" y="46" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">2.5" box</text>
+    <!-- line + load wires only -->
+    <line x1="80" y1="90" x2="40" y2="90" stroke="#c14a3a" stroke-width="3"/>
+    <text x="34" y="94" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">line</text>
+    <line x1="240" y1="90" x2="280" y2="90" stroke="#1a1d24" stroke-width="3"/>
+    <text x="286" y="94" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">load</text>
+    <rect x="135" y="80" width="50" height="60" rx="6" fill="#7a808c" fill-opacity="0.2" stroke="#7a808c" stroke-width="2"/>
+    <text x="160" y="200" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#7a808c">switch just breaks the line</text>
+  </g>
+
+  <!-- smart switch box (needs neutral + deeper) -->
+  <g transform="translate(560,90)">
+    <text x="160" y="0" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#6a4c93">SMART SWITCH &#183; neutral + deeper box</text>
+    <rect x="60" y="20" width="200" height="200" rx="6" fill="#fdfaf2" stroke="#6a4c93" stroke-width="2.5"/>
+    <text x="160" y="46" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#6a4c93">4" / 5" box</text>
+    <line x1="60" y1="90" x2="20" y2="90" stroke="#c14a3a" stroke-width="3"/>
+    <text x="14" y="94" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#c14a3a">line</text>
+    <line x1="260" y1="90" x2="300" y2="90" stroke="#1a1d24" stroke-width="3"/>
+    <text x="306" y="94" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">load</text>
+    <!-- neutral, the key wire -->
+    <line x1="60" y1="140" x2="20" y2="140" stroke="#3a7d44" stroke-width="3"/>
+    <text x="14" y="144" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#3a7d44">neutral</text>
+    <rect x="120" y="70" width="80" height="100" rx="6" fill="#6a4c93" fill-opacity="0.18" stroke="#6a4c93" stroke-width="2"/>
+    <text x="160" y="118" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#1a1d24">radio</text>
+    <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#1a1d24">+ PSU</text>
+    <text x="160" y="200" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#3a7d44">neutral powers the radio</text>
+  </g>
+
+  <text x="500" y="344" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">NEC 404.2(C) since 2011 &#8212; free at rough-in, impossible after drywall.</text>
+</svg>

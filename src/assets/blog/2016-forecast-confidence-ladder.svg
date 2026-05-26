@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="2016 forecast confidence">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#1a1d24">
+
+    <text x="500" y="42" text-anchor="middle" font-size="16">eight bets for 2016, ranked by how sure I am</text>
+
+    <!-- axis -->
+    <line x1="300" y1="78" x2="300" y2="452" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+    <text x="300" y="474" text-anchor="middle" font-size="11" fill="#5b616b">0%</text>
+    <line x1="640" y1="78" x2="640" y2="452" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1.5" stroke-dasharray="3 6"/>
+    <text x="640" y="474" text-anchor="middle" font-size="11" fill="#5b616b">50%</text>
+    <line x1="980" y1="78" x2="980" y2="452" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1.5" stroke-dasharray="3 6"/>
+    <text x="975" y="474" text-anchor="end" font-size="11" fill="#5b616b">100%</text>
+
+    <!-- bars: y, label, pct (300 + pct*6.8 = right end) -->
+    <g font-size="13">
+      <!-- 80 Hue motion sensor -->
+      <text x="290" y="106" text-anchor="end">Hue motion sensor</text>
+      <rect x="300" y="92" width="544" height="22" rx="4" fill="#6a4c93" fill-opacity="0.55"/>
+      <text x="852" y="108" font-size="11" fill="#5b616b">80%</text>
+
+      <!-- 75 Google Home ships -->
+      <text x="290" y="146" text-anchor="end">Google Home ships</text>
+      <rect x="300" y="132" width="510" height="22" rx="4" fill="#6a4c93" fill-opacity="0.55"/>
+      <text x="818" y="148" font-size="11" fill="#5b616b">75%</text>
+
+      <!-- 65 PoE camera useful -->
+      <text x="290" y="186" text-anchor="end">first useful PoE camera</text>
+      <rect x="300" y="172" width="442" height="22" rx="4" fill="#6a4c93" fill-opacity="0.45"/>
+      <text x="750" y="188" font-size="11" fill="#5b616b">65%</text>
+
+      <!-- 60 HomeKit hub -->
+      <text x="290" y="226" text-anchor="end">Apple HomeKit hub</text>
+      <rect x="300" y="212" width="408" height="22" rx="4" fill="#6a4c93" fill-opacity="0.45"/>
+      <text x="716" y="228" font-size="11" fill="#5b616b">60%</text>
+
+      <!-- 60 Zigbee 3.0 ships -->
+      <text x="290" y="266" text-anchor="end">Zigbee 3.0 in products</text>
+      <rect x="300" y="252" width="408" height="22" rx="4" fill="#6a4c93" fill-opacity="0.45"/>
+      <text x="716" y="268" font-size="11" fill="#5b616b">60%</text>
+
+      <!-- 55 SmartThings cracks -->
+      <text x="290" y="306" text-anchor="end">SmartThings cracks</text>
+      <rect x="300" y="292" width="374" height="22" rx="4" fill="#6a4c93" fill-opacity="0.38"/>
+      <text x="682" y="308" font-size="11" fill="#5b616b">55%</text>
+
+      <!-- 50 Thread first products -->
+      <text x="290" y="346" text-anchor="end">Thread first products</text>
+      <rect x="300" y="332" width="340" height="22" rx="4" fill="#6a4c93" fill-opacity="0.38"/>
+      <text x="648" y="348" font-size="11" fill="#5b616b">50%</text>
+
+      <!-- 40 Home Assistant noticed -->
+      <text x="290" y="386" text-anchor="end">Home Assistant I notice</text>
+      <rect x="300" y="372" width="272" height="22" rx="4" fill="#6a4c93" fill-opacity="0.30"/>
+      <text x="580" y="388" font-size="11" fill="#5b616b">40%</text>
+    </g>
+
+    <text x="500" y="436" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">the coin-flips at the bottom — Thread and Home Assistant — are the ones I'll learn the most from</text>
+  </g>
+</svg>

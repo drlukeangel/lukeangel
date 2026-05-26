@@ -12,8 +12,8 @@ notebook: smart-home-iot-journey
 notebookOrder: 49
 excerpt: "The 65\" Frame TV has been the great room's center for eight months. Art display when off, TV when on, SmartThings hub always."
 pullquote: "The Frame TV's killer feature isn't 4K HDR or the matte screen. It's that it's a SmartThings hub + Thread Border Router + the largest display in the house, all in one device. The fact that it's also a great TV is a bonus."
-cover: "../../assets/blog/frame-tv-as-household-display-surface-cover.png"
-coverAlt: "Frame TV as household display — art, dashboards, hub"
+cover: "../../assets/blog/frame-tv-as-household-display-surface-cover.svg"
+coverAlt: "A wall-mounted Frame TV in a wooden bevel frame, displaying a calm landscape in art mode rather than a black rectangle. Signal lines run out from behind the frame to small device glyphs around it — a bulb, a sensor, a phone, a camera, a speaker, a lock — because the TV is also the room's SmartThings hub and Thread border router, not just a screen."
 ---
 
 The 65" Frame TV (QN65LS03BAFXZA) has been the great room's center for eight months. Eight months of art-mode-by-default, TV-mode-on-demand, and SmartThings-hub-always-on. Time to write it up.
@@ -50,6 +50,8 @@ This is the architectural decision. The Frame TV is now the **second SmartThings
 - Z-Wave devices: each hub has its own Z-Wave network; can't merge yet.
 
 The redundancy is real: if the fridge needs unplugging for service, the Frame TV's hub keeps lights + sensors running. If the Frame TV's One Connect cable gets bumped (which has happened twice), the fridge's hub picks up the slack.
+
+![Two SmartThings hubs — the Family Hub fridge (hub A) and the Frame TV (hub B) — both feeding one shared Thread network, drawn as a dashed band below them, with Matter devices able to commission via either. A green panel underneath spells out the failover that's actually happened: when the fridge is unplugged for service the Frame keeps lights and sensors alive, and when the Frame's One Connect cable got bumped (twice) the fridge picked up the slack. A red caveat notes the one thing that doesn't merge — each hub keeps its own separate Z-Wave network.](../../assets/blog/frame-fridge-dual-hub-failover.svg)
 
 ## Casting from devices to the Frame
 
@@ -98,6 +100,8 @@ When someone gets home in the late afternoon, the Frame shows a personalized "we
 
 ## The integration loop, expanded
 
+![The Frame TV at the center of a seven-spoke hub-and-spoke. Around it: the doorbell camera feed (Reolink through Frigate), casts from the Family Hub fridge (recipe mirror), AirPlay and Google Cast from family devices, the SmartThings hub role (Zigbee, Z-Wave, Matter), the Thread border router for Eve and Nanoleaf devices, the TV as a HomeKit accessory showing in Apple Home, and Home Assistant via the SmartThings integration. A caption notes a doorbell ring, a cast recipe, a Matter sensor, and an Apple Home tile all route through the same screen on the wall.](../../assets/blog/frame-tv-integration-loop.svg)
+
 The Frame TV connects more loosely-coupled devices than any other appliance in the house:
 
 - Receives doorbell camera feed (Reolink RVD via Frigate).
@@ -105,15 +109,15 @@ The Frame TV connects more loosely-coupled devices than any other appliance in t
 - Receives AirPlay/Cast from family devices.
 - SmartThings hub for ~30 Zigbee + 5 Z-Wave + 12 Matter devices.
 - Thread Border Router for the Eve sensors + Nanoleaf bulbs.
-- HomeKit endpoint via the Tizen HomeKit Bridge plugin (yes, this exists — Samsung quietly added HomeKit compatibility to Tizen 7).
+- HomeKit accessory in its own right — Samsung's Tizen sets expose the TV to Apple Home (power, input, volume), so the Frame shows up in the Home app alongside everything else.
 - Sends events to HA via the HA SmartThings integration.
 
 Seven different ecosystems participating through this one device. The integration loop closed.
 
 ## What's next
 
-- **Matter 1.2 firmware** rumored for late 2024 — adds camera support to the Matter spec. The Frame TV's Matter Controller role would expand significantly.
+- **Matter's camera gap closing — eventually.** Matter 1.2 (last October) and the just-released 1.3 still have no camera device type; the doorbell feed reaching this screen does it the un-Matter way, through Frigate and the HA cast integration. If a future Matter revision ever adds a camera cluster, the Frame TV's Matter Controller role expands a lot. No firm word on when — cameras have been "asked for, not scheduled" for a while now.
 - **A second Frame TV in the master bedroom** (smaller, 50"). Same role; secondary hub.
-- **The SmartThings Edge driver framework** post coming in March 2025 — Samsung's letting custom drivers run locally on the hub, not via cloud. Big architectural shift.
+- **The SmartThings Edge driver framework** — Samsung's been moving custom drivers to run locally on the hub instead of via the cloud. That's a big enough architectural shift that it's getting its own post once I've lived with it long enough to judge it.
 
 The Frame as the household display surface is the new normal. Not just for movies. For everything.

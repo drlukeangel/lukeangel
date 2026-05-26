@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" role="img" aria-label="Smoke versus carbon monoxide response">
+  <rect width="860" height="330" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- SMOKE column -->
+  <rect x="40" y="40" width="360" height="250" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+  <text x="220" y="72" font-family="ui-monospace, monospace" font-size="16" fill="#1a1d24" text-anchor="middle">SMOKE</text>
+  <!-- white lights swatch -->
+  <rect x="70" y="95" width="60" height="40" rx="6" fill="#ffffff" stroke="#1a1d24" stroke-width="2"/>
+  <text x="150" y="120" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">lights white, max</text>
+  <text x="70" y="170" font-family="Newsreader, Georgia, serif" font-size="14" fill="#1a1d24">fire — evacuate</text>
+  <text x="70" y="200" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">HVAC fan off</text>
+  <text x="70" y="226" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">critical push to phones</text>
+  <text x="70" y="262" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#7a808c">seconds matter</text>
+
+  <!-- CO column -->
+  <rect x="460" y="40" width="360" height="250" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+  <text x="640" y="72" font-family="ui-monospace, monospace" font-size="16" fill="#1a1d24" text-anchor="middle">CO</text>
+  <!-- orange lights swatch -->
+  <rect x="490" y="95" width="60" height="40" rx="6" fill="#e0772a" stroke="#1a1d24" stroke-width="2"/>
+  <text x="570" y="120" font-family="ui-monospace, monospace" font-size="13" fill="#1a1d24">lights orange</text>
+  <text x="490" y="170" font-family="Newsreader, Georgia, serif" font-size="14" fill="#1a1d24">invisible — leave + call</text>
+  <text x="490" y="200" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">open / ventilate</text>
+  <text x="490" y="226" font-family="ui-monospace, monospace" font-size="13" fill="#5b616b">critical push + gas line</text>
+  <text x="490" y="262" font-family="Newsreader, Georgia, serif" font-size="13" font-style="italic" fill="#7a808c">no smell, slow onset</text>
+</svg>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 380" width="1080" height="380" role="img" aria-label="Zigbee through the SmartThings cloud-bridge versus straight to a local ConBee coordinator.">
+  <rect width="1080" height="380" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHERE THE ZIGBEE COMMANDS GO</text>
+
+  <line x1="540" y1="68" x2="540" y2="312" stroke="#1a1d24" stroke-width="2" stroke-dasharray="3 9" opacity="0.16"/>
+
+  <!-- BEFORE -->
+  <text x="270" y="90" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#c14a3a">BEFORE — through the SmartThings cloud</text>
+  <g font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24" text-anchor="middle">
+    <g><circle cx="80" cy="160" r="22" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2.4"/><text x="80" y="200">bulb</text></g>
+    <g><rect x="160" y="138" width="80" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="200" y="164">ST hub</text></g>
+    <g><path d="M300 170 a20 20 0 0 1 4 -38 a26 26 0 0 1 48 4 a18 18 0 0 1 -2 34 z" fill="#c14a3a" fill-opacity="0.08" stroke="#c14a3a" stroke-width="2.4"/><text x="328" y="158" fill="#c14a3a">cloud</text></g>
+    <g><rect x="400" y="138" width="80" height="44" rx="8" fill="#6a4c93" fill-opacity="0.1" stroke="#1a1d24" stroke-width="2.4"/><text x="440" y="164">HA</text></g>
+  </g>
+  <g stroke="#c14a3a" stroke-width="2.6" fill="#c14a3a">
+    <path d="M102 160 H158" fill="none"/><path d="M162 160 l-13 -6 v12 z"/>
+    <path d="M240 160 C270 160, 280 150, 300 150" fill="none"/><path d="M348 150 C375 150, 380 160, 400 160" fill="none"/><path d="M404 160 l-13 -6 v12 z"/>
+  </g>
+  <text x="270" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#c14a3a">local logic with a cloud-shaped hole in it</text>
+
+  <!-- AFTER -->
+  <text x="810" y="90" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#3a7d44">AFTER — straight to a coordinator I own</text>
+  <g font-family="ui-monospace,monospace" font-size="10.5" fill="#1a1d24" text-anchor="middle">
+    <g><circle cx="620" cy="160" r="22" fill="#6a4c93" fill-opacity="0.18" stroke="#1a1d24" stroke-width="2.4"/><text x="620" y="200">bulb</text></g>
+    <g><rect x="700" y="138" width="96" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/><text x="748" y="158">ConBee</text><text x="748" y="173" font-size="9" fill="#7a808c">on the Pi</text></g>
+    <g><rect x="856" y="138" width="80" height="44" rx="8" fill="#6a4c93" fill-opacity="0.1" stroke="#1a1d24" stroke-width="2.4"/><text x="896" y="164">HA</text></g>
+  </g>
+  <g stroke="#3a7d44" stroke-width="2.6" fill="#3a7d44">
+    <path d="M642 160 H698" fill="none"/><path d="M702 160 l-13 -6 v12 z"/>
+    <path d="M796 160 H854" fill="none"/><path d="M858 160 l-13 -6 v12 z"/>
+  </g>
+  <text x="810" y="262" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#3a7d44">no cloud, no bridge — the hole is gone</text>
+
+  <text x="540" y="346" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">A radio you don't control isn't local-first, no matter where the logic runs.</text>
+</svg>

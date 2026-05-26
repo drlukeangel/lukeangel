@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" role="img" aria-label="What bridges and what does not">
+  <rect x="0.5" y="0.5" width="1039" height="469" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#5b616b}
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;font-weight:700;fill:#1a1d24}
+  </style>
+
+  <!-- left column: works -->
+  <rect x="40" y="40" width="460" height="390" rx="12" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="2"/>
+  <text x="270" y="74" text-anchor="middle" class="hd" fill="#3a7d44">BRIDGES TODAY</text>
+
+  <g>
+    <!-- check rows -->
+    <g transform="translate(72,108)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M8 -5 l4 5 8 -10" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">Zigbee via hub firmware</text>
+      <text x="40" y="20" class="sm">Aqara M2, Hue Bridge expose as Matter</text>
+    </g>
+    <g transform="translate(72,178)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M8 -5 l4 5 8 -10" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">Anything HA controls</text>
+      <text x="40" y="20" class="sm">Z-Wave, LoRa, ESPHome via the HA add-on</text>
+    </g>
+    <g transform="translate(72,248)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M8 -5 l4 5 8 -10" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">Matter-over-Thread sensors</text>
+      <text x="40" y="20" class="sm">Eve, commissioned direct, no bridge</text>
+    </g>
+    <g transform="translate(72,318)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <path d="M8 -5 l4 5 8 -10" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">State across ecosystems</text>
+      <text x="40" y="20" class="sm">one device, many controllers, shared state</text>
+    </g>
+  </g>
+
+  <!-- right column: not yet -->
+  <rect x="540" y="40" width="460" height="390" rx="12" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-width="2"/>
+  <text x="770" y="74" text-anchor="middle" class="hd" fill="#c14a3a">NOT YET (SEPT 2024)</text>
+
+  <g>
+    <g transform="translate(572,108)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M8 -12 l16 14 M24 -12 l-16 14" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">Native Z-Wave → Matter</text>
+      <text x="40" y="20" class="sm">no bridge hardware ships; HA route only</text>
+    </g>
+    <g transform="translate(572,178)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M8 -12 l16 14 M24 -12 l-16 14" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">Matter cameras</text>
+      <text x="40" y="20" class="sm">not in the 1.3 spec; Frigate stays outside</text>
+    </g>
+    <g transform="translate(572,248)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M8 -12 l16 14 M24 -12 l-16 14" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">Cross-ecosystem automations</text>
+      <text x="40" y="20" class="sm">state propagates; the decision stays per-eco</text>
+    </g>
+    <g transform="translate(572,318)">
+      <circle cx="14" cy="-5" r="13" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <path d="M8 -12 l16 14 M24 -12 l-16 14" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+      <text x="40" y="0" class="lbl">Rock-solid Thread coexistence</text>
+      <text x="40" y="20" class="sm">flaky for some Wi-Fi/Thread plugs</text>
+    </g>
+  </g>
+</svg>

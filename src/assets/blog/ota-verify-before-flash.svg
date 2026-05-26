@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" role="img" aria-label="Verify before you flash: a new image is checked for a valid signature by the right key, an intact hash, and a version that isn't a rollback. Only if all three pass is it flashed; any failure rejects it.">
+  <rect width="1080" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">VERIFY BEFORE YOU FLASH</text>
+
+  <!-- incoming image -->
+  <g transform="translate(40,170)">
+    <rect x="0" y="0" width="120" height="80" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="60" y="38" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">new</text>
+    <text x="60" y="56" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">image</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="160" y1="210" x2="196" y2="210"/><path d="M200 210 l-15 -7 v14 z"/></g>
+
+  <!-- three checks -->
+  <g font-family="ui-monospace,monospace">
+    <rect x="216" y="120" width="360" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M236 148 l8 8 14 -18" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="278" y="153" font-size="13" fill="#1a1d24">signature — by the right key</text>
+    <rect x="216" y="184" width="360" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M236 212 l8 8 14 -18" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="278" y="217" font-size="13" fill="#1a1d24">hash — arrived intact</text>
+    <rect x="216" y="248" width="360" height="56" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <path d="M236 276 l8 8 14 -18" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="278" y="281" font-size="13" fill="#1a1d24">version — not a rollback</text>
+  </g>
+
+  <!-- all pass -> flash -->
+  <g stroke="#3a7d44" stroke-width="3" fill="none"><path d="M576 148 H 700 V 188"/></g>
+  <path d="M700 192 l-7 -15 h14 z" fill="#3a7d44"/>
+  <rect x="620" y="192" width="170" height="56" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text x="705" y="226" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#3a7d44">FLASH</text>
+
+  <!-- any fail -> reject -->
+  <g stroke="#c14a3a" stroke-width="3" fill="none"><path d="M576 276 H 700 V 300"/></g>
+  <path d="M700 304 l-7 -15 h14 z" fill="#c14a3a"/>
+  <rect x="620" y="304" width="170" height="56" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text x="705" y="332" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#c14a3a">REJECT</text>
+  <text x="705" y="350" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#7a808c">any one fails</text>
+
+  <text x="900" y="214" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">before a byte<tspan x="900" dy="20">is written</tspan></text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="2017 pet IoT review">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- scorecard column, left -->
+  <g transform="translate(170 120)" stroke-linecap="round">
+    <!-- 8 rows: 4 check, 3 cross, 1 partial -->
+    <!-- check rows -->
+    <g>
+      <rect x="80" y="0" width="300" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 7 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <rect x="80" y="48" width="250" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 55 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <rect x="80" y="96" width="280" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 103 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+      <!-- partial row (the feeder near-miss) -->
+      <rect x="80" y="144" width="210" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <circle cx="36" cy="151" r="18" fill="none" stroke="#c87533" stroke-width="7"/>
+      <path d="M36 133 a18 18 0 0 1 0 36 z" fill="#c87533"/>
+      <!-- cross rows -->
+      <rect x="80" y="192" width="180" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M22 187 l32 30 M54 187 l-32 30" fill="none" stroke="#c14a3a" stroke-width="8"/>
+      <rect x="80" y="240" width="160" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M22 235 l32 30 M54 235 l-32 30" fill="none" stroke="#c14a3a" stroke-width="8"/>
+      <rect x="80" y="288" width="140" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M22 283 l32 30 M54 283 l-32 30" fill="none" stroke="#c14a3a" stroke-width="8"/>
+      <!-- final check (cat-side device) -->
+      <rect x="80" y="336" width="290" height="14" rx="7" fill="#1a1d24" fill-opacity="0.10"/>
+      <path d="M20 343 l14 16 l26 -34" fill="none" stroke="#3a7d44" stroke-width="8"/>
+    </g>
+  </g>
+
+  <!-- cat-door data signal (the year's win), upper right -->
+  <g transform="translate(760 150)">
+    <!-- door + flap -->
+    <rect x="0" y="0" width="80" height="150" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <line x1="0" y1="56" x2="80" y2="56" stroke="#1a1d24" stroke-width="4"/>
+    <circle cx="40" cy="34" r="7" fill="#c87533"/>
+    <!-- data signal arcs going up/out -->
+    <g transform="translate(80 30)" stroke="#c87533" fill="none" stroke-width="5">
+      <path d="M0 0 a40 40 0 0 1 40 -30" opacity="0.4"/>
+      <path d="M8 14 a70 70 0 0 1 70 -54" opacity="0.7"/>
+      <path d="M16 28 a100 100 0 0 1 100 -80" opacity="0.95"/>
+    </g>
+  </g>
+
+  <!-- feeder with a warning mark (the year's worry), lower right -->
+  <g transform="translate(820 380)">
+    <path d="M0 0 h120 v44 l-22 56 h-76 l-22 -56 z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <g fill="#c87533"><circle cx="34" cy="28" r="6"/><circle cx="62" cy="22" r="6"/><circle cx="90" cy="30" r="6"/></g>
+    <rect x="46" y="100" width="28" height="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="5"/>
+    <!-- warning triangle -->
+    <g transform="translate(150 30)">
+      <path d="M0 -34 L30 18 L-30 18 Z" fill="#fdfaf2" stroke="#c14a3a" stroke-width="6" stroke-linejoin="round"/>
+      <rect x="-4" y="-18" width="8" height="22" rx="3" fill="#c14a3a"/>
+      <circle cx="0" cy="10" r="5" fill="#c14a3a"/>
+    </g>
+  </g>
+</svg>

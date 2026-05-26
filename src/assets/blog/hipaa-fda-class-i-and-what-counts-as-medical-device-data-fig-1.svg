@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" role="img" aria-label="The same coverage number is wellness data or regulated medical-device data depending only on the marketing claim.">
+  <rect width="1040" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="520" y="46" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="1" fill="#1a1d24">WHAT REGULATES THE DATA IS THE CLAIM, NOT THE SENSOR</text>
+
+  <!-- the one number in the middle, top -->
+  <g transform="translate(420,84)">
+    <rect x="0" y="0" width="200" height="62" rx="10" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.8"/>
+    <text x="100" y="28" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#357a8c">one sensor reading</text>
+    <text x="100" y="48" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">quadrant 3 brushed 14s</text>
+  </g>
+
+  <!-- the same bytes, two branches -->
+  <g stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2.4" fill="none">
+    <path d="M470 146 C 420 190, 290 200, 250 220"/>
+    <path d="M570 146 C 620 190, 750 200, 790 220"/>
+  </g>
+  <path d="M248 222 l-2 -15 13 7 z" fill="#1a1d24" fill-opacity="0.4"/>
+  <path d="M792 222 l-11 -8 13 -7 z" fill="#1a1d24" fill-opacity="0.4"/>
+  <text x="520" y="186" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">same bytes &#8212; marketing writes the box</text>
+
+  <!-- LEFT: wellness claim -->
+  <g transform="translate(70,228)">
+    <rect x="0" y="0" width="380" height="180" rx="12" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="2.6"/>
+    <rect x="0" y="0" width="10" height="180" rx="3" fill="#3a7d44"/>
+    <text x="195" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#3a7d44">"BUILD BETTER BRUSHING HABITS"</text>
+    <text x="195" y="66" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">a general-wellness claim</text>
+    <g transform="translate(40,108)"><path d="M-10 0 l7 8 13 -17" fill="none" stroke="#3a7d44" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="70" y="113" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">general wellness</text>
+    <text x="40" y="146" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">FDA enforcement discretion (2016</text>
+    <text x="40" y="164" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">low-risk guidance) &#183; product analytics</text>
+  </g>
+
+  <!-- RIGHT: medical claim -->
+  <g transform="translate(590,228)">
+    <rect x="0" y="0" width="380" height="180" rx="12" fill="#c14a3a" fill-opacity="0.05" stroke="#c14a3a" stroke-width="2.6"/>
+    <rect x="0" y="0" width="10" height="180" rx="3" fill="#c14a3a"/>
+    <text x="195" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12.5" fill="#c14a3a">"DETECTS AREAS LINKED TO GUM DISEASE"</text>
+    <text x="195" y="66" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">a specific-disease claim</text>
+    <g transform="translate(40,108)"><path d="M-9 -9 L9 9 M9 -9 L-9 9" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/></g>
+    <text x="70" y="113" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">medical claim &#8212; in FDA scope</text>
+    <text x="40" y="146" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">data + software feeding the claim</text>
+    <text x="40" y="164" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11.5" fill="#5b616b">come into scope &#183; no firmware changed</text>
+  </g>
+
+  <!-- caption -->
+  <text x="520" y="446" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="14.5" fill="#5b616b">so the platform stores the raw signal and keeps claims thin and movable &#8212; never baked into the data contract</text>
+</svg>

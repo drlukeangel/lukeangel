@@ -8,12 +8,12 @@ tags:
   - humidity
   - fan
   - automation
-series: smart-home-iot-journey
-seriesOrder: 30
+notebook: smart-home-iot-journey
+notebookOrder: 29
 excerpt: "Four years of humidity-triggered bathroom fan automation. Three different sensors. Two different fan controllers. One algorithm that finally works."
 pullquote: "Most bathroom fan switches are dumb timers. The fan needs to run until humidity is below the bedroom's level — not for a fixed 15 minutes. Dewpoint-targeting beats time-based by every measure."
-cover: "../../assets/blog/humidity-triggered-bathroom-fans-cover.png"
-coverAlt: "Humidity-triggered bathroom fans — the daily automation"
+cover: "../../assets/blog/humidity-triggered-bathroom-fans-cover.svg"
+coverAlt: "A bathroom humidity sensor feeding a dewpoint-targeting automation that ramps a variable-speed fan up and back down — the smart replacement for a fixed-time fan switch."
 ---
 
 The humidity-triggered bathroom fan automation has been running in some form since October 2015. It's evolved through three sensors and two fan controllers. The current version, finally, works correctly.
@@ -29,6 +29,8 @@ The problems:
 - **Doesn't run when nobody pushes the button.** Someone leaves a damp towel on the floor → no button push → humidity sits at 70% all day → mold starts on the grout.
 
 A humidity-sensing automation does all three correctly.
+
+![Two side-by-side curves of bathroom relative humidity after a shower, plotted against fan behavior. A fixed timer runs for a flat block of time that ends while humidity is still high on a long shower and keeps running uselessly after a short one; a humidity-sensing fan tracks the actual decay curve, running exactly until the air is dry.](../../assets/blog/humidity-timer-vs-sensing.svg)
 
 ## Sensors I've used
 
@@ -79,6 +81,8 @@ void loop() {
   delay(5000);  // every 5s
 }
 ```
+
+![Three sensor generations compared by reporting cadence. The 2015 Aeotec Multisensor 6 reports every five minutes, lagging the fast humidity swing of a shower; the 2017 Aqara reports roughly every thirty seconds but reads a few percent high near the shower; the 2019 DIY SHT31 on a Wemos reports every five seconds with calibrated accuracy. The reporting interval, not the automation logic, was the limiting factor.](../../assets/blog/humidity-sensor-cadence.svg)
 
 HA's MQTT integration auto-discovers this when configured correctly:
 
@@ -170,6 +174,8 @@ automation:
 ```
 
 The fan runs at high when dewpoint differential > 5°C (active shower), medium when 3-5°C (post-shower drying), off below 3°C (normal residual humidity).
+
+![Step chart mapping bathroom-minus-bedroom dewpoint differential to fan speed. Above five degrees Celsius the fan runs high, between three and five it drops to medium, and below three degrees it turns off — three bands instead of a single on/off timer.](../../assets/blog/humidity-dewpoint-fan-bands.svg)
 
 ## Side benefits
 

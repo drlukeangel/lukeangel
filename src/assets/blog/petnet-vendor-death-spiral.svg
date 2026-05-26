@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-label="cloud vendor death spiral">
+  <rect width="1000" height="540" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <text x="40" y="48" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" font-weight="700" fill="#1a1d24">HOW A CLOUD-DEPENDENT DEVICE COMPANY DIES</text>
+
+  <!-- LEFT: the 6 stages descending -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14.5" fill="#1a1d24">
+    <!-- vertical descent line -->
+    <line x1="64" y1="92" x2="64" y2="470" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+
+    <g transform="translate(64,104)">
+      <circle cx="0" cy="0" r="9" fill="#c87533"/>
+      <text x="24" y="5">Outages grow more frequent</text>
+    </g>
+    <g transform="translate(64,164)">
+      <circle cx="0" cy="0" r="9" fill="#c87533"/>
+      <text x="24" y="5">Support replies slow, then stop</text>
+    </g>
+    <g transform="translate(64,224)">
+      <circle cx="0" cy="0" r="9" fill="#c14a3a"/>
+      <text x="24" y="5">App updates slow (iOS lags)</text>
+      <text x="24" y="24" fill="#7a808c" font-size="12">&#9664; Petnet is about here</text>
+    </g>
+    <g transform="translate(64,294)">
+      <circle cx="0" cy="0" r="9" fill="#c14a3a"/>
+      <text x="24" y="5">New hardware stalls</text>
+    </g>
+    <g transform="translate(64,354)">
+      <circle cx="0" cy="0" r="9" fill="#c14a3a"/>
+      <text x="24" y="5">Servers go quiet</text>
+    </g>
+    <g transform="translate(64,414)">
+      <circle cx="0" cy="0" r="11" fill="#1a1d24"/>
+      <text x="26" y="5" font-weight="700">Company vanishes / files</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: outage cadence bars -->
+  <g transform="translate(610,120)">
+    <text x="0" y="-14" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">OUTAGES, BY YEAR</text>
+    <!-- baseline -->
+    <line x1="0" y1="280" x2="320" y2="280" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+
+    <!-- 2017: 2 -->
+    <rect x="20" y="216" width="56" height="64" fill="#c87533" fill-opacity="0.35" stroke="#c87533" stroke-width="2"/>
+    <text x="48" y="300" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">2017</text>
+    <text x="48" y="206" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">2</text>
+
+    <!-- 2018: 3 -->
+    <rect x="112" y="184" width="56" height="96" fill="#c87533" fill-opacity="0.55" stroke="#c87533" stroke-width="2"/>
+    <text x="140" y="300" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">2018</text>
+    <text x="140" y="174" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">3</text>
+
+    <!-- 2019 Q1: 4 -->
+    <rect x="204" y="152" width="56" height="128" fill="#c14a3a" fill-opacity="0.8" stroke="#c14a3a" stroke-width="2"/>
+    <text x="232" y="300" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#7a808c">2019 Q1</text>
+    <text x="232" y="142" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1a1d24">4</text>
+
+    <text x="0" y="330" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="13.5" fill="#5b616b">Four in three months &#8212; the trend never reverses.</text>
+  </g>
+</svg>

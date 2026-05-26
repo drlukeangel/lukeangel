@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 360" width="1080" height="360" role="img" aria-label="Four ways a cloud dependency fails, and which you can engineer around.">
+  <rect width="1080" height="360" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">WHICH FAILURES YOU CAN ENGINEER AROUND</text>
+
+  <!-- four rows: failure type | verdict -->
+  <g font-family="ui-monospace,monospace" font-size="13">
+    <!-- cloud outage -->
+    <g transform="translate(60,80)">
+      <rect x="0" y="0" width="430" height="48" rx="8" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="2.2"/>
+      <text x="20" y="30" fill="#1a1d24">cloud outage</text>
+      <text x="470" y="30" fill="#3a7d44">PARTLY — local logic keeps running</text>
+    </g>
+    <!-- vendor breach -->
+    <g transform="translate(60,138)">
+      <rect x="0" y="0" width="430" height="48" rx="8" fill="#3a7d44" fill-opacity="0.08" stroke="#3a7d44" stroke-width="2.2"/>
+      <text x="20" y="30" fill="#1a1d24">vendor breach</text>
+      <text x="470" y="30" fill="#3a7d44">PARTLY — local data isn't exposed</text>
+    </g>
+    <!-- API withdrawal -->
+    <g transform="translate(60,196)">
+      <rect x="0" y="0" width="430" height="48" rx="8" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.6"/>
+      <text x="20" y="30" fill="#c14a3a" font-weight="700">API withdrawal</text>
+      <text x="470" y="30" fill="#c14a3a">NO — only by not depending on it</text>
+    </g>
+    <!-- company shutdown -->
+    <g transform="translate(60,254)">
+      <rect x="0" y="0" width="430" height="48" rx="8" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.2"/>
+      <text x="20" y="30" fill="#1a1d24">company shutdown</text>
+      <text x="470" y="30" fill="#c14a3a">NO — same</text>
+    </g>
+  </g>
+
+  <!-- a marker pointing at the API-withdrawal row = "this is the one that just happened" -->
+  <g transform="translate(960,220)">
+    <path d="M40 0 L4 0" stroke="#c14a3a" stroke-width="3" fill="none"/>
+    <path d="M0 0 l16 -8 v16 z" fill="#c14a3a"/>
+    <text x="44" y="-8" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">Works with</text>
+    <text x="44" y="6" font-family="ui-monospace,monospace" font-size="10.5" fill="#c14a3a">Nest — today</text>
+  </g>
+
+  <text x="540" y="336" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="14.5" font-style="italic" fill="#3a3f4a">Outages and breaches you can soften. A withdrawn API you can only avoid by never leaning on it.</text>
+</svg>

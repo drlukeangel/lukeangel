@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="920" height="520" role="img" aria-label="Teaching the door a chip.">
+  <rect x="1" y="1" width="918" height="518" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24;}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#5b616b;}
+    .num{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;fill:#5b616b;}
+  </style>
+
+  <!-- ===== step 1: hold the button => learn mode ===== -->
+  <g transform="translate(150,120)">
+    <rect x="-110" y="-66" width="220" height="132" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="-40" text-anchor="middle" class="mut" font-size="14">step 1</text>
+    <!-- button + flashing LED -->
+    <circle cx="-40" cy="0" r="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="-40" cy="0" r="9" fill="#c87533"/>
+    <circle cx="34" cy="0" r="11" fill="#c87533" stroke="#1a1d24" stroke-width="2.5"/>
+    <g stroke="#c87533" stroke-width="3" stroke-linecap="round" opacity="0.8">
+      <line x1="34" y1="-22" x2="34" y2="-30"/>
+      <line x1="52" y1="-12" x2="59" y2="-17"/>
+      <line x1="52" y1="12" x2="59" y2="17"/>
+    </g>
+    <text x="0" y="46" text-anchor="middle" class="lbl" font-size="15" font-weight="600">hold button -&gt; learn mode</text>
+  </g>
+
+  <!-- ===== step 2: read the cat's chip ===== -->
+  <g transform="translate(460,120)">
+    <rect x="-120" y="-66" width="240" height="132" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="-40" text-anchor="middle" class="mut" font-size="14">step 2</text>
+    <!-- a little cat head -->
+    <g transform="translate(-58,4)">
+      <path d="M-14 8 L-20 -16 L2 -2 Z" fill="#9aa1ad" stroke="#1a1d24" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M22 4 L34 -16 L36 6 Z" fill="#9aa1ad" stroke="#1a1d24" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M-12 6 C -14 -10 0 -16 12 -16 C 24 -16 38 -10 36 6 C 34 22 22 30 12 30 C 2 30 -10 22 -12 6 Z"
+            fill="#9aa1ad" stroke="#1a1d24" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="3" cy="6" r="3" fill="#1a1d24"/><circle cx="21" cy="6" r="3" fill="#1a1d24"/>
+      <path d="M12 14 l -4 4 l 8 0 z" fill="#1a1d24"/>
+    </g>
+    <!-- inductive rings to a small reader -->
+    <g fill="none" stroke="#c87533" stroke-width="3" stroke-linecap="round">
+      <path d="M-6 -8 a14 14 0 0 1 0 24" opacity="0.85"/>
+      <path d="M6 -16 a26 26 0 0 1 0 40" opacity="0.5"/>
+    </g>
+    <rect x="40" y="-16" width="20" height="36" rx="4" fill="#c87533" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="0" y="46" text-anchor="middle" class="lbl" font-size="15" font-weight="600">read chip — one beep</text>
+  </g>
+
+  <!-- ===== step 3: written to the list ===== -->
+  <g transform="translate(770,120)">
+    <rect x="-86" y="-66" width="172" height="132" rx="12" fill="#fff" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="0" y="-40" text-anchor="middle" class="mut" font-size="14">step 3</text>
+    <!-- check seal -->
+    <circle cx="0" cy="-2" r="26" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <path d="M-12 -2 L-3 8 L14 -14" fill="none" stroke="#3a7d44" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="46" text-anchor="middle" class="lbl" font-size="15" font-weight="600" fill="#3a7d44">added to list</text>
+  </g>
+
+  <!-- step arrows -->
+  <g fill="none" stroke="#1a1d24" stroke-width="2.5">
+    <path d="M262 120 L338 120" marker-end="url(#ah2)"/>
+    <path d="M582 120 L682 120" marker-end="url(#ah2)"/>
+  </g>
+
+  <!-- ===== the door's memory: the allow-list table (up to 32) ===== -->
+  <g transform="translate(460,250)">
+    <text x="0" y="0" text-anchor="middle" class="mut" font-size="15">the door's whole notion of identity — up to 32 numbers, kept in the frame</text>
+    <rect x="-300" y="20" width="600" height="200" rx="12" fill="#fff" stroke="#1a1d24" stroke-width="2.5"/>
+    <line x1="-300" y1="58" x2="300" y2="58" stroke="#1a1d24" stroke-width="1.5" opacity="0.25"/>
+    <text x="-280" y="46" class="lbl" font-size="14" font-weight="600">allow-list</text>
+    <text x="284" y="46" text-anchor="end" class="mut" font-size="13">checked on every read</text>
+
+    <!-- the new row, highlighted green -->
+    <rect x="-288" y="68" width="576" height="30" rx="5" fill="#3a7d44" fill-opacity="0.10" stroke="#3a7d44" stroke-width="1.6"/>
+    <text x="-274" y="88" class="num" font-size="15">985 112 005 678 901</text>
+    <text x="274" y="88" text-anchor="end" class="mut" font-size="13">+ just added</text>
+
+    <!-- empty future slots -->
+    <g class="mut" font-size="15" opacity="0.45">
+      <line x1="-288" y1="120" x2="288" y2="120" stroke="#1a1d24" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+      <line x1="-288" y1="150" x2="288" y2="150" stroke="#1a1d24" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+      <line x1="-288" y1="180" x2="288" y2="180" stroke="#1a1d24" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+      <text x="-274" y="113" font-size="14">— — — empty — — —</text>
+      <text x="-274" y="143" font-size="14">— — — empty — — —</text>
+      <text x="-274" y="173" font-size="14">— — — empty — — —</text>
+      <text x="-274" y="205" font-size="14">… up to 32</text>
+    </g>
+  </g>
+
+  <!-- arrow from step 3 down into the table -->
+  <path d="M770 188 L770 222 L470 222 L470 268" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-dasharray="5 5" marker-end="url(#ah2g)"/>
+
+  <defs>
+    <marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+    <marker id="ah2g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3a7d44"/>
+    </marker>
+  </defs>
+</svg>

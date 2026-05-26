@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-label="Matter stack">
+  <rect width="900" height="460" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- Matter app layer -->
+  <rect x="120" y="40" width="660" height="64" rx="8" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="3"/>
+  <text x="450" y="70" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" fill="#1a1d24">MATTER  (application layer)</text>
+  <text x="450" y="92" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">commissioning · control · attributes / clusters</text>
+
+  <!-- IP/UDP -->
+  <rect x="120" y="128" width="660" height="52" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text x="450" y="160" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16" fill="#1a1d24">IP  /  UDP</text>
+
+  <!-- transports row -->
+  <g>
+    <rect x="120" y="204" width="200" height="56" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="220" y="238" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">THREAD</text>
+    <rect x="350" y="204" width="200" height="56" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="450" y="238" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">WI-FI</text>
+    <rect x="580" y="204" width="200" height="56" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="680" y="238" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#1a1d24">ETHERNET</text>
+  </g>
+
+  <!-- radios row -->
+  <g>
+    <rect x="120" y="296" width="200" height="56" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="2"/>
+    <text x="220" y="330" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">802.15.4</text>
+    <rect x="350" y="296" width="200" height="56" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="2"/>
+    <text x="450" y="330" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">802.11</text>
+    <rect x="580" y="296" width="200" height="56" rx="8" fill="#6a4c93" fill-opacity="0.08" stroke="#6a4c93" stroke-width="2"/>
+    <text x="680" y="330" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#5b616b">wired</text>
+  </g>
+
+  <!-- connectors -->
+  <g stroke="#1a1d24" stroke-width="2" stroke-opacity="0.4">
+    <line x1="450" y1="104" x2="450" y2="128"/>
+    <line x1="220" y1="180" x2="220" y2="204"/>
+    <line x1="450" y1="180" x2="450" y2="204"/>
+    <line x1="680" y1="180" x2="680" y2="204"/>
+    <line x1="220" y1="260" x2="220" y2="296"/>
+    <line x1="450" y1="260" x2="450" y2="296"/>
+    <line x1="680" y1="260" x2="680" y2="296"/>
+  </g>
+
+  <text x="450" y="408" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="16" fill="#5b616b">Matter defines no new radio — it rides the ones already in your house.</text>
+</svg>

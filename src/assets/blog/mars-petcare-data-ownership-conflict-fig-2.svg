@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500" role="img" aria-label="One signal, two paths">
+  <rect width="1000" height="500" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .hd{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700;}
+    .lab{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24;}
+    .sm{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:10.5px;fill:#5b616b;}
+    .kick{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;letter-spacing:2px;fill:#7a808c;}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:14.5px;fill:#5b616b;}
+  </style>
+  <defs>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#c14a3a"/></marker>
+    <marker id="ak" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L9 5 L0 10 z" fill="#1a1d24"/></marker>
+  </defs>
+
+  <text x="40" y="42" class="kick">ONE REAL SIGNAL, TWO PATHS</text>
+
+  <!-- the signal -->
+  <g transform="translate(370,66)">
+    <rect x="0" y="0" width="260" height="64" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <text x="130" y="28" text-anchor="middle" class="lab">"scratching up 30%"</text>
+    <text x="130" y="48" text-anchor="middle" class="sm">a true behavioral signal off the collar</text>
+  </g>
+  <!-- split -->
+  <line x1="430" y1="130" x2="250" y2="186" stroke="#1a1d24" stroke-width="2" marker-end="url(#ak)"/>
+  <line x1="570" y1="130" x2="750" y2="186" stroke="#1a1d24" stroke-width="2" marker-end="url(#ak)"/>
+
+  <!-- LEFT: independent path -->
+  <text x="180" y="208" class="hd" fill="#3a7d44">INDEPENDENT REPORT</text>
+  <g transform="translate(40,222)">
+    <rect x="0" y="0" width="430" height="58" rx="9" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="16" y="24" class="lab">surfaces the signal, stops there</text>
+    <text x="16" y="44" class="sm">"take it to any vet and let them decide"</text>
+  </g>
+  <line x1="255" y1="280" x2="255" y2="312" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#ag)"/>
+  <g transform="translate(40,318)">
+    <rect x="0" y="0" width="430" height="100" rx="9" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="16" y="24" class="lab">a full differential</text>
+    <text x="16" y="46" class="sm">✓ rule out fleas / parasites</text>
+    <text x="16" y="66" class="sm">✓ rule out allergy, anxiety, dry winter air</text>
+    <text x="16" y="86" class="sm">✓ touch the food bowl last, if at all</text>
+  </g>
+
+  <!-- RIGHT: Mars path -->
+  <text x="820" y="208" text-anchor="end" class="hd" fill="#c14a3a">MARS ECOSYSTEM</text>
+  <g transform="translate(530,222)">
+    <rect x="0" y="0" width="430" height="58" rx="9" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="16" y="24" class="lab">skips the differential</text>
+    <text x="16" y="44" class="sm">"some Royal Canin formulas support skin/coat…"</text>
+  </g>
+  <line x1="745" y1="280" x2="745" y2="312" stroke="#c14a3a" stroke-width="2.5" marker-end="url(#ar)"/>
+  <g transform="translate(530,318)">
+    <rect x="0" y="0" width="430" height="100" rx="9" fill="#c14a3a" fill-opacity="0.06" stroke="#c14a3a" stroke-width="2.5"/>
+    <text x="16" y="24" class="lab">straight to a Mars-owned remedy</text>
+    <text x="16" y="46" class="sm">→ Mars food (Royal Canin)</text>
+    <text x="16" y="66" class="sm">→ a visit to a Mars clinic (Banfield/VCA)</text>
+    <text x="16" y="86" class="sm">→ each step a Mars revenue opportunity</text>
+  </g>
+
+  <line x1="40" y1="442" x2="960" y2="442" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="500" y="472" text-anchor="middle" class="cap">The signal is real and useful. The leap from signal to Mars-owned remedy is the part that isn't health advice.</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="MQTT bridge pattern">
+  <rect width="1000" height="500" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">
+
+    <!-- central broker -->
+    <g transform="translate(500 250)">
+      <circle r="58" fill="#6a4c93" fill-opacity="0.12" stroke="#6a4c93" stroke-width="4"/>
+      <text x="0" y="-4" text-anchor="middle" font-size="14" fill="#6a4c93">broker</text>
+      <text x="0" y="16" text-anchor="middle" font-size="11" fill="#5b616b">home/...</text>
+    </g>
+
+    <!-- LEFT: sources via bridges -->
+    <text x="150" y="40" text-anchor="middle" font-size="14" fill="#5b616b">sources → bridge → bus</text>
+    <g font-size="12">
+      <g transform="translate(40 80)"><rect x="0" y="0" width="220" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="12" y="20">Zigbee</text><text x="120" y="20" fill="#6a4c93">deCONZ</text></g>
+      <g transform="translate(40 140)"><rect x="0" y="0" width="220" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="12" y="20">Z-Wave</text><text x="120" y="20" fill="#6a4c93">zwave2mqtt</text></g>
+      <g transform="translate(40 200)"><rect x="0" y="0" width="220" height="44" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="12" y="20">Hue</text><text x="120" y="20" fill="#6a4c93">via HA</text></g>
+      <g transform="translate(40 260)"><rect x="0" y="0" width="220" height="44" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/><text x="12" y="20">ESP sensors</text><text x="120" y="20" fill="#3a7d44">native MQTT</text></g>
+    </g>
+    <!-- arrows from sources into broker -->
+    <g stroke="#6a4c93" stroke-width="2.5" fill="none">
+      <path d="M262 102 C 360 130, 400 200, 444 230" marker-end="url(#a)"/>
+      <path d="M262 162 C 340 180, 400 215, 442 240" marker-end="url(#a)"/>
+      <path d="M262 222 C 330 235, 400 245, 442 252" marker-end="url(#a)"/>
+      <path d="M262 282 C 340 290, 400 280, 444 268" marker-end="url(#a)"/>
+    </g>
+
+    <!-- RIGHT: consumers subscribe -->
+    <text x="850" y="40" text-anchor="middle" font-size="14" fill="#5b616b">consumers subscribe</text>
+    <g font-size="12">
+      <g transform="translate(740 150)"><rect x="0" y="0" width="220" height="50" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="12" y="22">Home Assistant</text><text x="12" y="40" font-size="11" fill="#5b616b">dashboards + automations</text></g>
+      <g transform="translate(740 240)"><rect x="0" y="0" width="220" height="50" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/><text x="12" y="22">Node-RED</text><text x="12" y="40" font-size="11" fill="#5b616b">flows</text></g>
+    </g>
+    <g stroke="#6a4c93" stroke-width="2.5" fill="none">
+      <path d="M558 232 C 640 200, 690 185, 736 178" marker-end="url(#a)"/>
+      <path d="M558 268 C 640 280, 690 270, 736 262" marker-end="url(#a)"/>
+    </g>
+
+    <text x="500" y="350" text-anchor="middle" font-size="13" fill="#5b616b">Home Assistant is just another participant — not the spine</text>
+    <text x="500" y="372" text-anchor="middle" font-size="13" fill="#1a1d24">if HA restarts, the broker + Node-RED keep the house running</text>
+
+    <defs>
+      <marker id="a" markerWidth="9" markerHeight="9" refX="6" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 z" fill="#6a4c93"/></marker>
+    </defs>
+  </g>
+</svg>

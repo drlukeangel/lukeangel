@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" role="img" aria-label="iBeacon advertisement fields">
+  <rect width="860" height="320" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- beacon puck on the left -->
+  <circle cx="120" cy="160" r="46" fill="#6a4c93" fill-opacity="0.12"/>
+  <circle cx="120" cy="160" r="20" fill="#6a4c93"/>
+  <g stroke="#6a4c93" stroke-width="3" fill="none" stroke-linecap="round" stroke-opacity="0.7">
+    <path d="M158 130 a40 40 0 0 1 0 60"/>
+    <path d="M176 116 a64 64 0 0 1 0 88"/>
+  </g>
+
+  <!-- packet fields stacked -->
+  <g font-family="ui-monospace, monospace" font-size="14">
+    <rect x="300" y="60" width="500" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="316" y="88" fill="#7a808c">UUID</text>
+    <text x="500" y="88" fill="#1a1d24">my house (one value)</text>
+
+    <rect x="300" y="116" width="500" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="316" y="144" fill="#7a808c">Major</text>
+    <text x="500" y="144" fill="#1a1d24">a floor / group</text>
+
+    <rect x="300" y="172" width="500" height="44" rx="6" fill="#fdfaf2" stroke="#6a4c93" stroke-width="3"/>
+    <text x="316" y="200" fill="#6a4c93">Minor</text>
+    <text x="500" y="200" fill="#1a1d24">the room</text>
+
+    <rect x="300" y="228" width="500" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2"/>
+    <text x="316" y="256" fill="#7a808c">TX power</text>
+    <text x="500" y="256" fill="#1a1d24">RSSI at 1 m</text>
+  </g>
+
+  <path d="M186 160 H300" fill="none" stroke="#6a4c93" stroke-width="3" stroke-dasharray="4 7"/>
+</svg>

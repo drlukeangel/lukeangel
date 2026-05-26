@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 410" width="1080" height="410" role="img" aria-label="The 2015 forecast scored about 69% — three clean hits, three partials, two misses.">
+  <rect width="1080" height="410" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="40" y="40" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="15" letter-spacing="2" fill="#7a808c">GRADING THE 2015 FORECAST</text>
+
+  <g font-family="ui-monospace,monospace" font-size="12">
+    <!-- hits -->
+    <g transform="translate(60,70)">
+      <circle cx="15" cy="15" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/>
+      <path d="M9 15 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="40" y="20" fill="#1a1d24">Google Home ships in 2016</text>
+    </g>
+    <g transform="translate(60,108)">
+      <circle cx="15" cy="15" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/>
+      <path d="M9 15 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="40" y="20" fill="#1a1d24">Hue ships a motion sensor</text>
+    </g>
+    <g transform="translate(60,146)">
+      <circle cx="15" cy="15" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/>
+      <path d="M9 15 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="40" y="20" fill="#1a1d24">first useful PoE camera</text>
+    </g>
+    <g transform="translate(60,184)">
+      <circle cx="15" cy="15" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/>
+      <path d="M9 15 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+      <text x="40" y="20" fill="#1a1d24">Home Assistant gets on my radar</text>
+    </g>
+    <!-- partials (half) -->
+    <g transform="translate(60,222)">
+      <circle cx="15" cy="15" r="13" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="2.4"/>
+      <path d="M15 4 a11 11 0 0 1 0 22 z" fill="#6a4c93"/>
+      <text x="40" y="20" fill="#1a1d24">Zigbee 3.0 in real products (partial)</text>
+    </g>
+    <g transform="translate(60,260)">
+      <circle cx="15" cy="15" r="13" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="2.4"/>
+      <path d="M15 4 a11 11 0 0 1 0 22 z" fill="#6a4c93"/>
+      <text x="40" y="20" fill="#1a1d24">Thread ships first products (partial)</text>
+    </g>
+    <g transform="translate(60,298)">
+      <circle cx="15" cy="15" r="13" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="2.4"/>
+      <path d="M15 4 a11 11 0 0 1 0 22 z" fill="#6a4c93"/>
+      <text x="40" y="20" fill="#1a1d24">SmartThings cracks on reliability (partial)</text>
+    </g>
+    <!-- miss -->
+    <g transform="translate(60,336)">
+      <circle cx="15" cy="15" r="13" fill="#c14a3a" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.4"/>
+      <path d="M9 9 l12 12 M21 9 l-12 12" stroke="#c14a3a" stroke-width="3" stroke-linecap="round"/>
+      <text x="40" y="20" fill="#1a1d24">Apple ships a dedicated HomeKit hub/speaker</text>
+    </g>
+  </g>
+
+  <!-- right: the recurring miss + tally -->
+  <g transform="translate(640,110)">
+    <rect x="0" y="0" width="400" height="120" rx="12" fill="#6a4c93" fill-opacity="0.06" stroke="#6a4c93" stroke-width="2.4" stroke-dasharray="7 5"/>
+    <text x="24" y="38" font-family="ui-monospace,monospace" font-size="12.5" fill="#1a1d24">The miss is the same one every year:</text>
+    <text x="24" y="64" font-family="ui-monospace,monospace" font-size="12.5" fill="#6a4c93">Apple's smart speaker slips again.</text>
+    <text x="24" y="96" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">I keep forecasting Apple on a calendar.</text>
+  </g>
+  <text x="840" y="296" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="22" fill="#1a1d24">5.5 / 8</text>
+  <text x="840" y="324" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#6a4c93">≈ 69% (partials as halves)</text>
+
+  <text x="540" y="392" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15" font-style="italic" fill="#3a3f4a">A humbling year — the protocol bets all came in "almost," and Apple came in "not yet."</text>
+</svg>

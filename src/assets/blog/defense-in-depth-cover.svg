@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Defense in depth: seven nested layers wrapped around a single locked core — each layer assuming the one outside it will eventually be breached.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs><pattern id="did-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="1" fill="#1a1d24" opacity="0.06"/></pattern></defs>
+  <rect width="1200" height="630" fill="url(#did-dots)"/>
+  <rect width="24" height="630" fill="#c14a3a"/>
+
+  <g fill="none" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="262" y="95"  width="700" height="440" rx="22" opacity="0.22"/>
+    <rect x="312" y="125" width="600" height="380" rx="20" opacity="0.34"/>
+    <rect x="362" y="155" width="500" height="320" rx="18" opacity="0.46"/>
+    <rect x="412" y="185" width="400" height="260" rx="16" opacity="0.6"/>
+    <rect x="462" y="215" width="300" height="200" rx="14" opacity="0.78"/>
+    <rect x="512" y="245" width="200" height="140" rx="12" opacity="0.95"/>
+  </g>
+  <rect x="557" y="272" width="110" height="86" rx="12" fill="#c14a3a"/>
+  <g transform="translate(589,296)" fill="none" stroke="#fdfaf2" stroke-width="5" stroke-linecap="round">
+    <rect x="0" y="20" width="44" height="32" rx="6"/>
+    <path d="M8 20 v-10 a14 14 0 0 1 28 0 v10"/>
+    <circle cx="22" cy="36" r="5" fill="#fdfaf2" stroke="none"/>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" role="img" aria-label="Four release cadences to scale.">
+  <rect width="1120" height="470" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">RELEASE CADENCE, TO SCALE &#8594; A FEATURE SHIPS AT THE SPEED OF THE SLOWEST TEAM</text>
+
+  <!-- axis baseline -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <!-- left label column, right = scaled bar. Scale: 1 month = ~38px, bar origin x=250 -->
+
+    <!-- HARDWARE: 18-24 months, frozen at production -->
+    <g transform="translate(0,86)">
+      <text x="40" y="26" font-size="15" fill="#1a1d24">Hardware</text>
+      <text x="40" y="46" font-size="11" fill="#7a808c">PCB + chips · frozen</text>
+      <rect x="250" y="6" width="836" height="44" rx="8" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="3"/>
+      <text x="266" y="34" font-size="13" fill="#357a8c">~18&#8211;24 months between revisions</text>
+    </g>
+
+    <!-- FIRMWARE: ~6 months -->
+    <g transform="translate(0,166)">
+      <text x="40" y="26" font-size="15" fill="#1a1d24">Firmware</text>
+      <text x="40" y="46" font-size="11" fill="#7a808c">on-device code</text>
+      <rect x="250" y="6" width="228" height="44" rx="8" fill="#357a8c" fill-opacity="0.16" stroke="#357a8c" stroke-width="3"/>
+      <text x="266" y="34" font-size="13" fill="#357a8c">~6 months</text>
+    </g>
+
+    <!-- API PLATFORM: 2 weeks -->
+    <g transform="translate(0,246)">
+      <text x="40" y="26" font-size="15" fill="#1a1d24">API platform</text>
+      <text x="40" y="46" font-size="11" fill="#7a808c">cloud contract</text>
+      <rect x="250" y="6" width="20" height="44" rx="5" fill="#357a8c" fill-opacity="0.30" stroke="#357a8c" stroke-width="3"/>
+      <text x="282" y="34" font-size="13" fill="#357a8c">2 weeks</text>
+    </g>
+
+    <!-- MOBILE: 2 weeks, gated by review -->
+    <g transform="translate(0,326)">
+      <text x="40" y="26" font-size="15" fill="#1a1d24">Mobile</text>
+      <text x="40" y="46" font-size="11" fill="#7a808c">iOS + Android apps</text>
+      <rect x="250" y="6" width="20" height="44" rx="5" fill="#357a8c" fill-opacity="0.30" stroke="#357a8c" stroke-width="3"/>
+      <text x="282" y="34" font-size="13" fill="#357a8c">2 weeks · gated by app-store review</text>
+    </g>
+  </g>
+
+  <!-- "joint features wait for hardware" marker: a vertical line at the end of the hardware bar -->
+  <g>
+    <line x1="1086" y1="78" x2="1086" y2="392" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.85"/>
+    <text x="1080" y="416" text-anchor="end" font-family="Newsreader, Georgia, serif" font-size="13.5" font-style="italic" fill="#c14a3a">a joint feature ships only when hardware does</text>
+  </g>
+
+  <!-- two-orders-of-magnitude bracket between API and hardware -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="34" y="440" font-size="12.5" fill="#5b616b">two-week cloud &#8596; 18-month silicon &#8212; the same feature, two orders of magnitude apart</text>
+  </g>
+</svg>

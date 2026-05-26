@@ -1,55 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
-  <title id="t">2025 Pet IoT Year in Review cover</title>
-  <desc id="d">2025-era cover graphic for the pet-IoT year in review — gradient backdrop with three column highlights: DIY pet feeder built, Mars divested Whistle to Tractive, twelve-year long-arc retrospective published.</desc>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="The year's three pet-IoT highlights">
   <defs>
-    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c87533"/>
-      <stop offset="60%" stop-color="#a85d28"/>
-      <stop offset="100%" stop-color="#4a2d18"/>
-    </linearGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#1a1d24" opacity="0.05"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg3)"/>
-  <g fill="#fdfaf2" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
-    <text x="80" y="80" font-size="20" letter-spacing="6" opacity="0.7">PET IOT · YEAR IN REVIEW</text>
-    <text x="80" y="200" font-size="140" font-weight="500" letter-spacing="-3">2025</text>
-    <text x="80" y="280" font-size="36" font-weight="300">The DIY era, properly arrived.</text>
-  </g>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#c87533"/>
 
-  <!-- Three highlight cards -->
-  <g transform="translate(80,360)">
-    <!-- DIY -->
-    <g transform="translate(0,0)">
-      <rect width="340" height="200" rx="12" fill="#fdfaf2" opacity="0.95"/>
-      <text x="20" y="36" fill="#c87533" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="3">№ 01 · DIY</text>
-      <text x="20" y="80" fill="#1a1d24" font-family="'Inter',Arial" font-size="26" font-weight="600">ESP32 pet feeder</text>
-      <text x="20" y="108" fill="#1a1d24" font-family="'Inter',Arial" font-size="26" font-weight="600">shipped</text>
-      <text x="20" y="146" fill="#5a6470" font-family="'Inter',Arial" font-size="15" font-style="italic">$35 in parts, zero subscription,</text>
-      <text x="20" y="166" fill="#5a6470" font-family="'Inter',Arial" font-size="15" font-style="italic">Home Assistant integration.</text>
-      <text x="20" y="186" fill="#9aa3ad" font-family="'JetBrains Mono',monospace" font-size="11">no vendor cloud · zero hours of downtime</text>
-    </g>
+  <!-- three text-free highlight cards -->
 
-    <!-- Mars/Tractive -->
-    <g transform="translate(360,0)">
-      <rect width="340" height="200" rx="12" fill="#fdfaf2" opacity="0.95"/>
-      <text x="20" y="36" fill="#dc2626" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="3">№ 02 · UPSET OF THE YEAR</text>
-      <text x="20" y="80" fill="#1a1d24" font-family="'Inter',Arial" font-size="26" font-weight="600">Mars divests</text>
-      <text x="20" y="108" fill="#1a1d24" font-family="'Inter',Arial" font-size="26" font-weight="600">Whistle → Tractive</text>
-      <text x="20" y="146" fill="#5a6470" font-family="'Inter',Arial" font-size="15" font-style="italic">Two forecasts inverted on a</text>
-      <text x="20" y="166" fill="#5a6470" font-family="'Inter',Arial" font-size="15" font-style="italic">single July announcement.</text>
-      <text x="20" y="186" fill="#9aa3ad" font-family="'JetBrains Mono',monospace" font-size="11">9 years after acquiring · cloud dark Aug 31</text>
-    </g>
-
-    <!-- Retrospective -->
-    <g transform="translate(720,0)">
-      <rect width="340" height="200" rx="12" fill="#fdfaf2" opacity="0.95"/>
-      <text x="20" y="36" fill="#2a52be" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="3">№ 03 · LONG ARC</text>
-      <text x="20" y="80" fill="#1a1d24" font-family="'Inter',Arial" font-size="26" font-weight="600">Twelve years,</text>
-      <text x="20" y="108" fill="#1a1d24" font-family="'Inter',Arial" font-size="26" font-weight="600">four pets, five eras</text>
-      <text x="20" y="146" fill="#5a6470" font-family="'Inter',Arial" font-size="15" font-style="italic">Atom (2013-2024), Joule, Boson,</text>
-      <text x="20" y="166" fill="#5a6470" font-family="'Inter',Arial" font-size="15" font-style="italic">Quark. Lessons written down.</text>
-      <text x="20" y="186" fill="#9aa3ad" font-family="'JetBrains Mono',monospace" font-size="11">~$8k in devices · mostly worth it</text>
+  <!-- CARD 1: DIY ESP32 board (the DIY era arrived) -->
+  <g transform="translate(130,200)">
+    <rect x="0" y="0" width="280" height="230" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(140,115)">
+      <rect x="-58" y="-42" width="116" height="84" rx="8" fill="#1a1d24"/>
+      <rect x="-40" y="-26" width="46" height="34" rx="4" fill="#fdfaf2" opacity="0.9"/>
+      <path d="M18 -28 h22 v10 h-16 v10 h16" fill="none" stroke="#c87533" stroke-width="3"/>
+      <g fill="#c87533">
+        <rect x="-46" y="46" width="6" height="14"/><rect x="-30" y="46" width="6" height="14"/><rect x="-14" y="46" width="6" height="14"/><rect x="2" y="46" width="6" height="14"/><rect x="18" y="46" width="6" height="14"/><rect x="34" y="46" width="6" height="14"/>
+      </g>
     </g>
   </g>
 
-  <text x="80" y="608" fill="#fdfaf2" opacity="0.55" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="4">LUKEANGEL.CO · PET IOT FIELD GUIDE · NB № 42</text>
+  <!-- CARD 2: the divest handoff (Mars → Tractive) -->
+  <g transform="translate(460,200)">
+    <rect x="0" y="0" width="280" height="230" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <!-- big block (empire) shedding a small puck to a small block -->
+    <rect x="40" y="80" width="64" height="80" rx="8" fill="#1a1d24" fill-opacity="0.10" stroke="#1a1d24" stroke-width="3"/>
+    <g transform="translate(140,118)">
+      <path d="M-16 -2 H16" stroke="#1a1d24" stroke-width="4"/>
+      <path d="M22 -2 l-12 -7 v14 z" fill="#1a1d24"/>
+    </g>
+    <rect x="176" y="96" width="64" height="56" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <circle cx="208" cy="124" r="15" fill="#c87533"/>
+    <g stroke="#fdfaf2" stroke-width="2.4" fill="none"><path d="M220 116 a13 13 0 0 1 0 16"/></g>
+    <!-- small paw under recipient -->
+    <g transform="translate(208,170)" fill="#1a1d24" fill-opacity="0.4">
+      <circle cx="0" cy="4" r="7"/><circle cx="-10" cy="-6" r="4"/><circle cx="0" cy="-11" r="4"/><circle cx="10" cy="-6" r="4"/>
+    </g>
+  </g>
+
+  <!-- CARD 3: the long-arc retrospective (a settled arc) -->
+  <g transform="translate(790,200)">
+    <rect x="0" y="0" width="280" height="230" rx="16" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <path d="M36 170 C110 96, 170 96, 244 150" fill="none" stroke="#1a1d24" stroke-width="3.5" opacity="0.7"/>
+    <circle cx="36" cy="170" r="6" fill="#c87533"/>
+    <circle cx="140" cy="106" r="6" fill="#c87533"/>
+    <circle cx="244" cy="150" r="6" fill="#1a1d24"/>
+    <!-- small year ticks as plain marks (no text) -->
+    <g stroke="#1a1d24" stroke-width="2" opacity="0.2">
+      <line x1="36" y1="186" x2="36" y2="196"/>
+      <line x1="140" y1="186" x2="140" y2="196"/>
+      <line x1="244" y1="186" x2="244" y2="196"/>
+    </g>
+  </g>
 </svg>

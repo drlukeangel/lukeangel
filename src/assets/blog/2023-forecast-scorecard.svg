@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="1000" height="480" role="img" aria-label="2022 forecast scored about 85 percent">
+  <rect width="1000" height="480" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 14px; fill: #7a808c; letter-spacing: 2px; }
+    .it { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; fill: #1a1d24; }
+    .big { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 24px; fill: #1a1d24; }
+    .cap { font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 13.5px; fill: #7a808c; }
+  </style>
+
+  <text x="40" y="42" class="h">GRADING THE 2022 FORECAST</text>
+
+  <g>
+    <!-- 6 hits -->
+    <g transform="translate(60,72)"><circle cx="13" cy="13" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/><path d="M7 13 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/><text x="38" y="18" class="it">new house construction — moved in October</text></g>
+    <g transform="translate(60,114)"><circle cx="13" cy="13" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/><path d="M7 13 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/><text x="38" y="18" class="it">structured wiring + PoE backbone (42 Cat6)</text></g>
+    <g transform="translate(60,156)"><circle cx="13" cy="13" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/><path d="M7 13 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/><text x="38" y="18" class="it">first Matter devices — 3 Eve + 1 Nanoleaf</text></g>
+    <g transform="translate(60,198)"><circle cx="13" cy="13" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/><path d="M7 13 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/><text x="38" y="18" class="it">Frame TV in the great room</text></g>
+    <g transform="translate(60,240)"><circle cx="13" cy="13" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/><path d="M7 13 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/><text x="38" y="18" class="it">HA migrates to the new house</text></g>
+    <g transform="translate(60,282)"><circle cx="13" cy="13" r="13" fill="#3a7d44" fill-opacity="0.16" stroke="#3a7d44" stroke-width="2.4"/><path d="M7 13 l4 6 l9 -11" fill="none" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/><text x="38" y="18" class="it">old-house gear migrates over</text></g>
+    <!-- 2 partials -->
+    <g transform="translate(60,324)"><circle cx="13" cy="13" r="13" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="2.4"/><path d="M13 2 a11 11 0 0 1 0 22 z" fill="#6a4c93"/><text x="38" y="18" class="it">Samsung Bespoke kitchen (fridge in; rest early '24)</text></g>
+    <g transform="translate(60,366)"><circle cx="13" cy="13" r="13" fill="#6a4c93" fill-opacity="0.16" stroke="#6a4c93" stroke-width="2.4"/><path d="M13 2 a11 11 0 0 1 0 22 z" fill="#6a4c93"/><text x="38" y="18" class="it">wall touchscreens (2 of 3; office delayed)</text></g>
+  </g>
+
+  <!-- tally panel -->
+  <g transform="translate(660,120)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="#3a7d44" fill-opacity="0.06" stroke="#3a7d44" stroke-width="2.4" stroke-dasharray="7 5"/>
+    <text x="24" y="52" class="big">6.5 / 8</text>
+    <text x="24" y="84" class="it" fill="#3a7d44">≈ 85%</text>
+    <text x="24" y="116" class="it" fill="#5b616b">best year since 2013</text>
+    <text x="24" y="136" class="it" fill="#5b616b">(also ~83%)</text>
+  </g>
+
+  <text x="500" y="448" text-anchor="middle" class="cap">Construction-driven predictions are easy mode — you control the budget and the timeline.</text>
+</svg>

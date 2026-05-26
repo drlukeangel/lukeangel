@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 470" role="img" aria-label="two new vectors for connected devices">
+  <rect width="820" height="470" rx="14" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace">
+    <text x="40" y="52" font-size="22" fill="#1a1d24" font-weight="600">TWO NEW VECTORS, AT ONCE</text>
+
+    <!-- origin device puck in center-left -->
+    <g transform="translate(150,250)">
+      <circle r="46" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <circle r="20" fill="none" stroke="#0066cc" stroke-width="3"/>
+      <circle r="6" fill="#0066cc"/>
+      <text y="78" text-anchor="middle" font-size="13" fill="#5b616b">today's device</text>
+    </g>
+
+    <!-- vector 1: interop, arrow up-right -->
+    <g stroke="#0066cc" stroke-width="4" fill="none">
+      <path d="M196 228 L470 120" marker-end="url(#ar)"/>
+    </g>
+    <g transform="translate(470,90)">
+      <rect x="0" y="0" width="300" height="120" rx="10" fill="#fdfaf2" stroke="#0066cc" stroke-width="2.5"/>
+      <text x="20" y="34" font-size="17" fill="#1a1d24" font-weight="600">Interop</text>
+      <text x="20" y="62" font-size="14" fill="#5b616b">one protocol across ecosystems —</text>
+      <text x="20" y="84" font-size="14" fill="#5b616b">a bulb that pairs to Apple, Google</text>
+      <text x="20" y="106" font-size="14" fill="#5b616b">and Amazon from the same box</text>
+    </g>
+
+    <!-- vector 2: on-device intelligence, arrow down-right -->
+    <g stroke="#0066cc" stroke-width="4" fill="none">
+      <path d="M196 272 L470 360" marker-end="url(#ar)"/>
+    </g>
+    <g transform="translate(470,300)">
+      <rect x="0" y="0" width="300" height="120" rx="10" fill="#fdfaf2" stroke="#0066cc" stroke-width="2.5"/>
+      <text x="20" y="34" font-size="17" fill="#1a1d24" font-weight="600">On-device intelligence</text>
+      <text x="20" y="62" font-size="14" fill="#5b616b">a real reason to put a model on</text>
+      <text x="20" y="84" font-size="14" fill="#5b616b">the device — the conversation that</text>
+      <text x="20" y="106" font-size="14" fill="#5b616b">opened up over the last six weeks</text>
+    </g>
+
+    <defs>
+      <marker id="ar" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+        <path d="M0 0 L7 3 L0 6 z" fill="#0066cc"/>
+      </marker>
+    </defs>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 420" width="1080" height="420" role="img" aria-label="Verify-then-commit flow with a single atomic bank-pointer flip.">
+  <rect width="1080" height="420" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="34" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#7a808c">VERIFY, THEN COMMIT — THE FLIP IS THE ONLY MOMENT OF RISK</text>
+
+  <!-- step 1: accumulate -->
+  <g transform="translate(40,96)">
+    <rect x="0" y="0" width="206" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">1 · ACCUMULATE</text>
+    <rect x="16" y="48" width="174" height="30" rx="6" fill="#3a7d44" fill-opacity="0.14" stroke="#3a7d44" stroke-width="2.2"/>
+    <text x="103" y="68" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">Bank 0 — running</text>
+    <rect x="16" y="84" width="174" height="30" rx="6" fill="#357a8c" fill-opacity="0.12" stroke="#357a8c" stroke-width="2.2" stroke-dasharray="5 3"/>
+    <text x="103" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">Bank 1 — filling</text>
+    <text x="103" y="136" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">pointer → Bank 0</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="246" y1="171" x2="278" y2="171"/><path d="M282 171 l-15 -7 v14 z"/></g>
+
+  <!-- step 2: hash -->
+  <g transform="translate(286,96)">
+    <rect x="0" y="0" width="190" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">2 · HASH</text>
+    <text x="95" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">SHA-256 over</text>
+    <text x="95" y="84" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">all of Bank 1</text>
+    <text x="95" y="116" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">= manifest hash?</text>
+  </g>
+  <g stroke="#1a1d24" stroke-width="3" fill="#1a1d24"><line x1="476" y1="171" x2="508" y2="171"/><path d="M512 171 l-15 -7 v14 z"/></g>
+
+  <!-- step 3: signature -->
+  <g transform="translate(516,96)">
+    <rect x="0" y="0" width="190" height="150" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">3 · SIGNATURE</text>
+    <g transform="translate(80,46)">
+      <circle cx="15" cy="15" r="15" fill="#fdfaf2" stroke="#357a8c" stroke-width="2.6"/>
+      <path d="M9 15 l4 5 8 -11" fill="none" stroke="#357a8c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="95" y="100" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">signed by our key?</text>
+    <text x="95" y="120" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#7a808c">(on-chip pubkey)</text>
+  </g>
+  <g stroke="#3a7d44" stroke-width="3" fill="#3a7d44"><line x1="706" y1="171" x2="738" y2="171"/><path d="M742 171 l-15 -7 v14 z"/></g>
+  <text x="724" y="156" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" fill="#3a7d44">pass</text>
+
+  <!-- step 4: atomic flip -->
+  <g transform="translate(746,96)">
+    <rect x="0" y="0" width="206" height="150" rx="12" fill="#357a8c" fill-opacity="0.1" stroke="#357a8c" stroke-width="3.4"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="13" fill="#1a1d24">4 · COMMIT</text>
+    <text x="103" y="62" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#1a1d24">flip pointer → Bank 1</text>
+    <text x="103" y="90" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#357a8c">one atomic write</text>
+    <text x="103" y="124" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#1a1d24">reboot → new firmware</text>
+  </g>
+
+  <!-- failure drains down -->
+  <g stroke="#c14a3a" stroke-width="2.6" fill="none" stroke-dasharray="7 5">
+    <path d="M381 246 V 300 H 611 V 246"/>
+  </g>
+  <path d="M381 246 l-7 16 14 0 z" fill="#c14a3a"/>
+  <path d="M611 246 l-7 16 14 0 z" fill="#c14a3a"/>
+  <rect x="300" y="300" width="392" height="48" rx="10" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.6"/>
+  <text x="496" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#c14a3a">FAIL → discard Bank 1, keep booting Bank 0</text>
+  <text x="496" y="338" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10.5" fill="#7a808c">same outcome as a power loss before the flip</text>
+
+  <text x="540" y="398" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="15.5" font-style="italic" fill="#3a3f4a">The image is made bootable only after it's proven whole and authentic — never before.</text>
+</svg>

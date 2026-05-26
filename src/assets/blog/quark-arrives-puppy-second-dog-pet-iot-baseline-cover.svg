@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Two collars, nine years apart">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#c87533"/>
+
+  <!-- LEFT collar: 2013 — coin activity puck, no location -->
+  <g transform="translate(330,315)">
+    <path d="M -150 70 Q 0 -120 150 70" fill="none" stroke="#1a1d24" stroke-width="14" stroke-linecap="round"/>
+    <!-- coin puck -->
+    <g transform="translate(0,8)">
+      <circle cx="0" cy="0" r="46" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#c87533" stroke-width="3"/>
+      <circle cx="0" cy="0" r="8" fill="#c87533"/>
+    </g>
+    <!-- flat "no location" line under it -->
+    <line x1="-70" y1="92" x2="70" y2="92" stroke="#7a808c" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- vertical divider -->
+  <line x1="600" y1="120" x2="600" y2="510" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="3"/>
+
+  <!-- RIGHT collar: 2022 — slim GPS module with satellite fix + cellular -->
+  <g transform="translate(870,315)">
+    <path d="M -150 70 Q 0 -120 150 70" fill="none" stroke="#1a1d24" stroke-width="14" stroke-linecap="round"/>
+    <!-- slim rectangular module -->
+    <g transform="translate(0,8)">
+      <rect x="-40" y="-30" width="80" height="60" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="4"/>
+      <rect x="-26" y="-16" width="52" height="32" rx="6" fill="none" stroke="#c87533" stroke-width="3"/>
+      <circle cx="0" cy="0" r="6" fill="#c87533"/>
+    </g>
+    <!-- GPS satellite fix above -->
+    <g transform="translate(-2,-150)" stroke="#c87533" stroke-width="3.5" fill="none" stroke-linecap="round">
+      <line x1="0" y1="-13" x2="0" y2="13"/>
+      <line x1="-13" y1="0" x2="13" y2="0"/>
+      <circle cx="0" cy="0" r="9"/>
+    </g>
+    <line x1="0" y1="-128" x2="0" y2="-30" stroke="#c87533" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+    <!-- cellular arcs to the right of module -->
+    <g transform="translate(52,-18)" stroke="#c87533" stroke-width="3.5" fill="none" stroke-linecap="round">
+      <path d="M 0 24 Q 18 2 36 24"/>
+      <path d="M 10 30 Q 18 18 26 30" stroke-opacity="0.6"/>
+    </g>
+  </g>
+</svg>
