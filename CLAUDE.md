@@ -34,3 +34,13 @@ The `new-blog.md` cleanup (100+ bulk-generated IoT posts → publish bar) runs a
 
 ### Lesson — the OTA miss (bake into review)
 We once shipped an *operations* post inside the *security* notebook, because review only asked "is the post good?" and "does the notebook cover the topic?" — never "does this post attack its topic from **this notebook's** angle?" Compounded by giving inherited/KEEP posts a lighter pass than newly-written ones, and by glossing a title that signaled the wrong frame. **Standing fix:** the right-angle check is part of QA, applied to inherited posts as hard as new ones.
+
+## Repository layout — where assets go
+
+Three homes, three jobs — keep them separate:
+
+- **`src/content/blog/`** — post `.mdoc`/`.md` files. Routes render at `/blog/<slug>/`.
+- **`src/assets/blog/`** — **images only** (cover SVGs, photos, diagrams), processed by Astro's image pipeline. Referenced from posts with relative paths (`../../assets/blog/<file>`). Flat folder, named `<post-slug>-<descriptor>.<ext>`. Never delete a *referenced* image — it 500s every `/blog/` route via the Astro cache; overwrite or orphan instead.
+- **`public/downloads/`** — **raw downloadable files** a reader grabs byte-for-byte (configs, datasets, code). Served verbatim at `/downloads/...`. Do NOT put these in `src/assets` — the image pipeline won't serve a raw link and the markdown link 404s on build. Organize per slug: `public/downloads/<post-slug>/<file>` for post-specific files, `public/downloads/<notebook-slug>/<file>` for files shared across a series. Link from a post with the absolute URL `/downloads/<slug>/<file>`.
+
+Rule of thumb: if Astro should optimize it (an image), it's `src/assets`; if a reader downloads it as-is, it's `public/downloads`.

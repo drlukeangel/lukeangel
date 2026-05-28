@@ -1,168 +1,151 @@
 # lukeangel.co
 
-Personal site. Astro + Markdown + Pagefind. Static, fast, real SEO.
+Personal site. Astro + Markdoc + Keystatic + Pagefind. Static, fast, real SEO.
 
 ## What's where
 
-| Path                          | What's there                                    |
-|-------------------------------|-------------------------------------------------|
-| `src/content/blog/*.md`       | Blog posts. Add a `.md` file → it's a new post. |
-| `src/content/gratitude/*.md`  | Daily gratitude entries (the microblog).        |
-| `src/content/projects/*.md`   | Case studies / field studies.                   |
-| `src/content/courses/*.md`    | Course detail pages.                            |
-| `src/content/config.ts`       | Schemas for all of the above (typed frontmatter). |
-| `src/pages/`                  | Routes. Filenames map to URLs.                  |
-| `src/layouts/Base.astro`      | Page chrome (header + footer + meta tags + OG). |
-| `src/styles/global.css`       | Palette tokens + global styles. Ivory + cobalt by default. |
+| Path                            | What's there                                                        |
+|---------------------------------|---------------------------------------------------------------------|
+| `src/content/blog/*.mdoc`       | Blog posts. Add a `.mdoc` file → it's a new post.                    |
+| `src/content/notebooks/*.mdoc`  | Notebooks — themed collections that group blog posts.               |
+| `src/content/gratitude/*.mdoc`  | Daily gratitude entries (the microblog).                            |
+| `src/content/projects/*.mdoc`   | Case studies / field studies.                                       |
+| `src/content/courses/*.mdoc`    | Course detail pages.                                                |
+| `src/content/config.ts`         | Schemas for all of the above (typed frontmatter).                   |
+| `src/assets/blog/`              | **Images only** — covers, photos, diagrams (Astro optimizes these). |
+| `public/downloads/`             | **Raw downloadable files** — configs, datasets, code (served as-is). |
+| `src/pages/`                    | Routes. Filenames map to URLs.                                      |
+| `src/layouts/`                  | Page chrome (header + footer + meta tags + OG).                     |
+| `src/styles/global.css`         | Palette tokens + global styles.                                     |
+| `keystatic.config.ts`           | The local CMS config (collections + field types).                  |
 
 ## Local dev
 
 ```bash
-npm install
+npm install          # install everything, including devDependencies (the build needs them)
 npm run dev          # http://localhost:4321
 ```
+
+## Edit in the browser (Keystatic)
+
+A local CMS is wired up. With the dev server running, open:
+
+```
+http://localhost:4321/keystatic
+```
+
+Edit posts, gratitude, projects, notebooks, and courses through a form UI that writes straight to the `.mdoc` files in `src/content/`. It runs in **local mode** — no accounts, no cloud; everything stays in the repo. Editing prose or frontmatter and saving is non-destructive (that's why content is Markdoc, not raw Markdown — tables and structure survive a round-trip through the editor).
 
 ## Build for production
 
 ```bash
-npm run build        # builds to ./dist, then runs Pagefind to index
-npm run preview      # serve ./dist locally
+npm run build        # astro build → dist/ (static client in dist/client/), then Pagefind indexes dist/client
+npm run preview      # serve the build locally
+npm run reindex      # rebuild just the Pagefind search index (no full rebuild)
 ```
 
-## Adding a blog post
+The build runs through `cross-env` + a small `patch-fs.cjs` shim and Pagefind, all of which live in `devDependencies` — so a production-only `npm install --omit=dev` will fail. Install everything.
 
-Create `src/content/blog/your-slug.md`:
+## Content model
+
+### A blog post
+
+Create `src/content/blog/your-slug.mdoc` (or use Keystatic):
 
 ```markdown
 ---
 title: "Your post title"
-date: 2026-05-14
-category: method            # method | teams | craft | tools | people
-tags: [evals, prompting]
-excerpt: "One-line preview."
+date: 2026-05-28T09:00:00-04:00
+category: projects        # method | teams | craft | tools | people | projects | programs | product | give
+tags: [iot, hardware]
+excerpt: "One-line preview — reads like a book jacket, not a table of contents."
 pullquote: "Optional pull quote."
+cover: "../../assets/blog/your-slug-cover.svg"   # relative path into src/assets/blog
+coverAlt: "What the cover shows (text-free image; the words live here)."
+notebook: your-notebook-slug    # optional — which notebook this belongs to
+notebookOrder: 1                # optional — position within the notebook
 featured: false
+draft: false                    # true = hidden from the build entirely
 ---
 
-Your post body in Markdown.
+Your post body in Markdoc.
 ```
 
-That's the whole flow:
-- Auto-listed on `/blog/`
-- Auto-routed to `/blog/your-slug/`
-- Auto-related to other posts (by tag overlap + same category)
-- Auto-categorized at `/category/<category>/`
-- Auto-tagged at `/tag/<tag>/`
-- Auto-indexed by Pagefind for `/search`
-- Auto-included in `/rss.xml` and `/sitemap-index.xml`
+That's the whole flow — auto-listed on `/blog/`, routed to `/blog/your-slug/`, related by tag + category, filed under `/category/<category>/` and `/tag/<tag>/`, indexed by Pagefind, and added to `/rss.xml` + the sitemap.
 
-## Adding a gratitude entry
+**`.mdoc` vs `.md`:** posts are Markdoc (`.mdoc`) so Keystatic can edit them safely. Plain `.md` still renders and is the escape hatch for posts whose code blocks contain `{% ... %}` (e.g. Home Assistant / Jinja examples) — Markdoc parses `{% %}` even inside fences, so those few posts stay `.md`.
 
-Create `src/content/gratitude/2026-05-14.md`:
+### A gratitude entry
+
+Create `src/content/gratitude/2026-05-28.mdoc`:
 
 ```markdown
 ---
-date: 2026-05-14
-tag: team           # team | home | students | readers | mentees | craft | method | small | editors
-long: false         # true to span 2 columns
+date: 2026-05-28
+topic: trailblazers   # team | home | readers | world | tech | everyday | craft | trailblazers
+level: small          # small | medium | large  (controls card size)
 ---
 
 For whoever or whatever. One sentence is best.
 ```
 
-## Adding images to a post
+### Notebooks
 
-Three ways, easiest first:
+A notebook is a themed shelf that groups posts. Create `src/content/notebooks/your-notebook-slug.mdoc` with `title`, `summary`, and an `accent` color; then point posts at it via their `notebook:` + `notebookOrder:` frontmatter. The notebook page sorts members by `notebookOrder` then `date`.
 
-### 1. Drop in `public/` (no optimization)
+## Assets — where things go
 
-Save the image at `public/blog/your-image.jpg`. In your post:
+Three homes, three jobs. Keep them separate:
 
-```markdown
-![Caption text](/blog/your-image.jpg)
-```
+- **`src/assets/blog/`** — **images** (cover SVGs, photos, diagrams). These go through Astro's image pipeline (WebP/AVIF, sizing). Reference them with a **relative path** from the post: `![alt](../../assets/blog/your-image.svg)`, and set the cover via the `cover:` frontmatter field (also a relative path). Flat folder, named `<post-slug>-<descriptor>.<ext>`.
+  - ⚠️ **Never delete a *referenced* image** — it 500s every `/blog/` route via Astro's content cache. Overwrite it in place, or orphan it; don't `rm`/`git rm` it.
+- **`public/downloads/`** — **raw files a reader downloads byte-for-byte** (configs, datasets, code). Served verbatim. Do **not** put these in `src/assets` — the image pipeline won't serve a raw link and the markdown link 404s on build. Organize by slug:
+  - `public/downloads/<post-slug>/<file>` for post-specific files
+  - `public/downloads/<notebook-slug>/<file>` for files shared across a series
+  - Link them with the absolute URL: `[download the config](/downloads/<slug>/<file>)`
+- **`public/`** (root) — site-level static files: `favicon.png`, `og.png`, the generated `pagefind/` index.
 
-Ship a properly-sized JPG (max 1600px wide, ~200KB).
+Rule of thumb: if Astro should optimize it (an image) → `src/assets/blog/`. If a reader grabs it as-is → `public/downloads/<slug>/`.
 
-### 2. Cover image via frontmatter (recommended)
+## Deploy to Vercel
 
-Add to the post's frontmatter:
-
-```markdown
----
-cover: /blog/your-cover.jpg
-coverAlt: "What the image shows"
----
-```
-
-That single field drives:
-- The hero image on the post page
-- The thumbnail on the journal index + featured card
-- The Open Graph preview when the link is shared
-
-Use 1200×630 for best social-preview behavior.
-
-### 3. Optimized `<Image>` mid-post (best Lighthouse score)
-
-Rename the post from `.md` to `.mdx`, put images in `src/assets/blog/`, and use the `<Image>` component:
-
-```mdx
----
-title: "..."
-date: 2026-05-21
----
-import { Image } from 'astro:assets';
-import diagram from '../../assets/blog/your-image.png';
-
-<Image src={diagram} alt="..." width={900} />
-```
-
-Astro generates WebP/AVIF, lazy-loads, and computes aspect ratio.
-See `src/content/blog/example-with-images.mdx` for a working sample.
-
-
-
-1. **Push to GitHub** (private or public).
-2. Go to [vercel.com/new](https://vercel.com/new), import the repo, click **Deploy**. Vercel auto-detects Astro.
-3. **Add your domain**: Vercel project → Settings → Domains → add `lukeangel.co` and `www.lukeangel.co`.
-4. **DNS at your registrar** (Namecheap / Cloudflare / wherever):
+1. **Push to GitHub.**
+2. [vercel.com/new](https://vercel.com/new) → import the repo → **Deploy**. Vercel auto-detects Astro (the `@astrojs/vercel` adapter is already configured).
+3. **Add the domain**: project → Settings → Domains → add `lukeangel.co` and `www.lukeangel.co`.
+4. **DNS at the registrar:**
    - Apex `lukeangel.co`: A record → `76.76.21.21`
    - `www`: CNAME → `cname.vercel-dns.com`
-   - Vercel will provision HTTPS automatically.
-5. Push to `main` to deploy. Push to a branch to get a preview URL.
+   - Vercel provisions HTTPS automatically.
+5. Push to `master` to deploy. Push to any other branch for a preview URL.
 
 **Cost:** $0/month for traffic well into the millions.
 
 ## Deploy to Netlify
 
-1. [netlify.com/start](https://netlify.com/start), connect repo.
-2. Build command: `npm run build`
-3. Publish directory: `dist`
-4. Domains tab → add `lukeangel.co`. Netlify gives you DNS records to point at.
+1. [netlify.com/start](https://netlify.com/start), connect the repo.
+2. Build command: `npm run build` · Publish directory: `dist`
+3. Domains tab → add `lukeangel.co`; point DNS at the records Netlify gives you.
 
-## Deploy to Cloudflare Pages (also good)
+## Deploy to Cloudflare Pages
 
-1. [pages.cloudflare.com](https://pages.cloudflare.com), connect repo.
-2. Framework preset: Astro
-3. Build command: `npm run build`
-4. Output: `dist`
-5. If `lukeangel.co` is already on Cloudflare DNS, "custom domain" → one click.
+1. [pages.cloudflare.com](https://pages.cloudflare.com), connect the repo.
+2. Framework preset: Astro · Build command: `npm run build` · Output: `dist`
+3. If `lukeangel.co` is already on Cloudflare DNS, "custom domain" → one click.
 
 ## SEO that's already wired
 
 - ✅ Per-page `<title>`, meta description, canonical URL
-- ✅ Open Graph tags for Twitter/LinkedIn previews
-- ✅ Auto-generated `sitemap-index.xml`
+- ✅ Open Graph tags for social previews
+- ✅ JSON-LD structured data (`astro-seo-graph`)
+- ✅ Auto-generated `sitemap-index.xml` and `robots.txt`
 - ✅ `/rss.xml` feed for blog posts
-- ✅ Real `<h1>` per page, semantic HTML
-- ✅ Pagefind static search (zero server, zero cost)
+- ✅ Breadcrumbs, real `<h1>` per page, semantic HTML
+- ✅ Pagefind static search (zero server, zero cost) at `/search`
 - ✅ Light / dark mode (CSS variables + JS toggle, prefers-color-scheme aware)
 
 ## To do after deploy
 
-- [ ] Replace placeholder `og.png` in `public/` with a real cover image (1200×630 px)
-- [ ] Drop a real portrait into `public/assets/luke.png` and update the home/about page
-- [ ] Replace the Buttondown form action on `/contact/` with your real newsletter endpoint
-- [ ] Set up Plausible or Fathom analytics (`<script>` in `Base.astro` head)
+- [ ] Replace placeholder `og.png` in `public/` with a real cover image (1200×630)
+- [ ] Set up privacy-friendly analytics (Plausible/Fathom) in the base layout head
 - [ ] Add Google Search Console: verify the site, submit `/sitemap-index.xml`
-- [ ] Hook a "Reserve a seat" button on courses → real Stripe / Lemon Squeezy checkout
+- [ ] Wire course "Reserve a seat" buttons to a real checkout
