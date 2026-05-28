@@ -1,0 +1,122 @@
+---
+title: "The Range Test: 1,250 Feet Direct — and Miles Through the Mesh"
+date: 2026-05-28T09:00:00-04:00
+category: projects
+tags:
+  - iot
+  - pets
+  - hardware
+  - lora
+  - meshtastic
+  - build-in-public
+  - testing
+notebook: iot-pet-health-tracker-build
+notebookOrder: 5
+excerpt: "Range was the make-or-break criterion on the scorecard — if it failed, nothing else mattered. It didn't fail. A zero-hop direct link held to 1,250 feet in the suburbs, clearing the bar I set before I started. And the neighborhood mesh I stumbled onto last post was already relaying beacons miles further."
+pullquote: "Zero-hop is the floor, not the ceiling. The direct radio cleared the bar on its own — and the mesh I didn't build was already turning feet into miles."
+cover: "../../assets/blog/pet-tracker-build-5-the-range-test-cover.svg"
+coverAlt: "A range-walk diagram: a base station with an antenna at left, a dashed direct link reaching a walking figure at about 1,250 feet where the link goes stale, and faint relay nodes scattered beyond that hand the signal onward to a much greater distance."
+draft: false
+---
+
+[Last post](/blog/pet-tracker-build-4-the-scorecard/) I wrote the scorecard before I ran a single test, so I couldn't move the goalposts once I got excited. Criterion #1 was LoRa range, flagged the make-or-break: *if this fails, nothing else matters.*
+
+It didn't fail. Here are the first numbers, against the targets I set.
+
+## The walk
+
+One node on the move (call it the collar), one node home as the base station, beaconing forced to a 60-second heartbeat so I could catch the exact second the link died — [the setup from last post](/blog/pet-tracker-build-4-the-scorecard/). I started with the link solid and walked a straight suburban line until the heartbeat went stale.
+
+![The collar controller's OLED at the start of the walk, link alive: it shows the Base-Station node heard seconds ago, with a compass arrow and distance — a healthy, fresh heartbeat.](../../assets/blog/pet-tracker-iot-poc-range-walk-start.jpg)
+
+The number: **the direct link held to 1,250 feet** before the heartbeat went stale and stuck — last-heard climbing to one minute, two, three, no fresh beacons. That's where I stopped.
+
+![The collar controller at the limit of the walk: the Base-Station node now reads 1250 ft away, last heard 3 minutes ago — the heartbeat has gone stale, the direct link is gone.](../../assets/blog/pet-tracker-iot-poc-range-walk-end-1250ft.jpg)
+
+1,250 ft is about **381 meters.** Against the scorecard:
+
+| Setting | Target | Result |
+| --- | --- | --- |
+| Open line-of-sight | ≥ 1.0 km | — not yet walked — |
+| Suburban / through houses | ≥ 300 m | **381 m — pass** |
+| Dense foliage / trail | ≥ 150 m | — not yet walked — |
+
+The suburban bar — the one that matters most for a dog who gets out the front door — **cleared, with margin.**
+
+## Zero hops — why that number is honest
+
+Here's the part I want to be precise about, because it's easy to accidentally cheat a range test. The app showed the base station at **Hops Away: 0.**
+
+![The Meshtastic app's node details for the Base-Station: Device Role CLIENT, Last heard Now, and Hops Away 0 — a confirmed direct, zero-relay link.](../../assets/blog/pet-tracker-iot-poc-app-zero-hop.jpg)
+
+Zero hops means my handheld heard the collar **firsthand** — the radio itself reached 1,250 feet, with no neighbor's node quietly relaying the beacon and inflating the result. [Last post](/blog/pet-tracker-build-4-the-scorecard/) I found 39 strangers' nodes already on the air around my block, so I deliberately moved my two nodes onto their own channel and filtered the view to direct-only. **1,250 feet is the floor: what one radio does, alone, with nobody helping.**
+
+## And the mesh was already doing miles
+
+![The Meshtastic app node list with both my nodes online — Collar at 97% battery and 8 GPS satellites, Base-Station at 76% and 157 ft away in this snapshot — under a header reading "2 online / 2 shown / 39 total." The 39 is the neighborhood mesh already on the air.](../../assets/blog/pet-tracker-iot-poc-app-both-nodes.jpg)
+
+Now lift the zero-hop filter off and the story changes scale. Those 39 nodes are a working mesh, and it is emphatically not local. Sort the list by distance and there's a station — **Mesh_WYVERN, 33 miles (53 km) out, four hops away:**
+
+![The Meshtastic node list sorted by distance: a node "Mesh_WYVERN" 33 miles away reached over four relayed hops, above a "North Point" tower node 8.2 miles out — direct evidence the mesh I'm sitting on spans tens of miles, not a city block.](../../assets/blog/pet-tracker-iot-poc-app-node-33-miles.jpg)
+
+That's the *network*, not my radio — and my own collar rides it: on earlier runs across the public channel, with beacons free to relay hop to hop, the collar's position came back **from about ten kilometers out.** The reach my pet's beacon can borrow is measured in miles, not feet.
+
+Put the whole span on one axis and the gap *is* the story — what my own radio did, against what the mesh carried for nothing:
+
+![A logarithmic distance axis from 10 meters to 100 kilometers. My collar's direct, zero-hop link sits at 381 meters (1,250 feet), measured on the walk; far out on the same axis are real nodes pulled from the mesh log — a North Point tower node at 8.2 miles and Mesh_WYVERN at 33 miles reached over four relayed hops, roughly 140 times my direct link, on hardware I don't own.](../../assets/blog/pet-tracker-build-5-mesh-reach.svg)
+
+My own radio's direct link tops out around 381 m. On the same axis, the neighborhood mesh reached **North Point's tower 8.2 miles out** and **Mesh_WYVERN 33 miles away over four hops** — about **140× my direct range**, on nodes I didn't buy and didn't place. (The log even caught a node at 100 km; that one's almost certainly a misconfigured fixed position, so I'm not counting it.)
+
+That's the moat I sketched in [the PRD](/blog/pet-tracker-build-2-the-prd-and-the-rubric/), and I'd assumed I'd have to bootstrap it one sale at a time. Instead it already exists, on my street, before I've shipped anything — the same network effect behind Find My and Sidewalk. **Zero-hop clears the bar on its own; the mesh turns feet into miles for free.** The direct link is what I can promise; the mesh is the upside I don't have to build.
+
+## And I haven't touched the antenna or the power
+
+The 1,250 feet is conservative for a third reason: it's the **stock** rig. The base is running the little screw-on whip the Wio Tracker ships with — and the Meshtastic crowd is near-unanimous that it's the cheapest weak link to fix, with higher-gain antennas that clearly outrun it. It's a fiddly part to swap on this enclosure, but it's swappable. I also haven't pushed transmit power toward its ceiling.
+
+Both are pure **link budget**, and link budget turns into range through one clean equation. Every decibel you add — antenna gain on either end, plus transmit power — multiplies range by:
+
+`range × 10 ^ ( ΔdB / (10 · n) )`
+
+where `n` is the path-loss exponent: about **3 in the suburbs** (free space is 2; dense foliage pushes toward 4). Anchored at my measured 1,250 ft / 381 m:
+
+| Link budget added | Multiplier (n = 3) | Direct range |
+| --- | --- | --- |
+| +3 dB | 1.26× | ~1,580 ft |
+| +6 dB | 1.58× | ~1,980 ft |
+| +9 dB | 2.0× | ~2,500 ft |
+| +12 dB | 2.5× | ~3,140 ft |
+
+![Range as a function of added link budget at suburban path loss (n = 3), drawn as a bar chart anchored at the measured 1,250 feet with zero decibels added: the bars climb to about 1,980 feet at +6 dB, 2,500 feet at +9 dB, and 3,140 feet at +12 dB. A note shows the decibels come from two knobs — a higher-gain base antenna and more transmit power — and a dashed line marks the regulatory EIRP ceiling that caps how far the two can be stacked.](../../assets/blog/pet-tracker-build-5-link-budget.svg)
+
+Where those decibels come from: trading the ~2 dBi stock whip for a ~5.8 dBi collinear is about **+4 dB**, and there's usually a few dB of transmit-power headroom on top — call it **+8 to +10 dB** on the base side, which the table turns into roughly **double** the direct link, a quarter-mile-plus. Two honest limits keep it from being free. US 915 MHz ISM has an **EIRP cap**, so you can't stack gain and power without bound. And the *collar* antenna can't grow — a cat won't wear a collinear — so the realistic gains live on the base side. The upside: the same decibels lift **every mesh hop too**, so a better base antenna stretches both the 1,250-ft direct floor and the ~10 km mesh ceiling.
+
+I'll confirm it with a real walk once the new antenna's on. For now it's a model — but the model is just radio physics, and it's why range isn't the thing that worries me.
+
+## Messaging works too
+
+The link isn't just position beacons. I sent a plain text from the collar mid-walk and it landed at the base station:
+
+![The base station node sitting in a window, its OLED showing a received message: "hi from collar," heard 2 minutes ago — proof the link carries text both directions, not just position pings.](../../assets/blog/pet-tracker-iot-poc-base-station-message.jpg)
+
+Small thing, big implication for an actual escape: I can ping the collar and get a fix back on demand, not just wait for the next scheduled beacon.
+
+## Presence — the heartbeat is the signal
+
+The two walk photos above are also the presence test in miniature: at the start the heartbeat reads *seconds ago* (home / in range), at the limit it climbs and sticks (away / out of range). That climb-and-stick is exactly the home-vs-away signal the [scorecard](/blog/pet-tracker-build-4-the-scorecard/) asks for — clean, with no false "still here" once the radio's truly gone.
+
+## The scorecard so far
+
+| Criterion | Status |
+| --- | --- |
+| LoRa range — suburban | **Pass (381 m, zero-hop)** |
+| LoRa range — open LOS / foliage | Not yet walked |
+| Presence — home/away heartbeat | Looks clean; full 10-transition run to come |
+| Messaging over the link | Works both directions |
+| GPS — time-to-fix, accuracy | — to come — |
+| Battery — active runtime | **~3.5 days at periodic beaconing — pass** (continuous GPS + lit screen: ~10 h) |
+| Battery — idle / presence runtime | — to come — |
+| The Quark test (escape sim) | — to come — |
+
+## Where this leaves the build
+
+The criterion that could have killed the project — range — cleared the suburban bar direct, and the neighborhood mesh already extends recovery to miles I didn't have to engineer. **The build stays alive.** And the other make-or-break, battery, is looking like a pass too: at periodic beaconing the collar projects to **~3.5 days** on a charge — past the three-day bar — while a continuous-GPS, screen-lit stress run collapses it to ~10 hours, which is exactly why the production collar runs headless and duty-cycles the GPS. What's left is GPS fix quality, the idle/presence number, and a per-mode bench measurement to make the battery verdict airtight. Those are next.

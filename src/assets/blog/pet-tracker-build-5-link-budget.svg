@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="A bar chart of direct radio range versus added link budget at suburban path loss n equals 3, anchored at the measured 1,250 feet with zero decibels added; bars rise to about 1,980 feet at plus 6 dB, 2,500 feet at plus 9 dB, and 3,140 feet at plus 12 dB. A note shows the added decibels come from a higher-gain base antenna plus more transmit power, and a dashed line marks the regulatory EIRP ceiling.">
+  <rect width="1200" height="560" fill="#fbf9f3"/>
+  <text x="40" y="44" font-family="ui-monospace, Menlo, monospace" font-size="21" letter-spacing="1.5" fill="#2b2b2b">RANGE vs ADDED LINK BUDGET · suburban (n = 3)</text>
+
+  <!-- y gridlines + labels (0..3500 ft over y 460..110) -->
+  <g font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#9a9486">
+    <line x1="150" y1="460" x2="1080" y2="460" stroke="#cfc8b8" stroke-width="2"/>
+    <line x1="150" y1="360" x2="1080" y2="360" stroke="#e7e1d2" stroke-width="1.5"/><text x="110" y="365" text-anchor="end">1k</text>
+    <line x1="150" y1="260" x2="1080" y2="260" stroke="#e7e1d2" stroke-width="1.5"/><text x="110" y="265" text-anchor="end">2k</text>
+    <line x1="150" y1="160" x2="1080" y2="160" stroke="#e7e1d2" stroke-width="1.5"/><text x="110" y="165" text-anchor="end">3k ft</text>
+  </g>
+
+  <!-- EIRP ceiling -->
+  <line x1="150" y1="128" x2="1080" y2="128" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="9 7"/>
+  <text x="1080" y="120" text-anchor="end" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#c14a3a">regulatory EIRP ceiling — can't stack forever</text>
+
+  <!-- bars: +0 measured (solid), rest modeled (light) -->
+  <g font-family="ui-monospace, Menlo, monospace" font-size="16" text-anchor="middle">
+    <!-- +0 : 1250 -> h125 y335 -->
+    <rect x="200" y="335" width="110" height="125" rx="4" fill="#1f7a6b"/>
+    <text x="255" y="322" fill="#2b2b2b">1,250</text>
+    <text x="255" y="484" fill="#2b2b2b">+0</text>
+    <text x="255" y="506" font-size="12" fill="#1f7a6b">measured</text>
+    <!-- +3 : 1580 -> h158 y302 -->
+    <rect x="370" y="302" width="110" height="158" rx="4" fill="#1f7a6b" opacity="0.4"/>
+    <text x="425" y="289" fill="#2b2b2b">1,580</text>
+    <text x="425" y="484" fill="#2b2b2b">+3</text>
+    <!-- +6 : 1980 -> h198 y262 -->
+    <rect x="540" y="262" width="110" height="198" rx="4" fill="#1f7a6b" opacity="0.4"/>
+    <text x="595" y="249" fill="#2b2b2b">1,980</text>
+    <text x="595" y="484" fill="#2b2b2b">+6</text>
+    <!-- +9 : 2500 -> h250 y210 -->
+    <rect x="710" y="210" width="110" height="250" rx="4" fill="#1f7a6b" opacity="0.4"/>
+    <text x="765" y="197" fill="#2b2b2b">2,500</text>
+    <text x="765" y="484" fill="#2b2b2b">+9</text>
+    <!-- +12 : 3140 -> h314 y146 -->
+    <rect x="880" y="146" width="110" height="314" rx="4" fill="#1f7a6b" opacity="0.4"/>
+    <text x="935" y="133" fill="#2b2b2b">3,140</text>
+    <text x="935" y="484" fill="#2b2b2b">+12 dB</text>
+  </g>
+
+  <!-- the knobs that feed the dB -->
+  <g font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#2b2b2b">
+    <text x="150" y="536" fill="#6a655c">added dB =</text>
+    <line x1="275" y1="531" x2="295" y2="531" stroke="#2b2b2b" stroke-width="3"/><circle cx="295" cy="531" r="4" fill="#1f7a6b"/>
+    <text x="306" y="536">higher-gain base antenna</text>
+    <text x="600" y="536" fill="#6a655c">+</text>
+    <path d="M624 524 l-9 13 h7 l-4 11" fill="none" stroke="#1f7a6b" stroke-width="2.5"/>
+    <text x="640" y="536">more transmit power</text>
+    <text x="900" y="536" fill="#6a655c">(both lift every mesh hop too)</text>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img" aria-label="Current draw over time for the collar, drawn as a sawtooth. A low deep-sleep baseline is interrupted by brief tall spikes when the node wakes to take a GPS fix and transmit over LoRa. On the left, in active mode, the spikes come once a minute and the average-draw line sits high. On the right, in presence mode, the spikes are rare and the average-draw line drops near the sleep floor. Spike heights are illustrative; exact milliamps come from the bench meter.">
+  <rect width="1200" height="540" fill="#fbf9f3"/>
+  <text x="40" y="44" font-family="ui-monospace, Menlo, monospace" font-size="21" letter-spacing="1.5" fill="#2b2b2b">WHERE THE POWER GOES · the duty cycle under the dial</text>
+
+  <!-- axes -->
+  <text x="40" y="250" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#9a9486" transform="rotate(-90 40 250)" text-anchor="middle">current draw →</text>
+  <line x1="120" y1="120" x2="120" y2="430" stroke="#cfc8b8" stroke-width="2"/>
+  <line x1="120" y1="430" x2="1140" y2="430" stroke="#cfc8b8" stroke-width="2"/>
+  <text x="630" y="458" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#9a9486" text-anchor="middle">time →</text>
+
+  <!-- sleep floor -->
+  <line x1="120" y1="410" x2="1140" y2="410" stroke="#1f7a6b" stroke-width="2.5"/>
+  <text x="128" y="402" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#1f7a6b">deep-sleep floor (µA)</text>
+
+  <!-- ACTIVE region: frequent spikes -->
+  <g fill="#c14a3a">
+    <path d="M175 410 L183 150 L191 410 Z"/>
+    <path d="M245 410 L253 150 L261 410 Z"/>
+    <path d="M315 410 L323 150 L331 410 Z"/>
+    <path d="M385 410 L393 150 L401 410 Z"/>
+    <path d="M455 410 L463 150 L471 410 Z"/>
+    <path d="M525 410 L533 150 L541 410 Z"/>
+  </g>
+  <text x="190" y="138" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#c14a3a">GPS fix + LoRa TX</text>
+  <!-- active average -->
+  <line x1="120" y1="300" x2="600" y2="300" stroke="#c14a3a" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="360" y="292" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#c14a3a" text-anchor="middle">average draw — high</text>
+
+  <!-- divider -->
+  <line x1="625" y1="120" x2="625" y2="430" stroke="#b9b2a2" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+  <!-- PRESENCE region: sparse spikes -->
+  <g fill="#1f7a6b">
+    <path d="M720 410 L728 180 L736 410 Z"/>
+    <path d="M920 410 L928 180 L936 410 Z"/>
+    <path d="M1120 410 L1128 180 L1136 410 Z"/>
+  </g>
+  <!-- presence average -->
+  <line x1="650" y1="388" x2="1140" y2="388" stroke="#1f7a6b" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="895" y="380" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#1f7a6b" text-anchor="middle">average draw — near the sleep floor</text>
+
+  <!-- region labels -->
+  <text x="360" y="500" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#2b2b2b" text-anchor="middle">ACTIVE · GPS every minute</text>
+  <text x="895" y="500" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#2b2b2b" text-anchor="middle">PRESENCE · rare beacon, GPS off</text>
+
+  <text x="40" y="528" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#9a9486">Spike heights illustrative — the radio sleeps almost all the time; battery life is set by how often, and how tall, the wake-ups are. Exact milliamps: the bench meter, next.</text>
+</svg>

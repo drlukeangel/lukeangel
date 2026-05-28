@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A base station with an antenna at left sends a solid direct link to a walker with a dog at the point where the link goes stale; beyond, a chain of faint relay nodes hands the signal onward off the far edge, much further than the direct link reached">
+  <defs>
+    <pattern id="rt-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#cfdedb"/></pattern>
+    <marker id="rt-arr" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f7a6b"/></marker>
+  </defs>
+  <rect width="1200" height="630" fill="#faf7ee"/>
+  <rect width="1200" height="630" fill="url(#rt-dots)"/>
+  <rect width="14" height="630" fill="#1f7a6b"/>
+
+  <!-- ground -->
+  <line x1="40" y1="470" x2="1180" y2="470" stroke="#c9c2b0" stroke-width="2"/>
+
+  <!-- base station -->
+  <g>
+    <rect x="96" y="392" width="86" height="78" rx="8" fill="#fffdf8" stroke="#2b2b2b" stroke-width="3"/>
+    <rect x="124" y="424" width="30" height="22" rx="4" fill="#1f7a6b"/>
+    <line x1="139" y1="392" x2="139" y2="330" stroke="#2b2b2b" stroke-width="4"/>
+    <circle cx="139" cy="326" r="6" fill="#1f7a6b"/>
+    <!-- signal arcs -->
+    <path d="M150 300 a48 48 0 0 1 0 52" fill="none" stroke="#1f7a6b" stroke-width="3"/>
+    <path d="M164 286 a70 70 0 0 1 0 80" fill="none" stroke="#1f7a6b" stroke-width="3" opacity="0.7"/>
+    <path d="M178 272 a92 92 0 0 1 0 108" fill="none" stroke="#1f7a6b" stroke-width="3" opacity="0.45"/>
+  </g>
+
+  <!-- direct link: solid, reaching the walker, fading at the drop -->
+  <line x1="200" y1="336" x2="600" y2="336" stroke="#1f7a6b" stroke-width="5"/>
+  <line x1="600" y1="336" x2="690" y2="336" stroke="#1f7a6b" stroke-width="5" stroke-dasharray="3 9" opacity="0.55"/>
+  <!-- the break mark at the drop point -->
+  <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round">
+    <line x1="700" y1="322" x2="716" y2="338"/>
+    <line x1="716" y1="322" x2="700" y2="338"/>
+  </g>
+
+  <!-- walker + dog at the drop distance -->
+  <g stroke="#2b2b2b" stroke-width="4" fill="none" stroke-linecap="round">
+    <circle cx="760" cy="372" r="13" fill="#fffdf8"/>
+    <line x1="760" y1="385" x2="760" y2="430"/>
+    <line x1="760" y1="398" x2="744" y2="416"/>
+    <line x1="760" y1="398" x2="778" y2="414"/>
+    <line x1="760" y1="430" x2="746" y2="462"/>
+    <line x1="760" y1="430" x2="776" y2="462"/>
+    <!-- leash -->
+    <path d="M778 414 q24 18 40 30" stroke="#1f7a6b" stroke-width="2.5"/>
+    <!-- dog -->
+    <ellipse cx="836" cy="452" rx="22" ry="12" fill="#2b2b2b"/>
+    <line x1="820" y1="460" x2="820" y2="470"/>
+    <line x1="852" y1="460" x2="852" y2="470"/>
+    <circle cx="857" cy="444" r="7" fill="#2b2b2b" stroke="none"/>
+  </g>
+  <!-- distance tick at the drop -->
+  <line x1="760" y1="470" x2="760" y2="486" stroke="#2b2b2b" stroke-width="2"/>
+
+  <!-- beyond the drop: faint mesh relaying onward, far further -->
+  <g opacity="0.5">
+    <circle cx="900" cy="300" r="9" fill="#1f7a6b"/>
+    <circle cx="990" cy="358" r="9" fill="#1f7a6b"/>
+    <circle cx="1080" cy="296" r="9" fill="#1f7a6b"/>
+    <g stroke="#1f7a6b" stroke-width="2.6" stroke-dasharray="6 7" fill="none">
+      <path d="M770 350 L893 304"/>
+      <path d="M906 307 L984 353"/>
+      <path d="M997 354 L1074 300"/>
+      <path d="M1086 296 L1180 330" marker-end="url(#rt-arr)"/>
+    </g>
+  </g>
+</svg>

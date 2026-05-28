@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="A logarithmic distance axis from 10 meters to 100 kilometers. My collar's direct, zero-hop link is marked at 381 meters (1,250 feet), measured on the walk. Far out along the same axis sit real mesh nodes the log captured: a North Point tower node at 8.2 miles, and Mesh_WYVERN at 33 miles, reached over four relayed hops — roughly 140 times farther than my own radio's direct link, on hardware I don't own.">
+  <rect width="1200" height="560" fill="#fbf9f3"/>
+  <text x="40" y="44" font-family="ui-monospace, Menlo, monospace" font-size="21" letter-spacing="1.5" fill="#2b2b2b">MESH REACH · measured · straight-line distance (log scale)</text>
+
+  <!-- top annotation: ~140x arc from collar to WYVERN -->
+  <path d="M545 352 C 660 120, 940 120, 1045 360" fill="none" stroke="#1f7a6b" stroke-width="2.5" stroke-dasharray="2 8" marker-end="url(#mr-arr)"/>
+  <defs>
+    <marker id="mr-arr" markerWidth="11" markerHeight="11" refX="7" refY="5.5" orient="auto"><path d="M0 0 L11 5.5 L0 11 z" fill="#1f7a6b"/></marker>
+  </defs>
+  <text x="795" y="112" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="20" fill="#1f7a6b">≈ 140× the direct link — carried free by the mesh</text>
+
+  <!-- axis baseline + decade gridlines -->
+  <g font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#9a9486">
+    <line x1="150" y1="380" x2="1120" y2="380" stroke="#cfc8b8" stroke-width="2"/>
+    <line x1="150"   y1="200" x2="150"   y2="386" stroke="#e7e1d2" stroke-width="1.5"/><text x="150"   y="408" text-anchor="middle">10 m</text>
+    <line x1="392.5" y1="200" x2="392.5" y2="386" stroke="#e7e1d2" stroke-width="1.5"/><text x="392.5" y="408" text-anchor="middle">100 m</text>
+    <line x1="635"   y1="200" x2="635"   y2="386" stroke="#e7e1d2" stroke-width="1.5"/><text x="635"   y="408" text-anchor="middle">1 km</text>
+    <line x1="877.5" y1="200" x2="877.5" y2="386" stroke="#e7e1d2" stroke-width="1.5"/><text x="877.5" y="408" text-anchor="middle">10 km</text>
+    <line x1="1120"  y1="200" x2="1120"  y2="386" stroke="#e7e1d2" stroke-width="1.5"/><text x="1120"  y="408" text-anchor="middle">100 km</text>
+  </g>
+
+  <!-- COLLAR direct link @ 381 m (x=533) -->
+  <g>
+    <path d="M548 366 a20 20 0 0 1 0 28" fill="none" stroke="#1f7a6b" stroke-width="2.5"/>
+    <path d="M558 358 a32 32 0 0 1 0 44" fill="none" stroke="#1f7a6b" stroke-width="2.5" opacity="0.55"/>
+    <circle cx="533" cy="380" r="11" fill="#1f7a6b"/>
+    <line x1="533" y1="369" x2="533" y2="250" stroke="#1f7a6b" stroke-width="1.5"/>
+    <text x="533" y="190" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#2b2b2b">MY COLLAR</text>
+    <text x="533" y="212" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#1f7a6b">direct link · zero-hop</text>
+    <text x="533" y="232" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#6a655c">381 m (1,250 ft) · measured</text>
+  </g>
+
+  <!-- MESH nodes (relayed) -->
+  <!-- North Point 13.2 km (x=906) -->
+  <g>
+    <circle cx="906" cy="380" r="7" fill="#fffdf8" stroke="#1f7a6b" stroke-width="3"/>
+    <line x1="906" y1="373" x2="906" y2="320" stroke="#b9b2a2" stroke-width="1.5"/>
+    <text x="906" y="306" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#2b2b2b">North Point tower</text>
+    <text x="906" y="288" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#6a655c">8.2 mi · multi-hop</text>
+  </g>
+  <!-- Mesh_WYVERN 53.1 km (x=1053) — hero -->
+  <g>
+    <circle cx="1053" cy="380" r="9" fill="#fffdf8" stroke="#1f7a6b" stroke-width="3.5"/>
+    <line x1="1053" y1="371" x2="1053" y2="262" stroke="#b9b2a2" stroke-width="1.5"/>
+    <text x="1053" y="248" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="16" fill="#2b2b2b">Mesh_WYVERN</text>
+    <text x="1053" y="228" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#6a655c">33 mi · 4 hops</text>
+  </g>
+  <!-- 102 km outlier (x=1123), faint -->
+  <circle cx="1123" cy="380" r="5" fill="#1f7a6b" opacity="0.3"/>
+
+  <!-- brackets below -->
+  <g stroke="#b9b2a2" stroke-width="1.5" fill="none">
+    <path d="M500 432 v8 h66 v-8"/>
+    <path d="M824 432 v8 h234 v-8"/>
+  </g>
+  <text x="533" y="462" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#6a655c">what one radio does, alone</text>
+  <text x="941" y="462" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#6a655c">the neighbor mesh — nodes I don't own</text>
+
+  <!-- caption -->
+  <text x="40" y="520" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#9a9486">Straight-line distance from device GPS in the mesh log; the relayed path is longer. One node logged at 102 km is almost</text>
+  <text x="40" y="542" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#9a9486">certainly a misconfigured fixed position (faint, far right) — not counted.</text>
+</svg>

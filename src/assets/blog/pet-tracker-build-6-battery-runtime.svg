@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Battery percentage versus time for the collar, showing runtime is set by duty cycle. A steep red line — continuous 60-second GPS plus a lit screen — falls from full to empty in about 10 hours, passing through a measured point of 66 percent at 3 hours. A gentle green line — periodic beaconing with the screen off — falls only to about 25 percent at the 3-day target and reaches empty near 3.5 to 4 days, passing through a measured point of 73 percent at 23 hours. A faint dashed line projects the production headless collar, with no screen and duty-cycled GPS, lasting well over a week.">
+  <rect width="1200" height="560" fill="#fbf9f3"/>
+  <text x="40" y="44" font-family="ui-monospace, Menlo, monospace" font-size="21" letter-spacing="1.5" fill="#2b2b2b">COLLAR RUNTIME IS A DUTY-CYCLE DIAL · measured</text>
+
+  <!-- gridlines + axes -->
+  <g font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#9a9486">
+    <!-- y -->
+    <line x1="150" y1="110" x2="1120" y2="110" stroke="#e7e1d2" stroke-width="1.5"/><text x="138" y="115" text-anchor="end">100%</text>
+    <line x1="150" y1="192.5" x2="1120" y2="192.5" stroke="#e7e1d2" stroke-width="1.5"/><text x="138" y="197" text-anchor="end">75%</text>
+    <line x1="150" y1="275" x2="1120" y2="275" stroke="#e7e1d2" stroke-width="1.5"/><text x="138" y="280" text-anchor="end">50%</text>
+    <line x1="150" y1="357.5" x2="1120" y2="357.5" stroke="#e7e1d2" stroke-width="1.5"/><text x="138" y="362" text-anchor="end">25%</text>
+    <line x1="150" y1="440" x2="1120" y2="440" stroke="#cfc8b8" stroke-width="2"/><text x="138" y="445" text-anchor="end">0%</text>
+    <!-- x labels -->
+    <text x="150" y="464" text-anchor="middle">0</text>
+    <text x="392.5" y="464" text-anchor="middle">1 day</text>
+    <text x="635" y="464" text-anchor="middle">2 days</text>
+    <text x="877.5" y="464" text-anchor="middle">3 days</text>
+    <text x="1120" y="464" text-anchor="middle">4 days</text>
+  </g>
+
+  <!-- 3-day target -->
+  <line x1="877.5" y1="92" x2="877.5" y2="440" stroke="#2b2b2b" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.55"/>
+  <text x="877.5" y="84" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#2b2b2b">3-day active target</text>
+
+  <!-- projected production line (faint) -->
+  <line x1="150" y1="110" x2="1120" y2="235" stroke="#1f7a6b" stroke-width="2.5" stroke-dasharray="3 8" opacity="0.45"/>
+  <text x="930" y="208" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#1f7a6b" opacity="0.8">production: headless +</text>
+  <text x="930" y="226" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#1f7a6b" opacity="0.8">duty-cycled GPS (projected)</text>
+
+  <!-- periodic line (measured) -->
+  <line x1="150" y1="110" x2="1069" y2="440" stroke="#1f7a6b" stroke-width="4"/>
+  <circle cx="381" cy="199" r="6" fill="#1f7a6b"/>
+  <text x="396" y="186" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#2b2b2b">73% @ 23 h (measured)</text>
+  <text x="470" y="300" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#1f7a6b">periodic beaconing, screen off</text>
+  <text x="470" y="320" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#1f7a6b">≈ 3.5–4 days</text>
+
+  <!-- stress line (measured) -->
+  <line x1="150" y1="110" x2="248" y2="440" stroke="#c14a3a" stroke-width="4"/>
+  <circle cx="180" cy="222" r="6" fill="#c14a3a"/>
+  <text x="262" y="300" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#c14a3a">continuous GPS (60 s)</text>
+  <text x="262" y="320" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#c14a3a">+ lit screen ≈ 10 h</text>
+  <text x="262" y="340" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#c14a3a">66% @ 3 h (measured)</text>
+
+  <!-- caption -->
+  <text x="40" y="520" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#9a9486">Same board, same 3000 mAh cell. The only variables are how often the GPS wakes and whether the screen is lit —</text>
+  <text x="40" y="542" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#9a9486">so runtime isn't a number, it's a dial. The headless production collar lands on the favorable end of it.</text>
+</svg>

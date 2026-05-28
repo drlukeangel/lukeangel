@@ -1,0 +1,76 @@
+---
+title: "The Battery Test: Runtime Is a Dial, Not a Number"
+date: 2026-05-29T09:00:00-04:00
+category: projects
+tags:
+  - iot
+  - pets
+  - hardware
+  - lora
+  - meshtastic
+  - build-in-public
+  - testing
+  - power
+notebook: iot-pet-health-tracker-build
+notebookOrder: 6
+excerpt: "Range could have killed the project; so could battery. The whole pitch is a tracker you don't charge constantly — so I let both nodes run for a day and read their own telemetry. The collar lasts three to four days beaconing, and ten hours with the GPS pinned on and the screen lit. Same board, same cell. Runtime turned out not to be a number at all."
+pullquote: "Runtime isn't a spec you read off the battery — it's a dial you set in firmware."
+cover: "../../assets/blog/pet-tracker-build-6-the-battery-test-cover.svg"
+coverAlt: "A battery cell on a baseline with two discharge curves leaving its top — one plunging steeply to empty close by, one gliding gently across the full width before it lands — the same cell, two very different lifetimes."
+draft: true
+---
+
+[Last post](/blog/pet-tracker-build-5-the-range-test/) range cleared its bar, which left the other criterion that could quietly kill this whole thing: battery. The pitch I wrote in [the PRD](/blog/pet-tracker-build-2-the-prd-and-the-rubric/) was a tracker you *don't* charge constantly — and a tracker you charge every other day is a tracker that ends up dead in a drawer. So the [scorecard](/blog/pet-tracker-build-4-the-scorecard/) set two hard numbers: **≥ 3 days** of active beaconing, **≥ 2 weeks** in idle/presence mode.
+
+## Reading the battery without a meter
+
+I expected to babysit a multimeter for this. I didn't have to. Meshtastic logs **Device Metrics** on every node — battery %, voltage, channel utilization, air utilization — on an interval, and the app graphs them. So I just left both nodes running and read their own telemetry back. Two runs worth comparing: the [range-walk day](/blog/pet-tracker-build-5-the-range-test/), where I had everything cranked, and a plain ~24-hour sit afterward.
+
+## The collar — the unit that actually has to last
+
+![The collar's Device Metrics screen over 24 hours: battery 73% at 3.92 V, uptime 22 h 56 m, channel utilization 7.1% and air utilization 3.7%, with the battery line sloping gently down from the high-90s across the day.](../../assets/blog/pet-tracker-iot-poc-collar-device-metrics.jpg)
+
+After **22 hours 56 minutes** of uptime the collar read **73% at 3.92 V**, having started the day in the high-90s. That's roughly **1% per hour**, which projects to **3.5–4 days** on a charge — and at the 72-hour mark it still has about **a quarter of the battery left.** It clears the three-day bar with margin. Channel utilization sat at 7.1% and air at 3.7%, well under the levels where the mesh starts throttling, so it isn't burning the budget fighting for airtime either.
+
+## …and then the same collar lasted ten hours
+
+Here's the honest counterweight. On the range walk, with the position interval forced to **60 seconds** and the OLED **lit the whole time**, the same unit went from 97% to 66% in three hours — **about 10% an hour, ~10 hours to empty.** Same board. Same 3000 mAh cell. **Eight times the drain**, set entirely by how hard I was working it.
+
+So the battery doesn't have *a* runtime. It has a runtime *per mode*:
+
+![A chart of battery percentage versus time. A steep red line — continuous 60-second GPS plus a lit screen — falls from full to empty in about ten hours, through a measured point of 66% at three hours. A gentle green line — periodic beaconing with the screen off — falls only to about a quarter at the three-day target and reaches empty near 3.5 to 4 days, through a measured point of 73% at 23 hours. A faint dashed line projects the production headless collar lasting well past a week.](../../assets/blog/pet-tracker-build-6-battery-runtime.svg)
+
+## Why the dial works
+
+The radio sleeps almost all the time. What costs energy is the **wake-ups** — spinning up the GPS for a fix and keying the LoRa transmitter — plus, on this handheld, an OLED that has no business being on a collar. Average current is the sleep floor plus the *area* of those spikes. Stretch the interval, kill the screen, duty-cycle the GPS, and the average collapses toward the floor:
+
+![Current draw over time drawn as a sawtooth: a low deep-sleep floor interrupted by brief tall spikes for each GPS fix and LoRa transmit. On the left, in active mode, spikes come every minute and the average-draw line sits high; on the right, in presence mode, spikes are rare and the average line drops near the sleep floor.](../../assets/blog/pet-tracker-build-6-power-states.svg)
+
+That's the whole reason the production collar is **headless** and will duty-cycle its GPS hard: it lives on the favorable end of that dial by design, not by luck.
+
+## A gut-check that the gauge isn't lying
+
+Two independent readings, two voltages: the collar at **73% / 3.92 V**, the base at **59% / 3.80 V**. Both sit right where a lithium cell's discharge curve says they should — 3.9 V is high-70s, 3.8 V is high-50s. The firmware's percentage and the raw voltage agree, which means I can trust the number on the graph instead of second-guessing it.
+
+## The base barely moved
+
+![The base station's Device Metrics over 24 hours: battery 59% at 3.80 V, uptime 23 h 23 m, channel 6.0% and air 3.8%, the battery line nearly flat across the whole window.](../../assets/blog/pet-tracker-iot-poc-base-device-metrics.jpg)
+
+The base is a different animal — it mostly *listens*, and receiving is cheap next to transmitting. Its battery line is nearly flat across the day, which is idle-mode territory all on its own. And the base gets to cheat anyway: in real life it's plugged into the wall at home. The collar is the only node with a hard power budget.
+
+## What this still doesn't tell me
+
+Two caveats keep me honest. First, these are the **handheld Wio units, with screens** — the production RAK collar drops the display draw entirely and can sleep the GPS harder, so it should beat everything here. Second, I've shown active clears three days, but I have **not** yet proven the **two-week idle** target; the base hints at it, but a hint isn't a measurement.
+
+For that I need the spikes and the sleep floor in real milliamps, not a percentage that ticks once a minute. That's a job for a bench meter — a **Nordic Power Profiler Kit II**, which sources the board and measures current from nanoamps to amps. With it I can read the deep-sleep floor, integrate the energy in a single GPS-fix-and-transmit spike, and project each mode honestly instead of eyeballing a slope. It's on the way.
+
+## The verdict, against the scorecard
+
+| Battery criterion | Target | Result |
+| --- | --- | --- |
+| Active beaconing → runtime | ≥ 3 days | **~3.5–4 days — pass** |
+| Idle / presence → runtime | ≥ 2 weeks | Looks low-drain; bench measurement to confirm |
+
+Active passes. Idle is pointing the right way but isn't nailed down. And the real lesson is the one in the title: the lever that makes or breaks runtime isn't a bigger battery — it's **firmware**, the duty cycle, the dial. Which is good news, because firmware is the cheapest thing on this whole project to change.
+
+Next: the bench numbers, GPS fix quality, and the test I actually care about — putting it on Quark.
