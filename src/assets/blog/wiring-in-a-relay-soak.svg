@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
+  <rect x="2" y="2" width="996" height="496" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .ttl { font-size: 17px; fill: #5b616b; }
+    .ax  { font-size: 14px; fill: #7a808c; }
+    .lab { font-size: 16px; font-weight: 700; }
+    .cap { font-size: 14px; fill: #5b616b; }
+  </style>
+
+  <text class="ttl" x="40" y="44">10-minute soak, relay enabled — memory (MB)</text>
+
+  <!-- axes -->
+  <line x1="130" y1="90" x2="130" y2="400" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <line x1="130" y1="400" x2="910" y2="400" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- y ticks/gridlines -->
+  <line x1="126" y1="377" x2="910" y2="377" stroke="#1a1d24" stroke-opacity="0.08"/>
+  <text class="ax" x="120" y="382" text-anchor="end">15</text>
+  <line x1="126" y1="145" x2="910" y2="145" stroke="#1a1d24" stroke-opacity="0.08"/>
+  <text class="ax" x="120" y="150" text-anchor="end">45</text>
+  <line x1="126" y1="113" x2="910" y2="113" stroke="#1a1d24" stroke-opacity="0.08"/>
+  <text class="ax" x="120" y="118" text-anchor="end">49</text>
+  <!-- x ticks -->
+  <text class="ax" x="130" y="422" text-anchor="middle">30s</text>
+  <text class="ax" x="516" y="422" text-anchor="middle">271s</text>
+  <text class="ax" x="900" y="422" text-anchor="middle">511s</text>
+
+  <!-- gateway -->
+  <polyline points="130,130 516,113 900,113" fill="none" stroke="#b7410e" stroke-width="4"/>
+  <g fill="#b7410e"><circle cx="130" cy="130" r="4"/><circle cx="516" cy="113" r="4"/><circle cx="900" cy="113" r="4"/></g>
+  <text class="lab" x="640" y="104" fill="#b7410e">gateway — flat ~49</text>
+
+  <!-- broker-a -->
+  <polyline points="130,150 516,141 900,137" fill="none" stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <g fill="#1a1d24" fill-opacity="0.6"><circle cx="130" cy="150" r="4"/><circle cx="516" cy="141" r="4"/><circle cx="900" cy="137" r="4"/></g>
+  <text class="cap" x="915" y="137">broker-a</text>
+
+  <!-- broker-b -->
+  <polyline points="130,150 516,140 900,135" fill="none" stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="8 5"/>
+  <text class="cap" x="915" y="160">broker-b</text>
+
+  <!-- relay -->
+  <polyline points="130,377 516,377 900,377" fill="none" stroke="#3a7d44" stroke-width="3.5"/>
+  <g fill="#3a7d44"><circle cx="130" cy="377" r="4"/><circle cx="516" cy="377" r="4"/><circle cx="900" cy="377" r="4"/></g>
+  <text class="lab" x="600" y="368" fill="#3a7d44">relay — idle, carried no data</text>
+
+  <!-- annotation -->
+  <text class="cap" x="300" y="190">storage rises linearly, as in the relay-off run</text>
+
+  <!-- stat strip -->
+  <line x1="40" y1="446" x2="960" y2="446" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text class="lab" x="40" y="480">produced 25,262</text>
+  <text class="lab" x="360" y="480" fill="#3a7d44">errors 0</text>
+  <text class="lab" x="560" y="480">~42 ops/s</text>
+</svg>

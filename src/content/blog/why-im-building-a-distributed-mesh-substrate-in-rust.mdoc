@@ -9,18 +9,16 @@ tags:
   - distributed-systems
   - p2p
   - mesh
-  - kafka
-  - rafka
 notebook: building-a-distributed-mesh-in-rust
 notebookOrder: 1
-excerpt: "Before I build a Kafka-protocol-compatible event-streaming layer on a P2P substrate, I need to know whether the substrate is sound. The choice is iroh-gossip over QUIC. The first canary is 18 nodes on one box. Here's what I'm trying to learn and what I expect to break."
+excerpt: "Before I build anything on top of a peer-to-peer substrate, I need to know whether the substrate itself is sound. The choice is iroh-gossip over QUIC. The first canary is 18 nodes on one box. Here's what I'm trying to learn and what I expect to break."
 pullquote: "I want to feel where the iroh-as-substrate story breaks at small scale before betting a real product on it."
 cover: "../../assets/blog/why-im-building-a-distributed-mesh-substrate-in-rust-cover.svg"
 coverAlt: "A small mesh of nodes around a single rust-orange hub, spokes radiating outward, on a cream background with faint dot grid and a vertical rust-orange accent bar at the left edge."
 featured: false
 ---
 
-The bigger project is called Rafka. The goal is a Kafka-protocol-compatible event-streaming system whose brokers can sit on different networks — different cloud regions, different colos, a laptop on a coffee-shop Wi-Fi — and form a working cluster anyway. Direct-TCP-on-a-VPC isn't enough for that. The transport layer has to handle NAT traversal, identity, mesh formation, and reconnect for me.
+What I'm ultimately after is an event-streaming system whose nodes can sit on different networks — different cloud regions, different colos, a laptop on a coffee-shop Wi-Fi — and form a working cluster anyway. Direct-TCP-on-a-VPC isn't enough for that. The transport layer has to handle NAT traversal, identity, mesh formation, and reconnect for me. But the streaming layer is a problem for later; first I need the substrate underneath it to be sound, and this notebook is about the substrate.
 
 I picked `iroh` for the substrate. QUIC under the hood, relay tier for cross-NAT, hole-punching where it can. The application layer on top is `iroh-gossip` — Plumtree for eager broadcast, HyParView for membership. The combination gives me a self-organizing peer set without writing any of it myself.
 
@@ -28,9 +26,9 @@ The first thing I'm going to do is run 18 of these on one machine and watch what
 
 ## Why iroh, not direct TCP
 
-Kafka itself does the simplest thing that works: direct TCP between brokers, ZooKeeper or KRaft for metadata, every node knows every other broker by hostname. That works because Kafka brokers live in a single network where hostnames resolve and ports are open.
+The conventional design does the simplest thing that works: direct TCP between nodes, a metadata store like ZooKeeper or etcd, every node knowing every other by hostname. That works because the nodes live in a single network where hostnames resolve and ports are open.
 
-The deployments I want to support don't look like that. A broker behind a residential NAT. A compute node in someone's homelab. A gateway in AWS. They can't reach each other on direct TCP. They CAN reach each other via QUIC + a relay, with hole-punching closing the hop where possible. That's exactly what iroh does, and I'd rather use a maintained library than build it.
+The deployments I want to support don't look like that. A node behind a residential NAT. A compute box in someone's homelab. A gateway in AWS. They can't reach each other on direct TCP. They CAN reach each other via QUIC + a relay, with hole-punching closing the hop where possible. That's exactly what iroh does, and I'd rather use a maintained library than build it.
 
 What iroh buys me concretely:
 
@@ -55,17 +53,17 @@ Three layers, with deliberate separation:
 
 | Layer | Crate | Responsibility |
 | --- | --- | --- |
-| Transport | `crates/rafka-mesh-transport` | iroh `Endpoint` setup, ALPN, bind addr, mDNS toggle |
-| Substrate | `crates/rafka-node-base` | Identity, peer registry, gossip emit loop, `LoadSampler` (self-reported CPU/RAM via sysinfo), staleness handling |
-| Telemetry | `crates/rafka-telemetry` | OTLP/tracing init, every node's spans land in Jaeger |
+| Transport | `crates/mesh-transport` | iroh `Endpoint` setup, ALPN, bind addr, mDNS toggle |
+| Substrate | `crates/mesh-node-base` | Identity, peer registry, gossip emit loop, `LoadSampler` (self-reported CPU/RAM via sysinfo), staleness handling |
+| Telemetry | `crates/mesh-telemetry` | OTLP/tracing init, every node's spans land in Jaeger |
 
 On top, five example node types — `broker`, `gateway`, `compute`, `registry`, `bridge`. From the substrate's perspective they're interchangeable; the type is just a string. Each one is a 10-line `main.rs` that calls `NodeRuntime::new("type").run().await` and supplies a `.env.dev` preset for its CPU/RAM budget.
 
 There's also an `admin-ui` — a React + Vite dashboard that joins the mesh as a passive observer and renders the topology live. Hub-vs-leaf is visible in the layout. Each node card shows its CPU/RAM utilization against its declared budget. That's the surface I'll use to feel what the substrate is doing.
 
-Telemetry is built in from boot. The admin-ui has a Boot Waterfall view that decomposes the spans every node fires on startup — endpoint creation, ALPN registration, gossip subscribe, accept loop. The shape of a healthy boot is five short spans nested under a `rafka.mesh.node.ready` root, sub-millisecond each on this machine. When something goes wrong at boot, you see which span stretched.
+Telemetry is built in from boot. The admin-ui has a Boot Waterfall view that decomposes the spans every node fires on startup — endpoint creation, ALPN registration, gossip subscribe, accept loop. The shape of a healthy boot is five short spans nested under a `mesh.node.ready` root, sub-millisecond each on this machine. When something goes wrong at boot, you see which span stretched.
 
-![Admin-ui Boot Waterfall tab showing a single bridge node's boot timing. The root span rafka.mesh.node.ready spans the full timeline at 0.3 ms. Below it, four child spans appear in sequence — rafka.mesh.boot.endpoint_created, rafka.mesh.boot.alpn_registered, rafka.mesh.boot.gossip_started, rafka.mesh.boot.accept_loop_started — each rounded to 0.0 ms in the display, meaning each took under 50 microseconds. Dark theme, blue bars on a black background.](../../assets/blog/rust-distributed-mesh-boot-waterfall.png)
+![Admin-ui Boot Waterfall tab showing a single bridge node's boot timing. The root span mesh.node.ready spans the full timeline at 0.3 ms. Below it, four child spans appear in sequence — mesh.boot.endpoint_created, mesh.boot.alpn_registered, mesh.boot.gossip_started, mesh.boot.accept_loop_started — each rounded to 0.0 ms in the display, meaning each took under 50 microseconds. Dark theme, blue bars on a black background.](../../assets/blog/rust-distributed-mesh-boot-waterfall.png)
 
 ## What I expect to break
 

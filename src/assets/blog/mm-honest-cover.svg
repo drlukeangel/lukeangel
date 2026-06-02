@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#b7410e" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+
+  <!-- LEFT: one merged node, single one-way arrow (the lie) -->
+  <circle cx="250" cy="315" r="40" fill="#1a1d24" fill-opacity="0.55"/>
+  <circle cx="470" cy="315" r="40" fill="#1a1d24" fill-opacity="0.55"/>
+  <line x1="294" y1="315" x2="422" y2="315" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="4"/>
+  <polygon points="422,315 406,306 406,324" fill="#1a1d24" fill-opacity="0.5"/>
+
+  <!-- divider -->
+  <line x1="600" y1="120" x2="600" y2="510" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="3" stroke-dasharray="3 10"/>
+
+  <!-- RIGHT: distinct per-mesh nodes, arrows both ways (the truth) -->
+  <circle cx="760" cy="250" r="36" fill="#b7410e"/>
+  <circle cx="1000" cy="250" r="36" fill="#b7410e"/>
+  <circle cx="760" cy="430" r="36" fill="#6a4c93"/>
+  <circle cx="1000" cy="430" r="36" fill="#2a52be"/>
+  <!-- bidirectional pair -->
+  <path d="M796 242 H964" stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <polygon points="964,242 950,234 950,250" fill="#1a1d24" fill-opacity="0.6"/>
+  <path d="M964 262 H796" stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <polygon points="796,262 810,254 810,270" fill="#1a1d24" fill-opacity="0.6"/>
+  <line x1="760" y1="286" x2="760" y2="394" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <line x1="1000" y1="286" x2="1000" y2="394" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+
+  <!-- faint crossed-out edge to a console that no longer belongs -->
+  <circle cx="1110" cy="540" r="22" fill="#fdfaf2" stroke="#c14a3a" stroke-opacity="0.45" stroke-width="3"/>
+  <line x1="1000" y1="466" x2="1090" y2="524" stroke="#c14a3a" stroke-opacity="0.4" stroke-width="3" stroke-dasharray="8 7"/>
+  <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round" stroke-opacity="0.8">
+    <line x1="1036" y1="486" x2="1056" y2="510"/>
+    <line x1="1056" y1="486" x2="1036" y2="510"/>
+  </g>
+</svg>

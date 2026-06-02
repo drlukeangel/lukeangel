@@ -20,7 +20,7 @@ coverAlt: "A wide flamegraph silhouette with one disproportionately tall column 
 featured: true
 ---
 
-I was two days into sketching a Controller architecture for the mesh. The reasoning went: 18 nodes at 35% host CPU after the obvious wins meant iroh-gossip itself was just expensive, the architecture was wrong, and the right move was a hub-and-spoke pattern with a coordinator that every node holds one connection to. Kafka's KRaft. Pulsar's broker. The model that works.
+I was two days into sketching a Controller architecture for the mesh. The reasoning went: 18 nodes at 35% host CPU after the obvious wins meant iroh-gossip itself was just expensive, the architecture was wrong, and the right move was a hub-and-spoke pattern with a coordinator that every node holds one connection to. A central sequencer instead of a peer-to-peer swarm. The model that's supposed to be the safe choice.
 
 Halfway through the spike I noticed I hadn't actually profiled anything. The case for the Controller rewrite was built on a measurement *gap*, not a measurement. I closed the editor, added `tracing-flame = "0.2.0"` to the workspace, captured 15 seconds of flame data, and rendered it.
 

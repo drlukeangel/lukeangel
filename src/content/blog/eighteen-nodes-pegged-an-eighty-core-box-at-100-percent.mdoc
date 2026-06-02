@@ -34,12 +34,12 @@ The actual reading per-process via Task Manager:
 
 | Node | CPU % | What I expected |
 | --- | --- | --- |
-| `rafka-broker.exe` × 4 | 0.66–1.52 each | ~0.05 |
-| `rafka-gateway.exe` × 4 | 0.72–1.32 each | ~0.05 |
-| `rafka-compute.exe` × 4 | 0.67–0.86 each | ~0.05 |
-| `rafka-registry.exe` × 4 | 0.63–1.80 each | ~0.05 |
-| `rafka-bridge.exe` × 2 | 0.82–0.83 each | ~0.05 |
-| `rafka-admin-ui.exe` × 1 | 3.44 | ~1.0 |
+| `mesh-broker.exe` × 4 | 0.66–1.52 each | ~0.05 |
+| `mesh-gateway.exe` × 4 | 0.72–1.32 each | ~0.05 |
+| `mesh-compute.exe` × 4 | 0.67–0.86 each | ~0.05 |
+| `mesh-registry.exe` × 4 | 0.63–1.80 each | ~0.05 |
+| `mesh-bridge.exe` × 2 | 0.82–0.83 each | ~0.05 |
+| `mesh-admin-ui.exe` × 1 | 3.44 | ~1.0 |
 
 Add the column up: ~18% of the 80-logical box, before counting iroh-quinn's kernel-side work. Performance Monitor's `\Processor(_Total)\% Processor Time` showed 95–100% sustained. Something else was eating the headroom.
 
@@ -53,17 +53,17 @@ The shape of the cost — every process burning roughly the same amount regardle
 
 `iroh-mdns` was discovering every node on the local network and adding it to the active peer set. On a single box, that means 17 mDNS-announced peers per node — each one getting a QUIC handshake, each one getting added to HyParView's active view (which should be ~5, not 17). I had a hunch that the cluster was forming a *full mesh* rather than a sparse spanning tree.
 
-`RAFKA_MDNS_ENABLE=false`, with explicit seed nodes injected at spawn time (admin-ui as the universal seed, plus 1–2 already-spawned same-mesh peers). Each child boots, dials its seeds, and lets HyParView shape the rest from there.
+`MESH_MDNS_ENABLE=false`, with explicit seed nodes injected at spawn time (admin-ui as the universal seed, plus 1–2 already-spawned same-mesh peers). Each child boots, dials its seeds, and lets HyParView shape the rest from there.
 
 ### 2. Slow the gossip cadence
 
-`RAFKA_GOSSIP_INTERVAL_MS` was 500. At 18 nodes that's 36 broadcasts/sec across the cluster. For a control-plane heartbeat, that's overkill — Kafka's KRaft heartbeats every 1–3 seconds and considers a broker dead after 9 missed cycles. There's no reason substrate health needs 2 Hz granularity.
+`MESH_GOSSIP_INTERVAL_MS` was 500. At 18 nodes that's 36 broadcasts/sec across the cluster. For a control-plane heartbeat, that's overkill — Kafka's KRaft heartbeats every 1–3 seconds and considers a broker dead after 9 missed cycles. There's no reason substrate health needs 2 Hz granularity.
 
 Bumped to 2000ms. 9 broadcasts/sec cluster-wide. Plumtree's IHAVE retransmits handle any actual loss.
 
 ### 3. Demote per-frame INFO spans to TRACE
 
-This one I caught by reading the stdout. Every received gossip digest fired a `tracing::info_span!("rafka.mesh.gossip.received", ...)`. With Plumtree's eager-push fanout, each digest arrives at a node ~17 times (once per peer in the active view, before lazy IHAVE deduplicates). At 36 broadcasts/sec × 17 fanout × N nodes, the cluster was producing ~2,600 INFO-level events per second.
+This one I caught by reading the stdout. Every received gossip digest fired a `tracing::info_span!("mesh.gossip.received", ...)`. With Plumtree's eager-push fanout, each digest arrives at a node ~17 times (once per peer in the active view, before lazy IHAVE deduplicates). At 36 broadcasts/sec × 17 fanout × N nodes, the cluster was producing ~2,600 INFO-level events per second.
 
 Each event goes through `tracing-subscriber`'s formatter (stdout write), then `tracing-opentelemetry`'s layer (build a protobuf span, push to the OTLP batch queue, eventually send to Jaeger over gRPC). That's not free.
 
@@ -71,11 +71,11 @@ INFO is for state transitions — peer connected, peer disconnected, gossip topi
 
 ```rust
 // before
-tracing::info_span!("rafka.mesh.gossip.received", ...)
+tracing::info_span!("mesh.gossip.received", ...)
     .in_scope(|| info!(...));
 
 // after
-tracing::trace_span!("rafka.mesh.gossip.received", ...)
+tracing::trace_span!("mesh.gossip.received", ...)
     .in_scope(|| tracing::trace!(...));
 ```
 

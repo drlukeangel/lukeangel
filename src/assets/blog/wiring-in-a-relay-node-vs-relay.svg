@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520">
+  <rect x="2" y="2" width="996" height="516" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .ttl { font-size: 21px; font-weight: 700; }
+    .cap { font-size: 15px; fill: #5b616b; }
+    .key { font-size: 15px; fill: #b7410e; }
+    .mut { font-size: 15px; fill: #7a808c; }
+  </style>
+
+  <!-- divider -->
+  <line x1="500" y1="40" x2="500" y2="480" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- ===== LEFT: NODE ===== -->
+  <text class="ttl" x="40" y="60" fill="#b7410e">a node</text>
+  <text class="cap" x="40" y="86">participates in the application</text>
+
+  <!-- application boundary -->
+  <rect x="40" y="108" width="420" height="300" rx="10" fill="#b7410e" fill-opacity="0.05"
+        stroke="#b7410e" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="cap" x="56" y="132" fill="#b7410e">application boundary</text>
+
+  <!-- node + peers (gossip) -->
+  <circle cx="250" cy="230" r="40" fill="#b7410e"/>
+  <text x="250" y="236" font-size="14" fill="#fdfaf2" text-anchor="middle">role</text>
+  <g stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2">
+    <line x1="210" y1="205" x2="130" y2="175"/>
+    <line x1="290" y1="205" x2="370" y2="175"/>
+    <line x1="250" y1="270" x2="250" y2="330"/>
+  </g>
+  <g fill="#1a1d24" fill-opacity="0.4">
+    <circle cx="130" cy="175" r="14"/><circle cx="370" cy="175" r="14"/>
+  </g>
+  <text class="cap" x="250" y="160" text-anchor="middle">gossips with peers</text>
+
+  <!-- holds a log -->
+  <g>
+    <rect x="210" y="332" width="80" height="20" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+    <rect x="210" y="352" width="80" height="20" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  </g>
+  <text class="cap" x="300" y="366">holds data</text>
+
+  <text class="key" x="40" y="444">addressed by: public key</text>
+
+  <!-- ===== RIGHT: RELAY ===== -->
+  <text class="ttl" x="540" y="60">a relay</text>
+  <text class="cap" x="540" y="86">moves opaque bytes between endpoints</text>
+
+  <!-- transport layer band -->
+  <rect x="540" y="108" width="420" height="300" rx="10" fill="#1a1d24" fill-opacity="0.04"
+        stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <text class="mut" x="556" y="132">transport layer · outside the application</text>
+
+  <!-- relay box (plainer than a node) -->
+  <rect x="690" y="200" width="120" height="80" rx="6" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <text class="cap" x="750" y="246" text-anchor="middle">relay</text>
+
+  <!-- sealed packet in -->
+  <g>
+    <rect x="556" y="222" width="44" height="34" rx="4" fill="#1a1d24" fill-opacity="0.10"
+          stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+    <path d="M566 222 v-7 a12 12 0 0 1 24 0 v7" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+    <line x1="600" y1="240" x2="688" y2="240" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+    <polygon points="688,240 674,232 674,248" fill="#1a1d24" fill-opacity="0.5"/>
+  </g>
+  <!-- identical sealed packet out -->
+  <g>
+    <line x1="812" y1="240" x2="894" y2="240" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+    <polygon points="894,240 880,232 880,248" fill="#1a1d24" fill-opacity="0.5"/>
+    <rect x="900" y="222" width="44" height="34" rx="4" fill="#1a1d24" fill-opacity="0.10"
+          stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+    <path d="M910 222 v-7 a12 12 0 0 1 24 0 v7" fill="none" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+  </g>
+  <text class="cap" x="750" y="304" text-anchor="middle">same ciphertext in and out</text>
+
+  <!-- cannot read bubble -->
+  <rect x="636" y="330" width="228" height="40" rx="20" fill="#fdfaf2"
+        stroke="#c14a3a" stroke-opacity="0.45" stroke-width="2"/>
+  <text class="cap" x="750" y="356" text-anchor="middle" fill="#c14a3a">can't read the contents</text>
+
+  <text class="mut" x="540" y="444">addressed by: URL</text>
+</svg>

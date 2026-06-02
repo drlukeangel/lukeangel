@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660">
+  <rect x="2" y="2" width="996" height="656" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .h   { font-size: 21px; font-weight: 700; }
+    .arm { font-size: 18px; }
+    .cap { font-size: 16px; fill: #5b616b; }
+    .bad { fill: #c14a3a; }
+    .good{ fill: #3a7d44; }
+    .rust{ fill: #b7410e; }
+  </style>
+
+  <!-- ===================== LEFT PANEL: working ===================== -->
+  <rect x="28" y="64" width="450" height="300" rx="8" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2"/>
+  <text class="h good" x="48" y="98">peer active</text>
+  <text class="cap" x="48" y="124">send_rx delivers messages</text>
+
+  <!-- arm: closed (reserve) -->
+  <rect x="48" y="150" width="410" height="44" rx="6" fill="#1a1d24" fill-opacity="0.05"
+        stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+  <text class="arm" x="64" y="178">_ = &amp;mut closed  =&gt; break</text>
+  <text class="cap" x="370" y="178">in reserve</text>
+
+  <!-- arm: Some(msg) active -->
+  <rect x="48" y="206" width="410" height="44" rx="6" fill="#3a7d44" fill-opacity="0.12"
+        stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="arm" x="64" y="234">Some(msg) = recv() =&gt; write</text>
+
+  <text class="arm good" x="48" y="296">loop runs normally</text>
+  <text class="cap" x="48" y="324">messages flow, connection healthy</text>
+
+  <!-- ===================== RIGHT PANEL: broken ===================== -->
+  <rect x="522" y="64" width="450" height="300" rx="8" fill="#fdfaf2"
+        stroke="#c14a3a" stroke-opacity="0.35" stroke-width="2"/>
+  <text class="h bad" x="542" y="98">peer leaves the view</text>
+  <text class="cap" x="542" y="124">send_tx dropped — recv() yields None</text>
+
+  <!-- arm: Some(msg) now DISABLED -->
+  <rect x="542" y="150" width="410" height="44" rx="6" fill="#1a1d24" fill-opacity="0.04"
+        stroke="#c14a3a" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="arm" x="558" y="178" fill="#7a808c">Some(msg) = recv() =&gt; write</text>
+  <line x1="558" y1="172" x2="812" y2="172" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="cap bad" x="828" y="178">disabled</text>
+
+  <!-- arm: closed pending forever -->
+  <rect x="542" y="206" width="410" height="44" rx="6" fill="#b7410e" fill-opacity="0.10"
+        stroke="#b7410e" stroke-width="2.5"/>
+  <text class="arm" x="558" y="234">_ = &amp;mut closed =&gt; break</text>
+  <text class="cap rust" x="936" y="234" text-anchor="end">pending ∞</text>
+  <text class="cap" x="542" y="280">nothing closed the conn, so this</text>
+  <text class="cap" x="542" y="302">future can never resolve</text>
+  <text class="arm rust" x="542" y="340">task parked → QUIC connection stranded</text>
+
+  <!-- ===================== FIX BAR ===================== -->
+  <rect x="28" y="396" width="944" height="232" rx="8" fill="#1a1d24" fill-opacity="0.04"
+        stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="h good" x="48" y="432">the fix — bind plainly, handle None yourself</text>
+  <text class="arm" x="48" y="486">msg = self.send_rx.recv() =&gt; match msg {</text>
+  <text class="arm" x="88" y="520">Some(msg) =&gt; self.write_message(&amp;msg).await?,</text>
+  <text class="arm" x="88" y="554">None      =&gt; break,  </text>
+  <text class="arm rust" x="430" y="554">// senders gone → tear down</text>
+  <text class="arm" x="48" y="588">}</text>
+  <text class="cap good" x="640" y="432">122 stuck → bounded ~15</text>
+</svg>

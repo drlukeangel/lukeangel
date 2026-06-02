@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#b7410e" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+
+  <!-- three-column ledger: proven (green checks), deferred (amber), not-ours (grey) -->
+  <!-- column 1: proven -->
+  <g>
+    <rect x="110" y="170" width="220" height="290" rx="10" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+    <g stroke="#3a7d44" stroke-width="6" stroke-linecap="round" fill="none">
+      <path d="M140 230 l16 16 l28 -32"/>
+      <path d="M140 300 l16 16 l28 -32"/>
+      <path d="M140 370 l16 16 l28 -32"/>
+    </g>
+    <g fill="#1a1d24" fill-opacity="0.5">
+      <rect x="200" y="228" width="100" height="14" rx="4"/>
+      <rect x="200" y="298" width="100" height="14" rx="4"/>
+      <rect x="200" y="368" width="100" height="14" rx="4"/>
+    </g>
+  </g>
+  <!-- column 2: deferred (amber dashes) -->
+  <g>
+    <rect x="350" y="170" width="220" height="290" rx="10" fill="#fdfaf2" stroke="#c87533" stroke-width="3"/>
+    <g stroke="#c87533" stroke-width="6" stroke-linecap="round">
+      <line x1="380" y1="240" x2="416" y2="240"/>
+      <line x1="380" y1="310" x2="416" y2="310"/>
+    </g>
+    <g fill="#1a1d24" fill-opacity="0.4">
+      <rect x="440" y="233" width="100" height="14" rx="4"/>
+      <rect x="440" y="303" width="100" height="14" rx="4"/>
+    </g>
+  </g>
+  <!-- column 3: not-our-problem (grey, faded) -->
+  <g>
+    <rect x="590" y="170" width="220" height="290" rx="10" fill="#1a1d24" fill-opacity="0.04" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="6 6"/>
+    <g fill="#1a1d24" fill-opacity="0.25">
+      <rect x="620" y="233" width="150" height="14" rx="4"/>
+      <rect x="620" y="303" width="150" height="14" rx="4"/>
+      <rect x="620" y="373" width="150" height="14" rx="4"/>
+    </g>
+  </g>
+
+  <!-- the high-five hand, rust, the note it closes on -->
+  <g transform="translate(960,315)" fill="#b7410e">
+    <!-- palm -->
+    <rect x="-55" y="-10" width="110" height="120" rx="40"/>
+    <!-- fingers -->
+    <rect x="-52" y="-95" width="22" height="110" rx="11"/>
+    <rect x="-26" y="-110" width="22" height="125" rx="11"/>
+    <rect x="0" y="-112" width="22" height="127" rx="11"/>
+    <rect x="26" y="-100" width="22" height="115" rx="11"/>
+    <!-- thumb -->
+    <rect x="-78" y="-30" width="22" height="70" rx="11" transform="rotate(-40 -67 5)"/>
+  </g>
+</svg>

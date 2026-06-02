@@ -4,11 +4,12 @@ import EditInKeystatic from '../../components/EditInKeystatic.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
+import { isLive } from '../../lib/posts';
 import { Image, getImage } from 'astro:assets';
 import fallbackOg from '../../assets/pages/luke-angel-profile.jpg';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getCollection('blog', ({ data }) => isLive(data));
   return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
@@ -23,7 +24,7 @@ if (post.data.notebook) {
   const allSeries = await getCollection('notebooks');
   seriesEntry = allSeries.find((s) => s.slug === post.data.notebook) ?? null;
   if (seriesEntry) {
-    const allInSeries = await getCollection('blog', ({ data }) => !data.draft);
+    const allInSeries = await getCollection('blog', ({ data }) => isLive(data));
     seriesSiblings = allInSeries
       .filter((p) => p.data.notebook === post.data.notebook)
       .sort((a, b) => {
@@ -81,7 +82,7 @@ const faqSchema = post.data.faq && post.data.faq.length > 0
   : null;
 
 // Auto-related posts: tag overlap + category match, scored
-const all = await getCollection('blog', ({ data }) => !data.draft);
+const all = await getCollection('blog', ({ data }) => isLive(data));
 const related = all
   .filter((p) => p.slug !== post.slug)
   .map((p) => ({

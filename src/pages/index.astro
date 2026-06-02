@@ -1,19 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { isLive, isPublished } from '../lib/posts';
 import SubscribeBlock from '../components/SubscribeBlock.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { Image } from 'astro:assets';
 import lukeProfile from '../assets/pages/luke-angel-profile.jpg';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
+const posts = (await getCollection('blog', ({ data }) => isLive(data)))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
 const courses = (await getCollection('courses', ({ data }) => !data.draft))
   .sort((a, b) => a.data.order - b.data.order);
 
-const gratitude = (await getCollection('gratitude'))
+const gratitude = (await getCollection('gratitude', ({ data }) => isPublished(data)))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 

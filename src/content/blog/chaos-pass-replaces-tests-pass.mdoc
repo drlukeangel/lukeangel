@@ -32,7 +32,7 @@ That gives you a forcing function. A test that's green at idle but flaky under `
 
 ## The primitives
 
-The chaos crate (`crates/rafka-chaos`) ships thirteen primitives. Each one is a Rust struct implementing `ChaosPrimitive` with three things: an `apply()` that does the damage, a `revert()` that puts things back, and a `detect()` that tells the test framework what evidence to look for in the OTLP spans to confirm the substrate noticed.
+The chaos crate (`crates/mesh-chaos`) ships thirteen primitives. Each one is a Rust struct implementing `ChaosPrimitive` with three things: an `apply()` that does the damage, a `revert()` that puts things back, and a `detect()` that tells the test framework what evidence to look for in the OTLP spans to confirm the substrate noticed.
 
 | Primitive | What it does | What it surfaces |
 | --- | --- | --- |
@@ -63,7 +63,7 @@ The numbers worth pulling out of that grid:
 - **`chaos-soak-9prim-5min` ran 307.7 seconds, fired 28 chaos events, all 28 passed within the 15% flake budget.** That's the headline test — 5 minutes of continuous random chaos, the substrate doesn't fall over.
 - **`remove-resilience`** killed 3 of 6 spawned nodes and verified all 3 survivors continued emitting heartbeats. The substrate notices, prunes the dead entries, keeps going.
 - **`gossip-swarm-forms`** asserts that after a clean boot 4 nodes exchange ≥200 gossip digests within 34 seconds. That's the basic "Plumtree is actually doing its job" test.
-- **`gossip-mesh-to-mesh`** verifies that 100 `rafka.mesh.cross.peer_connected` spans fire across all services within 57 seconds — proving the bridge architecture actually bridges.
+- **`gossip-mesh-to-mesh`** verifies that 100 `mesh.cross.peer_connected` spans fire across all services within 57 seconds — proving the bridge architecture actually bridges.
 - **`backpressure-stream-flood`** fires 32 concurrent bi-streams of 1 KiB payloads for 10 seconds. 200+ round-trips, 0 errors. The data plane survives concurrent load.
 
 ## What chaos catches that integration tests don't
@@ -83,7 +83,7 @@ When the chaos harness fires `KillNode`, you see a node disappear from the timel
 ## What I'd tell a team
 
 - **Steady-state is the baseline, not the target.** If your test suite only runs at idle, the test suite isn't done. It says nothing about how the substrate behaves under the conditions you'll actually encounter in production. Idle is the easiest case; you need the hardest cases too.
-- **Build chaos primitives once, reuse them everywhere.** The 13 primitives in `rafka-chaos` are shared between unit tests, soak runs, and ad-hoc torture sessions in the admin-ui. The cost amortizes immediately. The alternative — every test author writing their own kill-the-broker helper — gives you 5 incompatible flaky helpers and no shared vocabulary about what "broken" means.
+- **Build chaos primitives once, reuse them everywhere.** The 13 primitives in `mesh-chaos` are shared between unit tests, soak runs, and ad-hoc torture sessions in the admin-ui. The cost amortizes immediately. The alternative — every test author writing their own kill-the-broker helper — gives you 5 incompatible flaky helpers and no shared vocabulary about what "broken" means.
 - **Make chaos visible.** The admin-ui's Chaos and Timeline tabs are not just dashboards — they're the operator's view of what's failing and what's recovering. Without them, "the test passed" is a green light and nothing else. With them, you can see the substrate noticing chaos, choosing to react, and re-establishing. The visibility *is* the test.
 - **Define a flake budget up front and stick to it.** `chaos-soak-9prim-5min` runs with a 15% flake budget — 4 out of 28 events can be allowed to miss their detection window before the test fails. That budget is what separates "we have flaky tests" from "we have a known reliability envelope." If the substrate ever runs at 50% flake, that's an architecture problem, not a test problem.
 

@@ -1,0 +1,125 @@
+---
+title: "Hunting a connection leak the soak test wouldn't explain"
+date: 2026-05-29T09:00:00-04:00
+category: craft
+tags:
+  - rust
+  - iroh
+  - quic
+  - tokio
+  - memory-leak
+  - debugging
+  - distributed-systems
+notebook: building-a-distributed-mesh-in-rust
+notebookOrder: 7
+excerpt: "I'd already open-sourced this thing. Then a longer, meaner soak — kill and respawn for hours, not minutes — showed RSS climbing and never coming back down, on Windows and Linux both. The bug wasn't where I'd looked before. It was a select! arm that quietly switched itself off, and two more leaks hiding behind it."
+pullquote: "When a leak resists reasoning, stop reasoning and instrument it. A spawned-vs-finished counter found in minutes what hours of reading the reap path missed."
+cover: "../../assets/blog/hunting-a-connection-leak-cover.svg"
+coverAlt: "Many short task bars draining down to a flat baseline in ink, while one rust-orange stack keeps growing taller and never drains — the signature of spawned tasks that outlive the work that spawned them. Cream background, faint dot grid, vertical rust-orange accent bar at the left edge."
+featured: false
+---
+
+I'd already [pushed this whole thing public](/blog/open-sourcing-the-rust-distributed-mesh/). The mesh worked: nodes discovered each other, gossiped, survived the [chaos battery](/blog/chaos-pass-replaces-tests-pass/). The [four-day soak](/blog/four-days-into-the-soak-the-ram-was-still-climbing/) had already cost me five leaks and taught me to never trust a thirty-second canary. I thought I was done with this class of bug.
+
+Then I ran a meaner soak — kill and respawn on a tight loop, the kind you leave going for hours — and watched RSS climb and never come back down. Same shape on Windows, same shape on Linux. Classic leak, and not the one I'd already fixed.
+
+This is the story of finding it, and the three things that turned out to be wrong at once.
+
+## The trap: theorizing about the reap path
+
+The mesh runs an [iroh](https://github.com/n0-computer/iroh) QUIC transport under a HyParView/Plumtree gossip layer. Under churn, peers join and leave the active view constantly, so connections are born and reaped all day long. Every reap path I traced *should* have worked. The connection loop returned. `close()` got called. The maps got pruned. I spent hours reading code that, on paper, released everything it touched.
+
+This is the same hole I fell into before the [flamegraph post](/blog/flamegraphing-out-of-this-cant-be-right/) — sitting there reasoning about what the code *should* do instead of measuring what it *did*. The lesson refuses to stick the first time, or the second: **when a leak resists reasoning, stop reasoning and instrument it.**
+
+## The breakthrough: count, don't infer
+
+So I stopped reading and added two counters to the gossip actor — connection-loop tasks *spawned* versus tasks *finished* — and ran a short soak. The numbers ended the debate:
+
+```
+spawned = 174, finished = 52   →  122 connection-loop tasks stuck alive
+```
+
+Meanwhile the membership map sat bounded at ~15 peers, exactly as it should. So roughly 107 connection-loop tasks had **no peer state behind them and yet had never exited.** That contradiction — live tasks with nothing to serve — pinned the bug to one place instead of the whole gossip layer.
+
+![A spawned-versus-finished tally for connection-loop tasks. The spawned bar reads 174; the finished bar reads 52; the gap of 122 is highlighted in rust-orange and labelled "stuck alive." A separate small bar shows the membership map holding steady at about 15 peers. The point the diagram makes: tasks are accumulating far faster than they retire, while the thing they are supposed to track stays flat — so the leak is in task lifetime, not in peer state.](../../assets/blog/connection-leak-spawned-vs-finished.svg)
+
+## Root cause #1: a `select!` arm that switched itself off
+
+Here's the send loop, simplified to the part that mattered:
+
+```rust
+tokio::select! {
+    _ = &mut closed => break,
+    Some(msg) = self.send_rx.recv() => self.write_message(&msg).await?,
+    // ...
+}
+```
+
+When a peer leaves the active view, its `send_tx` is dropped and `recv()` starts returning `None`. The trap is that the `Some(msg) = …` pattern doesn't *deliver* that `None` to me — when the pattern fails to match, `select!` **disables that branch** for the rest of the loop. The branch goes dark.
+
+The only other long-lived arm, `_ = &mut closed`, stays pending forever, because nothing has actually closed the connection — that was supposed to happen *because* the send loop noticed the peer was gone. So the loop parks on a future that can never resolve. The send task hangs, the connection loop that owns it never completes, and the QUIC `Connection` and its driver task are stranded. **One leaked connection for every peer that leaves** — and the nodes that rotate peers the most leak the fastest.
+
+The fix is to stop pattern-matching the channel closed away and handle the `None` myself:
+
+```rust
+msg = self.send_rx.recv() => match msg {
+    Some(msg) => self.write_message(&msg).await?,
+    None => break, // all senders dropped -> peer gone -> tear down
+},
+```
+
+Stuck tasks went from *122 and climbing* to a bounded ~15. This is a cousin of the [reconnect leak from the soak post](/blog/four-days-into-the-soak-the-ram-was-still-climbing/) — both are a task outliving the thing it was serving — but the mechanism is different and nastier, because the code *looks* like it handles shutdown. The `closed` arm is right there. It just never gets a chance to fire.
+
+![Two states of the same select! loop. On the left, the broken version: an active peer feeds the send_rx channel and the Some(msg) arm runs normally, the closed arm waiting in reserve. On the right, after the peer leaves: send_tx is dropped, recv() yields None, the Some(msg) pattern fails to match so select! greys out that whole arm, and the only arm left — closed — stays pending forever because nothing closed the connection. The loop is parked on a future that can never complete, stranding the QUIC connection. The fix, shown beneath, replaces the Some(msg) pattern with a plain bind plus an explicit None => break.](../../assets/blog/connection-leak-select-arm.svg)
+
+## Root causes #2 and #3, because leaks travel in packs
+
+With connections bounded, a heap profile *still* grew — slower, but up and to the right. Two more, both smaller, both mine:
+
+- **Telemetry retention.** The OpenTelemetry tracing layer was floored at `DEBUG`. Under churn the network stack emits a debug firehose, and `tracing-opentelemetry` appends every captured event to the **currently-active span's** buffer — which is only freed when that span closes. My long-lived actor spans never close. So their event buffers grew without bound. One single 2 MB allocation in the profile turned out to be *one* span's event vector. The fix was a one-liner: floor the export layer at `INFO`.
+- **Process-table enumeration.** The per-node load sampler built its system handle by enumerating *every* process on the box, every tick — tens of thousands of transient name strings on Windows, every couple of seconds. It only ever needed our own process. The fix: don't enumerate the world; sample only our own pid.
+
+Neither of those is exotic. Both are the kind of thing that compiles, reads fine in review, and costs you megabytes an hour in production.
+
+## The payoff
+
+Measured with `dhat`, before and after, under the same kill-and-respawn soak:
+
+| bucket | before | after |
+|---|---|---|
+| total retained heap | 42.9 MB | **8.1 MB** (↓81%) |
+| tracing / otel | 29.2 MB | 2.0 MB |
+| sysinfo | 9.1 MB | 1.6 MB |
+| quic connections | growing | bounded |
+
+![A before-and-after heap breakdown as paired horizontal bars. Before: total retained heap 42.9 MB, split into a large tracing/otel band at 29.2 MB, a sysinfo band at 9.1 MB, and a quic-connections band marked "growing." After: total retained heap 8.1 MB, with tracing/otel down to 2.0 MB, sysinfo down to 1.6 MB, and quic-connections marked "bounded." The after bar is roughly a fifth the length of the before bar; the reduction is labelled 81 percent.](../../assets/blog/connection-leak-heap-before-after.svg)
+
+And the thing that actually matters — RSS troughs under sustained chaos went from a monotonic climb to a **flat plateau, on Windows and Linux both.** Over a 35-minute soak, an observer node's RSS at 140 chaos events dropped from 0.228 GB to 0.115 GB — about 66% lower — and `dhat` put the QUIC connection bucket at 18.7 MB → 3.85 MB.
+
+## Where the bugs actually lived
+
+Here's the part I had wrong going in. I assumed — the way you always do — that the bug was in *my* code, not the library. The two small ones were: the telemetry floor and the process-table sampler were my config, one-line fixes. But the connection leak itself, the dominant one, was **in the stack**, and tracing it produced a cluster of fixes I submitted upstream to three crates:
+
+- **The gossip layer** got the most. The `select!` SendLoop footgun above; making `connection_loop` exit (it ran send and receive under `join!`, which waits for *both* — but the receive half blocks forever on `accept_uni()` when a peer leaves locally, so I moved it to `select!`); and pruning the per-peer state that outlived removed peers — `peer_topics`, `peer_data`, the `lazy_push_queue` on `NeighborDown`. Plus regression tests so the leak can't creep back.
+- **iroh itself** had a per-remote address cache (`AddrMap` behind `mapped_addrs`) with no eviction path — it grew once per remote ever seen under churn. The clean-shutdown path now evicts the departing remote's cached addresses.
+- **The QUIC layer underneath** leaked a whole connection task, packet spaces, and channels whenever a `Connecting` was dropped before its handshake finished — and before the handshake there's no idle timeout to eventually reap it. The fix was an `impl Drop for Connecting` that drains and releases.
+
+Two days of soak-and-profile to find them; the diffs themselves are tiny. That's the usual ratio for a leak that only shows up under sustained churn — the finding is the work, the fix is a few lines.
+
+## A thank-you to the people who built this
+
+I want to stop and say this plainly, because it's easy to skip past: **I got to find these at all only because the whole stack is open.** I'm building on [iroh](https://github.com/n0-computer/iroh) and [iroh-gossip](https://github.com/n0-computer/iroh-gossip) — peer-to-peer QUIC, NAT traversal, hole-punching, a relay tier, Plumtree/HyParView gossip — none of which I could have written myself in a reasonable lifetime. It's built by the team at **[n0](https://n0.computer/)** ([github.com/n0-computer](https://github.com/n0-computer)), and the quality of it is the reason my "substrate" is a few hundred lines instead of a few hundred thousand.
+
+And here's the part that still feels lucky every time: when I *did* hit real bugs deep in that stack, I could read the exact code, instrument it, prove the fault, and send a fix back — and there's a real, responsive community on the other end to receive it. That's not how it goes with a closed black box, where the best you can do is file a ticket into the void and build a workaround. The n0 folks have done years of genuinely hard systems work — the kind where a single `select!` arm or a missing `Drop` is the difference between flat and climbing memory — and they gave it away so the rest of us can stand on it. An enormous high-five to that whole team. We are extraordinarily fortunate to have makers like this, working in the open, on infrastructure this good. Thank you.
+
+## What I'd tell a team
+
+- **Instrument before you theorize.** A spawned-versus-finished counter found in minutes what hours of reading the reap path missed. If a resource leaks, count the thing being created and the thing being destroyed before you reason about *why*.
+- **`Some(x) = expr` in a `select!` arm is a footgun** whenever `expr` can legitimately yield `None`. The failed match disables the branch instead of surfacing the close. Bind the value plainly and match it yourself.
+- **Leaks travel in packs.** Fixing the dominant one just unmasks the next. Profile again after every fix — the flat line you were hoping for is usually one more leak away.
+- **Telemetry is not free.** Events recorded inside a never-closing span live exactly as long as the span. A long-lived actor span at `DEBUG` is an unbounded buffer wearing a tracing label.
+- **Sometimes it *is* the library — and that's a contribution, not a complaint.** I went in assuming the bug was mine, because it usually is. This time the dominant leak was in the stack itself, and the right ending wasn't a workaround in my code — it was a handful of small fixes submitted upstream so nobody else hits it. A leak found under your churn is worth fixing at the source.
+
+## What's next
+
+The substrate is finally flat under churn — for real this time, measured, on both platforms. The fixes are upstreamed and the foundation holds. Which means I can stop poking at the substrate's memory behavior and turn back to the thing this notebook is actually about: making a multi-mesh fabric observable and correct, one sprint at a time.

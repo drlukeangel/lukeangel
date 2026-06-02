@@ -10,7 +10,6 @@ tags:
   - open-source
   - p2p
   - mesh
-  - kafka
 notebook: building-a-distributed-mesh-in-rust
 notebookOrder: 6
 excerpt: "Five weeks of building, breaking, and fixing a P2P mesh substrate in Rust. Today I'm pushing the whole thing public — the iroh-based transport, the gossip emit loop, the staleness pruner, the example node types, the React dashboard. Not a thing to take and run in production. A thing to read while you're building your own."
@@ -34,9 +33,9 @@ It is *not* a library you should take and run in production. It's a kit you can 
 
 | Piece | What it does |
 | --- | --- |
-| `crates/rafka-node-base` | The substrate. Identity, gossip emit loop, peer registry, `LoadSampler` (self-reported CPU/RAM), staleness pruner. Built on iroh-gossip 0.98. |
-| `crates/rafka-mesh-transport` | Thin layer over iroh's `Endpoint`. ALPN, mDNS toggle, bind addr, 30s idle timeout. |
-| `crates/rafka-telemetry` | OTLP/tracing init. Every node's spans land in Jaeger; receive-time staleness is local, not sender-side. |
+| `crates/mesh-node-base` | The substrate. Identity, gossip emit loop, peer registry, `LoadSampler` (self-reported CPU/RAM), staleness pruner. Built on iroh-gossip 0.98. |
+| `crates/mesh-transport` | Thin layer over iroh's `Endpoint`. ALPN, mDNS toggle, bind addr, 30s idle timeout. |
+| `crates/mesh-telemetry` | OTLP/tracing init. Every node's spans land in Jaeger; receive-time staleness is local, not sender-side. |
 | `admin-ui/` | React + Vite topology view. Live node grid, hub-and-leaf layout, CPU/RAM bars per node, kill button per card. The thing you stare at when you don't believe the numbers. |
 | `broker / gateway / compute / registry / bridge` | Example node types. Each one is a 10-line `main.rs` that calls `NodeRuntime::new("type").run().await`. From the substrate's perspective they're interchangeable. |
 
@@ -54,7 +53,7 @@ The five engineering posts in this notebook walk through the work in order:
 
 This is a learning artifact. It is *not*:
 
-- **A Kafka replacement.** The Rafka app layer (Kafka-protocol-compatible event streaming) sits on top of this substrate and isn't open yet. What you're reading is what's underneath.
+- **A finished product.** The streaming layer that sits on top of this substrate — the actual event-streaming app — isn't open yet. What you're reading is what's underneath it.
 - **A managed iroh integration.** It's an opinionated set of patterns for using iroh-gossip in a long-running process. Different from a library — closer to a scaffold.
 - **Production-ready.** I've run it on one box. I haven't run it across NATs, across regions, or at scale. The substrate is *correct* under the workload I've tested; it's not *proven* outside it.
 
@@ -66,7 +65,7 @@ It *is*:
 
 Telemetry is the second view of the same thing. Every span lands in Jaeger; the System Architecture DAG gives you the service-to-service call pattern without leaving the browser:
 
-![Jaeger UI System Architecture DAG showing six rafka service nodes — broker, data-gateway, compute, compute-gateway, gateway, registry — connected by directed edges with call counts in the 6–27 range. The graph is sparse and legible: broker sits at the top, gateway and registry at the bottom, the data and compute paths between them. The counts are reasonable steady-state values, not the four-figures-per-second pre-fix pattern.](../../assets/blog/Rust-Distubuted-Mesh-UI-Jueger.png)
+![Jaeger UI System Architecture DAG showing six mesh service nodes — broker, data-gateway, compute, compute-gateway, gateway, registry — connected by directed edges with call counts in the 6–27 range. The graph is sparse and legible: broker sits at the top, gateway and registry at the bottom, the data and compute paths between them. The counts are reasonable steady-state values, not the four-figures-per-second pre-fix pattern.](../../assets/blog/Rust-Distubuted-Mesh-UI-Jueger.png)
 
 ## Numbers, before and after
 
@@ -92,6 +91,6 @@ I've said most of this in the four posts. Concentrated:
 
 ## What's next
 
-The Rafka app layer is next. The substrate I just spent five weeks debugging is the foundation it sits on. Same patterns — Kafka-protocol-compatible event streaming, multi-tenant by topic, brokers across networks — built on the substrate that now actually idles when it has nothing to do.
+The streaming layer is what comes next, built on the substrate I just spent five weeks debugging — event streaming, multi-tenant by topic, nodes across networks — riding on a foundation that now actually idles when it has nothing to do. But there turned out to be one more leak hiding in the substrate first, which is where this notebook goes from here.
 
 If you're building on iroh, fork freely. If you find a bug I missed, open an issue. The repo will keep moving.

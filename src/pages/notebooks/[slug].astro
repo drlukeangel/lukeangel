@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import EditInKeystatic from '../../components/EditInKeystatic.astro';
 import { getCollection, render } from 'astro:content';
+import { isLive } from '../../lib/posts';
 import { Image, getImage } from 'astro:assets';
 import fallbackOg from '../../assets/pages/luke-angel-profile.jpg';
 
@@ -19,7 +20,7 @@ const ogImageMeta = s.data.cover
 const ogImage = new URL(ogImageMeta.src, Astro.site).toString();
 
 // All posts in this notebook, sorted by notebookOrder then date
-const allPosts = (await getCollection('blog', ({ data }) => !data.draft && data.notebook === s.slug))
+const allPosts = (await getCollection('blog', ({ data }) => isLive(data) && data.notebook === s.slug))
   .sort((a, b) => {
     const ao = a.data.notebookOrder ?? 999;
     const bo = b.data.notebookOrder ?? 999;

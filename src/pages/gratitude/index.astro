@@ -1,8 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { isPublished } from '../../lib/posts';
 
-const entries = (await getCollection('gratitude'))
+const entries = (await getCollection('gratitude', ({ data }) => isPublished(data)))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // Group by month (descending)

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460">
+  <rect x="2" y="2" width="996" height="456" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .lbl { font-size: 22px; font-weight: 700; }
+    .tot { font-size: 22px; font-weight: 700; }
+    .seg { font-size: 15px; fill: #fdfaf2; }
+    .cap { font-size: 17px; fill: #5b616b; }
+  </style>
+
+  <text class="cap" x="40" y="50">retained heap under the same kill-and-respawn soak (dhat)</text>
+
+  <!-- scale: 42.9 MB -> 740px, origin x=150 -->
+  <!-- BEFORE -->
+  <text class="lbl" x="40" y="138">before</text>
+  <!-- otel 29.2 -->
+  <rect x="150" y="108" width="517" height="56" fill="#b7410e" fill-opacity="0.55"/>
+  <text class="seg" x="408" y="142" text-anchor="middle">tracing/otel 29.2</text>
+  <!-- sysinfo 9.1 -->
+  <rect x="667" y="108" width="161" height="56" fill="#1a1d24" fill-opacity="0.55"/>
+  <text class="seg" x="747" y="142" text-anchor="middle">sysinfo 9.1</text>
+  <!-- quic growing 4.6 -->
+  <rect x="828" y="108" width="82" height="56" fill="#1a1d24" fill-opacity="0.18"
+        stroke="#c14a3a" stroke-width="2" stroke-dasharray="5 4"/>
+  <text class="tot" x="922" y="100" text-anchor="end">42.9 MB</text>
+
+  <!-- AFTER -->
+  <text class="lbl" x="40" y="278">after</text>
+  <!-- otel 2.0 -->
+  <rect x="150" y="248" width="36" height="56" fill="#b7410e" fill-opacity="0.55"/>
+  <!-- sysinfo 1.6 -->
+  <rect x="186" y="248" width="28" height="56" fill="#1a1d24" fill-opacity="0.55"/>
+  <!-- quic bounded ~4.5 -->
+  <rect x="214" y="248" width="80" height="56" fill="#3a7d44" fill-opacity="0.30"
+        stroke="#3a7d44" stroke-width="2"/>
+  <text class="tot" x="310" y="288">8.1 MB</text>
+  <text class="cap" x="470" y="288" fill="#3a7d44">↓ 81%</text>
+
+  <!-- guide line from before-end to after-end to show shrink -->
+  <line x1="910" y1="164" x2="294" y2="248" stroke="#1a1d24" stroke-opacity="0.18"
+        stroke-width="2" stroke-dasharray="3 6"/>
+
+  <!-- legend -->
+  <g>
+    <rect x="150" y="372" width="22" height="22" fill="#b7410e" fill-opacity="0.55"/>
+    <text class="cap" x="180" y="390">tracing/otel</text>
+    <rect x="330" y="372" width="22" height="22" fill="#1a1d24" fill-opacity="0.55"/>
+    <text class="cap" x="360" y="390">sysinfo</text>
+    <rect x="490" y="372" width="22" height="22" fill="#1a1d24" fill-opacity="0.18"
+          stroke="#c14a3a" stroke-width="2" stroke-dasharray="5 4"/>
+    <text class="cap" x="520" y="390">quic: growing</text>
+    <rect x="720" y="372" width="22" height="22" fill="#3a7d44" fill-opacity="0.30"
+          stroke="#3a7d44" stroke-width="2"/>
+    <text class="cap" x="750" y="390">quic: bounded</text>
+  </g>
+</svg>

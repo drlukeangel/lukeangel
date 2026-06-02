@@ -1,12 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { isLive } from '../lib/posts';
 import { Image, getImage } from 'astro:assets';
 import giveHeader from '../assets/pages/give-header.webp';
 
 const giveHeaderOg = await getImage({ src: giveHeader, format: 'webp', width: 1200, height: 630 });
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
+const posts = (await getCollection('blog', ({ data }) => isLive(data)))
   .filter((p) => p.data.tags.includes('give'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 

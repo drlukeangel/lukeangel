@@ -1,9 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { isLive } from '../../lib/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getCollection('blog', ({ data }) => isLive(data));
   const categories = ['method', 'teams', 'craft', 'tools', 'people'] as const;
   return categories.map((category) => ({
     params: { category },

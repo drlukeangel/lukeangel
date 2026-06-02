@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#b7410e" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+
+  <!-- left mesh cluster -->
+  <g>
+    <line x1="170" y1="420" x2="250" y2="470" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <line x1="250" y1="470" x2="330" y2="430" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <line x1="170" y1="420" x2="250" y2="540" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <line x1="250" y1="540" x2="330" y2="430" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <g fill="#b7410e">
+      <circle cx="170" cy="420" r="16"/>
+      <circle cx="250" cy="470" r="16"/>
+      <circle cx="330" cy="430" r="20"/>
+      <circle cx="250" cy="540" r="16"/>
+    </g>
+  </g>
+
+  <!-- right mesh cluster -->
+  <g>
+    <line x1="870" y1="430" x2="950" y2="470" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <line x1="950" y1="470" x2="1030" y2="420" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <line x1="870" y1="430" x2="950" y2="540" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <line x1="950" y1="540" x2="1030" y2="420" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+    <g fill="#b7410e">
+      <circle cx="870" cy="430" r="20"/>
+      <circle cx="950" cy="470" r="16"/>
+      <circle cx="1030" cy="420" r="16"/>
+      <circle cx="950" cy="540" r="16"/>
+    </g>
+  </g>
+
+  <!-- the NAT / separate-network barrier in the middle -->
+  <rect x="585" y="360" width="30" height="250" fill="#1a1d24" fill-opacity="0.12"/>
+  <g stroke="#1a1d24" stroke-opacity="0.45" stroke-width="3">
+    <line x1="585" y1="392" x2="615" y2="392"/>
+    <line x1="585" y1="430" x2="615" y2="430"/>
+    <line x1="585" y1="468" x2="615" y2="468"/>
+    <line x1="585" y1="506" x2="615" y2="506"/>
+    <line x1="585" y1="544" x2="615" y2="544"/>
+  </g>
+
+  <!-- broken direct path: dashed, snapped at the barrier -->
+  <line x1="330" y1="430" x2="560" y2="450" stroke="#c14a3a" stroke-width="3"
+        stroke-dasharray="9 9" stroke-opacity="0.65"/>
+  <line x1="640" y1="450" x2="870" y2="430" stroke="#c14a3a" stroke-width="3"
+        stroke-dasharray="9 9" stroke-opacity="0.65"/>
+  <!-- break marks -->
+  <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round" stroke-opacity="0.8">
+    <line x1="556" y1="438" x2="572" y2="462"/>
+    <line x1="572" y1="438" x2="556" y2="462"/>
+  </g>
+
+  <!-- relay box, sitting above the barrier: plainer than nodes (it is infra, not a peer) -->
+  <rect x="520" y="120" width="160" height="96" rx="8" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.7" stroke-width="4"/>
+  <!-- sealed packet (lock drawn as paths) inside the relay -->
+  <rect x="572" y="150" width="56" height="40" rx="5" fill="#1a1d24" fill-opacity="0.12"
+        stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <path d="M584 150 v-10 a16 16 0 0 1 32 0 v10" fill="none"
+        stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <circle cx="600" cy="170" r="5" fill="#1a1d24" fill-opacity="0.6"/>
+
+  <!-- working relay path: solid, up and over the barrier through the relay -->
+  <path d="M330 405 C 420 250, 480 190, 520 175" fill="none" stroke="#b7410e" stroke-width="5"/>
+  <path d="M680 175 C 720 190, 780 250, 870 405" fill="none" stroke="#b7410e" stroke-width="5"/>
+  <polygon points="870,405 858,392 850,406" fill="#b7410e"/>
+</svg>

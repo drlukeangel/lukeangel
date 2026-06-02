@@ -1,0 +1,67 @@
+---
+title: "Watching a node boot, then a second mesh with no bridge"
+date: 2026-06-02T09:00:00-04:00
+category: craft
+tags:
+  - rust
+  - iroh
+  - opentelemetry
+  - jaeger
+  - distributed-systems
+  - observability
+notebook: building-a-distributed-mesh-in-rust
+notebookOrder: 8
+excerpt: "The substrate gets a second life as a multi-mesh fabric — and the rule from day one is telemetry is the substrate, not a feature. A node that does work without leaving a trace is a bug. Here's a node naming itself, booting as a span chain you can read in Jaeger, building a topology directory out of gossip — and then a second mesh reached with no bridge node at all. Every claim is a screenshot of the live system."
+pullquote: "A node that does work without leaving a trace is a bug. Start with the trace; everything else hangs off the spine it gives you."
+cover: "../../assets/blog/mm-boot-cover.svg"
+coverAlt: "A single node emitting a vertical chain of short telemetry spans as it boots, beside a second cluster of nodes, with a dashed cross-mesh link reaching the second cluster directly — no separate bridge node in between. Cream background, faint dot grid, vertical rust-orange accent bar at the left edge."
+featured: false
+---
+
+The performance work earlier in this notebook left me with a substrate that idles when it has nothing to do and stays flat under churn. That was the foundation. This post starts the thing it was a foundation *for*: a small, observable **multi-mesh fabric** — named nodes in named meshes, a gossiped directory so any node can find any other, and not one line of bespoke infrastructure I could get from the library instead.
+
+The rule I set on day one and never relaxed: **telemetry is the substrate, not a feature.** A node that does work without leaving a trace is a bug. So before there was any "product," there was a boot-span chain and a Jaeger instance to read it in.
+
+## A node names itself
+
+When you spawn a broker into `mesh1`, it doesn't get a random hex id and it isn't named by some central authority. It loads (or mints) its own identity, then **self-names** from it:
+
+```
+node_name = <mesh>.<type>.<first-6-hex-of-node-id>     e.g.  mesh1.broker.239dc9
+```
+
+The mesh is required — an unlabelled node fails fast — the type is what it is, and the suffix is the first 6 hex of the node's public key, so the friendly name is eyeball-matchable to its unique id. No registry hands out names; identity is the name.
+
+## The boot is a span chain
+
+Every boot is one trace rooted at `node.ready`, with the bring-up steps as children — `endpoint_created → alpn_registered → gossip_started → accept_loop_started`, each a few hundred microseconds, all under one root. If a node is misbehaving, the trace tells you exactly how far it got before it stalled.
+
+![A boot trace in Jaeger: a single trace named broker rafka.mesh.node.ready spanning about 1.8 ms, with four child spans nested under it in sequence — endpoint_created, alpn_registered, gossip_started, accept_loop_started — each a few hundred microseconds. The waterfall makes the bring-up order and timing legible at a glance.](../../assets/blog/mm-boot-trace.png)
+
+This is the spine. Get the boot chain visible for one node and you can always answer "did it start, and how far did it get" without attaching a debugger.
+
+## A topology cache, built from gossip
+
+Each node broadcasts a small digest on its mesh's gossip topic, including its reachable address. Every node accumulates those into a process-local directory — `name → {mesh, type, location}` — surfaced as a **Cache** view. This is the thing a node consults to answer "where do I send to reach X?" There's no second gossip system and no database: the cache *is* the gossip digests, surfaced.
+
+![The admin console's Cache tab: a gossiped topology directory listing each node as name, mesh, type, location, and node-id prefix. Two entries are shown for a single-mesh bring-up — the admin console itself and mesh1.broker1 at a real loopback address — with a note that it updated 0.0s ago, live.](../../assets/blog/mm-topology-cache.png)
+
+## A second mesh — and deleting the bridge
+
+The earlier design had a **bridge**: a special node that joined two meshes' gossip and shuttled awareness between them. It's the obvious first idea, and it's the wrong one — it's a bespoke piece of mesh infrastructure, and the substrate's whole premise is *don't build mesh infrastructure, use the library*. So the bridge had to go: out went the `bridge` node type, its spawn button, its env knobs, the whole crate. Two meshes now run side by side with **no** node whose only job is to connect them.
+
+![The topology view with two meshes side by side — mesh1 and mesh2, each its own swim-lane of colored node cards (broker, gateway, registry, compute, console) — and edges drawn directly between the nodes that actually talk. There is nothing in the middle: no bridge node, just two meshes and direct cross-mesh links.](../../assets/blog/mm-two-mesh-topology.png)
+
+Per-mesh gossip lives on a per-mesh topic (`blake3(mesh_id)`), so a `mesh1` node doesn't see `mesh2` by default. The interim answer: the **gateway** — the node that writes across meshes — also subscribes to the other mesh's gossip, so its directory spans both. A simulated writer on `mesh1.gateway` resolves `mesh2.broker` from that directory and sends to it. The proof isn't a line in a log; it's the **cross-mesh trace stitching end to end**:
+
+![A cross-mesh produce trace in Jaeger: a broker boot-span chain rooted at rafka.mesh.node.ready with identity_loaded, endpoint_created, alpn_registered, gossip_started, and accept_loop_started children, captured on the second mesh — proof that the node on the far mesh booted and is emitting telemetry into the same trace backend.](../../assets/blog/mm-crossmesh-trace.png)
+
+## The catch (named, not hidden)
+
+"The gateway subscribes to the other mesh's entire gossip" works for two meshes on one host. It does **not** scale: with many meshes and hundreds of gateways it's an O(meshes²) firehose of every remote node's per-tick digest, and it quietly forces the console to special-case itself as an all-mesh subscriber. That's a real debt, and the [next post](/blog/make-the-cross-mesh-view-honest/) pays it down with a proper control-plane backbone — after first fixing something more embarrassing: the traces themselves were lying.
+
+## What I'd tell a team
+
+- **Make telemetry the floor, not the polish.** If "does this node work" can only be answered by reading its logs by hand, you'll be reading logs by hand forever. A boot-span chain is cheap and it's the thing you'll lean on every single debugging session after.
+- **Let identity be the name.** Self-naming from the public key means no allocator, no name collisions, no central authority to be down — and a friendly id you can still match to the real one by eye.
+- **Refuse the bespoke node.** A "bridge" felt necessary and wasn't. Every special node type is infrastructure you now own and operate; reach for the library's primitive before you invent one.

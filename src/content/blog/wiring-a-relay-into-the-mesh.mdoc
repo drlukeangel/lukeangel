@@ -1,0 +1,97 @@
+---
+title: "The relay is a postbox, not a peer"
+date: 2026-06-09T09:00:00-04:00
+category: craft
+tags:
+  - rust
+  - iroh
+  - quic
+  - relay
+  - nat-traversal
+  - distributed-systems
+notebook: building-a-distributed-mesh-in-rust
+notebookOrder: 10
+excerpt: "Two nodes in different meshes know each other's address — but knowing an address isn't reaching it. Behind a NAT there's often no direct path. That's what a relay is for: not a node, not a peer, a dumb postbox that forwards sealed packets it can't read. Here's how the fallback works, why the relay can't see your traffic, and how to prove it actually carries when there's no direct route — without faking the test."
+pullquote: "The relay is an untrusted postbox: you trust it to forward, not to read or vouch. The keys do the vouching, point to point, direct or relayed alike."
+cover: "../../assets/blog/wiring-in-a-relay-cover.svg"
+coverAlt: "Two mesh clusters separated by a tall barrier representing NAT and separate networks. A direct dashed line between them is broken at the barrier; a solid path instead routes up through a single relay box sitting above the barrier, which forwards a sealed, lock-marked packet from one side to the other. The relay is drawn plainer than the nodes, signalling it is infrastructure, not a peer. Cream background, faint dot grid, vertical rust-orange accent bar at the left edge."
+featured: false
+---
+
+Earlier posts solved *awareness*: a `mesh1` gateway can find out where a `mesh2` broker lives, by key, through gossip and the [cross-mesh backbone](/blog/make-the-cross-mesh-view-honest/). But knowing an address isn't reaching it. On a real network the two nodes are often behind NATs or firewalls that won't accept an unsolicited inbound connection. That's what the **relay** is for — and the whole point of this post is that a relay is *not* a node, and being careful about what it actually is keeps the architecture honest.
+
+## Direct when possible, relay when not
+
+The relay is **not** something I built — it's [iroh](https://github.com/n0-computer/iroh)'s, and that's deliberate. The substrate's whole premise is *use the library, don't hand-roll mesh infrastructure*. The behaviour is iroh-native:
+
+- a connection **starts** over the relay (the one path that's reliably reachable),
+- iroh then tries to **hole-punch a direct path** in parallel,
+- if direct works, it **migrates to direct**; if it never works, it just **stays on the relay**.
+
+So "relay is the fallback" really means *the connection stays on the relay when the direct upgrade can't be made*. Nodes direct-connect when they can; the relay is there when they can't.
+
+![A decision flow for how a connection between two nodes gets established. It starts at "node A wants to reach node B by key." First branch: is a direct path reachable? If yes, the flow takes a solid green path straight across — direct connection, no relay involved — labelled "preferred whenever possible." If no, second branch: is a relay configured? If yes, the flow routes through the relay as an amber fallback path carrying sealed ciphertext between the two nodes. If no, the flow dead-ends in red at "unreachable across networks" — the direct-only default, fine on a flat network and useless across regions. The diagram makes clear the relay is the second choice, never the first.](../../assets/blog/wiring-in-a-relay-fallback-path.svg)
+
+## Why the relay ever has "better luck" than direct
+
+It doesn't have magic — it has **structural** luck. Direct peer-to-peer fails under symmetric NAT or restrictive firewalls because neither side will accept an unsolicited inbound connection. The relay is a **publicly reachable rendezvous both sides connect *outbound* to**, and outbound is almost always allowed. So `A → relay → B` works when `A → B` directly doesn't. That's the whole and only advantage.
+
+The flip side: on **localhost** — every node a process on one box — there's no NAT and no firewall, so direct *always* works and the relay sits idle. That isn't a bug; it's the system working. The relay only earns its keep across real network boundaries — which, as we'll see, is exactly why a localhost test can't prove it carries anything.
+
+## A relay is a server, not a node
+
+It's natural to think of the relay as "just another node in the mesh." It isn't, and the distinction is load-bearing:
+
+- **A node** participates in the application. It gossips, it holds data, it has a role — gateway, broker, console.
+- **A relay** is **transport-layer plumbing.** It coordinates hole-punching and, when a direct connection can't be formed, forwards *opaque encrypted packets* between two endpoints. It is semantic-blind: it has no idea what a mesh or a message is. In WebRTC terms, it's TURN/STUN, not a peer.
+
+It's the `iroh-relay` binary, addressed purely by a **URL** (the one piece of this whole system with a hostname) — while every node is addressed by its public key. It doesn't run our code, doesn't join gossip, doesn't know what a mesh is. It has to live somewhere **both meshes can reach outbound** — a cloud VM, a DMZ host, an edge box — *outside* any single mesh's NAT. One relay can serve many meshes; for HA you run a few, geo-distributed, and each node uses its nearest. So a relay is infrastructure you run, not a peer you join.
+
+![A side-by-side contrast of a node and a relay. The node, drawn in rust-orange, sits inside the application boundary: it gossips with peers, holds data, and carries a role label. The relay, drawn plainer and outside the application boundary, sits at the transport layer: it takes a sealed ciphertext packet in on one side and passes the identical sealed packet out the other, with a thought-bubble showing it cannot read the contents. The node is addressed by a public key; the relay is addressed by a URL. The caption contrasts "participates in the application" with "moves opaque bytes between endpoints."](../../assets/blog/wiring-in-a-relay-node-vs-relay.svg)
+
+## The part that matters: the relay can't read your mail
+
+The relay secures *nothing* about the conversation — and that's the point. Security is **end-to-end between the two nodes**, identical whether the path is direct or relayed:
+
+1. **Identity is the public key.** A node's id *is* its Ed25519 public key. You don't dial an IP, you dial a key — which is why the directory carries the node id and `connect` is identity-based.
+2. **The peer connection is authenticated by those keys.** The end-to-end QUIC/TLS 1.3 handshake proves the remote end holds the **private** key matching the id you dialed. Same guarantee on a relayed path as a direct one.
+3. **The relay is a dumb forwarder of already-encrypted packets.** It sees ciphertext plus the destination key to route on. It can't read the data (it holds no key), can't impersonate either peer (a MITM attempt fails the end-to-end handshake), can't forge or inject.
+
+The subtlety worth keeping straight: there are **two separate TLS layers**. The **node ↔ relay** hop uses the *relay's own* server cert (Let's Encrypt in prod, self-signed in dev) — it only protects the hop to the relay. The **node ↔ node** channel is the end-to-end QUIC encrypted under the *peers'* keys, riding *inside* that. So when a test trusts a dev relay's self-signed cert, peer-to-peer security is untouched — that flag says "trust this dev relay box," not "trust whoever's on the other end." Peer identity is always verified by key.
+
+**Honest threat model:** a malicious or compromised relay can hurt **availability** (drop or delay your packets) and observe **metadata** (which keys talk, when, how much) — but never **content** or **identity**. You trust it to *forward*, not to *read or vouch*. The keys do the vouching, point to point, direct or relayed alike.
+
+## Proving it carries — the obvious proof is a lie
+
+The relay had been plumbing for a while: configured, registered, the path *existed*. But "the relay works" was an assertion, not a fact, because on one host iroh always picks direct and the relay never carries a byte.
+
+The obvious move to prove carriage: give a node a **relay-only address** — a relay URL and no direct socket addr — so the only way to reach it is through the relay. Dial it, send bytes, done. **That's a lie**, and it's the version that had burned me before. It proves the *first* packet went via relay. It does not prove the relay *carries* anything: once the QUIC connection is up, the two endpoints exchange their direct addresses over it and hole-punch. On loopback that succeeds in milliseconds, the connection silently upgrades to direct, and any "is it relayed?" check flips to false the moment after you looked. The test either flakes or "passes" by checking before the upgrade — proving connect-via-relay, not relay-carriage.
+
+## Make direct impossible
+
+The fix isn't a cleverer assertion — it's removing the alternative. iroh's endpoint builder has `.clear_ip_transports()`: bind with **no IP transport at all**. Then a direct hole-punch isn't slow or unlikely, it's *impossible* — there is no socket to punch. The relay is the only transport that exists, so a delivered byte can only have come one way, and there's no timing window to race.
+
+The whole proof, using iroh's built-in `test_utils` (cross-platform — no Docker, no WSL, no external network simulator):
+
+1. `run_relay_server()` — a real local relay with a self-signed cert.
+2. Two endpoints: a custom relay map, trust the test cert, and **`.clear_ip_transports()`** so no direct path can exist.
+3. The client dials a relay-only address and runs a bi-stream echo.
+4. Assert two things: the bytes round-trip **and** the selected QUIC path `.is_relay()`.
+
+Bytes came back, over a connection that had no direct path to fall back to. That's relay-carriage, and it's deterministic — green three times out of three, no sleep, no retry.
+
+One number fell out of the related path-failover test worth flagging: when a live connection's direct path dies and it has to cut over to the relay, the cutover took **~15 seconds** — iroh's QUIC path-death detection timeout. A write *in flight* when a path dies stalls for that window before it reroutes; writes after it go straight to relay. It's a one-time cutover cost, tunable via the transport's keepalive/idle settings — a knob to weigh against whatever failover target a real deployment needs.
+
+## The honest caveat
+
+This runs against test endpoints, not the live production transport. The production transport takes a relay URL as a string, not a relay map, and has no hook to trust a self-signed cert — and bolting an insecure-skip-verify into the real transport just to test it would be exactly the kind of substrate-edit-for-a-test that doesn't earn its keep. A production relay has a real certificate and needs no bypass. So the claim is precise: **the substrate can carry a write over the relay when there is no direct path** — proven — not "the live mesh was forced onto the relay in the UI." Know which sentence your green checkmark is under.
+
+## What I'd tell a team
+
+- **Name the relay correctly and the architecture stays clean.** Call it "a node" and you'll be tempted to give it application knowledge, gossip state, a role. Call it what it is — a semantic-blind packet mover — and it stays out of the data-routing logic where it belongs.
+- **Two TLS layers, two different trusts.** "Trust this dev relay" and "trust the peer on the other end" are separate decisions. Conflating them is how people convince themselves a test is insecure when it isn't — or that it's secure when it isn't.
+- **Refuse to let "the test passed" stand in for "the test checks the thing."** The relay-only-address proof passes green on loopback and proves the wrong claim. The discipline that mattered wasn't iroh knowledge — it was writing down the failure mode (*"relay-only controls how you first reach the peer, not which path carries traffic after"*) before coding, where it's obviously not a proof.
+
+## What's next
+
+The relay carries, provably, when there's no direct path — and it can't read what it carries. The substrate now has a NAT-traversal story that holds end to end. Next I make "kill that node" a mesh operation instead of an OS one, and turn a node's whole lifecycle into something the mesh broadcasts.

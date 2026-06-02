@@ -1,0 +1,70 @@
+---
+title: "Is it ready? — and a real thank-you to n0"
+date: 2026-06-19T09:00:00-04:00
+category: craft
+tags:
+  - rust
+  - iroh
+  - distributed-systems
+  - verification
+  - open-source
+notebook: building-a-distributed-mesh-in-rust
+notebookOrder: 13
+excerpt: "After eight posts of green screenshots, the honest move isn't to declare victory — it's to write down every claim the substrate makes, sort it into proven, deferred, and not-our-problem, and run the ones we can. Concurrency, graceful degradation, publisher failover: held. And then the part that matters most — a genuine thank-you to the open-source team whose work made all of it possible."
+pullquote: "Over and over, the right move turned out to be 'the thing iroh already does.' That is what a genuinely well-designed library feels like to build on."
+cover: "../../assets/blog/mm-ready-cover.svg"
+coverAlt: "A checklist of substrate claims sorted into three columns — proven (green checks), deferred (amber), and not-our-problem (grey) — beside a large open-hand high-five, the gratitude beat the post closes on. Cream background, faint dot grid, vertical rust-orange accent bar at the left edge."
+featured: false
+---
+
+The temptation, after [eight posts of green screenshots](/blog/the-bug-that-wasnt-in-the-mesh/), is to declare victory and start building the layer this was all a foundation for. I didn't. I wrote down every claim the substrate makes, sorted them into *proven*, *deferred*, and *not our problem*, and then went and ran the ones I could. Here's what held — and then the thank-you that's been owed since post one.
+
+## The one caveat that reframes everything
+
+Every "RSS flat / CPU ~0.02 cores / 0 panics" number in this series was measured against **nodes that do almost nothing.** They receive a frame, emit a span, and ack in microseconds. So those numbers are **floors for an empty substrate, not predictions for the real thing.** The moment a node does real work — writes a durable record, holds a backlog — the latency, the in-flight queue, and the memory profile all change. I say this loudly because it's the assumption most likely to crack after you've built on top.
+
+## What I proved this round
+
+**Produce/ack holds under concurrency.** I scaled to **ten gateways producing at once** — each writing to a node in its own mesh and one across the backbone — against five brokers per mesh, and held it for two and a half minutes. 600 `produce.handle` in 150s (~4/s fleet-wide, steady) and 640 `produce.ack` — the full produce → handle → ack round-trip completing, not fire-and-forget. Zero `frame.decode_failed`, zero panics, zero QUIC assertions; 20 processes throughout, RSS flat (+1.2%, noise).
+
+![The topology view under concurrent load: two dense meshes, eleven nodes on one side and nine on the other, every node card carrying live per-node CPU and RAM plus the per-mesh aggregate, edges criss-crossing as ten gateways produce at once. The fleet is busy but stable — no node pegged, no node missing.](../../assets/blog/mm-load-concurrency.png)
+
+**The cross-mesh write degrades gracefully and recovers.** I killed *both* cross-mesh write targets and watched. The gateway didn't crash and didn't spin — RSS flat, CPU ~0.09 cores, no retry storm — and the intra-mesh write kept flowing the whole time. Cross-mesh `produce.handle` fell to 0 during the outage while intra stayed at 7. Then I brought a broker back, and the write resumed on its own once the backbone reconverged.
+
+![Mid-fault: both mesh2 brokers killed, so mesh2 shows only its console and registry, the cross-mesh write quiesced — while mesh1 is fully intact and untouched, its broker, gateway, compute, and console all green and still moving traffic.](../../assets/blog/mm-netfault-killed.png)
+
+![Recovered: a fresh mesh2 broker has rejoined over the backbone, mesh2 is back to three nodes, and the cross-mesh write has resumed on its own — no operator intervention, the gateway simply found the new broker once the directory reconverged.](../../assets/blog/mm-netfault-recovered.png)
+
+**The backbone survives losing its publisher.** The cross-mesh directory is published by one elected node per mesh, on a [soft lease](/blog/make-the-cross-mesh-view-honest/). I found the live lease holder via its `backbone.published` spans, killed it, and confirmed the dead-man's-switch: within the lease TTL a *different* candidate took over publishing, and the other mesh's console never lost sight of the first mesh.
+
+![The second console still showing both meshes in full detail after the first mesh's backbone publisher was killed — two dense mesh panels, the remote one still arriving over the backbone, proof that publisher failover happened without the consumer ever going blind.](../../assets/blog/mm-lease-failover.png)
+
+## What I deliberately did *not* claim
+
+Honesty is the whole point of a verification post:
+
+- **Packet-level network faults** — cutting a link while the process stays alive — need elevated firewall control I didn't have in this environment. Process-fault recovery is proven; true partition/flap is not. Documented, not hidden.
+- **The relay carrying real traffic live** — [proven in an isolated test](/blog/wiring-a-relay-into-the-mesh/), but on a single host the direct path correctly always wins, so the relay sits idle. Fine until the first cross-host deployment, where it becomes mandatory.
+- **Durability, ordering, backpressure policy, tenancy** — these aren't substrate holes. They're the *app layer* I'm about to build, and they belong to it, not here.
+
+**Verdict: ready to start building on a single host, with eyes open.**
+
+## A genuine thank-you to the people behind iroh
+
+Here's the part that matters most.
+
+None of this — not the gossip membership, not the cross-network relay, not the per-mesh topics, not the QUIC transport that just *worked* across Windows and Linux without me hand-rolling a single line of NAT traversal — none of it is mine. It rests entirely on **[iroh](https://github.com/n0-computer/iroh)**, built in the open by the team at **[n0](https://www.n0.computer/)**.
+
+Go back and reread this series with that in mind. The clean boot in [post one](/blog/watching-a-node-boot-across-two-meshes/)? iroh endpoints. Two meshes talking with no bridge? iroh-gossip. The [relay-as-a-postbox](/blog/wiring-a-relay-into-the-mesh/), with a security model I got *for free*? iroh's relay. When I needed to prove the relay carries traffic, I did it with **iroh's own built-in `test_utils`** — cross-platform, no custom harness. The [40-second-join bug](/blog/the-bug-that-wasnt-in-the-mesh/)? The fix was to *stop* hand-rolling an address book and use the `MemoryLookup` iroh already shipped. Over and over, the right move turned out to be "the thing iroh already does." That is what a genuinely well-designed library feels like to build on.
+
+And when I *did* find real bugs deep in the stack — [a connection leak that took two days to corner](/blog/hunting-a-connection-leak-in-a-quic-mesh/) — the whole thing being open meant I could read the exact code, prove the fault, and send fixes back upstream, with a real, responsive community on the other end to receive them. That's not how it goes with a closed black box, where the best you can do is file a ticket into the void.
+
+It's easy to forget, in a world of green checkmarks, how much of what we build stands on the quiet, sustained, often-thankless work of open-source maintainers. We are *lucky* — genuinely lucky — to live in a moment where a small team can hand you a substrate this capable, document it well, answer issues, and ask nothing in return but that you build something good with it.
+
+So, to the **n0 team** — a giant high-five. 🖐️ Thank you for iroh: for building it in the open, for the care in the API design that kept steering me away from my own worst instincts, and for the relay infrastructure and the test utilities and the docs. You made a hard problem feel approachable, and you made this entire build log possible.
+
+- **iroh** — the repo: [github.com/n0-computer/iroh](https://github.com/n0-computer/iroh)
+- **n0** — the company: [n0.computer](https://www.n0.computer/)
+- **iroh** — the project site & docs: [iroh.computer](https://www.iroh.computer/)
+
+If you build distributed systems, go star the repo, read their docs, and consider supporting the work. The whole ecosystem is better for it — and so is everything I'm about to build on top.

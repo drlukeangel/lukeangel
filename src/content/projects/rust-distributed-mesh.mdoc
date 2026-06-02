@@ -8,7 +8,7 @@ outcome: "Open source · MIT · github.com/drlukeangel/rust-distributed-mesh"
 
 ![Cover graphic for the Rust Distributed Mesh — two clusters of peer nodes arranged around large rust-orange hubs, with small ink-colored leaf nodes radiating out, and a dashed accent-colored bridge link crossing the gap between the two clusters through an intermediate bridge node. The illustration sits on a cream background with a faint dot grid and a vertical rust-orange accent bar at the left edge.](../../assets/blog/rust-distributed-mesh-cover.svg)
 
-I wanted to know what it actually costs to run a self-organizing P2P mesh on commodity hardware. The substrate is the long-running need underneath bigger Rafka work — Kafka-protocol-compatible event streaming over a NAT-traversing iroh fabric. Before the app layer made sense, I needed to know whether the substrate itself was sound. So I built it small and ran it hard.
+I wanted to know what it actually costs to run a self-organizing P2P mesh on commodity hardware. The substrate is the long-running need underneath a bigger event-streaming system — ordered, durable records over a NAT-traversing iroh fabric. Before the app layer made sense, I needed to know whether the substrate itself was sound. So I built it small and ran it hard.
 
 → **[github.com/drlukeangel/rust-distributed-mesh](https://github.com/drlukeangel/rust-distributed-mesh)**
 
@@ -22,9 +22,9 @@ Spoiler from the journey below: it broke in places that had nothing to do with i
 
 | Piece | What it does |
 | --- | --- |
-| `crates/rafka-node-base` | The substrate. Identity, gossip emit loop, peer registry, the `LoadSampler` for self-reported CPU/RAM, the staleness pruner. Built on iroh-gossip 0.98 (Plumtree + HyParView). |
-| `crates/rafka-mesh-transport` | Thin layer over iroh's `Endpoint`. Sets the ALPN, the mDNS toggle, the bind-addr surface, the idle timeout. |
-| `crates/rafka-telemetry` | OTLP/tracing init. Single source of truth for how every node's spans land in Jaeger. |
+| `crates/mesh-node-base` | The substrate. Identity, gossip emit loop, peer registry, the `LoadSampler` for self-reported CPU/RAM, the staleness pruner. Built on iroh-gossip 0.98 (Plumtree + HyParView). |
+| `crates/mesh-transport` | Thin layer over iroh's `Endpoint`. Sets the ALPN, the mDNS toggle, the bind-addr surface, the idle timeout. |
+| `crates/mesh-telemetry` | OTLP/tracing init. Single source of truth for how every node's spans land in Jaeger. |
 | `admin-ui/` | React + Vite topology view. The thing you stare at when you don't believe the numbers. Live node grid, hub-and-leaf layout, CPU/RAM bars per node, kill button per card. |
 | `broker / gateway / compute / registry / bridge` | Example node types. Each is just `NodeRuntime::new("type").run().await` and a `.env.dev` preset. From the substrate's perspective they're interchangeable. |
 
@@ -56,4 +56,4 @@ Three posts walking through the work, going up at lukeangel.com:
 2. *When 18 nodes pegged my 80-core box at 100%* — the bug cascade, with the actual diff next to each one.
 3. *Flamegraphing your way out of "this can't possibly be right"* — the engineering process, including the day I almost forked the architecture for the wrong reason.
 
-The Rafka app layer (Kafka-protocol-compatible event streaming on this substrate) is the next sprint. This kit is the substrate it sits on.
+The event-streaming layer that rides on this substrate is the next sprint. This kit is the substrate it sits on.

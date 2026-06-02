@@ -1,10 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { isLive } from '../../lib/posts';
 import { Image } from 'astro:assets';
 
 const seriesList = (await getCollection('notebooks', ({ data }) => !data.draft));
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const allPosts = await getCollection('blog', ({ data }) => isLive(data));
 
 // Count posts per notebook + year range
 type Meta = { count: number; minYear: number | ''; maxYear: number | ''; lastUpdated: number };
