@@ -59,15 +59,6 @@ import Base from '../layouts/Base.astro';
         <button type="submit" class="cta-dark">Send the letter →</button>
       </div>
     </form>
-
-    <div class="inbox-row">
-      <div class="mono" style="color: var(--accent);">or by inbox —</div>
-      <div class="inbox-grid">
-        <div class="card"><div class="mono">General</div><div style="margin-top: 10px;"><a href="mailto:luke@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">luke@lukeangel.co</a></div></div>
-        <div class="card"><div class="mono">Speaking</div><div style="margin-top: 10px;"><a href="mailto:speak@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">speak@lukeangel.co</a></div></div>
-        <div class="card"><div class="mono">Advisory</div><div style="margin-top: 10px;"><a href="mailto:hello@lukeangel.co" style="color: var(--ink); text-decoration: none; font-size: 20px;">hello@lukeangel.co</a></div></div>
-      </div>
-    </div>
   </section>
 </Base>
 
@@ -195,23 +186,11 @@ import Base from '../layouts/Base.astro';
     font-size: 15px;
   }
 
-  .inbox-row {
-    margin-top: 64px;
-  }
-
-  .inbox-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 20px;
-  }
-
   @media (max-width: 720px) {
     .letter-form { padding: 24px; }
     .letter-form .row.two { grid-template-columns: 1fr; gap: 18px; }
     .letter-form .checks { grid-template-columns: 1fr; }
     .letter-form .actions { flex-direction: column; align-items: stretch; }
     .letter-form .actions .cta-dark { text-align: center; }
-    .inbox-grid { grid-template-columns: 1fr; }
   }
 </style>
