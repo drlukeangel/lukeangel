@@ -1,0 +1,62 @@
+---
+title: "The four-column ask: build, test, analyze, or drop"
+date: 2026-06-03T00:00:00-04:00
+category: product
+tags: [product, prioritization, roadmaps, discovery]
+excerpt: "Most roadmap fights aren't about which feature is best — they're about teams arguing past each other because nobody named what they actually know. Two questions — how clear is the solution, how strong is the evidence — sort every idea into one of four columns, and each column tells you the next move."
+pullquote: "You don't prioritize a feature. You prioritize the next action a feature has earned — and that's build, test, analyze, or drop."
+cover: "../../assets/blog/four-column-ask-cover.svg"
+coverAlt: "A two-by-two grid on a cream background, its four cells tinted distinctly, with a vertical rust-orange accent bar at the left edge — the clarity-versus-evidence matrix that sorts product ideas into build, test, analyze, and drop."
+featured: false
+---
+
+Most roadmap fights look like disagreements about *which feature is best.* They almost never are. They're two people arguing past each other because one is sure of the solution and the other is sure of the problem, and nobody said which. The fix isn't a scoring spreadsheet with eleven weighted columns. It's two questions, asked out loud, about every idea on the table.
+
+**How clear is the solution?** Do we actually know what we'd build, or are we hand-waving?
+
+**How strong is the evidence?** Do we have data that real users have this problem, or is it a hunch with confidence?
+
+Plot those two on a 2×2 and every idea lands in one of four boxes. The point of the box isn't a label — it's that each box dictates a *different next action.* You're not ranking features. You're deciding, for each one, whether the honest next step is to build it, test it, research it, or let it go.
+
+![A two-by-two matrix. The horizontal axis is solution clarity, from low on the left to high on the right; the vertical axis is evidence strength, from low at the bottom to high at the top. The top-right cell, high clarity and high evidence, is labelled Build. The top-left, low clarity but high evidence, is Analyze. The bottom-right, high clarity but low evidence, is Test. The bottom-left, low clarity and low evidence, is Drop or Backlog. Each quadrant is tinted a different color, with Build in confident green and Drop in muted grey.](../../assets/blog/four-column-ask-matrix.svg)
+
+## The four columns
+
+**Build — high clarity, high evidence.** You know the problem is real (the data says so) and you know what to make (the design is settled). This is the only quadrant where writing code is the right next move. Everything else is a different kind of work wearing a "feature" costume. Most teams' mistake is treating the whole backlog as if it lived here.
+
+**Test — high clarity, low evidence.** You have a crisp, fully-designed concept and no proof anyone wants it. The trap is that a polished mockup *feels* like evidence — it's concrete, it demos well, a stakeholder loved it. It isn't evidence. The next move is a prototype or a fake-door or five user sessions — the cheapest thing that turns "we think" into "we know," *before* a sprint goes into it.
+
+**Analyze — low clarity, high evidence.** You have strong signal that customers are in pain — support tickets, churn interviews, a metric falling off a cliff — but no idea what the solution looks like yet. Jumping to "build" here is how you ship a confident answer to a question you haven't understood. The next move is research and divergent design: define the problem precisely, generate options, *then* graduate the best one rightward into Test or Build.
+
+**Drop or Backlog — low clarity, low evidence.** A vague idea with nothing behind it. Someone's pet theory, a competitor's shiny thing, a "wouldn't it be cool if." No shame in it — most ideas start here. But it doesn't get a roadmap slot until it earns one by acquiring clarity or evidence. Park it or let it go, and stop relitigating it every planning cycle.
+
+## The move is the output, not the label
+
+Here's what makes this more than a quadrant meme: the matrix doesn't tell you *what's important*, it tells you *what to do next* — and those are different things. A feature with huge potential value can still belong in Analyze, because the honest next action is research, not a Jira epic. The framework's whole job is to keep you from skipping that step.
+
+![A flow showing each quadrant pointing to its mandated next action. Build points to a code-and-ship arrow. Test points to prototype and user-validation. Analyze points to research and brainstorming, with a dashed arrow looping it back up into Build or Test once a solution emerges. Drop points to a parking-lot backlog. The diagram emphasizes that ideas move between quadrants over time as they gain clarity or evidence.](../../assets/blog/four-column-ask-actions.svg)
+
+And ideas *move.* That's the part static prioritization misses. A Test item that passes its prototype slides up into Build. An Analyze problem, once you've designed a solution, slides right. A Build item that turns out to rest on stale data slides *back down* into Test, which is exactly the conversation nobody wants to have and everyone needs to. The matrix is a snapshot of a thing in motion, and re-placing items every cycle is the work.
+
+![The same quadrant grid, this time with movement arrows drawn on it. A green arrow runs upward from Test into Build, labelled "prototype passes." An amber arrow runs rightward from Analyze into Build, labelled "solution emerges." A red dashed arrow runs downward from Build back into Test, labelled "stale data — the talk nobody wants." A footer note reads: re-place the board every cycle; the value is noticing what moved, especially what slid backward.](../../assets/blog/four-column-ask-motion.svg)
+
+## What it actually buys you
+
+I run this on a whiteboard before any roadmap review, and three things happen every time.
+
+**It kills the most expensive mistake first.** Building unvalidated features — the Test column shipped as if it were Build — is where teams burn quarters. Naming the quadrant out loud makes that miscategorization visible *before* it's code.
+
+**It gives stakeholders a shared language for risk.** "I love this idea" and "the data backs this" stop being the same sentence. An exec can advocate hard for something and still see, on the wall, that it's in Test — that wanting it doesn't move it to Build, evidence does. That conversation is so much calmer when the axes are drawn.
+
+**It makes the next step unambiguous.** No idea leaves the meeting as "approved" or "rejected." It leaves as *build it*, *test it*, *go research it*, or *back to the parking lot.* People know what to do Monday.
+
+![A worked example: a small roadmap of five candidate features placed onto the matrix. A well-specified, data-backed checkout fix sits in Build. A slick AI-summary feature with no usage data sits in Test. A cluster of angry churn-interview quotes with no obvious fix sits in Analyze. A vague platform rewrite and a me-too competitor feature sit in Drop or Backlog. Each placement is annotated with its mandated next action.](../../assets/blog/four-column-ask-example.svg)
+
+## What I'd tell a team
+
+- **Ask the two questions before you score anything.** Clarity and evidence first; weighted scoring later, and only inside the Build column where it actually means something.
+- **Treat a beautiful mockup as Test, not Build.** Polish is not proof. The number of "obviously great" features that died in their first real user session should make you humble about your own quadrant calls.
+- **Protect the Analyze column.** It's the one teams skip, because "go figure out the problem" feels slower than "go build something." It is slower. It's also the difference between solving the problem and shipping a confident guess.
+- **Re-place the board every cycle.** The value isn't the first sort; it's noticing what moved, and especially what slid *backward* when the evidence didn't hold.
+
+You don't prioritize a feature. You prioritize the next action a feature has earned — build, test, analyze, or drop — and you make the team say which, out loud, with the axes on the wall.

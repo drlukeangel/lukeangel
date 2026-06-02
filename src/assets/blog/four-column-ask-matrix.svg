@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
+  <rect x="2" y="2" width="996" height="616" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .q   { font-size: 26px; font-weight: 700; }
+    .sub { font-size: 14px; fill: #5b616b; }
+    .ax  { font-size: 15px; fill: #5b616b; font-weight: 700; }
+    .axl { font-size: 13px; fill: #7a808c; }
+  </style>
+
+  <!-- axis labels -->
+  <text class="ax" x="500" y="595" text-anchor="middle">solution clarity →</text>
+  <text class="axl" x="250" y="615" text-anchor="middle">low</text>
+  <text class="axl" x="760" y="615" text-anchor="middle">high</text>
+  <g transform="translate(34,310) rotate(-90)">
+    <text class="ax" x="0" y="0" text-anchor="middle">evidence strength →</text>
+  </g>
+  <text class="axl" x="58" y="500">low</text>
+  <text class="axl" x="58" y="120">high</text>
+
+  <!-- quadrants -->
+  <!-- top-left Analyze -->
+  <rect x="90" y="80" width="410" height="230" fill="#c87533" fill-opacity="0.14" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2.5"/>
+  <text class="q" x="120" y="150" fill="#c87533">Analyze</text>
+  <text class="sub" x="120" y="180">high evidence · low clarity</text>
+  <text class="sub" x="120" y="206">real problem, no solution yet</text>
+  <text class="sub" x="120" y="232">→ research &amp; brainstorm</text>
+
+  <!-- top-right Build -->
+  <rect x="500" y="80" width="410" height="230" fill="#3a7d44" fill-opacity="0.18" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2.5"/>
+  <text class="q" x="530" y="150" fill="#3a7d44">Build</text>
+  <text class="sub" x="530" y="180">high evidence · high clarity</text>
+  <text class="sub" x="530" y="206">real problem, settled design</text>
+  <text class="sub" x="530" y="232">→ ship it</text>
+
+  <!-- bottom-left Drop -->
+  <rect x="90" y="310" width="410" height="230" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2.5"/>
+  <text class="q" x="120" y="380" fill="#5b616b">Drop / Backlog</text>
+  <text class="sub" x="120" y="410">low evidence · low clarity</text>
+  <text class="sub" x="120" y="436">a hunch with no support</text>
+  <text class="sub" x="120" y="462">→ park it or let it go</text>
+
+  <!-- bottom-right Test -->
+  <rect x="500" y="310" width="410" height="230" fill="#2a52be" fill-opacity="0.12" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2.5"/>
+  <text class="q" x="530" y="380" fill="#2a52be">Test</text>
+  <text class="sub" x="530" y="410">low evidence · high clarity</text>
+  <text class="sub" x="530" y="436">designed, but unvalidated</text>
+  <text class="sub" x="530" y="462">→ prototype &amp; validate</text>
+</svg>

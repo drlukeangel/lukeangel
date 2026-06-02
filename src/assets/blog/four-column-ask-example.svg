@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
+  <rect x="2" y="2" width="996" height="616" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .q   { font-size: 17px; font-weight: 700; }
+    .ax  { font-size: 14px; fill: #5b616b; font-weight: 700; }
+    .axl { font-size: 12px; fill: #7a808c; }
+    .feat{ font-size: 14px; }
+    .note{ font-size: 12px; fill: #7a808c; }
+  </style>
+
+  <text class="note" x="40" y="40">five candidate features, placed — each lands on its mandated next move</text>
+
+  <!-- axes -->
+  <text class="ax" x="510" y="600" text-anchor="middle">solution clarity →</text>
+  <text class="axl" x="270" y="585" text-anchor="middle">low</text>
+  <text class="axl" x="780" y="585" text-anchor="middle">high</text>
+  <g transform="translate(34,330) rotate(-90)"><text class="ax" x="0" y="0" text-anchor="middle">evidence →</text></g>
+
+  <!-- quadrants -->
+  <rect x="100" y="70" width="410" height="230" fill="#c87533" fill-opacity="0.12" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="510" y="70" width="410" height="230" fill="#3a7d44" fill-opacity="0.16" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="100" y="300" width="410" height="230" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="510" y="300" width="410" height="230" fill="#2a52be" fill-opacity="0.10" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+
+  <text class="q" x="120" y="98" fill="#c87533">Analyze</text>
+  <text class="q" x="530" y="98" fill="#3a7d44">Build</text>
+  <text class="q" x="120" y="328" fill="#5b616b">Drop / Backlog</text>
+  <text class="q" x="530" y="328" fill="#2a52be">Test</text>
+
+  <!-- Analyze: churn quotes -->
+  <circle cx="180" cy="180" r="9" fill="#c87533"/>
+  <text class="feat" x="200" y="178">churn-interview anger,</text>
+  <text class="feat" x="200" y="196">no obvious fix</text>
+  <text class="note" x="200" y="216">→ go research the problem</text>
+
+  <!-- Build: checkout fix -->
+  <circle cx="600" cy="180" r="9" fill="#3a7d44"/>
+  <text class="feat" x="620" y="178">checkout fix —</text>
+  <text class="feat" x="620" y="196">specced &amp; data-backed</text>
+  <text class="note" x="620" y="216">→ ship it</text>
+
+  <!-- Test: AI summary -->
+  <circle cx="610" cy="400" r="9" fill="#2a52be"/>
+  <text class="feat" x="630" y="398">AI-summary feature —</text>
+  <text class="feat" x="630" y="416">slick demo, no usage data</text>
+  <text class="note" x="630" y="436">→ prototype &amp; validate</text>
+
+  <!-- Drop: rewrite + me-too -->
+  <circle cx="180" cy="400" r="9" fill="#7a808c"/>
+  <text class="feat" x="200" y="398">vague platform rewrite</text>
+  <circle cx="180" cy="450" r="9" fill="#7a808c"/>
+  <text class="feat" x="200" y="448">me-too competitor feature</text>
+  <text class="note" x="200" y="478">→ backlog until it earns a slot</text>
+</svg>

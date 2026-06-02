@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <rect x="2" y="2" width="996" height="596" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .q   { font-size: 19px; font-weight: 700; }
+    .ax  { font-size: 14px; fill: #5b616b; font-weight: 700; }
+    .axl { font-size: 12px; fill: #7a808c; }
+    .mv  { font-size: 13px; font-weight: 700; }
+    .note{ font-size: 12px; fill: #7a808c; }
+  </style>
+
+  <text class="note" x="40" y="40">the matrix is a snapshot of a thing in motion — ideas move as evidence and clarity change</text>
+
+  <!-- axes -->
+  <text class="ax" x="510" y="582" text-anchor="middle">solution clarity →</text>
+  <text class="axl" x="290" y="566" text-anchor="middle">low</text>
+  <text class="axl" x="760" y="566" text-anchor="middle">high</text>
+  <g transform="translate(34,320) rotate(-90)"><text class="ax" x="0" y="0" text-anchor="middle">evidence strength →</text></g>
+
+  <!-- quadrants -->
+  <rect x="110" y="70" width="400" height="220" fill="#c87533" fill-opacity="0.13" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="510" y="70" width="400" height="220" fill="#3a7d44" fill-opacity="0.17" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="110" y="290" width="400" height="220" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="510" y="290" width="400" height="220" fill="#2a52be" fill-opacity="0.11" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+
+  <text class="q" x="132" y="104" fill="#c87533">Analyze</text>
+  <text class="q" x="532" y="104" fill="#3a7d44">Build</text>
+  <text class="q" x="132" y="324" fill="#5b616b">Drop / Backlog</text>
+  <text class="q" x="532" y="324" fill="#2a52be">Test</text>
+
+  <!-- MOTION 1: Test -> Build (slides up), green, solid -->
+  <line x1="690" y1="300" x2="690" y2="200" stroke="#3a7d44" stroke-width="5"/>
+  <polygon points="690,188 681,206 699,206" fill="#3a7d44"/>
+  <text class="mv" x="704" y="252" fill="#3a7d44">prototype</text>
+  <text class="mv" x="704" y="270" fill="#3a7d44">passes →</text>
+
+  <!-- MOTION 2: Analyze -> Build (slides right), amber, solid -->
+  <line x1="370" y1="150" x2="560" y2="150" stroke="#c87533" stroke-width="5"/>
+  <polygon points="572,150 554,141 554,159" fill="#c87533"/>
+  <text class="mv" x="388" y="138" fill="#c87533">solution emerges →</text>
+
+  <!-- MOTION 3: Build -> Test (slides BACK down), red, dashed — the uncomfortable one -->
+  <line x1="820" y1="280" x2="820" y2="380" stroke="#c14a3a" stroke-width="5" stroke-dasharray="10 7"/>
+  <polygon points="820,392 811,374 829,374" fill="#c14a3a"/>
+  <text class="mv" x="700" y="430" fill="#c14a3a" text-anchor="end">stale data ↓</text>
+  <text class="note" x="700" y="448" text-anchor="end" fill="#c14a3a">the talk nobody wants</text>
+
+  <!-- footer -->
+  <text class="note" x="510" y="540" text-anchor="middle">re-place the board every cycle — the value is noticing what moved, especially what slid backward.</text>
+</svg>
