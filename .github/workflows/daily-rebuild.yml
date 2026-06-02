@@ -1,34 +1,39 @@
 name: Daily rebuild
 
-# Re-deploys the site once a day so date-gated posts (future-dated entries that
-# are filtered out at build time by src/lib/posts.ts) go live on their date
-# without a manual push. The site is statically built, so "today" is frozen at
-# build time — this scheduled rebuild advances it.
+# The site is statically built and already auto-deploys on every push to the
+# production branch. Date-gated posts (future-dated entries filtered out at
+# build time by src/lib/posts.ts) only appear when the site is rebuilt — so
+# this job pushes one empty commit per day to trigger the normal deploy,
+# advancing "today" and publishing anything whose date has arrived.
 #
-# Setup (one time):
-#   1. Vercel → Project → Settings → Git → Deploy Hooks → create a hook on the
-#      production branch. Copy the URL.
-#   2. GitHub → repo → Settings → Secrets and variables → Actions → New secret
-#      named VERCEL_DEPLOY_HOOK with that URL.
+# No extra setup required: it reuses the existing GitHub -> Vercel build.
+# The default GITHUB_TOKEN can push to the repo.
 
 on:
   schedule:
-    # 13:15 UTC = 09:15 America/New_York during EDT (just after the 09:00 ET
-    # post time, so that day's blog post and midnight-dated gratitude both
-    # become visible in the same run). GitHub cron is always UTC and does not
-    # observe DST; during EST this fires at 08:15 ET, which is still fine.
+    # 13:15 UTC = 09:15 America/New_York during EDT — just after the 09:00 ET
+    # post time, so that day's 9am blog post and any midnight-dated gratitude
+    # both go live in the same run. GitHub cron is UTC and ignores DST; during
+    # EST this fires at 08:15 ET, still fine.
     - cron: "15 13 * * *"
-  workflow_dispatch: {}  # allow a manual "run now" from the Actions tab
+  workflow_dispatch: {}  # manual "run now" from the Actions tab
+
+# Update this if the production branch is not "master".
+env:
+  DEPLOY_BRANCH: master
 
 jobs:
-  trigger-deploy:
+  nudge-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Trigger Vercel deploy hook
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.DEPLOY_BRANCH }}
+      - name: Push empty commit to trigger a deploy
         run: |
-          if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK }}" ]; then
-            echo "VERCEL_DEPLOY_HOOK secret is not set — skipping." >&2
-            exit 1
-          fi
-          curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
-          echo "Deploy hook triggered."
+          git config user.name  "site-scheduler[bot]"
+          git config user.email "site-scheduler@users.noreply.github.com"
+          git commit --allow-empty -m "chore: daily rebuild to publish scheduled posts"
+          git push origin "${{ env.DEPLOY_BRANCH }}"
