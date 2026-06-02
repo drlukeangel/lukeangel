@@ -11,11 +11,12 @@ name: Daily rebuild
 
 on:
   schedule:
-    # 13:15 UTC = 09:15 America/New_York during EDT — just after the 09:00 ET
-    # post time, so that day's 9am blog post and any midnight-dated gratitude
-    # both go live in the same run. GitHub cron is UTC and ignores DST; during
-    # EST this fires at 08:15 ET, still fine.
-    - cron: "15 13 * * *"
+    # 10:00 UTC = 06:00 America/New_York during EDT. GitHub cron is UTC and
+    # ignores DST, so during EST this fires at 05:00 ET. Either way it's the
+    # morning rebuild that picks up that day's date-gated posts. Note: blog
+    # posts dated 09:00 ET won't appear until the *next* day's run since 6am
+    # precedes them; midnight-dated gratitude publishes same morning.
+    - cron: "0 10 * * *"
   workflow_dispatch: {}  # manual "run now" from the Actions tab
 
 # Update this if the production branch is not "master".
