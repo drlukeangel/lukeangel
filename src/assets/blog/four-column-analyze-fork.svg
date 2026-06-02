@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480">
+  <rect x="2" y="2" width="996" height="476" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24}
+    .h{font-size:18px;font-weight:700}.sub{font-size:13px;fill:#5b616b}.note{font-size:13px;fill:#7a808c}
+  </style>
+  <text class="note" x="40" y="40">strong evidence of a problem · several possible solutions · none yet proven</text>
+  <!-- loud signal stack on the left -->
+  <rect x="50" y="120" width="210" height="220" rx="8" fill="#c87533" fill-opacity="0.10" stroke="#c87533" stroke-width="2.5"/>
+  <text class="h" x="70" y="152" fill="#c87533">the signal</text>
+  <text class="sub" x="70" y="186">↑ support tickets</text>
+  <text class="sub" x="70" y="214">↓ a falling metric</text>
+  <text class="sub" x="70" y="242">"same churn quote ×5"</text>
+  <text class="note" x="70" y="300">real. loud.</text>
+  <text class="note" x="70" y="322">but not a solution.</text>
+  <!-- analyze box -->
+  <circle cx="450" cy="230" r="70" fill="#c87533" fill-opacity="0.16" stroke="#c87533" stroke-width="3"/>
+  <text class="h" x="450" y="225" fill="#c87533" text-anchor="middle">Analyze</text>
+  <text class="sub" x="450" y="250" text-anchor="middle">define ·</text>
+  <text class="sub" x="450" y="270" text-anchor="middle">diverge</text>
+  <line x1="260" y1="230" x2="376" y2="230" stroke="#c87533" stroke-width="4"/><polygon points="376,230 360,221 360,239" fill="#c87533"/>
+  <!-- fork of candidate solutions out the right -->
+  <line x1="520" y1="210" x2="700" y2="140" stroke="#3a7d44" stroke-width="4"/><polygon points="700,140 681,142 690,158" fill="#3a7d44"/>
+  <line x1="520" y1="230" x2="700" y2="230" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="3" stroke-dasharray="8 6"/><polygon points="700,230 684,221 684,239" fill="#1a1d24" fill-opacity="0.4"/>
+  <line x1="520" y1="250" x2="700" y2="320" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="3" stroke-dasharray="8 6"/><polygon points="700,320 690,302 681,318" fill="#1a1d24" fill-opacity="0.4"/>
+  <text class="sub" x="715" y="138" fill="#3a7d44">option A → Build/Test</text>
+  <text class="note" x="715" y="234">option B</text>
+  <text class="note" x="715" y="320">option C</text>
+  <text class="note" x="500" y="430" text-anchor="middle">research narrows the fork — the output is a sharp problem + ranked options, not a feature</text>
+</svg>

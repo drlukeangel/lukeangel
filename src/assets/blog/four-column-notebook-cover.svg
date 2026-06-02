@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs><pattern id="d" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#2a52be" fill-opacity="0.10"/></pattern></defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/><rect width="1200" height="630" fill="url(#d)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+  <rect x="380" y="120" width="220" height="190" fill="#c87533" fill-opacity="0.16" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <rect x="600" y="120" width="220" height="190" fill="#3a7d44" fill-opacity="0.22" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <rect x="380" y="310" width="220" height="190" fill="#1a1d24" fill-opacity="0.06" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <rect x="600" y="310" width="220" height="190" fill="#2a52be" fill-opacity="0.16" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <circle cx="470" cy="200" r="24" fill="none" stroke="#c87533" stroke-width="8"/><line x1="488" y1="218" x2="508" y2="238" stroke="#c87533" stroke-width="9" stroke-linecap="round"/>
+  <path d="M688 205 l22 24 l44 -52" fill="none" stroke="#3a7d44" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="480" y1="372" x2="480" y2="432" stroke="#7a808c" stroke-width="8" stroke-linecap="round"/><polygon points="480,444 462,416 498,416" fill="#7a808c"/>
+  <path d="M712 372 v32 l-24 42 a6 6 0 0 0 5 9 h58 a6 6 0 0 0 5 -9 l-24 -42 v-32 z" fill="none" stroke="#2a52be" stroke-width="7" stroke-linejoin="round"/><line x1="704" y1="372" x2="740" y2="372" stroke="#2a52be" stroke-width="7" stroke-linecap="round"/>
+  <line x1="380" y1="538" x2="820" y2="538" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="3"/><polygon points="820,538 804,530 804,546" fill="#1a1d24" fill-opacity="0.55"/>
+  <line x1="340" y1="500" x2="340" y2="120" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="3"/><polygon points="340,120 332,136 348,136" fill="#1a1d24" fill-opacity="0.55"/>
+</svg>

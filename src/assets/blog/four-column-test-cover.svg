@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs><pattern id="d" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#2a52be" fill-opacity="0.10"/></pattern></defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/><rect width="1200" height="630" fill="url(#d)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+  <!-- bottom-right Test lit blue -->
+  <rect x="420" y="120" width="220" height="190" fill="#1a1d24" fill-opacity="0.04" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2.5"/>
+  <rect x="640" y="120" width="220" height="190" fill="#1a1d24" fill-opacity="0.04" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2.5"/>
+  <rect x="420" y="310" width="220" height="190" fill="#1a1d24" fill-opacity="0.04" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2.5"/>
+  <rect x="640" y="310" width="220" height="190" fill="#2a52be" fill-opacity="0.18" stroke="#2a52be" stroke-width="4"/>
+  <!-- flask glyph -->
+  <path d="M735 350 v44 l-34 56 a8 8 0 0 0 7 12 h78 a8 8 0 0 0 7 -12 l-34 -56 v-44 z" fill="none" stroke="#2a52be" stroke-width="9" stroke-linejoin="round"/>
+  <line x1="724" y1="350" x2="772" y2="350" stroke="#2a52be" stroke-width="9" stroke-linecap="round"/>
+  <line x1="710" y1="430" x2="786" y2="430" stroke="#2a52be" stroke-width="7" stroke-opacity="0.5"/>
+  <line x1="420" y1="538" x2="860" y2="538" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/><polygon points="860,538 844,530 844,546" fill="#1a1d24" fill-opacity="0.5"/>
+  <line x1="380" y1="500" x2="380" y2="120" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/><polygon points="380,120 372,136 388,136" fill="#1a1d24" fill-opacity="0.5"/>
+</svg>

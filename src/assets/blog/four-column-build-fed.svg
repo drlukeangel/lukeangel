@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560">
+  <rect x="2" y="2" width="996" height="556" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24}
+    .q{font-size:20px;font-weight:700}.sub{font-size:13px;fill:#5b616b}.ax{font-size:13px;fill:#5b616b;font-weight:700}.note{font-size:13px;fill:#7a808c}
+  </style>
+  <text class="note" x="40" y="40">Build is fed by the other columns — it is not the inbox</text>
+  <text class="ax" x="500" y="540" text-anchor="middle">solution clarity →</text>
+  <g transform="translate(36,300) rotate(-90)"><text class="ax" x="0" y="0" text-anchor="middle">evidence →</text></g>
+  <!-- quadrants -->
+  <rect x="110" y="80" width="380" height="200" fill="#c87533" fill-opacity="0.10" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="490" y="80" width="400" height="200" fill="#3a7d44" fill-opacity="0.20" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="110" y="280" width="380" height="200" fill="#1a1d24" fill-opacity="0.04" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="490" y="280" width="400" height="200" fill="#2a52be" fill-opacity="0.09" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <text class="q" x="130" y="112" fill="#c87533">Analyze</text>
+  <text class="q" x="510" y="112" fill="#3a7d44">Build</text>
+  <text class="sub" x="510" y="138">code is the right move — only here</text>
+  <text class="q" x="130" y="312" fill="#5b616b">Drop</text>
+  <text class="q" x="510" y="312" fill="#2a52be">Test</text>
+  <!-- feeding arrows into Build -->
+  <line x1="360" y1="150" x2="500" y2="150" stroke="#c87533" stroke-width="5"/><polygon points="512,150 494,141 494,159" fill="#c87533"/>
+  <text class="sub" x="370" y="138" fill="#c87533">solution emerges →</text>
+  <line x1="690" y1="280" x2="690" y2="200" stroke="#2a52be" stroke-width="5"/><polygon points="690,188 681,206 699,206" fill="#2a52be"/>
+  <text class="sub" x="704" y="250" fill="#2a52be">evidence</text>
+  <text class="sub" x="704" y="268" fill="#2a52be">arrives ↑</text>
+  <text class="note" x="500" y="520" text-anchor="middle">no evidence → Test · no settled solution → Analyze · items arrive, they don't start here</text>
+</svg>

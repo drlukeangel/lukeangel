@@ -1,0 +1,51 @@
+---
+title: "The Test column: a mockup is not evidence"
+date: 2026-02-24T09:00:00-05:00
+category: product
+tags: [product, prioritization, experimentation, discovery]
+notebook: the-four-column-ask
+notebookOrder: 3
+excerpt: "High clarity, low evidence: a crisp, fully-designed concept that nobody has proven anyone wants. The trap is that polish feels like proof — a mockup demos well and a stakeholder loves it, and now it's in the sprint. Test is the column that turns 'we think' into 'we know' for the price of a prototype instead of a quarter."
+pullquote: "Polish is the most expensive disguise evidence ever wore. A thing can be beautiful, specified, and completely unwanted."
+cover: "../../assets/blog/four-column-test-cover.svg"
+coverAlt: "The clarity-versus-evidence grid with the bottom-right Test quadrant lit in blue and the others faded, a vertical rust-orange accent bar at the left edge — high clarity, low evidence, the column where you buy proof cheaply."
+featured: false
+---
+
+This is part of [The Four-Column Ask](/notebooks/the-four-column-ask/). The [framework post](/blog/the-four-column-ask/) sorts ideas by clarity and evidence. **Test** is the bottom-right: high clarity, *low* evidence. You know exactly what you'd build — it's designed, it's crisp, it demos beautifully — and you have no proof anyone actually wants it. The job of this column is to buy that proof for the price of a prototype, before it costs you a sprint.
+
+![A locator showing the four-column grid with the bottom-right Test quadrant lit in blue and the other three faded — high clarity but low evidence, the column where you buy proof cheaply before committing a sprint.](../../assets/blog/four-column-test-cover.svg)
+
+## The trap: polish feels like proof
+
+A finished mockup is the most dangerous artifact in product, because it activates every instinct that's supposed to mean "ready." It's concrete. It's specific. It demos well in the all-hands. A stakeholder sees it and says "yes, *this*." And every one of those signals is about the *solution's clarity* — none of it is *evidence the problem is worth solving.* You can have a pixel-perfect, universally-admired design for a feature literally no one will use.
+
+That's the miscategorization that eats quarters: a Test item shipped as a [Build](/blog/the-build-column/) item, because polish got mistaken for validation. The whole point of naming the column is to interrupt that — to say, out loud, "this is gorgeous and unproven, and gorgeous-and-unproven is Test."
+
+![A split image. On the left, a polished, detailed UI mockup with a green checkmark and the label "feels ready." On the right, the same feature represented as a single data point with a question mark and the label "is it wanted?" An arrow labelled "polish is not evidence" runs between them. The caption: clarity answers what we'd build; only a test answers whether to build it.](../../assets/blog/four-column-test-polish.svg)
+
+## The move: the cheapest thing that turns "we think" into "we know"
+
+Test is not "build a smaller version." It's "run the cheapest experiment that produces a real signal." The ladder, roughly cheapest to dearest:
+
+- **Fake door** — ship the button, not the feature; measure how many people click it and where they fall off. Costs an afternoon, kills more bad ideas than anything else.
+- **Prototype + five users** — a clickable flow in front of five real people in the target segment. You will learn more in those five sessions than in five weeks of internal debate. (Five is not a focus group; it's a smoke detector. If three of five hit the same wall, you have your answer.)
+- **Concierge / Wizard-of-Oz** — do the thing manually behind the scenes for a handful of customers before automating it. Proves demand *and* surfaces the real workflow.
+- **A/B on a thin slice** — only when you already have traffic and the build is genuinely small. The heaviest test; reach for it last.
+
+The discipline is to pick the *cheapest* rung that would actually change your mind, run it, and then move the item: passed → it slides up into [Build](/blog/the-build-column/); failed → it goes to [Drop](/blog/the-drop-column/), and you just saved a sprint.
+
+## "We'll just build it to learn" is a Build wearing a Test costume
+
+The most common way teams skip this column is to build the real thing and call shipping it "the experiment." Sometimes that's right — when the build truly is cheaper than the test. Usually it isn't, and "we'll learn from production" is how you spend a quarter to learn something a fake door would have told you in a day. If the honest cheapest-thing-that-would-change-your-mind is smaller than the feature, the feature isn't Build yet. It's Test, and the test is the smaller thing.
+
+## What I'd tell a team
+
+- **Name the disguise.** When a beautiful mockup shows up in planning, say "Test" before anyone says "Build." The word does the work — it reframes admiration as a hypothesis.
+- **Pick the rung that would change your mind.** Not the most rigorous test imaginable — the cheapest one whose result you'd actually act on. If a fake door would settle it, a prototype is procrastination.
+- **Pre-commit to the threshold.** Decide what "passed" means *before* you run it, or you'll rationalize whatever you get. "≥ 30% of clickers complete the fake-door flow" beats "see how it feels."
+- **A failed test is a win.** It's the cheapest outcome in the whole framework — proof you *shouldn't* build, bought for an afternoon. Celebrate the kills.
+
+## What's next
+
+Test answers "do they want this solution?" But sometimes you don't have a solution to test yet — only a loud, well-evidenced problem. That's the column most teams skip, and skipping it is how you ship a confident answer to a question you never understood. Next: the [Analyze column](/blog/the-analyze-column/).

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <rect x="2" y="2" width="996" height="596" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24}
+    .ax{font-size:14px;fill:#5b616b;font-weight:700}.axl{font-size:12px;fill:#7a808c}
+    .lab{font-size:13px}.note{font-size:12px;fill:#7a808c}.keep{font-size:15px;font-weight:700;fill:#3a7d44}.drop{font-size:15px;font-weight:700;fill:#c14a3a}
+  </style>
+  <text class="note" x="40" y="38">roadmap grooming: value vs. cost — and the line that the rest of the column pushes up</text>
+  <!-- axes -->
+  <line x1="120" y1="90" x2="120" y2="500" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <line x1="120" y1="500" x2="900" y2="500" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2"/>
+  <text class="ax" x="510" y="540" text-anchor="middle">total cost  (build + carrying) →</text>
+  <g transform="translate(40,300) rotate(-90)"><text class="ax" x="0" y="0" text-anchor="middle">honest value →</text></g>
+  <text class="axl" x="135" y="110">high</text><text class="axl" x="135" y="495">low</text>
+  <!-- opportunity-cost line: diagonal from top-left-ish down to right -->
+  <line x1="120" y1="200" x2="820" y2="470" stroke="#c14a3a" stroke-width="3" stroke-dasharray="9 6"/>
+  <text class="drop" x="640" y="360" transform="rotate(21 640 360)">opportunity-cost line ↑ rises as better ideas arrive</text>
+  <!-- shaded drop zone below/right of line -->
+  <path d="M120 200 L820 470 L900 500 L120 500 Z" fill="#c14a3a" fill-opacity="0.06"/>
+  <!-- KEEP dots (above line) -->
+  <circle cx="220" cy="150" r="11" fill="#3a7d44"/><text class="lab" x="240" y="155">high value, cheap</text>
+  <circle cx="430" cy="180" r="10" fill="#3a7d44"/><text class="lab" x="450" y="185">strong bet</text>
+  <text class="keep" x="200" y="120">KEEP — above the line</text>
+  <!-- DROP dots (below line) -->
+  <circle cx="600" cy="440" r="10" fill="#7a808c"/>
+  <circle cx="690" cy="465" r="10" fill="#7a808c"/>
+  <text class="lab" x="430" y="445">decent, but too costly ↘</text>
+  <circle cx="300" cy="395" r="11" fill="#c14a3a"/><text class="lab" x="322" y="392">beloved, but mediocre (6/10)</text>
+  <text class="note" x="322" y="414">good — and still a drop: the line moved past it</text>
+</svg>

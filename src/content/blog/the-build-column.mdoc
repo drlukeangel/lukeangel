@@ -1,0 +1,52 @@
+---
+title: "The Build column is smaller than you think"
+date: 2026-02-10T09:00:00-05:00
+category: product
+tags: [product, prioritization, roadmaps, delivery]
+notebook: the-four-column-ask
+notebookOrder: 2
+excerpt: "Build is the only column where writing code is the right move — and it's the smallest of the four, not the default. Most roadmaps are a Build column with everything crammed into it. Here's what actually earns a slot: real evidence, settled clarity, and a definition of done you wrote before the sprint, not after."
+pullquote: "Build isn't where ideas go to get prioritized. It's where they arrive after they've already earned it everywhere else."
+cover: "../../assets/blog/four-column-build-cover.svg"
+coverAlt: "The clarity-versus-evidence grid with only the top-right Build quadrant lit in confident green and the other three faded back, a vertical rust-orange accent bar at the left edge — Build as the small, earned corner."
+featured: false
+---
+
+This is part of [The Four-Column Ask](/notebooks/the-four-column-ask/) — one post per column. The [framework post](/blog/the-four-column-ask/) sorts every roadmap idea by two questions: how clear is the solution, how strong is the evidence. **Build** is the top-right corner: high clarity *and* high evidence. It's the only column where the next action is "write the code." It's also the smallest, and the one teams quietly turn into a dumping ground.
+
+![A locator showing the four-column grid with the top-right Build quadrant lit in green and the other three faded — high clarity and high evidence, the only quadrant where writing code is the right next move.](../../assets/blog/four-column-build-cover.svg)
+
+## Build is a destination, not a starting line
+
+Here's the mental flip that makes the whole framework work: **Build isn't where ideas go to get prioritized — it's where they arrive after they've earned it everywhere else.** A feature lands in Build because the evidence already exists (you proved the problem in Analyze or the demand in Test) and the solution is already settled (you designed it, you scoped it, the open questions are closed). Build is the *output* of the other three columns doing their job, not the inbox.
+
+Most roadmaps invert this. Everything goes straight into Build because "we're a shipping team and shipping means building." So the column fills with half-validated bets and half-designed features, and the team spends the sprint discovering the questions that should have been answered before the ticket existed.
+
+![The clarity-versus-evidence grid with the top-right Build quadrant filled solid green and the other three quadrants greyed out. Arrows feed into Build from the left (Analyze, once a solution emerges) and from below (Test, once evidence arrives), with a label noting Build is fed by the other columns, not filled directly. The point: code is the right move only in this one corner, and items arrive here rather than start here.](../../assets/blog/four-column-build-fed.svg)
+
+## What actually earns a Build slot
+
+Three things, and all three, not two of three:
+
+- **Evidence the problem is real.** Not "a stakeholder wants it." Usage data, a metric that moves, a validated demand signal from a Test, a clear pattern from Analyze. Wanting is not evidence — that's the [Test column's](/blog/the-test-column/) whole lesson.
+- **A settled solution.** You can write the definition of done *before* the sprint, and it won't change three days in because someone "realized" something. If the design still has open forks, it's not Build yet — it's Test or Analyze wearing a Jira ticket.
+- **Scoped to a shippable increment.** "Rebuild search" is not a Build item; it's a project. "Add fuzzy matching to the existing search box, measured against the current null-result rate" is. Build items are small enough that *done* is unambiguous.
+
+If a candidate is missing any one of those, it doesn't get demoted in priority — it gets sent to the column that supplies the missing piece. No evidence → Test. No solution → Analyze. The honest move isn't to build it anyway "to learn"; that's just an unfunded experiment with a deadline.
+
+## The definition of done is the gate
+
+The single most useful discipline in this column: **write the definition of done before you start, and treat any mid-sprint change to it as evidence the item didn't belong in Build.** A Build item whose scope keeps moving is telling you it was actually a Test (you didn't know if the approach worked) or an Analyze (you didn't understand the problem). That's not a failure — it's the framework catching a miscategorization before it eats the whole sprint. Slide it back a column and stop pretending.
+
+This is also why "Build" is where weighted scoring finally earns its keep. RICE, value-vs-effort, whatever your shop uses — those models assume you *know* the value and the effort. Inside Build, you do; that's what got it here. Run them anywhere else and you're putting decimal points on guesses.
+
+## What I'd tell a team
+
+- **Keep the column small on purpose.** A short Build column isn't a sign the team is under-ambitious — it's a sign the other three columns are doing their job. A bloated Build column is the warning light.
+- **Make "definition of done before the sprint" non-negotiable.** It's the cheapest test for whether something is genuinely Build. If you can't write it, you're not ready to build it.
+- **When scope moves, move the item.** A Build item that keeps changing isn't a discipline problem to push through — it's a misfiled card. Send it back to Test or Analyze and let it re-earn the slot.
+- **Save the scoring for here.** Effort and value estimates mean something only when clarity and evidence are both high. Everywhere else, they're confident fiction.
+
+## What's next
+
+Build is the easy column to *describe* and the hard one to keep honest. The harder questions are upstream. Next: the [Test column](/blog/the-test-column/) — high clarity, low evidence — and the most seductive mistake in product, mistaking a beautiful mockup for proof.
