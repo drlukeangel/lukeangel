@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="City row-house range test.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="d7" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="0.85" fill="#1a1d24" opacity="0.07"/>
+    </pattern>
+    <marker id="ah7" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1f7a6b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#d7)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#1f7a6b"/>
+
+  <!-- sidewalk -->
+  <line x1="80" y1="525" x2="1180" y2="525" stroke="#1a1d24" stroke-width="1.8" stroke-opacity="0.45"/>
+  <line x1="80" y1="555" x2="1180" y2="555" stroke="#1a1d24" stroke-width="1.2" stroke-opacity="0.18"/>
+
+  <!-- HOUSE 1 (left) — BASE STATION with antenna -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 110 230 L 110 525 L 290 525 L 290 230 L 200 155 Z"/>
+    <!-- bay window with mullions -->
+    <rect x="138" y="320" width="62" height="92"/>
+    <line x1="159" y1="320" x2="159" y2="412"/>
+    <line x1="180" y1="320" x2="180" y2="412"/>
+    <line x1="138" y1="366" x2="200" y2="366"/>
+    <!-- upper window -->
+    <rect x="142" y="246" width="46" height="50"/>
+    <line x1="165" y1="246" x2="165" y2="296"/>
+    <line x1="142" y1="271" x2="188" y2="271"/>
+    <!-- door + stoop -->
+    <rect x="225" y="410" width="42" height="115"/>
+    <path d="M 215 525 L 215 504 L 277 504 L 277 525" fill="none"/>
+    <path d="M 215 504 L 277 504" stroke-width="2"/>
+  </g>
+  <!-- antenna mast on house 1 roof -->
+  <line x1="200" y1="155" x2="200" y2="68" stroke="#1f7a6b" stroke-width="3.2" stroke-linecap="round"/>
+  <line x1="195" y1="68" x2="205" y2="68" stroke="#1f7a6b" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="200" cy="58" r="6.5" fill="#1f7a6b"/>
+
+  <!-- HOUSE 2 -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 308 250 L 308 525 L 478 525 L 478 250 L 393 180 Z"/>
+    <rect x="335" y="340" width="58" height="84"/>
+    <line x1="356" y1="340" x2="356" y2="424"/>
+    <line x1="377" y1="340" x2="377" y2="424"/>
+    <line x1="335" y1="382" x2="393" y2="382"/>
+    <rect x="340" y="270" width="42" height="46"/>
+    <line x1="361" y1="270" x2="361" y2="316"/>
+    <line x1="340" y1="293" x2="382" y2="293"/>
+    <rect x="412" y="420" width="40" height="105"/>
+    <path d="M 403 525 L 403 506 L 462 506 L 462 525" fill="none"/>
+  </g>
+
+  <!-- HOUSE 3 -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 496 260 L 496 525 L 668 525 L 668 260 L 582 192 Z"/>
+    <rect x="524" y="346" width="58" height="84"/>
+    <line x1="545" y1="346" x2="545" y2="430"/>
+    <line x1="566" y1="346" x2="566" y2="430"/>
+    <line x1="524" y1="388" x2="582" y2="388"/>
+    <rect x="528" y="278" width="42" height="46"/>
+    <line x1="549" y1="278" x2="549" y2="324"/>
+    <line x1="528" y1="301" x2="570" y2="301"/>
+    <rect x="601" y="424" width="40" height="101"/>
+    <path d="M 592 525 L 592 508 L 651 508 L 651 525" fill="none"/>
+  </g>
+
+  <!-- HOUSE 4 -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 686 268 L 686 525 L 858 525 L 858 268 L 772 200 Z"/>
+    <rect x="714" y="350" width="58" height="84"/>
+    <line x1="735" y1="350" x2="735" y2="434"/>
+    <line x1="756" y1="350" x2="756" y2="434"/>
+    <line x1="714" y1="392" x2="772" y2="392"/>
+    <rect x="718" y="284" width="42" height="46"/>
+    <line x1="739" y1="284" x2="739" y2="330"/>
+    <line x1="718" y1="307" x2="760" y2="307"/>
+    <rect x="791" y="428" width="40" height="97"/>
+    <path d="M 782 525 L 782 510 L 841 510 L 841 525" fill="none"/>
+  </g>
+
+  <!-- HOUSE 5 -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 876 276 L 876 525 L 1048 525 L 1048 276 L 962 208 Z"/>
+    <rect x="904" y="354" width="58" height="84"/>
+    <line x1="925" y1="354" x2="925" y2="438"/>
+    <line x1="946" y1="354" x2="946" y2="438"/>
+    <line x1="904" y1="396" x2="962" y2="396"/>
+    <rect x="908" y="290" width="42" height="46"/>
+    <line x1="929" y1="290" x2="929" y2="336"/>
+    <line x1="908" y1="313" x2="950" y2="313"/>
+    <rect x="981" y="430" width="40" height="95"/>
+    <path d="M 972 525 L 972 511 L 1031 511 L 1031 525" fill="none"/>
+  </g>
+
+  <!-- radio rings from base, fading outward east -->
+  <g fill="none" stroke="#1f7a6b" stroke-linecap="round">
+    <path d="M 240 78 Q 330 60 380 95"  stroke-width="2.8" opacity="0.85"/>
+    <path d="M 285 50 Q 430 30 530 95"  stroke-width="2.6" opacity="0.65"/>
+    <path d="M 345 30 Q 560 10 700 105" stroke-width="2.4" opacity="0.50"/>
+    <path d="M 410 18 Q 700 -8 850 115" stroke-width="2.2" opacity="0.35"/>
+    <path d="M 490 8  Q 850 -22 1000 125" stroke-width="2.0" opacity="0.22"/>
+  </g>
+
+  <!-- Walking figure (right side), holding collar puck -->
+  <g stroke="#1a1d24" stroke-width="2.6" fill="none" stroke-linecap="round">
+    <!-- head -->
+    <circle cx="1110" cy="378" r="13" fill="#fdfaf2"/>
+    <!-- torso -->
+    <line x1="1110" y1="391" x2="1110" y2="458"/>
+    <!-- arm forward holding collar -->
+    <line x1="1110" y1="408" x2="1142" y2="432"/>
+    <!-- arm back -->
+    <line x1="1110" y1="408" x2="1082" y2="445"/>
+    <!-- forward leg -->
+    <line x1="1110" y1="458" x2="1132" y2="514"/>
+    <!-- back leg -->
+    <line x1="1110" y1="458" x2="1088" y2="518"/>
+  </g>
+  <!-- collar puck (held forward) -->
+  <rect x="1134" y="424" width="20" height="14" rx="3" fill="#1f7a6b" stroke="#1a1d24" stroke-width="1.8"/>
+  <!-- collar antenna stub -->
+  <line x1="1149" y1="424" x2="1149" y2="414" stroke="#1f7a6b" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- small fading waves from the collar (faint, edge of range) -->
+  <g fill="none" stroke="#1f7a6b" stroke-linecap="round">
+    <path d="M 1130 416 Q 1108 412 1090 426" stroke-width="1.8" opacity="0.55"/>
+    <path d="M 1135 408 Q 1095 396 1070 422" stroke-width="1.6" opacity="0.30"/>
+  </g>
+
+  <!-- a stuck pin element near the center sky to hint at the cache bug -->
+  <g transform="translate(560, 90)">
+    <!-- pin shape -->
+    <path d="M 0 0 C -10 -8 -10 -28 0 -36 C 10 -28 10 -8 0 0 Z" fill="#c14a3a" stroke="#1a1d24" stroke-width="1.6"/>
+    <circle cx="0" cy="-26" r="3" fill="#fdfaf2"/>
+    <!-- subtle question-mark loop above to imply "wrong place" -->
+    <path d="M -6 -52 Q 0 -64 6 -58 Q 8 -52 0 -48" fill="none" stroke="#c14a3a" stroke-width="2.2" stroke-linecap="round" opacity="0.85" marker-end="url(#ah7)"/>
+  </g>
+</svg>

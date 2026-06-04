@@ -1,0 +1,31 @@
+# poc-config-collar.yaml
+# COLLAR — the node you carry on the walk, phone paired over BLE.
+# For the range test it is the RECEIVER + logger (sender: 0): the rangetest.csv
+# export comes off the phone-connected node, and SNR/RSSI + GPS are sampled here.
+# (In the product the collar transmits; on matched hardware the radio link is the
+# same in either direction, so this still measures the real collar<->base range.)
+# Channel is NOT in this file — sync the private channel separately by QR.
+owner: Collar
+owner_short: COLR
+
+config:
+  device:
+    role: CLIENT
+  lora:
+    region: US
+    usePreset: true
+    modemPreset: LONG_FAST
+    hopLimit: 3
+    txEnabled: true
+  position:
+    gpsMode: ENABLED
+    fixedPosition: false
+    gpsUpdateInterval: 30
+    positionBroadcastSecs: 30
+    positionBroadcastSmartEnabled: false
+
+module_config:
+  rangeTest:
+    enabled: true
+    sender: 0
+    save: false

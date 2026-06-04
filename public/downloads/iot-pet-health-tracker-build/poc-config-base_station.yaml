@@ -1,0 +1,29 @@
+# poc-config-base_station.yaml
+# BASE STATION — the stationary node that stays at the house.
+# For the range test it is the SENDER (sender: 30): it beacons a numbered
+# test packet every 30 s while you walk the collar away from it.
+# fixedPosition is ON but carries NO coordinates here — after importing, tap
+# "Set fixed position" on this node while it sits at home, or distance won't compute.
+# Channel is NOT in this file — sync the private channel separately by QR.
+owner: Base-Station
+owner_short: BASE
+
+config:
+  device:
+    role: CLIENT
+  lora:
+    region: US
+    usePreset: true
+    modemPreset: LONG_FAST
+    hopLimit: 3
+    txEnabled: true
+  position:
+    gpsMode: ENABLED
+    fixedPosition: true
+    positionBroadcastSecs: 60
+
+module_config:
+  rangeTest:
+    enabled: true
+    sender: 30
+    save: false
