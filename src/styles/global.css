@@ -89,9 +89,13 @@ header.site nav a.active {
 }
 
 /* always-dark utility — locked colors that don't flip with the theme,
- * for inverted bands and primary CTA buttons that should stay dark across modes. */
-.always-dark { background: #1a1d24; color: #fdfaf2; }
+ * for inverted bands and primary CTA buttons that should stay dark across modes.
+ * The accent is overridden to a brighter cobalt that meets WCAG AA contrast
+ * against the dark navy background (the default --accent #2a52be only hits
+ * ~3.8:1 on dark, this lifts it to ~6.5:1). */
+.always-dark { background: #1a1d24; color: #fdfaf2; --accent: #7894ff; }
 .always-dark h1, .always-dark h2, .always-dark h3, .always-dark h4 { color: #fdfaf2; }
+.always-dark p { color: #fdfaf2; }
 .always-dark a { color: var(--accent); }
 .always-dark .mono { color: var(--accent); }
 .always-dark em { color: var(--accent); font-style: italic; }

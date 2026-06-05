@@ -112,13 +112,13 @@ const websiteSchema = {
   <!-- GRATITUDE TICKER -->
   <section class="always-dark" style="padding: 56px 32px;">
     <div class="wrap" style="padding: 0;">
-      <div class="mono" style="color: var(--accent);">The Gratitude Index · this week</div>
-      <h2 style="font-size: 40px; margin-top: 10px;">One small thank-you, every day.</h2>
+      <h2 style="font-size: 40px;">The Gratitude Index</h2>
+      <div style="font-size: 26px; font-style: italic; color: var(--accent); margin-top: 12px;">One small thank-you, every day.</div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px;">
         {gratitude.map((g) => (
           <div style="border-left: 2px solid var(--accent); padding: 4px 0 4px 16px;">
             <div class="mono" style="color: var(--accent);">{g.data.date.toLocaleDateString('en-US', { month: 'short', day: '2-digit' })} · #{g.data.topic}</div>
-            <div style="font-size: 18px; margin-top: 8px; line-height: 1.5;" set:html={g.body.replace(/^---[\s\S]+?---/, '').trim()}></div>
+            <div style="font-size: 19px; margin-top: 8px; line-height: 1.65; color: #fdfaf2;" set:html={g.body.replace(/^---[\s\S]+?---/, '').trim()}></div>
           </div>
         ))}
       </div>
