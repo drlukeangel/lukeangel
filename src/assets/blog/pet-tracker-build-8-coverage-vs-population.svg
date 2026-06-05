@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" role="img" aria-label="Population vs land coverage.">
+  <rect width="1200" height="580" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1.5"/>
+
+  <text x="40" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="1.5" fill="#1a1d24">95% OF THE PEOPLE · NOT 95% OF THE LAND</text>
+
+  <!-- LEFT PANEL: population pie -->
+  <text x="240" y="98" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">US population · ~333 M</text>
+
+  <!-- pie -->
+  <g transform="translate(240, 290)">
+    <!-- covered 95% (large slice) -->
+    <path d="M 0,-150 A 150,150 0 1,1 -47,142 L 0,0 Z" fill="#1f7a6b" opacity="0.85"/>
+    <!-- uncovered 5% (small slice) -->
+    <path d="M 0,0 L -47,142 A 150,150 0 0,1 0,-150 Z" fill="#c14a3a" opacity="0.85"/>
+    <!-- ring outline -->
+    <circle cx="0" cy="0" r="150" fill="none" stroke="#1a1d24" stroke-width="2"/>
+  </g>
+
+  <!-- pie callouts -->
+  <text x="240" y="298" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" fill="#fdfaf2" font-weight="bold">95%</text>
+  <text x="240" y="322" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#fdfaf2">315 M people</text>
+
+  <text x="115" y="438" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a">5% / 18 M</text>
+  <text x="115" y="456" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#c14a3a">uncovered</text>
+  <line x1="160" y1="438" x2="190" y2="425" stroke="#c14a3a" stroke-width="1.4"/>
+
+  <text x="240" y="478" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">Pop-weighted "coverage" — the marketing number</text>
+
+  <!-- DIVIDER -->
+  <line x1="520" y1="120" x2="520" y2="490" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- RIGHT PANEL: US silhouette with bridge density dots -->
+  <text x="850" y="98" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="15" fill="#5b616b">US land area · ~3.8 M sq mi</text>
+
+  <!-- Simplified US shape (very rough proportions) -->
+  <g transform="translate(580, 130)">
+    <!-- Continental US silhouette (stylized) -->
+    <path d="M 30 100
+             L 50 70 L 90 55 L 140 50 L 200 45 L 260 42 L 320 45 L 370 48
+             L 420 50 L 470 55 L 510 65 L 540 80 L 560 105 L 555 130
+             L 545 155 L 530 175 L 510 190 L 490 200 L 470 205
+             L 450 215 L 430 225 L 410 230 L 380 232 L 350 230
+             L 320 228 L 290 230 L 260 235 L 230 240 L 200 238
+             L 170 232 L 140 225 L 110 215 L 85 200 L 65 180
+             L 50 160 L 40 140 L 30 120 Z"
+          fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2" stroke-linejoin="round"/>
+
+    <!-- DENSITY DOTS — urban metros heavily clustered -->
+    <!-- Northeast Corridor (Boston, NYC, Philly, DC, Baltimore) -->
+    <g fill="#1f7a6b">
+      <circle cx="475" cy="95" r="2.5"/><circle cx="478" cy="100" r="3"/><circle cx="473" cy="103" r="2.5"/>
+      <circle cx="481" cy="98" r="2.5"/><circle cx="468" cy="105" r="2.5"/>
+      <circle cx="465" cy="115" r="3.5"/><circle cx="470" cy="118" r="3"/><circle cx="462" cy="120" r="2.5"/>
+      <circle cx="473" cy="122" r="2.5"/><circle cx="458" cy="125" r="2.5"/><circle cx="467" cy="128" r="2"/>
+      <circle cx="455" cy="135" r="3"/><circle cx="460" cy="138" r="2.5"/><circle cx="452" cy="142" r="2"/>
+      <circle cx="448" cy="145" r="2.5"/>
+      <circle cx="445" cy="155" r="3"/><circle cx="442" cy="160" r="2.5"/><circle cx="450" cy="158" r="2"/>
+      <circle cx="438" cy="165" r="2.5"/>
+    </g>
+
+    <!-- Bay Area / LA -->
+    <g fill="#1f7a6b">
+      <circle cx="65" cy="135" r="3"/><circle cx="62" cy="140" r="2.5"/><circle cx="68" cy="142" r="2.5"/>
+      <circle cx="60" cy="145" r="2"/>
+      <circle cx="78" cy="175" r="3"/><circle cx="82" cy="180" r="2.5"/><circle cx="75" cy="182" r="2.5"/>
+      <circle cx="85" cy="185" r="2"/>
+    </g>
+
+    <!-- Chicago + Midwest cluster -->
+    <g fill="#1f7a6b">
+      <circle cx="345" cy="115" r="3.5"/><circle cx="350" cy="118" r="3"/><circle cx="342" cy="122" r="2.5"/>
+      <circle cx="348" cy="124" r="2"/><circle cx="338" cy="120" r="2.5"/>
+      <circle cx="355" cy="135" r="2.5"/><circle cx="360" cy="140" r="2"/>
+    </g>
+
+    <!-- Texas (Dallas, Houston, Austin) -->
+    <g fill="#1f7a6b">
+      <circle cx="280" cy="190" r="3"/><circle cx="285" cy="195" r="2.5"/><circle cx="278" cy="198" r="2.5"/>
+      <circle cx="290" cy="200" r="2"/>
+      <circle cx="295" cy="215" r="3"/><circle cx="300" cy="220" r="2.5"/><circle cx="298" cy="225" r="2"/>
+      <circle cx="305" cy="218" r="2"/>
+    </g>
+
+    <!-- Florida (Miami, Orlando, Tampa) -->
+    <g fill="#1f7a6b">
+      <circle cx="430" cy="220" r="3"/><circle cx="425" cy="225" r="2.5"/><circle cx="435" cy="222" r="2"/>
+      <circle cx="442" cy="228" r="2.5"/>
+    </g>
+
+    <!-- Atlanta -->
+    <g fill="#1f7a6b">
+      <circle cx="395" cy="180" r="3"/><circle cx="400" cy="183" r="2.5"/><circle cx="392" cy="186" r="2"/>
+    </g>
+
+    <!-- Pacific Northwest (Seattle, Portland) -->
+    <g fill="#1f7a6b">
+      <circle cx="85" cy="75" r="3"/><circle cx="88" cy="78" r="2.5"/><circle cx="82" cy="82" r="2"/>
+      <circle cx="90" cy="95" r="2.5"/><circle cx="85" cy="100" r="2"/>
+    </g>
+
+    <!-- Denver -->
+    <g fill="#1f7a6b">
+      <circle cx="205" cy="140" r="2.5"/><circle cx="210" cy="143" r="2"/>
+    </g>
+
+    <!-- Phoenix / Vegas -->
+    <g fill="#1f7a6b">
+      <circle cx="135" cy="170" r="2.5"/><circle cx="140" cy="175" r="2"/>
+      <circle cx="115" cy="160" r="2"/>
+    </g>
+
+    <!-- VAST EMPTY ZONES (Mountain West, Plains, etc) shown by absence -->
+    <text x="180" y="115" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#7a808c">MT / WY / ND</text>
+    <text x="195" y="128" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#7a808c">no coverage</text>
+
+    <text x="125" y="105" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#7a808c">ID</text>
+    <text x="140" y="118" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#7a808c">empty</text>
+
+    <text x="240" y="170" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#7a808c">rural KS / NE</text>
+  </g>
+
+  <!-- right-panel callouts -->
+  <text x="850" y="498" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#1f7a6b">~5% of the land has 95% of the bridges</text>
+
+  <!-- bottom caption -->
+  <text x="600" y="552" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#5b616b">Dogs roam the land, not the census tract.</text>
+</svg>

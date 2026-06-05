@@ -1,0 +1,177 @@
+---
+title: "Auditing the 95%: A Data-Driven Look at Amazon Sidewalk Before I Bet a SKU on It"
+date: 2026-06-06T09:00:00-04:00
+category: projects
+tags:
+  - iot
+  - pets
+  - hardware
+  - amazon-sidewalk
+  - aws
+  - lora
+  - build-in-public
+  - product-management
+notebook: iot-pet-health-tracker-build
+notebookOrder: 8
+excerpt: "Amazon claims Sidewalk reaches 95% of the US population. I'm about to bet a pet-tracker SKU on it, so I sat down with the math: bridge counts, urban-vs-rural distribution, geographic coverage, and the AWS IoT cost stack. Some of it holds up. Some of it is marketing dressed in a percent sign. Here's the audit, then the data path my collar's data would actually take through AWS — wired up before any hardware arrives so I'm not fumbling the integration on Day 1."
+pullquote: "95% of the population doesn't mean 95% of where the dog goes. Coverage maps are static. Dogs are not."
+cover: "../../assets/blog/pet-tracker-build-8-auditing-sidewalk-cover.svg"
+coverAlt: "An aerial view of a residential block at dusk: several houses emit concentric radio rings of varying intensity from their Echo and Ring devices, the rings overlapping into a patchwork of coverage strength. A small tracker collar sits inside a strong coverage zone near the middle of the block, while a second collar at the block edge sits in a quiet gap between rings, signal not reaching. The contrast between dense overlap and gap is the visual point."
+draft: false
+---
+
+The cellular module for the [Phase 2 build](/blog/pet-tracker-build-7-the-city-walk/) is sitting in a warehouse in China for three weeks while it makes its way to my workbench. Which gives me time to test: **Amazon Sidewalk — does it actually reach the places I'd want a pet tracker to reach?**
+
+Amazon's marketing line is **"approximately 95% of the US population is covered"** — a number Amazon updates roughly annually as the bridge count grows. That's the number that justifies betting an entire product SKU on the Sidewalk tier, the way Tile did, the way Pebblebee did. So before I commit, I'm going to count.
+
+What follows is the audit. Bridge math, coverage math, AWS-side cost math. Then a tangent on the AWS IoT integration path my collar's uplinks will actually take — because waiting for hardware is a good time to teeth-cut on the cloud side.
+
+## The 95% claim, dissected
+
+The headline number traces to Amazon's Sidewalk launch press materials and the [coverage.sidewalk.amazon](https://coverage.sidewalk.amazon) public map. The claim is **"approximately 95% of the US population is within Sidewalk coverage"** — measured by counting Sidewalk-enabled Amazon devices (Echo, Ring) and computing which households fall within their effective sub-GHz / BLE radius.
+
+Two words matter in that sentence, and they're the ones the marketing doesn't unpack. The phrase **"approximately 95% of the US population"** turns on that last word: *population*.
+
+It's a **population** number, not a **geographic** number. And it's an **eligibility** number, not a **reliability** number. Both of those distinctions are the difference between "this will work for my customers" and "this will sometimes work for some of my customers."
+
+## Let's count the bridges
+
+Public estimates put the **US Echo install base at ~95–110 million devices** as of mid-2026, with **Ring** devices adding another 12–15 million. **Tile**, since the Life360 acquisition completed and Sidewalk integration shipped, contributes another estimated 25–35 million bridge-eligible devices. Round numbers, but they bracket the order of magnitude.
+
+| Source | Estimated US bridges (M) | Bridge type |
+| --- | --- | --- |
+| Amazon Echo | 95–110 | sub-GHz LoRa + BLE + FSK |
+| Ring (Doorbells + Floodlight Cams) | 12–15 | sub-GHz + BLE |
+| Tile (post-Life360 / Sidewalk) | 25–35 (eligible — actual participation lower) | BLE only |
+| Other certified third-party Sidewalk bridges | under 5 | mixed |
+| **Total potential bridges** | **140–165 M** | |
+
+That's a lot of bridges. Divided by ~129 million US households, that's roughly **one bridge per household on average**. Translated to area:
+
+- **Dense urban (NYC, SF, Chicago):** thousands of bridges per square mile
+- **Suburban (Atlanta sprawl, San Jose, Houston suburbs):** dozens per square mile
+- **Exurban / small-town:** single digits per square mile
+- **Rural (most of MT, WY, NV, AK):** approaching zero
+
+The aggregate number is huge. The **distribution** is what kills the marketing claim for any specific use case.
+
+## Population covered is not land covered
+
+The US is ~3.8 million square miles. The US is also ~333 million people. **Those two numbers don't track each other.**
+
+Here's the actual Amazon Sidewalk coverage map for North America, screenshot today from [coverage.sidewalk.amazon](https://coverage.sidewalk.amazon):
+
+![Amazon's official Sidewalk coverage map for the continental US, southern Canada, and northern Mexico. Areas where Sidewalk bridges are deployed are shown in dark navy blue against a pale beige basemap; uncovered areas remain pale. Dense navy fills the Northeast Corridor solidly from Boston down through New York, Philadelphia, DC, and Baltimore; another dense band runs through Chicago and the upper Midwest into Ohio and Michigan; the Southeast from Atlanta down through Florida is heavily filled; the Texas triangle Dallas-Houston-Austin-San Antonio is solid; California shows two heavy clusters at the Bay Area and LA basin, plus Seattle and Portland in the Pacific Northwest. In contrast, most of Montana, Wyoming, Nevada, western Texas, the Dakotas, large stretches of the Great Plains, and most of northern Canada are nearly empty of coverage. The map tells the population vs land story in one image — almost every populated metro is covered, almost no rural area is.](../../assets/blog/pet-tracker-build-8-sidewalk-coverage-map.png)
+
+[~80% of Americans live in urban areas, which occupy ~3% of the land](https://www.census.gov/library/stories/2022/12/redefining-urban-areas-following-2020-census.html). The other 20% — roughly 67 million people — are scattered across the remaining 97% of the country. So when Amazon says "95% of the population is covered":
+
+- **~315 million people** are inside coverage
+- **~18 million people** are outside coverage
+- The 18 million sit in the **3.7 million square miles** of low-density geography
+
+![A US silhouette split into two visualizations side by side. On the left, a population pie reads 95% covered / 5% uncovered, with the covered slice marked 315 million people and the uncovered slice marked 18 million. On the right, the same US silhouette is shaded by Sidewalk bridge density — dark green dots clustered tightly in urban metros (Northeast corridor, Bay Area, LA, Chicago, Atlanta, Dallas, Houston, Miami), thinning rapidly across the Midwest and Mountain West, and disappearing entirely across most of Wyoming, Nevada, Montana, Alaska, and large swaths of the Plains. A caption notes that 95% of the people is roughly 5% of the land — and dogs roam the land, not the census tract.](../../assets/blog/pet-tracker-build-8-coverage-vs-population.svg)
+
+That difference matters because **dogs don't read census data.** A dog that lives in San Francisco but escapes during a camping trip to the Sierra has just walked out of 95% coverage into 0% coverage, in one weekend. A retriever owned by a couple in suburban Pennsylvania near a state forest crosses the coverage edge every time it chases a deer.
+
+A pet tracker that's "covered" in your driveway but "uncovered" at the dog park three blocks away ships exactly zero units to anyone who cares about finding their dog.
+
+## What coverage actually means
+
+Even within the 95% population, "covered" is a more generous word than the marketing implies. There are four ways a bridge can be in your neighborhood but not bridging your packets:
+
+1. **Powered off.** Echo Dots get unplugged. Spare bedrooms get cleaned out. Estimated unplug rate is somewhere between 10–20% of installed devices at any given time. The coverage map doesn't deduct for this.
+
+2. **Sidewalk opted-out.** Amazon shipped Sidewalk with **default-on** in 2021, and gave users an explicit opt-out toggle. Estimated opt-out rate is in the **15–25% range** of US Sidewalk-eligible households (no official number; press coverage and forum sampling). The coverage map shows potential, not actual.
+
+3. **WiFi-dead / backhaul-dead.** Sidewalk uses your home WiFi to forward packets to Amazon's cloud. If the Echo has lost WiFi (router rebooted, ISP outage, the kid changed the password), the radio still works locally but the packets go nowhere. The collar gets an ACK. The owner gets nothing.
+
+4. **RF-shadowed.** Bridges behind metal kitchen cabinets, basement Echos behind brick, Ring cameras under a metal awning — all sit in the device count but contribute little real coverage.
+
+Multiply: even within the 95% population number, **the effective real-world coverage is meaningfully lower**. A reasonable internal estimate for "your packet actually reaches Amazon's cloud from this point on the map" is probably **60–75% of the headline number** — which puts the real US household-level reliability at something like **57–71%** of households when accounting for all four failure modes.
+
+That's still *huge*. It's still better than any other crowdsourced network in the US. But it's not 95%. And **the marketing doesn't tell you which 30–40% you're in until you ship.**
+
+## So why am I still betting on it?
+
+Because the alternative is worse, and the math at scale still works out.
+
+### Cellular comparison
+
+Cellular LTE-M / NB-IoT (the comparison tier) gives you **99%+ population coverage** *and* **~30% land-area coverage** in the US — both better than Sidewalk on every axis. So why not just ship cellular?
+
+| Tier | Coverage (pop.) | Cost/month (per device) | One-time hardware $ |
+| --- | --- | --- | --- |
+| **Sidewalk** | 57–95% (depending on what you count) | ~$2–7 (AWS) | $0 (rides Amazon infra) |
+| **LTE-M / NB-IoT** | 99%+ | $5–10 (Hologram / 1NCE / Soracom) | $30 module + $1–10 SIM |
+| **LoRaWAN (Helium / TTN)** | under 30% (US) | ~$1 (data credits) | $0 (rides community infra) |
+
+Sidewalk's value isn't best-in-class coverage. **It's "good enough" coverage at zero recurring cost to the manufacturer**, in a country where the customer base skews urban/suburban (which is where Sidewalk is strongest). For a $79 collar with no monthly subscription as the product pitch, Sidewalk hits a price point cellular literally cannot, while covering the segment of the population that's most likely to buy a $79 collar in the first place.
+
+### What I'd ship
+
+In the [three-SKU plan](/blog/pet-tracker-build-2-the-prd-and-the-rubric/), Sidewalk is the **middle SKU** — the "rides Amazon's infrastructure, no subscription, works for urban/suburban customers" middle tier between the LoRa-mesh community SKU (lowest cost, geographic gaps) and the Cellular SKU (highest cost, universal coverage). That's a defensible product matrix. Sidewalk doesn't have to be 95% reliable to be the right answer for the right customer. It just has to be honest about which customer.
+
+## AWS-IoT data path
+
+When the cellular module finally lands and I start running real Sidewalk tests in three weeks, the cloud-side plumbing has to already be in place. Here's the path a single position broadcast takes from the collar to "the owner's app shows a pin on the map":
+
+![A flow diagram showing the Sidewalk-to-AWS data path. From left to right: a small collar device emits a packet labeled "POSITION_APP" via BLE + sub-GHz. The packet arrives at an Echo or Ring device drawn as a small speaker, labeled "Sidewalk Bridge". From there, an arrow crosses an "Amazon-side" boundary into a cloud labeled "Amazon Sidewalk Network Server (ASNS)". A second arrow then crosses into a "Your AWS account" boundary, into a cloud labeled "AWS IoT Wireless (IoT Core for Amazon Sidewalk)". Inside that cloud, the packet flows through three sub-boxes in sequence: a "Wireless Device Profile" routing rectangle, a "Destination" rectangle, and an "IoT Topic Rule" labeled with SQL syntax. The output of the IoT Topic Rule fires a Lambda function on the right, which writes to a DynamoDB table and pushes a notification to the owner's phone via SNS. Small annotations on each segment note who controls that segment: Amazon-side is "Amazon's infrastructure, you don't pay or manage"; AWS account side is "your AWS bill, your IAM roles, your code".](../../assets/blog/pet-tracker-build-8-aws-iot-path.svg)
+
+The breakdown of what I need to set up before any uplinks fly:
+
+1. **AWS account + region.** Pick `us-east-1`. AWS IoT Core for Sidewalk runs in `us-east-1` and `us-west-2`; everywhere else and you're routing across regions for no reason.
+
+2. **`Wireless Device Profile`.** Tells AWS what kind of device this is (Sidewalk-spec, US915 band, your manufacturer info). One profile, reusable across every device I ship.
+
+3. **`Destination`.** The routing rule that says "uplinks from this profile go to this IoT Topic." Single destination per product line.
+
+4. **`IAM Role`.** Lets IoT Wireless actually invoke whatever you've pointed the destination at. Annoying to debug if you skip it; the API silently swallows the failure.
+
+5. **`IoT Topic Rule` with a SQL filter.** Routes the message to a Lambda function. SQL syntax looks like `SELECT *, topic() as topic FROM 'iot/wireless/sidewalk/+/uplink'`. The `+` is the wildcard for device ID.
+
+6. **Lambda.** Reads the base64 payload, decodes the binary, extracts lat/lng/timestamp/SNR, writes to DynamoDB, fires an SNS notification if the dog is outside its geofence.
+
+That's the minimum. **Total AWS setup time, having done this once before: ~30 minutes.** The first time you do it, ~3 hours, because every tutorial assumes you know the difference between an IoT *rule* (the SQL filter) and an IoT *destination* (the routing endpoint), and they're different things with similar names.
+
+## The cost math at pet-tracker scale
+
+Cloud costs are what eventually decide whether your "no subscription" product story is actually sustainable, so let's count them too. AWS IoT Wireless billing is roughly:
+
+- **Per-device fee:** $0.10/device/month (Sidewalk-registered)
+- **Per-message uplink:** $0.0008 per message
+- **IoT Rules executions:** $0.15 per million
+- **Lambda:** ~$0.0000002 per ~10 ms invocation
+- **DynamoDB writes:** ~$0.25 per million write capacity units
+
+For a single pet collar at three reasonable ping rates:
+
+| Ping interval | Messages / month | Cost / month / device |
+| --- | --- | --- |
+| 1 / minute (active tracking) | ~43,200 | **$34.66** — way too much |
+| 1 / 5 minutes (battery-saving active) | ~8,640 | **$6.96** — competitive with cellular |
+| 1 / 15 minutes (idle / sleep) | ~2,880 | **$2.40** — genuinely cheap |
+| Hybrid: 1 / 15 min sleep + 1 / 1 min when accel-motion-triggered | ~6,000–10,000 | **$5–8** — the right answer |
+
+![A horizontal bar chart titled "AWS IoT cost per Sidewalk device per month, by ping rate." Five horizontal bars represent ping intervals 1/minute, 1/5min, 1/15min, hybrid (motion-triggered), and a comparison "cellular LTE-M baseline" bar. The 1/minute bar extends furthest at $34.66, marked in red and labeled "unsustainable for a no-subscription product." The 1/5min bar at $6.96 is marked teal and labeled "competitive with cellular." The 1/15min bar at $2.40 is marked dark green and labeled "genuinely cheap." The hybrid bar at ~$6 is marked teal and labeled "the right answer." The cellular baseline bar at $5-10 is shown as a translucent reference band overlaying the upper portion of the chart. A small footnote reads "Costs include: AWS IoT Wireless per-message $0.0008 + per-device $0.10/month + Lambda/DynamoDB write costs at this scale (~$0.10/month negligible)."](../../assets/blog/pet-tracker-build-8-cost-math.svg)
+
+The **hybrid mode is the answer.** Sleep at 15-minute intervals when the accelerometer says "the dog isn't moving." Spike to 1-minute intervals when the 6-axis IMU detects motion (running, escaping, chasing). Average somewhere in the **$5–8/device/month** range. **That's competitive with cellular but with no SIM to manage and no carrier relationship.**
+
+And for the customer experience: ~1 km of urban coverage at 1-minute resolution when the dog is moving, dropping to ~15-minute resolution when the dog is asleep on the couch. The accelerometer earns its place in the BoM all over again.
+
+## What I'm going to verify when hardware arrives
+
+The audit-driven hypothesis list, things I'll test on the Sidewalk Starter Kit in the next few weeks:
+
+1. **Does my house actually have a working Sidewalk bridge nearby?** The coverage map says yes. The reality I'll measure by registering the dev kit and watching whether uplinks land.
+2. **What's the actual roundtrip latency, packet-to-Lambda?** Marketing implies "near real-time." I bet it's actually 5–30 seconds, and bursty.
+3. **What's the daily packet loss rate?** Single-device samples in dense urban can hit 5–10% over 24 hours. I'll find out for my specific location.
+4. **Does coverage actually exist on the dog-walk route?** Static map says yes; walking the route with a counting device will say definitively.
+5. **What's the bridge-density gradient on a 5 km drive away from the house?** Specifically, where does the link die?
+
+Those are the five numbers that decide whether Sidewalk graduates from "interesting product tier" to "shippable product tier" in this build.
+
+## What's next
+
+The cellular hardware lands in ~3 weeks. The AWS-side plumbing should be wired up before then. The Sidewalk Starter Kit lands in ~2 days and I can start running coverage tests immediately. Next post is the actual results, with numbers instead of estimates.
+
+If you want to follow along: the bridge density in your own neighborhood is at [coverage.sidewalk.amazon](https://coverage.sidewalk.amazon). Worth checking before you bet a SKU on the network.

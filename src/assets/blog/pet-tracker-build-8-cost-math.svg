@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="AWS Sidewalk cost math.">
+  <rect width="1200" height="560" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1.5"/>
+
+  <text x="40" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="1.5" fill="#1a1d24">AWS COST PER SIDEWALK DEVICE / MONTH</text>
+
+  <!-- y-axis labels for each row + x-axis scale -->
+
+  <!-- Background gridlines (x-axis) at $0, $10, $20, $30, $40 -->
+  <g stroke="#1a1d24" stroke-opacity="0.10" stroke-width="1">
+    <line x1="320" y1="100" x2="320" y2="440"/>
+    <line x1="500" y1="100" x2="500" y2="440"/>
+    <line x1="680" y1="100" x2="680" y2="440"/>
+    <line x1="860" y1="100" x2="860" y2="440"/>
+    <line x1="1040" y1="100" x2="1040" y2="440"/>
+  </g>
+  <!-- x-axis labels -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#5b616b">
+    <text x="320" y="460" text-anchor="middle">$0</text>
+    <text x="500" y="460" text-anchor="middle">$10</text>
+    <text x="680" y="460" text-anchor="middle">$20</text>
+    <text x="860" y="460" text-anchor="middle">$30</text>
+    <text x="1040" y="460" text-anchor="middle">$40</text>
+  </g>
+
+  <!-- ROW 1: 1 / minute (43,200 msg/mo) → $34.66 -->
+  <!-- bar width: $34.66 → from x=320 with $1=18px → 34.66*18=624 → bar to x=944 -->
+  <rect x="320" y="118" width="624" height="38" fill="#c14a3a" opacity="0.85"/>
+  <text x="40" y="135" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">1 / minute</text>
+  <text x="40" y="152" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">~43,200 msg / mo</text>
+  <text x="956" y="135" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#c14a3a" font-weight="bold">$34.66</text>
+  <text x="956" y="152" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#c14a3a">no-subscription product is dead at this rate</text>
+
+  <!-- ROW 2: 1 / 5 min → $6.96 -->
+  <rect x="320" y="178" width="125" height="38" fill="#1f7a6b" opacity="0.85"/>
+  <text x="40" y="195" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">1 / 5 min</text>
+  <text x="40" y="212" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">~8,640 msg / mo</text>
+  <text x="457" y="195" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1f7a6b" font-weight="bold">$6.96</text>
+  <text x="457" y="212" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">competitive with cellular</text>
+
+  <!-- ROW 3: 1 / 15 min → $2.40 -->
+  <rect x="320" y="238" width="43" height="38" fill="#3a7d44" opacity="0.85"/>
+  <text x="40" y="255" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">1 / 15 min</text>
+  <text x="40" y="272" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">~2,880 msg / mo</text>
+  <text x="375" y="255" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#3a7d44" font-weight="bold">$2.40</text>
+  <text x="375" y="272" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">genuinely cheap — but boring tracking</text>
+
+  <!-- ROW 4: hybrid → $5-8 -->
+  <rect x="320" y="298" width="108" height="38" fill="#1f7a6b" opacity="0.85"/>
+  <rect x="320" y="298" width="144" height="38" fill="#1f7a6b" opacity="0.45"/>
+  <text x="40" y="315" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">hybrid</text>
+  <text x="40" y="332" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">15 min sleep + 1 min on motion</text>
+  <text x="476" y="315" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1f7a6b" font-weight="bold">$5–8</text>
+  <text x="476" y="332" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#1f7a6b">the right answer · accel earns its place</text>
+
+  <!-- ROW 5: cellular LTE-M baseline (reference) -->
+  <rect x="320" y="358" width="90" height="38" fill="#5b616b" opacity="0.35"/>
+  <rect x="320" y="358" width="180" height="38" fill="#5b616b" opacity="0.20"/>
+  <text x="40" y="375" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">LTE-M baseline</text>
+  <text x="40" y="392" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">Hologram / 1NCE / Soracom</text>
+  <text x="512" y="375" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b" font-weight="bold">$5–10</text>
+  <text x="512" y="392" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">comparable, plus SIM management overhead</text>
+
+  <!-- Side panel — breakdown -->
+  <g>
+    <rect x="40" y="425" width="1120" height="100" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1" rx="4"/>
+    <text x="55" y="448" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">AWS IoT Wireless billing components (per Sidewalk device):</text>
+    <text x="55" y="471" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">  • per-message uplink:   $0.0008</text>
+    <text x="380" y="471" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">  • per-device monthly:  $0.10</text>
+    <text x="690" y="471" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">  • IoT Rules:  $0.15 / million executions</text>
+    <text x="55" y="491" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">  • Lambda + DynamoDB writes at this scale:  ~$0.05 / device / month — negligible</text>
+    <text x="55" y="513" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#5b616b">Numbers as of 2026; AWS IoT Wireless pricing in us-east-1.</text>
+  </g>
+</svg>

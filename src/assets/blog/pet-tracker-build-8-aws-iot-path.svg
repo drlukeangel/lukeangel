@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-label="Sidewalk AWS IoT data path.">
+  <rect width="1200" height="620" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="1.5"/>
+
+  <defs>
+    <marker id="ah8" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1f7a6b"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="44" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="1.5" fill="#1a1d24">UPLINK PATH · collar → Lambda</text>
+
+  <!-- TWO BOUNDARY ZONES (background tint) -->
+  <!-- Amazon-controlled zone (left) -->
+  <rect x="50" y="100" width="490" height="430" fill="#1f7a6b" fill-opacity="0.04" stroke="#1f7a6b" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 6" rx="8"/>
+  <text x="295" y="125" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#5b616b">AMAZON-CONTROLLED — you don't pay or manage</text>
+
+  <!-- Your AWS zone (right) -->
+  <rect x="580" y="100" width="570" height="430" fill="#1f7a6b" fill-opacity="0.06" stroke="#1f7a6b" stroke-opacity="0.4" stroke-width="1.5" rx="8"/>
+  <text x="865" y="125" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1f7a6b">YOUR AWS ACCOUNT — your bill, your IAM, your code</text>
+
+  <!-- COLLAR (start) -->
+  <g transform="translate(115, 280)">
+    <circle cx="0" cy="0" r="22" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <circle cx="0" cy="0" r="10" fill="#1f7a6b"/>
+    <path d="M -22 0 Q 0 22 22 0" fill="none" stroke="#1a1d24" stroke-width="2"/>
+  </g>
+  <text x="115" y="335" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">COLLAR</text>
+  <text x="115" y="352" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">BLE + sub-GHz</text>
+
+  <!-- ARROW 1: collar → bridge -->
+  <path d="M 145 285 L 245 285" fill="none" stroke="#1f7a6b" stroke-width="2.4" marker-end="url(#ah8)"/>
+  <text x="195" y="278" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">POSITION_APP packet</text>
+
+  <!-- BRIDGE (Echo/Ring) -->
+  <g transform="translate(275, 280)">
+    <rect x="-26" y="-22" width="52" height="44" rx="5" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <circle cx="0" cy="0" r="9" fill="#1f7a6b"/>
+    <circle cx="0" cy="0" r="4" fill="#fdfaf2"/>
+    <line x1="-16" y1="14" x2="16" y2="14" stroke="#1a1d24" stroke-width="1.5"/>
+  </g>
+  <text x="275" y="335" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">ECHO / RING</text>
+  <text x="275" y="352" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#5b616b">Sidewalk Bridge</text>
+
+  <!-- ARROW 2: bridge → ASNS -->
+  <path d="M 305 285 L 405 285" fill="none" stroke="#1f7a6b" stroke-width="2.4" marker-end="url(#ah8)"/>
+  <text x="355" y="278" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">over your home WiFi</text>
+
+  <!-- ASNS (cloud) -->
+  <g transform="translate(465, 285)">
+    <path d="M -50 8 Q -60 -2 -50 -12 Q -45 -22 -30 -20 Q -22 -32 -8 -28 Q 0 -36 14 -28 Q 28 -32 38 -22 Q 52 -18 50 0 Q 56 12 42 14 L -42 14 Q -54 14 -50 8 Z" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.2" stroke-linejoin="round"/>
+    <text x="0" y="2" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">ASNS</text>
+  </g>
+  <text x="465" y="335" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">Amazon Sidewalk</text>
+  <text x="465" y="350" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="12" fill="#1a1d24">Network Server</text>
+
+  <!-- BOUNDARY CROSSING ARROW (curved big one between zones) -->
+  <path d="M 510 290 C 545 290, 555 290, 590 290" fill="none" stroke="#1f7a6b" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#ah8)"/>
+
+  <!-- AWS IoT Wireless block -->
+  <g>
+    <rect x="615" y="180" width="500" height="240" fill="#fdfaf2" stroke="#1f7a6b" stroke-width="2.4" rx="8"/>
+    <text x="865" y="205" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1f7a6b">AWS IoT Core for Amazon Sidewalk</text>
+
+    <!-- Wireless Device Profile -->
+    <rect x="645" y="230" width="140" height="60" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8" rx="4"/>
+    <text x="715" y="252" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">Wireless Device</text>
+    <text x="715" y="268" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">Profile</text>
+    <text x="715" y="284" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#5b616b">device type / region</text>
+
+    <!-- Arrow -->
+    <path d="M 785 260 L 815 260" fill="none" stroke="#1f7a6b" stroke-width="2" marker-end="url(#ah8)"/>
+
+    <!-- Destination -->
+    <rect x="820" y="230" width="120" height="60" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8" rx="4"/>
+    <text x="880" y="252" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">Destination</text>
+    <text x="880" y="272" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#5b616b">where to route</text>
+
+    <!-- Arrow -->
+    <path d="M 940 260 L 970 260" fill="none" stroke="#1f7a6b" stroke-width="2" marker-end="url(#ah8)"/>
+
+    <!-- IoT Topic Rule -->
+    <rect x="975" y="230" width="120" height="60" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8" rx="4"/>
+    <text x="1035" y="252" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">IoT Topic Rule</text>
+    <text x="1035" y="272" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#5b616b">SQL filter + action</text>
+
+    <!-- IAM role note -->
+    <text x="865" y="335" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#c14a3a">+ IAM role (the one that's silently fatal if you forget)</text>
+
+    <!-- Output arrow down -->
+    <path d="M 1035 290 L 1035 360 L 1035 388" fill="none" stroke="#1f7a6b" stroke-width="2.4" marker-end="url(#ah8)"/>
+    <text x="1055" y="365" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#1f7a6b">invokes →</text>
+  </g>
+
+  <!-- Lambda -->
+  <g>
+    <rect x="780" y="450" width="160" height="60" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2" rx="4"/>
+    <text x="860" y="475" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="13" fill="#1a1d24">Lambda</text>
+    <text x="860" y="495" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#5b616b">decode + persist + alert</text>
+  </g>
+
+  <!-- arrow from IoT rule output to Lambda (horizontal at bottom) -->
+  <path d="M 1035 410 L 1035 425 L 940 425 L 940 460" fill="none" stroke="#1f7a6b" stroke-width="2.4" marker-end="url(#ah8)"/>
+
+  <!-- DynamoDB + SNS (outputs) -->
+  <g transform="translate(605, 460)">
+    <rect x="-50" y="0" width="100" height="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8" rx="4"/>
+    <text x="0" y="18" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">DynamoDB</text>
+    <text x="0" y="33" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#5b616b">position log</text>
+  </g>
+
+  <g transform="translate(605, 510)">
+    <rect x="-50" y="0" width="100" height="40" fill="#fdfaf2" stroke="#1a1d24" stroke-width="1.8" rx="4"/>
+    <text x="0" y="18" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#1a1d24">SNS</text>
+    <text x="0" y="33" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#5b616b">geofence alert</text>
+  </g>
+
+  <!-- arrows from Lambda to outputs -->
+  <path d="M 780 480 L 660 480" fill="none" stroke="#1f7a6b" stroke-width="2" marker-end="url(#ah8)"/>
+  <path d="M 780 500 L 720 500 L 720 530 L 660 530" fill="none" stroke="#1f7a6b" stroke-width="2" marker-end="url(#ah8)"/>
+
+  <!-- bottom caption -->
+  <text x="40" y="585" font-family="Georgia, serif" font-style="italic" font-size="13" fill="#5b616b">Same path as LoRaWAN ingress — different transport, same AWS IoT Wireless surface. Knowing the AWS side cold means the hardware lands and uplinks "just work."</text>
+</svg>
