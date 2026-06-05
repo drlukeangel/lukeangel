@@ -1,6 +1,6 @@
 ---
-title: "The City Walk: Path Loss ~4 in Dense Urban — and the Cache That Wouldn't Die"
-date: 2026-06-04T09:00:00-04:00
+title: 'The City Walk: Path Loss ~4 in Dense Urban — and the Cache That Wouldn''t Die'
+date: 2026-06-04
 category: projects
 tags:
   - iot
@@ -11,15 +11,29 @@ tags:
   - build-in-public
   - testing
   - debugging
+excerpt: >-
+  Five walks in city density before the data was real, because the collar's
+  firmware kept broadcasting a stale coordinate while the GPS chip was happily
+  producing fresh fixes nobody could see. Factory reset was the only thing that
+  cleared it — and then the clean walk gave the number I'd come for: path loss
+  ~4 in dense urban row housing, about half the suburban range, exactly what the
+  textbooks say.
+pullquote: >-
+  The chip was telling the truth the whole time. The firmware just wouldn't
+  repeat it.
+cover: ../../assets/blog/pet-tracker-build-7-the-city-walk-cover.svg
+coverAlt: >-
+  A dense urban row-house block seen from above: a fixed base-station node at
+  one house emits concentric radio rings that grow fainter outward, while a
+  walking figure with the collar moves along the sidewalk and the rings around
+  them dim with distance. A second, smaller rendering of the firmware-cache
+  failure overlays as a stuck pin on the wrong block.
 notebook: iot-pet-health-tracker-build
 notebookOrder: 7
-excerpt: "Five walks in city density before the data was real, because the collar's firmware kept broadcasting a stale coordinate while the GPS chip was happily producing fresh fixes nobody could see. Factory reset was the only thing that cleared it — and then the clean walk gave the number I'd come for: path loss ~4 in dense urban row housing, about half the suburban range, exactly what the textbooks say."
-pullquote: "The chip was telling the truth the whole time. The firmware just wouldn't repeat it."
-cover: "../../assets/blog/pet-tracker-build-7-the-city-walk-cover.svg"
-coverAlt: "A dense urban row-house block seen from above: a fixed base-station node at one house emits concentric radio rings that grow fainter outward, while a walking figure with the collar moves along the sidewalk and the rings around them dim with distance. A second, smaller rendering of the firmware-cache failure overlays as a stuck pin on the wrong block."
+faq: []
+featured: false
 draft: false
 ---
-
 [Last range test](/blog/pet-tracker-build-5-the-range-test/) was a clean suburban line — 1,250 feet, zero hops, scorecard cleared with margin. The city test should have been the easy follow-up. Same rig, denser environment, walk the block, get the number.
 
 Five walks later I had no number.
@@ -70,10 +84,25 @@ The progression isn't accidental. Each tool ships its own *view* of the device �
 
 The cleanest evidence: the collar's *own* `meshtastic --info` and the base's view of the collar **disagreed.**
 
-| | latitude | longitude | altitude | source |
-| --- | --- | --- | --- | --- |
-| Collar self-view (chip output) | `40.272606` | `-75.6147148` | 24 m | `LOC_INTERNAL` (fresh GPS) |
-| Base's view of collar (received broadcasts) | `40.2953856` | `-75.6246912` | 24 m | `LOC_INTERNAL` (claimed fresh) |
+{% table %}
+- 
+- latitude
+- longitude
+- altitude
+- source
+---
+- Collar self-view (chip output)
+- `40.272606`
+- `-75.6147148`
+- 24 m
+- `LOC_INTERNAL` (fresh GPS)
+---
+- Base's view of collar (received broadcasts)
+- `40.2953856`
+- `-75.6246912`
+- 24 m
+- `LOC_INTERNAL` (claimed fresh)
+{% /table %}
 
 Read that altitude column twice. **The broadcasts were arriving with fresh altitude every time. They were marked `LOC_INTERNAL`, the firmware's flag for "this came from my GPS chip just now." Time field, fresh.** Lat/lng — locked. Same value across two hours of walking and power events.
 
@@ -105,19 +134,55 @@ After the reset, the broadcast cache was gone. The next `--info` from the base s
 
 About six minutes, down the block east and back, holding the collar at shoulder height. Eleven position broadcasts with fresh varying coords, plus the seq packets every fifteen seconds. Distance and SNR pulled from the live capture:
 
-| Time | Distance | SNR |
-| --- | --- | --- |
-| 19:57:27 | 377 m | +6.0 |
-| 19:57:45 | 367 m | +5.5 |
-| 19:58:05 | 268 m | +6.25 |
-| 19:58:25 | 310 m | +6.0 |
-| 19:58:45 | 303 m | +3.5 |
-| 19:59:05 | 303 m | +5.5 |
-| 20:00:05 | 363 m | +4.5 |
-| 20:00:25 | 379 m | +5.75 |
-| 20:01:05 | 379 m | +2.75 |
-| 20:01:25 | 463 m | +3.75 |
-| 20:01:46 | 486 m | **−4.0** |
+{% table %}
+- Time
+- Distance
+- SNR
+---
+- 19:57:27
+- 377 m
+- +6.0
+---
+- 19:57:45
+- 367 m
+- +5.5
+---
+- 19:58:05
+- 268 m
+- +6.25
+---
+- 19:58:25
+- 310 m
+- +6.0
+---
+- 19:58:45
+- 303 m
+- +3.5
+---
+- 19:59:05
+- 303 m
+- +5.5
+---
+- 20:00:05
+- 363 m
+- +4.5
+---
+- 20:00:25
+- 379 m
+- +5.75
+---
+- 20:01:05
+- 379 m
+- +2.75
+---
+- 20:01:25
+- 463 m
+- +3.75
+---
+- 20:01:46
+- 486 m
+- **−4.0**
+{% /table %}
 
 The seq packets after the last GPS broadcast kept arriving with SNR slipping further: −3.75, then −6.75, then −9.5 — about one decibel above where LONG_FAST loses lock. If I'd walked another thirty seconds I'd have caught the first dropped packet.
 
@@ -143,12 +208,27 @@ Anchored at this walk's measured limit (SNR hitting LoRa's sensitivity floor at 
 
 The original [scorecard](/blog/pet-tracker-build-4-the-scorecard/) split the LoRa range bar into three environments, and this walk fills in the dense-urban row:
 
-| Criterion | Target | Result |
-| --- | --- | --- |
-| LoRa range — open line-of-sight | ≥ 1.0 km | Not yet walked |
-| LoRa range — suburban | ≥ 300 m | **381 m direct — pass** (post 5) |
-| LoRa range — **dense urban / row housing** | ≥ 300 m | **~500 m measured, ~600–900 m extrapolated — pass** |
-| LoRa range — dense foliage / trail | ≥ 150 m | Not yet walked |
+{% table %}
+- Criterion
+- Target
+- Result
+---
+- LoRa range — open line-of-sight
+- ≥ 1.0 km
+- Not yet walked
+---
+- LoRa range — suburban
+- ≥ 300 m
+- **381 m direct — pass** (post 5)
+---
+- LoRa range — **dense urban / row housing**
+- ≥ 300 m
+- **\~500 m measured, \~600–900 m extrapolated — pass**
+---
+- LoRa range — dense foliage / trail
+- ≥ 150 m
+- Not yet walked
+{% /table %}
 
 **Two of four environments cleared. The bar I cared about most for an escaped pet in a city — a block-plus of clean direct range through row houses — is met.**
 

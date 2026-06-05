@@ -1,5 +1,5 @@
 ---
-title: "'Bad data': debugging a phantom blockquote in Keystatic"
+title: "'Bad data': debugging a Keystatic save failure to the actual bug"
 date: 2026-06-08T09:00:00-04:00
 category: craft
 tags:
@@ -8,34 +8,32 @@ tags:
   - debugging
   - cms
   - build-in-public
-excerpt: "Three hours to a one-line workaround. The CMS returned 'Bad data' on a file that parsed clean. The diagnostic was an Astro middleware that captured the real request payload — and found Keystatic's editor was serializing a blockquote that wasn't on disk anymore. Here's the bug, the workaround, and the middleware you can drop in if you hit the same error."
-pullquote: "When your CMS returns the world's least helpful error message, write the middleware that captures the actual payload."
+excerpt: "Three hours, two wrong theories, one real bug. The CMS returned 'Bad data' on a save with no other details. The actual failure was an unnormalized `..` segment in a deletion path that Keystatic's editor builds for tracked images, three layers deep in a base64-encoded JSON envelope. Here's the diagnostic, the workaround, and the four-line patch that surfaces the real error."
+pullquote: "When your CMS returns the world's least helpful error message, write the middleware that captures the actual payload — and then decode every field, not just the obvious one."
 cover: "../../assets/blog/bad-data-keystatic-phantom-blockquote-cover.svg"
-coverAlt: "Two stacked document outlines side by side connected by an equals sign that turns into a not-equals sign. The left document is labeled cleanly with horizontal text lines representing the .mdoc file on disk. The right document is the editor's in-memory tree, identical at the top but with one extra ghost-lined block in the middle representing a blockquote that no longer exists in the source. A red highlight around the ghost block marks the cache divergence. The visual point: the editor is saving a tree it parsed once and never refreshed, even though the file on disk has moved on."
+coverAlt: "Two stacked document outlines side by side connected by an equals sign that turns into a not-equals sign. The left document is labeled cleanly with horizontal text lines representing the .mdoc file on disk. The right document is the editor's in-memory tree, identical at the top but with one extra ghost-lined block in the middle representing a deletion path with unnormalized parent-directory segments. A red highlight around the ghost block marks the divergence. The visual point: the editor is saving deletion paths it never resolved, even though the file on disk has moved on."
 draft: false
 ---
 
-Tried to update a post in [Keystatic](https://keystatic.com/) earlier today. Hit save. Got:
+Tried to update a blog post in [Keystatic](https://keystatic.com/) earlier today. Hit save. Got:
 
 **Bad data.**
 
-That was the entire error message. Two words. No stack trace, no field name, no schema hint, no JSON path. Just *Bad data* with a 400 status code.
+That was the entire error message. Two words. No stack trace, no field name, no schema hint, no JSON path. Just *Bad data* with a 400 status.
 
-The file on disk parsed clean through Markdoc's own parser. The Astro dev server rendered the post at HTTP 200 with no validation errors. The content-collection schema accepted the frontmatter. So whatever Keystatic was rejecting wasn't in the file I could see.
+The on-disk file parsed clean through Markdoc's own parser — zero errors. The Astro dev server rendered the page at HTTP 200 with no validation issues. Astro's content collection accepted the frontmatter. So whatever Keystatic was rejecting wasn't visible in the file I could see.
 
-Three hours later I had a theory and a workaround. Here's the diagnostic, in case you ever hit the same error.
+Three hours later I had the bug. I chased two wrong theories first. Here's the diagnostic — including the wrong turns, because that's where the lesson is.
 
-## The setup
+## Wrong theory 1: my file has weird Markdown
 
-I'd been editing a long-form post in VS Code over several sessions — typo fixes, a paragraph rewrite, a blockquote refactored down to flat prose. Each save on disk worked perfectly. The dev server hot-reloaded, content collections re-synced, the page rendered.
+First instinct was something in the body — strikethrough, smart quotes, an em-dash inside a blockquote, a heading with parentheses. I removed every suspect pattern one by one. Each time I'd save in Keystatic, get the same "Bad data," and try the next pattern.
 
-But every time I opened the post in the Keystatic editor and clicked Save — even *without making a change* — the API returned 400 with "Bad data."
+It didn't help. I'd boiled the body down to almost nothing and the save still failed.
 
-The on-disk file was fine. The editor refused to save it.
+## The middleware (the part that ended up mattering)
 
-## The middleware
-
-The only useful diagnostic was an Astro middleware that intercepts the failed `POST /api/keystatic/update` and logs both the request payload and the response body. About twenty lines:
+The actually-useful diagnostic was an Astro middleware intercepting the failed `POST /api/keystatic/update` and logging the request payload:
 
 ```ts
 // src/middleware.ts
@@ -49,9 +47,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
     if (response.status >= 400) {
       const respBody = await response.clone().text();
       console.log('=== KEYSTATIC 400 ===');
-      console.log('Response body:', respBody);
-      console.log('Request body (first 4000 chars):');
-      console.log(reqBody.slice(0, 4000));
+      console.log('Response:', respBody);
+      console.log('Request:', reqBody.slice(0, 4000));
       console.log('=== END ===');
     }
     return response;
@@ -60,54 +57,120 @@ export const onRequest = defineMiddleware(async (context, next) => {
 });
 ```
 
-Restart the dev server, trigger the save in Keystatic, watch the dev console.
+Restart the dev server, trigger the save, watch the console.
 
-## The smoking gun
+## Wrong theory 2: phantom blockquote in the editor's cache
 
-The request body is JSON with the file contents base64-encoded under `additions[0].contents`. When I decoded it, **the .mdoc content Keystatic was trying to write back contained a blockquote line I'd already removed from the file an hour earlier.** Verbatim:
+The request body is JSON. The `additions[0].contents` field is base64-encoded text. I decoded the first 4000 chars, hit a `> **"text"** — *that word*` blockquote that I'd already removed from the file on disk, and convinced myself the bug was Keystatic's editor sending a stale cached parse tree.
+
+It was a clean theory. It was also wrong.
+
+The blockquote was a normal serialized fragment of the file as Keystatic understood it on first load — Keystatic's `fields.markdoc` parses the .mdoc into a ProseMirror tree, and re-serializes that tree back to .mdoc on every save. That re-serialization can produce different whitespace and minor formatting compared to your hand-edited source, but the content is structurally the same. The blockquote being in the captured payload just meant the editor had loaded the file — which is exactly what should happen.
+
+What I should have done: decode the **full** JSON, not just the first 4000 chars of the `contents` field. The actual failure was hiding in a sibling array I never looked at.
+
+## The real bug — patched Keystatic to surface the real error
+
+The fix that broke the case open was a four-line patch to Keystatic itself. In `node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.js`, the catch around the schema validation looks like:
+
+```js
+} catch {
+  return { status: 400, body: 'Bad data' };
+}
+```
+
+That naked `catch` (no error variable, no logging) drops the underlying [superstruct](https://docs.superstructjs.org/) error on the floor. Replace it with:
+
+```js
+} catch (err) {
+  console.log('=== SUPERSTRUCT FAILURE ===');
+  console.log('Message:', err?.message);
+  console.log('Path:', JSON.stringify(err?.path));
+  console.log('Failures:', err?.failures?.());
+  console.log('=== END ===');
+  return { status: 400, body: 'Bad data: ' + (err?.message || 'unknown') };
+}
+```
+
+Restart dev. Trigger the save. The console says:
 
 ```
-> **"approximately 95% of the US population"** — *that word*
+At path: deletions.0.path -- Expected a value of type `string`,
+but received: "src/content/blog/pet-tracker-build-7-the-city-walk/
+content/../../assets/blog/pet-tracker-build-7-walk1-app-on-phone.png"
 ```
 
-That blockquote existed in the file when Keystatic first loaded it into its editor. I edited it out at the file level — replaced it with a flat paragraph. The disk file moved on. The dev server rebuilt and rendered the new content. Astro saw the change.
+**`deletions.0.path`**. Not the file body. Not the additions array. The **deletions** array. Three layers down in the JSON, behind a separate array I'd never decoded.
 
-But Keystatic's editor — running in my browser, in my open tab — still had the **original parsed ProseMirror tree** in memory, complete with the blockquote node. Every time I clicked Save, the editor re-serialized that cached tree back to .mdoc text. Keystatic's server-side validator caught the serialized output as schema-invalid and threw back "Bad data."
+That path is what Keystatic's editor was sending as a file to *delete* — a tracked image reference from inside the .mdoc body that the editor thinks should be cleaned up. Look at what it's built:
 
-The editor wasn't reading the disk. It was saving from its own stale snapshot.
+```
+src/content/blog/    ← the collection path
++ pet-tracker-build-7-the-city-walk/   ← the post's slug, treated as a directory
++ content/                             ← the markdoc field's name, treated as a directory
++ ../../assets/blog/pet-tracker-build-7-walk1-app-on-phone.png   ← the image's relative path *as written in the .mdoc body*
+```
 
-## What didn't work
+Concatenated with no `path.normalize()` call in between. The resulting string contains `..` segments. Keystatic's own path validator does:
 
-I tried, in order:
+```js
+filepath.split('/').every(x => x !== '.' && x !== '..')
+```
 
-- Hard refresh the page (Ctrl+Shift+R). Editor state survives.
-- Open Keystatic in incognito. The editor still loads the cached blob from the server by its hash.
-- Restart the Astro dev server entirely. Content collections re-sync, the API serves the new file, but if your tab was already open it keeps using the old tree.
-- Clear browser storage — IndexedDB, localStorage, cookies for the dev origin. No effect on this particular flavor of staleness.
-- Make a manual edit in the editor to "dirty" the state. Editor still serializes the tree, which still contains the phantom blockquote.
+`..` segments fail. Superstruct's `s.refine()` throws. The catch returns "Bad data."
 
-## What did work
+## Why every recovery attempt failed
 
-Close the entire Keystatic tab. Open a brand-new tab. Navigate fresh to `/keystatic/`. Click into the post.
+- **Editing the file in VS Code didn't help** — the deletion path is computed from the image references in the file, and those exist independently of any blockquote refactor I'd done.
+- **Hard refresh, incognito, dev restart didn't help** — the editor re-derives the deletions array from the parsed file every time, so the bug is deterministic, not stateful.
+- **Removing strikethrough, smart quotes, and blockquotes didn't help** — none of those touch the deletions array.
 
-That's the only path that forces the editor to re-fetch and re-parse the on-disk file. Once it does, the phantom blockquote is gone from the in-memory tree, and saves succeed.
+The bug was deterministic on **any** file in this repo that had relative image references like `../../assets/blog/X.png` in its markdoc body. Which is most of them.
 
-For files I'd already accumulated edits on, the workaround is simpler: edit the .mdoc directly in VS Code, commit, push, skip the Keystatic editor for that file.
+## The workaround — three-line filter
 
-## The real bug, upstream
+Until Keystatic ships a `path.normalize()` in their editor's deletion-path computation (or relaxes the validator), the workaround at the API boundary is to filter malformed deletions before the schema check. In the same patched file:
 
-Two issues, in order of severity:
+```js
+const body = await req.json();
+if (Array.isArray(body?.deletions)) {
+  body.deletions = body.deletions.filter(d => {
+    try { return typeof d?.path === 'string' && isFilepathValid(d.path); }
+    catch { return false; }
+  });
+}
+updates = s.create(body, /* ...same schema as before... */);
+```
 
-1. **The "Bad data" string is useless.** Keystatic's `keystatic-core-api-generic.node.js` catches a [superstruct](https://docs.superstructjs.org/) `s.create()` validation failure and returns a constant string. The underlying superstruct error has a `.path` field that names the schema-violating attribute and a `.message` describing the violation. Surfacing those in the response body would turn a three-hour diagnostic into a thirty-second fix.
+Three lines. Saves now succeed. Orphaned files (the ones Keystatic *wanted* to delete but whose path it can't represent) accumulate slowly — `git clean` or a periodic prune handles them.
 
-2. **The editor's cached parse tree should invalidate when the file's content hash changes.** Or at minimum, the editor should re-fetch the source on every save attempt and bail with a clear "file changed externally; please reload" prompt instead of trying to overwrite with a stale tree.
+To make the patch survive `npm install`, [patch-package](https://github.com/ds300/patch-package) is the canonical answer:
 
-I'll file an upstream issue with both. The middleware above is the workaround until they're fixed.
+```bash
+npm install --save-dev patch-package
+# edit node_modules/@keystatic/core/dist/keystatic-core-api-generic.node.js
+npx patch-package @keystatic/core
+git add patches/
+```
 
-## Lesson
+The diff lives in `patches/@keystatic+core+*.patch` and auto-applies on every install.
 
-**When your CMS returns the world's least helpful error message, write the middleware that captures the actual payload.**
+## The two real bugs, upstream
 
-Twenty lines, ten minutes, and you've replaced *Bad data* with a real diff between what the editor *thinks* is in the file and what's *actually* on disk. That delta is the bug. Everything else is theater.
+I'll file these as separate issues on the Keystatic repo. Both are tiny fixes upstream and would prevent hours of debugging for the next person:
 
-The CMS made me run my own observability layer to debug it. Which feels like exactly the wrong place for the user to land — but at least the layer was easy to build.
+1. **The naked `catch` returning a constant `Bad data` string discards the actual superstruct error.** The error has a `.path`, a `.type`, a `.message`, a `.failures()`. All of it is silently dropped. Surfacing any of it in the response body would turn a three-hour diagnostic into a thirty-second fix.
+
+2. **The deletion-path computation doesn't call `path.normalize()`.** The `{collection}/{slug}/{field}/{image_rel_path}` concatenation produces strings with unresolved `..` segments that fail Keystatic's own path validator. Either the construction should normalize, or the validator should treat the input as a path-to-be-resolved and normalize before checking.
+
+## Lessons
+
+Three, in order of how badly I needed each:
+
+1. **When the CMS returns the world's least helpful error, write the middleware that captures the payload — but decode every field, not just the obvious one.** I burned ninety minutes on the wrong theory because I read the `additions[0].contents` value and stopped scanning. The actual failure was a sibling field three layers deeper.
+
+2. **When a vendor swallows an error in a naked `catch`, the four-line patch to add `(err)` and `console.log(err)` is your highest-leverage move.** That single patch turned an opaque "Bad data" into a precise schema path. Worth doing even if the vendor's source isn't yours — node_modules is editable, and `patch-package` makes it persistent.
+
+3. **A wrong theory that's *internally consistent* is the most dangerous kind.** "The editor cached a stale tree" explained why save failed, explained why my edits looked clean on disk, explained why incognito didn't help. It was wrong, but it was *plausible*. The only way out was patching the actual error layer, not adding more layers of speculation.
+
+The CMS made me run my own observability layer to debug it. Which feels like exactly the wrong place for the user to land — but at least the layer was easy to build, and now it's documented for the next person.
