@@ -1,34 +1,77 @@
 ---
-title: "Eval Starter Kit — open-source evals for PMs"
+title: "Eval Starter Kit — catch the regression you didn't see coming"
 year: "2025"
-summary: "An open-source starter kit that lets product managers spin up real LLM evals on a Wednesday — golden dataset, rubric, judge, runner, CI integration. Five files, one notebook, one rubric."
+summary: "If your product calls an LLM API anywhere, this kit catches the moment a prompt tweak — or the model updating underneath you — quietly makes the feature worse. Five files, one notebook, one rubric. Runs in CI on every PR. Costs pennies."
 stack: [python, pytest, openai]
 outcome: "Open source · MIT · github.com/drlukeangel/Eval-Starter-kit-Product-Management"
 ---
 
-![Cover graphic for the Eval Starter Kit — five files, one notebook, one rubric, for product managers](../../assets/blog/eval-starter-kit-cover.svg)
+![The eval starter-kit pipeline as a closed loop: a stack of prompt cards on the left feeds into a model under test (drawn as a small cylinder with a spark), the model's output passes into a judge (drawn as an eye with a check mark for an iris), the judge writes scores onto a four-bar rubric card, and a dashed CI line wraps back from the rubric through a check-marked CI badge to the prompt stack, closing the loop so every change re-runs the eval.](../../assets/blog/eval-starter-kit-cover.svg)
 
-## The premise
+## You probably need this and don't know it
 
-Most product teams ship LLM features on **vibe checks**. Someone tweaks a prompt, it *feels* better in a staging window, it merges. Three weeks later a quiet regression shows up in support tickets and nobody can trace when it broke.
+Most teams shipping LLM features today are not training models or fine-tuning. They're calling **GPT-4o, Claude, or Gemini through an API** and shipping a feature on top. The feature is a *combination* of four things — and three of them can quietly change without anyone touching the code.
 
-An eval loop is what catches that the same afternoon. You do not need a platform — you need a golden dataset, a rubric, a judge, and a runner. That's exactly what's in this repo.
+| Layer | Who controls it | Can it change silently? |
+| --- | --- | --- |
+| **The model** | OpenAI / Anthropic / Google | **Yes** — even named-version models drift; new versions ship monthly |
+| **The prompt** | You | Yes — every PR can edit it |
+| **The data** | You (retrieval, RAG, user context) | Yes — adjacent features mutate inputs |
+| **The user query** | The user | Yes — usage patterns shift |
 
-→ **[github.com/drlukeangel/Eval-Starter-kit-Product-Management](https://github.com/drlukeangel/Eval-Starter-kit-Product-Management)**
+That's three out of four moving without anyone realizing. Without evals, you find out it broke when **support tickets stack up three weeks later**. With evals, the PR fails CI the same day.
+
+## Who this is actually for
+
+| You are… | Do you need evals? | Is this kit the right tool? |
+| --- | --- | --- |
+| Training an LLM from scratch | Yes | No — use academic benchmarks (MMLU, HumanEval, HELM) |
+| Fine-tuning an existing LLM | Yes | Kind of — the pattern works, but you'd want more sophistication |
+| **Wiring a third-party LLM API into a product feature** | **Yes, more than anyone** | **Yes — this is exactly the use case** |
+
+You don't need to be doing "ML work" to need an eval loop. **If your product calls an LLM anywhere in its hot path, this kit is for you.**
+
+## A concrete example — what this actually catches
+
+Imagine you ship a customer-support thread summarizer using `gpt-4o-mini`. Your system prompt says *"summarize concisely, friendly tone."* You wire the kit in, run 30 example tickets through it, and your baseline rubric scores look like:
+
+| Axis | Day 0 score |
+| --- | --- |
+| Factual accuracy | **4.5 / 5** |
+| Tone | **4.3 / 5** |
+| Format adherence | **4.4 / 5** |
+| Hallucination rate | **0.97** (low is good) |
+
+Two weeks later, a teammate adds *"…and include action items"* to the system prompt. They test on three example tickets, it looks fine, they open a PR.
+
+**Without the kit:** PR ships. Support tickets quietly get worse. Three weeks later a customer-success lead notices the summaries now invent action items on tickets that don't have any. You spend two days bisecting prompt history.
+
+**With the kit:** The PR triggers `pytest`. The eval re-runs on the full 30 examples. The report comes back:
+
+| Axis | Day 0 | Day 14 (this PR) | Δ |
+| --- | --- | --- | --- |
+| Factual accuracy | 4.5 | 4.5 | 0.0 |
+| Tone | 4.3 | 4.3 | 0.0 |
+| Format adherence | 4.4 | **3.1** | **−1.3** |
+| Hallucination rate | 0.97 | **0.78** | **−0.19** |
+
+**CI fails.** The diff points at the two axes that dropped. The reviewer immediately sees: format broke because the model appends "Action items:" even on tickets with none, and hallucination ticked up because it's inventing items to fill that section. Fix the prompt in the same PR, scores recover, ship.
+
+That regression — silently shipped, found three weeks late — is the thing the kit prevents. **The whole point.**
 
 ## What's in the box
 
-A starter repo, intentionally tiny:
+Five files plus a notebook, intentionally tiny:
 
 - **`golden_dataset.jsonl`** — 30 PM-flavored prompts paired with the ideal answer
 - **`rubric.md`** — four scoring axes graded 1 – 5: factual accuracy, tone, format adherence, hallucination
 - **`judge.py`** — LLM-as-judge that scores a single response on the rubric
 - **`eval.py`** — the runner: model under test → judge → JSON report
-- **`test_evals.py`** — pytest integration so evals run in CI on every PR
+- **`test_evals.py`** — `pytest` integration so evals run in CI on every PR
 - **`eval_walkthrough.ipynb`** — notebook you can demo in a standup
 - **`prompt_template.md`** — copy-paste mode, for when you don't have API keys
 
-Two modes, by design. **API mode** clones the repo and runs `python eval.py` end-to-end. **Copy-paste mode** is the rubric folded into a single prompt you paste into ChatGPT, Claude, or Gemini to score one example at a time. Same shape; no keys required.
+Two modes. **API mode** clones the repo and runs `python eval.py` end-to-end. **Copy-paste mode** is the rubric folded into a single prompt you paste into ChatGPT, Claude, or Gemini to score one example at a time. Same shape; no keys required.
 
 ![The 4-step PM eval playbook — golden dataset, metrics, scoring, CI](../../assets/blog/eval-loop-diagram.svg)
 
@@ -42,9 +85,19 @@ The repo encodes one loop. Run it on every LLM feature you own.
 
 **3. Choose an eval method.** Deterministic checks (exact string, regex, JSON schema) where the answer is exact. A model-based judge — a stronger model like GPT-4o or Claude 3.5 Sonnet grading on the rubric — for everything semantic. Both are wired in.
 
-**4. Wire it into CI/CD.** Run the eval on every prompt or model change. Fail the build when the score drops below threshold. Thirty examples through `gpt-4o-mini` plus a `gpt-4o` judge runs in pennies — cheap enough to live on every PR.
+**4. Wire it into CI/CD.** Run the eval on every prompt or model change. Fail the build when the score drops below threshold. Thirty examples through `gpt-4o-mini` plus a `gpt-4o` judge runs in **pennies per PR** — cheap enough to live on every commit.
 
-## How it compares
+## The cost math
+
+A single full eval run:
+
+- 30 examples × `gpt-4o-mini` response: ~$0.005
+- 30 examples × `gpt-4o` judge × 4 axes: ~$0.030
+- **Total: ~$0.035 per CI run** — three-and-a-half cents
+
+Run it 100 times in a month: $3.50. Catch one regression that would have taken two days to debug: saved $1,000+ in eng time. The ROI is not subtle.
+
+## How it compares to bigger frameworks
 
 Four heavier open-source frameworks worth knowing once you outgrow a starter kit:
 
@@ -61,6 +114,6 @@ This kit covers the first 80% so you can decide which 20% you actually need.
 
 Every team I've worked with that *didn't* have a written rubric ended up arguing about taste on a Slack thread for the third time that month. Every team that *did* — even thirty lines and a spreadsheet — moved faster and made better calls.
 
-The kit isn't sophisticated. The discipline is.
+**The kit isn't sophisticated. The discipline is.**
 
 → **[Read the launch post](/blog/open-source-eval-starter-kit-for-pms/)** · **[Star the repo](https://github.com/drlukeangel/Eval-Starter-kit-Product-Management)**

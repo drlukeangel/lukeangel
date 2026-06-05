@@ -1,39 +1,88 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Eval pipeline.">
   <rect width="1200" height="630" fill="#fdfaf2"/>
   <defs>
-    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="1" fill="#1a1d24" opacity="0.06"/>
+    <pattern id="dEv" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="0.85" fill="#1a1d24" opacity="0.07"/>
     </pattern>
+    <marker id="aEv" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2a52be"/>
+    </marker>
   </defs>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#dEv)"/>
   <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
 
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1a1d24" stroke-width="2"/>
-  <text x="80" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#7a808c">FIELD STUDY</text>
-  <text x="1120" y="100" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" letter-spacing="6" fill="#2a52be" text-anchor="end">№ 01</text>
-
-  <g transform="translate(820, 180)" stroke="#2a52be" fill="none" stroke-width="3">
-    <rect x="0" y="0" width="80" height="56" rx="6"/>
-    <rect x="100" y="0" width="80" height="56" rx="6"/>
-    <rect x="200" y="0" width="80" height="56" rx="6"/>
-    <line x1="80" y1="28" x2="100" y2="28"/>
-    <line x1="180" y1="28" x2="200" y2="28"/>
-    <line x1="280" y1="28" x2="304" y2="28"/>
-    <circle cx="320" cy="28" r="16" fill="#2a52be" fill-opacity="0.15"/>
-    <circle cx="320" cy="28" r="6" fill="#2a52be"/>
-    <text x="40" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" fill="#2a52be" stroke="none">{ }</text>
-    <text x="140" y="36" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" fill="#2a52be" stroke="none">py</text>
-    <text x="240" y="34" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#2a52be" stroke="none">JUDGE</text>
+  <!-- INPUT: stack of prompts (3 stacked cards) -->
+  <g stroke="#1a1d24" stroke-width="2.4" stroke-linejoin="round" fill="#fdfaf2">
+    <rect x="120" y="260" width="120" height="150" rx="6"/>
+    <rect x="135" y="245" width="120" height="150" rx="6"/>
+    <rect x="150" y="230" width="120" height="150" rx="6"/>
+  </g>
+  <!-- lines on top card (prompt text) -->
+  <g stroke="#7a808c" stroke-width="2" stroke-linecap="round" fill="none">
+    <line x1="168" y1="260" x2="254" y2="260"/>
+    <line x1="168" y1="280" x2="240" y2="280"/>
+    <line x1="168" y1="300" x2="248" y2="300"/>
+    <line x1="168" y1="320" x2="220" y2="320"/>
+    <line x1="168" y1="340" x2="252" y2="340"/>
+    <line x1="168" y1="360" x2="232" y2="360"/>
   </g>
 
-  <text x="80" y="340" font-family="Newsreader, serif" font-weight="500" font-size="76" fill="#1a1d24" letter-spacing="-1">Eval Starter Kit</text>
-  <text x="80" y="408" font-family="Newsreader, serif" font-weight="400" font-style="italic" font-size="34" fill="#7a808c">for product managers</text>
+  <!-- ARROW 1: prompts → model -->
+  <path d="M 290 305 L 380 305" fill="none" stroke="#2a52be" stroke-width="3" marker-end="url(#aEv)"/>
 
-  <line x1="80" y1="468" x2="1120" y2="468" stroke="#1a1d24" stroke-width="1" stroke-dasharray="6,8"/>
-  <text x="80" y="510" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="3" fill="#1a1d24">5 FILES · 1 NOTEBOOK · 1 RUBRIC</text>
+  <!-- MODEL UNDER TEST: cylinder (database/llm) -->
+  <g stroke="#1a1d24" stroke-width="2.4" fill="#fdfaf2">
+    <ellipse cx="450" cy="240" rx="60" ry="18"/>
+    <path d="M 390 240 L 390 360 A 60 18 0 0 0 510 360 L 510 240" fill="#fdfaf2"/>
+    <ellipse cx="450" cy="240" rx="60" ry="18" fill="#2a52be" fill-opacity="0.10"/>
+    <ellipse cx="450" cy="300" rx="60" ry="18" fill="none"/>
+  </g>
+  <!-- small "spark" on cylinder to imply LLM/inference -->
+  <g stroke="#2a52be" stroke-width="2.6" stroke-linecap="round" fill="none">
+    <line x1="450" y1="280" x2="450" y2="298"/>
+    <line x1="438" y1="290" x2="448" y2="290"/>
+    <line x1="452" y1="290" x2="462" y2="290"/>
+    <line x1="442" y1="282" x2="448" y2="288"/>
+    <line x1="458" y1="282" x2="452" y2="288"/>
+  </g>
 
-  <line x1="80" y1="560" x2="1120" y2="560" stroke="#1a1d24" stroke-width="2"/>
-  <text x="80" y="600" font-family="Newsreader, serif" font-weight="500" font-size="22" fill="#1a1d24">Luke Angel</text>
-  <text x="1120" y="600" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" letter-spacing="2" fill="#7a808c" text-anchor="end">LUKEANGEL.CO / PROJECTS</text>
+  <!-- ARROW 2: model → judge -->
+  <path d="M 520 305 L 605 305" fill="none" stroke="#2a52be" stroke-width="3" marker-end="url(#aEv)"/>
+
+  <!-- JUDGE: eye-shape with a checkmark inside -->
+  <g stroke="#1a1d24" stroke-width="2.6" fill="#fdfaf2" stroke-linejoin="round">
+    <path d="M 620 305 Q 700 220 780 305 Q 700 390 620 305 Z"/>
+    <circle cx="700" cy="305" r="32" fill="#2a52be" fill-opacity="0.15" stroke="#2a52be" stroke-width="2.4"/>
+    <!-- checkmark inside the iris -->
+    <path d="M 686 305 L 698 318 L 716 292" fill="none" stroke="#2a52be" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ARROW 3: judge → rubric -->
+  <path d="M 800 305 L 880 305" fill="none" stroke="#2a52be" stroke-width="3" marker-end="url(#aEv)"/>
+
+  <!-- RUBRIC: scorecard with 4 horizontal bars (the 4 axes) of differing fill -->
+  <g stroke="#1a1d24" stroke-width="2.4" fill="#fdfaf2">
+    <rect x="900" y="220" width="180" height="170" rx="6"/>
+  </g>
+  <!-- 4 score bars with different fills -->
+  <g>
+    <rect x="918" y="240" width="144" height="20" rx="3" fill="none" stroke="#1a1d24" stroke-width="1.6"/>
+    <rect x="918" y="240" width="124" height="20" rx="3" fill="#2a52be" fill-opacity="0.75"/>
+    <rect x="918" y="272" width="144" height="20" rx="3" fill="none" stroke="#1a1d24" stroke-width="1.6"/>
+    <rect x="918" y="272" width="100" height="20" rx="3" fill="#2a52be" fill-opacity="0.60"/>
+    <rect x="918" y="304" width="144" height="20" rx="3" fill="none" stroke="#1a1d24" stroke-width="1.6"/>
+    <rect x="918" y="304" width="138" height="20" rx="3" fill="#2a52be" fill-opacity="0.85"/>
+    <rect x="918" y="336" width="144" height="20" rx="3" fill="none" stroke="#1a1d24" stroke-width="1.6"/>
+    <rect x="918" y="336" width="80" height="20" rx="3" fill="#2a52be" fill-opacity="0.45"/>
+  </g>
+
+  <!-- CI WIRE: a thin line wraps down and around from rubric back toward the start (closing the loop) -->
+  <path d="M 990 410 L 990 510 L 200 510 L 200 415" fill="none" stroke="#2a52be" stroke-width="2.4" stroke-dasharray="6 6" marker-end="url(#aEv)"/>
+
+  <!-- CI checkmark badge mid-loop -->
+  <g transform="translate(595, 510)">
+    <circle cx="0" cy="0" r="26" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.4"/>
+    <circle cx="0" cy="0" r="20" fill="#2a52be" fill-opacity="0.15" stroke="#2a52be" stroke-width="2"/>
+    <path d="M -10 0 L -2 8 L 12 -6" fill="none" stroke="#2a52be" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
 </svg>
