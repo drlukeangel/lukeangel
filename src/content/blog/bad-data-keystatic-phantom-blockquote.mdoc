@@ -1,0 +1,113 @@
+---
+title: "'Bad data': debugging a phantom blockquote in Keystatic"
+date: 2026-06-08T09:00:00-04:00
+category: craft
+tags:
+  - keystatic
+  - astro
+  - debugging
+  - cms
+  - build-in-public
+excerpt: "Three hours to a one-line workaround. The CMS returned 'Bad data' on a file that parsed clean. The diagnostic was an Astro middleware that captured the real request payload — and found Keystatic's editor was serializing a blockquote that wasn't on disk anymore. Here's the bug, the workaround, and the middleware you can drop in if you hit the same error."
+pullquote: "When your CMS returns the world's least helpful error message, write the middleware that captures the actual payload."
+cover: "../../assets/blog/bad-data-keystatic-phantom-blockquote-cover.svg"
+coverAlt: "Two stacked document outlines side by side connected by an equals sign that turns into a not-equals sign. The left document is labeled cleanly with horizontal text lines representing the .mdoc file on disk. The right document is the editor's in-memory tree, identical at the top but with one extra ghost-lined block in the middle representing a blockquote that no longer exists in the source. A red highlight around the ghost block marks the cache divergence. The visual point: the editor is saving a tree it parsed once and never refreshed, even though the file on disk has moved on."
+draft: false
+---
+
+Tried to update a post in [Keystatic](https://keystatic.com/) earlier today. Hit save. Got:
+
+**Bad data.**
+
+That was the entire error message. Two words. No stack trace, no field name, no schema hint, no JSON path. Just *Bad data* with a 400 status code.
+
+The file on disk parsed clean through Markdoc's own parser. The Astro dev server rendered the post at HTTP 200 with no validation errors. The content-collection schema accepted the frontmatter. So whatever Keystatic was rejecting wasn't in the file I could see.
+
+Three hours later I had a theory and a workaround. Here's the diagnostic, in case you ever hit the same error.
+
+## The setup
+
+I'd been editing a long-form post in VS Code over several sessions — typo fixes, a paragraph rewrite, a blockquote refactored down to flat prose. Each save on disk worked perfectly. The dev server hot-reloaded, content collections re-synced, the page rendered.
+
+But every time I opened the post in the Keystatic editor and clicked Save — even *without making a change* — the API returned 400 with "Bad data."
+
+The on-disk file was fine. The editor refused to save it.
+
+## The middleware
+
+The only useful diagnostic was an Astro middleware that intercepts the failed `POST /api/keystatic/update` and logs both the request payload and the response body. About twenty lines:
+
+```ts
+// src/middleware.ts
+import { defineMiddleware } from 'astro:middleware';
+
+export const onRequest = defineMiddleware(async (context, next) => {
+  const url = new URL(context.request.url);
+  if (url.pathname === '/api/keystatic/update' && context.request.method === 'POST') {
+    const reqBody = await context.request.clone().text();
+    const response = await next();
+    if (response.status >= 400) {
+      const respBody = await response.clone().text();
+      console.log('=== KEYSTATIC 400 ===');
+      console.log('Response body:', respBody);
+      console.log('Request body (first 4000 chars):');
+      console.log(reqBody.slice(0, 4000));
+      console.log('=== END ===');
+    }
+    return response;
+  }
+  return next();
+});
+```
+
+Restart the dev server, trigger the save in Keystatic, watch the dev console.
+
+## The smoking gun
+
+The request body is JSON with the file contents base64-encoded under `additions[0].contents`. When I decoded it, **the .mdoc content Keystatic was trying to write back contained a blockquote line I'd already removed from the file an hour earlier.** Verbatim:
+
+```
+> **"approximately 95% of the US population"** — *that word*
+```
+
+That blockquote existed in the file when Keystatic first loaded it into its editor. I edited it out at the file level — replaced it with a flat paragraph. The disk file moved on. The dev server rebuilt and rendered the new content. Astro saw the change.
+
+But Keystatic's editor — running in my browser, in my open tab — still had the **original parsed ProseMirror tree** in memory, complete with the blockquote node. Every time I clicked Save, the editor re-serialized that cached tree back to .mdoc text. Keystatic's server-side validator caught the serialized output as schema-invalid and threw back "Bad data."
+
+The editor wasn't reading the disk. It was saving from its own stale snapshot.
+
+## What didn't work
+
+I tried, in order:
+
+- Hard refresh the page (Ctrl+Shift+R). Editor state survives.
+- Open Keystatic in incognito. The editor still loads the cached blob from the server by its hash.
+- Restart the Astro dev server entirely. Content collections re-sync, the API serves the new file, but if your tab was already open it keeps using the old tree.
+- Clear browser storage — IndexedDB, localStorage, cookies for the dev origin. No effect on this particular flavor of staleness.
+- Make a manual edit in the editor to "dirty" the state. Editor still serializes the tree, which still contains the phantom blockquote.
+
+## What did work
+
+Close the entire Keystatic tab. Open a brand-new tab. Navigate fresh to `/keystatic/`. Click into the post.
+
+That's the only path that forces the editor to re-fetch and re-parse the on-disk file. Once it does, the phantom blockquote is gone from the in-memory tree, and saves succeed.
+
+For files I'd already accumulated edits on, the workaround is simpler: edit the .mdoc directly in VS Code, commit, push, skip the Keystatic editor for that file.
+
+## The real bug, upstream
+
+Two issues, in order of severity:
+
+1. **The "Bad data" string is useless.** Keystatic's `keystatic-core-api-generic.node.js` catches a [superstruct](https://docs.superstructjs.org/) `s.create()` validation failure and returns a constant string. The underlying superstruct error has a `.path` field that names the schema-violating attribute and a `.message` describing the violation. Surfacing those in the response body would turn a three-hour diagnostic into a thirty-second fix.
+
+2. **The editor's cached parse tree should invalidate when the file's content hash changes.** Or at minimum, the editor should re-fetch the source on every save attempt and bail with a clear "file changed externally; please reload" prompt instead of trying to overwrite with a stale tree.
+
+I'll file an upstream issue with both. The middleware above is the workaround until they're fixed.
+
+## Lesson
+
+**When your CMS returns the world's least helpful error message, write the middleware that captures the actual payload.**
+
+Twenty lines, ten minutes, and you've replaced *Bad data* with a real diff between what the editor *thinks* is in the file and what's *actually* on disk. That delta is the bug. Everything else is theater.
+
+The CMS made me run my own observability layer to debug it. Which feels like exactly the wrong place for the user to land — but at least the layer was easy to build.

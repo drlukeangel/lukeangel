@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Phantom blockquote cache mismatch.">
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <defs>
+    <pattern id="dKs" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="0.85" fill="#1a1d24" opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dKs)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#2a52be"/>
+
+  <!-- LEFT DOCUMENT: file on disk (clean) -->
+  <g>
+    <rect x="120" y="120" width="360" height="430" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <!-- folded corner -->
+    <path d="M 460 120 L 480 140 L 460 140 Z" fill="#1a1d24"/>
+    <!-- content lines -->
+    <g stroke="#1a1d24" stroke-width="2.2" stroke-linecap="round" opacity="0.78">
+      <line x1="160" y1="180" x2="430" y2="180"/>
+      <line x1="160" y1="210" x2="400" y2="210"/>
+      <line x1="160" y1="240" x2="430" y2="240"/>
+      <line x1="160" y1="270" x2="370" y2="270"/>
+    </g>
+    <!-- a paragraph break -->
+    <g stroke="#1a1d24" stroke-width="2.2" stroke-linecap="round" opacity="0.78">
+      <line x1="160" y1="330" x2="430" y2="330"/>
+      <line x1="160" y1="360" x2="420" y2="360"/>
+      <line x1="160" y1="390" x2="400" y2="390"/>
+      <line x1="160" y1="420" x2="425" y2="420"/>
+    </g>
+    <!-- bottom lines -->
+    <g stroke="#1a1d24" stroke-width="2.2" stroke-linecap="round" opacity="0.78">
+      <line x1="160" y1="480" x2="430" y2="480"/>
+      <line x1="160" y1="510" x2="380" y2="510"/>
+    </g>
+  </g>
+
+  <!-- MIDDLE: the divergence indicator (= becoming ≠) -->
+  <g transform="translate(600, 335)">
+    <!-- two horizontal bars (equals sign part) -->
+    <line x1="-30" y1="-12" x2="30" y2="-12" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-30" y1="12" x2="30" y2="12" stroke="#1a1d24" stroke-width="4" stroke-linecap="round"/>
+    <!-- the diagonal slash through it (turns = into ≠) -->
+    <line x1="-22" y1="22" x2="22" y2="-22" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- RIGHT DOCUMENT: editor's in-memory tree (with phantom blockquote) -->
+  <g>
+    <rect x="720" y="120" width="360" height="430" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.6"/>
+    <!-- browser-frame corner indicator (window dots) -->
+    <circle cx="744" cy="142" r="4" fill="#c14a3a"/>
+    <circle cx="760" cy="142" r="4" fill="#e0a020"/>
+    <circle cx="776" cy="142" r="4" fill="#3a7d44"/>
+    <!-- content lines (identical to left up top) -->
+    <g stroke="#1a1d24" stroke-width="2.2" stroke-linecap="round" opacity="0.78">
+      <line x1="760" y1="195" x2="1030" y2="195"/>
+      <line x1="760" y1="225" x2="1000" y2="225"/>
+      <line x1="760" y1="255" x2="1030" y2="255"/>
+      <line x1="760" y1="285" x2="970" y2="285"/>
+    </g>
+    <!-- PHANTOM BLOCKQUOTE — left bar + dashed content (semi-transparent / ghosted) -->
+    <g opacity="0.95">
+      <!-- blockquote left bar in red to flag -->
+      <rect x="760" y="320" width="4" height="78" fill="#c14a3a" rx="2"/>
+      <!-- dashed lines inside -->
+      <line x1="780" y1="335" x2="1010" y2="335" stroke="#c14a3a" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.85"/>
+      <line x1="780" y1="365" x2="990" y2="365" stroke="#c14a3a" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.85"/>
+      <line x1="780" y1="395" x2="1015" y2="395" stroke="#c14a3a" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="5 4" opacity="0.85"/>
+    </g>
+    <!-- bottom lines (identical to left bottom) -->
+    <g stroke="#1a1d24" stroke-width="2.2" stroke-linecap="round" opacity="0.78">
+      <line x1="760" y1="445" x2="1030" y2="445"/>
+      <line x1="760" y1="475" x2="1020" y2="475"/>
+      <line x1="760" y1="505" x2="980" y2="505"/>
+    </g>
+  </g>
+
+  <!-- subtle label-free annotation: arrow from phantom block pointing outward toward red ≠ -->
+  <g>
+    <path d="M 718 365 Q 670 365 638 345" fill="none" stroke="#c14a3a" stroke-width="2.4" stroke-dasharray="3 4"/>
+    <circle cx="638" cy="345" r="4.5" fill="#c14a3a"/>
+  </g>
+</svg>
