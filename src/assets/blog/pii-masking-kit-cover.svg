@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A four-lane data masking rubric: four horizontal stripes side by side, each showing six input data dots on the left transforming through a thin vertical accent line into an output pattern on the right. Top lane outputs hash crosshatches (direct identifiers → hashed). Second lane outputs distinct geometric tokens, each a different small shape (quasi-identifiers → tokenized). Third lane shows the six dots merged into two large clustered blobs (sensitive attributes → generalized). Bottom lane shows the same six dots passing through unchanged (behavioral data → kept). Cream background with a faint dot grid, a vertical rust-orange accent bar on the left edge, dark-green outputs, ink-color inputs, and rust-orange separators between lanes.">
+  <rect width="1200" height="630" fill="#f5efe1"/>
+  <defs>
+    <pattern id="dotGridPII" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#d6cdb6"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dotGridPII)" opacity="0.65"/>
+  <rect x="0" y="0" width="10" height="630" fill="#c0613a"/>
+
+  <!-- Lane separators (faint horizontal dashed lines between the four buckets) -->
+  <g stroke="#c0613a" stroke-width="2" stroke-dasharray="5 9" opacity="0.5">
+    <line x1="80" y1="170" x2="1140" y2="170"/>
+    <line x1="80" y1="290" x2="1140" y2="290"/>
+    <line x1="80" y1="410" x2="1140" y2="410"/>
+  </g>
+
+  <!-- Vertical transform line (the "mask" boundary) -->
+  <line x1="610" y1="80" x2="610" y2="540" stroke="#c0613a" stroke-width="3" stroke-dasharray="3 7" opacity="0.7"/>
+
+  <!-- LANE 1 — Direct identifiers → hashed (crosshatch X) -->
+  <g>
+    <!-- inputs: 6 solid ink dots -->
+    <circle cx="160" cy="115" r="11" fill="#1d2f3a"/>
+    <circle cx="220" cy="115" r="11" fill="#1d2f3a"/>
+    <circle cx="280" cy="115" r="11" fill="#1d2f3a"/>
+    <circle cx="340" cy="115" r="11" fill="#1d2f3a"/>
+    <circle cx="400" cy="115" r="11" fill="#1d2f3a"/>
+    <circle cx="460" cy="115" r="11" fill="#1d2f3a"/>
+    <!-- outputs: 6 hash crosses (X marks) in green -->
+    <g stroke="#2f5e4e" stroke-width="4" stroke-linecap="round">
+      <line x1="680" y1="105" x2="700" y2="125"/><line x1="700" y1="105" x2="680" y2="125"/>
+      <line x1="740" y1="105" x2="760" y2="125"/><line x1="760" y1="105" x2="740" y2="125"/>
+      <line x1="800" y1="105" x2="820" y2="125"/><line x1="820" y1="105" x2="800" y2="125"/>
+      <line x1="860" y1="105" x2="880" y2="125"/><line x1="880" y1="105" x2="860" y2="125"/>
+      <line x1="920" y1="105" x2="940" y2="125"/><line x1="940" y1="105" x2="920" y2="125"/>
+      <line x1="980" y1="105" x2="1000" y2="125"/><line x1="1000" y1="105" x2="980" y2="125"/>
+    </g>
+  </g>
+
+  <!-- LANE 2 — Quasi-identifiers → tokenized (distinct small shapes) -->
+  <g>
+    <!-- inputs: 6 solid ink dots -->
+    <circle cx="160" cy="235" r="11" fill="#1d2f3a"/>
+    <circle cx="220" cy="235" r="11" fill="#1d2f3a"/>
+    <circle cx="280" cy="235" r="11" fill="#1d2f3a"/>
+    <circle cx="340" cy="235" r="11" fill="#1d2f3a"/>
+    <circle cx="400" cy="235" r="11" fill="#1d2f3a"/>
+    <circle cx="460" cy="235" r="11" fill="#1d2f3a"/>
+    <!-- outputs: 6 distinct geometric shapes in green, each different (token stability via unique-shape mapping) -->
+    <rect x="678" y="223" width="22" height="22" fill="#2f5e4e"/>
+    <polygon points="750,223 740,245 760,245" fill="#2f5e4e"/>
+    <polygon points="810,223 822,235 810,247 798,235" fill="#2f5e4e"/>
+    <polygon points="858,243 870,224 882,243" fill="#2f5e4e" transform="rotate(180,870,234)"/>
+    <polygon points="930,225 921,232 924,243 936,243 939,232" fill="#2f5e4e"/>
+    <polygon points="978,233 988,221 1000,221 1010,233 1000,245 988,245" fill="#2f5e4e"/>
+  </g>
+
+  <!-- LANE 3 — Sensitive attributes → generalized (merged into bigger blobs) -->
+  <g>
+    <!-- inputs: 6 solid ink dots -->
+    <circle cx="160" cy="355" r="11" fill="#1d2f3a"/>
+    <circle cx="220" cy="355" r="11" fill="#1d2f3a"/>
+    <circle cx="280" cy="355" r="11" fill="#1d2f3a"/>
+    <circle cx="340" cy="355" r="11" fill="#1d2f3a"/>
+    <circle cx="400" cy="355" r="11" fill="#1d2f3a"/>
+    <circle cx="460" cy="355" r="11" fill="#1d2f3a"/>
+    <!-- outputs: 2 large rounded blobs in green (groups of three merged) -->
+    <ellipse cx="745" cy="355" rx="65" ry="28" fill="#2f5e4e"/>
+    <ellipse cx="935" cy="355" rx="65" ry="28" fill="#2f5e4e"/>
+  </g>
+
+  <!-- LANE 4 — Behavioral data → kept (same dots pass through) -->
+  <g>
+    <!-- inputs: 6 solid ink dots -->
+    <circle cx="160" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="220" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="280" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="340" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="400" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="460" cy="475" r="11" fill="#1d2f3a"/>
+    <!-- outputs: identical 6 ink dots — unchanged -->
+    <circle cx="690" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="750" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="810" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="870" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="930" cy="475" r="11" fill="#1d2f3a"/>
+    <circle cx="990" cy="475" r="11" fill="#1d2f3a"/>
+  </g>
+
+  <!-- Subtle arrows from input cluster to output cluster, one per lane -->
+  <g stroke="#1d2f3a" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.55">
+    <line x1="490" y1="115" x2="580" y2="115"/>
+    <polyline points="572,107 582,115 572,123"/>
+    <line x1="490" y1="235" x2="580" y2="235"/>
+    <polyline points="572,227 582,235 572,243"/>
+    <line x1="490" y1="355" x2="580" y2="355"/>
+    <polyline points="572,347 582,355 572,363"/>
+    <line x1="490" y1="475" x2="580" y2="475"/>
+    <polyline points="572,467 582,475 572,483"/>
+  </g>
+</svg>

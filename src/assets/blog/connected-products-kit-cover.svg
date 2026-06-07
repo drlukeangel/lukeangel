@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A reference IoT architecture as a four-stage left-to-right flow: a small rectangular device with an antenna emits concentric wireless wave arcs into a rounded cloud outline, which connects via a flow arrow to a database cylinder, which connects through another arrow to a dashboard rectangle showing a small bar chart. Cream background with a faint dot grid, a vertical rust-orange accent bar on the left edge, dark-green filled cylinder, ink-color outlines on the device, cloud, and dashboard, and rust-orange wireless waves and arrows.">
+  <rect width="1200" height="630" fill="#f5efe1"/>
+  <defs>
+    <pattern id="dotGridCP" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#d6cdb6"/>
+    </pattern>
+    <marker id="flowArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#1d2f3a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dotGridCP)" opacity="0.65"/>
+  <rect x="0" y="0" width="10" height="630" fill="#c0613a"/>
+
+  <!-- DEVICE (left): small chip rectangle with antenna mast on top, two indicator dots -->
+  <g>
+    <!-- chip body -->
+    <rect x="110" y="270" width="140" height="100" rx="10" fill="#f5efe1" stroke="#1d2f3a" stroke-width="4"/>
+    <!-- chip pins (small notches on sides) -->
+    <rect x="100" y="290" width="14" height="6" fill="#1d2f3a"/>
+    <rect x="100" y="310" width="14" height="6" fill="#1d2f3a"/>
+    <rect x="100" y="330" width="14" height="6" fill="#1d2f3a"/>
+    <rect x="100" y="350" width="14" height="6" fill="#1d2f3a"/>
+    <rect x="246" y="290" width="14" height="6" fill="#1d2f3a"/>
+    <rect x="246" y="310" width="14" height="6" fill="#1d2f3a"/>
+    <rect x="246" y="330" width="14" height="6" fill="#1d2f3a"/>
+    <rect x="246" y="350" width="14" height="6" fill="#1d2f3a"/>
+    <!-- indicator LEDs -->
+    <circle cx="145" cy="305" r="6" fill="#2f5e4e"/>
+    <circle cx="170" cy="305" r="6" fill="#c0613a"/>
+    <!-- antenna mast -->
+    <line x1="180" y1="270" x2="180" y2="220" stroke="#1d2f3a" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="180" cy="215" r="6" fill="#1d2f3a"/>
+  </g>
+
+  <!-- WIRELESS WAVES emanating right from the device antenna toward the cloud -->
+  <g stroke="#c0613a" stroke-width="3.5" fill="none" stroke-linecap="round">
+    <path d="M 280 235 Q 305 265, 280 295"/>
+    <path d="M 310 215 Q 345 265, 310 315"/>
+    <path d="M 340 195 Q 385 265, 340 335"/>
+  </g>
+
+  <!-- CLOUD (center-left): rounded multi-bump cloud outline -->
+  <g>
+    <path d="M 430 280
+             c 0 -28, 22 -50, 50 -50
+             c 8 -22, 30 -38, 56 -38
+             c 26 0, 48 16, 56 38
+             c 14 -8, 32 -8, 46 0
+             c 28 0, 50 22, 50 50
+             c 0 28, -22 50, -50 50
+             l -198 0
+             c -28 0, -50 -22, -50 -50 z"
+          fill="#f5efe1" stroke="#1d2f3a" stroke-width="4"/>
+    <!-- small lightning bolt inside the cloud as IoT identifier -->
+    <path d="M 545 285 l -10 26 l 14 0 l -10 30 l 24 -36 l -14 0 l 10 -20 z"
+          fill="#c0613a" stroke="#1d2f3a" stroke-width="1.5"/>
+  </g>
+
+  <!-- ARROW from cloud to database -->
+  <line x1="690" y1="305" x2="800" y2="305" stroke="#1d2f3a" stroke-width="5" stroke-linecap="round" marker-end="url(#flowArrow)"/>
+
+  <!-- DATABASE CYLINDER (center-right): top ellipse, side rectangle, bottom ellipse, all filled green -->
+  <g>
+    <rect x="820" y="265" width="120" height="100" fill="#2f5e4e" stroke="#1d3d33" stroke-width="3"/>
+    <ellipse cx="880" cy="265" rx="60" ry="18" fill="#2f5e4e" stroke="#1d3d33" stroke-width="3"/>
+    <ellipse cx="880" cy="365" rx="60" ry="18" fill="#2f5e4e" stroke="#1d3d33" stroke-width="3"/>
+    <!-- internal "disk lines" suggesting layers -->
+    <ellipse cx="880" cy="295" rx="56" ry="14" fill="none" stroke="#1d3d33" stroke-width="1.5" opacity="0.5"/>
+    <ellipse cx="880" cy="325" rx="56" ry="14" fill="none" stroke="#1d3d33" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- ARROW from database to dashboard -->
+  <line x1="950" y1="315" x2="1030" y2="315" stroke="#1d2f3a" stroke-width="5" stroke-linecap="round" marker-end="url(#flowArrow)"/>
+
+  <!-- DASHBOARD (right): monitor outline with bar chart inside -->
+  <g>
+    <!-- screen body -->
+    <rect x="1050" y="240" width="130" height="100" rx="6" fill="#f5efe1" stroke="#1d2f3a" stroke-width="4"/>
+    <!-- inner content area -->
+    <rect x="1062" y="252" width="106" height="76" fill="#f5efe1" stroke="#1d2f3a" stroke-width="1.5" opacity="0.5"/>
+    <!-- bar chart: 4 bars of varying heights -->
+    <rect x="1072" y="305" width="14" height="18" fill="#c0613a"/>
+    <rect x="1094" y="290" width="14" height="33" fill="#2f5e4e"/>
+    <rect x="1116" y="278" width="14" height="45" fill="#c0613a"/>
+    <rect x="1138" y="295" width="14" height="28" fill="#2f5e4e"/>
+    <!-- monitor base / stand -->
+    <rect x="1100" y="340" width="30" height="14" fill="#1d2f3a"/>
+    <rect x="1080" y="354" width="70" height="6" rx="3" fill="#1d2f3a"/>
+  </g>
+
+  <!-- Phase separators (faint dashed verticals between stages) -->
+  <g stroke="#c0613a" stroke-width="2" stroke-dasharray="5 9" opacity="0.45">
+    <line x1="395" y1="160" x2="395" y2="460"/>
+    <line x1="755" y1="160" x2="755" y2="460"/>
+    <line x1="1010" y1="160" x2="1010" y2="460"/>
+  </g>
+</svg>

@@ -4,6 +4,8 @@ year: "2025"
 summary: "Four-bucket PII rubric + runnable AWS Glue + DataBrew pipeline. Canonical reference for data-eng teams handling operator telemetry on connected products. Open-sourced 2026."
 stack: [python, pyspark, aws-glue, aws-databrew, aws-s3]
 outcome: "Open source · MIT · github.com/drlukeangel/PII-Masking-Starter-Kit-Product-Management"
+cover: ../../assets/blog/pii-masking-kit-cover.svg
+coverAlt: "A four-lane data masking rubric: four horizontal stripes side by side, each showing six input data dots on the left transforming through a thin vertical accent line into an output pattern on the right. Top lane outputs hash crosshatches. Second lane outputs distinct geometric tokens, each a different shape. Third lane shows the six dots merged into two large clustered blobs. Bottom lane shows the same six dots passing through unchanged."
 ---
 
 The kit is the smallest credible PII masking stack a data-engineering team needs to ship a compliant pipeline. A four-bucket rubric, a runnable PySpark job, an AWS DataBrew recipe, and a verify script that fails CI when the rubric ever drifts from the output.
