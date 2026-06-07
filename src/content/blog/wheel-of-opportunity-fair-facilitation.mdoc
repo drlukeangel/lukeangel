@@ -1,6 +1,6 @@
 ---
-title: "Wheel of Opportunity: Picking Speakers Without Picking Favorites"
-date: 2026-06-07T14:00:00.000Z
+title: "Picking Speakers Without Picking Favorites"
+date: 2026-03-24T14:00:00.000Z
 category: projects
 tags:
   - facilitation
@@ -20,7 +20,9 @@ coverAlt: "A row of eight circles — five dimmed, three filled in dark green �
 
 A friend runs an eight-person engineering team. The same two engineers spoke in every standup. The same one volunteered for every oncall shift. The same three ran every demo. He'd noticed, mentioned it twice in retros, the team agreed it was a problem — and nothing changed. He asked me if I'd build him "something dumb, like a wheel-spin thing" to take the picking out of his hands.
 
-I built it. Then I almost shipped the wrong version of it.
+I built it. I called it *Wheel of Misfortune* because the joke is that getting picked means you have to speak, and at the time the friend's team thought that was funny.
+
+The first version shipped wrong. Not the algorithm — the *label*. We'll get to that.
 
 ## The thing that doesn't work: "let's be more inclusive"
 
@@ -102,6 +104,20 @@ Pure-random mode is still there, because trivia and party games genuinely benefi
 
 Users *do* still pick pure random for trivia. Nobody picks it for standup anymore.
 
+## The label is the product
+
+Here's the part I almost shipped wrong.
+
+The original name was *Wheel of Misfortune*. The joke landed in the room I demoed it in — the picker pointed at you, you had to speak, ha ha, misfortune. The friend's team used it for two weeks of standups. By the second week, one of the quieter engineers told her manager she'd rather not be picked.
+
+The algorithm hadn't changed. The label had.
+
+When the indicator at the top of the screen frames *getting picked* as a bad outcome — "misfortune" — quieter people who already feel awkward speaking up read it as confirmation that being on the spot is something to dread. The picker was supposed to *redistribute* the speaking, and instead it told the people who needed to speak more that speaking was the punishment.
+
+The fix wasn't subtle. The whole framing flipped: the round-robin became "everyone gets a turn," the result line became "Up next," and the project itself eventually changed names. **The label drove behavior more than the algorithm did.** That's an embarrassing thing to discover after two weeks, but the lesson is real: when the tool's whole job is to influence a meeting's social dynamic, the words *on the picker* are part of the algorithm.
+
+I'd shipped the math correctly and the story wrong. The math kept working anyway, because math doesn't care. The story is what people changed their behavior around.
+
 ## History — make the rotation auditable
 
 The other place the algorithm has to defend itself is over time. Even with the round-by-round indicator, someone is eventually going to ask *"am I being picked more than my share?"* That question deserves a real answer, not a vibe.
@@ -139,7 +155,7 @@ Three things.
 
 ## Run it
 
-The repo is at [github.com/drlukeangel/WheelOfOpportunity](https://github.com/drlukeangel/WheelOfOpportunity). The live version runs at [drlukeangel.github.io/WheelOfOpportunity](https://drlukeangel.github.io/WheelOfOpportunity/) — a single page, no signup, all data in browser localStorage. Add people, define a group, spin. If you want to host it yourself, the README has the four-line dev-server walkthrough and a GitHub Pages workflow that deploys on push.
+The repo is at [github.com/drlukeangel/WheelOfMisfortune](https://github.com/drlukeangel/WheelOfMisfortune) — a single page, no signup, all data in browser localStorage. Add people, define a group, spin. If you want to host it yourself, the README has the four-line dev-server walkthrough.
 
 It's not a startup. It's a tool I built for one person, and it works for one team at a time. The math is the math.
 
