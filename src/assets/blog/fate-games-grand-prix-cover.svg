@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A heat-tournament bracket abstraction: three rows of small circles on the left feeding through narrowing connector lines into a row of six medium circles, which feed into a single filled dark-green champion circle on the right, with a checkered-flag pattern behind it.">
+  <rect width="1200" height="630" fill="#f5efe1"/>
+  <defs>
+    <pattern id="dotGrid2" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#d6cdb6"/>
+    </pattern>
+    <pattern id="check" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="10" height="10" fill="#1f2937"/>
+      <rect x="10" y="10" width="10" height="10" fill="#1f2937"/>
+      <rect x="10" y="0" width="10" height="10" fill="#f5efe1"/>
+      <rect x="0" y="10" width="10" height="10" fill="#f5efe1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#dotGrid2)" opacity="0.65"/>
+
+  <!-- left accent bar -->
+  <rect x="0" y="0" width="10" height="630" fill="#c0613a"/>
+
+  <!-- Heats: 3 columns of 7 small circles on the left (21 candidates) -->
+  <g fill="#f5efe1" stroke="#8a7c5e" stroke-width="2.5">
+    <!-- column 1 -->
+    <circle cx="120" cy="120" r="14"/>
+    <circle cx="120" cy="180" r="14"/>
+    <circle cx="120" cy="240" r="14"/>
+    <circle cx="120" cy="300" r="14"/>
+    <circle cx="120" cy="360" r="14"/>
+    <circle cx="120" cy="420" r="14"/>
+    <circle cx="120" cy="480" r="14"/>
+    <!-- column 2 -->
+    <circle cx="200" cy="120" r="14"/>
+    <circle cx="200" cy="180" r="14"/>
+    <circle cx="200" cy="240" r="14"/>
+    <circle cx="200" cy="300" r="14"/>
+    <circle cx="200" cy="360" r="14"/>
+    <circle cx="200" cy="420" r="14"/>
+    <circle cx="200" cy="480" r="14"/>
+    <!-- column 3 -->
+    <circle cx="280" cy="120" r="14"/>
+    <circle cx="280" cy="180" r="14"/>
+    <circle cx="280" cy="240" r="14"/>
+    <circle cx="280" cy="300" r="14"/>
+    <circle cx="280" cy="360" r="14"/>
+    <circle cx="280" cy="420" r="14"/>
+    <circle cx="280" cy="480" r="14"/>
+  </g>
+
+  <!-- Connector lines from heats to finalists (only a subset, suggesting fan-in) -->
+  <g stroke="#8a7c5e" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.55">
+    <path d="M 295 120 C 400 120, 460 165, 555 165"/>
+    <path d="M 295 180 C 400 180, 460 225, 555 225"/>
+    <path d="M 295 240 C 400 240, 460 285, 555 285"/>
+    <path d="M 295 300 C 400 300, 460 345, 555 345"/>
+    <path d="M 295 360 C 400 360, 460 405, 555 405"/>
+    <path d="M 295 420 C 400 420, 460 465, 555 465"/>
+  </g>
+
+  <!-- Finalists: 6 medium circles centered -->
+  <g fill="#2f5e4e" stroke="#1d3d33" stroke-width="2.5">
+    <circle cx="570" cy="165" r="22"/>
+    <circle cx="570" cy="225" r="22"/>
+    <circle cx="570" cy="285" r="22"/>
+    <circle cx="570" cy="345" r="22"/>
+    <circle cx="570" cy="405" r="22"/>
+    <circle cx="570" cy="465" r="22"/>
+  </g>
+
+  <!-- Connector lines from finalists to champion (one strong, others faint to suggest elimination) -->
+  <g stroke="#2f5e4e" stroke-linecap="round" fill="none">
+    <path d="M 595 165 C 720 165, 800 280, 920 315" stroke-width="1.6" opacity="0.35"/>
+    <path d="M 595 225 C 720 225, 800 290, 920 315" stroke-width="1.6" opacity="0.35"/>
+    <path d="M 595 285 C 720 285, 800 300, 920 315" stroke-width="1.6" opacity="0.35"/>
+    <path d="M 595 345 C 720 345, 800 320, 920 315" stroke-width="5" opacity="0.95"/>
+    <path d="M 595 405 C 720 405, 800 350, 920 315" stroke-width="1.6" opacity="0.35"/>
+    <path d="M 595 465 C 720 465, 800 360, 920 315" stroke-width="1.6" opacity="0.35"/>
+  </g>
+
+  <!-- Champion circle: large, filled, with a faint checkered ring behind to suggest the flag -->
+  <g>
+    <circle cx="970" cy="315" r="80" fill="url(#check)" opacity="0.18"/>
+    <circle cx="970" cy="315" r="58" fill="#2f5e4e" stroke="#1d3d33" stroke-width="4"/>
+    <!-- tiny crown-y notch on top of the champion -->
+    <circle cx="970" cy="315" r="20" fill="#f5efe1" opacity="0.9"/>
+  </g>
+
+  <!-- Vertical phase separators (faint) -->
+  <line x1="370" y1="80" x2="370" y2="540" stroke="#c0613a" stroke-width="2" stroke-dasharray="5 9" opacity="0.5"/>
+  <line x1="780" y1="80" x2="780" y2="540" stroke="#c0613a" stroke-width="2" stroke-dasharray="5 9" opacity="0.5"/>
+</svg>

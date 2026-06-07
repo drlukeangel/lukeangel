@@ -11,7 +11,7 @@ tags:
   - fairness
 notebook: pm-fundamentals
 notebookOrder: 6
-excerpt: "In an eight-person standup the same two people speak every day. In a sixteen-person oncall rotation the same four take 80% of the pages. The fix isn't 'let's be more inclusive' — it's making the picking mechanical so the loudest voice and the manager's habits stop deciding. A friend asked me to build the picker. The fairness story turned out to be one specific algorithm — a depleting pool — and the UI showing it."
+excerpt: "In an eight-person standup the same two people speak every day. In a sixteen-person oncall rotation the same four take 80% of the pages. The fix isn't 'let's be more inclusive' — it's making the picking mechanical so the loudest voice and the manager's habits stop deciding. I built a wheel-spinner called Fate Games. The fairness story turned out to be one specific algorithm — a depleting pool — and the choice to lean all the way into the snark."
 cover: ../../assets/blog/wheel-of-opportunity-cover.svg
 coverAlt: "A row of eight circles — five dimmed, three filled in dark green — with a curved arrow looping back from end to start, suggesting a queue that refills when empty."
 ---
@@ -20,9 +20,7 @@ coverAlt: "A row of eight circles — five dimmed, three filled in dark green �
 
 A friend runs an eight-person engineering team. The same two engineers spoke in every standup. The same one volunteered for every oncall shift. The same three ran every demo. He'd noticed, mentioned it twice in retros, the team agreed it was a problem — and nothing changed. He asked me if I'd build him "something dumb, like a wheel-spin thing" to take the picking out of his hands.
 
-I built it. I called it *Wheel of Misfortune* because the joke is that getting picked means you have to speak, and at the time the friend's team thought that was funny.
-
-The first version shipped wrong. Not the algorithm — the *label*. We'll get to that.
+I built it. The whole project is called **Fate Games** and the picker at its heart is the **Wheel of Death**. The tagline is *"No volunteers needed."* If that sounds harsher than the problem it solves, keep reading — the framing turns out to be load-bearing, in the opposite direction you'd expect.
 
 ## The thing that doesn't work: "let's be more inclusive"
 
@@ -44,7 +42,7 @@ In an 8-person group, pure random across 8 spins:
 - The probability that **at least one person** is skipped is therefore ≈ **99.76%**.
 - The expected number of distinct people picked is `8 · (1 - (7/8)^8)` ≈ **5.27**.
 
-That last number is the one I keep coming back to. With pure random, you'd expect about **three of your eight people to not have spoken at all** after a week of daily standups, while one or two have gone twice. That's not "fair with some variance" — that's *worse* than the manager's habits, because the manager at least notices that Cleo hasn't reported in a week. The dice don't.
+That last number is the one I keep coming back to. With pure random, you'd expect about **three of your eight people to not have spoken at all** after a week of daily standups, while one or two have gone twice. That's not "fair with some variance" — that's *worse* than the manager's habits, because the manager at least notices that Eddie hasn't reported in a week. The dice don't.
 
 A second-order problem makes it actually worse: streaks feel personal. The person who gets picked three times in a row stops trusting the wheel. The person who hasn't been picked in two weeks stops paying attention to standup. The mechanism that was supposed to *take* the favoritism out of the picking creates a new, less defensible flavor of it.
 
@@ -65,100 +63,71 @@ Properties:
 
 This is the same shape as a **card deck that gets shuffled and dealt down, then reshuffled when empty**. Programmers know this as a *Fisher-Yates draw without replacement*. Statisticians call it *sampling without replacement, with repeated rounds*. Kids dividing teams on a playground call it "everyone goes before anyone goes again."
 
-In code it's maybe twenty lines. The version in the app:
+In code it's maybe twenty lines. The version in Fate Games stores the pool in `localStorage` per `{teamId}:challenge:{challengeId}` so the same team can have a separate rotation for standup, oncall, and demo-running, each with its own depleting state. When the pool empties, the next spin reseeds from the full team.
 
-```ts
-const remaining = pool?.remainingUserIds.length
-  ? pool.remainingUserIds
-  : groupUserIds; // refill when empty
+That's the whole algorithm. The hard part isn't the math — it's making sure the user feels like the wheel is fair while the wheel does its work.
 
-const selectedUserId =
-  remaining[Math.floor(Math.random() * remaining.length)];
+## The Wheel of Death — and why the snark is the product
 
-const nextPool = {
-  key: poolKey,
-  remainingUserIds: remaining.filter((id) => id !== selectedUserId)
-};
-```
+This is where Fate Games diverges from every "team picker" tool I'd looked at while building it. The polite ones — "team randomizer," "fair rotation widget," "spinning wheel" — all reassure you that being picked is fine, that the algorithm is fair, that nothing personal is happening. They are all read by users as exactly what they are: managerial tools designed to soften an awkward moment.
 
-That's the whole thing. The hard part isn't the algorithm — it's making sure the UI tells the user *which* algorithm is running.
+The thing my friend's team was actually doing in standup wasn't avoiding speaking. It was *being polite about whose turn it was.* "Oh, you go," "no you go," "no really, I went last time" — that's the loop the wheel had to break. The polite framing was the thing keeping the same two people speaking every day, because the polite framing made *being picked* feel like *being chosen against you*.
 
-## Make the fairness story visible
+So I went the other way. The picker is the **Wheel of Death**. It glows orange, makes a satisfying clack, and lands on you with a skull-and-crossbones celebration. When you get picked, the headline doesn't say *"You've been selected to share an update"* — it says *"Spin to die!"*
 
-The first build had a switch labeled "Random" vs "Round-robin." Users picked Random. Of course they did — they thought "round-robin" meant a fixed alphabetical order. They didn't pick Random because they wanted the unfairness; they picked it because the other label sounded boring.
+![The Wheel of Death mid-spin in Fate Games — a vibrant eight-segment color wheel with the team's emoji avatars around the rim, glowing yellow LED dots along the edge, pointed at by a yellow indicator triangle at the top.](../../assets/blog/fate-games-wheel-of-death-spinning.png)
 
-Two fixes shipped together:
+It feels worse than "team randomizer." It works better. Two reasons:
 
-1. **Rename the mode** to something that describes the user benefit, not the algorithm. *"Round-robin (everyone goes once)"* beats *"Round-robin"* on its own. The parenthetical is doing all the work.
-2. **Show the pool state on every spin.** Not "trust me, it's fair" — *show* the dots, count the remaining, name who's been picked already.
+**One — humor lowers the social cost of being picked.** When the wheel says *"Spin to die!"* and lands on you with a skull, you have a script. You laugh. You go. The polite framing leaves you with no script except "uh, I guess it's me?" — which is the exact pause the room used to fill with "no no no, *you* go." The snark turns the moment into a bit, and the bit doesn't need consensus.
 
-That second one is the load-bearing UX change. Here's what it looks like in practice — eight-person standup, five people already picked this round, three still queued:
+**Two — being picked stops being a status thing.** A team-randomizer that tries to be respectful implicitly says "being picked is an honor / responsibility / promotion." Wheel of Death says "you got eaten by a T-Rex" (one of the other games is literally called *T-Rex Pit*). The picker doesn't claim it's fair-in-a-noble-sense; it claims it's fair-in-a-doesn't-care sense. Quieter people I'd shown this to read that as a relief — the picker doesn't think being picked is a big deal, so they don't have to either.
 
-![A group picker in round-robin mode showing 3 of 8 still queued and 5 already picked this round — with the eight-person dot indicator and the names already picked listed below.](../../assets/blog/wheel-of-opportunity-pool-status.png)
+![The result reveal after a Wheel of Death spin: a large skull emoji over the picked person's name in coral red — 'Eddie Bloom' — with bone-and-skull confetti animations falling around it.](../../assets/blog/fate-games-wheel-of-death-result.png)
 
-You can see, in one glance, that the wheel hasn't forgotten anyone. The dots dim as the round progresses; the explicit *"Already picked: Ana, Ben, Dev, Finn, Gina"* line removes any ambiguity. When the pool empties, the indicator says *"round complete, next spin starts a new one."* The fairness *story* — the thing the manager originally wanted — is sitting on the screen instead of buried in a dropdown.
+The "no volunteers needed" tagline is the same move. It's not telling users that volunteering is bad. It's reassuring them that they don't have to perform willingness. That performance is what the polite framing was extracting from them every standup.
 
-Pure-random mode is still there, because trivia and party games genuinely benefit from streaks. But switching to it surfaces a small banner so people know what they're giving up:
+## Make the rotation auditable
 
-![The same picker switched to Pure random mode, showing a small amber banner reading 'Pure random — someone may be picked twice before others are picked once.'](../../assets/blog/wheel-of-opportunity-pure-random-warn.png)
+The depleting pool is invisible to the user mid-spin — they see a wheel, they see a name, they see a skull. Over a week of standups, the question stops being *"is this spin fair?"* and starts being *"am I being picked more than my share?"* That deserves a real answer, not a vibe.
 
-Users *do* still pick pure random for trivia. Nobody picks it for standup anymore.
+The Leaderboards page keeps a running count per person across all rotations they're in:
 
-## The label is the product
+![Leaderboards page in Fate Games — a 'Most Picked' tab showing the top of the rank table: Max Kowalski at 20 picks with a 'Veteran' badge, Fiona Drake at 11 with 'Regular', Priya Sharma at 11 with 'Regular', a long tail with 'Rookie' badges, and filter dropdowns for Team, Challenge, and Game at the top.](../../assets/blog/fate-games-leaderboards.png)
 
-Here's the part I almost shipped wrong.
+Two things land in this view that I didn't plan and ended up keeping:
 
-The original name was *Wheel of Misfortune*. The joke landed in the room I demoed it in — the picker pointed at you, you had to speak, ha ha, misfortune. The friend's team used it for two weeks of standups. By the second week, one of the quieter engineers told her manager she'd rather not be picked.
+- **Gamification titles** — Fresh Meat (0 picks), Rookie (1+), Regular (6+), Veteran (16+), Legend (31+), Immortal (51+). I added them as a joke. They turned out to be the thing people actually look at — *"oh I'm finally a Regular"* — which is exactly the wrong incentive for a fair rotation tool and exactly the right one for getting people to keep using it.
+- **Filter by team / challenge / game** — once one team had three rotations going (standup, oncall, demo-running), the question shifted from *"who got picked"* to *"who got picked **for what**."* The filters let a manager answer that in two clicks. The answer is almost always "the math is fine, your memory is biased."
 
-The algorithm hadn't changed. The label had.
-
-When the indicator at the top of the screen frames *getting picked* as a bad outcome — "misfortune" — quieter people who already feel awkward speaking up read it as confirmation that being on the spot is something to dread. The picker was supposed to *redistribute* the speaking, and instead it told the people who needed to speak more that speaking was the punishment.
-
-The fix wasn't subtle. The whole framing flipped: the round-robin became "everyone gets a turn," the result line became "Up next," and the project itself eventually changed names. **The label drove behavior more than the algorithm did.** That's an embarrassing thing to discover after two weeks, but the lesson is real: when the tool's whole job is to influence a meeting's social dynamic, the words *on the picker* are part of the algorithm.
-
-I'd shipped the math correctly and the story wrong. The math kept working anyway, because math doesn't care. The story is what people changed their behavior around.
-
-## History — make the rotation auditable
-
-The other place the algorithm has to defend itself is over time. Even with the round-by-round indicator, someone is eventually going to ask *"am I being picked more than my share?"* That question deserves a real answer, not a vibe.
-
-The History page keeps a running count of who's been picked and who's been in the running:
-
-![History page showing two columns — Times picked and Times in the running — with eight people listed under each, illustrating that pool tracking is auditable over time.](../../assets/blog/wheel-of-opportunity-history.png)
-
-Two things land in this view:
-
-- The **Times picked** column shows what you'd expect from a depleting pool across multiple completed rounds: tight clustering around the per-round mean. After five spins of an 8-person group, you'd see 5 people at "1" and 3 people at "0" — exactly what's pictured.
-- The **Times in the running** column shows who was eligible but not chosen. It's the harder column to interpret, but it's the one that catches the bug case: if someone has 0 picks AND 0 times in the running, they're not in the group. (Easy to forget when you're juggling memberships across a standup, an oncall, and a working group.)
-
-A subtle anti-pattern I avoided: the first version had a "Streaks" tab. Looked great. The problem was that streak data invites celebration — "Cleo is on a 4-day streak!" — which is exactly the framing the tool is supposed to *kill*. Got rid of it. The app is for picking fairly, not for gamifying speaking up.
+A subtle anti-pattern I avoided: the first version had a "Streaks" tab. Looked great. The problem was that streak data invites celebration — *"Diana is on a 4-day streak!"* — which is exactly the framing the tool is supposed to *kill*. Got rid of it. The app is for picking fairly, not for gamifying speaking up.
 
 ## What didn't work — the stuff that's not in the screenshots
 
 A few things I tried and pulled back:
 
-- **A bigger spinner animation** with sound effects. Looked impressive in isolation. In a standup it became the bit, and the bit took the meeting hostage — every spin felt like *Wheel of Fortune*. Wound it back to a 1.5-second wheel rotation that resolves quickly. A picker that takes 8 seconds per pick eats 64 seconds of standup time in an 8-person team. Not free.
+- **A longer, more dramatic spin animation** with sound effects. Looked great in isolation. In a standup it became the bit, and the bit took the meeting hostage — every spin felt like *Wheel of Fortune*. Wound it back to a ~3 second total animation that lands cleanly. A picker that takes 8 seconds per pick eats 64 seconds of standup time in an 8-person team. Not free.
 - **An "exempt" toggle** to skip someone (out sick, traveling). Built it, removed it. The depleting pool is forgiving — if you can't speak today, the round just continues without you and you're up first next round. Adding an exempt UI created the very gap-tracking workload the tool was meant to eliminate.
-- **Server-side state.** Started writing it. Killed it. localStorage is the right answer for a tool one person runs in their browser to pick a name; a server adds account management, sync conflicts, hosting cost, and a privacy story to maintain — for zero functional benefit.
+- **Server-side state.** Started writing it. Killed it. `localStorage` is the right answer for a tool one person runs in their browser to pick a name; a server adds account management, sync conflicts, hosting cost, and a privacy story to maintain — for zero functional benefit at the team-of-one scale.
 
-The repo is about 40 modules, 160 KB of JavaScript, no backend. It deploys on a free GitHub Pages plan. The build pipeline runs on every push.
+The app is about 35 React components, no backend. The whole thing fits on a phone screen. The build pipeline runs locally; it deploys as static HTML.
 
 ## What I'd tell a team adopting this
 
 Three things.
 
-**First — the algorithm is non-negotiable, the UI is everything.** Whichever picker your team uses (this one, a Slack bot, a paper hat), the depleting pool is the right mechanism for rotation work. The reason "pull a name from a hat without putting it back" exists in every culture is because every culture rediscovered the same math. Use that. But also: pick the tool that *shows* the pool state. A picker that hides its mechanism is functionally identical to a coin flip from a trust standpoint, regardless of what it's actually doing under the hood.
+**First — the algorithm is non-negotiable, the UI is everything.** Whichever picker your team uses (this one, a Slack bot, a paper hat), the depleting pool is the right mechanism for rotation work. The reason "pull a name from a hat without putting it back" exists in every culture is because every culture rediscovered the same math. Use that. But also: pick the tool whose voice matches your team's. Wheel of Death works because my friend's team has dark humor; on a team with different dynamics the same algorithm wrapped in different copy would be the right call.
 
-**Second — pick what to put in the pool deliberately.** Standup report-outs, demo-running, retro-facilitating, low-stakes meeting moderation: yes. Oncall: usually yes, but watch for skill gaps (a junior in week 2 doesn't take Sunday-night production pages alone — that's not fairness, that's negligence). Project lead, performance review, hiring loops: no — those want a manager's judgment, not a wheel. Build a different pool per use case so you don't accidentally rotate the wrong thing.
+**Second — pick what to put in the rotation deliberately.** Standup report-outs, demo-running, retro-facilitating, low-stakes meeting moderation: yes. Oncall: usually yes, but watch for skill gaps (a junior in week 2 doesn't take Sunday-night production pages alone — that's not fairness, that's negligence). Project lead, performance review, hiring loops: no — those want a manager's judgment, not a wheel. Build a different rotation per use case so you don't accidentally rotate the wrong thing.
 
 **Third — declare bankruptcy on the past.** Don't load six months of standup history into the tool and try to "rebalance." Start the pool fresh on a Monday, tell the team that's what you're doing, and let the math handle it from there. Trying to compensate for past unfairness with current unfairness compounds the problem you started with.
 
 ## Run it
 
-The repo is at [github.com/drlukeangel/WheelOfMisfortune](https://github.com/drlukeangel/WheelOfMisfortune) — a single page, no signup, all data in browser localStorage. Add people, define a group, spin. If you want to host it yourself, the README has the four-line dev-server walkthrough.
+The repo is at [github.com/drlukeangel/fate-games](https://github.com/drlukeangel/fate-games). It's the early version — one team, the Wheel of Death, a slot machine I added because I couldn't help myself, and the depleting pool. Everything lives in browser `localStorage`. No signup. No telemetry. Reset clears it.
 
-It's not a startup. It's a tool I built for one person, and it works for one team at a time. The math is the math.
+The math is the math. The skull is on purpose.
 
 ## What's next
 
-The next post in this notebook will be on the inverse problem — when a decision genuinely *needs* a manager's judgment, and a fair rotation would be the wrong answer. Promotions, project lead assignments, deciding who takes a customer-facing escalation. The wheel knows when to spin; the harder skill is knowing when not to.
+The next post in this notebook is on the inverse problem — when a decision genuinely *needs* a manager's judgment, and a fair rotation would be the wrong answer. Promotions, project lead assignments, deciding who takes a customer-facing escalation. The wheel knows when to spin; the harder skill is knowing when not to.

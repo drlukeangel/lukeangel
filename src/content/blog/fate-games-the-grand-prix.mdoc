@@ -1,0 +1,143 @@
+---
+title: "Fate Games at Town-Hall Scale: The Grand Prix"
+date: 2026-05-12T14:00:00.000Z
+category: projects
+tags:
+  - facilitation
+  - meetings
+  - tournament
+  - scaling
+  - open-source
+  - team-management
+notebook: pm-fundamentals
+notebookOrder: 8
+excerpt: "What started as a snarky wheel-spinner for one team's standup ended up on a company VM, then in three different teams' rotations, then on the VP's monitor at an all-hands with 200 people in the room. The wheel maxes out around 12. The Race Game I'd built as a joke turned into a heat-tournament — Grand Prix — that scales to whatever the room is. Today I'm putting it on the projects page and open-sourcing it."
+cover: ../../assets/blog/fate-games-grand-prix-cover.svg
+coverAlt: "A heat-tournament bracket abstraction: three columns of small open circles on the left fan in through narrowing connector lines into a vertical row of six medium dark-green circles, which converge into a single large champion circle on the right with a faint checkered-flag ring behind it. Cream background, vertical rust-orange accent bar at the left edge, dashed orange separators between the three phases."
+---
+
+![A heat-tournament bracket abstraction: three columns of small open circles on the left fan in through narrowing connector lines into a vertical row of six medium dark-green circles, which converge into a single large champion circle on the right with a faint checkered-flag ring behind it.](../../assets/blog/fate-games-grand-prix-cover.svg)
+
+[Two months ago](/blog/wheel-of-opportunity-fair-facilitation/) I wrote about building a wheel-spinner called Fate Games for one engineering team's standup problem. The pitch was the depleting pool: everyone gets picked once before anyone repeats. The shape of the wheel was a single team of eight, the Wheel of Death, and a hard rule that the picker stays on one person's laptop in `localStorage`.
+
+The tool slid out of that scope in three steps. None of them were planned. One of them got it onto the VP's screen at a 200-person all-hands. Here's how that happened and what the math looks like at that scale.
+
+## Step 1 — multi-team, because three people asked
+
+The first request was from the SRE lead: *"can our oncall rotation use this too?"* Sure. The data model already had a `Group` type — internally it was always "groups of users with a depleting pool" — I just hadn't surfaced a second one. Added a Teams admin page, dropped the user-export to CSV, and pointed three different rotations at the same browser:
+
+- Engineering — standup speaker
+- SRE / Platform Ops — Sunday oncall
+- Design & UX — demo-running
+
+![Teams admin page in Fate Games — three team cards: Engineering ('The people who break things and fix them,' 8 members, 3 active challenges), Design & UX ('Making it pretty since 2026,' 6 members, 2 active challenges), and Platform Ops ('We keep the lights on. You're welcome,' 6 members, 2 active challenges). Each card shows member avatars and 'Members / Edit / Delete' buttons. An 'Add Team' button is at the top right.](../../assets/blog/fate-games-teams.png)
+
+The pool key changed from `{userId}` to `{teamId}:challenge:{challengeId}` so each team's rotations stayed isolated. Adding the SRE team didn't reshuffle the Engineering pool, and adding a new challenge inside SRE — say, "Friday post-mortem facilitator" — didn't perturb the oncall rotation either. Each rotation is its own deck.
+
+That was a one-evening change and I thought I was done.
+
+## Step 2 — onto a VM, because `localStorage` doesn't sync
+
+What I hadn't reckoned with: the SRE lead and his manager wanted to *both* spin the wheel for oncall during the same standup. One on a laptop, one on a TV cast from a phone. Both needed to see the same pool state. `localStorage` is per-browser. Two browsers, two pools, two outcomes — they spun for the same shift twice and got two different people. That's not just unfair; that's a bug that erodes the trust the whole point of the tool depends on.
+
+I had three options:
+
+1. **Add a backend.** Real database, auth, sync. Real maintenance forever.
+2. **Use URL state.** Encode the entire pool in the query string and let two browsers share a link. Works for a small team, falls apart fast.
+3. **One canonical browser.** Run the app in one place, share the screen.
+
+Option 3 won, with a small change: I packaged the static build into an `nginx` container and asked our IT team if I could squat on a VM. They said yes — it's a single static React bundle, no surface area to defend, and the only state is in *that VM's* browser when someone visits. I sent the URL to the SRE lead, he opened it on the standup TV every morning, his team watched the wheel, and the question of *"who did it pick"* went away. The image is on the repo as a one-line Dockerfile + nginx config; the deploy was `docker build && scp && docker run` and took an afternoon.
+
+If the team grew past two-browser coordination problems, I'd revisit. They haven't.
+
+## Step 3 — more games, because the wheel got boring
+
+Once three teams used it daily, the wheel started to feel like a coin flip with extra steps. The team that had laughed at the skull on day one had laughed at the same skull every day for six weeks. Familiarity made the bit invisible.
+
+So I added more games. All of them produce the same result — the depleting pool picks a winner, the animation is cosmetic — but each frames the moment differently:
+
+![Play page in Fate Games — five game cards horizontally: Slot Machine (spin the reels), T-Rex Pit (get eaten), Race Game (race to the finish), Mystery Cards (flip to reveal), and Wheel of Death (spin to die) highlighted on the right. A 'Team Pick' / 'Quick Decision' tab toggle is at the top, an orange 'Play' button below, with the snark line 'Release the kraken of accountability' at the bottom.](../../assets/blog/fate-games-play-page.png)
+
+- **Slot Machine** — three reels, the middle one stops on the winner. Plays well right after coffee.
+- **T-Rex Pit** — a tiny T-Rex animation eats the winner. The teenage-dirtbag energy of this one is somehow the morale-booster on Mondays.
+- **Race Game** — emoji racers in lanes, finish line, winner pulls ahead in the last 20%. The one that ended up scaling to town halls — more on that in a minute.
+- **Mystery Cards** — flip-card reveal. The "what's on this airline tray" energy. Goes over surprisingly well with finance, who don't want a skull on the screen during their standup.
+- **Wheel of Death** — the original, still the workhorse.
+
+The games rotate per challenge, so the same standup doesn't see the same animation two days running. And I added the gamification titles I'd built as a joke — Fresh Meat → Rookie → Regular → Veteran → Legend → Immortal — *because the teams kept asking when they'd graduate.*
+
+## Step 4 — Quick Decision, because the wheel kept getting borrowed for stuff it wasn't built for
+
+The other thing the teams started doing — and it took me a while to notice — was running the wheel on *things that weren't team rotations.* "Where should we order lunch from?" "Whose meme makes it into the deck?" "Should I add this to my LinkedIn?" People were creating fake "teams" with three options as the "members" just to use the spinner for a yes/no.
+
+I added a **Quick Decision** mode: no team, no rotation, just paste in 2–10 options and let the picker pick. Same five animations, but the depleting pool is disabled — pure random, because there's no fairness story to track for "tacos vs pizza."
+
+![Quick Decision flow in Fate Games — a 'What is the machine deciding?' input at top, an 'Enter Your Options' panel with placeholder text 'e.g. Pizza for lunch' and 'e.g. Tacos instead,' an 'Add Option' button, and a purple 'Choose a Game' button below. The tagline reads 'Let the machine decide. No regrets.'](../../assets/blog/fate-games-quick-decision.png)
+
+This is where the snark started writing itself. Real picks from the Activity log: *"What do I bring to the potluck → Audacity."* *"Can I expense this → Ask forgiveness not permission."* *"Should I add this to my LinkedIn → Only if you call yourself a thought leader."* The decisions persist in the same auditable feed as the team picks, so the next standup can scroll back through "what did we decide about lunch last week" and have a real answer.
+
+![Activity page in Fate Games — a cross-team timeline showing 106 total events, 88 team picks, 18 quick decisions. Visible entries include 'What do I bring to the potluck? → Audacity' (Race Game), 'Can I expense this? → Ask forgiveness not permission' (Slot Machine), 'Should I add this to my LinkedIn? → Only if you call yourself a thought leader' (Wheel of Death), and team picks like 'Alice Nakamura was picked, T-Rex Pit, Code Review Roulette, Engineering.' Filter tabs across the top: All (106), Picks (88), Decisions (18), with per-game counts.](../../assets/blog/fate-games-activity.png)
+
+The Activity page is now the most-visited screen in the app, which surprised me — I'd built it as a debugging view.
+
+## Step 5 — the VP, the town hall, and the wheel that doesn't scale
+
+This is the one I want to spend the most time on, because the math is genuinely interesting.
+
+The VP had seen Fate Games on the standup TV, watched a couple of spins, asked what it was, and at the next all-hands wanted to use it to pick the team that would lead the next quarter's tiger team. Two hundred people in the room. One winner.
+
+I tried it on a test pool of 200 names. The Wheel of Death does not work at 200.
+
+The wheel's failure mode is geometric: at 8 segments each slice is 45°, which the eye can read. At 50 segments each slice is 7.2°, which is half the width of the pointer arrow. At 200 segments each slice is 1.8° — *thinner than the line that draws it*. The animation runs, the wheel slows, the pointer lands on something, and there is no possible way for anyone in the room to verify that the visual selection matches the algorithm's selection. The fairness story disappears even though the math is still correct.
+
+The Slot Machine had a similar problem — three reels with 200 entries each is a 600-row scroll, and you can't read the middle reel as it spins. T-Rex Pit and Mystery Cards both topped out around 20 candidates. None of the cosmetic games scaled.
+
+The Race Game was the surprise. It had a hard 10-lane cap (I'd written one too many CSS animations and stopped at 10). For the town hall I needed to extend it. The thing I ended up with is not a bigger race — it's a tournament.
+
+## The Grand Prix — a heat tournament for arbitrarily many candidates
+
+The rule is simple. If the candidate pool is ≤10, run a single race. If it's >10, split into heats of 10, run the heats sequentially, advance each heat winner to a "Finalists" row, and when all heats are done run a final race among the finalists.
+
+![Grand Prix tournament view in Fate Games — a vertical stack of horizontal racer lanes, each labeled with a full name (Alice Nakamura, Bob 'The Rock' Chen, Charlie Vega, Diana Okafor, Fiona Drake, Ivan Petrov, Priya Sharma) and a colored progress bar showing each racer's current position with their personal emoji icon at the leading edge. A 'FINISH' label is at the right. Title 'Grand Prix' at top, status text 'Racing…' below the lanes.](../../assets/blog/fate-games-grand-prix.png)
+
+The math:
+
+- **20 candidates** → 2 heats of 10 → 1 final of 2 → 3 races total
+- **50 candidates** → 5 heats of 10 → 1 final of 5 → 6 races total
+- **200 candidates** → 20 heats of 10 → 1 final of 20 → 21 races total
+
+Each heat runs at 1.5× speed (so the audience isn't sitting through twenty identical 10-second races at 200 people) and the final runs at normal speed for drama. At 200, the whole tournament finishes in about 3 minutes — long enough to feel like the event it's deciding, short enough that the room doesn't get bored.
+
+What stays correct mathematically: the *predetermined* winner — picked by the depleting pool (or pure random if we're picking from the whole company) before the first heat even starts — wins their heat and then wins the final. The other racers in each heat lose to a seeded speed curve that I built with random "burst points" so the same person can come from behind one race and lead wire-to-wire the next. Every racer in a heat the predetermined winner is *not* in has their own random winner — but those people *can't* be the overall winner, by construction, because they don't make it to the final.
+
+What stays correct *experientially*: the room sees twenty heat-winners (the screenshot above shows the finalists accumulating as emoji pills above the track) before the final. That accumulation is the trust scaffolding the wheel lost at 200 segments. You can *see* the bracket narrowing. The final feels earned because it visibly is.
+
+The framing also changed. The VP didn't introduce it as "we're going to randomly pick a tiger team lead." He introduced it as the *Grand Prix*. People who'd been polite about the wheel — *"oh, I don't need to be in the running"* — wanted to be in their heat. The competitive frame turned getting picked from "uncomfortable singling-out" to "I almost made the final." Same algorithm. Different social contract.
+
+The team that won the Grand Prix in that town hall ran the tiger team. They had a great quarter. None of them volunteered.
+
+## What didn't work — the stuff I cut at scale
+
+- **Letting the audience vote on the seed.** Tried a thing where the room could pick which emoji icon belonged to which heat. Took six minutes to set up. Killed the pacing. Everyone forgot which emoji was theirs. Cut it.
+- **Streaming the wheel to remote employees.** Tried sending the URL to the all-hands Zoom feed; the animation jittered at 15fps in the screen-share and people in the chat thought it was rigged. For remote-heavy town halls the wheel needs to render *in each viewer's browser* off a synced clock — that's a real backend project I haven't done and may not.
+- **A persistent "Grand Prix history" page.** Two days of design later I realized this was the streaks page I'd cut in the v1 dressed up in a tournament costume. Same anti-pattern: it would invite celebrating who-keeps-winning. Cut.
+
+## We're open-sourcing it
+
+That brings me to today. The repo at [github.com/drlukeangel/fate-games](https://github.com/drlukeangel/fate-games) was always public — what's new today is that I'm putting it on the [projects page](/projects/) and writing it up properly. It's React 19 + Vite + Tailwind v4 + Zustand for state, MIT-licensed, a Dockerfile if you want to host it on a VM the way our SRE team does. There's no SaaS to sign up for; clone it, run it, host it however you like.
+
+If you want to try the Grand Prix without cloning anything, the live demo is at [drlukeangel.github.io/fate-games](https://drlukeangel.github.io/fate-games/) with the seed dataset of 16 fake employees across three teams. Hit the Race Game with all three teams selected and you'll get a 20-candidate Grand Prix. (Add 200 more users via the admin if you want to see what the VP saw.)
+
+## What I'd tell a team adopting this at scale
+
+Three things, again.
+
+**First — the cosmetic game has to match the social contract you want.** Standup picker → Wheel of Death is fine because the team has dark humor and the moment is low stakes. Town-hall tournament → Grand Prix is fine because the heat structure creates earned-ness. Performance-review draw → none of these is fine; you shouldn't be picking with a wheel.
+
+**Second — auditability is the price of skipping a backend.** The activity feed is the only reason no one has accused the wheel of being rigged. Every pick is in there, with timestamp, candidate set, and game type. The first complaint I got after multi-team rolled out was *"the wheel picked me twice yesterday"*; the activity feed showed it had picked them once and they were misremembering. That conversation took 90 seconds. Without the feed it would have been a meeting.
+
+**Third — the Grand Prix is the upper bound of how many people a single static site can fairly pick from in a way the room trusts.** If you need to pick from 2,000 people in a way that *all 2,000* can independently verify, you need a backend, a cryptographic commit-reveal, and a different blog post. For one person spinning a wheel on a TV in a room with 200 people, the heat tournament does the job.
+
+## What's next
+
+The next post in this notebook is about [the inverse problem](/blog/wheel-of-opportunity-fair-facilitation/#whats-next) I promised two months ago — when a decision genuinely needs a manager's judgment and a rotation is the wrong tool. Promotions, project leads, the customer-facing escalation. The wheel knows when to spin; the harder skill is knowing when not to.

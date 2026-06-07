@@ -1,0 +1,54 @@
+---
+title: "Fate Games — no volunteers needed"
+year: "2026"
+summary: "A snarky browser-based picker for the small social decisions teams over-deliberate. Five animations, a depleting pool that guarantees everyone-goes-once fairness, a Grand Prix heat tournament that scales the wheel to any room size, and a Quick Decision mode for the picks that aren't team rotations. localStorage only — no backend, no signup. Ships as a static site or a one-line Docker image."
+stack: [react, vite, typescript, tailwind, zustand]
+outcome: "Open source · MIT · github.com/drlukeangel/fate-games · live at drlukeangel.github.io/fate-games"
+---
+
+![A heat-tournament bracket abstraction: three columns of small open circles on the left fan in through narrowing connector lines into a vertical row of six medium dark-green circles, which converge into a single large champion circle on the right with a faint checkered-flag ring behind it.](../../assets/blog/fate-games-grand-prix-cover.svg)
+
+## What it does
+
+Pick a team. Spin the wheel (or run a Slot Machine, T-Rex Pit, Race, or Mystery Cards animation — they all use the same picker, the visual is cosmetic). Someone's name comes up. That person facilitates standup, takes oncall, runs the demo. The next spin can't repeat them until the round is done.
+
+That's the whole product. The interesting bit is *how* the picking works under the cover, and what happens to the picker when the room grows from eight to two hundred.
+
+## Why the depleting pool, not pure random
+
+Pure random across an 8-person team picks all 8 people in 8 spins only **0.24% of the time**. The rest of the time someone gets skipped while someone else gets picked twice. That's worse than the manager's habits — at least the manager notices when a teammate hasn't spoken in a week. The dice don't.
+
+The depleting pool is *sampling without replacement, with repeated rounds*. Pick from the pool, remove the picked person, refill when empty. Guaranteed coverage, still random inside each round, self-corrects when the team changes.
+
+Math + product writeup: **["Picking Speakers Without Picking Favorites"](/blog/wheel-of-opportunity-fair-facilitation/)**.
+
+## Scaling — the Grand Prix
+
+The Wheel of Death's failure mode is geometric: at 200 segments each slice is 1.8° — thinner than the pointer arrow that's supposed to land on it. The fairness story disappears even though the math is correct.
+
+The fix is a heat tournament. Split the candidates into heats of 10, run heats sequentially at 1.5× speed, accumulate the winners into a "Finalists" row, then run the final at normal speed. The room watches the bracket narrow. The final feels earned because it visibly is. Works for 12 or 200.
+
+Heat-tournament writeup + the VP-town-hall story: **["Fate Games at Town-Hall Scale: The Grand Prix"](/blog/fate-games-the-grand-prix/)**.
+
+## What's inside
+
+- **5 picker animations** — Slot Machine, T-Rex Pit, Race Game (with the Grand Prix heat mode), Mystery Cards, Wheel of Death.
+- **Two picker modes** — Team Pick (rotation + history) and Quick Decision (no rotation, just paste 2–10 options and let the machine decide).
+- **Teams + Challenges** — each team can have N rotations (standup, oncall, demo-running) each with its own depleting pool, so adding a new rotation doesn't reshuffle the others.
+- **Gamification titles** — Fresh Meat → Rookie → Regular → Veteran → Legend → Immortal. Started as a joke, stayed as the thing people actually look at.
+- **Cross-team Activity feed** — every pick and decision is logged with timestamp + candidates + game. The first line of defense against *"I think the wheel is rigged"* conversations.
+- **Light / dark / system theme.** Just because.
+
+## Stack
+
+`react@19` · `vite` · `typescript` · `tailwind v4` · `zustand` for state · `framer-motion` for the race animations · `localStorage` for persistence · a `Dockerfile` + `nginx.conf` for static hosting on a VM if you want everyone to spin against the same pool.
+
+No backend, no auth, no telemetry, no accounts. One person runs the site in their browser; the team watches.
+
+## Get it
+
+Code: [github.com/drlukeangel/fate-games](https://github.com/drlukeangel/fate-games)
+Live: [drlukeangel.github.io/fate-games](https://drlukeangel.github.io/fate-games/) (loads with 16 seeded fake employees across three teams)
+License: MIT — fork it, theme it for your team, ship it.
+
+The math is the math. The skull is on purpose.
