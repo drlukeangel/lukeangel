@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 const projects = (await getCollection('projects', ({ data }) => !data.draft));
 ---
 <Base title="Projects — Recent work and field studies" current="projects" description="A loose archive — public bits of the work, private bits with permission, and the side projects in between. Field studies by Luke Angel.">
@@ -10,10 +11,30 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft));
     <p style="font-size: 22px; max-width: 720px; margin-top: 24px; color: var(--ink2);">A loose archive — public bits of the work, private bits with permission, and the side projects in between.</p>
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px;">
       {projects.map((p) => (
-        <a href={`/projects/${p.slug}/`} class="card">
-          <div class="mono">{p.data.year}</div>
-          <div style="font-size: 28px; margin-top: 10px;">{p.data.title}</div>
-          <div style="font-size: 16px; color: var(--ink2); margin-top: 14px; line-height: 1.55;">{p.data.summary}</div>
+        <a href={`/projects/${p.slug}/`} class="card" style="display: block; padding: 0; position: relative;">
+          {p.data.cover ? (
+            <Image
+              src={p.data.cover}
+              alt={p.data.coverAlt || p.data.title}
+              widths={[320, 640, 960]}
+              sizes="(max-width: 720px) 100vw, 480px"
+              loading="lazy"
+              style="display:block; width:100%; height:210px; object-fit:cover;"
+            />
+          ) : (
+            <div style="height: 210px; background: var(--bg); display: flex; align-items: center; justify-content: center;">
+              <div class="mono" style="color: var(--muted);">Project</div>
+            </div>
+          )}
+          <div style="padding: 18px 22px 22px;">
+            <div class="mono" style="color: var(--muted);">Project · {p.data.year}</div>
+            <h2 style="font-size: 26px; margin-top: 10px; line-height: 1.15;">{p.data.title}</h2>
+            <p style="font-style: italic; color: var(--muted); margin-top: 10px; line-height: 1.5; font-size: 15px;">"{p.data.summary}"</p>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--rule);" class="mono">
+              <span>{p.data.year}</span>
+              <span style="color: var(--muted);">open →</span>
+            </div>
+          </div>
         </a>
       ))}
     </div>

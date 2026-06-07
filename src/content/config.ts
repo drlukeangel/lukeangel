@@ -45,13 +45,15 @@ const gratitude = defineCollection({
 
 const projects = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     year: z.string(),
     role: z.string().optional(),
     summary: z.string(),
     stack: z.array(z.string()).default([]),
     outcome: z.string().optional(),
+    cover: image().optional(),
+    coverAlt: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
