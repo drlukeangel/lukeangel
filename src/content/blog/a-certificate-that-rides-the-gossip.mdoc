@@ -1,0 +1,108 @@
+---
+title: "A certificate that rides the gossip — and why I moved it"
+date: 2026-06-30T00:00:00-04:00
+category: craft
+tags:
+  - rust
+  - iroh
+  - ed25519
+  - distributed-systems
+  - authorization
+  - quic
+notebook: building-a-distributed-mesh-in-rust
+notebookOrder: 15
+excerpt: "iroh proves who a node is for free, but it has no opinion on whether that node belongs here. I built the trust boundary two ways — riding the membership gossip, then checked at the connection — and only one survives a real design; here's the wrong turn, the answer, and why it isn't HMAC and isn't quite mTLS."
+pullquote: "The tidy, clever mechanism — trust that rides the gossip and survives a relay — lost to the boring one that checks the credential where it gets spent."
+cover: "../../assets/blog/mm-cert-cover.svg"
+coverAlt: "Two small node clusters in rust-orange face each other across a vertical door drawn as a hinged jamb in the middle. A single solid orange line runs from the left cluster, through a green certificate seal — a scalloped circle with a check mark and two ribbon tails — to the door and on to the right cluster, ending in an arrowhead. The credential is presented at the door on a direct connection between two nodes, not floating through a gossip cloud. Cream background, faint dot grid, vertical rust-orange accent bar at the left edge."
+featured: false
+---
+
+Everything up to here assumed one thing the mesh never actually enforced: that a node showing up in the gossip *belongs* there. Awareness and delivery across meshes were built and proven; every node even got its own [local cache it owns](/blog/extending-the-mesh-with-node-caches/). But the membership rule the whole time was embarrassing — anything that could speak the wire and join the topic became a member. Fine for a demo. Not a trust boundary.
+
+This post adds one. The shape turned out small; the interesting part is a wrong turn I took first — a version that *worked*, was arguably more elegant, and still wasn't the right place to put the check.
+
+## Identity is not authorization
+
+Start with what's already free. A node's `NodeId` **is** its ed25519 public key, and every QUIC connection iroh opens cryptographically proves the peer holds the matching secret. There's no spoofing a `NodeId` — the transport settled that before I wrote a line. I'm not re-proving identity here. Identity is done.
+
+What iroh deliberately does *not* answer is policy. Is this authenticated node **allowed on this mesh**? What **role** does it have — gateway, broker, admin? **Until when**? Those are application questions, and iroh is a networking library that correctly refuses to have an opinion about my membership model. So the gap to fill is *authorization*, not authentication — and holding that distinction is the whole reason the answer lands where it does.
+
+![A two-panel diagram. Left, titled IDENTITY with the note "iroh gives this for free": two rust-orange nodes labelled NodeId connected by a wire with a key glyph on it, captioned "QUIC handshake proves each holds the secret" and "who the node is — no spoofing." Right, titled AUTHORIZATION with the note "what we add on top": three policy questions iroh won't answer — allowed on this mesh? which role? until when? — answered by a small CA-signed certificate card reading "NodeCert" with node_id, role, and expiry fields and a green check seal, captioned "CA-signed — policy, not identity."](../../assets/blog/mm-cert-identity-vs-authz.svg)
+
+## The shape: node-admin is the CA
+
+The node-admin already [creates every node](/blog/kill-by-message-a-node-is-a-state/) — it spawns them with their topology — so it's the natural certificate authority. It holds **one ed25519 keypair**, reusing iroh's own crypto with no new stack, and that key is the **root**. When it spawns a node, it signs a tiny certificate over the node's identity:
+
+```rust
+pub struct NodeCert { pub node_id: String, pub node_type: String, pub expiry_ms: u64 }
+// signed by the admin's CA key over postcard(cert) -> SignedCert { cert, sig }
+```
+
+The cert is nothing more than a signed assertion: *the CA says NodeId X has role R until T.* The only real question — the one this whole post is about — is **where you verify it**. There were two candidates, and I built the wrong one first.
+
+## The wrong turn: verify it in the gossip
+
+I built this one first because it had a property I wanted. The node carries the cert in its **gossip digest** — the heartbeat it already broadcasts — and every receiver verifies it before admitting the node to `live_digests()`. No valid cert, the digest gets dropped, the node never enters anyone's topology. Three checks on receipt:
+
+1. the **CA signature** is valid against the admin's public key,
+2. the cert's `node_id` **matches the iroh-authenticated sender's NodeId** — the anti–cert-stuffing bolt, so you can present *your own* cert but not wear someone else's,
+3. it isn't **expired**.
+
+And it works. I spawned six processes; only five entered the graph.
+
+![A topology view titled "certmesh · 5 nodes", the header reading "rafka mesh — live · 6 spawned · meshes: certmesh · mean peers: 5.0". Five certified nodes form the graph — registry in purple, compute in green, gateway in blue, admin-ui in grey, broker in orange — each card showing its type, RX count, and live CPU and memory. The sixth, uncertified process never appears: six spawned, five admitted, the trust boundary visible as a node that simply isn't there.](../../assets/blog/mm-cert-rejected.png)
+
+The console says it in one line: **6 spawned · 5 nodes**. The sixth process launched with no cert, the boundary never let it into the graph, and the drop isn't a silent nothing — it emits a `rafka.cert.reject` span on every peer, queryable in Jaeger. It even bought something genuinely cool: it was the one thing that let a cross-mesh **repeater** carry trust. The repeater relays *digests*, so a signed cert riding the digest re-broadcasts into another mesh and validates end-to-end against a shared root. Trust that propagates by gossip and survives a relay hop — I liked it a lot.
+
+So why is it a wrong turn?
+
+## ...and the answer: verify it at the connection
+
+Riding the gossip had exactly **one** load-bearing reason — that repeater. And the repeater is an experiment, not a destination. Cross-mesh in any real deployment isn't a digest-relaying middlebox; it's two nodes that **open a direct connection** to do work. Take the repeater away and the gossip-cert has no job left: the only thing it still buys is "an uncertified node is invisible in the topology" — marginal defense-in-depth, and I was paying for it by parsing security-critical content *inside the gossip path*, the one place in the whole system I most want to stay dumb and fast.
+
+So the cert belongs at the **connection**, not in the gossip. A node presents its SVID — the short-lived signed credential — as the **first bi-stream frame** when it opens a connection to do work, and the far side runs those same three checks right there, before it trusts the connection for any data. Gossip goes back to being pure soft-state membership, carrying no trust at all. One gate, at the door, on the connection you're actually about to use.
+
+![A two-panel fork diagram. Left, VERIFY IN THE GOSSIP — "the wrong turn", in red: a gossip digest cloud labelled "+ cert rides along", an arrow down into "checked on every receipt, inside live_digests()", and a red ✗ callout reading "parses security content in the one path you want dumb & fast." Right, VERIFY AT THE CONNECTION — "the answer", in green: two nodes opening a direct connection with a green check seal on the wire labelled "SVID = first bi-stream frame", an arrow down into a green ✓ callout reading "one gate, at the door, on the connection you're about to use — gossip stays pure soft-state."](../../assets/blog/mm-cert-gossip-vs-connection.svg)
+
+That's the lesson this series keeps re-teaching me. I made the [relay *prove* it carries](/blog/wiring-a-relay-into-the-mesh/) instead of trusting that the path existed; I chased a [bug that wasn't where the theory said](/blog/the-bug-that-wasnt-in-the-mesh/) it was. Same shape every time: the tidy, clever mechanism — trust that rides the gossip and survives a relay — lost to the boring one that checks the credential where it gets spent.
+
+## Why it isn't HMAC
+
+A shared-secret HMAC was the earlier direction in the project, and retiring it for signing is half the reason this post exists. HMAC is symmetric: the key that **verifies** a MAC is the same key that **mints** one. Once you see that, you can't unsee it.
+
+Symmetric means there's no issuer/verifier split. I wanted a CA that *issues* and a fleet that only *verifies* — but with HMAC every verifier is also a forger, because anyone who can check a cert can fabricate one for any identity. The blast radius is the whole mesh: recover the shared secret from one node and you can forge every node. And the shared root — the thing I was about to lean cross-mesh trust on — becomes a shared *forging* key. That's not a root of trust. That's a skeleton key handed to everyone.
+
+![A two-panel diagram. Left, HMAC — SYMMETRIC, "the earlier direction", in red: a single red key labelled "one shared secret", branching to both MINT and VERIFY joined by an equals sign, with a red callout "every verifier is also a forger — the root becomes a skeleton key." Right, SIGNING — ASYMMETRIC, "what we switched to", in green: a solid green key labelled "CA secret → MINT" and a separate dashed grey key labelled "public key → VERIFY" with a not-equal sign between them, and a green ✓ callout "verify without being able to mint — issuer/verifier split, a real root."](../../assets/blog/mm-cert-hmac-vs-signing.svg)
+
+Asymmetric signing fixes all three for the cost of switching one primitive. The CA's *secret* issues, its *public* key verifies, and a verifier can prove a cert genuine without ever being able to produce one. The whole reason a root of trust works is that the thing you hand out can't be used to forge.
+
+## Why it isn't quite mTLS
+
+The honest version: presenting the SVID at connect-time **is** the mTLS idea — a credential exchanged and verified when the connection opens. I just didn't reach for *X.509* mTLS to do it, and the reason is the one I keep coming back to: identity is already free.
+
+iroh's QUIC is *already* mutually authenticated, by the `NodeId` — an ed25519 key both ends prove. Bolting X.509 on top would re-prove the identity I have for nothing and drag in a whole PKI: cert chains, ASN.1 parsing, CRL or OCSP for revocation. The only thing I need to *add* is the authorization layer — `{NodeId, role, expiry}`, CA-signed — and a short-lived ed25519 SVID as the first bi-stream frame does exactly that, on iroh's existing crypto, with revocation as a short TTL plus re-issue instead of a revocation list. mTLS-shaped, built the cheap way: identity from iroh, authorization from one tiny signed frame on top.
+
+## The shared root still earns its keep
+
+The repeater was the part to drop. The shared root that rode on it was the genuinely good idea, and it survives the move intact. The CA key is one keypair, and it's **shareable**: copy `ca-secret.json` into a second admin's data dir before it boots, and now two meshes issue certs from the *same* root.
+
+![A single console rendering both meshes side by side under the header "rafka mesh — live". Left panel: "mesh1 · 3 nodes" with admin-ui, gateway, and broker. Right panel: "mesh2 · 3 nodes" with the same three node types, tagged "backbone". Two independent meshes, each visible to the other, both issuing certs from the same shared CA root.](../../assets/blog/mm-shared-root.png)
+
+That's what makes cross-mesh trust work **without** the repeater. When a `mesh1` node opens a direct connection to a `mesh2` node, it presents its SVID and the far side verifies it against the shared root. The two certs trace back to one authority, so the connection is trusted — even though the meshes never share a single gossip message. The trust travels with the node, on the connection, not through the membership layer.
+
+## What it cost
+
+One ~100-line `cert.rs` — `issue_cert` and `verify_cert`, hex-postcard on the wire — plus exactly one verification point, the bi-stream a node already opens to do work. No PKI. No new crypto dependency. No extra round-trips, because the credential rides a frame that was going to be sent anyway. The gossip experiment wasn't wasted: it was real, it was verified, it shipped its `rafka.cert.reject` spans, and it taught the lesson by being the more elegant answer that turned out to be the wrong one.
+
+## What I'd tell a team
+
+- **Separate the two questions before you build anything.** *Who is this* and *is it allowed here* feel like one question and they are not. iroh answered the first for free; the second is yours, and the whole design clarifies the moment you stop trying to make one mechanism carry both.
+- **Check the credential where the trust is spent, not where it's convenient.** The gossip-cert was convenient — the heartbeat was already flowing — and it went green every time. But "it works" is a claim about the mechanism, not about whether the mechanism belongs there. The trust gets spent on the connection that moves data, so that's where the check belongs. A clever check in the wrong place is still in the wrong place.
+- **Pick asymmetric the moment issuer and verifier should be different roles.** If every party that checks a credential can also forge one, you don't have a root of trust, you have a shared secret wearing a costume.
+
+Identity was iroh's job. Authorization turned out to be one signed cert — checked at the door, where the trust is actually spent.
+
+## What's next
+
+The substrate has a trust boundary now, and a clean answer to *who belongs here*. That's a lot of pieces stacked up over a lot of sprints — awareness, delivery, lifecycle, caches, and now a credential at the door. At some point the honest move isn't to add another piece. It's to step back and ask whether the whole thing is actually ready to build on, or whether I've been admiring the scaffolding. That's next.

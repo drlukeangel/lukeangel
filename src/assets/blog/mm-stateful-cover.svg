@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#b7410e" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+
+  <!-- ===== STATEFUL PATH (top, prominent): card lit -> dark -> lit, SAME key ===== -->
+
+  <!-- connecting arrows along the path -->
+  <g stroke="#b7410e" stroke-width="5" fill="none">
+    <path d="M345 215 H 455"/>
+    <path d="M745 215 H 855"/>
+  </g>
+  <polygon points="460,215 444,206 444,224" fill="#b7410e"/>
+  <polygon points="860,215 844,206 844,224" fill="#b7410e"/>
+
+  <!-- card 1: lit, carrying key -->
+  <g>
+    <rect x="135" y="135" width="200" height="160" rx="12" fill="#fdfaf2"
+          stroke="#b7410e" stroke-width="5"/>
+    <rect x="135" y="135" width="200" height="34" rx="12" fill="#b7410e"/>
+    <rect x="135" y="151" width="200" height="18" fill="#b7410e"/>
+    <!-- key glyph (orange) -->
+    <g transform="translate(196 200)">
+      <circle cx="0" cy="22" r="20" fill="none" stroke="#b7410e" stroke-width="6"/>
+      <circle cx="0" cy="22" r="7" fill="#b7410e"/>
+      <line x1="18" y1="36" x2="58" y2="76" stroke="#b7410e" stroke-width="6" stroke-linecap="round"/>
+      <line x1="44" y1="62" x2="58" y2="48" stroke="#b7410e" stroke-width="6" stroke-linecap="round"/>
+      <line x1="56" y1="74" x2="70" y2="60" stroke="#b7410e" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- card 2: dark (process gone) -->
+  <g>
+    <rect x="535" y="135" width="200" height="160" rx="12" fill="#1a1d24" fill-opacity="0.12"
+          stroke="#1a1d24" stroke-opacity="0.35" stroke-width="4" stroke-dasharray="10 8"/>
+    <rect x="535" y="135" width="200" height="34" rx="12" fill="#1a1d24" fill-opacity="0.22"/>
+    <rect x="535" y="151" width="200" height="18" fill="#1a1d24" fill-opacity="0.22"/>
+    <!-- power glyph: open circle with a break (off) -->
+    <g transform="translate(635 222)">
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="6"/>
+      <line x1="0" y1="-30" x2="0" y2="-6" stroke="#fdfaf2" stroke-width="10"/>
+      <line x1="0" y1="-34" x2="0" y2="-8" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- card 3: lit again, SAME key (orange, identical) -->
+  <g>
+    <rect x="935" y="135" width="200" height="160" rx="12" fill="#fdfaf2"
+          stroke="#b7410e" stroke-width="5"/>
+    <rect x="935" y="135" width="200" height="34" rx="12" fill="#b7410e"/>
+    <rect x="935" y="151" width="200" height="18" fill="#b7410e"/>
+    <g transform="translate(996 200)">
+      <circle cx="0" cy="22" r="20" fill="none" stroke="#b7410e" stroke-width="6"/>
+      <circle cx="0" cy="22" r="7" fill="#b7410e"/>
+      <line x1="18" y1="36" x2="58" y2="76" stroke="#b7410e" stroke-width="6" stroke-linecap="round"/>
+      <line x1="44" y1="62" x2="58" y2="48" stroke="#b7410e" stroke-width="6" stroke-linecap="round"/>
+      <line x1="56" y1="74" x2="70" y2="60" stroke="#b7410e" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- ===== CHAOS PATH (bottom, faint contrast): returns with a DIFFERENT key ===== -->
+  <g opacity="0.32">
+    <g stroke="#1a1d24" stroke-width="4" fill="none" stroke-opacity="0.5">
+      <path d="M345 480 H 455"/>
+      <path d="M745 480 H 855"/>
+    </g>
+    <polygon points="460,480 446,472 446,488" fill="#1a1d24" fill-opacity="0.5"/>
+    <polygon points="860,480 846,472 846,488" fill="#1a1d24" fill-opacity="0.5"/>
+
+    <!-- card 1: lit-ish with key -->
+    <g>
+      <rect x="155" y="420" width="160" height="120" rx="10" fill="#fdfaf2"
+            stroke="#1a1d24" stroke-opacity="0.55" stroke-width="4"/>
+      <rect x="155" y="420" width="160" height="26" rx="10" fill="#1a1d24" fill-opacity="0.45"/>
+      <rect x="155" y="432" width="160" height="14" fill="#1a1d24" fill-opacity="0.45"/>
+      <g transform="translate(205 470)">
+        <circle cx="0" cy="16" r="14" fill="none" stroke="#1a1d24" stroke-width="5"/>
+        <circle cx="0" cy="16" r="5" fill="#1a1d24"/>
+        <line x1="13" y1="26" x2="42" y2="55" stroke="#1a1d24" stroke-width="5" stroke-linecap="round"/>
+        <line x1="32" y1="45" x2="42" y2="35" stroke="#1a1d24" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- card 2: dark -->
+    <g>
+      <rect x="555" y="420" width="160" height="120" rx="10" fill="#1a1d24" fill-opacity="0.12"
+            stroke="#1a1d24" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="8 7"/>
+    </g>
+
+    <!-- card 3: returns with a DIFFERENT key (red, rotated, different teeth) -->
+    <g>
+      <rect x="955" y="420" width="160" height="120" rx="10" fill="#fdfaf2"
+            stroke="#c14a3a" stroke-width="4"/>
+      <rect x="955" y="420" width="160" height="26" rx="10" fill="#c14a3a"/>
+      <rect x="955" y="432" width="160" height="14" fill="#c14a3a"/>
+      <g transform="translate(998 462) rotate(20)">
+        <circle cx="0" cy="16" r="14" fill="none" stroke="#c14a3a" stroke-width="5"/>
+        <circle cx="0" cy="16" r="5" fill="#c14a3a"/>
+        <line x1="13" y1="26" x2="48" y2="61" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="40" y1="53" x2="52" y2="41" stroke="#c14a3a" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

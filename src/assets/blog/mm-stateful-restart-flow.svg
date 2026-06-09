@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560">
+  <rect x="2" y="2" width="1036" height="556" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .ttl { font-size: 18px; font-weight: 700; }
+    .lbl { font-size: 14px; }
+    .mut { font-size: 13px; fill: #7a808c; }
+    .key { font-size: 14px; fill: #b7410e; font-weight: 700; }
+    .grn { font-size: 14px; fill: #3a7d44; }
+    .cap { font-size: 15px; fill: #5b616b; font-style: italic; font-family: Newsreader, Georgia, serif; }
+  </style>
+
+  <!-- ===== STEP 1: restart_one (kill) ===== -->
+  <rect x="30" y="60" width="250" height="200" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.5" stroke-width="2"/>
+  <text class="ttl" x="46" y="88" fill="#b7410e">restart_one</text>
+  <text class="lbl" x="46" y="118">+ restarting.insert(name)</text>
+  <text class="lbl" x="46" y="142">processes.remove(Child)</text>
+  <text class="lbl" x="46" y="166">child.start_kill()</text>
+  <text class="lbl" x="46" y="196" fill="#c14a3a">wait real OS exit</text>
+  <text class="mut" x="46" y="216">up to 10s</text>
+  <text class="mut" x="46" y="240">port released before</text>
+  <text class="mut" x="46" y="256">anything rebinds</text>
+
+  <!-- arrow 1 -> danger window -->
+  <line x1="280" y1="160" x2="338" y2="160" stroke="#1a1d24" stroke-width="2.5"/>
+  <polygon points="344,160 330,153 330,167" fill="#1a1d24"/>
+
+  <!-- ===== DANGER WINDOW (middle) ===== -->
+  <rect x="346" y="60" width="232" height="200" rx="10" fill="#c14a3a" fill-opacity="0.06"
+        stroke="#c14a3a" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="ttl" x="362" y="88" fill="#c14a3a">danger window</text>
+  <text class="lbl" x="362" y="118">process: gone</text>
+  <text class="lbl" x="362" y="142">dir: must survive</text>
+
+  <!-- reaper, held off -->
+  <g transform="translate(362 165)">
+    <rect x="0" y="0" width="200" height="74" rx="8" fill="#fdfaf2"
+          stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <text class="lbl" x="14" y="26">reaper · 5s tick</text>
+    <text class="mut" x="14" y="48">checks restarting set</text>
+    <text class="grn" x="14" y="66">→ hands off</text>
+  </g>
+
+  <!-- arrow danger -> respawn -->
+  <line x1="578" y1="160" x2="636" y2="160" stroke="#1a1d24" stroke-width="2.5"/>
+  <polygon points="642,160 628,153 628,167" fill="#1a1d24"/>
+
+  <!-- ===== STEP 2: respawn (same identity) ===== -->
+  <rect x="644" y="60" width="362" height="200" rx="10" fill="#b7410e" fill-opacity="0.05"
+        stroke="#b7410e" stroke-opacity="0.5" stroke-width="2"/>
+  <text class="ttl" x="660" y="88" fill="#b7410e">respawn</text>
+  <text class="lbl" x="660" y="116">SAME spawn_dir</text>
+  <text class="lbl" x="660" y="138">SAME bind_port</text>
+  <text class="key" x="660" y="162">SAME RAFKA_NODE_SECRET_KEY</text>
+  <text class="lbl" x="660" y="190" fill="#3a7d44">→ boots with identical PublicKey</text>
+  <text class="mut" x="660" y="214">restarting.remove(name)</text>
+  <text class="mut" x="660" y="232">SpawnedMeta.pid = new_pid</text>
+  <text class="mut" x="660" y="250">emit rafka.ui.node.restart span</text>
+
+  <!-- ===== BOTTOM: the mesh sees stale -> rejoin ===== -->
+  <line x1="520" y1="280" x2="520" y2="318" stroke="#1a1d24" stroke-width="2.5"/>
+  <polygon points="520,324 513,310 527,310" fill="#1a1d24"/>
+
+  <rect x="120" y="330" width="800" height="150" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <text class="ttl" x="140" y="360">what the mesh sees</text>
+
+  <!-- node timeline: alive -> stale -> alive (same id) -->
+  <g transform="translate(150 392)">
+    <circle cx="20" cy="20" r="18" fill="#b7410e"/>
+    <text class="mut" x="20" y="64" text-anchor="middle">alive</text>
+
+    <line x1="40" y1="20" x2="150" y2="20" stroke="#7a808c" stroke-width="2.5" stroke-dasharray="6 6"/>
+
+    <circle cx="180" cy="20" r="18" fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <text class="mut" x="180" y="64" text-anchor="middle">gossip stale</text>
+
+    <line x1="200" y1="20" x2="310" y2="20" stroke="#3a7d44" stroke-width="2.5"/>
+    <polygon points="316,20 302,13 302,27" fill="#3a7d44"/>
+
+    <circle cx="346" cy="20" r="18" fill="#b7410e"/>
+    <text class="key" x="346" y="64" text-anchor="middle">same NodeId</text>
+  </g>
+
+  <text class="cap" x="560" y="412">NodeId unchanged, so HyParView</text>
+  <text class="cap" x="560" y="436">reconnects over the existing address —</text>
+  <text class="cap" x="560" y="460">no bootstrap.</text>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560">
+  <rect x="2" y="2" width="996" height="556" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .ttl { font-size: 18px; font-weight: 700; }
+    .lbl { font-size: 14px; }
+    .mut { font-size: 13px; fill: #7a808c; }
+    .grn { font-size: 14px; fill: #3a7d44; font-weight: 700; }
+    .red { font-size: 14px; fill: #c14a3a; font-weight: 700; }
+    .cap { font-size: 15px; fill: #5b616b; font-style: italic; font-family: Newsreader, Georgia, serif; }
+  </style>
+
+  <line x1="500" y1="30" x2="500" y2="350" stroke="#1a1d24" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- ===== LEFT: STATEFUL ===== -->
+  <text class="ttl" x="40" y="56" fill="#b7410e">stateful restart</text>
+  <text class="mut" x="40" y="78">restart_one · re-passes the key</text>
+
+  <!-- node before -->
+  <g transform="translate(60 110)">
+    <rect x="0" y="0" width="100" height="80" rx="8" fill="#fdfaf2" stroke="#b7410e" stroke-width="3"/>
+    <g transform="translate(34 24)">
+      <circle cx="0" cy="14" r="11" fill="none" stroke="#b7410e" stroke-width="4"/>
+      <circle cx="0" cy="14" r="4" fill="#b7410e"/>
+      <line x1="10" y1="22" x2="34" y2="46" stroke="#b7410e" stroke-width="4" stroke-linecap="round"/>
+      <line x1="26" y1="38" x2="34" y2="30" stroke="#b7410e" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  <!-- kill -->
+  <text class="red" x="190" y="158" text-anchor="middle">kill</text>
+  <line x1="160" y1="150" x2="222" y2="150" stroke="#1a1d24" stroke-width="2.5"/>
+  <polygon points="228,150 214,143 214,157" fill="#1a1d24"/>
+  <!-- node after: SAME key -->
+  <g transform="translate(240 110)">
+    <rect x="0" y="0" width="100" height="80" rx="8" fill="#fdfaf2" stroke="#b7410e" stroke-width="3"/>
+    <g transform="translate(34 24)">
+      <circle cx="0" cy="14" r="11" fill="none" stroke="#b7410e" stroke-width="4"/>
+      <circle cx="0" cy="14" r="4" fill="#b7410e"/>
+      <line x1="10" y1="22" x2="34" y2="46" stroke="#b7410e" stroke-width="4" stroke-linecap="round"/>
+      <line x1="26" y1="38" x2="34" y2="30" stroke="#b7410e" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text class="lbl" x="390" y="100">re-passes</text>
+  <text class="lbl" x="390" y="120">SECRET_KEY</text>
+  <text class="grn" x="40" y="232">→ SAME NodeId</text>
+  <text class="mut" x="40" y="256">peers reconnect, no churn</text>
+
+  <!-- ===== RIGHT: CHAOS ===== -->
+  <text class="ttl" x="540" y="56" fill="#c14a3a">chaos restart</text>
+  <text class="mut" x="540" y="78">normal spawn · stateful=false</text>
+
+  <g transform="translate(560 110)">
+    <rect x="0" y="0" width="100" height="80" rx="8" fill="#fdfaf2" stroke="#b7410e" stroke-width="3"/>
+    <g transform="translate(34 24)">
+      <circle cx="0" cy="14" r="11" fill="none" stroke="#b7410e" stroke-width="4"/>
+      <circle cx="0" cy="14" r="4" fill="#b7410e"/>
+      <line x1="10" y1="22" x2="34" y2="46" stroke="#b7410e" stroke-width="4" stroke-linecap="round"/>
+      <line x1="26" y1="38" x2="34" y2="30" stroke="#b7410e" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text class="red" x="690" y="158" text-anchor="middle">kill</text>
+  <line x1="660" y1="150" x2="722" y2="150" stroke="#1a1d24" stroke-width="2.5"/>
+  <polygon points="728,150 714,143 714,157" fill="#1a1d24"/>
+  <!-- node after: DIFFERENT key (red, rotated) -->
+  <g transform="translate(740 110)">
+    <rect x="0" y="0" width="100" height="80" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+    <g transform="translate(36 22) rotate(18)">
+      <circle cx="0" cy="14" r="11" fill="none" stroke="#c14a3a" stroke-width="4"/>
+      <circle cx="0" cy="14" r="4" fill="#c14a3a"/>
+      <line x1="10" y1="22" x2="38" y2="50" stroke="#c14a3a" stroke-width="4" stroke-linecap="round"/>
+      <line x1="30" y1="42" x2="40" y2="32" stroke="#c14a3a" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text class="lbl" x="890" y="100">mints a</text>
+  <text class="lbl" x="890" y="120">fresh key</text>
+  <text class="red" x="540" y="232">→ NEW NodeId</text>
+  <text class="mut" x="540" y="256">a stranger joins — that's the chaos</text>
+
+  <!-- shared note -->
+  <text class="cap" x="40" y="298">Opposite outcomes, zero shared code — each honest about identity.</text>
+
+  <!-- ===== BOTTOM: GossipDigest wire field ===== -->
+  <rect x="40" y="370" width="920" height="160" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+  <text class="ttl" x="60" y="400">GossipDigest · postcard is positional</text>
+
+  <!-- field row -->
+  <g transform="translate(60 420)">
+    <rect x="0" y="0" width="120" height="44" rx="6" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <text class="lbl" x="60" y="28" text-anchor="middle">node_id</text>
+    <rect x="132" y="0" width="120" height="44" rx="6" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <text class="lbl" x="192" y="28" text-anchor="middle">role</text>
+    <rect x="264" y="0" width="120" height="44" rx="6" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <text class="lbl" x="324" y="28" text-anchor="middle">peers</text>
+    <rect x="396" y="0" width="50" height="44" rx="6" fill="#1a1d24" fill-opacity="0.05" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+    <text class="lbl" x="421" y="28" text-anchor="middle">…</text>
+    <!-- appended field -->
+    <rect x="458" y="0" width="170" height="44" rx="6" fill="#b7410e" fill-opacity="0.10" stroke="#b7410e" stroke-width="2.5"/>
+    <text class="lbl" x="543" y="28" text-anchor="middle" fill="#b7410e">stateful: bool</text>
+  </g>
+  <!-- bracket + label -->
+  <text class="lbl" x="700" y="437" fill="#b7410e">appended at the END</text>
+  <text class="lbl" x="700" y="458" fill="#b7410e">#[serde(default)]</text>
+
+  <text class="cap" x="60" y="506">An old node decoding the new digest runs off the end → reads stateful = false. Mixed-version safe.</text>
+</svg>

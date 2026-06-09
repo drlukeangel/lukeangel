@@ -2,7 +2,7 @@
 title: "Rust Distributed Mesh"
 year: "2026"
 date: 2026-05-22T09:00:00-04:00
-summary: "A peer-to-peer mesh substrate in Rust on iroh QUIC. The interesting part isn't what it does — it's the engineering arc of figuring out why 18 nodes pegged an 80-core box at 100% CPU, and what it took to settle to a 5% steady state."
+summary: "A peer-to-peer mesh substrate in Rust on iroh QUIC — the foundation layer a distributed system gets built on, not a throwaway proof of concept. Self-organizing membership and NAT-traversing transport over an iroh fabric, hardened the hard way: from 18 nodes pegging an 80-core box at 100% CPU down to a 5% steady state under a chaos battery."
 stack: [rust, iroh, quic, tokio, opentelemetry, react, vite]
 outcome: "Open source · MIT · github.com/drlukeangel/rust-distributed-mesh"
 cover: ../../assets/blog/rust-distributed-mesh-cover.svg
@@ -11,7 +11,7 @@ coverAlt: "Two clusters of peer nodes arranged around large rust-orange hubs, wi
 
 ![Cover graphic for the Rust Distributed Mesh — two clusters of peer nodes arranged around large rust-orange hubs, with small ink-colored leaf nodes radiating out, and a dashed accent-colored bridge link crossing the gap between the two clusters through an intermediate bridge node. The illustration sits on a cream background with a faint dot grid and a vertical rust-orange accent bar at the left edge.](../../assets/blog/rust-distributed-mesh-cover.svg)
 
-I wanted to know what it actually costs to run a self-organizing P2P mesh on commodity hardware. The substrate is the long-running need underneath a bigger event-streaming system — ordered, durable records over a NAT-traversing iroh fabric. Before the app layer made sense, I needed to know whether the substrate itself was sound. So I built it small and ran it hard.
+This is the substrate layer a bigger event-streaming system gets built on — ordered, durable records over a self-organizing, NAT-traversing iroh fabric. It was never meant to be a proof of concept; it was meant to be a foundation solid enough to bet a product on. So I built the layer, then ran it hard enough to find every place it broke — and fixed each one until it stopped. What's left isn't a demo you admire. It's a layer you build on.
 
 → **[github.com/drlukeangel/rust-distributed-mesh](https://github.com/drlukeangel/rust-distributed-mesh)**
 
@@ -42,7 +42,7 @@ Stack: `rust (substrate)` · `iroh 0.98 + iroh-gossip` (QUIC + NAT traversal + P
 | Late May | Almost forked the project — spent two days seriously considering a centralized-Controller architecture to escape "gossip costs." |
 | Late May | Took a flamegraph instead. Found the actual bug: a `join_peers()` call inside a 100ms tick that retriggered TLS handshakes for every known peer every 1/10th of a second. **3,240 QUIC handshakes per second across the cluster, accomplishing nothing.** |
 | End of May | Fixed the storm. Found four more leaks while in there: ghost QUIC connections on peer reconnect, span queue accumulation under `#[instrument]` on infinite loops, unbounded global state maps, busy-wait on a closed channel. Host CPU: 35% → **5%**. Per-node settled at 0.05–0.10 cores. Competitive with an idle Bitcoin node. |
-| Now | Cleaning up. Writing it up. |
+| Now | Hardened, soak-tested under a chaos battery, and open-sourced — a foundation to build on, not a prototype to admire. |
 
 ## What I'd tell someone building one
 
@@ -53,10 +53,10 @@ Stack: `rust (substrate)` · `iroh 0.98 + iroh-gossip` (QUIC + NAT traversal + P
 
 ## What's next
 
-Three posts walking through the work, going up at lukeangel.com:
+The full write-up lives in the notebook **[Building A Distributed Mesh in Rust](/notebooks/building-a-distributed-mesh-in-rust/)** — the work in order, including:
 
 1. *Why I built a P2P mesh substrate in Rust* — the architecture, the iroh choice, what the substrate buys you that direct TCP doesn't.
 2. *When 18 nodes pegged my 80-core box at 100%* — the bug cascade, with the actual diff next to each one.
 3. *Flamegraphing your way out of "this can't possibly be right"* — the engineering process, including the day I almost forked the architecture for the wrong reason.
 
-The event-streaming layer that rides on this substrate is the next sprint. This kit is the substrate it sits on.
+The substrate is done — hardened, observable, and ready to build on. The event-streaming layer that rides on it is the next sprint; this is the foundation it stands on.

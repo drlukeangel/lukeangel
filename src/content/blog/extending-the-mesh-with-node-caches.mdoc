@@ -1,0 +1,102 @@
+---
+title: "Extending the mesh with node caches"
+date: 2026-06-26T00:00:00-04:00
+category: craft
+tags:
+  - rust
+  - iroh
+  - iroh-gossip
+  - distributed-systems
+  - caching
+  - chaos-engineering
+notebook: building-a-distributed-mesh-in-rust
+notebookOrder: 14
+excerpt: "Membership gossip lets every node know the mesh — but knowing it isn't using it. To route, a node needs a stable view it owns: a cache. This is the post where one cache quietly becomes many, every tidy first answer turns out wrong, and the live system tells me the shape each time."
+pullquote: "A cache that only learns is a leak. It has to forget on the same clock the mesh forgets."
+cover: "../../assets/blog/mm-caches-cover.svg"
+coverAlt: "A ring of mesh nodes, each holding a small local stack of cards — its caches — drawn as a peer keeping its own copy of what it needs. One card type is lit in rust-orange across several nodes at once, showing a single shared cache held by more than one peer. Cream background, faint dot grid, vertical rust-orange accent bar at the left edge."
+featured: false
+---
+
+By now the mesh gossips membership cleanly: every node sees every other node's digest land in `live_digests()` — id, type, address, load, state. That's enough to *know* the mesh. It is not enough to *use* it. To route — pick a live broker, dial a gateway, hold partition ownership across a network blip — a node needs a stable, queryable view it owns. That view is a cache. This is the layer that turns a membership substrate into something a product can stand on.
+
+## Why a cache, and why not an API
+
+The tempting wrong answer is to make node-admin the oracle: a node that wants the topology asks it over HTTP. That's a poll, a central dependency on the hot path, and a cold-start gap where a freshly-booted node knows nothing until its first request returns. A node should not *ask* who its peers are. It should already know.
+
+So the cache is a **local projection of gossip the node already receives.** The mesh carries membership whether you build a cache or not; the topology cache is just that stream, materialized and queryable, on every node. node-admin's `/api/topology` endpoint still exists — but it's for a *human* looking at a console, never for a node looking up a peer. Nodes never poll. The directory that the [cross-mesh backbone](/blog/make-the-cross-mesh-view-honest/) publishes is the same instinct one layer out: awareness lives in the gossip, not behind a request.
+
+## Born knowing
+
+A projection of gossip is current within a second or two of boot — but "a second or two" is a window where a node can't route. So node-admin, which is the thing that *spawns* nodes, hands each child the current topology at birth: it snapshots its own view and writes it where the child reads it before gossip even starts. The node comes up already holding the mesh.
+
+I proved it with a staggered spawn — one node every ~18 seconds, each born into a mesh one larger than the last:
+
+```
+gateway  (1st spawn)  ->  born with injected = 1   (admin only)
+broker   (2nd spawn)  ->  born with injected = 2
+compute  (3rd spawn)  ->  born with injected = 3
+gateway  (4th spawn)  ->  born with injected = 4
+broker   (5th spawn)  ->  born with injected = 5
+```
+
+Each node was born knowing *exactly* the mesh that existed at its moment of birth — not an empty cache it had to fill, not a poll it had to wait on. Gossip takes over from there. The mother hands the child what she knows; the child grows up on the mesh.
+
+## A cache has to forget
+
+The first version only ever *added*. That looks fine until the mesh churns. I ran a 30-minute chaos soak — node-admin killing and respawning a random node every 30 seconds, 110 kill/respawn events — and watched the caches climb: 4 nodes, then 7, then 11, ghosts of every dead node never cleared. Worse, the nodes *disagreed* — each had accumulated a different set of corpses depending on what it happened to witness. A topology cache where no two nodes agree is not a topology cache.
+
+The fix is one line of intent: each tick, reconcile against `live_digests()` and drop whatever's no longer there. And the elegant part — `live_digests()` *already* ages out a node that's gone quiet on the mesh's ~30-second keep-alive. So the cache doesn't need its own timer or tombstone clock; it inherits the mesh's. Re-soak, same 30 minutes of carnage: held at 4 the whole way, 59 distinct node ids cycled through, every node converged. A cache that only learns is a leak. It has to forget on the same clock the mesh forgets — which is the same [chaos-soak discipline](/blog/chaos-pass-replaces-tests-pass/) that's caught everything else in this series: run it long enough that a slow leak has to show itself, then watch the number.
+
+## One cache becomes many
+
+Topology is the *first* cache, not the only one. Compute needs virtual-topic assignments; a gateway needs routing and ACL state; different roles remember different things. So: many caches, on many nodes.
+
+The first model I reached for was a channel per node type — "the gateway channel," carrying everything a gateway gossips. It's clean right up until a cache is *shared*. Virtual-topic assignments are needed by compute **and** gateway. On node-type channels, that one cache has to be published on *both* channels — duplicate traffic, and now every receiver has to dedup. And a gateway that joins the compute channel just to hear virtual-topic assignments also eats all of compute's private chatter it doesn't care about.
+
+The inversion fixes it: **channel by the data, not by the node.** One gossip topic per *cache type*. A node subscribes to exactly the caches it needs. A shared cache is simply a topic with more than one subscriber — no duplication, no dedup, no cache that has to know the list of node types that consume it. The channel belongs to the cache; the node picks the caches.
+
+![Two layouts side by side. On the left, labelled wrong: a channel per node type, where one shared cache is forced onto both the compute channel and the gateway channel, drawn as the same payload duplicated on two topics with every receiver running a dedup step. On the right, labelled right: a channel per cache type, where the shared cache is a single topic that compute and gateway both subscribe to — one publish, no duplication, no dedup. Cream background, thin border, monospace labels.](../../assets/blog/mm-caches-channel-by-data.svg)
+
+## Two axes, and why each cache picks a spot
+
+With caches as first-class things, each one declares two properties — and the two distinctions are the whole design.
+
+**Channel — `Main` or `Dedicated`.** Most caches get their own topic. But topology *rides main*: membership gossip is mandatory for the mesh to function at all, so every node already holds that data for free — giving topology its own channel would re-ship what everyone already has. "Rides main" is a *property*, not a topology-shaped hack; any future cache that's a pure projection of membership can pick it too.
+
+**Write model — who may publish, and how conflicts resolve.** Three kinds:
+
+- **Leader-only.** Only the elected node-admin writes; it assigns the order. Trivial to reason about.
+- **Self-key.** Each node writes only its *own* row. Membership is this — *my* digest is *my* key. Two nodes can never fight over a key, because the key *is* the writer. No conflict resolution, ever.
+- **Shared-key.** Anyone writes any key. This is the only model that needs real conflict resolution — and a wall clock will not do it, because clocks skew. It needs a monotonic `epoch` and last-writer-by-epoch. Virtual-topic assignments are this.
+
+![A two-by grid laying out the cache design as two axes. The horizontal axis is Channel — Main versus Dedicated. The vertical axis is Write model — leader-only, self-key, shared-key. Topology is placed at Main plus self-key-like projection, noted as riding main because membership is already everywhere. A membership row sits at self-key, the key is the writer. Virtual-topic assignment sits at Dedicated plus shared-key, flagged as the one cell that needs a monotonic epoch. Cream background, thin border, monospace labels with a serif-italic caption.](../../assets/blog/mm-caches-two-axes.svg)
+
+The trap is treating every write the same. Most caches are *not* shared-key; bolting epoch + resolve onto a self-key cache is machinery you'll never use, and *omitting* it from a shared-key cache is silent divergence that passes every test until the day two nodes write the same key a millisecond apart. The model's job is to make you *say* which one each cache is — so only the caches that actually contend pay for contention.
+
+## Seeing it
+
+The console grew two tabs, because a design you can't watch is a design you're guessing at.
+
+The **Caches** tab is a matrix — cache types down the side, node types across the top, the count in each cell where a node type holds that cache. Each cache wears its write model as a badge: a green **Key** on the self-key rows, an amber **Leader** on the leader-only ones, a blue **Shared** on the shared caches, and a **KeyGossip** + **main** pair on `topology-key-gossip`, the one that rides main. The shared rows light up several columns at once — that's a shared cache made visible — and the topology row reads 5 across every node type, because everyone holds membership. admin-ui holds them all: it's the authority and the observer.
+
+![The console Caches tab — a matrix with cache types down the left and node types across the top. Rows key-1 through key-4 each carry a green Key badge, leader-1 and leader-2 carry amber Leader badges, shared-1 and shared-2 carry blue Shared badges, and topology-key-gossip carries a KeyGossip badge plus a main badge. Columns are admin-ui, gateway, broker, compute, registry; each cell shows the count of nodes of that type holding the cache. The shared rows light up multiple columns, topology-key-gossip reads 5 in every column, and admin-ui holds a value in every row.](../../assets/blog/mm-cache-matrix.png)
+
+The **Channels** tab is one live gossip stream per topic — a `main REAL` column for the real mesh traffic, plus a column per cache channel. Each event line stamps the publisher's hash, whether it was a publish or a receive, and a climbing sequence number. The publisher on each line makes the write model *visible*: a leader-only channel only ever shows one writer publishing; a self-key channel shows each node only writing its own; the others just receive. The taxonomy isn't a comment in the code — it's a thing you watch scroll by.
+
+![The console Channels tab — a row of columns, one live gossip stream per gossip topic. A main REAL column sits first, then a column per cache channel: key-1, key-2, key-3, key-4, leader-1, leader-2. Each stream is a list of event lines, every line stamping a timestamp, the publisher's short hash, a publish-or-received label, and a sequence number. The key columns show many distinct publisher hashes receiving, the leader-1 column shows a single hash publishing repeatedly with climbing numbers, so the write model is legible at a glance.](../../assets/blog/mm-channels-stream.png)
+
+## What I'd tell a team
+
+- **A node shouldn't ask who its peers are.** If you find yourself building an oracle that nodes poll on the hot path, stop — the membership stream is already arriving at every node. Materialize it locally and the central dependency, the poll, and the cold-start gap all disappear at once. Build the API for the human at the console, not for the node looking up a peer.
+- **A cache that only learns is a leak.** Adding is the easy half; the half that matters is forgetting, and forgetting on a clock you didn't invent. Reconcile against the live membership view and let it inherit the mesh's keep-alive. A separate tombstone timer is a second clock to get wrong.
+- **Channel by the data, not by the node.** The instinct is to name a channel after a role. Name it after the cache, and a shared cache becomes "a topic with more than one subscriber" instead of "a payload duplicated across two channels that everyone has to dedup."
+- **Make every cache declare its write model.** Self-key needs no conflict resolution and shared-key needs a monotonic `epoch` — never a wall clock. The danger isn't picking wrong; it's never being made to pick, so a shared-key cache ships with no resolution and diverges silently the first time two writers race.
+
+## The pattern, one layer up
+
+The mesh was the easy part — it already knew who was alive. The hard part was the *shape* of what each node remembers: born knowing instead of polling, forgetting on the mesh's own clock, channeled by data instead of by node, and honest about who's allowed to write. Every one of those started with a tidy first answer — *ask the oracle; only add; one channel per node; a write is a write* — and every tidy answer was wrong. What corrected each one was the same thing that corrected [the bug that wasn't in the mesh](/blog/the-bug-that-wasnt-in-the-mesh/): the live system's own signal. A 30-minute soak that wouldn't stop growing. A staggered spawn that printed the ramp. A shared cache that simply would not fit a node-type channel. Build the layer that lets the system tell you the shape is wrong — then believe it.
+
+## What's next
+
+Every node now holds the caches it needs and forgets the ghosts it doesn't. But nothing yet decides *who is even allowed in the gossip in the first place* — any process that can reach the topic can join, read every digest, and write its own. The next post draws that line: a trust boundary at the edge of the mesh, deciding admission before a node ever lands in anyone's `live_digests()`.

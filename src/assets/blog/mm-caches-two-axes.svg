@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580">
+  <rect width="1000" height="580" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#5b616b}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;fill:#5b616b}
+  </style>
+
+  <!-- axis titles -->
+  <text x="500" y="44" class="lbl" font-size="18" font-weight="700" text-anchor="middle">channel</text>
+  <text x="44" y="300" class="lbl" font-size="18" font-weight="700" text-anchor="middle" transform="rotate(-90 44 300)">write model</text>
+
+  <!-- column headers -->
+  <text x="430" y="80" class="lbl" font-size="15" text-anchor="middle">Main</text>
+  <text x="730" y="80" class="lbl" font-size="15" text-anchor="middle">Dedicated</text>
+
+  <!-- row headers -->
+  <text x="120" y="160" class="lbl" font-size="14" text-anchor="middle">leader-only</text>
+  <text x="120" y="300" class="lbl" font-size="14" text-anchor="middle">self-key</text>
+  <text x="120" y="440" class="lbl" font-size="14" text-anchor="middle">shared-key</text>
+
+  <!-- grid -->
+  <g stroke="#1a1d24" stroke-opacity="0.18" stroke-width="1.5">
+    <line x1="200" y1="100" x2="200" y2="500"/>
+    <line x1="580" y1="100" x2="580" y2="500"/>
+    <line x1="880" y1="100" x2="880" y2="500"/>
+    <line x1="200" y1="100" x2="880" y2="100"/>
+    <line x1="200" y1="220" x2="880" y2="220"/>
+    <line x1="200" y1="360" x2="880" y2="360"/>
+    <line x1="200" y1="500" x2="880" y2="500"/>
+  </g>
+
+  <!-- cell: Main x self-key  -> topology (rides main) -->
+  <rect x="216" y="240" width="348" height="100" rx="8" fill="#fdfaf2" stroke="#b7410e" stroke-width="2.5"/>
+  <text x="390" y="270" class="lbl" font-size="15" text-anchor="middle" font-weight="700">topology</text>
+  <text x="390" y="294" class="mut" font-size="12" text-anchor="middle">rides main — membership is</text>
+  <text x="390" y="312" class="mut" font-size="12" text-anchor="middle">already on every node</text>
+
+  <!-- cell: Dedicated x self-key -> a membership-style row, key is the writer -->
+  <rect x="596" y="240" width="268" height="100" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="730" y="270" class="lbl" font-size="14" text-anchor="middle" font-weight="700">my-row</text>
+  <text x="730" y="294" class="mut" font-size="12" text-anchor="middle">each node writes only</text>
+  <text x="730" y="312" class="mut" font-size="12" text-anchor="middle">its own key — no conflict</text>
+
+  <!-- cell: Dedicated x shared-key -> vt, needs epoch -->
+  <rect x="596" y="380" width="268" height="100" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="730" y="410" class="lbl" font-size="14" text-anchor="middle" font-weight="700">vt assignments</text>
+  <text x="730" y="434" class="mut" font-size="12" text-anchor="middle">anyone writes any key —</text>
+  <text x="730" y="452" class="mut" font-size="12" text-anchor="middle">needs a monotonic epoch</text>
+
+  <!-- cell: Dedicated x leader-only -> the elected writer assigns order -->
+  <rect x="596" y="116" width="268" height="88" rx="8" fill="#fdfaf2" stroke="#5b616b" stroke-width="2"/>
+  <text x="730" y="150" class="lbl" font-size="14" text-anchor="middle" font-weight="700">leader-only cache</text>
+  <text x="730" y="174" class="mut" font-size="12" text-anchor="middle">only elected node-admin</text>
+  <text x="730" y="192" class="mut" font-size="12" text-anchor="middle">writes, assigns the order</text>
+
+  <!-- caption -->
+  <text x="500" y="544" class="cap" font-size="16" text-anchor="middle">most caches get their own topic; only shared-key ones pay for conflict resolution</text>
+</svg>

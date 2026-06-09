@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560">
+  <rect width="1040" height="560" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <line x1="520" y1="40" x2="520" y2="500" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <style>
+    .lbl{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#1a1d24}
+    .mut{font-family:ui-monospace,'JetBrains Mono',monospace;fill:#5b616b}
+    .cap{font-family:Newsreader,Georgia,serif;font-style:italic;fill:#5b616b}
+  </style>
+
+  <!-- ============ LEFT: channel by NODE (wrong) ============ -->
+  <text x="48" y="56" class="lbl" font-size="20" font-weight="700">channel by node</text>
+  <circle cx="245" cy="48" r="9" fill="#c14a3a"/>
+  <path d="M240 48 l4 4 l7 -8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" transform="rotate(45 245 48)"/>
+  <line x1="239" y1="42" x2="251" y2="54" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="251" y1="42" x2="239" y2="54" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+
+  <!-- the shared cache, published twice -->
+  <rect x="200" y="96" width="120" height="46" rx="7" fill="#fdfaf2" stroke="#b7410e" stroke-width="3"/>
+  <text x="260" y="118" class="lbl" font-size="15" text-anchor="middle">vt cache</text>
+  <text x="260" y="135" class="mut" font-size="12" text-anchor="middle">(shared)</text>
+
+  <!-- two channels -->
+  <rect x="56" y="232" width="180" height="44" rx="7" fill="#fdfaf2" stroke="#5b616b" stroke-width="2.5"/>
+  <text x="146" y="259" class="lbl" font-size="15" text-anchor="middle">compute channel</text>
+  <rect x="284" y="232" width="180" height="44" rx="7" fill="#fdfaf2" stroke="#5b616b" stroke-width="2.5"/>
+  <text x="374" y="259" class="lbl" font-size="15" text-anchor="middle">gateway channel</text>
+
+  <!-- duplicated publishes -->
+  <path d="M232 142 C 190 175, 165 200, 150 230" fill="none" stroke="#c14a3a" stroke-width="3"/>
+  <polygon points="150,230 144,216 159,219" fill="#c14a3a"/>
+  <path d="M288 142 C 330 175, 355 200, 370 230" fill="none" stroke="#c14a3a" stroke-width="3"/>
+  <polygon points="370,230 361,219 376,216" fill="#c14a3a"/>
+  <text x="260" y="200" class="mut" font-size="12" text-anchor="middle">published twice</text>
+
+  <!-- receivers + dedup -->
+  <rect x="56" y="356" width="180" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="146" y="381" class="lbl" font-size="14" text-anchor="middle">compute</text>
+  <rect x="284" y="356" width="180" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="374" y="381" class="lbl" font-size="14" text-anchor="middle">gateway</text>
+  <line x1="146" y1="276" x2="146" y2="354" stroke="#5b616b" stroke-width="2"/>
+  <line x1="374" y1="276" x2="374" y2="354" stroke="#5b616b" stroke-width="2"/>
+
+  <rect x="180" y="430" width="160" height="36" rx="7" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text x="260" y="453" class="lbl" font-size="14" text-anchor="middle" fill="#c14a3a">each must dedup</text>
+
+  <!-- ============ RIGHT: channel by DATA (right) ============ -->
+  <text x="568" y="56" class="lbl" font-size="20" font-weight="700">channel by data</text>
+  <circle cx="760" cy="48" r="9" fill="#3a7d44"/>
+  <path d="M755 48 l4 5 l8 -10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- single shared cache -->
+  <rect x="720" y="96" width="120" height="46" rx="7" fill="#fdfaf2" stroke="#b7410e" stroke-width="3"/>
+  <text x="780" y="118" class="lbl" font-size="15" text-anchor="middle">vt cache</text>
+  <text x="780" y="135" class="mut" font-size="12" text-anchor="middle">(shared)</text>
+
+  <!-- one topic -->
+  <rect x="676" y="232" width="208" height="44" rx="7" fill="#fdfaf2" stroke="#b7410e" stroke-width="2.5"/>
+  <text x="780" y="259" class="lbl" font-size="15" text-anchor="middle">vt topic</text>
+
+  <!-- single publish -->
+  <line x1="780" y1="142" x2="780" y2="230" stroke="#3a7d44" stroke-width="3"/>
+  <polygon points="780,230 773,216 787,216" fill="#3a7d44"/>
+  <text x="780" y="200" class="mut" font-size="12" text-anchor="middle">published once</text>
+
+  <!-- two subscribers -->
+  <rect x="576" y="356" width="180" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="666" y="381" class="lbl" font-size="14" text-anchor="middle">compute</text>
+  <rect x="804" y="356" width="180" height="40" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="894" y="381" class="lbl" font-size="14" text-anchor="middle">gateway</text>
+  <path d="M760 276 C 720 305, 690 325, 666 354" fill="none" stroke="#3a7d44" stroke-width="2"/>
+  <path d="M800 276 C 840 305, 870 325, 894 354" fill="none" stroke="#3a7d44" stroke-width="2"/>
+
+  <rect x="690" y="430" width="180" height="36" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="780" y="453" class="lbl" font-size="14" text-anchor="middle" fill="#3a7d44">2 subscribers, no dedup</text>
+
+  <!-- caption -->
+  <text x="520" y="528" class="cap" font-size="16" text-anchor="middle">a shared cache is just a topic with more than one subscriber</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440">
+  <rect width="900" height="440" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <!-- divider -->
+  <line x1="450" y1="64" x2="450" y2="392" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT: identity, free from iroh -->
+  <text x="60" y="56" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="19" font-weight="700" fill="#1a1d24">IDENTITY</text>
+  <text x="60" y="80" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#3a7d44">iroh gives this for free</text>
+
+  <!-- two endpoints proving a key over the QUIC handshake -->
+  <g>
+    <circle cx="135" cy="200" r="30" fill="#b7410e"/>
+    <circle cx="335" cy="200" r="30" fill="#b7410e"/>
+    <line x1="165" y1="200" x2="305" y2="200" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="3"/>
+    <!-- key glyph on the wire (path) -->
+    <g transform="translate(217 200)" stroke="#1a1d24" stroke-width="3" fill="none">
+      <circle cx="0" cy="0" r="9" fill="#fdfaf2"/>
+      <line x1="9" y1="0" x2="34" y2="0"/>
+      <line x1="26" y1="0" x2="26" y2="9"/>
+      <line x1="34" y1="0" x2="34" y2="9"/>
+    </g>
+  </g>
+  <text x="135" y="262" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12" fill="#5b616b">NodeId</text>
+  <text x="335" y="262" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12" fill="#5b616b">NodeId</text>
+  <text x="235" y="305" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24">QUIC handshake proves</text>
+  <text x="235" y="324" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24">each holds the secret</text>
+  <text x="235" y="370" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="15" fill="#5b616b">who the node is &#8212; no spoofing</text>
+
+  <!-- RIGHT: authorization, what we add -->
+  <text x="490" y="56" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="19" font-weight="700" fill="#1a1d24">AUTHORIZATION</text>
+  <text x="490" y="80" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#b7410e">what we add on top</text>
+
+  <!-- three policy questions iroh won't answer -->
+  <g font-family="ui-monospace,'JetBrains Mono',monospace" font-size="14" fill="#1a1d24">
+    <text x="500" y="150">&#8226;  allowed on this mesh?</text>
+    <text x="500" y="190">&#8226;  which role?</text>
+    <text x="500" y="230">&#8226;  until when?</text>
+  </g>
+
+  <!-- the signed cert that answers them: a small certificate card -->
+  <g transform="translate(560 268)">
+    <rect x="0" y="0" width="190" height="74" rx="6" fill="#fdfaf2" stroke="#b7410e" stroke-width="2.5"/>
+    <text x="14" y="26" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12" fill="#1a1d24">NodeCert {</text>
+    <text x="26" y="44" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12" fill="#5b616b">node_id, role, expiry</text>
+    <text x="14" y="62" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12" fill="#1a1d24">}</text>
+    <!-- tiny CA seal corner -->
+    <circle cx="170" cy="20" r="11" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+    <path d="M165 20 l4 5 l7 -9" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="655" y="372" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="15" fill="#5b616b">CA-signed &#8212; policy, not identity</text>
+</svg>

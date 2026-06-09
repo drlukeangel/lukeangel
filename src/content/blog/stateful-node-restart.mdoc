@@ -1,0 +1,72 @@
+---
+title: "Keeping a node's name across a restart"
+date: 2026-06-23T00:00:00-04:00
+category: craft
+tags:
+  - rust
+  - iroh
+  - quic
+  - ed25519
+  - distributed-systems
+  - identity
+notebook: building-a-distributed-mesh-in-rust
+notebookOrder: 13
+excerpt: "Restart a process in this mesh and, by default, it comes back a stranger — a brand-new ed25519 keypair, a brand-new NodeId, every peer re-establishing to what it thinks is a node it's never seen. Most nodes are cattle and that's fine. This is how I let a few of them be pets: kill the process, respawn it, and have it boot with the exact same identity — and the reaper races I had to defend against to make that true."
+pullquote: "The data dir isn't where the node keeps its identity. The data dir IS the identity — which is why the scariest bug was a five-second timer."
+cover: "../../assets/blog/mm-stateful-cover.svg"
+coverAlt: "A node card drawn three times across a restart: lit and carrying a small key glyph, then gone dark, then lit again still carrying the same key — identity preserved across the kill. Below and faint, a contrast path where a second node returns from the dark carrying a different key glyph, the chaos path that mints a new identity on purpose. Cream background, faint dot grid, vertical rust-orange accent bar at the left edge."
+featured: false
+---
+
+Restart a node in this mesh and it forgets who it was. Not its data — its *name*. A node's identity here is an [ed25519 keypair, and the `node_id` is literally the public key](/blog/watching-a-node-boot-across-two-meshes/); that's how QUIC routes to it. Kill the process and let it boot clean and `load_or_mint_identity` does exactly what the second half of its name says: with no key to load, it mints a fresh one. The node comes back, but it comes back a stranger. Every peer that knew the old key has to re-establish to what looks like a node it's never seen, and the old entry lingers as stale until it ages out.
+
+For most of the fleet that's correct. Nodes are cattle — interchangeable, disposable, the topology heals around any one leaving. But a handful aren't: a node pinned to a specific port, holding a specific routing role, the kind you restart to roll a config and want the mesh to barely notice. For those few, a new NodeId on every restart is friction you pay on the whole cluster's behalf. So this is the pets-vs-cattle escape hatch: kill the process, bring it back, same identity.
+
+## Where the identity actually lives
+
+The key was never the hard part — admin-ui already had the mechanism. Every child node respects `RAFKA_NODE_SECRET_KEY`: set it to a hex-encoded 32-byte key and `load_or_mint_identity` uses it directly instead of minting. Admin-ui already pre-mints each child's key *before* it spawns the process — that closes a race where two concurrent spawns could otherwise land on duplicate names — so the key is sitting in memory the whole time. Stateful restart just keeps it and re-passes it.
+
+The subtler half is the data dir. On first boot the key gets persisted to `node-identity.json` under `E:/tmp/rafka-ui-nodes/<node_name>/`, so there are *two* roads back to the same identity: the env var on the controlled restart path, and that file on any cold boot. Which means the dir isn't where a node stashes its identity — the dir **is** the identity. Wipe it and you've killed the node's name even if the process is the one you meant. That reframing is the whole reason this feature is more than a function call — because the mesh has a janitor.
+
+## What I had to defend against
+
+Normally a node's exit triggers cleanup. Both `kill_one` — the operator's DELETE — and a background reaper loop wipe the data dir, `node-identity.json` and all. That's correct for cattle and catastrophic for a pet. So a stateful node carries three guards, and two of them exist purely because the cleanup is racing the restart.
+
+**The dir is never auto-wiped.** For a node spawned `stateful: true`, both the explicit kill and the reaper suppress the directory cleanup. The dir is the identity; you don't get to delete it on the node's behalf. Only an operator wiping it by hand, or a fresh non-stateful spawn claiming the same name, clears it.
+
+**The `SpawnedMeta` record survives the kill.** Admin-ui keeps an in-memory record of every child it spawned. For an ordinary node that record dies with the process; for a stateful node it persists across the kill — so the restart route can read back the original `secret_key_hex` and `bind_port`, and so it stays visible to the reaper's orphan sweep, the pass that wipes any dir not referenced by a live process *or* a meta entry. Lose the record and the orphan sweep sees a directory with nothing alive behind it and does its job.
+
+**A process-global `restarting` set.** This is the one that bit me. The reaper ticks every five seconds. A restart kills the process, waits for it to actually exit, then respawns — and there's a window in the middle where the process is gone but the dir must survive. If a reaper tick lands inside that window, it sees a dead process and a dir and wipes the identity out from under the respawn. So the node name goes into a process-global `DashSet<String>` for the duration, and the reaper checks the set before touching anything. One set, two lookups — and without it the feature has a flaky five-second hole that only shows up under exactly the timing you can't reproduce on demand.
+
+![The stateful restart flow as a left-to-right sequence. It begins at restart_one, which adds the node name to the restarting set, removes the Child handle from the processes map, and calls start_kill — then waits, up to ten seconds, for genuine OS process exit so the pinned bind_port is actually released before anything tries to rebind it. The middle of the flow is shaded as the danger window: process gone, dir must survive, the reaper held off by the restarting set. The respawn step rebuilds the command with the SAME spawn_dir, the SAME bind_port, and crucially the SAME RAFKA_NODE_SECRET_KEY, so the node boots with the identical PublicKey. It clears the restarting set, updates SpawnedMeta.pid, and emits a rafka.ui.node.restart span. On the right, the mesh sees the node's gossip go stale and then rejoin; because the NodeId is unchanged, HyParView reconnects over the existing address with no bootstrap.](../../assets/blog/mm-stateful-restart-flow.svg)
+
+## Waiting for the process to actually be gone
+
+The restart route is its own function — `restart_one` — and it deliberately does *not* call the normal spawn path. That's the load-bearing decision: the normal spawn mints a fresh key, so routing a restart through it would hand the node a new identity, the precise opposite of the point. Instead `restart_one` reads the `SpawnedMeta`, rejects with 422 if the node isn't stateful, and rebuilds the command by hand with the same dir, port, mesh, and secret key.
+
+One step in the middle earns its slowness: after `start_kill`, it waits for genuine OS process exit — up to ten seconds. Not "we sent the signal," but "the kernel has reaped it." That's a Windows reality as much as a correctness one. The node holds a pinned `bind_port`; until the process is truly gone the OS hasn't released the socket, and a respawn that tries to bind it races the dying process for the port. And on Windows a running executable is file-locked — the same lock that, [in an earlier sprint, had me debugging stale binaries for hours](/blog/kill-by-message-a-node-is-a-state/) because a rebuild silently left the old `.exe` in place. So you wait for the real exit, then rebind. The ten seconds is a ceiling, not a sleep; almost always the process is gone well under it.
+
+## The chaos restart is the opposite on purpose
+
+There's already a restart in this codebase, and it does the reverse of this one. The [chaos battery](/blog/chaos-pass-replaces-tests-pass/) has a `restart_node` primitive that deliberately mints a *new* identity — because that's the chaos. The whole point of that test is to prove the mesh heals when a node vanishes and a different node joins in its place: same name to an operator's eye, different cryptographic identity to the mesh.
+
+So the two restarts want strictly opposite outcomes, and they share no code. The chaos path goes through the normal spawn with `stateful=false` and gets a fresh key by design; stateful restart is `restart_one`, which never touches that path. Keeping them separate isn't tidiness — it's the only way each can be honest about what it claims. Share a spawn and one of them is lying about identity.
+
+## One field on the wire
+
+A node now advertises whether it's stateful. Each one appends `stateful: bool` to its `GossipDigest` — the payload it broadcasts to every mesh member every two seconds — and admin-ui's topology and heartbeats endpoints surface it so the UI can badge the pets.
+
+The interesting part is *where* the field goes, and it's a postcard constraint. Gossip is serialized with postcard, which is positional — no field names on the wire, just order. So a new field has to be *appended*, never inserted, and it carries `#[serde(default)]`. An old node decoding a new digest runs off the end of the bytes it understands and fills `stateful` from the default: `false`. A new node decoding an old digest does the same. The cluster stays mixed-version-safe through a rolling upgrade because the default is the truthful answer for any node that doesn't know the concept yet. Append-with-default is the entire compatibility story — one line of attention at the end of the struct.
+
+![A contrast of the two restart paths and the wire field that distinguishes them. On the left, the stateful path: kill, respawn through restart_one re-passing the same RAFKA_NODE_SECRET_KEY, and the node returns carrying the same key — same NodeId. On the right, the chaos path: kill, respawn through the normal spawn with stateful false, and the node returns carrying a different key — a new NodeId, by design. Below both, the GossipDigest struct drawn as a row of positional fields with stateful appended at the very end, tagged serde default, and a note that an old node decoding the new digest reads it as false.](../../assets/blog/mm-stateful-vs-chaos.svg)
+
+## What I'd tell a team
+
+- **Find the thing that *is* the identity and refuse to delete it automatically.** Here it's a directory holding a key file. The cleanup that's correct for a disposable node is destruction for a durable one. Make the cleanup ask "am I allowed to wipe this?" not "is the process gone?"
+- **A self-healing mesh has a janitor, and the janitor races you.** The reaper that wipes orphaned dirs is exactly right — until a restart creates a window where a live node's dir momentarily looks orphaned. Any background reclaimer on a timer will eventually tick inside your critical section. Carry an explicit "hands off" marker through it; don't hope the timing misses.
+- **Wait for the *real* exit, not the signal.** "We called kill" and "the OS has released the port and the file lock" are different facts, and on Windows the gap between them is where a rebind fails or a stale binary survives. Gate the respawn on genuine process death, with a ceiling, not a guess.
+- **When two operations want opposite outcomes, give them no shared code.** One restart preserves identity, one destroys it on purpose. Routing both through one spawn forces a flag-soup that lies to half its callers.
+
+## What's next
+
+A pet node now keeps its name across a restart, which is the first thing you need before a node can keep anything *else* across one. The obvious next thing it should keep is its data — a local cache it can answer from directly instead of going back to the mesh for every read. Stable identity is the floor under that: a cache is only worth warming if the node it belongs to is still the same node when it comes back up.

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430">
+  <rect width="900" height="430" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12"/>
+
+  <line x1="450" y1="64" x2="450" y2="384" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- LEFT: HMAC, symmetric -->
+  <text x="55" y="50" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="17" font-weight="700" fill="#c14a3a">HMAC &#8212; SYMMETRIC</text>
+  <text x="55" y="74" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#5b616b">the earlier direction</text>
+
+  <!-- one shared key -->
+  <g transform="translate(175 130)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#c14a3a" stroke-width="4"/>
+    <line x1="14" y1="0" x2="60" y2="0" stroke="#c14a3a" stroke-width="4"/>
+    <line x1="44" y1="0" x2="44" y2="14" stroke="#c14a3a" stroke-width="4"/>
+    <line x1="60" y1="0" x2="60" y2="14" stroke="#c14a3a" stroke-width="4"/>
+  </g>
+  <text x="205" y="186" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24">one shared secret</text>
+
+  <!-- mint and verify both from the same key -->
+  <g font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#1a1d24">
+    <line x1="205" y1="200" x2="120" y2="244" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2.5"/>
+    <line x1="205" y1="200" x2="290" y2="244" stroke="#1a1d24" stroke-opacity="0.4" stroke-width="2.5"/>
+    <text x="120" y="266" text-anchor="middle">MINT</text>
+    <text x="290" y="266" text-anchor="middle">VERIFY</text>
+  </g>
+  <text x="205" y="266" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#5b616b">==</text>
+
+  <g transform="translate(55 300)">
+    <rect x="0" y="0" width="330" height="60" rx="6" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2"/>
+    <text x="20" y="26" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12.5" fill="#1a1d24">every verifier is also a forger</text>
+    <text x="20" y="46" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="13.5" fill="#5b616b">the root becomes a skeleton key</text>
+  </g>
+
+  <!-- RIGHT: asymmetric signing -->
+  <text x="490" y="50" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="17" font-weight="700" fill="#3a7d44">SIGNING &#8212; ASYMMETRIC</text>
+  <text x="490" y="74" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="13" fill="#5b616b">what we switched to</text>
+
+  <!-- secret key (CA) mints -->
+  <g transform="translate(540 130)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#3a7d44" stroke-width="4"/>
+    <line x1="14" y1="0" x2="60" y2="0" stroke="#3a7d44" stroke-width="4"/>
+    <line x1="44" y1="0" x2="44" y2="14" stroke="#3a7d44" stroke-width="4"/>
+    <line x1="60" y1="0" x2="60" y2="14" stroke="#3a7d44" stroke-width="4"/>
+  </g>
+  <text x="572" y="186" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12.5" fill="#1a1d24">CA secret &#8594; MINT</text>
+
+  <!-- public key verifies -->
+  <g transform="translate(745 130)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#7a808c" stroke-width="4" stroke-dasharray="4 3"/>
+    <line x1="14" y1="0" x2="60" y2="0" stroke="#7a808c" stroke-width="4" stroke-dasharray="4 3"/>
+    <line x1="44" y1="0" x2="44" y2="14" stroke="#7a808c" stroke-width="4"/>
+    <line x1="60" y1="0" x2="60" y2="14" stroke="#7a808c" stroke-width="4"/>
+  </g>
+  <text x="777" y="186" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12.5" fill="#1a1d24">public key &#8594; VERIFY</text>
+
+  <text x="660" y="252" text-anchor="middle" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="22" fill="#3a7d44">&#8800;</text>
+
+  <g transform="translate(490 300)">
+    <rect x="0" y="0" width="350" height="60" rx="6" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2"/>
+    <path d="M22 30 l8 9 l16 -19" fill="none" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="60" y="26" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="12.5" fill="#1a1d24">verify without being able to mint</text>
+    <text x="60" y="46" font-family="Newsreader,Georgia,serif" font-style="italic" font-size="13.5" fill="#5b616b">issuer/verifier split &#8212; a real root</text>
+  </g>
+</svg>
