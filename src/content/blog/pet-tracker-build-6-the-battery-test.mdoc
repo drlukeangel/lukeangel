@@ -1,6 +1,6 @@
 ---
 title: "The Battery Test: Runtime Is a Dial, Not a Number"
-date: 2026-05-29T09:00:00-04:00
+date: 2026-06-21T09:00:00-04:00
 category: projects
 tags:
   - iot
@@ -12,15 +12,15 @@ tags:
   - testing
   - power
 notebook: iot-pet-health-tracker-build
-notebookOrder: 6
+notebookOrder: 9
 excerpt: "Range could have killed the project; so could battery. The whole pitch is a tracker you don't charge constantly — so I let both nodes run for a day and read their own telemetry. The collar lasts three to four days beaconing, and ten hours with the GPS pinned on and the screen lit. Same board, same cell. Runtime turned out not to be a number at all."
 pullquote: "Runtime isn't a spec you read off the battery — it's a dial you set in firmware."
 cover: "../../assets/blog/pet-tracker-build-6-the-battery-test-cover.svg"
 coverAlt: "A battery cell on a baseline with two discharge curves leaving its top — one plunging steeply to empty close by, one gliding gently across the full width before it lands — the same cell, two very different lifetimes."
-draft: true
+draft: false
 ---
 
-[Last post](/blog/pet-tracker-build-5-the-range-test/) range cleared its bar, which left the other criterion that could quietly kill this whole thing: battery. The pitch I wrote in [the PRD](/blog/pet-tracker-build-2-the-prd-and-the-rubric/) was a tracker you *don't* charge constantly — and a tracker you charge every other day is a tracker that ends up dead in a drawer. So the [scorecard](/blog/pet-tracker-build-4-the-scorecard/) set two hard numbers: **≥ 3 days** of active beaconing, **≥ 2 weeks** in idle/presence mode.
+The [range test](/blog/pet-tracker-build-5-the-range-test/) cleared its bar, which left the other criterion that could quietly kill this whole thing: battery. The pitch I wrote in [the PRD](/blog/pet-tracker-build-2-the-prd-and-the-rubric/) was a tracker you *don't* charge constantly — and a tracker you charge every other day is a tracker that ends up dead in a drawer. So the [scorecard](/blog/pet-tracker-build-4-the-scorecard/) set two hard numbers: **≥ 3 days** of active beaconing, **≥ 2 weeks** in idle/presence mode.
 
 ## Reading the battery without a meter
 
