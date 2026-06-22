@@ -8,3 +8,4 @@ dist
 .netlify
 pagefind
 .claude/settings.local.json
+.qa-tmp/

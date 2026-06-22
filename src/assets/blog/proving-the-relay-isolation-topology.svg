@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560">
+  <rect x="2" y="2" width="996" height="556" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .net { font-size: 18px; font-weight: 700; }
+    .node{ font-size: 14px; fill: #1a1d24; }
+    .cap { font-size: 15px; fill: #5b616b; }
+    .bad { fill: #c14a3a; font-size: 15px; font-weight: 700; }
+    .rust{ fill: #b7410e; }
+  </style>
+
+  <!-- left network box -->
+  <rect x="40" y="70" width="380" height="170" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <text class="net" x="60" y="100">mesh-a-net</text>
+  <g>
+    <rect x="60" y="120" width="100" height="44" rx="6" fill="#b7410e" fill-opacity="0.12" stroke="#b7410e" stroke-width="2"/>
+    <text class="node" x="110" y="147" text-anchor="middle">gateway-a</text>
+    <rect x="172" y="120" width="100" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2"/>
+    <text class="node" x="222" y="147" text-anchor="middle">storage-a</text>
+    <rect x="284" y="120" width="100" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2"/>
+    <text class="node" x="334" y="147" text-anchor="middle">client-a</text>
+  </g>
+
+  <!-- right network box -->
+  <rect x="580" y="70" width="380" height="170" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <text class="net" x="600" y="100">mesh-b-net</text>
+  <g>
+    <rect x="600" y="120" width="110" height="44" rx="6" fill="#b7410e" fill-opacity="0.20" stroke="#b7410e" stroke-width="2"/>
+    <text class="node" x="655" y="147" text-anchor="middle">storage-b</text>
+    <rect x="724" y="120" width="110" height="44" rx="6" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.45" stroke-width="2"/>
+    <text class="node" x="779" y="147" text-anchor="middle">gateway-b</text>
+  </g>
+
+  <!-- NO direct route between the boxes -->
+  <line x1="420" y1="155" x2="580" y2="155" stroke="#c14a3a" stroke-width="3"
+        stroke-dasharray="9 8" stroke-opacity="0.6"/>
+  <g stroke="#c14a3a" stroke-width="4" stroke-linecap="round" stroke-opacity="0.85">
+    <line x1="492" y1="143" x2="508" y2="167"/>
+    <line x1="508" y1="143" x2="492" y2="167"/>
+  </g>
+  <text class="bad" x="500" y="120" text-anchor="middle">no direct route</text>
+  <text class="cap" x="500" y="195" text-anchor="middle">Docker bridge isolation</text>
+
+  <!-- relay below, attached to BOTH -->
+  <rect x="390" y="400" width="220" height="80" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.7" stroke-width="4"/>
+  <text class="net" x="500" y="438" text-anchor="middle">relay</text>
+  <text class="cap" x="500" y="462" text-anchor="middle">attached to both</text>
+
+  <!-- solid lines from relay to each network (the only shared path) -->
+  <path d="M430 400 C 380 320, 200 300, 130 244" fill="none" stroke="#b7410e" stroke-width="4"/>
+  <polygon points="130,244 132,259 144,250" fill="#b7410e"/>
+  <path d="M570 400 C 620 320, 800 300, 870 244" fill="none" stroke="#b7410e" stroke-width="4"/>
+  <polygon points="870,244 856,250 868,259" fill="#b7410e"/>
+
+  <text class="cap rust" x="500" y="520" text-anchor="middle">the only shared reachability —</text>
+  <text class="cap" x="500" y="542" text-anchor="middle">any cross-mesh packet proves itself by arriving</text>
+</svg>

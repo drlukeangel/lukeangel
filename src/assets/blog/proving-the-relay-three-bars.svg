@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440">
+  <rect x="2" y="2" width="996" height="436" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .h   { font-size: 19px; font-weight: 700; }
+    .cap { font-size: 15px; fill: #5b616b; }
+    .num { font-size: 30px; font-weight: 700; fill: #1a1d24; fill-opacity: 0.25; }
+    .rust{ fill: #b7410e; }
+  </style>
+
+  <text class="cap" x="40" y="48">a passing relay test has to clear all three —</text>
+
+  <!-- bar 1: correctness -->
+  <rect x="40" y="76" width="920" height="92" rx="8" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2.5"/>
+  <text class="num" x="78" y="134">1</text>
+  <text class="h" x="120" y="114">correctness</text>
+  <text class="cap" x="120" y="142">client in mesh-a produces to a partition owned by storage-b, and reads it back</text>
+  <text class="cap" x="940" y="124" text-anchor="end">the easy part</text>
+
+  <!-- bar 2: honesty (highlighted) -->
+  <rect x="40" y="180" width="920" height="92" rx="8" fill="#b7410e" fill-opacity="0.10"
+        stroke="#b7410e" stroke-width="3"/>
+  <text class="num rust" x="78" y="238" fill-opacity="0.5">2</text>
+  <text class="h rust" x="120" y="218">honesty — the path was the relay</text>
+  <text class="cap" x="120" y="246">not a sneaky direct route; Docker isolation clears this by making any other path impossible</text>
+  <text class="cap rust" x="940" y="228" text-anchor="end">makes the test mean something</text>
+
+  <!-- bar 3: durability -->
+  <rect x="40" y="284" width="920" height="92" rx="8" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2.5"/>
+  <text class="num" x="78" y="342">3</text>
+  <text class="h" x="120" y="322">durability</text>
+  <text class="cap" x="120" y="350">holds under sustained load, not one lucky round-trip</text>
+  <text class="cap" x="940" y="332" text-anchor="end">the soak clears this</text>
+
+  <text class="cap" x="40" y="412">isolation is the evidence: you can't pass by taking a shortcut that doesn't exist.</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#b7410e" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+
+  <!-- left network enclosure -->
+  <rect x="120" y="360" width="300" height="200" rx="12" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.5" stroke-width="4"/>
+  <g fill="#b7410e">
+    <circle cx="200" cy="430" r="18"/>
+    <circle cx="280" cy="470" r="18"/>
+    <circle cx="340" cy="420" r="22"/>
+    <circle cx="250" cy="520" r="16"/>
+  </g>
+  <g stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2">
+    <line x1="200" y1="430" x2="280" y2="470"/>
+    <line x1="280" y1="470" x2="340" y2="420"/>
+    <line x1="280" y1="470" x2="250" y2="520"/>
+  </g>
+
+  <!-- right network enclosure -->
+  <rect x="780" y="360" width="300" height="200" rx="12" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.5" stroke-width="4"/>
+  <g fill="#b7410e">
+    <circle cx="860" cy="430" r="22"/>
+    <circle cx="940" cy="470" r="18"/>
+    <circle cx="1010" cy="420" r="18"/>
+    <circle cx="930" cy="520" r="16"/>
+  </g>
+  <g stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2">
+    <line x1="860" y1="430" x2="940" y2="470"/>
+    <line x1="940" y1="470" x2="1010" y2="420"/>
+    <line x1="940" y1="470" x2="930" y2="520"/>
+  </g>
+
+  <!-- the gap between them: deliberately empty. No direct line at all. -->
+
+  <!-- relay box up top, the only path that touches both -->
+  <rect x="520" y="120" width="160" height="100" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.7" stroke-width="4"/>
+  <!-- sealed packet inside -->
+  <rect x="572" y="152" width="56" height="40" rx="5" fill="#1a1d24" fill-opacity="0.12"
+        stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <path d="M584 152 v-10 a16 16 0 0 1 32 0 v10" fill="none"
+        stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <circle cx="600" cy="172" r="5" fill="#1a1d24" fill-opacity="0.6"/>
+
+  <!-- the working path: climbs up and over, through the relay -->
+  <path d="M340 405 C 420 230, 480 175, 520 165" fill="none" stroke="#b7410e" stroke-width="5"/>
+  <path d="M680 165 C 720 175, 780 230, 860 405" fill="none" stroke="#b7410e" stroke-width="5"/>
+  <polygon points="860,405 848,392 840,406" fill="#b7410e"/>
+</svg>

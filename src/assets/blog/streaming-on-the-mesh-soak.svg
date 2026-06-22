@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
+  <rect x="2" y="2" width="996" height="496" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .ttl { font-size: 17px; fill: #5b616b; }
+    .ax  { font-size: 14px; fill: #7a808c; }
+    .lab { font-size: 16px; font-weight: 700; }
+    .cap { font-size: 14px; fill: #5b616b; }
+  </style>
+
+  <text class="ttl" x="40" y="44">10-minute soak — memory polled every 30s (MB)</text>
+
+  <!-- axes -->
+  <line x1="130" y1="90" x2="130" y2="390" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <line x1="130" y1="390" x2="910" y2="390" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- y ticks -->
+  <text class="ax" x="120" y="395" text-anchor="end">40</text>
+  <line x1="126" y1="347" x2="910" y2="347" stroke="#1a1d24" stroke-opacity="0.08"/>
+  <text class="ax" x="120" y="352" text-anchor="end">41</text>
+  <line x1="126" y1="262" x2="910" y2="262" stroke="#1a1d24" stroke-opacity="0.08"/>
+  <text class="ax" x="120" y="267" text-anchor="end">43</text>
+  <line x1="126" y1="155" x2="910" y2="155" stroke="#1a1d24" stroke-opacity="0.08"/>
+  <text class="ax" x="120" y="160" text-anchor="end">45</text>
+  <!-- x ticks -->
+  <text class="ax" x="130" y="412" text-anchor="middle">30s</text>
+  <text class="ax" x="494" y="412" text-anchor="middle">300s</text>
+  <text class="ax" x="900" y="412" text-anchor="middle">600s</text>
+
+  <!-- gateway: flat -->
+  <polyline points="130,189 292,172 494,154 697,141 900,141"
+            fill="none" stroke="#b7410e" stroke-width="4"/>
+  <g fill="#b7410e"><circle cx="130" cy="189" r="4"/><circle cx="292" cy="172" r="4"/><circle cx="494" cy="154" r="4"/><circle cx="697" cy="141" r="4"/><circle cx="900" cy="141" r="4"/></g>
+  <text class="lab" x="690" y="128" fill="#b7410e">gateway — flat</text>
+
+  <!-- broker-a -->
+  <polyline points="130,313 292,253 494,236 697,214 900,197"
+            fill="none" stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3"/>
+  <g fill="#1a1d24" fill-opacity="0.6"><circle cx="130" cy="313" r="4"/><circle cx="292" cy="253" r="4"/><circle cx="494" cy="236" r="4"/><circle cx="697" cy="214" r="4"/><circle cx="900" cy="197" r="4"/></g>
+  <text class="cap" x="915" y="201">broker-a</text>
+
+  <!-- broker-b -->
+  <polyline points="130,287 292,266 494,249 697,232 900,232"
+            fill="none" stroke="#1a1d24" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="8 5"/>
+  <g fill="#1a1d24" fill-opacity="0.6"><circle cx="130" cy="287" r="4"/><circle cx="292" cy="266" r="4"/><circle cx="494" cy="249" r="4"/><circle cx="697" cy="232" r="4"/><circle cx="900" cy="232" r="4"/></g>
+  <text class="cap" x="915" y="240">broker-b</text>
+
+  <!-- annotations -->
+  <text class="cap" x="300" y="80" fill="#b7410e">connection-leak fix holding under ~52k fresh handshakes</text>
+  <text class="cap" x="300" y="318">storage rises linearly — records, not a leak (no retention)</text>
+
+  <!-- stat strip -->
+  <line x1="40" y1="438" x2="960" y2="438" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text class="lab" x="40" y="472">produced 26,029</text>
+  <text class="lab" x="360" y="472" fill="#3a7d44">errors 0</text>
+  <text class="lab" x="560" y="472">~43 ops/s</text>
+</svg>

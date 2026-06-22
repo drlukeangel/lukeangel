@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480">
+  <rect x="2" y="2" width="996" height="476" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .h    { font-size: 18px; font-weight: 700; }
+    .cap  { font-size: 14px; fill: #5b616b; }
+    .big  { font-size: 22px; font-weight: 700; }
+    .bad  { fill: #c14a3a; }
+    .good { fill: #3a7d44; }
+    .rust { fill: #b7410e; }
+  </style>
+
+  <!-- LEFT: per-op connect -->
+  <rect x="36" y="60" width="410" height="300" rx="10" fill="#fdfaf2"
+        stroke="#c14a3a" stroke-opacity="0.4" stroke-width="2.5"/>
+  <text class="h bad" x="60" y="92">per-op connect</text>
+  <text class="cap" x="60" y="114">a fresh QUIC handshake every operation</text>
+
+  <!-- stack of short-lived connections -->
+  <g stroke="#c14a3a" stroke-opacity="0.55" stroke-width="3">
+    <line x1="70" y1="150" x2="180" y2="150"/>
+    <line x1="70" y1="172" x2="180" y2="172"/>
+    <line x1="70" y1="194" x2="180" y2="194"/>
+    <line x1="70" y1="216" x2="180" y2="216"/>
+    <line x1="70" y1="238" x2="180" y2="238"/>
+  </g>
+  <g fill="#c14a3a"><circle cx="70" cy="150" r="4"/><circle cx="180" cy="150" r="4"/><circle cx="70" cy="172" r="4"/><circle cx="180" cy="172" r="4"/><circle cx="70" cy="194" r="4"/><circle cx="180" cy="194" r="4"/><circle cx="70" cy="216" r="4"/><circle cx="180" cy="216" r="4"/><circle cx="70" cy="238" r="4"/><circle cx="180" cy="238" r="4"/></g>
+  <text class="cap" x="70" y="290">dial → use once → drop, ×23k</text>
+
+  <text class="cap" x="250" y="150">errors</text>
+  <text class="big bad" x="250" y="180">13 / run</text>
+  <text class="cap" x="250" y="220">throughput</text>
+  <text class="big" x="250" y="250">~39 ops/s</text>
+  <text class="cap bad" x="70" y="320">gateway RSS: climbing</text>
+
+  <!-- arrow -->
+  <line x1="455" y1="210" x2="545" y2="210" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <polygon points="545,210 531,202 531,218" fill="#1a1d24" fill-opacity="0.5"/>
+  <text class="cap rust" x="500" y="196" text-anchor="middle">one change</text>
+  <text class="cap rust" x="500" y="234" text-anchor="middle">reuse the</text>
+  <text class="cap rust" x="500" y="250" text-anchor="middle">connection</text>
+
+  <!-- RIGHT: pooled -->
+  <rect x="554" y="60" width="410" height="300" rx="10" fill="#fdfaf2"
+        stroke="#3a7d44" stroke-opacity="0.45" stroke-width="2.5"/>
+  <text class="h good" x="578" y="92">pooled connection</text>
+  <text class="cap" x="578" y="114">one connection, many bi-streams</text>
+
+  <!-- one long-lived connection with branching streams -->
+  <line x1="588" y1="200" x2="700" y2="200" stroke="#3a7d44" stroke-width="5"/>
+  <circle cx="588" cy="200" r="5" fill="#3a7d44"/>
+  <circle cx="700" cy="200" r="5" fill="#3a7d44"/>
+  <g stroke="#3a7d44" stroke-opacity="0.5" stroke-width="2.5">
+    <line x1="640" y1="200" x2="668" y2="164"/>
+    <line x1="650" y1="200" x2="688" y2="176"/>
+    <line x1="660" y1="200" x2="700" y2="172"/>
+    <line x1="640" y1="200" x2="668" y2="236"/>
+    <line x1="650" y1="200" x2="688" y2="224"/>
+  </g>
+  <text class="cap" x="588" y="290">dial once → reuse, redial only if dead</text>
+
+  <text class="cap" x="772" y="150">errors</text>
+  <text class="big good" x="772" y="180">0</text>
+  <text class="cap" x="772" y="220">throughput</text>
+  <text class="big good" x="772" y="250">~250 ops/s</text>
+  <text class="cap good" x="588" y="320">gateway RSS: flat after ~90s</text>
+
+  <!-- footnote -->
+  <line x1="36" y1="392" x2="964" y2="392" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <text class="cap" x="36" y="424">~6× faster, errors gone, gateway flat — all from caching the connection instead of the route alone.</text>
+  <text class="cap" x="36" y="450">The storage log still grows, but now only because 6× more records flow through it — honest growth, not churn residue.</text>
+</svg>

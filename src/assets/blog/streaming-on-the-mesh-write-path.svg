@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440">
+  <rect x="2" y="2" width="996" height="436" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .step{ font-size: 18px; font-weight: 700; }
+    .mono{ font-size: 15px; }
+    .cap { font-size: 14px; fill: #5b616b; }
+    .rust{ fill: #b7410e; }
+  </style>
+
+  <text class="cap" x="40" y="48">the life of one Produce op</text>
+
+  <!-- step 1: client -->
+  <rect x="34" y="120" width="200" height="110" rx="8" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <text class="step" x="134" y="150" text-anchor="middle">client</text>
+  <text class="mono" x="134" y="180" text-anchor="middle">Produce {</text>
+  <text class="mono" x="134" y="200" text-anchor="middle">topic, partition,</text>
+  <text class="mono" x="134" y="220" text-anchor="middle">payload }</text>
+
+  <line x1="234" y1="175" x2="318" y2="175" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="3"/>
+  <polygon points="318,175 304,167 304,183" fill="#1a1d24" fill-opacity="0.55"/>
+
+  <!-- step 2: gateway -->
+  <rect x="320" y="120" width="220" height="110" rx="8" fill="#fdfaf2"
+        stroke="#b7410e" stroke-width="3.5"/>
+  <text class="step" x="430" y="150" text-anchor="middle">gateway</text>
+  <text class="mono" x="430" y="180" text-anchor="middle">lookup routing dir</text>
+  <text class="mono" x="430" y="202" text-anchor="middle">owner = node key</text>
+  <text class="cap rust" x="430" y="222" text-anchor="middle">(may be another mesh)</text>
+
+  <line x1="540" y1="175" x2="624" y2="175" stroke="#1a1d24" stroke-opacity="0.55" stroke-width="3"/>
+  <text class="cap" x="582" y="163" text-anchor="middle">by key</text>
+  <polygon points="624,175 610,167 610,183" fill="#1a1d24" fill-opacity="0.55"/>
+
+  <!-- step 3: storage append -->
+  <rect x="626" y="120" width="200" height="110" rx="8" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <text class="step" x="726" y="150" text-anchor="middle">storage</text>
+  <text class="mono" x="726" y="180" text-anchor="middle">append to tail</text>
+  <text class="mono rust" x="726" y="206" text-anchor="middle">offset = index</text>
+
+  <!-- return path: offset 0 back to client -->
+  <path d="M726 230 L726 300 L134 300 L134 230" fill="none"
+        stroke="#3a7d44" stroke-width="3" stroke-dasharray="9 6"/>
+  <polygon points="134,232 127,247 141,247" fill="#3a7d44"/>
+  <text class="cap" x="430" y="324" text-anchor="middle" fill="#3a7d44">offset returned along the same path</text>
+
+  <!-- callout: single point of ordering -->
+  <rect x="320" y="356" width="220" height="58" rx="8" fill="#b7410e" fill-opacity="0.10"
+        stroke="#b7410e" stroke-width="2.5"/>
+  <text class="mono rust" x="430" y="382" text-anchor="middle">sole writer for this</text>
+  <text class="mono rust" x="430" y="402" text-anchor="middle">partition — no vote</text>
+  <line x1="430" y1="356" x2="430" y2="230" stroke="#b7410e" stroke-width="2" stroke-dasharray="4 5"/>
+
+  <text class="cap" x="600" y="392">ordering is decided in exactly one place;</text>
+  <text class="cap" x="600" y="410">no consensus store is consulted anywhere.</text>
+</svg>

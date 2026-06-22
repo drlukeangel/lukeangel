@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#b7410e" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="24" height="630" fill="#b7410e"/>
+
+  <!-- incoming record, entering from the left -->
+  <g>
+    <rect x="120" y="288" width="96" height="54" rx="6" fill="#b7410e"/>
+    <line x1="216" y1="315" x2="372" y2="315" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+    <polygon points="372,315 358,307 358,323" fill="#1a1d24" fill-opacity="0.5"/>
+  </g>
+
+  <!-- gateway node: the single smart node, rust ring -->
+  <circle cx="450" cy="315" r="64" fill="#fdfaf2" stroke="#b7410e" stroke-width="6"/>
+  <circle cx="450" cy="315" r="26" fill="#b7410e"/>
+
+  <!-- fan-out lines to two storage nodes -->
+  <line x1="512" y1="295" x2="720" y2="170" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"/>
+  <polygon points="720,170 705,170 713,183" fill="#1a1d24" fill-opacity="0.5"/>
+  <line x1="512" y1="338" x2="720" y2="470" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3"
+        stroke-dasharray="10 8"/>
+  <polygon points="720,470 705,460 705,476" fill="#1a1d24" fill-opacity="0.5"/>
+
+  <!-- mesh boundary: a dashed vertical divider the lower path crosses -->
+  <line x1="660" y1="360" x2="660" y2="600" stroke="#1a1d24" stroke-opacity="0.3"
+        stroke-width="3" stroke-dasharray="4 12"/>
+
+  <!-- storage node A (same mesh): an append-only log as a stack of plain cells -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.7" stroke-width="3">
+    <rect x="740" y="118" width="150" height="34"/>
+    <rect x="740" y="152" width="150" height="34"/>
+    <rect x="740" y="186" width="150" height="34"/>
+    <rect x="740" y="220" width="150" height="34"/>
+  </g>
+  <rect x="740" y="118" width="150" height="34" fill="#3a7d44" fill-opacity="0.18"
+        stroke="#3a7d44" stroke-width="3"/>
+
+  <!-- storage node B (other mesh): same, the freshly-appended record highlighted rust -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.7" stroke-width="3">
+    <rect x="740" y="430" width="150" height="34"/>
+    <rect x="740" y="464" width="150" height="34"/>
+    <rect x="740" y="498" width="150" height="34"/>
+    <rect x="740" y="532" width="150" height="34"/>
+  </g>
+  <rect x="740" y="430" width="150" height="34" fill="#b7410e" fill-opacity="0.22"
+        stroke="#b7410e" stroke-width="3"/>
+</svg>

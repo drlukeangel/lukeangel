@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540">
+  <rect x="2" y="2" width="996" height="536" rx="10" fill="#fdfaf2"
+        stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    text { font-family: ui-monospace, 'JetBrains Mono', monospace; fill: #1a1d24; }
+    .ttl { font-size: 17px; fill: #5b616b; }
+    .ax  { font-size: 13px; fill: #7a808c; }
+    .lab { font-size: 15px; font-weight: 700; }
+    .cap { font-size: 13px; fill: #5b616b; }
+    .rust{ fill: #b7410e; }
+    .bad { fill: #c14a3a; }
+    .good{ fill: #3a7d44; }
+  </style>
+
+  <text class="ttl" x="40" y="42">one root cause, two faces — 10-minute relay soak</text>
+
+  <!-- plot frame -->
+  <line x1="118" y1="76" x2="118" y2="322" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <line x1="118" y1="322" x2="690" y2="322" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2"/>
+  <text class="ax" x="118" y="342" text-anchor="middle">30s</text>
+  <text class="ax" x="404" y="342" text-anchor="middle">296s</text>
+  <text class="ax" x="690" y="342" text-anchor="middle">594s</text>
+
+  <!-- climbing pair label -->
+  <text class="cap rust" x="128" y="100">these climb — but not the log, not the telemetry</text>
+
+  <!-- gateway climb 23.5 -> 40.7 -->
+  <polyline points="118,196 404,150 690,116" fill="none" stroke="#1a1d24" stroke-opacity="0.7" stroke-width="3.5"/>
+  <g fill="#1a1d24" fill-opacity="0.7"><circle cx="118" cy="196" r="4"/><circle cx="404" cy="150" r="4"/><circle cx="690" cy="116" r="4"/></g>
+  <text class="lab" x="505" y="112" text-anchor="end">gateway 23.5 → 40.7</text>
+
+  <!-- storage-A climb 16.4 -> 33.3 (dashed) -->
+  <polyline points="118,228 404,184 690,156" fill="none" stroke="#1a1d24" stroke-opacity="0.5" stroke-width="3" stroke-dasharray="8 5"/>
+  <g fill="#1a1d24" fill-opacity="0.5"><circle cx="118" cy="228" r="4"/><circle cx="404" cy="184" r="4"/><circle cx="690" cy="156" r="4"/></g>
+  <text class="cap" x="700" y="160">storage 16.4 → 33.3</text>
+
+  <!-- relay flat ~7 MB -->
+  <polyline points="118,262 404,263 690,262" fill="none" stroke="#b7410e" stroke-width="4"/>
+  <g fill="#b7410e"><circle cx="118" cy="262" r="4"/><circle cx="404" cy="263" r="4"/><circle cx="690" cy="262" r="4"/></g>
+  <text class="lab rust" x="124" y="254">relay flat ~7 MB — yet forwarded 208 MB</text>
+
+  <!-- errors line, low and near-flat -->
+  <polyline points="118,304 404,300 690,296" fill="none" stroke="#c14a3a" stroke-width="2.5"/>
+  <g fill="#c14a3a"><circle cx="118" cy="304" r="3"/><circle cx="404" cy="300" r="3"/><circle cx="690" cy="296" r="3"/></g>
+  <text class="cap bad" x="124" y="294">errors 0 → 13 (~0.055%), evenly spread</text>
+
+  <!-- root cause bracket -->
+  <line x1="118" y1="364" x2="690" y2="364" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <line x1="118" y1="358" x2="118" y2="370" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <line x1="690" y1="358" x2="690" y2="370" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2"/>
+  <text class="lab" x="404" y="392" text-anchor="middle">root cause: per-op dial</text>
+  <text class="cap" x="404" y="413" text-anchor="middle">~23k fresh connections · 47,291 accepted at the relay</text>
+  <text class="cap" x="404" y="432" text-anchor="middle">node memory = reconnect residue · errors = reconnect races</text>
+
+  <!-- the lever, right side -->
+  <rect x="730" y="100" width="240" height="264" rx="10" fill="#3a7d44" fill-opacity="0.08"
+        stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="lab good" x="850" y="138" text-anchor="middle">the lever</text>
+  <text class="cap" x="850" y="164" text-anchor="middle">connection pooling</text>
+  <text class="cap" x="850" y="183" text-anchor="middle">(reuse, don't re-dial)</text>
+  <polyline points="752,236 870,236 948,236" fill="none" stroke="#1a1d24" stroke-opacity="0.7" stroke-width="3.5"/>
+  <text class="cap" x="850" y="226" text-anchor="middle">node memory flat</text>
+  <polyline points="752,304 870,304 948,304" fill="none" stroke="#3a7d44" stroke-width="3"/>
+  <text class="cap good" x="850" y="294" text-anchor="middle">errors → 0</text>
+  <text class="cap" x="850" y="344" text-anchor="middle">one fix closes both</text>
+
+  <!-- honest footnote -->
+  <text class="cap" x="40" y="478">0 data loss — every failed op succeeded on retry.</text>
+  <text class="cap" x="40" y="500">The relay carries the data and stays flat; the nodes that re-dial are what grow.</text>
+  <text class="cap" x="40" y="522">The POC dials per-op on purpose, to stress exactly this path.</text>
+</svg>
