@@ -1,0 +1,76 @@
+---
+title: "Ten AI Agent Frameworks on Paper: LangGraph, DSPy, CrewAI and Seven More, Scored Against a Local LLM"
+date: 2026-07-28T09:00:00-04:00
+category: tools
+tags:
+  - ai
+  - agents
+  - local-llm
+  - langgraph
+  - dspy
+  - orchestration
+excerpt: "Sixteen requirements, ten candidates, and a verdict reached entirely by reading documentation and issue trackers. Including the part where the incumbent was allowed to win — and did."
+pullquote: "Every framework surveyed leaves the orchestration logic as code you write either way."
+cover: "../../assets/blog/ten-frameworks-cover.svg"
+coverAlt: "A row of ink-outlined scorecards fanned across a cream background, each bearing a small grid of filled and empty score marks, most of them mostly empty. One card at the right stands apart, upright and outlined in olive-green, its grid almost entirely filled. A magnifying glass hovers over the row showing lines of text rather than any running process. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 4
+featured: false
+draft: false
+---
+
+I have sixteen requirements and no hardware yet. That's a good week to find out whether somebody has already built this.
+
+So I scored ten candidates against R1–R16: **LangGraph, Pydantic AI, DSPy, the OpenAI Agents SDK, MCP, CrewAI, AG2 (AutoGen), SWE-agent, OpenHands**, and — as candidate zero — the roughly 1,500 lines of dependency-free Python I already have. The rubric was written before the survey, and the survey was explicitly allowed to conclude that the incumbent wins. A comparison that can't return "keep what you have" isn't a comparison; it's a procurement document.
+
+I want to be upfront about the method's boundary, because it turns out to matter: **this was done by reading.** Documentation, source, and issue trackers. Nothing was run.
+
+## The one-line finding
+
+**Every framework surveyed leaves R1–R10 — the actual orchestration logic — as custom code you write either way.**
+
+Not "partially supports." None of them have a concept of root-cause decomposition, harness-enforced disjoint file ownership, dependency-aware wave scheduling, a plan-before-work gate, blind multi-aspect review with synthesis, a verdict structured enough to name files for partial revert, or dual-oracle grading. That isn't a gap in how hard I looked — it's confirmed against current docs and source for every candidate.
+
+![The scorecard as a grid, ten candidates down the side and sixteen requirements across the top. The left-hand block covering requirements one through ten is almost entirely empty for every framework row, showing the orchestration logic is unmet everywhere. The right-hand block covering requirements eleven through sixteen is patchier, with a mix of met, partial, and unmet marks. The incumbent hand-rolled row at the top is filled across nearly the whole width. Two cells are highlighted as active open regressions rather than mere gaps. The visual point is that the emptiness is not scattered — it is a solid block in exactly the columns that carry the system's substance.](../../assets/blog/ten-frameworks-scorecard.svg)
+
+## What adopting one would actually buy
+
+Strip out the parts every framework leaves to you, and what's left is the generic LLM-calling boilerplate — roughly 10–20% of the system. That's the purchase. In exchange you take on a dependency.
+
+Which would be a fine trade, except for where the dependency is weakest.
+
+**Every framework that attempts structured output has open, sometimes maintainer-declined issues in exactly one code path: tool-call and structured-output parsing against a non-frontier, locally served model.** LangChain `#31335` and `#31403`, and equivalents in the others. That is not an obscure corner for me — it's the *only* configuration I will ever run, and per R11 it's the bug class I've already found and fixed six times in my own code.
+
+![What a framework adoption actually trades. A bar divided into two parts: a large section labelled as the orchestration logic that stays custom code under every candidate, and a small section labelled as the generic model-calling boilerplate a framework replaces. Beneath, an arrow from the small section points to a box listing what comes with it — a dependency whose least-tested code path is structured output against a locally served, non-frontier model, with open issue numbers noted. A short line marks that this path is the only configuration this project will ever run.](../../assets/blog/ten-frameworks-what-you-buy.svg)
+
+There's a version of this finding that sounds smug, and I want to avoid it. The frameworks aren't badly built. They're built for a different shape of problem — a hosted frontier model, a conversational or tool-using agent, a team that wants scaffolding rather than control. Judged against *that*, several are excellent. Judged against sixteen requirements derived from my own failures on local hardware, they mostly don't engage.
+
+## The picks
+
+**#1 — Keep the hand-rolled system.** R1–R10 are the substance, no candidate implements any of them, and every one of them would leave me writing the same ~1,200 lines of orchestration on top of a dependency whose weakest path is my only path. The incumbent also already handles a set of parser quirks that a 15-line function absorbs today with zero dependencies.
+
+**#2 — LangGraph, if the decision changes.** It's the only candidate whose primitives structurally resemble what R3 and R5 need: `Send()` gives genuine runtime fan-out and fan-in rather than a fixed-N gather, state reducers give a real per-branch-then-converge mechanism, and it reached 1.0 GA this year with the most mature tooling around it — checkpointing, visualisation, tracing. It satisfies R1, R2, R4 and R7 no better than the others, and its *default* structured-output path is precisely the buggy one. But it's the only candidate where adopting it and building the missing 60% on top would plausibly produce less new code than building the same logic on a gather and a hand-rolled state dict.
+
+What would have to become true for it to actually win: **crash recovery mattering more than debuggability.** My system has no answer to "the process died at round 3 of 6." LangGraph's checkpointing does. Today I'd rather be able to read the whole thing.
+
+**Pydantic AI did not make the top two.** R1–R7, R9, R10 and R12 all unsupported. It's a well-made library aimed at a different job.
+
+## The errata, which I'm leaving in
+
+Two API details in this survey were wrong, caught while writing it, and corrected in place rather than quietly fixed. Both were cases where the documentation described a behaviour the source didn't implement quite that way.
+
+I'm keeping them visible because they're evidence about the *method*, not just about those two APIs. A survey conducted by reading inherits every inaccuracy in the material it reads, and the errors it produces look exactly like the correct parts — confident, sourced, wrong.
+
+## What I'd tell a team
+
+Score against requirements you derived from your own failures, not against a feature matrix from the vendor. Half of what these frameworks advertise is real and irrelevant to me; the things I need aren't in anyone's feature list because they're not features, they're decisions about how work is decomposed and owned.
+
+And let the incumbent compete honestly. If your evaluation can't return "keep what you have," you've already decided.
+
+## Where this is weakest
+
+I know exactly where the soft spot is, because it's structural: **I audited what these systems claim to provide.** Docs and source describe intent. A benchmark describes behaviour. Those come apart precisely where I care most — the local-model path that every project's test suite exercises least.
+
+There's an uncomfortable symmetry here I noticed too late to design around. I spent last week arguing that a grader which reads code instead of running it is blind to the defects that matter. Then I evaluated ten frameworks by reading them.
+
+So this ranking is a hypothesis, not a result. When the hardware lands, I'm going to build the top candidates for real, run them against the same contract on identical workspaces, and find out how much of this survives contact. I'd put decent odds on the ranking holding and the *reasoning* behind it turning out to be wrong.

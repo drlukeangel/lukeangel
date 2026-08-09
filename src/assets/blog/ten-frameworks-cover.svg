@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Ten frameworks">
+  <defs>
+    <pattern id="d4" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#d4)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6b8f2e"/>
+
+  <!-- nine surveyed cards, fanned -->
+  <g>
+    <g transform="translate(150,330) rotate(-9)">
+      <rect x="0" y="0" width="118" height="164" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#7a808c" fill-opacity="0.3"><rect x="18" y="24" width="18" height="14" rx="3"/><rect x="44" y="24" width="18" height="14" rx="3"/><rect x="70" y="24" width="18" height="14" rx="3"/><rect x="18" y="48" width="18" height="14" rx="3"/><rect x="44" y="48" width="18" height="14" rx="3"/><rect x="70" y="48" width="18" height="14" rx="3"/><rect x="18" y="72" width="18" height="14" rx="3"/><rect x="70" y="72" width="18" height="14" rx="3"/></g>
+      <g fill="#6b8f2e"><rect x="44" y="72" width="18" height="14" rx="3"/><rect x="18" y="96" width="18" height="14" rx="3"/><rect x="70" y="120" width="18" height="14" rx="3"/></g>
+    </g>
+    <g transform="translate(268,336) rotate(-6)">
+      <rect x="0" y="0" width="118" height="164" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#7a808c" fill-opacity="0.3"><rect x="18" y="24" width="18" height="14" rx="3"/><rect x="44" y="24" width="18" height="14" rx="3"/><rect x="70" y="24" width="18" height="14" rx="3"/><rect x="18" y="48" width="18" height="14" rx="3"/><rect x="70" y="48" width="18" height="14" rx="3"/><rect x="18" y="72" width="18" height="14" rx="3"/><rect x="44" y="72" width="18" height="14" rx="3"/></g>
+      <g fill="#6b8f2e"><rect x="44" y="48" width="18" height="14" rx="3"/><rect x="70" y="96" width="18" height="14" rx="3"/></g>
+    </g>
+    <g transform="translate(386,340) rotate(-3)">
+      <rect x="0" y="0" width="118" height="164" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#7a808c" fill-opacity="0.3"><rect x="18" y="24" width="18" height="14" rx="3"/><rect x="44" y="24" width="18" height="14" rx="3"/><rect x="18" y="48" width="18" height="14" rx="3"/><rect x="44" y="48" width="18" height="14" rx="3"/><rect x="70" y="48" width="18" height="14" rx="3"/><rect x="18" y="72" width="18" height="14" rx="3"/><rect x="70" y="72" width="18" height="14" rx="3"/></g>
+      <g fill="#6b8f2e"><rect x="70" y="24" width="18" height="14" rx="3"/><rect x="44" y="96" width="18" height="14" rx="3"/></g>
+    </g>
+    <g transform="translate(504,342)">
+      <rect x="0" y="0" width="118" height="164" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#7a808c" fill-opacity="0.3"><rect x="18" y="24" width="18" height="14" rx="3"/><rect x="70" y="24" width="18" height="14" rx="3"/><rect x="18" y="48" width="18" height="14" rx="3"/><rect x="44" y="48" width="18" height="14" rx="3"/><rect x="18" y="72" width="18" height="14" rx="3"/><rect x="44" y="72" width="18" height="14" rx="3"/><rect x="70" y="72" width="18" height="14" rx="3"/></g>
+      <g fill="#6b8f2e"><rect x="44" y="24" width="18" height="14" rx="3"/><rect x="70" y="120" width="18" height="14" rx="3"/></g>
+    </g>
+    <g transform="translate(622,340) rotate(3)">
+      <rect x="0" y="0" width="118" height="164" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#7a808c" fill-opacity="0.3"><rect x="18" y="24" width="18" height="14" rx="3"/><rect x="44" y="24" width="18" height="14" rx="3"/><rect x="70" y="24" width="18" height="14" rx="3"/><rect x="44" y="48" width="18" height="14" rx="3"/><rect x="70" y="48" width="18" height="14" rx="3"/><rect x="18" y="72" width="18" height="14" rx="3"/><rect x="44" y="72" width="18" height="14" rx="3"/></g>
+      <g fill="#6b8f2e"><rect x="18" y="48" width="18" height="14" rx="3"/><rect x="70" y="96" width="18" height="14" rx="3"/></g>
+    </g>
+    <g transform="translate(740,336) rotate(6)">
+      <rect x="0" y="0" width="118" height="164" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+      <g fill="#7a808c" fill-opacity="0.3"><rect x="18" y="24" width="18" height="14" rx="3"/><rect x="44" y="24" width="18" height="14" rx="3"/><rect x="70" y="24" width="18" height="14" rx="3"/><rect x="18" y="48" width="18" height="14" rx="3"/><rect x="44" y="48" width="18" height="14" rx="3"/><rect x="70" y="72" width="18" height="14" rx="3"/></g>
+      <g fill="#6b8f2e"><rect x="70" y="48" width="18" height="14" rx="3"/><rect x="18" y="96" width="18" height="14" rx="3"/></g>
+    </g>
+
+    <!-- the incumbent, forward and accented -->
+    <g transform="translate(880,306)">
+      <rect x="0" y="0" width="132" height="192" rx="11" fill="#fdfaf2" stroke="#6b8f2e" stroke-width="5"/>
+      <g fill="#6b8f2e"><rect x="22" y="28" width="20" height="16" rx="3"/><rect x="52" y="28" width="20" height="16" rx="3"/><rect x="82" y="28" width="20" height="16" rx="3"/><rect x="22" y="56" width="20" height="16" rx="3"/><rect x="52" y="56" width="20" height="16" rx="3"/><rect x="82" y="56" width="20" height="16" rx="3"/><rect x="22" y="84" width="20" height="16" rx="3"/><rect x="52" y="84" width="20" height="16" rx="3"/><rect x="82" y="84" width="20" height="16" rx="3"/><rect x="22" y="112" width="20" height="16" rx="3"/><rect x="82" y="112" width="20" height="16" rx="3"/><rect x="22" y="140" width="20" height="16" rx="3"/><rect x="52" y="140" width="20" height="16" rx="3"/></g>
+      <g fill="#6b8f2e" fill-opacity="0.4"><rect x="52" y="112" width="20" height="16" rx="3"/><rect x="82" y="140" width="20" height="16" rx="3"/></g>
+    </g>
+  </g>
+
+  <!-- read, not run: a magnifier over the row -->
+  <g transform="translate(392,116)">
+    <circle cx="106" cy="106" r="82" fill="none" stroke="#1a1d24" stroke-width="7"/>
+    <circle cx="106" cy="106" r="70" fill="#6b8f2e" fill-opacity="0.07"/>
+    <path d="M164 164 L226 226" stroke="#1a1d24" stroke-width="13" stroke-linecap="round"/>
+    <g fill="#7a808c" fill-opacity="0.45">
+      <rect x="66" y="82" width="80" height="9" rx="4.5"/>
+      <rect x="66" y="102" width="60" height="9" rx="4.5"/>
+      <rect x="66" y="122" width="72" height="9" rx="4.5"/>
+    </g>
+  </g>
+</svg>

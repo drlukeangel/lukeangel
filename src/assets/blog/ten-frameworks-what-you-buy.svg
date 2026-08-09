@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="What adoption buys">
+  <rect x="1" y="1" width="998" height="428" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="m5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="36" y="44">the system, by volume</text>
+
+  <rect x="36" y="62" width="740" height="58" rx="7" fill="#7a808c" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="60" y="97">orchestration logic — still yours under every candidate</text>
+
+  <rect x="784" y="62" width="180" height="58" rx="7" fill="#6b8f2e" fill-opacity="0.4" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="s" x="800" y="88">model-calling</text>
+  <text class="s" x="800" y="108">boilerplate</text>
+
+  <text class="s" x="36" y="142">~80–90%</text>
+  <text class="s" x="806" y="142">10–20%</text>
+
+  <path d="M874 148 L874 186" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m5)"/>
+  <text class="s" x="640" y="176">this is the whole purchase</text>
+
+  <rect x="360" y="192" width="604" height="128" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="h" x="384" y="222">and what comes with it</text>
+  <text class="l" x="384" y="250">a dependency whose least-tested path is</text>
+  <text class="l" x="384" y="274">structured output against a locally served,</text>
+  <text class="l" x="384" y="298">non-frontier model</text>
+
+  <rect x="36" y="192" width="300" height="128" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="60" y="222">that path is my only path</text>
+  <text class="s" x="60" y="250">open issues in every framework</text>
+  <text class="s" x="60" y="270">that does structured output</text>
+  <text class="s" x="60" y="298">already fixed six times, in my code</text>
+
+  <text class="c" x="36" y="374">A fine trade, except the dependency is weakest exactly where I live.</text>
+</svg>

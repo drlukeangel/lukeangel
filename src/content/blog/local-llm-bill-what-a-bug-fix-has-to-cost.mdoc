@@ -1,0 +1,90 @@
+---
+title: "The Local LLM Bill: What a Bug Fix Has to Cost Before Two DGX Sparks Make Sense"
+date: 2026-07-07T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - local-llm
+  - agents
+  - cost
+  - hardware
+  - build-in-public
+excerpt: "I killed an experiment last month because of the bill, not because it stopped being interesting. The arithmetic on buying the boxes instead — and the unit I'll have to measure."
+pullquote: "Per-token pricing prices the tokens you burn, and search burns tokens by design."
+cover: "../../assets/blog/local-llm-bill-cover.svg"
+coverAlt: "A balance scale on a cream background, hanging level. The left pan holds a loose pile of small repeated token marks that fade as they stack upward; the right pan holds a single solid slab-shaped compute box. Faint dot grid behind, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 1
+featured: false
+draft: false
+---
+
+Last month I killed an experiment because of the bill, not because it stopped being interesting. I've been chewing on that sentence ever since.
+
+The experiment was dull by design. Point a coding agent at a repository, have it propose a change and verify the change, then do that a few hundred times and see what fraction of the proposals survive. All the value is in the "few hundred times." One run tells you nothing — agents are stochastic and a single result is a coin flip you've mistaken for a measurement. A hundred runs tell you where the model is reliable and where it's guessing.
+
+Every one of those runs is metered.
+
+So I did what everybody does. I ran twelve instead of two hundred, drew a conclusion from twelve, and moved on. That isn't research. That's a sampling strategy chosen by a price list.
+
+## The workload is the problem, not the price
+
+What I actually want is agents running continuously over my own codebase — tightening the slow paths, hardening the parts that touch untrusted input. Not a demo. A standing process that goes looking for work.
+
+That workload is *inherently* wasteful, and it should be. You sweep the whole tree. You re-run the same file with different framing. You generate five candidate patches and throw four away. The ratio of useful output to tokens burned is terrible by construction, because that's what search looks like from the outside.
+
+Per-token pricing is precisely the wrong instrument for search. It prices the tokens you burn, and search burns tokens on purpose. The meter doesn't punish waste — waste is the method. It punishes *thoroughness*, which is the one property I need.
+
+The tell is that I wasn't optimising the experiment. I was optimising the invoice, and calling it judgement.
+
+## Capital instead of consumption
+
+The alternative is to stop renting the compute and buy it. Two DGX Sparks — GB10, 121 GB of unified memory each — run about $9,400 for the pair. Once they're on the desk, running an experiment costs electricity and time. The marginal cost of curiosity goes to roughly zero, which is the entire point.
+
+But "roughly zero" is a feeling, not a number, and I've been burned by that feeling before. So here's the arithmetic I'm actually buying against.
+
+I'm writing off 70% of the purchase against this project — the boxes have other uses and some residual value, and pretending otherwise would flatter the result. Amortise that over 36 months, and assume 200 genuinely busy hours a month.
+
+![How a $9,400 purchase becomes an hourly rate. The capital cost enters at the left; seventy percent of it, $6,580, is written off against this project. Divided across thirty-six months that is $182.78 a month, and divided again across two hundred busy hours a month it becomes $0.91 per machine-hour. A separate, much smaller branch shows energy: 240 watts at fifteen cents a kilowatt-hour is $0.036 per hour. The two sum to about $0.95 per machine-hour, and the diagram shows energy as a thin sliver against a wide amortisation block — power is roughly four percent of the true hourly cost.](../../assets/blog/local-llm-bill-hourly-rate.svg)
+
+**About ninety-five cents per machine-hour**, of which power is four percent. That surprised me. I'd assumed running a box hard meant the electricity would show up somewhere. It doesn't — at these wattages the meaningful cost is the purchase, spread thin.
+
+Which means the whole economic case rests on one number, and it isn't a hardware number.
+
+## The load-bearing assumption is me
+
+Two hundred busy hours a month is the assumption everything hangs from. At 200 hours the boxes cost $0.91 an hour. At 20 hours a month — a weekend habit that fizzles by October — the identical hardware costs **$9.14 an hour**, ten times worse, and I'd have been better off renting.
+
+Buying hardware is not a bet on the hardware. It's a bet on your own consistency. The failure mode isn't that the boxes turn out to be slow; it's that they turn out to be idle. Every hour a Spark sits dark, the effective price of every hour it *did* work goes up.
+
+That reframes the risk in a useful way. I'm not asking "is this hardware fast enough." I'm asking "will I really run this thing two hundred hours a month," and the honest answer is that I don't know yet.
+
+## Cost per hour is still the wrong unit
+
+Here's where I nearly stopped, and shouldn't have.
+
+A machine-hour that produces nothing costs exactly the same as a machine-hour that fixes a bug. If I report dollars-per-hour I've measured the *engine*, not the work. The denominator has to be the artifact I actually wanted.
+
+**Cost per solved task.** That's the unit.
+
+![Why dollars-per-hour cannot rank a model. Three identical blocks of machine time sit side by side, each costing the same $0.95. The first produces three completed fixes and works out at about thirty-two cents per fix. The second produces one, at ninety-five cents. The third produces none, and its cost per fix is marked as undefined rather than as a large number. The caption line beneath reads that a task eighty percent finished is not eighty percent of a fix — it is a workspace you throw away, so the third block's true cost is the whole hour with nothing to divide by.](../../assets/blog/local-llm-bill-cost-per-task.svg)
+
+That unit has a nasty property I want on the record before I have any data: **it is undefined when the task never gets solved.** Not large — undefined. A model that gets eighty percent of the way through a repair has not produced eighty percent of a fix. It has produced a workspace I throw away. There's no partial credit in a denominator.
+
+I suspect that's going to matter more than any speed difference between models, and I'd rather write that prediction down now, while it can still turn out to be wrong.
+
+## What I'd tell a team
+
+Pick your denominator before you buy your numerator.
+
+If you measure dollars per hour, you will optimise utilisation, and you'll congratulate yourself for keeping expensive hardware busy with garbage. If you measure dollars per token, you'll optimise brevity, which is exactly backwards for a workload whose whole value is in running more of it. Choose the unit that names the thing you wanted, then let it embarrass you.
+
+And be suspicious of any hardware decision that only works at a utilisation you haven't demonstrated. Mine currently doesn't work at all — it works at two hundred hours a month, hypothetically, starting whenever the boxes turn up.
+
+## Where this falls apart
+
+One failure mode kills the whole argument: if the local models can't finish the task at all, cost per solved task is undefined at *any* utilisation, and I've bought two very expensive space heaters. No amount of amortisation rescues a denominator of zero.
+
+So that's the first thing to measure, and I can't measure it until the hardware lands.
+
+What I need before then isn't a benchmark. It's a way to tell whether a repair actually happened — a grader I trust more than I trust the agent's own account of itself. That turns out to be much harder than it sounds, and it's what I'm building next.

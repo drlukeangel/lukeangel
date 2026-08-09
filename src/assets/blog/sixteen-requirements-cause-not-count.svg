@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Cause not count">
+  <rect x="1" y="1" width="998" height="498" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <path d="M500 24 L500 322" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="h" x="36" y="44" fill="#c14a3a">dealing by count</text>
+  <text class="h" x="546" y="44" fill="#3a7d44">grouping by cause</text>
+
+  <!-- shared input -->
+  <rect x="36" y="62" width="428" height="46" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="56" y="91">163 failing checks</text>
+  <rect x="546" y="62" width="418" height="46" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="566" y="91">163 failing checks</text>
+
+  <!-- LEFT: six buckets -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="146" width="62" height="44" rx="6"/>
+    <rect x="108" y="146" width="62" height="44" rx="6"/>
+    <rect x="180" y="146" width="62" height="44" rx="6"/>
+    <rect x="252" y="146" width="62" height="44" rx="6"/>
+    <rect x="324" y="146" width="62" height="44" rx="6"/>
+    <rect x="396" y="146" width="62" height="44" rx="6"/>
+  </g>
+  <text class="s" x="36" y="212">six buckets, six agents launched</text>
+  <path d="M250 110 L250 144" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m3)"/>
+
+  <rect x="36" y="232" width="422" height="76" rx="7" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="56" y="260">all 163 share ONE environment error</text>
+  <text class="s" x="56" y="286">five agents chase a problem not in their slice</text>
+
+  <!-- RIGHT: one unit -->
+  <rect x="700" y="146" width="112" height="44" rx="6" fill="#6b8f2e" fill-opacity="0.2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="s" x="546" y="212">one root cause, one work unit, one agent</text>
+  <path d="M756 110 L756 144" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m3)"/>
+
+  <rect x="546" y="232" width="418" height="76" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="566" y="260">size the fan-out to the work, not the symptoms</text>
+  <text class="s" x="566" y="286">the count of failures says nothing about the bug count</text>
+
+  <!-- the other half -->
+  <rect x="36" y="336" width="928" height="70" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="366">the acceptance test has to run both ways</text>
+  <text class="s" x="58" y="390">given N distinct causes, produce roughly N units — or a system that always answers "one" passes.</text>
+
+  <text class="c" x="36" y="456">Dealing cards is not decomposition.</text>
+</svg>

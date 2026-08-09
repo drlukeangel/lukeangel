@@ -16,7 +16,8 @@ Every image is **hand-drawn SVG**. **No scripts** — never bulk-generate art; e
 ## Color tokens
 - ink `#1a1d24` · muted `#7a808c` / `#5b616b` · valid/✓ green `#3a7d44` · semantic bad/✗/danger red `#c14a3a`.
 - **Per-notebook accent** (cover bar + brand elements in diagrams):
-  - iot-security `#c14a3a` · connected-products `#2a52be` · pet-iot `#c87533` · smart-home `#6a4c93` · medical `#357a8c` · predictions `#0066cc` · building-with-ai-ml `#4f46b8`.
+  - iot-security `#c14a3a` · connected-products `#2a52be` · pet-iot `#c87533` · smart-home `#6a4c93` · medical `#357a8c` · predictions `#0066cc` · building-with-ai-ml `#4f46b8` · dgx-sparks `#6b8f2e`.
+  - ⚠️ `dgx-sparks` olive is close to the semantic ✓-green `#3a7d44`. In those diagrams, never use accent-olive to mean "pass" — keep ✓/✗ on the semantic tokens and reserve olive for brand furniture (accent bar, node fills).
 
 ## Type & icons
 - Labels: `ui-monospace, 'JetBrains Mono', monospace`. Captions: `Newsreader, Georgia, serif`, italic. Use generic fallbacks; never depend on an exotic font being installed.

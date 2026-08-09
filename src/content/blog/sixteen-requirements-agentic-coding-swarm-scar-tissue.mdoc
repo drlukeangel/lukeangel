@@ -1,0 +1,97 @@
+---
+title: "Sixteen Requirements for an Agentic Coding Swarm, All of Them Scar Tissue"
+date: 2026-07-21T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - agents
+  - local-llm
+  - orchestration
+  - requirements
+  - build-in-public
+excerpt: "Every requirement here traces to something that already went wrong — an orchestrator that launched one agent for six problems, and a swarm that destroyed 92% of its own work. Design preferences didn't make the list."
+pullquote: "Last-writer-wins is invisible to any score-based gate. The work vanishes and the number goes up."
+cover: "../../assets/blog/sixteen-requirements-cover.svg"
+coverAlt: "Sixteen small ink-outlined tiles laid out in a four-by-four grid on a cream background. Most are plain outlines; a scattered handful are filled olive-green and carry a short jagged seam across them, like a healed split. Faint dot grid behind, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 3
+featured: false
+draft: false
+---
+
+I've built a multi-agent coding system before. Not well — that's the point of this post. Before the new hardware arrives I've been going back through where the old one broke, and turning each break into a requirement I can build against and, more importantly, *test*.
+
+The rule I set myself: **nothing goes on the list because it sounds like good architecture.** Every requirement has to trace to a specific failure I watched happen. Sixteen survived that filter. Here are the ones that cost me the most.
+
+## R1 — Decompose by cause, not by count
+
+The old orchestrator took the failing checks and dealt them into buckets like a hand of cards. N failures, N agents, evenly split.
+
+Then a run came in with 163 checks failing — all of them from a single environment error. The correct response is one agent fixing one thing. What a *cause-grouping* orchestrator does instead is notice that 163 symptoms share one root, size the work accordingly, and launch one agent. What mine did was carve the 163 symptoms into buckets and launch a fleet to fix a problem that didn't exist in any of them.
+
+![Two ways to turn failing checks into agents. On the left, dealing by count: one hundred and sixty-three failing checks are split evenly into six buckets and six agents launch, each chasing a slice of the same single underlying environment error, so five of them are doing no useful work. On the right, grouping by cause: the same one hundred and sixty-three failures are traced back to one root, producing a single work unit and a single agent. Beneath both, a note that the sizing must run the other way too — failures with several distinct causes should produce roughly that many units.](../../assets/blog/sixteen-requirements-cause-not-count.svg)
+
+**Acceptance:** given at least fifty failing criteria where thirty or more share a root cause, produce six work units or fewer, with at least one unit covering ten or more criteria. Given failures with N distinct causes, produce roughly N units. The requirement is worthless without that second half — a system that always answers "one" passes the first test.
+
+## R2 — Disjoint file ownership, enforced in code
+
+This is the one that still bothers me.
+
+An earlier from-scratch swarm ran 258 tasks. **238 of them wrote a file that another task also wrote.** Last writer won, every time, silently. The system destroyed roughly 92% of its own output while reporting healthy progress the whole way through, because the score went up — the surviving writes were real improvements, and nothing anywhere measured the work that had been overwritten.
+
+That's the property that makes it dangerous: **last-writer-wins is invisible to any score-based gate.** A gate compares before and after. It cannot see a change that existed for four minutes in between.
+
+![Why file collisions cannot be caught by a score gate. Several agents run concurrently and three of them write to the same file; the timeline shows each write landing on top of the last, so only the final one survives and the two earlier ones vanish. A score gate reads the file before the round and after the round, sees an improvement, and passes the round. An arrow marks the gap: the destroyed work never existed at either moment the gate looked. Below, the fix — the harness computes overlapping paths from the plan and removes them before any agent starts, so two concurrent agents never hold the same path.](../../assets/blog/sixteen-requirements-file-collision.svg)
+
+The fix can't be a request. Asking a model nicely to stay in its lane fails the moment it decides a neighbouring file needs a one-line import. **The harness computes the overlap from the plan and removes it before anything runs**, and it records that it did so.
+
+## R3 — Dependency-aware scheduling, kept separate from decomposition
+
+A competent decomposition can still be in the wrong order. A separate planning pass on the old system caught exactly this and said so plainly: *"This plan will fail in execution. Unit 3 fixes route registrations in modules that import from `app.api.tasks`, which unit 2 is fixing."*
+
+Run those concurrently and unit 3 burns its entire budget chasing a symptom of a bug another agent is in the middle of repairing. Independent units go in one wave; dependent ones get sequenced. Every unit appears in exactly one wave.
+
+## R4 — Stated intent before work
+
+A diff on its own can only be judged on style. Against a stated plan it can be judged on *fidelity* — did you do what you said you'd do.
+
+That distinction caught two failures the diff alone would have waved through: an agent whose plan promised `_clean(data: dict) -> dict` and whose implementation returned something else entirely, and another that planned to use `APIRouter` — a framework this project doesn't use anywhere. Both diffs looked fine. Both plans were checkable.
+
+No file modification is accepted from an agent that produced no plan, and the plan is stored alongside the diff.
+
+## R11 — Parser tolerance
+
+This one has the least glamour and, I suspect, the highest cost.
+
+A model emits something structurally reasonable that my parser doesn't accept, the parser silently discards it, and the model looks incapable. I've fixed that same shape of bug six separate times in code I wrote myself. It never presents as a parser error. It presents as a bad model.
+
+The requirement is that the harness tolerates the *reasonable* variations — and that when it can't parse something, it says so loudly instead of returning an empty result that looks like a lazy agent.
+
+## R16 — Cost and portability
+
+The system must run entirely against a local endpoint, with no dependency on a hosted model, and any framework adopted must not assume a provider.
+
+That's the whole project stated as one requirement. If a candidate framework only really works against one vendor's API, it fails here regardless of how good the rest of it is.
+
+## The remaining ten, briefly
+
+| | requirement | the scar |
+|---|---|---|
+| R5 | Multi-aspect review, not one reviewer | one reviewer optimises for one thing and misses the rest |
+| R6 | Reviewers discover the rules, never get told the answers | a told reviewer grades to the answer key, not the code |
+| R7 | Verdicts carry granularity | all-or-nothing reverts threw away good work with bad |
+| R8 | Rejection reasons reach the next worker | the same rejection earned three times running |
+| R9 | Two independent oracles | one oracle is a single point of self-deception |
+| R10 | Evidence over claims | "I have implemented all required functionality" |
+| R12 | Fail at the point of failure | errors surfacing three layers from where they happened |
+| R13 | Unrecognised input must not be retryable forever | a malformed response retried until the budget died |
+| R14 | Observability of what the model *received* | debugging blind because the prompt wasn't logged |
+| R15 | Structured output enforced at generation | validate-then-retry burns the budget hoping for luck |
+
+## What I'd tell a team
+
+Write the requirement *and* its acceptance test in the same sitting. Half of these started as a sentence that felt obviously correct and only became useful when I forced myself to say what measurement would prove it. R1 is the clearest case: "decompose sensibly" is unfalsifiable, and "given fifty failures with thirty sharing a cause, produce six units or fewer" is something I can run.
+
+And note what the list is missing. There's no requirement about model quality, prompt design, or context management — the things people argue about. Every scar I have is from the **plumbing**: ownership, ordering, parsing, logging. That may say more about my engineering than about agents in general, but it's what the evidence says, so it's what I'm building against.
+
+Next: sixteen requirements is also a scoring rubric, so I'm pointing it at the frameworks everyone else already built — before I write another line of my own.

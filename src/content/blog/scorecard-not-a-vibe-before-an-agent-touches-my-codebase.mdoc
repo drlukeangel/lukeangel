@@ -1,0 +1,86 @@
+---
+title: "A Scorecard, Not a Vibe: What I'd Need Before an AI Coding Agent Touches My Codebase"
+date: 2026-07-14T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - agents
+  - local-llm
+  - evals
+  - testing
+  - build-in-public
+excerpt: "Setting the bar before there's anything to grade — because a bar written after you've seen the results is a description of the results. Three requirements, one of which I expect to be unpopular."
+pullquote: "An agent asked to judge its own completion will do what anything does in that position."
+cover: "../../assets/blog/scorecard-not-a-vibe-cover.svg"
+coverAlt: "A clipboard-style panel on a cream background holding three unticked checkboxes of descending width, drawn in ink outline. To its right, separated by a dashed vertical boundary, sits a small sealed envelope marked with a wax-seal circle — the probes held outside. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 2
+featured: false
+draft: false
+---
+
+The hardware isn't here yet. That makes this the only honest moment to write down what would count as success, because a bar set after you've seen the results isn't a bar — it's a description of the results with a bar drawn around it.
+
+I've done the dishonest version before. You run a thing, it produces something that looks pretty good, and you go looking for a metric that agrees with you. The metric is always there. There are enough plausible ways to measure a codebase that at least one of them will flatter any given afternoon's work.
+
+So: three requirements, written now, while I have no data to protect.
+
+## One — the oracle drives the app, it does not inspect it
+
+The tempting way to grade an agent's repair is to look at the code. Does the class exist. Does the module define that function. Does the schema have that column. These checks are fast, they're objective, and you can write hundreds of them in an afternoon.
+
+They are also blind in a specific and dangerous way: **they verify declarations, not behaviour.** A structural check confirms that something was *written*. It cannot confirm that the running system does the right thing when you poke it.
+
+That gap isn't academic, and it's exactly where the defects I care about live. The things I want an agent hunting — a slow path, an input that isn't validated, a delete that leaves a dangling reference behind it — are all *behavioural*. None of them are visible in the shape of the code. You find them by running the application and asking it questions.
+
+![Two graders looking at the same repaired application. On the left, a structural grader reads the source: it confirms a class exists, a column is declared, a route is registered, and reports a perfect score. Its arrows point only at the code file, never at the running process. On the right, a behavioural grader ignores the source entirely and drives the running application through a sequence: create a record, attach it to another record, delete the first, then ask what remains. Its arrows point at the process. Below, a defect is shown sitting in the gap — a deleted row still referenced by a surviving one — visible to the right-hand grader and invisible to the left-hand one, because nothing in the structural checks ever deletes anything.](../../assets/blog/scorecard-not-a-vibe-structural-vs-behavioural.svg)
+
+So requirement one: the grader must never import a model, read a class name, or check a table. It starts the app and asks it questions a person would ask. *Can you add a member? Can you delete one who's assigned to a task? What's left afterwards?*
+
+If the contract can be satisfied without the application working, the contract is not a contract.
+
+## Two — something the agent has never seen, that detects damage
+
+Any score the agent can see, it will optimise. That isn't cheating; it's the job. Point an optimiser at a number and it moves the number, and if there's a cheaper route to the number than actually fixing the software, it will find that route because it's cheaper.
+
+The standard answer is a held-out set, and I want one — but with a twist I think matters more than the holding-out itself.
+
+**The holdout has to start at full marks.**
+
+If the held-out probes pass completely on the *broken* starting code, then they can't measure improvement — and that's the point. Their only job is to detect *damage*. A run that raises the visible score while dropping a single held-out probe has broken something to satisfy the grader, and I want that to be loud and unambiguous rather than buried in a net-positive total.
+
+This inverts the usual instinct. I'm not looking for a second opinion on progress. I'm looking for a tripwire, and a tripwire that's already tripped tells you nothing.
+
+![The holdout as a tripwire rather than a second scoreboard. A run starts with the visible contract partly failing and the held-out probes already at full marks. Two possible endings are drawn side by side. In the first, the visible score rises and the holdout stays at full marks — a genuine repair. In the second, the visible score rises by the same amount but one held-out probe flips to failing — the agent satisfied the grader by breaking something the grader could not see. The diagram marks the second ending as a failed run regardless of how far the visible score climbed, because the holdout can only ever go down.](../../assets/blog/scorecard-not-a-vibe-holdout.svg)
+
+## Three — the agent does not get to say when it's finished
+
+This is the one I expect pushback on, so let me be precise about the claim.
+
+An agent that has been working on a problem for fifty steps has, by then, a long context full of its own reasoning about why its approach is correct. Ask it whether it's done and you're asking a witness to corroborate itself. It will say yes, sincerely, and it will not be lying — it genuinely has no way to know. Nothing in its context contains the information that would contradict it.
+
+The fix isn't a better prompt. It's structural: when the agent declares it's finished, **run the contract, and if anything fails, refuse the stop and hand the failures back.** Completion becomes something the harness decides on evidence, not something the agent asserts.
+
+I want to state the prediction plainly so it can be wrong: I think this single mechanism will turn out to matter more than model choice, more than prompt engineering, and more than any orchestration I might build on top. I don't have data. I have a suspicion and a place to write it down.
+
+## What I'm deliberately not requiring
+
+Some things I could ask for and won't, because they'd measure the wrong thing:
+
+- **Code style, structure, or file layout.** If the application behaves correctly, I don't care how it's arranged. Grading layout is how you end up rewarding an agent for tidiness while it ships a broken delete.
+- **That the agent explain itself.** Explanations are cheap and persuasive and correlate poorly with correctness. Evidence over claims.
+- **Speed, at this stage.** A fast wrong answer isn't a partial credit. Timing matters when the results are trustworthy, not before.
+
+## What I'd tell a team
+
+Write the scorecard while you still have nothing to lose by it. Every hour you wait, the bar gets more negotiable, because by then you have a result you're fond of.
+
+And check one property of every metric you adopt: **can this number be moved without doing the work?** If yes, something the optimiser can't see needs to be watching. That's the entire design principle, and it applies well beyond agents — it's the same reason you don't let the team that builds the thing write the acceptance test alone.
+
+## Where this could be wrong
+
+The obvious risk is that I've over-engineered a scorecard for a problem that doesn't need one — that the models turn out to be either clearly capable or clearly not, and all this apparatus is ceremony around an answer visible in ten minutes.
+
+The less obvious risk, and the one I actually believe: **the scorecard measures the harness as much as the model.** Every one of these mechanisms is code I have to write. If my contract has a hole, a model will find it and I'll record the result as a fact about the model. I don't have a good defence against that yet, beyond suspicion and a habit of checking.
+
+That's the bar. Next I need to turn it into sixteen requirements concrete enough to build against — and every one of them, it turns out, has a scar behind it.

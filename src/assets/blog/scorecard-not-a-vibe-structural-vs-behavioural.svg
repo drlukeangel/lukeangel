@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-label="Structural versus behavioural">
+  <rect x="1" y="1" width="998" height="538" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:16px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="40" y="42">structural grader</text>
+  <text class="h" x="546" y="42">behavioural grader</text>
+  <path d="M500 22 L500 442" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- LEFT: reads source -->
+  <rect x="40" y="62" width="414" height="132" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="s" x="58" y="88">reads the source file</text>
+  <text class="l" x="58" y="112">class Team exists</text>
+  <text class="l" x="58" y="134">column 'name' declared</text>
+  <text class="l" x="58" y="156">route /teams registered</text>
+  <text class="l" x="58" y="180">229 of 229 checks pass</text>
+  <g stroke="#3a7d44" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M404 104 l8 9 l16 -18"/><path d="M404 126 l8 9 l16 -18"/>
+    <path d="M404 148 l8 9 l16 -18"/><path d="M404 172 l8 9 l16 -18"/>
+  </g>
+
+  <rect x="120" y="238" width="254" height="58" rx="8" fill="#eceadf" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="164" y="273">the code, at rest</text>
+  <path d="M247 194 L247 236" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m1)"/>
+
+  <!-- RIGHT: drives the app -->
+  <rect x="546" y="62" width="414" height="132" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="s" x="564" y="88">drives the running app</text>
+  <text class="l" x="564" y="112">add a member</text>
+  <text class="l" x="564" y="134">assign it to a task</text>
+  <text class="l" x="564" y="156">delete the member</text>
+  <text class="l" x="564" y="180">now — what is left?</text>
+
+  <rect x="626" y="238" width="254" height="58" rx="8" fill="#6b8f2e" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="662" y="273">the app, running</text>
+  <path d="M753 194 L753 236" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m1)"/>
+
+  <!-- the defect in the gap -->
+  <rect x="40" y="336" width="920" height="106" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="h" x="62" y="366" fill="#c14a3a">the defect that sits in the gap</text>
+  <text class="l" x="62" y="392">the deleted member is gone — and the task still points at its id</text>
+  <text class="s" x="62" y="416">nothing in the structural checks ever deleted anything, so nothing there could see it</text>
+
+  <g stroke="#c14a3a" stroke-width="2.5" fill="none" stroke-dasharray="7 5">
+    <path d="M247 296 L247 334"/>
+  </g>
+  <g stroke="#3a7d44" stroke-width="2.5" fill="none">
+    <path d="M753 296 L753 334"/>
+  </g>
+  <text class="s" x="124" y="322" fill="#c14a3a">invisible</text>
+  <text class="s" x="666" y="322" fill="#3a7d44">caught</text>
+
+  <text class="c" x="40" y="492">A grader can be exhaustive and still be blind. Exhaustive is about count; blind is about kind.</text>
+</svg>

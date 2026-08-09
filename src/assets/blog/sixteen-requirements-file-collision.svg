@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="File collision">
+  <rect x="1" y="1" width="998" height="518" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="36" y="42">three concurrent agents, one file</text>
+
+  <!-- agents -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="64" width="128" height="44" rx="7"/>
+    <rect x="36" y="122" width="128" height="44" rx="7"/>
+    <rect x="36" y="180" width="128" height="44" rx="7"/>
+  </g>
+  <text class="l" x="60" y="92">agent A</text>
+  <text class="l" x="60" y="150">agent B</text>
+  <text class="l" x="60" y="208">agent C</text>
+
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m4)">
+    <path d="M164 86 L268 132"/>
+    <path d="M164 144 L268 144"/>
+    <path d="M164 202 L268 156"/>
+  </g>
+
+  <!-- the file, written three times -->
+  <rect x="276" y="112" width="196" height="64" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="298" y="150">app/models.py</text>
+
+  <!-- timeline of writes -->
+  <text class="s" x="276" y="216">writes land in order</text>
+  <g>
+    <rect x="276" y="230" width="60" height="34" rx="5" fill="#c14a3a" fill-opacity="0.22" stroke="#c14a3a" stroke-width="2"/>
+    <rect x="344" y="230" width="60" height="34" rx="5" fill="#c14a3a" fill-opacity="0.22" stroke="#c14a3a" stroke-width="2"/>
+    <rect x="412" y="230" width="60" height="34" rx="5" fill="#6b8f2e" fill-opacity="0.3" stroke="#3a7d44" stroke-width="2"/>
+  </g>
+  <text class="s" x="288" y="252">A lost</text>
+  <text class="s" x="356" y="252">B lost</text>
+  <text class="s" x="420" y="252">C kept</text>
+
+  <!-- the gate -->
+  <rect x="516" y="64" width="448" height="200" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="538" y="94">what the score gate sees</text>
+  <rect x="538" y="112" width="180" height="46" rx="6" fill="#eceadf" stroke="#1a1d24" stroke-width="2"/>
+  <text class="s" x="558" y="140">before the round</text>
+  <rect x="762" y="112" width="180" height="46" rx="6" fill="#eceadf" stroke="#1a1d24" stroke-width="2"/>
+  <text class="s" x="782" y="140">after the round</text>
+  <path d="M718 135 L758 135" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m4)"/>
+  <text class="l" x="538" y="192">score went up  →  round passes</text>
+  <text class="s" x="538" y="222">the destroyed work existed at neither moment</text>
+  <text class="s" x="538" y="242">the gate looked — so no score gate can see it.</text>
+
+  <!-- the number -->
+  <rect x="36" y="296" width="436" height="86" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text class="l" x="58" y="326">238 of 258 tasks wrote a file another task wrote</text>
+  <text class="h" x="58" y="358" fill="#c14a3a">92% of its own output destroyed</text>
+
+  <!-- the fix -->
+  <rect x="516" y="296" width="448" height="86" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="538" y="326">the fix is not a request</text>
+  <text class="s" x="538" y="352">the harness computes overlapping paths from the plan,</text>
+  <text class="s" x="538" y="372">strips them before any agent starts, and records it.</text>
+
+  <text class="c" x="36" y="440">Asking a model to stay in its lane fails the moment it decides a neighbouring file needs one line.</text>
+  <text class="c" x="36" y="470">Ownership has to be a property of the harness, not an instruction in a prompt.</text>
+</svg>

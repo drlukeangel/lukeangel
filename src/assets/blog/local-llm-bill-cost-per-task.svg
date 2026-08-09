@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="Cost per task">
+  <rect x="1" y="1" width="998" height="438" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:15px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:13px;fill:#5b616b}
+    .b{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:20px;fill:#1a1d24;font-weight:700}
+    .r{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:20px;fill:#c14a3a;font-weight:700}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <text class="l" x="38" y="46">one machine-hour, three outcomes — same cost, different denominator</text>
+
+  <!-- three columns -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="38" y="70" width="280" height="52" rx="7"/>
+    <rect x="360" y="70" width="280" height="52" rx="7"/>
+    <rect x="682" y="70" width="280" height="52" rx="7"/>
+  </g>
+  <g fill="#6b8f2e" fill-opacity="0.22">
+    <rect x="40" y="72" width="276" height="48" rx="6"/>
+    <rect x="362" y="72" width="276" height="48" rx="6"/>
+    <rect x="684" y="72" width="276" height="48" rx="6"/>
+  </g>
+  <text class="l" x="118" y="102">$0.95 machine-hour</text>
+  <text class="l" x="440" y="102">$0.95 machine-hour</text>
+  <text class="l" x="762" y="102">$0.95 machine-hour</text>
+
+  <!-- outputs -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#ar)">
+    <path d="M178 124 L178 158"/>
+    <path d="M500 124 L500 158"/>
+    <path d="M822 124 L822 158"/>
+  </g>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <!-- col 1: three fixes -->
+  <g fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5">
+    <rect x="72" y="166" width="60" height="46" rx="6"/>
+    <rect x="148" y="166" width="60" height="46" rx="6"/>
+    <rect x="224" y="166" width="60" height="46" rx="6"/>
+  </g>
+  <g stroke="#3a7d44" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M89 189 l9 10 l18 -20"/>
+    <path d="M165 189 l9 10 l18 -20"/>
+    <path d="M241 189 l9 10 l18 -20"/>
+  </g>
+  <text class="s" x="112" y="240">3 fixes shipped</text>
+  <text class="b" x="118" y="278">$0.32 / fix</text>
+
+  <!-- col 2: one fix -->
+  <rect x="470" y="166" width="60" height="46" rx="6" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <path d="M487 189 l9 10 l18 -20" stroke="#3a7d44" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="s" x="446" y="240">1 fix shipped</text>
+  <text class="b" x="438" y="278">$0.95 / fix</text>
+
+  <!-- col 3: none -->
+  <rect x="792" y="166" width="60" height="46" rx="6" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <g stroke="#c14a3a" stroke-width="3.5" stroke-linecap="round">
+    <path d="M808 178 L836 200"/><path d="M836 178 L808 200"/>
+  </g>
+  <text class="s" x="762" y="240">0 fixes shipped</text>
+  <text class="r" x="740" y="278">undefined</text>
+
+  <!-- footer -->
+  <rect x="38" y="316" width="924" height="70" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="60" y="346">80% of a repair is not 80% of a fix.</text>
+  <text class="s" x="60" y="370">It is a workspace you throw away — so the third hour has nothing to divide by, not a big number.</text>
+
+  <text class="c" x="38" y="418">Rank on the artifact, not the engine.</text>
+</svg>
