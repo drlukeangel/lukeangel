@@ -27,6 +27,8 @@ Four text-to-video probes, each targeting a *temporal* failure rather than a com
 - the duck riding a robot vacuum is a **yellow ball on a stick**
 - the sloth and squirrel are two generic rodents, no high-five
 
+![Four frames sampled across a single 161-frame text-to-video clip, left to right: frame 0, frame 53, frame 107 and frame 160. The prompt asked for a cat to push a mug off a table. Across all four frames the mug sits in exactly the same position at the left of the table, untouched and unmoved. The cat is rendered sharply throughout and holds eye contact with the camera, drifting slowly backwards away from the table rather than reaching toward it. The scene is convincing in every frame; the requested action never begins.](../../assets/blog/video-models-t2v-filmstrip.png)
+
 The pattern: **the model renders the scene it was given and does not perform the verb.** Appearance is often excellent — real forest depth of field, convincing glass reflections in a lobby, coherent bodies. The requested *event* simply doesn't occur.
 
 ## Image-to-video is a different story
@@ -42,6 +44,8 @@ Text-to-video has to invent a subject every run, so "is it the same cat at frame
 ## Two findings that survived strict grading
 
 **Conditioned content is preserved; newly revealed regions are confabulated.** The most informative clip of the day was a slow push toward an enamel shop sign. The letters do *not* melt — the conditioned sign stays correct the whole time it's visible. Then the camera pans, and the model invents a second sign in the newly exposed area, reading gibberish.
+
+![Four frames from the image-to-video push toward an enamel shop sign. At frame 0 the conditioned sign reads DGX SPARK REPAIR in crisp blue-and-white enamel on a brick wall. At frame 53 the camera has moved closer and the same lettering is still correct and legible. By frame 107 the original sign has left the frame and the model has invented a replacement in the newly exposed area, carrying meaningless glyphs. At frame 160 that fabricated sign is fully visible and reads as pure gibberish. Text stayed stable exactly where it was conditioned and was confabulated everywhere the camera newly exposed.](../../assets/blog/video-models-i2v-filmstrip.png)
 
 Rendered text is usually the least stable thing in a frame. Here it was stable exactly where it was conditioned and fabricated everywhere else. **On this model, a static camera is a correctness decision**, not an aesthetic one.
 

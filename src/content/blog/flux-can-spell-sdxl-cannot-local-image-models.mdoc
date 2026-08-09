@@ -45,6 +45,8 @@ Three exact strings, scored character by character.
 
 FLUX: one exact, one off by a character, one partial. SDXL: **0 for 3.**
 
+![The same chalkboard prompt rendered by both models, side by side. FLUX.1-schnell produces a single lecture-hall blackboard reading HARNESS BUGS: 44 in neat white chalk — the colon, both words and both digits exactly as specified, with plausible pressure variation in the strokes. SDXL-Turbo produces a wider classroom shot whose blackboard carries the phrase written three times over and differently wrong each time: HARNESSS HARKNESS, BUGS ARK 445, BAGS BAYS 4.54, and finally a correct 44. The individual letter shapes are crisp in both images, so the failure is not blur — it is repetition.](../../assets/blog/image-models-text-comparison.png)
+
 The failure mode is the interesting part. SDXL's problem isn't blur — the letter shapes are individually crisp. Its signature failure is **repetition**: it renders the phrase two or three times, each version differently wrong. On the chalkboard it eventually wrote `44` — after also writing `445` and `4.54`. It isn't failing to draw letters. **It's failing to stop.**
 
 FLUX has a related tic. Asked for a book cover with a title and nothing else, it produced a clean product shot with a correct spine and shadow — and invented a two-line subtitle of pure gibberish. Unprompted text is where even the good model reverts to texture. That was in the written prediction, and it arrived on schedule.
@@ -63,6 +65,8 @@ The obvious lesson would be "run SDXL at 512." That lesson is wrong. On the same
 
 - **the overgrown data centre** gained vines across the ceiling and green LED text on the racks — a clear win
 - **the clockwork bird schematic** became, arguably, the most detailed image produced in the whole set — from the model that loses to FLUX everywhere text is involved
+
+![The duplication artefact caught in the act. On the left, SDXL-Turbo at its native 512 pixels renders the prompt "a lone lighthouse on a basalt cliff at dusk" as exactly one lighthouse on a cliff above a storm sea. On the right, the identical model and prompt pushed to 1024 pixels renders two lighthouses — one on the cliff and a second on a sea stack behind it — despite the word "lone" in the prompt. Only the resolution setting changed between the two images.](../../assets/blog/image-models-lighthouse.png)
 
 ![Why resolution cannot be set globally. Two prompts run through the same model at the same 1024-pixel setting. The first names a single countable subject — a lone lighthouse — and the extra resolution tiles it, producing two lighthouses despite the word "lone" in the prompt. The second names no countable subject, and the same setting buys genuine additional detail: vines across a ceiling, readable indicator text on equipment racks. The deciding factor is marked as the presence of a countable noun in the prompt, not any property of the setting.](../../assets/blog/image-models-resolution.svg)
 
@@ -84,6 +88,8 @@ The 512 set is the control that makes this visible at all. I deleted it during a
 FLUX: 3 pass, 1 near, 2 partial, 0 fail. SDXL: 0 for 6.
 
 **Neither model can count.** Asked for *exactly five* ducks, FLUX gave six and SDXL gave about nineteen. Diffusion models have no counting mechanism; they render "a queue of ducks" and the number falls out of the composition. Off by one versus off by a factor of four is a real difference in degree, but neither is a model you can ask for a specific number of things.
+
+![Attribute binding compared on the same three-penguin prompt. FLUX renders three penguins and binds two of the three requested accessories correctly — sunglasses on one, a business suit and briefcase on another — while the red bow tie bleeds one position to the right and appears on a penguin that should not have it. SDXL renders four penguins instead of three, puts an identical red bow tie on every one of them, and drops the sunglasses and the briefcase entirely. The most visually dominant attribute has won and spread across the whole image.](../../assets/blog/image-models-attribute-binding.png)
 
 **Attribute bleed is the cleanest divider.** Given three penguins with three different accessories, FLUX bound two of three correctly and let the red bow tie bleed one position right. SDXL applied the bow tie to all four penguins — it miscounted too — and dropped the other two attributes entirely. The textbook failure in miniature versus the textbook failure at full strength: the most visually dominant attribute wins and spreads.
 
