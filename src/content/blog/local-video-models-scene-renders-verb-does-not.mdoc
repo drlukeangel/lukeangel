@@ -1,0 +1,93 @@
+---
+title: "Local AI Video Models on a DGX Spark: the Scene Renders, the Verb Does Not"
+date: 2026-08-24T09:00:00-04:00
+category: tools
+tags:
+  - ai
+  - local-llm
+  - dgx-spark
+  - video-generation
+  - evals
+excerpt: "Four text-to-video probes, all four failed the same way: the model renders the scene and declines to perform the action. Plus two limitations that were both my bugs."
+pullquote: "Grade on geometry and object identity, never on vibe. Materials lie convincingly."
+cover: "../../assets/blog/video-models-cover.svg"
+coverAlt: "A horizontal filmstrip of five ink-outlined frames on a cream background. Each frame contains an identical, carefully drawn cat and mug in exactly the same position — nothing moves across the strip. Below the strip, a single dashed arc shows the motion that was asked for and did not occur. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 15
+featured: false
+draft: false
+---
+
+One model makes video on this box: **LTX-Video 2B**. Same method as everything else here — [every probe carries a written prediction, made before generating](/blog/flux-can-spell-sdxl-cannot-local-image-models/).
+
+Four text-to-video probes, each targeting a *temporal* failure rather than a compositional one. **All four failed**, and they failed identically.
+
+- the cat is sharp, holds eye contact for all 161 frames, and **never pushes the mug**
+- the corgi never completes approach → impact → recoil
+- the duck riding a robot vacuum is a **yellow ball on a stick**
+- the sloth and squirrel are two generic rodents, no high-five
+
+The pattern: **the model renders the scene it was given and does not perform the verb.** Appearance is often excellent — real forest depth of field, convincing glass reflections in a lobby, coherent bodies. The requested *event* simply doesn't occur.
+
+## Image-to-video is a different story
+
+**1 pass, 2 partial, 1 fail** — and the reason is structural rather than a matter of quality.
+
+Text-to-video has to invent a subject every run, so "is it the same cat at frame 90" has nothing to check against. Image-to-video starts from a still that has already been generated and judged, so drift is measurable against a control — and the 2B model never has to invent the subject at all.
+
+**The practical pipeline is FLUX for the still, LTX to move it.**
+
+![Why image-to-video holds together when text-to-video does not. In the text-to-video path, the model must invent a subject and sustain it across every frame, so there is no reference against which drift can be measured and no anchor for identity. In the image-to-video path, a still is generated and judged first, then handed to the video model as a starting frame — the subject is fixed before motion begins, and any drift is measurable against that control. A note marks that this is a structural difference rather than a quality one, and that the working pipeline is a still model for the frame and the video model for the motion.](../../assets/blog/video-models-t2v-vs-i2v.svg)
+
+## Two findings that survived strict grading
+
+**Conditioned content is preserved; newly revealed regions are confabulated.** The most informative clip of the day was a slow push toward an enamel shop sign. The letters do *not* melt — the conditioned sign stays correct the whole time it's visible. Then the camera pans, and the model invents a second sign in the newly exposed area, reading gibberish.
+
+Rendered text is usually the least stable thing in a frame. Here it was stable exactly where it was conditioned and fabricated everywhere else. **On this model, a static camera is a correctness decision**, not an aesthetic one.
+
+**Materials and light are convincing; geometry is not.** In the kitchen clip the wood grain, brushed steel and shadow falloff are all excellent — and the dishwasher juts out past the cabinet fronts, with cabinet doors of mismatched widths. I graded that clip "nearly right" on a first pass and was corrected. It's a plausible *texture* of a kitchen, not a kitchen.
+
+That's the single most important habit for evaluating this model: **grade on geometry and object identity, never on vibe.** A single frame at a glance is precisely the altitude at which this model looks fine.
+
+## The length ladder never broke
+
+One prompt, walked up the frame count until failure.
+
+| frames | length | wall clock | per second of video | peak memory | result |
+|---|---|---|---|---|---|
+| 49 | 2.0s | 34.3s | 16.8s | 17,329 MiB | OK |
+| 97 | 4.0s | 63.1s | 15.6s | 21,507 MiB | OK |
+| 161 | 6.7s | 109.0s | 16.2s | 27,317 MiB | OK |
+| 257 | 10.7s | 187.5s | 17.5s | 36,583 MiB | OK |
+
+All four rungs cleared. The question was "max seconds before it OOMs or degrades — note which happens." The answer is **neither.** The ceiling reached is the vendor's documented maximum of 257 frames, not the hardware's: peak memory is 36.6 GB against the 121 GB a GB10 has, and **cost per second of video is flat** at 15.6–17.5s regardless of clip length. Longer clips are free in relative terms.
+
+## The part where I was wrong, again
+
+An earlier round of video testing produced two confident conclusions about model limitations. Both were my bugs. By now this is [the most reliable finding in the whole project](/blog/forty-four-harness-bugs-zero-local-llm-limitations/).
+
+**"The model liquefies small repeated subjects."** Round one turned six rubber ducks into a single amorphous yellow smear, and I wrote that up as a property of the model. It was a **missing VAE decode parameter.** At vendor settings the ducks render as distinct, well-formed rubber ducks with visible eyes and beaks.
+
+**"Extreme scale ratios do not survive motion."** Round one had a tiny astronaut vanish from a sleeping cat's back, and I concluded the scale relationship couldn't hold through animation. It holds end to end. At frame 160 the astronaut is still there, still tiny, still pushing the mower.
+
+![Two conclusions retracted, and why the failure mode is so hard to catch. In round one, six rubber ducks render as a single amorphous smear and a tiny astronaut disappears partway through a clip; both are written down as limitations of the model. The cause in each case is configuration — a missing decode parameter and a setting that diverged from the vendor's own files. At vendor settings the ducks render distinctly and the astronaut survives to the final frame. A note explains why this class of error is dangerous: a generative model failing and a harness misconfiguring it both produce plausible-looking wrong output rather than an error, so the two are indistinguishable from the result alone.](../../assets/blog/video-models-two-retractions.svg)
+
+Round one is retained in full as `_void-round1/` and marked void rather than deleted, because the comparison is the evidence.
+
+Here's why this keeps happening with generative models specifically: **a model failing is indistinguishable from a harness misconfiguring it, because both produce plausible-looking wrong output rather than an error.** With the coding models a harness bug at least showed up as a stuck score. Here it shows up as a picture that looks fine.
+
+One probe did get genuinely **worse** at vendor settings: the raccoon shrug. Round one produced a legible shrug and even absorbed the still's spurious third arm; at 161 frames the raccoon lunges at the camera in heavy motion blur. Longer is not uniformly better, and reporting only the improvements would be its own kind of lie.
+
+## What this does not tell you
+
+**Every video statement here is about one small model.** LTX-Video 2B has a 7.2 GB transformer — its text encoder is roughly three times larger than the video model itself. The 13B `0.9.7-dev` checkpoint is downloaded and has never been run. No Wan, no CogVideoX, no HunyuanVideo. *"Video models can't perform verbs"* is not supported by this work; *"this 2B model doesn't"* is.
+
+And six single-subject text-to-video prompts — a pug in a wizard hat, a self-playing piano, a traffic light on wet tarmac — were designed around what the model *can* hold together, and never run. The honest reading is that four adversarial prompts failed, not that the model can't do text-to-video at all.
+
+## Where the notebook stands
+
+That's the end of this arc. Two boxes, nine coding models, three generative ones, a contract that took an hour to write and outperformed everything built around it, and a running tally of forty-four harness bugs against zero confirmed model limitations.
+
+The question I bought the hardware for is still open. I know what a fix costs now — [two-thirds of a cent, sixteen agents wide, on one of the two boxes](/blog/what-a-bug-fix-costs-on-two-dgx-sparks/). What I don't know is whether any of it survives contact with a real codebase, which by definition exceeds one context, and where the last from-scratch attempt destroyed 92% of its own output.
+
+That's the next notebook.

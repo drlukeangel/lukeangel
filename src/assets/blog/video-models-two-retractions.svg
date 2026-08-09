@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" role="img" aria-label="Two retractions">
+  <rect x="1" y="1" width="998" height="448" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <g class="s" fill="#5b616b">
+    <text x="36" y="52">round one — written up as a model limitation</text>
+    <text x="392" y="52">actual cause</text>
+    <text x="676" y="52">at vendor settings</text>
+  </g>
+  <path d="M36 62 L964 62" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+
+  <!-- row 1 -->
+  <rect x="36" y="82" width="330" height="84" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="58" y="112">"liquefies small repeated</text>
+  <text class="l" x="58" y="134">subjects"</text>
+  <text class="s" x="58" y="156">six ducks became one yellow smear</text>
+
+  <path d="M366 124 L386 124" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mr)"/>
+  <rect x="394" y="82" width="264" height="84" rx="8" fill="#7a808c" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="416" y="120">a missing VAE decode</text>
+  <text class="l" x="416" y="142">parameter</text>
+  <path d="M658 124 L670 124" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mr)"/>
+
+  <rect x="678" y="82" width="286" height="84" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="700" y="120">distinct ducks, with</text>
+  <text class="l" x="700" y="142">visible eyes and beaks</text>
+
+  <!-- row 2 -->
+  <rect x="36" y="184" width="330" height="84" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="58" y="214">"extreme scale ratios do</text>
+  <text class="l" x="58" y="236">not survive motion"</text>
+  <text class="s" x="58" y="258">the tiny astronaut vanished</text>
+
+  <path d="M366 226 L386 226" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mr)"/>
+  <rect x="394" y="184" width="264" height="84" rx="8" fill="#7a808c" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="416" y="222">settings diverged from</text>
+  <text class="l" x="416" y="244">the vendor's own files</text>
+  <path d="M658 226 L670 226" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mr)"/>
+
+  <rect x="678" y="184" width="286" height="84" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="700" y="222">still there at frame 160,</text>
+  <text class="l" x="700" y="244">still tiny, still mowing</text>
+
+  <!-- why it is hard -->
+  <rect x="36" y="294" width="928" height="86" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text class="h" x="58" y="324">why this class of error is so hard to catch</text>
+  <text class="l" x="58" y="352">a model failing and a harness misconfiguring it both produce plausible wrong output, not an error</text>
+  <text class="s" x="58" y="372">with a coding model a harness bug shows up as a stuck score — here it shows up as a picture that looks fine</text>
+
+  <text class="c" x="36" y="426">Round one is kept, marked void rather than deleted, because the comparison is the evidence.</text>
+</svg>

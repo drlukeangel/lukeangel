@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="Text to video versus image to video">
+  <rect x="1" y="1" width="998" height="428" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="mv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="36" y="40" fill="#c14a3a">text to video — 0 of 4</text>
+
+  <rect x="36" y="58" width="150" height="44" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="58" y="86">a prompt</text>
+  <path d="M186 80 L228 80" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mv)"/>
+
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#fdfaf2">
+    <rect x="236" y="56" width="60" height="48" rx="5"/><rect x="304" y="56" width="60" height="48" rx="5"/>
+    <rect x="372" y="56" width="60" height="48" rx="5"/><rect x="440" y="56" width="60" height="48" rx="5"/>
+  </g>
+  <g fill="#7a808c" fill-opacity="0.4">
+    <circle cx="266" cy="80" r="12"/><circle cx="336" cy="78" r="13"/>
+    <circle cx="400" cy="82" r="11"/><circle cx="472" cy="79" r="14"/>
+  </g>
+  <text class="s" x="236" y="126">the subject is invented anew in every frame</text>
+  <rect x="540" y="56" width="424" height="76" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="562" y="84">nothing to measure drift against</text>
+  <text class="s" x="562" y="110">so identity has no anchor, and the verb never happens</text>
+
+  <path d="M36 168 L964 168" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <text class="h" x="36" y="206" fill="#3a7d44">image to video — 1 pass, 2 partial, 1 fail</text>
+
+  <rect x="36" y="224" width="150" height="44" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="58" y="252">a prompt</text>
+  <path d="M186 246 L228 246" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mv)"/>
+  <rect x="236" y="220" width="120" height="52" rx="6" fill="#6b8f2e" fill-opacity="0.2" stroke="#3a7d44" stroke-width="3"/>
+  <circle cx="296" cy="246" r="14" fill="#6b8f2e"/>
+  <text class="s" x="236" y="292">a still, generated and judged first</text>
+  <path d="M356 246 L398 246" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mv)"/>
+
+  <g stroke="#1a1d24" stroke-width="2.5" fill="#fdfaf2">
+    <rect x="406" y="222" width="56" height="48" rx="5"/><rect x="470" y="222" width="56" height="48" rx="5"/>
+    <rect x="534" y="222" width="56" height="48" rx="5"/>
+  </g>
+  <g fill="#6b8f2e" fill-opacity="0.75">
+    <circle cx="434" cy="246" r="13"/><circle cx="498" cy="246" r="13"/><circle cx="562" cy="246" r="12"/>
+  </g>
+
+  <rect x="618" y="220" width="346" height="76" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="640" y="248">the subject is fixed before motion</text>
+  <text class="s" x="640" y="274">drift is measurable against the control</text>
+
+  <text class="c" x="36" y="356">A structural difference, not a quality one.</text>
+  <text class="c" x="36" y="384">The working pipeline is a still model for the frame, the video model for the motion.</text>
+</svg>
