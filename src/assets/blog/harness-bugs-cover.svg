@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="The tally">
+  <defs>
+    <pattern id="dd" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dd)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6b8f2e"/>
+
+  <!-- 44 tally strokes: 8 groups of 5, plus 4 -->
+  <g stroke="#1a1d24" stroke-width="6" stroke-linecap="round">
+    <!-- row 1: 3 groups of 5 -->
+    <g transform="translate(150,140)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <g transform="translate(310,140)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <g transform="translate(470,140)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <!-- row 2 -->
+    <g transform="translate(150,264)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <g transform="translate(310,264)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <g transform="translate(470,264)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <!-- row 3: 2 groups + 4 loose -->
+    <g transform="translate(150,388)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <g transform="translate(310,388)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/><path d="M-8 68 L68 6"/>
+    </g>
+    <g transform="translate(470,388)">
+      <path d="M0 0 L0 74"/><path d="M20 0 L20 74"/><path d="M40 0 L40 74"/><path d="M60 0 L60 74"/>
+    </g>
+  </g>
+
+  <!-- the divider -->
+  <path d="M700 132 L700 500" stroke="#6b8f2e" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- the empty bracket -->
+  <g stroke="#1a1d24" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M880 258 L844 258 L844 372 L880 372"/>
+    <path d="M1000 258 L1036 258 L1036 372 L1000 372"/>
+  </g>
+</svg>

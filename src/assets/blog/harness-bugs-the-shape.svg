@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="The dominant bug shape">
+  <rect x="1" y="1" width="998" height="438" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="mh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+    <marker id="mi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c14a3a"/>
+    </marker>
+  </defs>
+
+  <rect x="36" y="70" width="188" height="96" rx="8" fill="#6b8f2e" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="100">the model</text>
+  <text class="s" x="58" y="126">emits something</text>
+  <text class="s" x="58" y="146">structurally reasonable</text>
+
+  <path d="M224 118 L296 118" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mh)"/>
+
+  <rect x="304" y="70" width="238" height="96" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text class="h" x="326" y="100" fill="#c14a3a">the harness</text>
+  <text class="s" x="326" y="126">expects a different protocol,</text>
+  <text class="s" x="326" y="146">silently discards the content</text>
+
+  <path d="M542 118 L614 118" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mh)"/>
+
+  <rect x="622" y="70" width="188" height="96" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="s" x="644" y="100">empty action</text>
+  <text class="s" x="644" y="126">no progress recorded</text>
+
+  <path d="M810 118 L868 118" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mh)"/>
+  <rect x="876" y="70" width="88" height="96" rx="8" fill="#7a808c" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="898" y="112">17/22</text>
+  <text class="s" x="892" y="140">written</text>
+  <text class="s" x="890" y="156">down</text>
+
+  <!-- the blame arrow -->
+  <path d="M920 170 C920 250 500 250 424 250 L424 172" stroke="#c14a3a" stroke-width="2.5" fill="none" stroke-dasharray="7 5" marker-end="url(#mi)"/>
+  <text class="s" x="540" y="272" fill="#c14a3a">recorded as a fact about the model — the fault was here</text>
+
+  <!-- the three variants -->
+  <rect x="36" y="296" width="928" height="86" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="324">the same shape, three ways</text>
+  <text class="s" x="58" y="350">tool-call syntax landing in `content`  ·  reasoning-only turns read as empty  ·  channel markers glued to names</text>
+  <text class="s" x="58" y="372">a protocol specified in the prompt and enforced nowhere — the majority of forty-four bugs</text>
+
+  <text class="c" x="36" y="418">The model emits something reasonable. The harness drops it. The model gets blamed.</text>
+</svg>

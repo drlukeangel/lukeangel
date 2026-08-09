@@ -1,0 +1,97 @@
+---
+title: "Forty-Four Harness Bugs, Zero Local LLM Limitations: an Accounting"
+date: 2026-08-19T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - local-llm
+  - agents
+  - dgx-spark
+  - evals
+  - debugging
+excerpt: "Six numbers in my model ranking were measuring my own code. Three flat scores and three zeroes, each a different hole in the same guard — plus the four corrections that changed the outcome and the two claims I had to retract."
+pullquote: "A model that looks broken is a harness bug until proven otherwise."
+cover: "../../assets/blog/harness-bugs-cover.svg"
+coverAlt: "A tall tally of forty-four short ink strokes grouped in fives on a cream background, filling most of the frame. Opposite them, a single empty bracket with nothing inside it. A thin olive-green rule separates the two counts. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 13
+featured: true
+draft: false
+---
+
+[The ranking table](/blog/nine-local-llms-ranked-by-cost-per-solved-task/) is the output of this project. This is the part I'd actually want to read if someone else had written it.
+
+**Six of the numbers in that table were measuring my harness, not the models.** Here's the accounting, and then the running tally, which is the real result.
+
+## Three flat 17s, three different causes
+
+Three models scored a dead-flat 17/22 three times running. All three were harness faults — and each was a *different* fault, which is why it took so long to see the pattern.
+
+Every one of them was being **served** with a tool-call parser and then driven through a plain-text protocol. They emitted tool syntax into `content`, my parser threw it away, and they looked incapable.
+
+| model | what actually broke | before → after |
+|---|---|---|
+| Laguna-S-2.1 | XML closing tags welded to file paths (`app/x.py</arg_value>`) — 25–54 corrupted actions per run | 17×3 → **22, 21, 17** |
+| Nemotron-120B | reasoning-only turns discarded as empty | 17×3 → 17, 18, 18 |
+| gpt-oss-20b | harmony channel markers glued to function names (`READCOMMENTARY`) | 17×3 → 17×3 *(genuinely flat)* |
+
+Laguna went from a model I'd written off to one that solves the full contract. Same weights. The only thing that changed was that I stopped discarding its output.
+
+Qwen3.6-35B is the one that should sting most. Its first run produced **82 files of prose** and read as a model that couldn't code. That was reasoning leaking into `content`. Given the right reasoning parser and the tools protocol, [the same weights solve the full contract twice out of three and turn in the cheapest cost per solved task in the fleet](/blog/nine-local-llms-ranked-by-cost-per-solved-task/).
+
+![The shape of the dominant bug, drawn once. A model emits a response that is structurally reasonable for the protocol it was served with — tool-call syntax, a reasoning channel, or vendor-specific channel markers. The harness, expecting a different protocol, fails to parse it and silently discards the content, returning an empty action. The scoring layer records no progress. The result is written down as a fact about the model. An arrow loops back to the harness marked as where the fault actually was, and a note records that this exact shape accounts for the majority of the forty-four bugs: a protocol specified in the prompt and enforced nowhere.](../../assets/blog/harness-bugs-the-shape.svg)
+
+## Three zeroes, three holes in the same guard
+
+Three separate 0/22 results were also mine, and each exposed a different hole in the same build guard.
+
+- The guard checked `import app` but never **called** `create_app()`. A model wrote valid Python that raised only when the factory ran. 17/22 → 0/22, holdout 0/13, reported as `(patched app/__init__.py)` — a success.
+- The guard covered `EDIT` but not `RUN`. A model rewrote a file with `RUN python3 << 'EOF'`, bypassing the edit path entirely.
+- The guard fingerprinted only `*.py`. A `RUN` that wrote a non-Python file the app depends on was invisible to it.
+
+All three are closed with regression tests now. The pattern across them is worth more than the individual fixes: **each time I plugged the hole at the exact spot the failure appeared, and each time the next failure came through a door two feet to the left.** The guard was verifying a proxy — that something imports, that a `.py` file changed — rather than the property I cared about, which is that the application can serve a request.
+
+![Three holes in one guard, found one at a time. A build guard sits between an agent's actions and the recorded score. The first version checks that the application module imports, and a model passes it by writing code that only fails when the factory is called. The second version calls the factory, and a model bypasses it entirely by writing files through a RUN command rather than an EDIT. The third version covers RUN, and a model writes a non-Python file the guard's fingerprint ignores. Each patch closes the exact spot the last failure appeared. A final panel shows the property that should have been checked all along — can the running application serve a request — which none of the three versions ever tested.](../../assets/blog/harness-bugs-guard-holes.svg)
+
+The fix that would have caught all three from the start: **one request probe after each edit.** Not a smarter guard. A guard that asks the actual question.
+
+## The four corrections that changed the outcome
+
+Four times, someone told me in one sentence what was wrong, and each time it took me hours to implement and changed the result.
+
+1. *"you gave it a cheat code"* — my first fast solo benchmark named the stack, showed a worked example lifted near-verbatim from a check, and told the agent to poll the grader. I spent hours arguing the number was contaminated. It **was** contaminated — and it was also right, which I never considered.
+2. *"it should be accept, revert, or change"* — a third verdict turned the reviewer's deletions into repairs.
+3. *"i am your reviewer... stop, fix your code, resubmit"* — the repair loop. It produced the first ACCEPT after nine straight rejections.
+4. *"restructure your tests... can you add a member, can you delete a member"* — [the behavioural contract](/blog/twenty-two-behavioural-criteria-replaced-the-structural-grader/). The single most effective change in the project.
+
+I notice all four are about the *measurement*, not the models or the orchestration. Every hour I spent on the parts that felt like engineering was worth less than any one of those sentences.
+
+## Two claims I had to retract
+
+**"10% better outcome from 1.1% of the code."** Reported from two-thirds of the data. The third arm then closed to 22/22 and [the framework ranking collapsed into a tie](/blog/agent-framework-bake-off-langgraph-pydantic-hand-rolled/). The honest version — same outcome, 20% faster — is much less quotable.
+
+**"The verification gate fired once in six runs, so it's variance."** A count taken *before* the one run that mattered reached the phase where it began declaring DONE. A snapshot generalised into a structural claim, and it inverted [the actual finding](/blog/nine-lines-verification-beat-six-agent-swarm/).
+
+Reading a partial log as a result is the same error as scoring a workspace mid-flight. I did both, on the same day, about the same experiment.
+
+## The tally
+
+**Forty-four harness bugs. Zero confirmed model limitations.**
+
+The dominant shape, over and over: **a protocol specified in the prompt and enforced nowhere.** The model emits something reasonable, the harness silently discards it, and the model gets blamed.
+
+The sharpest instance is worth the whole project. The solo agent's *system prompt* said it was graded by `accept.py`; its *kickoff message* said `check.py`. It followed the concrete instruction it received first, ran 60 steps, reported **163/173 (94%)** against a grader that isn't the contract, and moved the real criteria from 17/22 to 17/22.
+
+Zero progress, reported as success — because an agent optimises the feedback loop it can actually see. Which is the thesis of this entire project, reproduced by accident, at my expense.
+
+## What I'd tell a team
+
+**A model that looks broken is a harness bug until proven otherwise.** Not as a slogan — as a default. Forty-four to zero is not a close call, and every single time I assumed the other way I was wrong.
+
+Before recording any bad result, check three things: that you can see what the model actually emitted, that your parser accepted it, and that your guard tests the property you care about rather than a proxy for it. All six of my bad numbers would have been caught by the first check alone.
+
+And **log what the model received, not just what it sent.** My worst bug was two files disagreeing about the grader's name, and it was invisible from either side alone.
+
+## What's next
+
+The coding arc closes here. The same method — write the prediction before you look — turns out to be even more necessary when the output is a picture, because a picture is persuasive in a way a score isn't.
