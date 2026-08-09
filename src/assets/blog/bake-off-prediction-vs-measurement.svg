@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="Prediction versus measurement">
+  <rect x="1" y="1" width="998" height="468" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="ma" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7a808c"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="36" y="42">predicted, by reading</text>
+  <text class="h" x="596" y="42">measured, by running</text>
+
+  <!-- predicted -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="62" width="330" height="56" rx="7"/>
+    <rect x="36" y="132" width="330" height="56" rx="7"/>
+    <rect x="36" y="202" width="330" height="56" rx="7"/>
+  </g>
+  <text class="l" x="58" y="88">#1  hand-rolled</text>
+  <text class="s" x="58" y="108">the incumbent, allowed to win</text>
+  <text class="l" x="58" y="158">#2  LangGraph</text>
+  <text class="s" x="58" y="178">adopt if the decision changes</text>
+  <text class="l" x="58" y="228">—   Pydantic AI</text>
+  <text class="s" x="58" y="248">excluded from the top two</text>
+
+  <!-- arrows -->
+  <g stroke="#7a808c" stroke-width="2.5" fill="none" marker-end="url(#ma)" stroke-opacity="0.8">
+    <path d="M370 90 L590 90"/>
+    <path d="M370 160 L590 160"/>
+    <path d="M370 230 L590 230"/>
+  </g>
+
+  <!-- measured -->
+  <rect x="596" y="62" width="368" height="56" rx="7" fill="#6b8f2e" fill-opacity="0.2" stroke="#3a7d44" stroke-width="3"/>
+  <text class="l" x="618" y="88">22/22 · 13/13   hand-rolled</text>
+  <text class="s" x="618" y="108">237 min — ties for first</text>
+
+  <rect x="596" y="132" width="368" height="56" rx="7" fill="#6b8f2e" fill-opacity="0.2" stroke="#3a7d44" stroke-width="3"/>
+  <text class="l" x="618" y="158">22/22 · 13/13   LangGraph</text>
+  <text class="s" x="618" y="178">191 min — ties for first</text>
+
+  <rect x="596" y="202" width="368" height="56" rx="7" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="618" y="228">21/22 · 13/13   Pydantic AI</text>
+  <text class="s" x="618" y="248">160 min — the only arm not to finish</text>
+
+  <text class="s" x="366" y="290">every arrow is short — the ranking held</text>
+
+  <!-- the retraction -->
+  <rect x="36" y="312" width="928" height="94" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="h" x="58" y="342" fill="#c14a3a">published early, retracted</text>
+  <text class="l" x="58" y="370" fill="#7a808c">&#8220;the guide&#8217;s top pick came last&#8221;</text>
+  <path d="M52 365 L336 365" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="s" x="58" y="392">written while the third arm was still running — it then closed at 22/22 and the ranking became a tie</text>
+
+  <text class="c" x="36" y="446">Reading a partial state as a result. The same error, one level up.</text>
+</svg>

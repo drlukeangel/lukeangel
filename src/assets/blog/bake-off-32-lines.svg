@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="The 32 lines">
+  <rect x="1" y="1" width="998" height="468" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="36" y="42">arm B, by volume</text>
+
+  <!-- the bar -->
+  <rect x="36" y="62" width="220" height="26" rx="5" fill="#6b8f2e" fill-opacity="0.75" stroke="#1a1d24" stroke-width="2.5"/>
+  <rect x="36" y="88" width="220" height="286" rx="0" fill="#7a808c" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.5"/>
+  <rect x="36" y="62" width="220" height="312" rx="7" fill="none" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="s" x="36" y="398">84% shared hand-rolled code,</text>
+  <text class="s" x="36" y="416">identical across all three arms</text>
+
+  <path d="M256 75 L360 75" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#mb)"/>
+  <text class="h" x="290" y="62">32 lines</text>
+
+  <!-- where the bugs lived -->
+  <rect x="368" y="52" width="596" height="196" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="h" x="392" y="82" fill="#c14a3a">five of thirty harness bugs lived on exactly this surface</text>
+  <g class="l" fill="#1a1d24">
+    <text x="392" y="116">a wave loop dying with KeyError: '_unit' on wave two</text>
+    <text x="392" y="146">a reducer that could not be reset between rounds</text>
+    <text x="392" y="176">a field read as `problems` where the schema emits `concerns`</text>
+  </g>
+  <text class="s" x="392" y="212">fan-out, state merge, schema plumbing — small, fiddly, easy to get subtly wrong</text>
+
+  <rect x="368" y="268" width="596" height="106" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="392" y="298">what was actually bought</text>
+  <text class="l" x="392" y="326">not a primitive — the debugging already done to those 32 lines</text>
+  <text class="s" x="392" y="352">same result as hand-rolled, reached in round 2 instead of round 3: 20% wall clock, 9% turns</text>
+
+  <text class="c" x="36" y="448">A framework audit that counts features cannot see this. What is bought is not a feature.</text>
+</svg>

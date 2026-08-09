@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" role="img" aria-label="The wedge">
+  <rect x="1" y="1" width="998" height="448" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="mc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <!-- nodes -->
+  <rect x="120" y="120" width="240" height="140" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <rect x="640" y="120" width="240" height="140" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3"/>
+  <text class="h" x="142" y="150">node 1</text>
+  <text class="h" x="662" y="150">node 2</text>
+  <text class="s" x="142" y="174">weights, first half</text>
+  <text class="s" x="662" y="174">weights, second half</text>
+
+  <rect x="142" y="192" width="196" height="24" rx="5" fill="#6b8f2e" fill-opacity="0.75" stroke="#1a1d24" stroke-width="2"/>
+  <rect x="662" y="192" width="196" height="24" rx="5" fill="#6b8f2e" fill-opacity="0.75" stroke="#1a1d24" stroke-width="2"/>
+
+  <text class="l" x="142" y="242" fill="#c14a3a">96% GPU</text>
+  <text class="l" x="662" y="242" fill="#c14a3a">0% GPU</text>
+
+  <!-- the collective -->
+  <path d="M360 190 L636 190" stroke="#1a1d24" stroke-width="3" fill="none"/>
+  <text class="s" x="424" y="178">collective, every forward pass</text>
+  <g stroke="#c14a3a" stroke-width="5" stroke-linecap="round">
+    <path d="M486 172 L514 208"/><path d="M514 172 L486 208"/>
+  </g>
+
+  <!-- probes -->
+  <rect x="120" y="300" width="380" height="60" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="142" y="326">30-token probe</text>
+  <text class="s" x="142" y="348">returns normally — the split looks healthy</text>
+
+  <rect x="520" y="300" width="360" height="60" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="542" y="326">3 agents, ~10k tokens each</text>
+  <text class="s" x="542" y="348">wedges instantly, and stays wedged</text>
+  <path d="M700 296 L700 268" stroke="#c14a3a" stroke-width="2.5" fill="none" marker-end="url(#mc)"/>
+
+  <text class="c" x="120" y="404">No error. No timeout. No crash. Two boxes, one of them very busy doing nothing.</text>
+</svg>

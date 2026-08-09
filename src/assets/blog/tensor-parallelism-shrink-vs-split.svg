@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="Shrink versus split">
+  <rect x="1" y="1" width="998" height="468" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <path d="M500 24 L500 296" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="h" x="36" y="42" fill="#c14a3a">split the weights — TP=2</text>
+  <text class="h" x="546" y="42" fill="#3a7d44">shrink the weights — FP8, TP=1</text>
+
+  <!-- LEFT -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="62" width="200" height="92" rx="8"/>
+    <rect x="264" y="62" width="200" height="92" rx="8"/>
+  </g>
+  <rect x="56" y="98" width="160" height="20" rx="4" fill="#6b8f2e" fill-opacity="0.7"/>
+  <rect x="284" y="98" width="160" height="20" rx="4" fill="#6b8f2e" fill-opacity="0.7"/>
+  <text class="s" x="56" y="88">132 GB BF16, half</text>
+  <text class="s" x="284" y="88">132 GB BF16, half</text>
+  <text class="s" x="56" y="140">node 1 — occupied</text>
+  <text class="s" x="284" y="140">node 2 — occupied</text>
+  <path d="M236 108 L262 108" stroke="#c14a3a" stroke-width="3"/>
+
+  <rect x="36" y="176" width="428" height="112" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="58" y="204">a cross-node collective on every forward pass</text>
+  <text class="l" x="58" y="230">the whole cluster serves one model</text>
+  <text class="l" x="58" y="256">fleet size: 1 agent</text>
+  <text class="s" x="58" y="278" fill="#c14a3a">and on this hardware it never completed a single run</text>
+
+  <!-- RIGHT -->
+  <rect x="546" y="62" width="200" height="92" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <rect x="566" y="106" width="90" height="20" rx="4" fill="#6b8f2e" fill-opacity="0.7"/>
+  <text class="s" x="566" y="88">~70 GB FP8, whole</text>
+  <text class="s" x="566" y="146">node 1 — occupied</text>
+
+  <rect x="774" y="62" width="190" height="92" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text class="s" x="794" y="106">node 2</text>
+  <text class="l" x="794" y="130">entirely free</text>
+
+  <rect x="546" y="176" width="418" height="112" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="568" y="204">no collective at all</text>
+  <text class="l" x="568" y="230">one node serves it, the other is available</text>
+  <text class="l" x="568" y="256">fleet size: many</text>
+  <text class="s" x="568" y="278" fill="#3a7d44">ran on the first attempt — 20/22, 18/22 on its good runs</text>
+
+  <rect x="36" y="308" width="928" height="60" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="336">a 120B fits on one Spark — I had already proved that, on this hardware, that week</text>
+  <text class="s" x="58" y="358">nothing about the model required two nodes; BF16 was just the file I happened to have</text>
+
+  <text class="c" x="36" y="422">A property of my download, treated as a property of the model.</text>
+</svg>

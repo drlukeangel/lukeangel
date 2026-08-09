@@ -1,0 +1,92 @@
+---
+title: "The Day I Lost to Tensor Parallelism: Nemotron-70B Across Two DGX Sparks"
+date: 2026-08-09T09:00:00-04:00
+category: craft
+tags:
+  - ai
+  - local-llm
+  - dgx-spark
+  - vllm
+  - nemotron
+  - agents
+excerpt: "Seven attempts to split a 70B across both Sparks, eight hours recorded as 'not serviceable on this hardware,' and a one-line answer I'd already been given and ignored."
+pullquote: "The right response to 'the weights don't fit' was to shrink the weights, not to distribute them across a fabric with a documented collective bug."
+cover: "../../assets/blog/tensor-parallelism-cover.svg"
+coverAlt: "Two slab-shaped compute boxes side by side on a cream background, joined by a link. The left box is filled almost to the top with a dense olive-green bar; the right box is completely empty. Between them the connecting line is drawn broken, with a small gap where the two halves fail to meet. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 8
+featured: false
+draft: false
+---
+
+For eight hours yesterday, Nemotron-70B was recorded in my results as **"no score — not serviceable on this hardware."** Seven failed attempts. A negative result, written up and filed.
+
+It was serviceable the whole time. I was doing it wrong in a way I'd been told about, in writing, by my own test output.
+
+## The setup that seemed obvious
+
+The checkpoint on disk is BF16 — about 132 GB. Each Spark has 121 GB of unified memory. The arithmetic is immediate: it doesn't fit on one box, and I have two boxes. Split it with tensor parallelism, `TP=2`, and get on with the day.
+
+Every attempt wedged at the same moment: the instant three agents sent prompts of roughly 10k tokens. Not at load — loading was fine. Not on a small probe — a 30-token generation came back happily. It died specifically when real agent-sized work arrived, and then it stayed dead: **one node pinned at 96% GPU utilisation, the other at exactly 0%, indefinitely.** No error, no timeout, no crash. Just two boxes, one of them very busy doing nothing.
+
+![The wedge, drawn as it appeared in monitoring. Two nodes are joined by a tensor-parallel link with the model's weights split across both. A short probe of thirty tokens passes through and returns normally. Then three agents each send a prompt of roughly ten thousand tokens; the collective operation that must synchronise both halves never completes. The left node sits at ninety-six percent GPU utilisation and the right at zero, with no error raised and no timeout fired — the run simply stops making progress while appearing healthy.](../../assets/blog/tensor-parallelism-wedge.svg)
+
+## Seven things I tried
+
+In order, each one reasonable, each one wrong:
+
+1. **Bound Gloo to loopback** — plausible, because cross-node collectives are exactly where address binding bites.
+2. **Raised the RPC timeout** past its 300-second default, on the theory it was a slow collective rather than a dead one.
+3. **Found my own watchdog holding a flock** that was blocking relaunches — a real bug, genuinely fixed, entirely unrelated.
+4. **Swapped Ray for `mp`** as the distributed executor backend.
+5. **Chunked the prefill**, since the failure only appeared at large prompt sizes.
+6. **Applied the vendor's documented NCCL settings** for this hardware.
+7. **Added `--disable-custom-all-reduce`.**
+
+That last one changed nothing. **Which was the answer, had I been listening.**
+
+Disabling the custom all-reduce path and observing no change tells you the problem isn't in the custom all-reduce path. I read that as "another thing didn't work" and moved to the next idea, when it was the piece of evidence that should have sent me back to the premise instead of further down the list.
+
+## The premise was wrong
+
+Here's the thing I should have noticed on attempt one: **every other large model in this sweep runs quantised, and most of them run on a single node.** A 120B parameter model fits on one Spark. I had already proven that, repeatedly, on the same hardware, that same week.
+
+There was never a reason a 70B needed two nodes — beyond the accident that BF16 was the format I happened to have on disk.
+
+Quantised to FP8, around 70 GB, `TP=1`, one node: it runs. Scores **20/22, 2/22, 18/22**, calling DONE at steps 21 and 28 on the two good runs. Its best run clears the wall that five other models never got past.
+
+![Two responses to a model that will not fit. The first distributes the unquantised weights across both nodes, which requires a cross-node collective on every forward pass, occupies the entire cluster, and leaves room for only one agent at a time. The second quantises the same model to roughly seventy gigabytes so it fits on a single node, needs no collective at all, and leaves the second node entirely free for more agents. A note underneath records that the first approach also failed outright on this hardware, while the second ran on the first attempt.](../../assets/blog/tensor-parallelism-shrink-vs-split.svg)
+
+**The right response to "the weights don't fit" was to shrink the weights, not to distribute them across a fabric with a documented collective bug.**
+
+## The cost I hadn't counted
+
+There's a second reason `TP=2` was the wrong instinct, and it has nothing to do with the bug.
+
+Splitting a model across both Sparks doesn't just add a fragile collective to every forward pass — **it collapses my fleet to a single agent.** Both boxes are now serving one model. For a one-off benchmark that's fine. For what I actually want, which is many agents sweeping a codebase continuously, it's the worst possible configuration: maximum coordination cost, minimum parallelism.
+
+A model that fits on one node leaves the other node free. That's not a footnote to the capability comparison — for my purposes it may be the whole comparison.
+
+## About that 2/22
+
+The middle run is the ugliest number I have, and it's real — a genuine model error, which I checked carefully before writing down, given how many of my numbers have turned out to be mine.
+
+The model was trying to stop members being orphaned when a team is deleted. It wrote a `delete-orphan` cascade onto `Member.team` — the **many** side of a many-to-one. SQLAlchemy accepts that at import time and raises `ArgumentError` on the first query. So the application still builds. It still registers all 21 routes. And it fails every single request.
+
+**None of my three build guards fired**, because all three prove that `create_app()` *returns*, not that the app can serve anything. The model had 25 further steps and never recovered.
+
+That's a guard gap worth closing, and the fix is obvious in hindsight: one request probe after each edit would have caught it immediately and handed the model an error it could act on.
+
+## What I'd tell a team
+
+**When a fix changes nothing, that's data — treat it as such.** A change with no effect eliminates a hypothesis, and eliminating a hypothesis should send you back up the tree, not sideways to the next leaf. I had seven leaves and never revisited the root.
+
+And **check whether the constraint you're routing around is one you accepted or one you chose.** "It doesn't fit" was true of a specific file in a specific precision that happened to be on my disk. I treated a property of my download as a property of the model, and then spent a day engineering around it.
+
+The tell was available from the start: I was building elaborate machinery to work around a constraint that nothing else in the project was subject to. When your solution is the only one of its kind in the system, ask why your problem is the only one of its kind.
+
+## Where it stands
+
+The BF16 `TP=2` attempt is kept in the results, marked void with the reason recorded, rather than deleted — because "seven approaches that didn't work" is the useful part, and quietly replacing it with the run that worked would make the FP8 number look like a first attempt.
+
+One caveat that travels with the score permanently: **that row is FP8, quantised on load.** The checkpoint is BF16. It is not a BF16 result and it must never be quoted as one.

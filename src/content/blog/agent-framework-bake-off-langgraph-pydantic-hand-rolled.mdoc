@@ -1,0 +1,87 @@
+---
+title: "The Agent Framework Bake-Off: LangGraph vs Pydantic AI vs Hand-Rolled, and the 32 Lines That Mattered"
+date: 2026-08-07T09:00:00-04:00
+category: tools
+tags:
+  - ai
+  - agents
+  - local-llm
+  - langgraph
+  - orchestration
+  - dgx-spark
+excerpt: "Three orchestration arms, identical workspaces, wiring as the only variable. The paper survey's ranking held up. Its reasoning did not — and I published a stronger claim than the data supported."
+pullquote: "The gain didn't come from primitives. It came from 32 lines being harder to get wrong."
+cover: "../../assets/blog/bake-off-cover.svg"
+coverAlt: "Three ink-outlined columns of equal height on a cream background, each built from stacked blocks. Two are topped with a filled olive-green cap of the same size; the third's cap is slightly short and outlined rather than filled. In the middle column, a narrow band near the top is picked out in a contrasting tone, far smaller than the rest of the stack. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 7
+featured: false
+draft: false
+---
+
+[Last week I scored ten agent frameworks by reading their documentation](/blog/ten-ai-agent-frameworks-on-paper/) and picked a top two: keep the hand-rolled system, with LangGraph as the framework to adopt if the decision changed. Pydantic AI didn't make the cut — R1–R7, R9, R10 and R12 all unsupported.
+
+Then I built all three and ran them on identical workspaces, same worker, same prompts, same review panel, same gate, with the orchestration wiring as the only variable.
+
+```
+arm                            result  holdout    time      turns
+armA-handrolled                 22/22   13/13   237.5 min    881
+armB-langgraph                  22/22   13/13   190.6 min    802
+armC-pydantic                   21/22   13/13   160.0 min    979
+```
+
+**The paper ranking held.** The guide's #1 ties for first, and the candidate it excluded from the top two is the only arm that didn't finish the contract.
+
+I'd love to report that as a win for careful desk research. It isn't, and the reason is more interesting than the table.
+
+## First, a correction I have to make about myself
+
+I wrote up this result before it was finished.
+
+At the point I published, `armA` was still running and the numbers I had said the hand-rolled arm was trailing. So I wrote **"the guide's top pick came last"** — a great line, a clean reversal, exactly the kind of finding that makes a post worth reading. Then armA closed at 22/22 in round 3 and the ranking collapsed into a tie.
+
+That is precisely the error I'd spent the previous week criticising in my own grader: **reading a partial state as a result.** I did it on the same day, about the same experiment, one level up. The claim was interesting, which is exactly why I should have waited.
+
+![Prediction versus measurement, side by side. On the left, the paper survey's ranking: hand-rolled first, LangGraph second, Pydantic AI excluded from the top two. On the right, the measured outcome: hand-rolled and LangGraph both reach twenty-two out of twenty-two and tie for first, while Pydantic AI finishes at twenty-one out of twenty-two — the only arm not to complete the contract. Arrows connect each predicted position to where it actually landed, and every arrow is short. Beneath, a struck-through line reading "the guide's top pick came last" is marked as published early and retracted, with a note that the third arm had not finished when it was written.](../../assets/blog/bake-off-prediction-vs-measurement.svg)
+
+## Where the survey was actually wrong
+
+Not the ranking. The reasoning underneath it.
+
+The survey scored frameworks on whether they *implement* R1–R10 as primitives, found that none of them do, and concluded there was nothing to gain from adopting one.
+
+**The first half was correct and the measurement confirmed it.** Arm B is 84% shared hand-rolled code. Only **32 lines** in the entire arm touch a LangGraph primitive.
+
+The second half did not follow.
+
+The gain didn't come from primitives — it came from those 32 lines being harder to get wrong. **Five of the thirty harness bugs I hit during this work lived in exactly that surface**: a wave loop that died with `KeyError: '_unit'` on the second wave, a reducer that couldn't be reset between rounds, a field read as `problems` where the schema emitted `concerns`. LangGraph's version of those 32 lines has been debugged by more people than mine has.
+
+![Where the framework's value actually sat. A tall bar representing arm B is split: eighty-four percent is shared hand-rolled code identical to the other arms, and a thin band at the top marks the thirty-two lines that touch a LangGraph primitive. An arrow from that thin band points to a list of five harness bugs found during the work — a wave loop failing with a key error on the second wave, a reducer that could not be reset between rounds, and a schema field read under the wrong name. A caption notes that a framework audit which counts features cannot see this, because the thing being bought is not a feature but the accumulated debugging of a small, error-prone surface.](../../assets/blog/bake-off-32-lines.svg)
+
+**A framework audit that counts features cannot see that**, because the thing being bought isn't a feature. It's the accumulated debugging of a small, fiddly surface that I would otherwise get wrong five times.
+
+## What LangGraph actually bought
+
+Not a better outcome. Both arms reached 22/22 with the holdout intact.
+
+What it bought was **convergence speed** — 22/22 in round 2 versus round 3. That's worth about **9% on turns and 20% on wall clock**. Real, worth having, and much less than the framing "which framework wins" implies.
+
+I originally reported this as *"10% better outcome from 1.1% of the code."* That claim is retracted too — it was computed when armA was still trailing. The correct version is: **same outcome, 20% faster, from 1.1% of the code.** Less quotable. Actually true.
+
+## Pydantic AI, fairly
+
+It came last, and the survey predicted it would. But it also ran the *fastest* wall clock of the three arms at 160 minutes, and its holdout is a clean 13/13 — it did not break anything, it just didn't finish everything. 21/22 with an intact holdout is a respectable failure mode, and a much better one than 22/22 with damage.
+
+It's a well-built library aimed at a different job. The survey's verdict was that it doesn't do what I need, not that it's bad, and the measurement agrees.
+
+## What I'd tell a team
+
+**When a paper evaluation turns out to be right, check whether it was right for its stated reasons.** Mine reached the correct ranking through an argument that measurement contradicted. If I'd taken the ranking as validation of the method, I'd have kept using a method that scores the wrong property — and the next time, when the reasoning and the answer diverge, I'd have had no warning.
+
+And be suspicious of your own best lines. The strongest sentence I wrote about this experiment was the one that was false, and it was strong *because* it was false — a clean reversal is more shareable than a tie. That's an incentive worth naming out loud, because it doesn't announce itself while you're typing.
+
+## The bigger problem with this whole post
+
+All three arms are competing on a task where the orchestration itself may not be earning its place.
+
+While these were running, I set up a control I should have run first: a single agent, no orchestration at all, same contract. I'm writing that up next, and it reframes everything above — not by making the framework comparison wrong, but by making it a careful measurement of something that turned out not to matter much for this task.

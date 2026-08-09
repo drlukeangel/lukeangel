@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Tensor parallelism">
+  <defs>
+    <pattern id="d9" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#d9)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6b8f2e"/>
+
+  <!-- left node: saturated -->
+  <g transform="translate(210,180)">
+    <path d="M0 40 L246 40 L282 8 L36 8 Z" fill="#eceadf" stroke="#1a1d24" stroke-width="3.5" stroke-linejoin="round"/>
+    <rect x="0" y="40" width="246" height="230" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <path d="M246 40 L282 8 L282 238 L246 270 Z" fill="#e4e2d6" stroke="#1a1d24" stroke-width="3.5" stroke-linejoin="round"/>
+    <rect x="30" y="74" width="186" height="164" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+    <rect x="34" y="90" width="178" height="144" rx="5" fill="#6b8f2e" fill-opacity="0.85"/>
+  </g>
+
+  <!-- right node: empty -->
+  <g transform="translate(708,180)">
+    <path d="M0 40 L246 40 L282 8 L36 8 Z" fill="#eceadf" stroke="#1a1d24" stroke-width="3.5" stroke-linejoin="round"/>
+    <rect x="0" y="40" width="246" height="230" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <path d="M246 40 L282 8 L282 238 L246 270 Z" fill="#e4e2d6" stroke="#1a1d24" stroke-width="3.5" stroke-linejoin="round"/>
+    <rect x="30" y="74" width="186" height="164" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  </g>
+
+  <!-- the broken link -->
+  <g stroke="#1a1d24" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M492 336 L564 336"/>
+    <path d="M636 336 L708 336"/>
+  </g>
+  <g stroke="#c14a3a" stroke-width="6" stroke-linecap="round">
+    <path d="M572 306 L572 366"/>
+    <path d="M628 306 L628 366"/>
+  </g>
+
+  <path d="M210 512 L990 512" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="3" stroke-linecap="round"/>
+</svg>
