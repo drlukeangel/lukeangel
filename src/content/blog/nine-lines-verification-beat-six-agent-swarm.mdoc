@@ -1,0 +1,88 @@
+---
+title: "Nine Lines of Verification That Beat a Six-Agent AI Swarm"
+date: 2026-08-12T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - agents
+  - local-llm
+  - orchestration
+  - dgx-spark
+  - evals
+excerpt: "A gate that refuses to let an agent stop took a weak model from 12/22 to the full contract. The six-agent orchestration, given the same model, did not."
+pullquote: "It tried to stop 52 times. It was refused 51. That is the whole mechanism."
+cover: "../../assets/blog/verify-done-cover.svg"
+coverAlt: "A single agent node on a cream background pressing against a heavy ink-drawn barrier marked with a small loop returning to the node. Behind the barrier sits a finish marker. To one side, a much larger cluster of six nodes sits idle against an identical barrier that is standing open. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 10
+featured: false
+draft: false
+---
+
+[A single agent beat 1,200 lines of orchestration by 13× on wall clock.](/blog/1200-lines-orchestration-beaten-by-one-local-llm-agent/) That result had a hole in it, and it took another day to find: **I had only ever measured orchestration on the strongest model available.**
+
+Of course a review panel adds nothing on top of a model that doesn't need review. The honest question isn't "does orchestration help?" — it's "does orchestration *rescue a weak model*?" If a framework could take a model from 19/22 to 22/22, then orchestration's domain is exactly the models that can't go it alone, and my headline was an artefact of testing only the model that made review redundant.
+
+That's a single cell in a 2×2, and it decides the whole thing.
+
+## The 2×2
+
+All runs from the same 17/22 baseline with a 13/13 holdout:
+
+| condition | oracle | holdout | DONE / refused |
+|---|---|---|---|
+| solo, no gate | 12, 17, 17 | **6/13**, 13, 13 | 1 / 0 |
+| solo + `VERIFY_DONE` | **22**, 20, 20 | 13, 13, 12 | 52 / 51 |
+| LangGraph swarm, 6 agents | 19 | 13/13 | 478 turns, 98.5 min |
+
+**The only run to reach the full contract is the only one where the gate engaged.** It tried to stop 52 times, was refused 51, and finished 22/22 in 72 minutes and 197 steps — beating the six-agent panel on score, wall clock *and* cost, using one agent and nine lines instead of 1,200.
+
+The deciding cell landed at **19/22**. The six-agent orchestration did not rescue the weak model. Nine lines of verification did.
+
+## What the nine lines do
+
+When the agent declares it's finished, run the criteria. If any fail, refuse the stop and hand back the failures.
+
+That's it. No reviewer, no panel, no synthesis, no adversarial second model. The only reason it can exist is that [the contract runs in two seconds](/blog/twenty-two-behavioural-criteria-replaced-the-structural-grader/) — at 28 seconds this would be unaffordable at 52 invocations.
+
+![The verification gate in place. An agent works in a loop of edits and, when it believes the work is complete, emits a DONE signal. Instead of ending the run, the signal is intercepted: the behavioural contract runs in two seconds, and if any criterion fails the stop is refused and the failing criteria are handed straight back into the agent's context as its next task. The loop repeats. A counter on the gate records fifty-two attempts to stop and fifty-one refusals, with only the final attempt passing through to a completed run. A note marks that the gate holds no opinion about the code — it only compares the agent's claim against the contract.](../../assets/blog/verify-done-gate.svg)
+
+The gate has no opinion about the code. It doesn't review, doesn't suggest, doesn't reason. It compares a claim against a contract, and the only thing it contributes is *refusal*.
+
+## The ungated row is the part worth staring at
+
+Without the gate, the same model announced *"successfully implemented all required functionality"* — at **12/22, with 7 of 13 holdout probes broken.** It had deleted a field the application depends on, and every request that touched it now raised `KeyError: 'due_date'`.
+
+It was not lying. It had no way to know. It was asked to judge its own completion and it did what anything does in that position: consulted its own account of its work and found it satisfactory.
+
+![Why self-assessment fails structurally rather than through dishonesty. An agent's context is drawn as a growing column of its own edits and its own reasoning about why each edit was correct. At the end it is asked whether the work is complete. The diagram shows the only evidence available to it — its own prior statements — and marks the piece of information that would contradict it as living outside the context entirely, in the running application. The reported answer is success at twelve of twenty-two with seven of thirteen holdout probes broken. A caption notes that no wording of the question changes what evidence is reachable.](../../assets/blog/verify-done-self-assessment.svg)
+
+**This is not a prompting problem.** You cannot instruct your way out of it, because the information that would change the answer isn't in the context at all. It's in the running application, and only something that runs the application can go and get it.
+
+## Corroboration from an uncomfortable direction
+
+While writing this up I went looking at how production coding agents handle the same problem, and found that a widely-used commercial agent architecture has **no verification gate at all** — all verification is left to the orchestrating model. No reviewer agent, no adversarial panel.
+
+I had built 1,200 lines of exactly the layer the reference implementation deliberately omits, and then found that the nine lines it also omits were the ones that mattered. I don't think that reflects well on either of us, but it does suggest the gap is real rather than idiosyncratic to my setup.
+
+## Two caveats that travel with this
+
+I want these attached to the finding permanently, because it's the sort of result that gets quoted without them.
+
+**It is n=1 on the engaged condition.** The other two gated runs never declared DONE at all, so their 20/22 says nothing either way about the gate. One run reached the phase where the mechanism could fire. One.
+
+**The weak-model row ran at the wrong sampling parameters.** A per-model profile store existed and nothing read it, so every model ran at a single temperature that matched almost none of them. That's its own write-up, and it means these numbers need re-running before they're load-bearing.
+
+I nearly made a third error on top of both. Mid-run I wrote that the gate *"fired once in six runs, so it's variance"* — a count taken **before the one run that mattered reached the phase where it began declaring DONE.** A snapshot generalised into a structural claim, and it inverted the actual finding.
+
+## What I'd tell a team
+
+**Never let an agent be the judge of its own completion.** Not because it will lie, but because completion is a claim about the world and the agent only has access to its own account of the world.
+
+And when you're deciding what to build, ask which layer is doing the work. I built decomposition, ownership, scheduling, review, synthesis and gating — and the thing that produced the result was the smallest and least interesting of them. Fan-out was the part that felt like engineering. Refusal was the part that worked.
+
+## What's next
+
+The mechanism question is settled enough for now. The one I still can't answer is the one I bought the hardware for: what does a fix actually *cost* on machines I own, and how many agents can I run at once before that number stops falling?
+
+I have the measurement. It's better than I expected, and it changes which model I'd choose.

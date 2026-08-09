@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="The verification gate">
+  <rect x="1" y="1" width="998" height="458" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="md" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+    <marker id="me" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c14a3a"/>
+    </marker>
+  </defs>
+
+  <!-- agent loop -->
+  <rect x="36" y="132" width="212" height="96" rx="8" fill="#6b8f2e" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="164">one agent</text>
+  <text class="s" x="58" y="190">edit → edit → edit</text>
+  <text class="s" x="58" y="212">"I am finished"</text>
+
+  <path d="M248 180 L336 180" stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#md)"/>
+  <text class="s" x="256" y="168">DONE</text>
+
+  <!-- the gate -->
+  <rect x="344" y="96" width="232" height="168" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+  <text class="h" x="366" y="128">VERIFY_DONE</text>
+  <text class="s" x="366" y="156">run the 22 criteria</text>
+  <text class="s" x="366" y="176">— 2 seconds —</text>
+  <text class="l" x="366" y="206">any failing?</text>
+  <rect x="366" y="222" width="188" height="28" rx="5" fill="#6b8f2e" fill-opacity="0.2" stroke="#1a1d24" stroke-width="2"/>
+  <text class="s" x="380" y="241">52 attempts · 51 refused</text>
+
+  <!-- refusal path -->
+  <path d="M460 264 C460 330 200 330 142 330 L142 232" stroke="#c14a3a" stroke-width="2.5" fill="none" marker-end="url(#me)"/>
+  <text class="s" x="230" y="352" fill="#c14a3a">refused — the failing criteria go back as the next task</text>
+
+  <!-- pass path -->
+  <path d="M576 180 L664 180" stroke="#3a7d44" stroke-width="2.5" fill="none" marker-end="url(#md)"/>
+  <text class="s" x="584" y="168" fill="#3a7d44">51st refusal, then pass</text>
+  <rect x="672" y="132" width="292" height="96" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="3"/>
+  <text class="h" x="694" y="164" fill="#3a7d44">22/22 · 13/13</text>
+  <text class="s" x="694" y="190">72 minutes, 197 steps</text>
+  <text class="s" x="694" y="212">one agent, nine lines</text>
+
+  <rect x="672" y="264" width="292" height="72" rx="8" fill="#7a808c" fill-opacity="0.1" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text class="s" x="694" y="292">the gate holds no opinion about the code</text>
+  <text class="s" x="694" y="316">it compares a claim against a contract</text>
+
+  <text class="c" x="36" y="410">Its only contribution is refusal.</text>
+</svg>
