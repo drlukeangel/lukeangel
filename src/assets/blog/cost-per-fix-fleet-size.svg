@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="Fleet size">
+  <rect x="1" y="1" width="998" height="438" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <path d="M500 24 L500 300" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="h" x="36" y="42">DeepSeek-V4-Flash — both boxes</text>
+  <text class="h" x="546" y="42">Qwen3.6-35B-A3B — one box</text>
+
+  <!-- left: two boxes, one model -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="62" width="192" height="86" rx="8"/>
+    <rect x="256" y="62" width="192" height="86" rx="8"/>
+  </g>
+  <rect x="56" y="98" width="152" height="22" rx="4" fill="#6b8f2e" fill-opacity="0.7"/>
+  <rect x="276" y="98" width="152" height="22" rx="4" fill="#6b8f2e" fill-opacity="0.7"/>
+  <path d="M228 108 L254 108" stroke="#1a1d24" stroke-width="3"/>
+  <text class="s" x="56" y="88">half the weights</text>
+  <text class="s" x="276" y="88">half the weights</text>
+  <text class="s" x="56" y="140">occupied</text>
+  <text class="s" x="276" y="140">occupied</text>
+
+  <g fill="#6b8f2e">
+    <circle cx="70" cy="188" r="8"/><circle cx="96" cy="188" r="8"/><circle cx="122" cy="188" r="8"/>
+  </g>
+  <text class="l" x="36" y="228">~3 concurrent agents</text>
+  <text class="h" x="36" y="256">1.5 agents per box</text>
+  <text class="s" x="36" y="280">22/22 three times out of three</text>
+
+  <!-- right: one box, many agents -->
+  <rect x="546" y="62" width="192" height="86" rx="8" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <rect x="566" y="102" width="76" height="22" rx="4" fill="#6b8f2e" fill-opacity="0.7"/>
+  <text class="s" x="566" y="92">all the weights</text>
+  <text class="s" x="566" y="140">occupied</text>
+
+  <rect x="766" y="62" width="198" height="86" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text class="l" x="788" y="110">entirely free</text>
+
+  <g fill="#6b8f2e">
+    <circle cx="560" cy="180" r="8"/><circle cx="586" cy="180" r="8"/><circle cx="612" cy="180" r="8"/><circle cx="638" cy="180" r="8"/>
+    <circle cx="664" cy="180" r="8"/><circle cx="690" cy="180" r="8"/><circle cx="716" cy="180" r="8"/><circle cx="742" cy="180" r="8"/>
+    <circle cx="560" cy="206" r="8"/><circle cx="586" cy="206" r="8"/><circle cx="612" cy="206" r="8"/><circle cx="638" cy="206" r="8"/>
+    <circle cx="664" cy="206" r="8"/><circle cx="690" cy="206" r="8"/><circle cx="716" cy="206" r="8"/><circle cx="742" cy="206" r="8"/>
+  </g>
+  <text class="l" x="546" y="248">16 concurrent agents, measured</text>
+  <text class="h" x="546" y="276">16 agents per box</text>
+
+  <rect x="36" y="316" width="928" height="60" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="344">roughly ten times the agents per box</text>
+  <text class="s" x="58" y="366">the most capable model in the sweep yields the smallest fleet</text>
+
+  <text class="c" x="36" y="416">Capability per box is the number that decides what you can actually run.</text>
+</svg>

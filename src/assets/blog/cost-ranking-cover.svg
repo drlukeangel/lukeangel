@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Cost ranking">
+  <defs>
+    <pattern id="dc" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#dc)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6b8f2e"/>
+
+  <g transform="translate(230,86)">
+    <!-- four with a price -->
+    <g stroke="#1a1d24" stroke-width="3">
+      <rect x="0" y="0"  width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="48" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="96" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="144" width="740" height="38" rx="8" fill="#fdfaf2"/>
+    </g>
+    <g fill="#6b8f2e">
+      <rect x="18" y="10" width="52" height="18" rx="5"/>
+      <rect x="18" y="58" width="100" height="18" rx="5"/>
+      <rect x="18" y="106" width="188" height="18" rx="5"/>
+      <rect x="18" y="154" width="452" height="18" rx="5"/>
+    </g>
+
+    <!-- seven with none -->
+    <g stroke="#1a1d24" stroke-width="3" stroke-opacity="0.55">
+      <rect x="0" y="204" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="252" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="300" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="348" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="396" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="444" width="740" height="38" rx="8" fill="#fdfaf2"/>
+      <rect x="0" y="492" width="740" height="38" rx="8" fill="#fdfaf2"/>
+    </g>
+    <g stroke="#7a808c" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round">
+      <path d="M18 219 L52 219"/><path d="M18 267 L52 267"/><path d="M18 315 L52 315"/>
+      <path d="M18 363 L52 363"/><path d="M18 411 L52 411"/><path d="M18 459 L52 459"/>
+      <path d="M18 507 L52 507"/>
+    </g>
+
+    <path d="M-26 194 L766 194" stroke="#c14a3a" stroke-width="4" stroke-dasharray="14 10" stroke-linecap="round"/>
+  </g>
+</svg>

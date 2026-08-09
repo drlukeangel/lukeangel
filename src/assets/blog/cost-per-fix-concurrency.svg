@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Concurrency curve">
+  <rect x="1" y="1" width="998" height="498" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <text class="h" x="36" y="40">wall clock rises slowly; work rises fast</text>
+
+  <!-- baseline -->
+  <path d="M96 300 L640 300" stroke="#1a1d24" stroke-opacity="0.35" stroke-width="2.5"/>
+
+  <!-- wall clock bars -->
+  <g stroke="#1a1d24" stroke-width="2.5">
+    <rect x="120" y="262" width="72" height="38" fill="#7a808c" fill-opacity="0.28"/>
+    <rect x="256" y="251" width="72" height="49" fill="#7a808c" fill-opacity="0.28"/>
+    <rect x="392" y="219" width="72" height="81" fill="#7a808c" fill-opacity="0.28"/>
+    <rect x="528" y="164" width="72" height="136" fill="#7a808c" fill-opacity="0.28"/>
+  </g>
+  <g class="s" fill="#5b616b">
+    <text x="126" y="252">111s</text><text x="262" y="241">143s</text>
+    <text x="398" y="209">236s</text><text x="534" y="154">398s</text>
+  </g>
+
+  <!-- agent counts under axis -->
+  <g class="l" fill="#1a1d24">
+    <text x="146" y="326">N=1</text><text x="282" y="326">N=4</text>
+    <text x="418" y="326">N=8</text><text x="546" y="326">N=16</text>
+  </g>
+  <g fill="#6b8f2e">
+    <circle cx="156" cy="348" r="6"/>
+    <circle cx="268" cy="348" r="6"/><circle cx="284" cy="348" r="6"/><circle cx="300" cy="348" r="6"/><circle cx="316" cy="348" r="6"/>
+  </g>
+  <g fill="#6b8f2e">
+    <circle cx="396" cy="348" r="6"/><circle cx="412" cy="348" r="6"/><circle cx="428" cy="348" r="6"/><circle cx="444" cy="348" r="6"/>
+    <circle cx="396" cy="366" r="6"/><circle cx="412" cy="366" r="6"/><circle cx="428" cy="366" r="6"/><circle cx="444" cy="366" r="6"/>
+    <circle cx="532" cy="348" r="6"/><circle cx="548" cy="348" r="6"/><circle cx="564" cy="348" r="6"/><circle cx="580" cy="348" r="6"/>
+    <circle cx="532" cy="366" r="6"/><circle cx="548" cy="366" r="6"/><circle cx="564" cy="366" r="6"/><circle cx="580" cy="366" r="6"/>
+    <circle cx="532" cy="384" r="6"/><circle cx="548" cy="384" r="6"/><circle cx="564" cy="384" r="6"/><circle cx="580" cy="384" r="6"/>
+    <circle cx="532" cy="402" r="6"/><circle cx="548" cy="402" r="6"/><circle cx="564" cy="402" r="6"/><circle cx="580" cy="402" r="6"/>
+  </g>
+  <text class="s" x="96" y="436">every one of them solved its bug</text>
+
+  <!-- cost per solve, falling -->
+  <rect x="672" y="56" width="292" height="292" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="694" y="86">effective sec / solve</text>
+  <g class="l" fill="#1a1d24">
+    <text x="694" y="124">N=1</text><text x="820" y="124">110.8s</text>
+    <text x="694" y="160">N=4</text><text x="820" y="160">35.7s</text>
+    <text x="694" y="196">N=8</text><text x="820" y="196">29.5s</text>
+    <text x="694" y="232">N=16</text><text x="820" y="232">24.9s</text>
+  </g>
+  <path d="M694 250 L940 250" stroke="#1a1d24" stroke-opacity="0.25" stroke-width="2"/>
+  <text class="h" x="694" y="282">$0.0292  →  $0.0066</text>
+  <text class="s" x="694" y="308">per solved bug</text>
+  <text class="s" x="694" y="330" fill="#3a7d44">4.45× cheaper than serial</text>
+
+  <text class="c" x="36" y="470">Bandwidth-bound: the weights are read once per pass, however many sequences ride along.</text>
+</svg>

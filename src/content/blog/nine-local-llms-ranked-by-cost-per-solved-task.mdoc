@@ -1,0 +1,85 @@
+---
+title: "Nine Local LLMs Ranked by Cost Per Solved Task — Seven of Them Have No Price at All"
+date: 2026-08-17T09:00:00-04:00
+category: tools
+tags:
+  - ai
+  - local-llm
+  - dgx-spark
+  - agents
+  - cost
+  - evals
+excerpt: "Every model I could serve on two Sparks, run against the same 22-criterion contract, ranked by what a solved repair actually costs. Four have a price. The rest divide by zero."
+pullquote: "A repair that doesn't satisfy the contract isn't 80% of a repair. It's a workspace you throw away."
+cover: "../../assets/blog/cost-ranking-cover.svg"
+coverAlt: "A vertical list of eleven ink-outlined rows on a cream background. The top four carry a solid olive-green price bar of increasing length. The remaining seven carry no bar at all — just an empty rule where the bar would be. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 12
+featured: false
+draft: false
+---
+
+Every model I could serve on two Sparks, run three times against the same 22-criterion behavioural contract from the same 17/22 baseline, with a 13-probe holdout the agent never sees.
+
+Ranked the way [I said I'd rank things before I bought the hardware](/blog/local-llm-bill-what-a-bug-fix-has-to-cost/): by what a solved repair costs.
+
+| model | nodes | scores | node busy | 22/22s | machine cost | **$ per solved contract** |
+|---|---:|---:|---:|---:|---:|---:|
+| Qwen3.6-35B-A3B | 1 | 22, 22, 20 | 11m | 2 | $0.174 | **$0.087** |
+| DeepSeek-V4-Flash | **2** | 22, 22, 22 | 16m | 3 | $0.507 | **$0.169** |
+| Qwen3-Coder-Next | 1 | 18, 17, 22 | 20m | 1 | $0.317 | $0.317 |
+| Laguna-S-2.1 | 1 | 22, 21, 17 | 81m | 1 | $1.282 | $1.282 |
+| Devstral-2-123B | 1 | 18, 19, 19 | 266m | 0 | $4.211 | **never** |
+| Nemotron-3-Super-120B | 1 | 17, 17, 17 | 148m | 0 | $2.343 | **never** |
+| Nemotron-70B (FP8) | 1 | 20, 2, 18 | 137m | 0 | $2.169 | **never** |
+| Nemotron-120B | 1 | 17, 18, 18 | 54m | 0 | $0.855 | **never** |
+| Qwen3-Coder-30B | 1 | 17, 17, 20 | 12m | 0 | $0.190 | **never** |
+| gpt-oss-20b | 1 | 17, 17, 17 | 10m | 0 | $0.158 | **never** |
+
+Costs use [the model I set out before buying](/blog/local-llm-bill-what-a-bug-fix-has-to-cost/): ~$0.95 per machine-hour, doubled for anything occupying both boxes, charged for the wall clock the node was actually busy.
+
+## Seven of them have no price
+
+Not "expensive." **Undefined.** They never produce the artifact, so there's nothing to divide by.
+
+This is the entire argument for the unit, and it took having the data in front of me to feel it properly. On a score ranking, gpt-oss-20b looks respectable and thrifty: 17/22, ten minutes, sixteen cents. On a cost-per-task ranking it's the same product as Devstral-2-123B, which burned **$4.21 and 266 minutes** to arrive in the same place. The 26× price gap between them doesn't matter. Neither one hands you a repaired application.
+
+![Why the same data ranks differently under two units. On the left, the models ordered by score: a smooth gradient from twenty-two down to seventeen, with the seventeens looking like respectable near-misses. On the right, the same models ordered by cost per solved contract: four have a finite price and the remaining seven collapse into a single undefined band, regardless of whether they cost sixteen cents or four dollars and twenty-one cents to reach it. An arrow marks the two models the first ranking flatters most — a cheap fast model at seventeen and an expensive slow one at nineteen — landing in the same place under the second.](../../assets/blog/cost-ranking-two-units.svg)
+
+## The wall at 17/22
+
+Five models fail the **same five criteria**: B3, B4, B5, C3 and C5 — deleting a team without orphaning its members or tasks, foreign-key validation, and the priority enum. Referential integrity, in a phrase.
+
+**This is not a size effect.** gpt-oss at 20B and Nemotron at 120B fail the identical set. Devstral-123B spends 121 minutes a run to arrive in the same place. Six times the parameters and twelve times the wall clock buy nothing here.
+
+The models that clear the wall aren't the biggest ones — they're the ones that keep checking their own work instead of declaring victory.
+
+![The wall, drawn as a shared failure set. Five models of very different sizes — twenty billion, thirty billion, one hundred and twenty billion, one hundred and twenty-three billion parameters — are shown converging on an identical set of five failing criteria covering cascade deletion, foreign-key validation and an enum constraint. A note records that these are exactly the behaviours a structural grader cannot see, since every one of them concerns what survives after something is removed. Beside them, the two models that clear the wall are marked not by size but by behaviour: both re-run the contract and continue working rather than declaring completion.](../../assets/blog/cost-ranking-the-wall.svg)
+
+Worth noticing *which* five criteria. Every one is about what survives when something is removed — the same family of behaviour that [my original 229 structural checks were constitutionally unable to see](/blog/ai-grader-passed-the-same-bug-three-times/). The hardest thing for these models is the thing my first grader couldn't measure at all.
+
+## The two that have a real price
+
+**Qwen3.6-35B-A3B at $0.087** — matches the ceiling twice at 35B, on one node, in eleven minutes, and *stops when it's done* rather than burning the budget. Nothing else comes close on capability per unit of cost.
+
+**DeepSeek-V4-Flash at $0.169** — the only model to solve the full contract three times out of three. It's also the heaviest thing in the fleet and the only one needing both nodes, so you pay 1.9× per solved contract for that reliability, and [you get a fleet of about three agents instead of sixteen](/blog/what-a-bug-fix-costs-on-two-dgx-sparks/).
+
+Don't read the table as "Qwen is good." The **3.6 generation** is doing the work — the Coder variants sit mid-pack at 17–20, and Qwen3-Coder-Next lands at a flat 17.
+
+## Caveats that travel with this table
+
+- **The protocol column isn't uniform.** DeepSeek's 22×3 is a text-protocol score; Qwen3.6's is tools. Five models moved when I switched them, so these aren't strictly like-for-like. DeepSeek's own tools-mode run scored 20/19/0 — but sampling changed at the same time, so it attributes nothing and is excluded.
+- **Best-of-three flatters the variable models.** Laguna spans 17–22 across three runs. DeepSeek and Qwen3.6-35B are the only two consistently at the top.
+- **Nemotron-70B's row is FP8**, quantised on load. The checkpoint on disk is BF16. It is not a BF16 score and must never be quoted as one.
+- **The 2/22 in that row is real** and I checked it carefully: the model wrote a `delete-orphan` cascade onto the *many* side of a many-to-one. SQLAlchemy accepts it at import and raises on the first query, so the app builds, registers all 21 routes, and fails every request. [That story has its own post.](/blog/the-day-i-lost-to-tensor-parallelism-nemotron-70b/)
+- **Everything here is one task.** A 22-criterion Flask repair contract is not a benchmark suite, and a model that wins it is not thereby the best model.
+
+## What I'd tell a team
+
+**Put the undefined column in your table and don't fill it with a large number.** The temptation is to write "$∞" or to rank the never-finishers by how cheaply they failed. Both re-import the gradient the unit is designed to remove. Seven rows saying `never` is uncomfortable to look at, which is the point — it's the honest shape of the result.
+
+And **check what your hardest failures have in common before blaming capability.** Mine were all one behaviour: cleanup after deletion. That's a much more actionable finding than "the small models are worse," and a score ranking sorted by size would have hidden it completely.
+
+## What's next
+
+I've now got a ranking table where six of the numbers turned out to be measuring my own code rather than the models. That accounting is the last post in this arc, and it's the one I'd want to read if someone else had written it.

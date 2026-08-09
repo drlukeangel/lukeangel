@@ -1,0 +1,85 @@
+---
+title: "What a Bug Fix Costs on Two DGX Sparks: 16 Concurrent AI Agents, 4.45× Cheaper Than Serial"
+date: 2026-08-14T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - agents
+  - local-llm
+  - dgx-spark
+  - cost
+  - vllm
+excerpt: "Sixteen agents fixing sixteen bugs at once on a single Spark, all sixteen solved, at two-thirds of a cent each. The number that made the hardware worth buying — and the two places I stopped measuring."
+pullquote: "The ceiling I'd been running against was a benchmark's sample size, not a limit of the machine."
+cover: "../../assets/blog/cost-per-fix-cover.svg"
+coverAlt: "A descending stepped curve on a cream background, drawn as four bars of shrinking height above a baseline. Beside the tallest bar stands a single small agent node; beside the shortest, a dense block of sixteen. Below, one compute box carries the whole cluster of sixteen while a second box sits empty beside it. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 11
+featured: true
+draft: false
+---
+
+[Five weeks ago I wrote down the arithmetic for buying two Sparks](/blog/local-llm-bill-what-a-bug-fix-has-to-cost/) and said the unit that mattered was cost per solved task — and that I couldn't measure it until the hardware arrived.
+
+Here it is.
+
+## The measurement
+
+Fire N concurrent bug-fix requests at one node. Real 8 KB prompts, no token cap, graded serially afterwards because the working tree can only hold one patch at a time. Model is Qwen3.6-35B-A3B, running on a **single** Spark.
+
+| N | wall clock | solved | eff. sec / solve | $ / solve | vs serial |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 110.8s | 1/1 | 110.8s | $0.0292 | 1.00× |
+| 4 | 142.9s | 4/4 | 35.7s | $0.0094 | 3.10× |
+| 8 | 236.0s | 8/8 | 29.5s | $0.0078 | 3.75× |
+| 16 | 398.2s | **16/16** | **24.9s** | **$0.0066** | **4.45×** |
+
+**Sixteen agents, sixteen bugs, sixteen fixes, two-thirds of a cent each.** Nothing degraded as N climbed — the solve rate stayed perfect and the cost per solve fell monotonically. And this used *one* of the two boxes.
+
+The dollar figures come from [the same cost model I set out before buying](/blog/local-llm-bill-what-a-bug-fix-has-to-cost/): 70% of a $9,400 purchase amortised over 36 months at 200 busy hours, plus 240 W at $0.15/kWh — about $0.95 per machine-hour.
+
+![Why concurrency divides the cost. A single request occupies the machine for its full duration and pays the whole machine-hour rate alone. Sixteen concurrent requests share the same forward passes: the weights are read once per pass regardless of how many sequences ride along, so wall clock rises far more slowly than the number of requests. The chart shows wall clock climbing from 111 seconds at one request to 398 at sixteen — under four times the duration for sixteen times the work — while the effective seconds per solved bug falls from 110.8 to 24.9. A note marks that this machine is bandwidth-bound, which is the reason batching pays here rather than merely being convenient.](../../assets/blog/cost-per-fix-concurrency.svg)
+
+The mechanism is that this machine is **bandwidth-bound**. Weights get read once per forward pass no matter how many sequences share the batch, so N concurrent generations cost roughly the wall clock of one. Sixteen times the work for 3.6× the time.
+
+## The ceiling was mine, not the machine's
+
+Here's the part that stung.
+
+I'd been running everything at **three concurrent agents** and had started treating that as what the hardware could do. It isn't. It's `modeltest.sh` taking runs as its third argument with a default of 3 — and the comments say exactly why: *"THREE RUNS PER MODEL, not one. Single-agent runs vary... one sample would have implied a precision that is not there."*
+
+**That 3 is a statistical sample size for a benchmark.** It was never a fleet. Worse, those three runs aren't even collaborating — they're three isolated workspaces attempting the same task independently. For the thing I actually want, I didn't have a fleet of three. I had one agent, measured three times.
+
+I'd also let the engine config drift. `--max-num-seqs` appears nowhere in `profiles.json` — the canonical per-model config with an audit gate in front of it — but the serve scripts set it inconsistently: **8** in three of them, **32** in one, **64** in two. Whichever script last started a box silently decided its concurrency ceiling.
+
+## Which model, once fleet size is the question
+
+This reframes the model comparison completely.
+
+DeepSeek-V4-Flash is the most reliable model I've tested — three out of three on the full contract. It also needs **both** Sparks, split with tensor parallelism, and in practice tops out around three concurrent agents. Qwen3.6-35B-A3B matches the ceiling twice out of three on **one** node, and runs sixteen agents while doing it.
+
+![Fleet size as a function of model choice. On the left, a large model split across both compute boxes with a tensor-parallel link: the entire cluster serves one model and supports roughly three concurrent agents, about one and a half per box. On the right, a smaller mixture-of-experts model fits entirely on one box, supports sixteen concurrent agents measured, and leaves the second box completely free. The comparison line beneath reads that the most capable model in the sweep yields the smallest fleet, because capability per box is what decides how many agents you can afford to run.](../../assets/blog/cost-per-fix-fleet-size.svg)
+
+That's roughly **ten times the agents per box.** For a one-off repair, DeepSeek's reliability is worth having. For continuously sweeping a real codebase — the thing I bought the hardware for — it's disqualifying: you'd pay more per fix to run a tenth of the agents.
+
+Capability per box, not capability, is the number that decides what you can actually do.
+
+## Where I stopped measuring
+
+Two gaps, both mine, both worth stating plainly rather than letting the table imply completeness.
+
+**N=32 was never run.** The script's default level list goes `1,4,8,16,32`; the run that produced this table stopped at 16. The engine was serving at `--max-num-seqs 64` at the time, so there is headroom above my best number that nobody has looked at. **16 is where I stopped, not where it broke.**
+
+**Best-of-N on the design case never finished.** The log ends with the header for part B and no table under it. It's still open.
+
+And one for the tally: the first attempt at this measurement reported `0/N unsolved` at every level in **0.0 seconds** — nothing executed at all. That's a harness bug, not a result, and it cost the better part of a night.
+
+## What I'd tell a team
+
+**Check whether your concurrency setting is a capacity limit or a leftover default.** Mine was a benchmark's sample size that followed me into normal use, and it cost me roughly 5× the throughput I could have had for free. The number was right for measuring and wrong for working, and nothing complained.
+
+And **measure cost per solved task at several concurrency levels before you choose a model.** Ranked serially, the biggest model wins. Ranked by what a box can actually run, a smaller one wins by a factor that no capability benchmark will ever show you.
+
+## What's next
+
+Two-thirds of a cent is one model on one task. The obvious question is what the *other* eight models cost per solved task — and the answer turns out to be that most of them don't have a price at all.

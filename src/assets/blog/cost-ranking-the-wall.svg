@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="The wall">
+  <rect x="1" y="1" width="998" height="478" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="mw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="36" y="40">five models, wildly different sizes, identical failure set</text>
+
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="60" width="216" height="34" rx="6"/>
+    <rect x="36" y="102" width="216" height="34" rx="6"/>
+    <rect x="36" y="144" width="216" height="34" rx="6"/>
+    <rect x="36" y="186" width="216" height="34" rx="6"/>
+    <rect x="36" y="228" width="216" height="34" rx="6"/>
+  </g>
+  <g class="l" fill="#1a1d24">
+    <text x="56" y="83">gpt-oss-20b        20B</text>
+    <text x="56" y="125">Qwen3-Coder-30B    30B</text>
+    <text x="56" y="167">Nemotron-120B     120B</text>
+    <text x="56" y="209">Nemotron-3-Super  120B</text>
+    <text x="56" y="251">Devstral-2-123B   123B</text>
+  </g>
+
+  <g stroke="#c14a3a" stroke-width="2.5" fill="none" marker-end="url(#mw)">
+    <path d="M252 77 L360 150"/><path d="M252 119 L360 155"/><path d="M252 161 L360 161"/>
+    <path d="M252 203 L360 167"/><path d="M252 245 L360 172"/>
+  </g>
+
+  <rect x="368" y="76" width="270" height="176" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text class="h" x="390" y="106" fill="#c14a3a">the same five criteria</text>
+  <g class="l" fill="#1a1d24">
+    <text x="390" y="138">B3  delete team, keep members</text>
+    <text x="390" y="164">B4  delete team, keep tasks</text>
+    <text x="390" y="190">B5  foreign-key validation</text>
+    <text x="390" y="216">C3  priority enum</text>
+    <text x="390" y="242">C5  enum on update</text>
+  </g>
+
+  <rect x="368" y="270" width="596" height="60" rx="8" fill="#7a808c" fill-opacity="0.1" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="390" y="296">every one is about what survives when something is removed</text>
+  <text class="s" x="390" y="318">exactly the family a structural grader cannot see</text>
+
+  <rect x="672" y="76" width="292" height="176" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="h" x="694" y="106" fill="#3a7d44">the two that clear it</text>
+  <text class="l" x="694" y="138">Qwen3.6-35B-A3B    35B</text>
+  <text class="l" x="694" y="164">DeepSeek-V4-Flash</text>
+  <text class="s" x="694" y="200">not the biggest models —</text>
+  <text class="s" x="694" y="222">the ones that re-run the</text>
+  <text class="s" x="694" y="244">contract instead of stopping</text>
+
+  <text class="c" x="36" y="384">Six times the parameters and twelve times the wall clock buy nothing at this wall.</text>
+</svg>

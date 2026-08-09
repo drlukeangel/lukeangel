@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="Two units">
+  <rect x="1" y="1" width="998" height="518" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <path d="M500 24 L500 372" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="h" x="36" y="42">ranked by score</text>
+  <text class="h" x="546" y="42">ranked by cost per solved contract</text>
+
+  <!-- LEFT: gradient -->
+  <g class="l" fill="#1a1d24">
+    <text x="36" y="82">22  Qwen3.6-35B</text>
+    <text x="36" y="112">22  DeepSeek-V4</text>
+    <text x="36" y="142">22  Qwen3-Coder-Next</text>
+    <text x="36" y="172">22  Laguna-S-2.1</text>
+    <text x="36" y="202">19  Devstral-2-123B</text>
+    <text x="36" y="232">18  Nemotron-120B</text>
+    <text x="36" y="262">20  Qwen3-Coder-30B</text>
+    <text x="36" y="292">17  Nemotron-3-Super</text>
+    <text x="36" y="322">17  gpt-oss-20b</text>
+  </g>
+  <g>
+    <rect x="300" y="70" width="160" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.85"/>
+    <rect x="300" y="100" width="160" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.8"/>
+    <rect x="300" y="130" width="160" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.72"/>
+    <rect x="300" y="160" width="160" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.64"/>
+    <rect x="300" y="190" width="128" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.55"/>
+    <rect x="300" y="220" width="116" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.48"/>
+    <rect x="300" y="250" width="136" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.42"/>
+    <rect x="300" y="280" width="100" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.34"/>
+    <rect x="300" y="310" width="100" height="14" rx="4" fill="#6b8f2e" fill-opacity="0.28"/>
+  </g>
+  <text class="s" x="36" y="358">a smooth gradient — the 17s look like near-misses</text>
+
+  <!-- RIGHT: four priced, seven undefined -->
+  <g class="l" fill="#1a1d24">
+    <text x="546" y="82">$0.087   Qwen3.6-35B</text>
+    <text x="546" y="112">$0.169   DeepSeek-V4</text>
+    <text x="546" y="142">$0.317   Qwen3-Coder-Next</text>
+    <text x="546" y="172">$1.282   Laguna-S-2.1</text>
+  </g>
+  <g>
+    <rect x="770" y="66" width="30" height="18" rx="4" fill="#6b8f2e"/>
+    <rect x="770" y="96" width="50" height="18" rx="4" fill="#6b8f2e"/>
+    <rect x="770" y="126" width="82" height="18" rx="4" fill="#6b8f2e"/>
+    <rect x="770" y="156" width="180" height="18" rx="4" fill="#6b8f2e"/>
+  </g>
+
+  <rect x="546" y="196" width="418" height="150" rx="8" fill="#7a808c" fill-opacity="0.1" stroke="#c14a3a" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text class="h" x="568" y="226" fill="#c14a3a">no price — seven models</text>
+  <text class="s" x="568" y="254">Devstral-2-123B     $4.211 spent, 0 solved</text>
+  <text class="s" x="568" y="276">Nemotron-3-Super    $2.343 spent, 0 solved</text>
+  <text class="s" x="568" y="298">Nemotron-70B FP8    $2.169 spent, 0 solved</text>
+  <text class="s" x="568" y="320">gpt-oss-20b         $0.158 spent, 0 solved</text>
+
+  <text class="c" x="36" y="404">The 26x price gap between the cheapest failure and the dearest one does not matter.</text>
+  <text class="c" x="36" y="432">Neither hands you a repaired application.</text>
+</svg>
