@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Three workspaces one blind spot">
+  <rect x="1" y="1" width="998" height="498" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="m8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <!-- three systems -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="46" width="280" height="52" rx="7"/>
+    <rect x="360" y="46" width="280" height="52" rx="7"/>
+    <rect x="684" y="46" width="280" height="52" rx="7"/>
+  </g>
+  <text class="l" x="58" y="78">six-agent local fleet</text>
+  <text class="l" x="382" y="78">hosted frontier model A</text>
+  <text class="l" x="706" y="78">hosted frontier model B</text>
+
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m8)">
+    <path d="M176 98 L176 130"/><path d="M500 98 L500 130"/><path d="M824 98 L824 130"/>
+  </g>
+
+  <!-- workspaces with perfect scores -->
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="136" width="280" height="86" rx="7"/>
+    <rect x="360" y="136" width="280" height="86" rx="7"/>
+    <rect x="684" y="136" width="280" height="86" rx="7"/>
+  </g>
+  <g class="s" fill="#5b616b">
+    <text x="58" y="162">its own workspace</text><text x="382" y="162">its own workspace</text><text x="706" y="162">its own workspace</text>
+  </g>
+  <g>
+    <rect x="58" y="176" width="132" height="32" rx="6" fill="#6b8f2e" fill-opacity="0.3" stroke="#3a7d44" stroke-width="2.5"/>
+    <text class="h" x="74" y="198" fill="#3a7d44">229 / 229</text>
+    <rect x="382" y="176" width="132" height="32" rx="6" fill="#6b8f2e" fill-opacity="0.3" stroke="#3a7d44" stroke-width="2.5"/>
+    <text class="h" x="398" y="198" fill="#3a7d44">229 / 229</text>
+    <rect x="706" y="176" width="132" height="32" rx="6" fill="#6b8f2e" fill-opacity="0.3" stroke="#3a7d44" stroke-width="2.5"/>
+    <text class="h" x="722" y="198" fill="#3a7d44">229 / 229</text>
+  </g>
+
+  <g stroke="#c14a3a" stroke-width="2.5" fill="none" stroke-dasharray="6 4" marker-end="url(#m8)">
+    <path d="M176 222 L176 268"/><path d="M500 222 L500 268"/><path d="M824 222 L824 268"/>
+  </g>
+
+  <!-- the shared defect -->
+  <rect x="36" y="274" width="928" height="96" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="3"/>
+  <text class="h" x="58" y="304" fill="#c14a3a">the same defect in all three</text>
+  <text class="l" x="58" y="330">delete a member assigned to a task — the task still points at the deleted row</text>
+  <text class="s" x="58" y="354">none of the 229 checks ever deletes a referenced record, so it was never on any of their paths</text>
+
+  <text class="c" x="36" y="424">Three independent systems, the same wrong answer. The only thing they shared was the grader.</text>
+</svg>

@@ -1,0 +1,82 @@
+---
+title: "The AI Grader That Passed the Same Bug Three Times: 229 Checks, Three Agent Workspaces, One Blind Spot"
+date: 2026-08-04T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - agents
+  - local-llm
+  - dgx-spark
+  - evals
+  - testing
+excerpt: "The Sparks arrived. Within a day the grader I'd built to judge them had passed three independent workspaces at a perfect score — while all three shipped the identical broken delete."
+pullquote: "A perfect score, three times, over the same bug. The checks weren't wrong. They were pointed at the wrong thing."
+cover: "../../assets/blog/grader-blind-spot-cover.svg"
+coverAlt: "Three identical ink-outlined workspace panels side by side on a cream background, each stamped with a filled olive-green seal. Beneath all three, one continuous red thread runs through the same position in each panel and ends in a small broken link. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 5
+featured: false
+draft: false
+---
+
+The boxes turned up on a Tuesday. Two DGX Sparks, 121 GB of unified memory each, small enough that both of them plus a laptop take less desk than a monitor stand used to.
+
+I'd spent three weeks writing about what I'd need before I trusted an agent with real code. Within about a day of the hardware arriving I had my answer to whether the scorecard was any good, and the answer was no.
+
+## What I built first
+
+Not a benchmark. A **grader** — because [everything I'd written beforehand](/blog/scorecard-not-a-vibe-before-an-agent-touches-my-codebase/) said the measurement is the thing that has to exist before any result means anything.
+
+So: a deliberately broken Flask application, a spec, and 229 acceptance checks. The checks are structural. Does class `Team` declare `__tablename__ = 'teams'`. Does this module define that column. Does that route get registered. They run in about 28 seconds, they're completely objective, and I could write a hundred more in an afternoon.
+
+Then I pointed three very different systems at it: a six-agent local fleet running on the new hardware, and two frontier hosted models working the same task on their own.
+
+## All three scored 229 out of 229
+
+Which felt like a great result for about ten minutes.
+
+**All three shipped the identical defect.** Delete a member who's assigned to a task, and `task.assignee_id` still points at the deleted row. The application accepts the delete, reports success, and leaves a task pointing into a hole.
+
+![Three independent repair systems and one shared blind spot. A six-agent local fleet and two separate hosted frontier models each produce their own workspace. Each workspace is graded by the same 229 structural checks and each scores 229 out of 229. Below the three perfect scores, a single defect is drawn spanning all three: deleting a member leaves the task's assignee reference pointing at a row that no longer exists. An arrow marks the reason it survived everywhere — none of the 229 checks ever deletes a referenced record, so the defect was never in any of their paths.](../../assets/blog/grader-blind-spot-three-workspaces.svg)
+
+Three independent systems, three perfect scores, one bug. That's not three coincidences. When three different approaches produce the same wrong answer, the thing they have in common is the problem — and the only thing they had in common was my grader.
+
+## Why 229 checks couldn't see it
+
+I went through the checks afterwards to find out how a suite that exhaustive misses something that basic. The answer is embarrassing in how simple it is.
+
+**Not one of the 229 checks ever deletes a record that something else references.**
+
+They confirm structure exists. Classes, columns, relationships, routes, imports, signatures. Every one of them is a question about the code *at rest*. Not one of them is a question about what the running system does when you take something away.
+
+![The anatomy of the blind spot. The 229 checks are grouped into what they actually verify: class and table declarations, column definitions, relationship declarations, route registrations, import graphs, and function signatures. Every group is marked as a question about the code at rest. Beside them sits a short list of questions none of the checks ask — create a record, attach it to another, then remove the first and inspect what survives. A note points out that a suite can be arbitrarily large along one axis while having zero extent along another.](../../assets/blog/grader-blind-spot-anatomy.svg)
+
+A defect only appears in a suite if some check walks a path that touches it. Adding more checks of the same *kind* extends the suite along an axis where it's already strong. It buys nothing on the axis where it has no extent at all.
+
+That's the part I'd genuinely not internalised: **exhaustive and blind are independent properties.** Exhaustive is about count. Blind is about kind. I'd been treating a big number as evidence of coverage.
+
+## The fifteen probes that found it in seconds
+
+The thing that caught it wasn't clever. It was a small set of behavioural probes I'd kept outside every workspace — the tripwire from the scorecard post. Fifteen of them, none ever copied where an agent could see them.
+
+They found the dangling reference immediately, because one of them does exactly what a person would do: add a member, assign them a task, delete the member, then ask what's left.
+
+Fifteen questions beat 229 checks, and it wasn't close. Not because fifteen is a better number, but because those fifteen *drive the application* and the 229 read its source.
+
+## What I'd tell a team
+
+**Count how many of your acceptance checks change state and then look at what happened.** If the answer is zero — if every check is an assertion about structure — you have a suite that will pass a broken system, and its size will make you confident while it does.
+
+The corollary is harsher and I think it's right: **a check that never destroys anything can't verify cleanup.** Deletion, rollback, cascade, eviction, expiry, revocation — the entire family of "and then it goes away" behaviours is invisible to any suite that only ever builds up. That family is also where the defects with real consequences tend to live.
+
+And when several independent attempts converge on the same wrong answer, stop investigating the attempts. Look at what they share.
+
+## Where I was lucky
+
+I want to name this rather than let the post read as foresight: **I only caught this because I'd built the holdout first**, for reasons that were mostly abstract at the time. If I'd built the 229 checks and stopped, I'd have shipped "three systems solved it perfectly" as a finding, and I'd have believed it, and every number after it would have been built on top.
+
+The holdout wasn't insight. It was insurance I bought before I knew what for, and it paid out on day one.
+
+## What's next
+
+The 229 checks are done. Not extended, not supplemented — replaced. What goes in their place took about an hour to write and did more for this project than the two days of orchestration machinery I'd built around them, which is a sentence I'd have found irritating a week ago.
