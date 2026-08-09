@@ -1,0 +1,88 @@
+---
+title: "Twenty-Two Behavioural Criteria: What Replaced the Structural Grader My AI Agents Kept Fooling"
+date: 2026-08-06T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - agents
+  - local-llm
+  - dgx-spark
+  - evals
+  - testing
+excerpt: "Deleting 229 structural checks and writing 22 questions a person would ask took about an hour — and did more for this project than the two days of orchestration machinery built around them."
+pullquote: "Scoring went from 28 seconds to 2, and got strictly harder to fool."
+cover: "../../assets/blog/behavioural-contract-cover.svg"
+coverAlt: "A large stack of thin ink-outlined check strips on the left, greyed and crossed through with a single diagonal line. On the right, a much shorter stack of thicker olive-green strips, each connected by a curved arrow into a small drawn application box, indicating that every one of them drives the running system rather than reading its source. Cream background, faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 6
+featured: false
+draft: false
+---
+
+[Three independent systems scored 229 out of 229 on my grader while shipping the same broken delete.](/blog/ai-grader-passed-the-same-bug-three-times/) The obvious move is to add checks. I deleted them instead.
+
+What replaced them took about an hour to write. It has done more for this project than the two days of orchestration machinery I'd built around the old grader, and I want to be precise about why, because "write better tests" is not the lesson.
+
+## Three files
+
+    SPEC.md      the contract. Every endpoint named. Deletion rules stated
+                 outright: refuse with 409 or clean up, never leave orphans.
+
+    accept.py    22 criteria that DRIVE the running app. Never imports a model,
+                 never reads a class or table name. "Can you add a member? Can
+                 you delete one who is assigned to a task? What is left?"
+
+    holdout2.py  13 probes one ring further out, never copied into a workspace.
+                 Baseline 13/13, so it detects DAMAGE, not improvement.
+
+That's the whole thing. The most important line in it is the one in `SPEC.md` that states the deletion rule outright — because the defect that started all this existed in a gap between what I assumed and what I'd written down. The old spec never said what should happen to a task whose assignee is deleted. Three systems each guessed, all three guessed the same way, and all three were wrong in a way I couldn't grade because I'd never decided.
+
+## The rule that makes it work
+
+`accept.py` is not allowed to import anything from the application. Not a model, not a schema, not a constant.
+
+It starts the app and talks to it over HTTP like any other client. That single constraint is what makes it impossible to satisfy structurally — you cannot pass a criterion by declaring something, because the criterion never looks at your declarations. It creates a member, assigns a task, deletes the member, and reads back what survived.
+
+![The shape of a behavioural criterion. A single criterion is drawn as a four-step sequence: post a new member, post a task assigned to that member, delete the member, then get the task and inspect its assignee field. Two acceptable outcomes branch from the final step — either the delete was refused with a 409 status, or the delete succeeded and the task's assignee reference was cleaned up. A third branch, marked as failing, shows the delete succeeding while the task keeps pointing at the removed row. Alongside, a note that the criterion never imports application code, so nothing about class or column naming can affect the result.](../../assets/blog/behavioural-contract-criterion.svg)
+
+Both acceptable endings are in the spec. The agent may refuse the delete or clean up after it — I don't care which, and saying so removes an entire class of argument about implementation choice while keeping the behaviour pinned.
+
+## It got faster, which I did not expect
+
+Scoring went from **28 seconds to 2**.
+
+That surprised me — 229 checks replaced by 22 that boot a web application ought to be slower. It isn't, because the old suite was doing static analysis and reflection across the whole tree while the new one makes a couple of dozen HTTP calls against an already-running process.
+
+The speed turns out to matter more than the accuracy in one specific way: at 2 seconds, the contract can run *after every edit*. At 28 it could only run at round boundaries. A grader that's cheap enough to run continuously stops being a report card and becomes a feedback signal — which is what makes [the verification gate](/blog/nine-lines-verification-beat-six-agent-swarm/) possible at all.
+
+![Why the cost of grading changes what grading can be. Two timelines run in parallel. In the upper one, the 28-second structural grader can only run at the end of each round, so the agent takes many edits without feedback and a defect introduced early survives until the round boundary. In the lower one, the 2-second behavioural contract runs after every edit, so the same defect is caught on the next tick and handed straight back. A caption notes that the second timeline is not merely faster — it is a different mechanism, because a grader cheap enough to run continuously becomes a feedback signal rather than a report card.](../../assets/blog/behavioural-contract-cost-of-grading.svg)
+
+## What the 13 probes are for
+
+`holdout2.py` sits one ring further out and is never copied into a workspace. No agent has seen it.
+
+Its baseline is **13/13 on the broken starting code**. That's deliberate, and it's the design decision I'd defend hardest: since the probes already pass before any work happens, they cannot measure improvement. They can only ever go *down*. A run that raises the visible score while dropping one holdout probe has broken something to satisfy the grader, and that shows up as an unmistakable signal rather than a smaller net gain.
+
+I set this up before I had any reason to think I'd need it. It has since caught things I would otherwise have recorded as successes.
+
+## The part that isn't about testing
+
+Here's what I actually take from this.
+
+**The 22 criteria are the same questions I'd have asked in a code review.** Can you add one. Can you delete one that's referenced. What's left afterwards. There's no sophistication in them at all — the entire content of the change is that I stopped asking about the *shape* of the code and started asking about what it *does*.
+
+I'd built 229 checks because 229 felt like diligence. It was the opposite: it was a way to avoid deciding what the software was supposed to do, by measuring a hundred things I could verify mechanically instead of the six things that actually mattered. Structural checks are what you write when you haven't written the spec.
+
+## What I'd tell a team
+
+Write the spec first, and make it state the awkward cases outright — the deletions, the conflicts, the "what happens to the thing that pointed at this." Every defect that survived my old grader lived in a case the spec never named. The checks weren't the root problem; the undecided behaviour was.
+
+Then set one hard constraint on the grader: **it may not import the code it's grading.** That single rule forces every criterion to be behavioural, and it costs nothing to enforce.
+
+And measure how long your acceptance suite takes, because that number silently decides how often it can run, which decides what kind of instrument it can be.
+
+## What I got wrong
+
+I framed this as "the grader was broken." That's too kind to me. The grader did exactly what it was built to do — the problem is that I built it to check declarations because that was the easy thing to automate, and then treated its output as though it meant something else.
+
+There's also a consequence I hadn't seen coming when I made the change: the five-expert review panel I'd spent two days building existed *specifically* to catch what a structural oracle couldn't see. With the contract in place, that whole apparatus was now insurance on a risk that no longer existed. I didn't notice for another day, and it took a control run to make it undeniable.

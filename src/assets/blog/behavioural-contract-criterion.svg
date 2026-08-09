@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-label="Shape of a criterion">
+  <rect x="1" y="1" width="998" height="478" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="m9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="36" y="40">one criterion, start to finish</text>
+
+  <g fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5">
+    <rect x="36" y="58" width="212" height="46" rx="7"/>
+    <rect x="36" y="122" width="212" height="46" rx="7"/>
+    <rect x="36" y="186" width="212" height="46" rx="7"/>
+    <rect x="36" y="250" width="212" height="46" rx="7"/>
+  </g>
+  <text class="l" x="56" y="87">POST /members</text>
+  <text class="l" x="56" y="151">POST /tasks  (assigned)</text>
+  <text class="l" x="56" y="215">DELETE /members/1</text>
+  <text class="l" x="56" y="279">GET /tasks/1</text>
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m9)">
+    <path d="M142 104 L142 120"/><path d="M142 168 L142 184"/><path d="M142 232 L142 248"/>
+  </g>
+
+  <!-- outcomes -->
+  <g stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#m9)">
+    <path d="M248 262 L318 122"/>
+    <path d="M248 273 L318 244"/>
+    <path d="M248 284 L318 366"/>
+  </g>
+
+  <rect x="326" y="96" width="360" height="60" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="348" y="122">delete refused — 409</text>
+  <text class="s" x="348" y="144">nothing was orphaned because nothing was removed</text>
+
+  <rect x="326" y="216" width="360" height="60" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="l" x="348" y="242">deleted, reference cleaned up</text>
+  <text class="s" x="348" y="264">task.assignee is now null</text>
+
+  <rect x="326" y="336" width="360" height="60" rx="7" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="l" x="348" y="362">deleted, reference left dangling</text>
+  <text class="s" x="348" y="384" fill="#c14a3a">the only failing outcome</text>
+
+  <g stroke="#3a7d44" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M702 118 l9 10 l18 -20"/><path d="M702 238 l9 10 l18 -20"/>
+  </g>
+  <g stroke="#c14a3a" stroke-width="3" stroke-linecap="round">
+    <path d="M702 352 L724 372"/><path d="M724 352 L702 372"/>
+  </g>
+
+  <!-- the constraint -->
+  <rect x="762" y="96" width="202" height="300" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="784" y="126">the constraint</text>
+  <text class="s" x="784" y="156">accept.py may not</text>
+  <text class="s" x="784" y="176">import the app.</text>
+  <text class="s" x="784" y="212">no model, no schema,</text>
+  <text class="s" x="784" y="232">no class name,</text>
+  <text class="s" x="784" y="252">no table name.</text>
+  <text class="l" x="784" y="292">so nothing can be</text>
+  <text class="l" x="784" y="312">passed by declaring</text>
+  <text class="l" x="784" y="332">it — only by doing it.</text>
+
+  <text class="c" x="36" y="440">Both good endings are in the spec. Choosing between them is the agent's business.</text>
+</svg>

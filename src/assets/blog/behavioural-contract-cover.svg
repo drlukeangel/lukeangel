@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="The contract">
+  <defs>
+    <pattern id="d7" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1a1d24" fill-opacity="0.07"/>
+    </pattern>
+    <marker id="ca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#fdfaf2"/>
+  <rect width="1200" height="630" fill="url(#d7)"/>
+  <rect x="0" y="0" width="24" height="630" fill="#6b8f2e"/>
+
+  <!-- the discarded stack -->
+  <g>
+    <g fill="#fdfaf2" stroke="#7a808c" stroke-width="2.5" stroke-opacity="0.75">
+      <rect x="126" y="112" width="290" height="16" rx="8"/><rect x="126" y="138" width="290" height="16" rx="8"/>
+      <rect x="126" y="164" width="290" height="16" rx="8"/><rect x="126" y="190" width="290" height="16" rx="8"/>
+      <rect x="126" y="216" width="290" height="16" rx="8"/><rect x="126" y="242" width="290" height="16" rx="8"/>
+      <rect x="126" y="268" width="290" height="16" rx="8"/><rect x="126" y="294" width="290" height="16" rx="8"/>
+      <rect x="126" y="320" width="290" height="16" rx="8"/><rect x="126" y="346" width="290" height="16" rx="8"/>
+      <rect x="126" y="372" width="290" height="16" rx="8"/><rect x="126" y="398" width="290" height="16" rx="8"/>
+      <rect x="126" y="424" width="290" height="16" rx="8"/><rect x="126" y="450" width="290" height="16" rx="8"/>
+      <rect x="126" y="476" width="290" height="16" rx="8"/>
+    </g>
+    <path d="M104 96 L438 508" stroke="#c14a3a" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- the replacement -->
+  <g>
+    <g fill="#6b8f2e" fill-opacity="0.3" stroke="#1a1d24" stroke-width="3">
+      <rect x="606" y="212" width="256" height="34" rx="10"/>
+      <rect x="606" y="264" width="256" height="34" rx="10"/>
+      <rect x="606" y="316" width="256" height="34" rx="10"/>
+      <rect x="606" y="368" width="256" height="34" rx="10"/>
+    </g>
+    <!-- each one reaches out to the running app and back -->
+    <g stroke="#1a1d24" stroke-width="2.5" fill="none" marker-end="url(#ca)">
+      <path d="M862 229 C932 229 932 300 962 300"/>
+      <path d="M862 281 C920 281 920 300 962 300"/>
+      <path d="M862 333 C920 333 920 306 962 306"/>
+      <path d="M862 385 C932 385 932 306 962 306"/>
+    </g>
+    <rect x="962" y="248" width="112" height="112" rx="12" fill="#fdfaf2" stroke="#1a1d24" stroke-width="3.5"/>
+    <g fill="#6b8f2e">
+      <rect x="984" y="278" width="60" height="9" rx="4.5"/>
+      <rect x="984" y="298" width="40" height="9" rx="4.5"/>
+      <rect x="984" y="318" width="52" height="9" rx="4.5"/>
+    </g>
+  </g>
+</svg>
