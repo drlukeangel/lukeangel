@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="Insurance against a fixed problem">
+  <rect x="1" y="1" width="998" height="468" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+  <defs>
+    <marker id="m7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1a1d24"/>
+    </marker>
+  </defs>
+
+  <path d="M500 24 L500 350" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="h" x="36" y="42">before — the panel is load-bearing</text>
+  <text class="h" x="546" y="42">after — the gap it covered is gone</text>
+
+  <!-- BEFORE -->
+  <rect x="36" y="60" width="200" height="52" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="s" x="56" y="82">structural oracle</text>
+  <text class="l" x="56" y="102">229 checks — blind</text>
+
+  <rect x="264" y="60" width="200" height="52" rx="7" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <text class="s" x="284" y="82">the real defect</text>
+  <text class="l" x="284" y="102">a dangling reference</text>
+  <path d="M236 86 L260 86" stroke="#c14a3a" stroke-width="2.5" fill="none" stroke-dasharray="5 4" marker-end="url(#m7)"/>
+  <text class="s" x="240" y="132" fill="#c14a3a">passes anyway</text>
+
+  <rect x="36" y="164" width="428" height="88" rx="8" fill="#6b8f2e" fill-opacity="0.16" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="192">five-expert review panel</text>
+  <text class="s" x="58" y="216">added to see what the oracle cannot</text>
+  <text class="s" x="58" y="238">— genuinely doing work</text>
+  <g stroke="#3a7d44" stroke-width="2.5" fill="none" marker-end="url(#m7)">
+    <path d="M364 160 L364 122"/>
+  </g>
+  <text class="s" x="300" y="286" fill="#3a7d44">catches it</text>
+
+  <!-- AFTER -->
+  <rect x="546" y="60" width="418" height="52" rx="7" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="s" x="566" y="82">behavioural contract — drives the running app</text>
+  <text class="l" x="566" y="102">catches the same defect in 2 seconds</text>
+
+  <rect x="546" y="164" width="418" height="88" rx="8" fill="#7a808c" fill-opacity="0.1" stroke="#1a1d24" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text class="h" x="568" y="192" fill="#7a808c">the same panel, still running</text>
+  <text class="s" x="568" y="216">now covering a gap that no longer exists</text>
+  <text class="s" x="568" y="238">— 1,200 lines, no measurable effect</text>
+  <g stroke="#7a808c" stroke-width="2.5" fill="none" stroke-dasharray="5 5" stroke-opacity="0.7">
+    <path d="M864 160 L864 122"/>
+  </g>
+  <text class="s" x="794" y="286" fill="#7a808c">nothing left to catch</text>
+
+  <rect x="36" y="316" width="928" height="72" rx="8" fill="#fdfaf2" stroke="#6b8f2e" stroke-width="3"/>
+  <text class="h" x="58" y="346">when you fix a root cause, delete the machinery you built to survive it</text>
+  <text class="s" x="58" y="370">otherwise you keep paying the premium — and keep crediting it for the outcome</text>
+
+  <text class="c" x="36" y="434">The orchestration did not get worse. The thing it protected against got fixed.</text>
+</svg>

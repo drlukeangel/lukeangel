@@ -1,0 +1,88 @@
+---
+title: "1,200 Lines of Multi-Agent Orchestration, Beaten by One Local LLM Agent"
+date: 2026-08-10T09:00:00-04:00
+category: method
+tags:
+  - ai
+  - agents
+  - local-llm
+  - orchestration
+  - dgx-spark
+  - evals
+excerpt: "Two days building a multi-agent repair swarm, a three-framework bake-off, and then the control run I should have done first. Three single agents beat three orchestrated arms by 13× on wall clock and 40× on tokens."
+pullquote: "The orchestration didn't lose because multi-agent is a bad idea. It lost because it was insurance against a blindness that no longer existed."
+cover: "../../assets/blog/solo-beats-orchestration-cover.svg"
+coverAlt: "On the left, an elaborate branching structure of many small agent nodes feeding through review and synthesis layers into a single result marker. On the right, one larger node connected by a short straight line to an identical result marker. Both results are drawn the same size and shape. Cream background, faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 9
+featured: true
+draft: false
+---
+
+I spent two days building the orchestration. File-partitioned workers, a five-expert review panel, wave scheduling, a synthesiser to turn five opinions into one verdict, repair loops, score backstops. About 1,200 lines of coordination machinery, most of it satisfying to write.
+
+Then I ran a single agent against the same task as a control.
+
+```
+run                result  holdout   time        turns   completion tokens
+armA-handrolled     22/22    13/13   237.5 min    881         300k
+armB-langgraph      22/22    13/13   190.6 min    802         285k
+armC-pydantic       21/22    13/13   160.0 min    979         190k
+solo-control2       22/22    13/13    12.0 min     28         5.4k
+solo-control3       22/22    13/13    12.0 min     21         5.4k
+solo-control4       22/22    13/13    16.0 min     17         9.4k
+```
+
+Three independent single agents each solved the full contract with the holdout intact, in **12–16 minutes**, using **30–50× fewer turns** and roughly **40× fewer completion tokens** than the orchestrated arms. Same baseline workspace, same oracle, same engine load, no answer key anywhere.
+
+The orchestration bought nothing measurable. Not correctness — solo matched the best arm and beat one of them. Not safety — the holdout is 13/13 everywhere. It cost about **13× the wall clock** to arrive in the same place.
+
+![The same task run two ways, drawn to scale. On the left, the orchestrated arm: a plan fans out into partitioned workers, their output passes through a five-expert review panel and a synthesiser, then a gate decides commit or revert, and the loop repeats across rounds — 881 turns and 237 minutes to reach twenty-two out of twenty-two. On the right, the solo control: one agent, one loop against the contract, 28 turns and 12 minutes to the same twenty-two out of twenty-two with the same thirteen-out-of-thirteen holdout. The two result markers are identical in size; the paths leading to them are not.](../../assets/blog/solo-beats-orchestration-comparison.svg)
+
+That's the headline, and it's the least interesting thing here. The interesting part is *why* it lost.
+
+## The orchestration was insurance against a problem I'd already fixed
+
+The five-expert panel existed for a specific reason. My original grader was 229 **structural** checks — does this class have that attribute, does that module define this column — and [three separate workspaces scored 229/229 while shipping the identical defect](/blog/ai-grader-passed-the-same-bug-three-times/). Delete a member who's assigned to a task and the task still points at the deleted row. Nothing in 229 checks ever deleted an assignee, so nothing ever saw it.
+
+Given an oracle that blind, building something else to look is a coherent design. The panel wasn't stupid. It was compensating.
+
+Then [I replaced the grader with 22 criteria that drive the running application](/blog/twenty-two-behavioural-criteria-replaced-the-structural-grader/), and the panel's entire reason for existing evaporated. The class of defect it was built to catch is now caught by the oracle itself, in two seconds, every round.
+
+![Why the orchestration's value collapsed. In the first state, a blind structural oracle passes a workspace that still contains a real behavioural defect, so a five-expert review panel is added alongside it to catch what the oracle cannot see — the panel is genuinely load-bearing. In the second state, the structural oracle is replaced by a behavioural contract that drives the running application and catches that same defect itself in two seconds. The panel is still present but now sits over a gap that no longer exists, its arrows pointing at nothing. The caption notes the orchestration did not get worse; the thing it was protecting against got fixed.](../../assets/blog/solo-beats-orchestration-insurance.svg)
+
+**The orchestration didn't lose because multi-agent is a bad idea. It lost because it was insurance against a blindness that no longer existed.** Nobody re-evaluated the insurance after fixing the leak — I certainly didn't, until the control run made it unavoidable.
+
+That's the transferable lesson, and it has nothing to do with agents. When you fix a root cause, go back and delete the machinery you built to survive it. Otherwise you keep paying the premium forever, and — worse — you keep attributing your outcomes to it.
+
+## What this does not prove
+
+I want to be careful here, because the overreach is very tempting and this project has punished me for it before.
+
+This was a **small repair task with a complete contract**: five defects, 22 criteria, everything fitting inside one context window. That is precisely the case where decomposition can only add overhead, which makes it the weakest possible ground on which to defend orchestration. Concluding "multi-agent doesn't work" from this data would be exactly the kind of claim I'd criticise in someone else's post.
+
+Three places where coordination may still pay, all of them untested here:
+
+- **Beyond one context.** The finding that started this whole project was a from-scratch swarm where **238 of 258 tasks wrote a file another task also wrote**, destroying about 92% of its own output. Coordination isn't optional there — it *is* the problem. And a real codebase, which is what I actually want to point this at, exceeds one context by definition.
+- **Incomplete or ambiguous specs.** My contract named every endpoint and stated the deletion rules outright. A review panel is most defensible exactly where the agent has to guess.
+- **Adversarial regressions**, where a locally sensible fix breaks something distant.
+
+## The framework ranking, briefly
+
+Three of those arms were a framework bake-off — hand-rolled, LangGraph, Pydantic AI — and [I've written that up separately](/blog/agent-framework-bake-off-langgraph-pydantic-hand-rolled/), because the result there is subtler than this one and deserves its own space. The short version: the paper survey's ranking held up, and its *reasoning* didn't.
+
+It's worth noting what the control run does to that comparison, though. All three arms are now competing to lose to a single agent by a factor of thirteen. Ranking them is still meaningful — but it answers a question that turned out not to matter for this task.
+
+## What I'd tell a team
+
+**Run the trivial control first.** Not because the simple thing usually wins, but because the number it produces is the only thing that makes the complicated result legible. I had a 22/22 from an orchestrated arm and I was pleased with it. That number meant nothing until I knew that one agent got the same score in a twentieth of the time.
+
+I had every opportunity to run it earlier. It cost twelve minutes. I didn't run it because I'd already spent two days on the sophisticated version and the control felt like a formality — which is precisely the psychology that makes it worth mandating rather than leaving to judgement.
+
+And notice the shape of the mistake: I never measured whether the *problem* still existed. I measured the solution, repeatedly and carefully, against a baseline I'd stopped questioning.
+
+## What's next
+
+If fan-out isn't what bought the result, something else did. The next run isolates the smallest possible mechanism — nine lines that refuse to let the agent decide it's finished — and puts it up against the six-agent panel directly.
+
+I did not expect that comparison to go the way it went.
