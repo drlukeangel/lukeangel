@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="What legibility costs">
+  <rect x="1" y="1" width="998" height="428" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <!-- header row -->
+  <g class="s" fill="#5b616b">
+    <text x="300" y="60">load</text><text x="420" y="60">per image</text><text x="576" y="60">peak memory</text><text x="746" y="60">legible text</text>
+  </g>
+  <path d="M36 70 L964 70" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+
+  <g class="l" fill="#1a1d24">
+    <text x="36" y="106">SDXL-Turbo  512</text>
+    <text x="36" y="152">SDXL-Turbo  1024</text>
+    <text x="36" y="198">FLUX.1-schnell 1024</text>
+  </g>
+  <g class="l" fill="#1a1d24">
+    <text x="300" y="106">4.5s</text><text x="420" y="106">0.4s</text><text x="576" y="106">8,283 MiB</text><text x="746" y="106">—</text>
+    <text x="300" y="152">5.7s</text><text x="420" y="152">1.2s</text><text x="576" y="152">11,559 MiB</text>
+    <text x="300" y="198">217.3s</text><text x="420" y="198">7.6s</text><text x="576" y="198">37,127 MiB</text>
+  </g>
+  <text class="h" x="746" y="152" fill="#c14a3a">0 / 3</text>
+  <text class="h" x="746" y="198" fill="#3a7d44">~2.5 / 3</text>
+
+  <!-- memory bars -->
+  <g>
+    <rect x="576" y="112" width="46" height="10" rx="3" fill="#7a808c" fill-opacity="0.45"/>
+    <rect x="576" y="158" width="64" height="10" rx="3" fill="#7a808c" fill-opacity="0.45"/>
+    <rect x="576" y="204" width="206" height="10" rx="3" fill="#6b8f2e" fill-opacity="0.7"/>
+  </g>
+
+  <path d="M36 236 L964 236" stroke="#1a1d24" stroke-opacity="0.2" stroke-width="2"/>
+
+  <rect x="36" y="256" width="440" height="86" rx="8" fill="#7a808c" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="286">the ratio, 1024 to 1024</text>
+  <text class="l" x="58" y="316">6.3x the time  ·  3.2x the memory</text>
+
+  <rect x="500" y="256" width="464" height="86" rx="8" fill="#6b8f2e" fill-opacity="0.14" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="h" x="522" y="286">which sounds like a trade-off and is not</text>
+  <text class="s" x="522" y="314">if the picture contains words, the cheaper option produces nothing usable</text>
+
+  <text class="c" x="36" y="394">Spend the 7.6 seconds, or change the brief.</text>
+</svg>

@@ -1,0 +1,102 @@
+---
+title: "FLUX Can Spell, SDXL Cannot: Local AI Image Models on a DGX Spark"
+date: 2026-08-21T09:00:00-04:00
+category: tools
+tags:
+  - ai
+  - local-llm
+  - dgx-spark
+  - image-generation
+  - flux
+  - evals
+excerpt: "Same method as the coding models: every prompt is a probe with a written prediction, and the prediction goes down before anyone looks at the output. Twenty-seven images later, one sentence covers most of it."
+pullquote: "A caption written after looking will always find something to praise."
+cover: "../../assets/blog/image-models-cover.svg"
+coverAlt: "Two ink-outlined picture frames side by side on a cream background. The left frame holds a clean row of evenly-spaced glyph blocks in olive-green; the right holds the same row rendered three times over, overlapping and misaligned, in muted grey. Faint dot grid, vertical olive-green accent bar at the left edge."
+notebook: dgx-sparks
+notebookOrder: 14
+featured: false
+draft: false
+---
+
+Two models make pictures on this box: **FLUX.1-schnell** and **SDXL-Turbo**. Twenty-seven images later, the headline is one sentence.
+
+**FLUX can spell. SDXL cannot.**
+
+Everything else is detail — but the detail is where the interesting parts live, including two conclusions from an earlier round that turned out to be wrong about the models and right about my own code, which by now is [the most predictable outcome in this project](/blog/forty-four-harness-bugs-zero-local-llm-limitations/).
+
+## The method, which matters more than the pictures
+
+Every probe carries three fields written in this order: the **prompt**, what to **expect**, and what we **got**. The expectation is written from the prompt alone, before generating anything.
+
+This sounds like bureaucracy. It's the only thing standing between an honest result and a page of pretty pictures with captions retrofitted to match. Diffusion output is enormously persuasive at a glance, and **a caption written after looking will always find something to praise.** Writing the target first means the page can't quietly move it.
+
+Every prompt is also chosen to *break* something. Counting, spatial relations and attribute binding are the three most reliable ways to embarrass a diffusion model, so the funny prompts and the hard prompts are the same prompts. A rubber duck at a cash machine is a counting test wearing a joke.
+
+## The headline: legible text
+
+Three exact strings, scored character by character.
+
+| target | FLUX.1-schnell | SDXL-Turbo |
+|---|---|---|
+| `DGX SPARK REPAIRS` | `DGX SPARK REPAIR` — dropped the final S | `DEGXK PPARR-` / `SAX RR-ERK DGPARRRESS` |
+| `HARNESS BUGS: 44` | **exact** | `HARNESSS HARKNESS / BUGS ARK 445 BAGS BAYS 4.54 44` |
+| `THE ORCHESTRATOR` | `THE ЛCHESTRATOR` — the O collapsed, R missing | `THIE THE ORECHESSETTOR SEALATOR` |
+
+FLUX: one exact, one off by a character, one partial. SDXL: **0 for 3.**
+
+The failure mode is the interesting part. SDXL's problem isn't blur — the letter shapes are individually crisp. Its signature failure is **repetition**: it renders the phrase two or three times, each version differently wrong. On the chalkboard it eventually wrote `44` — after also writing `445` and `4.54`. It isn't failing to draw letters. **It's failing to stop.**
+
+FLUX has a related tic. Asked for a book cover with a title and nothing else, it produced a clean product shot with a correct spine and shadow — and invented a two-line subtitle of pure gibberish. Unprompted text is where even the good model reverts to texture. That was in the written prediction, and it arrived on schedule.
+
+![What legibility costs, drawn as a comparison. SDXL-Turbo at 512 pixels loads in four and a half seconds and generates in under half a second, using about eight gigabytes. At 1024 it takes 1.2 seconds per image and 11.5 gigabytes, and scores zero out of three on legible text. FLUX.1-schnell at 1024 takes 217 seconds to load, 7.6 seconds per image, and 37 gigabytes of peak memory, scoring roughly two and a half out of three. The ratio is marked: 6.3 times the time and 3.2 times the memory. A note beneath states that this is not a trade-off when the picture contains words, because the cheaper option produces nothing usable.](../../assets/blog/image-models-what-legibility-costs.svg)
+
+**6.3× the time and 3.2× the memory.** Which sounds like a trade-off and isn't. If the picture contains words, SDXL is not the cheaper option — it isn't an option. Spend the 7.6 seconds or change the brief.
+
+## Resolution is a per-prompt decision, not a setting
+
+The most useful practical finding here is one I nearly deleted.
+
+SDXL-Turbo is a 512-native model. Pushed to 1024 it **duplicates single subjects.** Asked for "a lone lighthouse," it produced two — one on the cliff, one on a sea stack behind. The prompt contains the word *lone*, and the extra resolution overrode it.
+
+The obvious lesson would be "run SDXL at 512." That lesson is wrong. On the same sweep, at the same 1024:
+
+- **the overgrown data centre** gained vines across the ceiling and green LED text on the racks — a clear win
+- **the clockwork bird schematic** became, arguably, the most detailed image produced in the whole set — from the model that loses to FLUX everywhere text is involved
+
+![Why resolution cannot be set globally. Two prompts run through the same model at the same 1024-pixel setting. The first names a single countable subject — a lone lighthouse — and the extra resolution tiles it, producing two lighthouses despite the word "lone" in the prompt. The second names no countable subject, and the same setting buys genuine additional detail: vines across a ceiling, readable indicator text on equipment racks. The deciding factor is marked as the presence of a countable noun in the prompt, not any property of the setting.](../../assets/blog/image-models-resolution.svg)
+
+The difference is whether the prompt contains a **countable subject.** With one lighthouse to duplicate, 1024 breaks the image. With no single subject to tile, 1024 buys real detail. Same model, same setting, opposite outcomes, decided by the noun in the prompt.
+
+The 512 set is the control that makes this visible at all. I deleted it during a rewrite for being redundant and was caught. Without it, "SDXL duplicates at 1024" is an assertion; with it, it's a comparison.
+
+## The hard set: six probes designed to fail
+
+| probe | FLUX.1-schnell | SDXL-Turbo |
+|---|---|---|
+| counting + text (5 ducks) | **partial** — six ducks | **fail** — ~19 ducks |
+| spatial: on vs under | **pass** | **fail** — nothing under, nothing on |
+| attribute binding (3 penguins) | **near** — bow tie bled one position | **fail** — four penguins, all bow ties |
+| hands + tools + sign | **partial** — correct grips, **three arms** | **fail** — two raccoons fused |
+| style + long caption | **pass** — `HERE ENDETH THE SPRINT` exact | **fail** — caption illegible |
+| scale inversion | **pass** | **fail** — concept fusion |
+
+FLUX: 3 pass, 1 near, 2 partial, 0 fail. SDXL: 0 for 6.
+
+**Neither model can count.** Asked for *exactly five* ducks, FLUX gave six and SDXL gave about nineteen. Diffusion models have no counting mechanism; they render "a queue of ducks" and the number falls out of the composition. Off by one versus off by a factor of four is a real difference in degree, but neither is a model you can ask for a specific number of things.
+
+**Attribute bleed is the cleanest divider.** Given three penguins with three different accessories, FLUX bound two of three correctly and let the red bow tie bleed one position right. SDXL applied the bow tie to all four penguins — it miscounted too — and dropped the other two attributes entirely. The textbook failure in miniature versus the textbook failure at full strength: the most visually dominant attribute wins and spreads.
+
+**FLUX's failures are the predicted failures, arriving on time.** It got both tools into the correct paws — the hard part — then grew a third arm to hold everything. In every case the written prediction named the failure before the image existed. A model that fails where you expect is far more useful than one that fails at random.
+
+And the prettiest image of the entire run is an SDXL failure: a genuinely beautiful illuminated manuscript, gold leaf and all, featuring two knights, no rubber duck, and an illegible caption. It answers none of the prompt. **Grading on beauty would have ranked it first.**
+
+## What I'd tell a team
+
+**Write the expectation before you generate.** For text output you can get away with judging after the fact, because a wrong answer usually looks wrong. Image output doesn't work that way — it looks *good* while being wrong, and your judgement adapts to whatever appeared.
+
+And keep the control set even when it looks redundant. Mine was the difference between an assertion and a comparison, and I'd already deleted it once.
+
+## What's next
+
+The same method, applied to video, where a model can render a completely convincing scene and simply decline to perform the action you asked for.

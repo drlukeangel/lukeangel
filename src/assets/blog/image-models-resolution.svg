@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" role="img" aria-label="Resolution is per prompt">
+  <rect x="1" y="1" width="998" height="448" rx="10" fill="#fdfaf2" stroke="#1a1d24" stroke-opacity="0.12" stroke-width="2"/>
+  <style>
+    .h{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:14px;fill:#1a1d24;font-weight:700}
+    .l{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:12px;fill:#1a1d24}
+    .s{font-family:ui-monospace,'JetBrains Mono',monospace;font-size:11px;fill:#5b616b}
+    .c{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:15px;fill:#5b616b}
+  </style>
+
+  <text class="h" x="36" y="40">same model, same 1024 setting, opposite outcomes</text>
+  <path d="M500 58 L500 336" stroke="#1a1d24" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- LEFT: countable subject -->
+  <rect x="36" y="70" width="428" height="46" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="58" y="99">prompt: "a lone lighthouse"</text>
+  <text class="s" x="58" y="140">contains a countable subject</text>
+
+  <rect x="36" y="156" width="428" height="150" rx="8" fill="#fdfaf2" stroke="#c14a3a" stroke-width="2.5"/>
+  <g stroke="#1a1d24" stroke-width="3" fill="#fdfaf2">
+    <path d="M110 268 L130 268 L124 196 L116 196 Z"/>
+    <path d="M240 262 L258 262 L253 208 L245 208 Z"/>
+  </g>
+  <g fill="#6b8f2e">
+    <rect x="112" y="196" width="16" height="12" rx="3"/>
+    <rect x="243" y="208" width="12" height="10" rx="3"/>
+  </g>
+  <path d="M58 282 L442 282" stroke="#1a1d24" stroke-opacity="0.3" stroke-width="2.5"/>
+  <text class="l" x="290" y="216" fill="#c14a3a">two lighthouses</text>
+  <text class="s" x="290" y="238">the word "lone" was</text>
+  <text class="s" x="290" y="256">overridden by resolution</text>
+
+  <!-- RIGHT: no countable subject -->
+  <rect x="536" y="70" width="428" height="46" rx="7" fill="#fdfaf2" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="l" x="558" y="99">prompt: "an overgrown data centre"</text>
+  <text class="s" x="558" y="140">no single subject to tile</text>
+
+  <rect x="536" y="156" width="428" height="150" rx="8" fill="#fdfaf2" stroke="#3a7d44" stroke-width="2.5"/>
+  <g fill="#7a808c" fill-opacity="0.3" stroke="#1a1d24" stroke-width="2">
+    <rect x="576" y="196" width="46" height="86" rx="4"/>
+    <rect x="632" y="196" width="46" height="86" rx="4"/>
+    <rect x="688" y="196" width="46" height="86" rx="4"/>
+  </g>
+  <g fill="#6b8f2e">
+    <rect x="584" y="210" width="28" height="5" rx="2.5"/><rect x="584" y="224" width="18" height="5" rx="2.5"/>
+    <rect x="640" y="210" width="24" height="5" rx="2.5"/><rect x="640" y="224" width="30" height="5" rx="2.5"/>
+    <rect x="696" y="210" width="20" height="5" rx="2.5"/><rect x="696" y="224" width="26" height="5" rx="2.5"/>
+  </g>
+  <path d="M566 190 C620 178 680 202 744 186" stroke="#3a7d44" stroke-width="3" fill="none"/>
+  <text class="l" x="768" y="216" fill="#3a7d44">real added detail</text>
+  <text class="s" x="768" y="238">vines, readable rack</text>
+  <text class="s" x="768" y="256">indicator text</text>
+
+  <rect x="36" y="346" width="928" height="56" rx="8" fill="#6b8f2e" fill-opacity="0.12" stroke="#1a1d24" stroke-width="2.5"/>
+  <text class="h" x="58" y="374">what decides it is the noun in the prompt, not the setting</text>
+  <text class="s" x="58" y="394">so resolution is a per-prompt decision — "always run at 512" is the wrong fix</text>
+</svg>
