@@ -5,6 +5,16 @@ A daily acknowledgment of one thing worth noting. **Not a blog post about that t
 ## The rule in one line
 **Imply the why. Never explain it.** If you have to explain the joke, it's not funny — same here.
 
+## Tone
+
+**Happy, funny, adventure and fun — with a little snark. Always positive.**
+
+Warm first, dry second. The snark points at the situation — a dog losing to a sprinkler, a pantry reorganized past the point of usefulness, past-me leaving present-me a mess — never at a person, and never at the reader.
+
+Every entry ends up somewhere good. If it lands somber, sentimental, worthy, or bleak, it is the wrong entry — pick another thing that day. There is always another thing.
+
+**Anchors should feel like an adventure**: first flights, first circuits, spacecraft arriving somewhere new, the moment a thing first worked, somebody sailing off to look at tortoises. Not disasters, not wrecks, not last flights — even the noble ones. Discovery, not loss.
+
 ## The shape
 - Name the thing. Stop.
 - If a second sentence adds something the reader couldn't infer, keep it. If it just spells out what the first sentence already implies, cut it.
@@ -15,7 +25,15 @@ A daily acknowledgment of one thing worth noting. **Not a blog post about that t
 - *Trash pickup and the people who do it.*
 - *A clear sky and an empty inbox at the same time, briefly.*
 - *The water sensor screamed at 2am. It was right. The basement is dry.*
-- *Brown v Board of Education was decided today in 1954. For nine people who got it unanimously right when "right" was unpopular.*
+- *Voyager 2 launched today in 1977. Forty-nine years out and still returning calls.*
+
+## Off-limits
+
+Gratitude entries stay **uncontroversial**. No civil-rights history, no religious history or observance, no politics, no war, no tragedy or commemoration, no anything a reader could arrive at already angry about.
+
+On-this-day anchors come from **science, engineering, space, and computing** — first flights, first circuits, spacecraft, discoveries, the moment a thing first worked. Everything else is personal: home, work, weather, the dog, a reader's email.
+
+This overrides any example elsewhere in this doc. If an anchor makes you pause even slightly, drop it and write a personal entry instead — there is always another one.
 
 ## Drafts that failed — and why
 
